@@ -9,8 +9,6 @@ tags:
   - Maven
 ---
 
-# Preface
-
 This article mainly includes three parts.at first,I will introduce compatibility principle(more details see [here](http://blog.csdn.net/fengjia10/article/details/7799227)) briefly.followed by a detailed elaborating about Java component compatible dependency,including the interface-oriented programming,single component signature protection,single component compatibility protection and multi-component compatibility compile time checking.Finally is the review and prospect,especially about **Dependency Mediator** project.
 
 {% include toc %}
