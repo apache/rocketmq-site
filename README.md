@@ -21,7 +21,7 @@ Please refer to **01-quick-start-guide.md** for more details.
 ### How to post articles to **Blog**?
 New a .md file in rocketmq-sites/_posts/, Jekyll will finish the rest of the work.
 
-Please refer to **2013-01-05-markup-title-with-markup.md** for more details.
+Please refer to **2016-12-23-mastering-component-compatible-dependency.md** for more details.
 
 ### How to modify the navigation?
 Please refer to **_data/navigation.yml** for more details.
