@@ -7,7 +7,7 @@ header:
   cta_label: "<i class='fa fa-download'></i> Try it Now"
   cta_url: "/docs/quick-start/"
   caption:
-excerpt: 'Apache RocketMQ is a low latency, reliable, scalable, distributed message-oriented middleware, especially for processing large amounts of streaming data.<br /> <small><a href="https://github.com/alibaba/RocketMQ/releases/tag/v3.5.8">Latest release v3.5.8</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=alibaba&repo=RocketMQ&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=alibaba&repo=RocketMQ&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
+excerpt: 'Apache RocketMQ is a low latency, reliable, scalable, distributed message-oriented middleware, especially for processing large amounts of streaming data.<br /> <small><a href="https://github.com/apache/incubator-rocketmq/releases/tag/v4.0.0">Latest release v4.0.0</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 feature_row:
   - image_path: /assets/images/rmq-customizable-feature.png
     alt: "Low Latency"
@@ -21,8 +21,6 @@ feature_row:
     alt: "Large Accumulation"
     title: "Large Accumulation"
     excerpt: "Accumulate unlimited messages as long as there is enough disk space. Without performance loss."
-github:
-  - excerpt: '{::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=alibaba&repo=RocketMQ&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=alibaba&repo=RocketMQ&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 ---
 
 {% include feature_row %}
