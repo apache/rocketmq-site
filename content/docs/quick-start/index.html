@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Quick Start - Apache RocketMQ</title>
+
+
+
+
+<meta name="description" content="How to quickly install and setup Apache RocketMQ.">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Apache RocketMQ">
+<meta property="og:title" content="Quick Start">
+
+
+  <link rel="canonical" href="http://localhost:4000/docs/quick-start/">
+  <meta property="og:url" content="http://localhost:4000/docs/quick-start/">
+
+
+
+  <meta property="og:description" content="How to quickly install and setup Apache RocketMQ.">
+
+
+
+  <meta name="twitter:site" content="@ApacheRocketMQ">
+  <meta name="twitter:title" content="Quick Start">
+  <meta name="twitter:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/quick-start/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-12-24T13:55:43+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Apache RocketMQ",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Apache RocketMQ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/quick-start/">Documentation</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/community/">Community</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">User Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/quick-start/" class="active">Quick Start</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/motivation/" class="">Motivation</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/core-concept/" class="">Core Concept</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cli-admin-tool/" class="">CLI Admin Tool</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cluster-deployment/" class="">Cluster Configuration & Deployment</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Developer Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/motivation/" class="">Architecture & Design</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/motivation/" class="">Communication Protocol</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/core-concept/" class="">Persistence</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cli-admin-tool/" class="">Replication</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cluster-deployment/" class="">Service Discovery & Load Balance</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cluster-deployment/" class="">Message Filter</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Best Practice</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/motivation/" class="">Broker</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/motivation/" class="">Producer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/core-concept/" class="">Consumer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cli-admin-tool/" class="">Virtualization</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://localhost:4000/docs/cluster-deployment/" class="">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Quick Start">
+    <meta itemprop="description" content="How to quickly install and setup Apache RocketMQ.">
+    <meta itemprop="datePublished" content="December 24, 2016">
+    <meta itemprop="dateModified" content="December 17, 2016">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Quick Start
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>This quick start guide is to give detailed instructions, helping you setup RocketMQ messaging system on a single local machine and send/receive the very first message.</p>
+
+<aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
+  <li><a href="#clone--build" id="markdown-toc-clone--build">Clone &amp; Build</a></li>
+  <li><a href="#start-name-server" id="markdown-toc-start-name-server">Start Name Server</a></li>
+  <li><a href="#start-broker" id="markdown-toc-start-broker">Start Broker</a></li>
+  <li><a href="#send--receive-messages" id="markdown-toc-send--receive-messages">Send &amp; Receive Messages</a></li>
+  <li><a href="#code-example" id="markdown-toc-code-example">Code Example</a>    <ul>
+      <li><a href="#prepare" id="markdown-toc-prepare">prepare</a></li>
+      <li><a href="#producer" id="markdown-toc-producer">Producer</a></li>
+      <li><a href="#consumer" id="markdown-toc-consumer">Consumer</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </nav>
+</aside>
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p>The following softwares are assumed installed:</p>
+<ol>
+  <li>64bit OS, best to have Linux/Unix/Mac;</li>
+  <li>64bit JDK 1.7+;</li>
+  <li>Maven 3.2.x</li>
+  <li>Git</li>
+</ol>
+
+<h1 id="clone--build">Clone &amp; Build</h1>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone https://github.com/alibaba/RocketMQ.git
+  &gt; <span class="nb">cd </span>RocketMQ
+  &gt; sh install.sh
+  &gt; <span class="nb">cd </span>devenv
+</code></pre>
+</div>
+
+<h1 id="start-name-server">Start Name Server</h1>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqnamesrv &amp;
+  &gt; tail -f ~/logs/rocketmqlogs/namesrv.log
+  The Name Server boot success...
+</code></pre>
+</div>
+
+<h1 id="start-broker">Start Broker</h1>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqbroker -n localhost:9876 &amp;
+  &gt; tail -f ~/logs/rocketmqlogs/broker.log 
+  The broker[%s, 172.30.30.233:10911] boot success...
+</code></pre>
+</div>
+<p>you may need to pay attention to the broker ip, for that the broker will not use the loopback network interface, So you should make sure you have connected to other network.</p>
+
+<h1 id="send--receive-messages">Send &amp; Receive Messages</h1>
+
+<p>Before sending/receiving messages, we need to tell clients where name servers are located. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable <code class="highlighter-rouge">NAMESRV_ADDR</code></p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code> &gt; <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
+ &gt; sh bin/tools.sh com.alibaba.rocketmq.example.quickstart.Producer
+ SendResult <span class="o">[</span><span class="nv">sendStatus</span><span class="o">=</span>SEND_OK, <span class="nv">msgId</span><span class="o">=</span> ...
+
+ &gt; sh bin/tools.sh com.alibaba.rocketmq.example.quickstart.Consumer
+ ConsumeMessageThread_%d Receive New Messages: <span class="o">[</span>MessageExt...
+</code></pre>
+</div>
+
+<h1 id="code-example">Code Example</h1>
+
+<h2 id="prepare">prepare</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.rocketmq&lt;/groupId&gt;
+    &lt;artifactId&gt;rocketmq-client&lt;/artifactId&gt;
+    &lt;version&gt;3.5.8&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
+
+<h2 id="producer">Producer</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.exception.MQClientException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.producer.DefaultMQProducer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.producer.SendResult</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.common.message.Message</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.remoting.common.RemotingHelper</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Producer</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">MQClientException</span><span class="o">,</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"YOUR_PRODUCER_GROUP"</span><span class="o">);</span> <span class="c1">// (1)</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span> <span class="c1">//(2) set name server explicitly</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="c1">// (3)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span><span class="c1">// topic // (4)</span>
+                        <span class="s">"TagA"</span><span class="o">,</span><span class="c1">// tag (5)</span>
+                        <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span><span class="c1">// body (6)</span>
+                        <span class="o">);</span>
+                <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span> <span class="c1">// (7)</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sendResult</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="consumer">Consumer</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.listener.MessageListenerConcurrently</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.exception.MQClientException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.common.consumer.ConsumeFromWhere</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.common.message.MessageExt</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Consumer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">MQClientException</span> <span class="o">{</span>
+        <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"YOUR_CONSUMER_GROUP"</span><span class="o">);</span> <span class="c1">// (1)</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span> <span class="c1">// (2)</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="cm">/*topic*/</span><span class="o">,</span> <span class="s">"*"</span><span class="cm">/*tag,* means all tags*/</span><span class="o">);</span> <span class="c1">// (3)</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="n">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span> <span class="c1">// (4)</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span> <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span><span class="o">);</span>
+                        <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">});</span> <span class="c1">//(5)</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="c1">//(6)</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Consumer Started."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="http://localhost:4000/docs/motivation/" class="pagination--pager" title="Motivation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/ApacheRocketMQ"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/alibaba/RocketMQ/"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Copyright &copy; 2016 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+  </body>
+</html>
