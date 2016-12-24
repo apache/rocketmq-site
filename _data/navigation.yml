@@ -1,0 +1,55 @@
+# main links
+main:
+  - title: "Documentation"
+    url: /docs/quick-start/
+  - title: "Blog"
+    url: /year-archive/
+  - title: "Community"
+    url: /community/
+  - title: "About"
+    url: /about/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+
+# documentation links
+docs:
+  - title: User Guide
+    children:
+      - title: "Quick Start"
+        url: /docs/quick-start/
+      - title: "Motivation"
+        url: /docs/motivation/
+      - title: "Core Concept"
+        url: /docs/core-concept/
+      - title: "CLI Admin Tool"
+        url: /docs/cli-admin-tool/
+      - title: "Cluster Configuration & Deployment"
+        url: /docs/cluster-deployment/
+  - title: Developer Guide
+    children:
+      - title: "Architecture & Design"
+        url: /docs/motivation/
+      - title: "Communication Protocol"
+        url: /docs/motivation/
+      - title: "Persistence"
+        url: /docs/core-concept/
+      - title: "Replication"
+        url: /docs/cli-admin-tool/
+      - title: "Service Discovery & Load Balance"
+        url: /docs/cluster-deployment/
+      - title: "Message Filter"
+        url: /docs/cluster-deployment/
+  - title: Best Practice
+    children:
+      - title: "Broker"
+        url: /docs/motivation/
+      - title: "Producer"
+        url: /docs/motivation/
+      - title: "Consumer"
+        url: /docs/core-concept/
+      - title: "Virtualization"
+        url: /docs/cli-admin-tool/
+      - title: "Frequently Asked Questions"
+        url: /docs/cluster-deployment/
