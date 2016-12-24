@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Best Practice in Pull Request - Apache RocketMQ</title>
+
+
+
+
+<meta name="description" content="There are several ways to setup Git for committers and contributors. Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers. To keep the commit history clean take note of the use of –squash below when merging into apache/master.">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Apache RocketMQ">
+<meta property="og:title" content="Best Practice in Pull Request">
+
+
+
+
+  <meta property="og:description" content="There are several ways to setup Git for committers and contributors. Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers. To keep the commit history clean take note of the use of –squash below when merging into apache/master.">
+
+
+
+  <meta name="twitter:site" content="@ApacheRocketMQ">
+  <meta name="twitter:title" content="Best Practice in Pull Request">
+  <meta name="twitter:description" content="There are several ways to setup Git for committers and contributors. Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers. To keep the commit history clean take note of the use of –squash below when merging into apache/master.">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-12-24T15:57:57+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Apache RocketMQ",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">Apache RocketMQ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/docs/quick-start/">Documentation</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/year-archive/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/community/">Community</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/about/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">User Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Motivation</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/core-concept/" class="">Core Concept</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cli-admin-tool/" class="">CLI Admin Tool</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cluster-deployment/" class="">Cluster Configuration & Deployment</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributor Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/pull-request/" class="active">Best Practice in PR</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Developer Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Architecture & Design</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Communication Protocol</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/core-concept/" class="">Persistence</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cli-admin-tool/" class="">Replication</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cluster-deployment/" class="">Service Discovery & Load Balance</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cluster-deployment/" class="">Message Filter</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Best Practice</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Broker</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Producer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/core-concept/" class="">Consumer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cli-admin-tool/" class="">Virtualization</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cluster-deployment/" class="">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Best Practice in Pull Request">
+    <meta itemprop="description" content="There are several ways to setup Git for committers and contributors. Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers. To keep the commit history clean take note of the use of –squash below when merging into apache/master.">
+    <meta itemprop="datePublished" content="December 24, 2016">
+    <meta itemprop="dateModified" content="December 25, 2016">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Best Practice in Pull Request
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>There are several ways to setup Git for committers and contributors. Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers. To keep the commit history clean take note of the use of –squash below when merging into apache/master.</p>
+
+<aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#git-setup-for-committers" id="markdown-toc-git-setup-for-committers">Git setup for Committers</a></li>
+  <li><a href="#do-some-work-on-the-branch" id="markdown-toc-do-some-work-on-the-branch">Do some work on the branch</a></li>
+  <li><a href="#how-to-create-a-pr-committers" id="markdown-toc-how-to-create-a-pr-committers">How to create a PR (committers)</a></li>
+  <li><a href="#how-to-create-a-pr-contributors" id="markdown-toc-how-to-create-a-pr-contributors">How to create a PR (contributors)</a></li>
+  <li><a href="#merging-a-pr-yours-or-contributors" id="markdown-toc-merging-a-pr-yours-or-contributors">Merging a PR (yours or contributors)</a></li>
+  <li><a href="#closing-a-pr-without-committing-for-committers" id="markdown-toc-closing-a-pr-without-committing-for-committers">Closing a PR without committing (for committers)</a></li>
+  <li><a href="#apachegithub-integration-features" id="markdown-toc-apachegithub-integration-features">Apache/github integration features</a></li>
+  <li><a href="#best-practises" id="markdown-toc-best-practises">Best Practises</a>    <ul>
+      <li><a href="#avoiding-accidentally-committing-private-branches-to-the-asf-repo" id="markdown-toc-avoiding-accidentally-committing-private-branches-to-the-asf-repo">Avoiding accidentally committing private branches to the ASF repo</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </nav>
+</aside>
+
+<h1 id="git-setup-for-committers">Git setup for Committers</h1>
+<p>This describes setup for one local repo and two remotes. It allows you to push the code on your machine to either your Github repo or to git-wip-us.apache.org. You will want to fork github’s apache/incubator-rocketmq to your own account on github, this will enable Pull Requests of your own. Cloning this fork locally will set up “origin” to point to your remote fork on github as the default remote. So if you perform “git push origin master” it will go to github.</p>
+
+<p>To attach to the apache git repo do the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git
+</code></pre>
+</div>
+
+<p>To check your remote setup
+git remote -v
+you should see something like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>origin    https://github.com/your-github-id/incubator-rocketmq.git (fetch)
+origin    https://github.com/your-github-id/incubator-rocketmq.git (push)
+apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (fetch)
+apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (push)
+</code></pre>
+</div>
+
+<p>Now if you want to experiment with a branch everything, by default, points to your github account because ‘origin’ is default. You can work as normal using only github until you are ready to merge with the apache remote. Some conventions will integrate with Apache JIRA ticket numbers.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b ROCKETMQ-xxxx #xxxx typically is a JIRA ticket number
+</code></pre>
+</div>
+
+<h1 id="do-some-work-on-the-branch">Do some work on the branch</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit -a -m "doing some work"
+git push origin ROCKETMQ-xxxx # notice pushing to **origin** not **apache**
+</code></pre>
+</div>
+
+<p>Once you are ready to commit to the apache remote you can merge and push them directly or better yet create a PR.</p>
+
+<h1 id="how-to-create-a-pr-committers">How to create a PR (committers)</h1>
+
+<p>Push your branch to Github:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout ROCKETMQ-xxxx
+git push origin ROCKETMQ-xxxx
+</code></pre>
+</div>
+
+<ol>
+  <li>
+    <p>Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github’s apache/incubator-rocketmq. it will default any PR to go to apache/master.</p>
+  </li>
+  <li>Click the green “Compare, review, and create pull request” button.You can edit the to and from for the PR if it isn’t correct. The “base fork” should be apache/incubator-rocketmq unless you are collaborating separately with one of the committers on the list. The “base” will be master. Don’t submit a PR to one of the other branches unless you know what you are doing. The “head fork” will be your forked repo and the “compare” will be your ROCKETMQ-xxxx branch.</li>
+  <li>Click the “Create pull request” button and name the request “ROCKETMQ-xxxx” all caps. This will connect the comments of the PR to the mailing list and JIRA comments.</li>
+  <li>From now on the PR lives on github’s apache/incubator-rocketmq. You use the commenting UI there.</li>
+  <li>If you are looking for a review or sharing with someone else say so in the comments but don’t worry about automated merging of your PR–you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Jira and the mailing list.</li>
+  <li>When you are satisfied and want to push it to Apache’s remote repo proceed with Merging a PR</li>
+</ol>
+
+<h1 id="how-to-create-a-pr-contributors">How to create a PR (contributors)</h1>
+<p>Create pull requests: <a href="https://help.github.com/articles/creating-a-pull-request/">GitHub PR docs</a>.</p>
+
+<p>Pull requests are made to apache/incubator-rocketmq repository on Github. In the Github UI you should pick the master branch to target the PR as described for committers. This will be reviewed and commented on so the merge is not automatic. This can be used for discussing a contributions in progress.</p>
+
+<h1 id="merging-a-pr-yours-or-contributors">Merging a PR (yours or contributors)</h1>
+<p>Start with reading <a href="https://help.github.com/articles/checking-out-pull-requests-locally/">GitHub PR merging locally</a>. Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor’s commits. In order to do that, as well as close the PR at the same time, it is recommended to use squash commits.
+Merging pull requests are equivalent to a “pull” of a contributor’s branch:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout master      # switch to local master branch
+git pull apache master   # fast-forward to current remote HEAD
+git pull --squash https://github.com/cuser/incubator-rocketmq.git cbranch  # merge to master
+</code></pre>
+</div>
+
+<p>–squash ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Read git help for merge or pull for more information about –squash option. In this example we assume that the contributor’s Github handle is “cuser” and the PR branch name is “cbranch”. Next, resolve conflicts, if any, or ask a contributor to rebase on top of master, if PR went out of sync.</p>
+
+<p>If you are ready to merge your own (committer’s) PR you probably only need to merge (not pull), since you have a local copy that you’ve been working on. This is the branch that you used to create the PR.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout master      # switch to local master branch
+git pull apache master   # fast-forward to current remote HEAD
+git merge --squash ROCKETMQ-xxxx
+</code></pre>
+</div>
+
+<p>Remember to run regular patch checks, build with tests enabled, and change CHANGELOG.
+If everything is fine, you now can commit the squashed request along the lines</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit --author="contributor_name &lt;contributor_email&gt;" -a -m "ROCKETMQ-XXXX description closes apache/incubator-rocketmq#ZZ"
+</code></pre>
+</div>
+
+<p>ROCKETMQ-XXXX is all caps and where ZZ is the pull request number on apache/incubator-rocketmq repository. Including “closes apache/incubator-rocketmq#ZZ” will close the PR automatically. More information is found here <a href="https://help.github.com/articles/closing-issues-via-commit-messages/">GitHub PR closing docs.</a>.
+Next, push to git-wip-us.apache.org:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push apache master
+</code></pre>
+</div>
+
+<p>(this will require Apache handle credentials).
+The PR, once pushed, will get mirrored to github. To update your github version push there too:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push origin master
+</code></pre>
+</div>
+
+<p>Note on squashing: Since squash discards remote branch history, repeated PRs from the same remote branch are difficult for merging. The workflow implies that every new PR starts with a new rebased branch. This is more important for contributors to know, rather than for committers, because if new PR is not mergeable, github would warn to begin with. Anyway, watch for dupe PRs (based on same source branches). This is a bad practice.</p>
+
+<h1 id="closing-a-pr-without-committing-for-committers">Closing a PR without committing (for committers)</h1>
+<p>When we want to reject a PR (close without committing), we can just issue an empty commit on master’s HEAD without merging the PR:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit --allow-empty -m "closes apache/incubator-rocketmq#ZZ *Won't fix*"
+git push apache master
+</code></pre>
+</div>
+
+<p>that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/1</p>
+
+<h1 id="apachegithub-integration-features">Apache/github integration features</h1>
+
+<p>Read <a href="https://blogs.apache.org/infra/entry/improved_integration_between_apache_and">infra blog</a>. Comments and PRs with RocketMQ issue handles should post to mailing lists and JIRA. RocketMQ issue handles must in the form ROCKETMQ-YYYYY (all capitals). Usually it makes sense to file a JIRA issue first, and then create a PR with description
+ROCKETMQ-YYYY: <jira-issue-description>
+In this case all subsequent comments will automatically be copied to jira without having to mention JIRA issue explicitly in each comment of the PR.</jira-issue-description></p>
+
+<h1 id="best-practises">Best Practises</h1>
+
+<h2 id="avoiding-accidentally-committing-private-branches-to-the-asf-repo">Avoiding accidentally committing private branches to the ASF repo</h2>
+
+<p>Its dangerously easy —especially when using IDEs— to accidentally commit changes to the ASF repo, be it direct to the trunk, branch-2 or other standard branch on which you are developing, or to a private branch you had intended to keep on github (or a private repo).</p>
+
+<p>Committers can avoid this by having the directory in which they develop code set up with read only access to the ASF repository on github, without the apache repository added. A separate directory should be set up with write access to the ASF repository as well as read access to your other repositories. Merging operations and pushes back to the ASF repo are done from this directory —so isolated from all local development.</p>
+
+<p>If you accidentally commit a patch to an ASF branch, do not attempt to roll back the branch and force out a new update. Simply commit and push out a new patch revoking the change.</p>
+
+<p>If you do accidentally commit a branch to the ASF repo, the infrastructure team can delete it —but they cannot stop it propagating to github and potentially being visible. Try not to do that.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/cluster-deployment/" class="pagination--pager" title="Cluster Configuration and Deployment
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/ApacheRocketMQ"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/alibaba/RocketMQ/"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Copyright &copy; 2016 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+  </body>
+</html>

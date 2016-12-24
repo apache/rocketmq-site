@@ -27,6 +27,10 @@ docs:
         url: /docs/cli-admin-tool/
       - title: "Cluster Configuration & Deployment"
         url: /docs/cluster-deployment/
+  - title: Contributor Guide
+    children:
+      - title: "Best Practice in PR"
+        url: /docs/pull-request/
   - title: Developer Guide
     children:
       - title: "Architecture & Design"
