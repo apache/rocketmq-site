@@ -11,7 +11,7 @@ This website is based on Jekyll and a Jekyll theme named Minimal Mistakes.
 
 ## Install & Run
 1. gem install jekyll bundler
-2. git clone git@gitlab.alibaba-inc.com:middleware-incubator/rocketmq-sites.git
+2. git clone this repo
 3. cd rocketmq-sites
 4. bundle install
 5. bundle exec jekyll serve
