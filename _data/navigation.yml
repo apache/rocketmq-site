@@ -29,6 +29,8 @@ docs:
         url: /docs/cluster-deployment/
   - title: Contributor Guide
     children:
+      - title: "Code Guidelines"
+        url: /docs/code-guidelines/
       - title: "Best Practice in PR"
         url: /docs/pull-request/
   - title: Developer Guide
