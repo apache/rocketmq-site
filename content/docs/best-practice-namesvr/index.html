@@ -13,30 +13,30 @@
 
 
 
-<title>Motivation - Apache RocketMQ</title>
+<title>Best Practice For NameServer - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+<meta name="description" content="Some useful tips for users.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Motivation">
+<meta property="og:title" content="Best Practice For NameServer">
 
 
 
 
-  <meta property="og:description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+  <meta property="og:description" content="Some useful tips for users.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Motivation">
-  <meta name="twitter:description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+  <meta name="twitter:title" content="Best Practice For NameServer">
+  <meta name="twitter:description" content="Some useful tips for users.">
   <meta name="twitter:url" content="">
 
   
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Motivation</a></li>
+            <li><a href="/docs/motivation/" class="">Motivation</a></li>
           
             
             
@@ -255,7 +255,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Architecture & Design</a></li>
+            <li><a href="/docs/motivation/" class="">Architecture & Design</a></li>
           
             
             
@@ -263,7 +263,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Communication Protocol</a></li>
+            <li><a href="/docs/motivation/" class="">Communication Protocol</a></li>
           
             
             
@@ -339,7 +339,7 @@
             
             
 
-            <li><a href="/docs/best-practice-namesvr/" class="">NameServer</a></li>
+            <li><a href="/docs/best-practice-namesvr/" class="active">NameServer</a></li>
           
             
             
@@ -372,111 +372,36 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Motivation">
-    <meta itemprop="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+    <meta itemprop="headline" content="Best Practice For NameServer">
+    <meta itemprop="description" content="Some useful tips for users.">
     <meta itemprop="datePublished" content="December 29, 2016">
-    <meta itemprop="dateModified" content="December 17, 2016">
+    <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Motivation
+          <h1 class="page__title" itemprop="headline">Best Practice For NameServer
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.</p>
+        <p>Some useful tips for users.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#why-rocketmq-" id="markdown-toc-why-rocketmq-">Why RocketMQ ?</a></li>
-  <li><a href="#rocketmq-vs-activemq-vs-kafka" id="markdown-toc-rocketmq-vs-activemq-vs-kafka">RocketMQ vs. ActiveMQ vs. Kafka</a></li>
+  <li><a href="#ordered-message" id="markdown-toc-ordered-message">Ordered Message</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h1 id="why-rocketmq-">Why RocketMQ ?</h1>
+<h2 id="ordered-message">Ordered Message</h2>
+<p>to be finished</p>
 
-<p>Based on our observations and research, with more and more queues and virtual topics in use, ActiveMQ IO module becomes a bottleneck. In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability, see <a href="https://github.com/alibaba/RocketMQ/wiki/how_to_support_more_queues">here</a> for details.</p>
-
-<p>In this context, we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss. We also created a cornerstone product based on RocketMQ, a Platform as a Service (PaaS) product named the
-<a href="https://intl.aliyun.com/">Alibaba Cloud Platform</a>. Today, more than 100 companies are using the RocketMQ open source version in their business solutions. We believe RocketMQ can benefit more people, so we would like to share it around the world.</p>
-
-<p>The following are some different design between RocketMQ, ActiveMQ and Kafka（They are the apache’s most popular messaging solutions according to <a href="https://github.com/akullpp/awesome-java">awesome-java</a>):</p>
-
-<h1 id="rocketmq-vs-activemq-vs-kafka">RocketMQ vs. ActiveMQ vs. Kafka</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Messaging Product</th>
-      <th>Client SDK</th>
-      <th>Protocol and Specification</th>
-      <th>Order Message</th>
-      <th>Message Filter</th>
-      <th>Server Triggered Redelivery</th>
-      <th>Persistent Message</th>
-      <th>Retroactive Consumers</th>
-      <th>Message Priority</th>
-      <th>High Availability and Failover</th>
-      <th>Message Track</th>
-      <th>Configuration</th>
-      <th>Management and Operation Tools</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ActiveMQ</td>
-      <td>Java, .NET, C++ etc.</td>
-      <td>Push model, support OpenWire, STOMP, AMQP, MQTT, JMS</td>
-      <td>Exclusive Consumer or Exclusive Queues can ensure ordering</td>
-      <td>Supported</td>
-      <td>Not Supported</td>
-      <td>Supports very fast persistence using JDBC along with a high performance journal，such as levelDB, kahaDB</td>
-      <td>Supported</td>
-      <td>Supported</td>
-      <td>Supported, depending on storage,if using kahadb it requires a ZooKeeper server</td>
-      <td>Not Supported</td>
-      <td>The default configuration is low level, user need to optimize the configuration parameters</td>
-      <td>Supported</td>
-    </tr>
-    <tr>
-      <td>Kafka</td>
-      <td>Java, Scala etc.</td>
-      <td>Pull model, support TCP</td>
-      <td>Ensure ordering of messages within a partition</td>
-      <td>Supported, you can use Kafka Streams to filter messages</td>
-      <td>Not Supported</td>
-      <td>High performance file storage</td>
-      <td>Supported offset indicate</td>
-      <td>Not Supported</td>
-      <td>Supported, requires a ZooKeeper server</td>
-      <td>Not Supported</td>
-      <td>Kafka uses key-value pairs format for configuration. These values can be supplied either from a file or programmatically.</td>
-      <td>Supported, use terminal command to expose core metrics</td>
-    </tr>
-    <tr>
-      <td>RocketMQ</td>
-      <td>Java, .NET, C++</td>
-      <td>Pull model, support TCP, JMS</td>
-      <td>Ensure strict ordering of messages, have no hot spot problem,and can scale out gracefully</td>
-      <td>Supported, you can even upload yourself custom-built filter code snippets</td>
-      <td>Supported</td>
-      <td>High performance and low latency file storage</td>
-      <td>Supported timestamp and offset 2 indicates</td>
-      <td>Not Supported</td>
-      <td>Supported, Master-Slave model, without another kit</td>
-      <td>Supported</td>
-      <td>Work out of box,user only need to pay attention to a few configurations</td>
-      <td>Supported, rich web and terminal command to expose core metrics</td>
-    </tr>
-  </tbody>
-</table>
 
         
       </section>
@@ -487,7 +412,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
         
       </footer>
 
@@ -496,24 +421,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Motivation /docs/motivation/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For NameServer /docs/best-practice-namesvr/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/motivation/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-namesvr/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/motivation/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/best-practice-namesvr/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/motivation/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-namesvr/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/quick-start/" class="pagination--pager" title="Quick Start
+      <a href="/docs/best-practice-consumer/" class="pagination--pager" title="Best Practice For Consumer
 ">Previous</a>
     
     
-      <a href="/docs/core-concept/" class="pagination--pager" title="Core Concept
+      <a href="/docs/best-practice-producer/" class="pagination--pager" title="Best Practice For Producer
 ">Next</a>
     
   </nav>

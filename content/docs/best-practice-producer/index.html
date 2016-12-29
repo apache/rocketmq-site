@@ -13,30 +13,30 @@
 
 
 
-<title>Motivation - Apache RocketMQ</title>
+<title>Best Practice For Producer - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+<meta name="description" content="Some useful tips for users.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Motivation">
+<meta property="og:title" content="Best Practice For Producer">
 
 
 
 
-  <meta property="og:description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+  <meta property="og:description" content="Some useful tips for users.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Motivation">
-  <meta name="twitter:description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+  <meta name="twitter:title" content="Best Practice For Producer">
+  <meta name="twitter:description" content="Some useful tips for users.">
   <meta name="twitter:url" content="">
 
   
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Motivation</a></li>
+            <li><a href="/docs/motivation/" class="">Motivation</a></li>
           
             
             
@@ -255,7 +255,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Architecture & Design</a></li>
+            <li><a href="/docs/motivation/" class="">Architecture & Design</a></li>
           
             
             
@@ -263,7 +263,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Communication Protocol</a></li>
+            <li><a href="/docs/motivation/" class="">Communication Protocol</a></li>
           
             
             
@@ -323,7 +323,7 @@
             
             
 
-            <li><a href="/docs/best-practice-producer/" class="">Producer</a></li>
+            <li><a href="/docs/best-practice-producer/" class="active">Producer</a></li>
           
             
             
@@ -372,111 +372,81 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Motivation">
-    <meta itemprop="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+    <meta itemprop="headline" content="Best Practice For Producer">
+    <meta itemprop="description" content="Some useful tips for users.">
     <meta itemprop="datePublished" content="December 29, 2016">
-    <meta itemprop="dateModified" content="December 17, 2016">
+    <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Motivation
+          <h1 class="page__title" itemprop="headline">Best Practice For Producer
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.</p>
+        <p>Some useful tips for users.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#why-rocketmq-" id="markdown-toc-why-rocketmq-">Why RocketMQ ?</a></li>
-  <li><a href="#rocketmq-vs-activemq-vs-kafka" id="markdown-toc-rocketmq-vs-activemq-vs-kafka">RocketMQ vs. ActiveMQ vs. Kafka</a></li>
+  <li><a href="#sendstatus" id="markdown-toc-sendstatus">SendStatus</a>    <ul>
+      <li><a href="#flush_disk_timeout" id="markdown-toc-flush_disk_timeout">FLUSH_DISK_TIMEOUT</a></li>
+      <li><a href="#flush_slave_timeout" id="markdown-toc-flush_slave_timeout">FLUSH_SLAVE_TIMEOUT</a></li>
+      <li><a href="#slave_not_available" id="markdown-toc-slave_not_available">SLAVE_NOT_AVAILABLE</a></li>
+      <li><a href="#send_ok" id="markdown-toc-send_ok">SEND_OK</a></li>
+      <li><a href="#duplication-or-missing" id="markdown-toc-duplication-or-missing">Duplication or Missing</a></li>
+    </ul>
+  </li>
+  <li><a href="#timeout" id="markdown-toc-timeout">Timeout</a></li>
+  <li><a href="#message-size" id="markdown-toc-message-size">Message Size</a></li>
+  <li><a href="#async-sending" id="markdown-toc-async-sending">Async Sending</a></li>
+  <li><a href="#producer-group" id="markdown-toc-producer-group">Producer Group</a></li>
+  <li><a href="#thread-safety" id="markdown-toc-thread-safety">Thread Safety</a></li>
+  <li><a href="#performance" id="markdown-toc-performance">Performance</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h1 id="why-rocketmq-">Why RocketMQ ?</h1>
+<h2 id="sendstatus">SendStatus</h2>
+<p>When sending a message, you will get SendResult and it will contain the SendStatus. Firstly, we assume that Message’s isWaitStoreMsgOK=true(default is true). If not, we will always get SEND_OK if no exception is thrown.
+Follow are the descriptions about each status.</p>
+<h3 id="flush_disk_timeout">FLUSH_DISK_TIMEOUT</h3>
+<p>If the Broker set MessageStoreConfig’s FlushDiskType=SYNC_FLUSH(default is ASYNC_FLUSH), and the Broker dose not finish flushing disk within MessageStoreConfig’s syncFlushTimeout(default is 5 secs), you will get such status.</p>
+<h3 id="flush_slave_timeout">FLUSH_SLAVE_TIMEOUT</h3>
+<p>If the Broker’s role is SYNC_MASTER(default is ASYNC_MASTER), and the slave Broker dose not finish synchronizing with the master within the MessageStoreConfig’s syncFlushTimeout(default is 5 secs), you will get such status.</p>
+<h3 id="slave_not_available">SLAVE_NOT_AVAILABLE</h3>
+<p>If the Broker’s role is SYNC_MASTER(default is ASYNC_MASTER), but no slave Broker is configured, you will get such status.</p>
+<h3 id="send_ok">SEND_OK</h3>
+<p>You should be aware that SEND_OK does not mean it is reliable. If you cannot tolerate message missing, you should also enable SYNC_MASTER or SYNC_FLUSH.</p>
+<h3 id="duplication-or-missing">Duplication or Missing</h3>
+<p>If you get FLUSH_DISK_TIMEOUT, FLUSH_SLAVE_TIMEOUT or SLAVE_NOT_AVAILABLE, and the Broker happens to shutdown right the moment, you may get your message missing.
+At this time, you have two choices, one is letting it go, which may get message missing; another is resending, which may get message duplication.
+Often we suggest resend and make a way to handle the duplication removal when consuming. Unless you feel it does not matter when some messages are missed.</p>
+<h2 id="timeout">Timeout</h2>
+<p>The Client send requests to Broker, and wait the responses, but if the max wait time is elapsed and no response is return, the Client will throw a RemotingTimeoutException.
+The default wait time is 3 seconds.You can also pass timeout argument using send(msg, timeout) instead of send(msg).
+Note that we do not suggest the value to be too small, for the Broker need some time to flush disk or synchronize with slave. Also the value may have little effect if it is too bigger than syncFlushTimeout for Broker may return a response with FLUSH_SLAVE_TIMEOUT or FLUSH_SLAVE_TIMEOUT before the timeout.</p>
+<h2 id="message-size">Message Size</h2>
+<p>We suggest the message should be no more than 512K.</p>
+<h2 id="async-sending">Async Sending</h2>
+<p>Default send(msg) will block until the response is return. So if you care about performance, we suggest you use send(msg, callback) which will act in a async way.</p>
+<h2 id="producer-group">Producer Group</h2>
+<p>Normally, the producer group has no effects. But if you use transaction, you should take care of it. 
+In default, you can only create only one producer with the same producer group in the same JVM. Usually, this is enough.</p>
+<h2 id="thread-safety">Thread Safety</h2>
+<p>The producer is thread-safe, you can just use it in your business logic.</p>
+<h2 id="performance">Performance</h2>
+<p>If you want more than one producer in one JVM, maybe for big data processing, we suggest you:</p>
+<ul>
+  <li>use async sending with a few producers(3~5 is enough)</li>
+  <li>setInstanceName for each producer</li>
+</ul>
 
-<p>Based on our observations and research, with more and more queues and virtual topics in use, ActiveMQ IO module becomes a bottleneck. In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability, see <a href="https://github.com/alibaba/RocketMQ/wiki/how_to_support_more_queues">here</a> for details.</p>
-
-<p>In this context, we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss. We also created a cornerstone product based on RocketMQ, a Platform as a Service (PaaS) product named the
-<a href="https://intl.aliyun.com/">Alibaba Cloud Platform</a>. Today, more than 100 companies are using the RocketMQ open source version in their business solutions. We believe RocketMQ can benefit more people, so we would like to share it around the world.</p>
-
-<p>The following are some different design between RocketMQ, ActiveMQ and Kafka（They are the apache’s most popular messaging solutions according to <a href="https://github.com/akullpp/awesome-java">awesome-java</a>):</p>
-
-<h1 id="rocketmq-vs-activemq-vs-kafka">RocketMQ vs. ActiveMQ vs. Kafka</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Messaging Product</th>
-      <th>Client SDK</th>
-      <th>Protocol and Specification</th>
-      <th>Order Message</th>
-      <th>Message Filter</th>
-      <th>Server Triggered Redelivery</th>
-      <th>Persistent Message</th>
-      <th>Retroactive Consumers</th>
-      <th>Message Priority</th>
-      <th>High Availability and Failover</th>
-      <th>Message Track</th>
-      <th>Configuration</th>
-      <th>Management and Operation Tools</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ActiveMQ</td>
-      <td>Java, .NET, C++ etc.</td>
-      <td>Push model, support OpenWire, STOMP, AMQP, MQTT, JMS</td>
-      <td>Exclusive Consumer or Exclusive Queues can ensure ordering</td>
-      <td>Supported</td>
-      <td>Not Supported</td>
-      <td>Supports very fast persistence using JDBC along with a high performance journal，such as levelDB, kahaDB</td>
-      <td>Supported</td>
-      <td>Supported</td>
-      <td>Supported, depending on storage,if using kahadb it requires a ZooKeeper server</td>
-      <td>Not Supported</td>
-      <td>The default configuration is low level, user need to optimize the configuration parameters</td>
-      <td>Supported</td>
-    </tr>
-    <tr>
-      <td>Kafka</td>
-      <td>Java, Scala etc.</td>
-      <td>Pull model, support TCP</td>
-      <td>Ensure ordering of messages within a partition</td>
-      <td>Supported, you can use Kafka Streams to filter messages</td>
-      <td>Not Supported</td>
-      <td>High performance file storage</td>
-      <td>Supported offset indicate</td>
-      <td>Not Supported</td>
-      <td>Supported, requires a ZooKeeper server</td>
-      <td>Not Supported</td>
-      <td>Kafka uses key-value pairs format for configuration. These values can be supplied either from a file or programmatically.</td>
-      <td>Supported, use terminal command to expose core metrics</td>
-    </tr>
-    <tr>
-      <td>RocketMQ</td>
-      <td>Java, .NET, C++</td>
-      <td>Pull model, support TCP, JMS</td>
-      <td>Ensure strict ordering of messages, have no hot spot problem,and can scale out gracefully</td>
-      <td>Supported, you can even upload yourself custom-built filter code snippets</td>
-      <td>Supported</td>
-      <td>High performance and low latency file storage</td>
-      <td>Supported timestamp and offset 2 indicates</td>
-      <td>Not Supported</td>
-      <td>Supported, Master-Slave model, without another kit</td>
-      <td>Supported</td>
-      <td>Work out of box,user only need to pay attention to a few configurations</td>
-      <td>Supported, rich web and terminal command to expose core metrics</td>
-    </tr>
-  </tbody>
-</table>
 
         
       </section>
@@ -487,7 +457,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
         
       </footer>
 
@@ -496,25 +466,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Motivation /docs/motivation/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For Producer /docs/best-practice-producer/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/motivation/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-producer/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/motivation/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/best-practice-producer/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/motivation/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-producer/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/quick-start/" class="pagination--pager" title="Quick Start
+      <a href="/docs/best-practice-namesvr/" class="pagination--pager" title="Best Practice For NameServer
 ">Previous</a>
     
     
-      <a href="/docs/core-concept/" class="pagination--pager" title="Core Concept
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
