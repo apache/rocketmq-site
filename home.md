@@ -17,13 +17,13 @@ feature_row:
     alt: "Finance Oriented"
     title: "Finance Oriented"
     excerpt: "High availability with replica. Every message could be tracked or repaired with a serial of tracking tools."
-  - image_path: /assets/images/rmq-feature-massiveaccumulation.png
+  - image_path: /assets/images/rmq-feature-bigdata.png
     alt: "BigData Friendly"
     title: "BigData Friendly"
     excerpt: "Batch transferring with versatile integration for flooding throughput."
 
 feature_row1:
-  - image_path: /assets/images/rmq-feature-lowlatency.png
+  - image_path: /assets/images/rmq-feature-industry.png
     alt: "Industry Sustainable"
     title: "Industry Sustainable"
     excerpt: "Trillions of messaging capabilities support Alibaba Group’s 11.11 Global Shopping Festival."
@@ -31,7 +31,7 @@ feature_row1:
     alt: "Massive Accumulation"
     title: "Massive Accumulation"
     excerpt: "Accumulate unlimited messages as long as there is enough disk space without performance loss."
-  - image_path: /assets/images/rmq-feature-finance.png
+  - image_path: /assets/images/rmq-feature-neutral.png
     alt: "Vendor Neutral"
     title: "Vendor Neutral"
     excerpt: "A new open distributed messaging standard since latest 4.x version."
