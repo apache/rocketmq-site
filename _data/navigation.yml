@@ -7,7 +7,7 @@ main:
   - title: "Community"
     url: /community/
   - title: "About"
-    url: /about/
+    url: /about/team/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
@@ -29,31 +29,25 @@ docs:
         url: /docs/cluster-deployment/
   - title: Contributor Guide
     children:
+      - title: "Code Guidelines"
+        url: /docs/code-guidelines/
       - title: "Best Practice in PR"
         url: /docs/pull-request/
-  - title: Developer Guide
-    children:
-      - title: "Architecture & Design"
-        url: /docs/motivation/
-      - title: "Communication Protocol"
-        url: /docs/motivation/
-      - title: "Persistence"
-        url: /docs/core-concept/
-      - title: "Replication"
-        url: /docs/cli-admin-tool/
-      - title: "Service Discovery & Load Balance"
-        url: /docs/cluster-deployment/
-      - title: "Message Filter"
-        url: /docs/cluster-deployment/
   - title: Best Practice
     children:
       - title: "Broker"
-        url: /docs/motivation/
+        url: /docs/best-practice-broker/
       - title: "Producer"
-        url: /docs/motivation/
+        url: /docs/best-practice-producer/
       - title: "Consumer"
-        url: /docs/core-concept/
-      - title: "Virtualization"
-        url: /docs/cli-admin-tool/
-      - title: "Frequently Asked Questions"
-        url: /docs/cluster-deployment/
+        url: /docs/best-practice-consumer/
+      - title: "NameServer"
+        url: /docs/best-practice-namesvr/
+  - title: FAQ
+    url: /docs/faq/
+
+about:
+  - title: Team
+    url: /about/team/
+  - title: Contact
+    url: /about/contact/

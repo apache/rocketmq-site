@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2016-12-27T12:03:29+08:00">
+  <meta property="article:published_time" content="2016-12-29T21:34:51+08:00">
 
 
 
@@ -129,7 +129,7 @@
             <li class="masthead__menu-item"><a href="/community/">Community</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/about/">About</a></li>
+            <li class="masthead__menu-item"><a href="/about/team/">About</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -227,67 +227,15 @@
             
             
 
+            <li><a href="/docs/code-guidelines/" class="">Code Guidelines</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/pull-request/" class="">Best Practice in PR</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Developer Guide</span>
-        
-
-        
-        <ul>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/motivation/" class="">Architecture & Design</a></li>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/motivation/" class="">Communication Protocol</a></li>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/core-concept/" class="">Persistence</a></li>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/cli-admin-tool/" class="">Replication</a></li>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/cluster-deployment/" class="">Service Discovery & Load Balance</a></li>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/cluster-deployment/" class="">Message Filter</a></li>
           
         </ul>
         
@@ -307,7 +255,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Broker</a></li>
+            <li><a href="/docs/best-practice-broker/" class="">Broker</a></li>
           
             
             
@@ -315,7 +263,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Producer</a></li>
+            <li><a href="/docs/best-practice-producer/" class="">Producer</a></li>
           
             
             
@@ -323,7 +271,7 @@
             
             
 
-            <li><a href="/docs/core-concept/" class="">Consumer</a></li>
+            <li><a href="/docs/best-practice-consumer/" class="">Consumer</a></li>
           
             
             
@@ -331,17 +279,20 @@
             
             
 
-            <li><a href="/docs/cli-admin-tool/" class="">Virtualization</a></li>
-          
-            
-            
-
-            
-            
-
-            <li><a href="/docs/cluster-deployment/" class="">Frequently Asked Questions</a></li>
+            <li><a href="/docs/best-practice-namesvr/" class="">NameServer</a></li>
           
         </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
+        
+
         
       </li>
     
@@ -355,8 +306,8 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Quick Start">
     <meta itemprop="description" content="How to quickly install and setup Apache RocketMQ.">
-    <meta itemprop="datePublished" content="December 27, 2016">
-    <meta itemprop="dateModified" content="December 17, 2016">
+    <meta itemprop="datePublished" content="December 29, 2016">
+    <meta itemprop="dateModified" content="December 30, 2016">
 
     <div class="page__inner-wrap">
       
@@ -379,12 +330,7 @@
   <li><a href="#start-name-server" id="markdown-toc-start-name-server">Start Name Server</a></li>
   <li><a href="#start-broker" id="markdown-toc-start-broker">Start Broker</a></li>
   <li><a href="#send--receive-messages" id="markdown-toc-send--receive-messages">Send &amp; Receive Messages</a></li>
-  <li><a href="#code-example" id="markdown-toc-code-example">Code Example</a>    <ul>
-      <li><a href="#prepare" id="markdown-toc-prepare">prepare</a></li>
-      <li><a href="#producer" id="markdown-toc-producer">Producer</a></li>
-      <li><a href="#consumer" id="markdown-toc-consumer">Consumer</a></li>
-    </ul>
-  </li>
+  <li><a href="#shutdown-servers" id="markdown-toc-shutdown-servers">Shutdown Servers</a></li>
 </ul>
 
   </nav>
@@ -394,7 +340,7 @@
 
 <p>The following softwares are assumed installed:</p>
 <ol>
-  <li>64bit OS, best to have Linux/Unix/Mac;</li>
+  <li>64bit OS, Linux/Unix/Mac is recommended;</li>
   <li>64bit JDK 1.7+;</li>
   <li>Maven 3.2.x</li>
   <li>Git</li>
@@ -402,14 +348,15 @@
 
 <h1 id="clone--build">Clone &amp; Build</h1>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone https://github.com/alibaba/RocketMQ.git
-  &gt; <span class="nb">cd </span>RocketMQ
-  &gt; sh install.sh
-  &gt; <span class="nb">cd </span>devenv
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone https://github.com/apache/incubator-rocketmq.git
+  &gt; <span class="nb">cd </span>incubator-rocketmq
+  &gt; mvn clean package install assembly:assembly -U
+  &gt; <span class="nb">cd </span>target/apache-rocketmq-broker/apache-rocketmq/
 </code></pre>
 </div>
 
 <h1 id="start-name-server">Start Name Server</h1>
+
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqnamesrv &amp;
   &gt; tail -f ~/logs/rocketmqlogs/namesrv.log
   The Name Server boot success...
@@ -417,6 +364,7 @@
 </div>
 
 <h1 id="start-broker">Start Broker</h1>
+
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqbroker -n localhost:9876 &amp;
   &gt; tail -f ~/logs/rocketmqlogs/broker.log 
   The broker[%s, 172.30.30.233:10911] boot success...
@@ -429,84 +377,23 @@
 <p>Before sending/receiving messages, we need to tell clients where name servers are located. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable <code class="highlighter-rouge">NAMESRV_ADDR</code></p>
 
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code> &gt; <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
- &gt; sh bin/tools.sh com.alibaba.rocketmq.example.quickstart.Producer
+ &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
  SendResult <span class="o">[</span><span class="nv">sendStatus</span><span class="o">=</span>SEND_OK, <span class="nv">msgId</span><span class="o">=</span> ...
 
- &gt; sh bin/tools.sh com.alibaba.rocketmq.example.quickstart.Consumer
+ &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: <span class="o">[</span>MessageExt...
 </code></pre>
 </div>
 
-<h1 id="code-example">Code Example</h1>
+<h1 id="shutdown-servers">Shutdown Servers</h1>
 
-<h2 id="prepare">prepare</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba.rocketmq&lt;/groupId&gt;
-    &lt;artifactId&gt;rocketmq-client&lt;/artifactId&gt;
-    &lt;version&gt;3.5.8&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>sh bin/mqshutdown broker
+The mqbroker<span class="o">(</span>36695<span class="o">)</span> is running...
+Send shutdown request to mqbroker<span class="o">(</span>36695<span class="o">)</span> OK
 
-<h2 id="producer">Producer</h2>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.exception.MQClientException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.producer.DefaultMQProducer</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.producer.SendResult</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.common.message.Message</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.remoting.common.RemotingHelper</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Producer</span> <span class="o">{</span> 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">MQClientException</span><span class="o">,</span> <span class="n">InterruptedException</span> <span class="o">{</span>
-        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"YOUR_PRODUCER_GROUP"</span><span class="o">);</span> <span class="c1">// (1)</span>
-        <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span> <span class="c1">//(2) set name server explicitly</span>
-        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="c1">// (3)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span><span class="c1">// topic // (4)</span>
-                        <span class="s">"TagA"</span><span class="o">,</span><span class="c1">// tag (5)</span>
-                        <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span><span class="c1">// body (6)</span>
-                        <span class="o">);</span>
-                <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span> <span class="c1">// (7)</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sendResult</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
-<h2 id="consumer">Consumer</h2>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.consumer.listener.MessageListenerConcurrently</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.client.exception.MQClientException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.common.consumer.ConsumeFromWhere</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.alibaba.rocketmq.common.message.MessageExt</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Consumer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">MQClientException</span> <span class="o">{</span>
-        <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"YOUR_CONSUMER_GROUP"</span><span class="o">);</span> <span class="c1">// (1)</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span> <span class="c1">// (2)</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="cm">/*topic*/</span><span class="o">,</span> <span class="s">"*"</span><span class="cm">/*tag,* means all tags*/</span><span class="o">);</span> <span class="c1">// (3)</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="n">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span> <span class="c1">// (4)</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span> <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span><span class="o">);</span>
-                        <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
-                    <span class="o">}</span>
-                <span class="o">});</span> <span class="c1">//(5)</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="c1">//(6)</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Consumer Started."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<span class="gp">&gt; </span>sh bin/mqshutdown namesrv
+The mqnamesrv<span class="o">(</span>36664<span class="o">)</span> is running...
+Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)</span> OK
 </code></pre>
 </div>
 
@@ -519,7 +406,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-30">December 30, 2016</time></p>
         
       </footer>
 

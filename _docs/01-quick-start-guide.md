@@ -2,7 +2,7 @@
 title: "Quick Start"
 permalink: /docs/quick-start/
 excerpt: "How to quickly install and setup Apache RocketMQ."
-modified: 2016-12-16T15:01:43-04:00
+modified: 2016-12-29T15:01:43-04:00
 ---
 
 This quick start guide is to give detailed instructions, helping you setup RocketMQ messaging system on a single local machine and send/receive the very first message.
@@ -12,7 +12,7 @@ This quick start guide is to give detailed instructions, helping you setup Rocke
 # Prerequisite
 
    The following softwares are assumed installed:
-   1. 64bit OS, best to have Linux/Unix/Mac;
+   1. 64bit OS, Linux/Unix/Mac is recommended;
    1. 64bit JDK 1.7+; 
    1. Maven 3.2.x
    1. Git 
@@ -20,14 +20,15 @@ This quick start guide is to give detailed instructions, helping you setup Rocke
 # Clone & Build
 
 ```shell
-  > git clone https://github.com/alibaba/RocketMQ.git
-  > cd RocketMQ
-  > sh install.sh
-  > cd devenv
+  > git clone https://github.com/apache/incubator-rocketmq.git
+  > cd incubator-rocketmq
+  > mvn clean package install assembly:assembly -U
+  > cd target/apache-rocketmq-broker/apache-rocketmq/
 ```
 
  
 # Start Name Server
+
 ```shell
   > nohup sh bin/mqnamesrv &
   > tail -f ~/logs/rocketmqlogs/namesrv.log
@@ -35,6 +36,7 @@ This quick start guide is to give detailed instructions, helping you setup Rocke
 ```  
 
 # Start Broker
+
 ```shell 
   > nohup sh bin/mqbroker -n localhost:9876 &
   > tail -f ~/logs/rocketmqlogs/broker.log 
@@ -49,82 +51,21 @@ Before sending/receiving messages, we need to tell clients where name servers ar
 
 ```shell
  > export NAMESRV_ADDR=localhost:9876
- > sh bin/tools.sh com.alibaba.rocketmq.example.quickstart.Producer
+ > sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
  SendResult [sendStatus=SEND_OK, msgId= ...
 
- > sh bin/tools.sh com.alibaba.rocketmq.example.quickstart.Consumer
+ > sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
-# Code Example
+# Shutdown Servers
 
-## prepare 
-```
-<dependency>
-    <groupId>com.alibaba.rocketmq</groupId>
-    <artifactId>rocketmq-client</artifactId>
-    <version>3.5.8</version>
-</dependency>
-```
+```shell
+> sh bin/mqshutdown broker
+The mqbroker(36695) is running...
+Send shutdown request to mqbroker(36695) OK
 
-## Producer
-
-```java
-import com.alibaba.rocketmq.client.exception.MQClientException;
-import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
-import com.alibaba.rocketmq.client.producer.SendResult;
-import com.alibaba.rocketmq.common.message.Message;
-import com.alibaba.rocketmq.remoting.common.RemotingHelper;
-public class Producer { 
-    public static void main(String[] args) throws MQClientException, InterruptedException {
-        DefaultMQProducer producer = new DefaultMQProducer("YOUR_PRODUCER_GROUP"); // (1)
-        producer.setNamesrvAddr("localhost:9876"); //(2) set name server explicitly
-        producer.start(); // (3)
-        for (int i = 0; i < 1000; i++) {
-            try {
-                Message msg = new Message("TopicTest",// topic // (4)
-                        "TagA",// tag (5)
-                        ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET)// body (6)
-                        );
-                SendResult sendResult = producer.send(msg); // (7)
-                System.out.println(sendResult);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Thread.sleep(1000);
-            }
-        }
-        producer.shutdown();
-    }
-}
-```
-
-## Consumer 
-
-```java 
-import com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer;
-import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
-import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
-import com.alibaba.rocketmq.client.consumer.listener.MessageListenerConcurrently;
-import com.alibaba.rocketmq.client.exception.MQClientException;
-import com.alibaba.rocketmq.common.consumer.ConsumeFromWhere;
-import com.alibaba.rocketmq.common.message.MessageExt;
-import java.util.List;
-
-public class Consumer {
-    public static void main(String[] args) throws InterruptedException, MQClientException {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("YOUR_CONSUMER_GROUP"); // (1)
-        consumer.setNamesrvAddr("localhost:9876"); // (2)
-        consumer.subscribe("TopicTest"/*topic*/, "*"/*tag,* means all tags*/); // (3)
-        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET); // (4)
-        consumer.registerMessageListener(new MessageListenerConcurrently() {
-                    @Override
-                    public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-                        System.out.println(Thread.currentThread().getName() + " Receive New Messages: " + msgs);
-                        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-                    }
-                }); //(5)
-        consumer.start(); //(6)
-        System.out.println("Consumer Started.");
-    }
-}
+> sh bin/mqshutdown namesrv
+The mqnamesrv(36664) is running...
+Send shutdown request to mqnamesrv(36664) OK
 ```

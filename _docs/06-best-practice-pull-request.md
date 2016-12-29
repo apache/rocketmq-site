@@ -8,7 +8,7 @@ There are several ways to setup Git for committers and contributors. Contributor
 
 {% include toc %}
 
-# Git setup for Committers
+# Git setup for Contributors
 This describes setup for one local repo and two remotes. It allows you to push the code on your machine to either your Github repo or to git-wip-us.apache.org. You will want to fork github's apache/incubator-rocketmq to your own account on github, this will enable Pull Requests of your own. Cloning this fork locally will set up "origin" to point to your remote fork on github as the default remote. So if you perform "git push origin master" it will go to github.
 
 To attach to the apache git repo do the following:
@@ -61,9 +61,9 @@ Merging pull requests are equivalent to a "pull" of a contributor's branch:
 
     git checkout master      # switch to local master branch
     git pull apache master   # fast-forward to current remote HEAD
-    git pull --squash https://github.com/cuser/incubator-rocketmq.git cbranch  # merge to master
+    git pull --squash https://github.com/cuser/incubator-rocketmq.git ROCKETMQ-xxxx  # merge to master
     
---squash ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Read git help for merge or pull for more information about --squash option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "cbranch". Next, resolve conflicts, if any, or ask a contributor to rebase on top of master, if PR went out of sync.
+--squash ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Read git help for merge or pull for more information about --squash option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve conflicts, if any, or ask a contributor to rebase on top of master, if PR went out of sync.
 
 If you are ready to merge your own (committer's) PR you probably only need to merge (not pull), since you have a local copy that you've been working on. This is the branch that you used to create the PR.
 
@@ -91,10 +91,10 @@ Note on squashing: Since squash discards remote branch history, repeated PRs fro
 # Closing a PR without committing (for committers)
 When we want to reject a PR (close without committing), we can just issue an empty commit on master's HEAD without merging the PR:
 
-    git commit --allow-empty -m "closes apache/incubator-rocketmq#ZZ *Won't fix*"
+    git commit --allow-empty -m "ROCKETMQ-XXXX closes apache/incubator-rocketmq#ZZ *Won't fix*"
     git push apache master
     
-that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/1
+that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/15
 
 
 # Apache/github integration features
