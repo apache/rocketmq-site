@@ -13,30 +13,30 @@
 
 
 
-<title>Quick Start - Apache RocketMQ</title>
+<title>Best Practice For Broker - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="How to quickly install and setup Apache RocketMQ.">
+<meta name="description" content="Some useful tips for users.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Quick Start">
+<meta property="og:title" content="Best Practice For Broker">
 
 
 
 
-  <meta property="og:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta property="og:description" content="Some useful tips for users.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Quick Start">
-  <meta name="twitter:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta name="twitter:title" content="Best Practice For Broker">
+  <meta name="twitter:description" content="Some useful tips for users.">
   <meta name="twitter:url" content="">
 
   
@@ -175,7 +175,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="active">Quick Start</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -255,7 +255,7 @@
             
             
 
-            <li><a href="/docs/best-practice-broker/" class="">Broker</a></li>
+            <li><a href="/docs/best-practice-broker/" class="active">Broker</a></li>
           
             
             
@@ -312,98 +312,48 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Quick Start">
-    <meta itemprop="description" content="How to quickly install and setup Apache RocketMQ.">
+    <meta itemprop="headline" content="Best Practice For Broker">
+    <meta itemprop="description" content="Some useful tips for users.">
     <meta itemprop="datePublished" content="December 29, 2016">
-    <meta itemprop="dateModified" content="December 30, 2016">
+    <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Quick Start
+          <h1 class="page__title" itemprop="headline">Best Practice For Broker
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>This quick start guide is to give detailed instructions, helping you setup RocketMQ messaging system on a single local machine and send/receive the very first message.</p>
+        <p>Some useful tips for users.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
-  <li><a href="#clone--build" id="markdown-toc-clone--build">Clone &amp; Build</a></li>
-  <li><a href="#start-name-server" id="markdown-toc-start-name-server">Start Name Server</a></li>
-  <li><a href="#start-broker" id="markdown-toc-start-broker">Start Broker</a></li>
-  <li><a href="#send--receive-messages" id="markdown-toc-send--receive-messages">Send &amp; Receive Messages</a></li>
-  <li><a href="#shutdown-servers" id="markdown-toc-shutdown-servers">Shutdown Servers</a></li>
+  <li><a href="#broker-role" id="markdown-toc-broker-role">Broker Role</a></li>
+  <li><a href="#flushdisktype" id="markdown-toc-flushdisktype">FlushDiskType</a></li>
+  <li><a href="#reentrantlock-vs-cas" id="markdown-toc-reentrantlock-vs-cas">ReentrantLock vs CAS</a></li>
+  <li><a href="#ossh" id="markdown-toc-ossh">os.sh</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h1 id="prerequisite">Prerequisite</h1>
+<h2 id="broker-role">Broker Role</h2>
+<p>Broker Role is ASYNC_MASTER, SYNC_MASTER or SLAVE.
+If you cannot tolerate message missing, we suggest you deploy SYNC_MASTER and attach a SLAVE to it.
+If you feel ok about missing, but you want the Broker to be always available, you may deploy ASYNC_MASTER with SLAVE.
+If you just want to make it easy, you may only need a ASYNC_MASTER without SLAVE.</p>
+<h2 id="flushdisktype">FlushDiskType</h2>
+<p>ASYNC_FLUSH is recommended, for SYNC_FLUSH is expensive and will cause too much performance loss. If you want reliability, we recommend you use SYNC_MASTER with SLAVE.</p>
+<h2 id="reentrantlock-vs-cas">ReentrantLock vs CAS</h2>
+<p>to be finished</p>
+<h2 id="ossh">os.sh</h2>
+<p>to be finished</p>
 
-<p>The following softwares are assumed installed:</p>
-<ol>
-  <li>64bit OS, Linux/Unix/Mac is recommended;</li>
-  <li>64bit JDK 1.7+;</li>
-  <li>Maven 3.2.x</li>
-  <li>Git</li>
-</ol>
-
-<h1 id="clone--build">Clone &amp; Build</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone https://github.com/apache/incubator-rocketmq.git
-  &gt; <span class="nb">cd </span>incubator-rocketmq
-  &gt; mvn clean package install assembly:assembly -U
-  &gt; <span class="nb">cd </span>target/apache-rocketmq-broker/apache-rocketmq/
-</code></pre>
-</div>
-
-<h1 id="start-name-server">Start Name Server</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqnamesrv &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/namesrv.log
-  The Name Server boot success...
-</code></pre>
-</div>
-
-<h1 id="start-broker">Start Broker</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqbroker -n localhost:9876 &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/broker.log 
-  The broker[%s, 172.30.30.233:10911] boot success...
-</code></pre>
-</div>
-<p>you may need to pay attention to the broker ip, for that the broker will not use the loopback network interface, So you should make sure you have connected to other network.</p>
-
-<h1 id="send--receive-messages">Send &amp; Receive Messages</h1>
-
-<p>Before sending/receiving messages, we need to tell clients where name servers are located. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable <code class="highlighter-rouge">NAMESRV_ADDR</code></p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code> &gt; <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
- SendResult <span class="o">[</span><span class="nv">sendStatus</span><span class="o">=</span>SEND_OK, <span class="nv">msgId</span><span class="o">=</span> ...
-
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
- ConsumeMessageThread_%d Receive New Messages: <span class="o">[</span>MessageExt...
-</code></pre>
-</div>
-
-<h1 id="shutdown-servers">Shutdown Servers</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>sh bin/mqshutdown broker
-The mqbroker<span class="o">(</span>36695<span class="o">)</span> is running...
-Send shutdown request to mqbroker<span class="o">(</span>36695<span class="o">)</span> OK
-
-<span class="gp">&gt; </span>sh bin/mqshutdown namesrv
-The mqnamesrv<span class="o">(</span>36664<span class="o">)</span> is running...
-Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)</span> OK
-</code></pre>
-</div>
 
         
       </section>
@@ -414,7 +364,7 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-30">December 30, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
         
       </footer>
 
@@ -423,23 +373,24 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Quick Start /docs/quick-start/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For Broker /docs/best-practice-broker/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/quick-start/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-broker/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/quick-start/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/best-practice-broker/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/quick-start/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-broker/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/docs/faq/" class="pagination--pager" title="Frequently Asked Questions
+">Previous</a>
     
     
-      <a href="/docs/motivation/" class="pagination--pager" title="Motivation
+      <a href="/docs/best-practice-consumer/" class="pagination--pager" title="Best Practice For Consumer
 ">Next</a>
     
   </nav>

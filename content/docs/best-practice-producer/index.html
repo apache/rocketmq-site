@@ -13,30 +13,30 @@
 
 
 
-<title>Quick Start - Apache RocketMQ</title>
+<title>Best Practice For Producer - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="How to quickly install and setup Apache RocketMQ.">
+<meta name="description" content="Some useful tips for users.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Quick Start">
+<meta property="og:title" content="Best Practice For Producer">
 
 
 
 
-  <meta property="og:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta property="og:description" content="Some useful tips for users.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Quick Start">
-  <meta name="twitter:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta name="twitter:title" content="Best Practice For Producer">
+  <meta name="twitter:description" content="Some useful tips for users.">
   <meta name="twitter:url" content="">
 
   
@@ -175,7 +175,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="active">Quick Start</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -263,7 +263,7 @@
             
             
 
-            <li><a href="/docs/best-practice-producer/" class="">Producer</a></li>
+            <li><a href="/docs/best-practice-producer/" class="active">Producer</a></li>
           
             
             
@@ -312,98 +312,81 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Quick Start">
-    <meta itemprop="description" content="How to quickly install and setup Apache RocketMQ.">
+    <meta itemprop="headline" content="Best Practice For Producer">
+    <meta itemprop="description" content="Some useful tips for users.">
     <meta itemprop="datePublished" content="December 29, 2016">
-    <meta itemprop="dateModified" content="December 30, 2016">
+    <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Quick Start
+          <h1 class="page__title" itemprop="headline">Best Practice For Producer
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>This quick start guide is to give detailed instructions, helping you setup RocketMQ messaging system on a single local machine and send/receive the very first message.</p>
+        <p>Some useful tips for users.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
-  <li><a href="#clone--build" id="markdown-toc-clone--build">Clone &amp; Build</a></li>
-  <li><a href="#start-name-server" id="markdown-toc-start-name-server">Start Name Server</a></li>
-  <li><a href="#start-broker" id="markdown-toc-start-broker">Start Broker</a></li>
-  <li><a href="#send--receive-messages" id="markdown-toc-send--receive-messages">Send &amp; Receive Messages</a></li>
-  <li><a href="#shutdown-servers" id="markdown-toc-shutdown-servers">Shutdown Servers</a></li>
+  <li><a href="#sendstatus" id="markdown-toc-sendstatus">SendStatus</a>    <ul>
+      <li><a href="#flush_disk_timeout" id="markdown-toc-flush_disk_timeout">FLUSH_DISK_TIMEOUT</a></li>
+      <li><a href="#flush_slave_timeout" id="markdown-toc-flush_slave_timeout">FLUSH_SLAVE_TIMEOUT</a></li>
+      <li><a href="#slave_not_available" id="markdown-toc-slave_not_available">SLAVE_NOT_AVAILABLE</a></li>
+      <li><a href="#send_ok" id="markdown-toc-send_ok">SEND_OK</a></li>
+      <li><a href="#duplication-or-missing" id="markdown-toc-duplication-or-missing">Duplication or Missing</a></li>
+    </ul>
+  </li>
+  <li><a href="#timeout" id="markdown-toc-timeout">Timeout</a></li>
+  <li><a href="#message-size" id="markdown-toc-message-size">Message Size</a></li>
+  <li><a href="#async-sending" id="markdown-toc-async-sending">Async Sending</a></li>
+  <li><a href="#producer-group" id="markdown-toc-producer-group">Producer Group</a></li>
+  <li><a href="#thread-safety" id="markdown-toc-thread-safety">Thread Safety</a></li>
+  <li><a href="#performance" id="markdown-toc-performance">Performance</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h1 id="prerequisite">Prerequisite</h1>
+<h2 id="sendstatus">SendStatus</h2>
+<p>When sending a message, you will get SendResult and it will contain the SendStatus. Firstly, we assume that Message’s isWaitStoreMsgOK=true(default is true). If not, we will always get SEND_OK if no exception is thrown.
+Follow are the descriptions about each status.</p>
+<h3 id="flush_disk_timeout">FLUSH_DISK_TIMEOUT</h3>
+<p>If the Broker set MessageStoreConfig’s FlushDiskType=SYNC_FLUSH(default is ASYNC_FLUSH), and the Broker dose not finish flushing disk within MessageStoreConfig’s syncFlushTimeout(default is 5 secs), you will get such status.</p>
+<h3 id="flush_slave_timeout">FLUSH_SLAVE_TIMEOUT</h3>
+<p>If the Broker’s role is SYNC_MASTER(default is ASYNC_MASTER), and the slave Broker dose not finish synchronizing with the master within the MessageStoreConfig’s syncFlushTimeout(default is 5 secs), you will get such status.</p>
+<h3 id="slave_not_available">SLAVE_NOT_AVAILABLE</h3>
+<p>If the Broker’s role is SYNC_MASTER(default is ASYNC_MASTER), but no slave Broker is configured, you will get such status.</p>
+<h3 id="send_ok">SEND_OK</h3>
+<p>You should be aware that SEND_OK does not mean it is reliable. If you cannot tolerate message missing, you should also enable SYNC_MASTER or SYNC_FLUSH.</p>
+<h3 id="duplication-or-missing">Duplication or Missing</h3>
+<p>If you get FLUSH_DISK_TIMEOUT, FLUSH_SLAVE_TIMEOUT or SLAVE_NOT_AVAILABLE, and the Broker happens to shutdown right the moment, you may get your message missing.
+At this time, you have two choices, one is letting it go, which may get message missing; another is resending, which may get message duplication.
+Often we suggest resend and make a way to handle the duplication removal when consuming. Unless you feel it does not matter when some messages are missed.</p>
+<h2 id="timeout">Timeout</h2>
+<p>The Client send requests to Broker, and wait the responses, but if the max wait time is elapsed and no response is return, the Client will throw a RemotingTimeoutException.
+The default wait time is 3 seconds.You can also pass timeout argument using send(msg, timeout) instead of send(msg).
+Note that we do not suggest the value to be too small, for the Broker need some time to flush disk or synchronize with slave. Also the value may have little effect if it is too bigger than syncFlushTimeout for Broker may return a response with FLUSH_SLAVE_TIMEOUT or FLUSH_SLAVE_TIMEOUT before the timeout.</p>
+<h2 id="message-size">Message Size</h2>
+<p>We suggest the message should be no more than 512K.</p>
+<h2 id="async-sending">Async Sending</h2>
+<p>Default send(msg) will block until the response is return. So if you care about performance, we suggest you use send(msg, callback) which will act in a async way.</p>
+<h2 id="producer-group">Producer Group</h2>
+<p>Normally, the producer group has no effects. But if you use transaction, you should take care of it. 
+In default, you can only create only one producer with the same producer group in the same JVM. Usually, this is enough.</p>
+<h2 id="thread-safety">Thread Safety</h2>
+<p>The producer is thread-safe, you can just use it in your business logic.</p>
+<h2 id="performance">Performance</h2>
+<p>If you want more than one producer in one JVM, maybe for big data processing, we suggest you:</p>
+<ul>
+  <li>use async sending with a few producers(3~5 is enough)</li>
+  <li>setInstanceName for each producer</li>
+</ul>
 
-<p>The following softwares are assumed installed:</p>
-<ol>
-  <li>64bit OS, Linux/Unix/Mac is recommended;</li>
-  <li>64bit JDK 1.7+;</li>
-  <li>Maven 3.2.x</li>
-  <li>Git</li>
-</ol>
-
-<h1 id="clone--build">Clone &amp; Build</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone https://github.com/apache/incubator-rocketmq.git
-  &gt; <span class="nb">cd </span>incubator-rocketmq
-  &gt; mvn clean package install assembly:assembly -U
-  &gt; <span class="nb">cd </span>target/apache-rocketmq-broker/apache-rocketmq/
-</code></pre>
-</div>
-
-<h1 id="start-name-server">Start Name Server</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqnamesrv &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/namesrv.log
-  The Name Server boot success...
-</code></pre>
-</div>
-
-<h1 id="start-broker">Start Broker</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqbroker -n localhost:9876 &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/broker.log 
-  The broker[%s, 172.30.30.233:10911] boot success...
-</code></pre>
-</div>
-<p>you may need to pay attention to the broker ip, for that the broker will not use the loopback network interface, So you should make sure you have connected to other network.</p>
-
-<h1 id="send--receive-messages">Send &amp; Receive Messages</h1>
-
-<p>Before sending/receiving messages, we need to tell clients where name servers are located. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable <code class="highlighter-rouge">NAMESRV_ADDR</code></p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code> &gt; <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
- SendResult <span class="o">[</span><span class="nv">sendStatus</span><span class="o">=</span>SEND_OK, <span class="nv">msgId</span><span class="o">=</span> ...
-
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
- ConsumeMessageThread_%d Receive New Messages: <span class="o">[</span>MessageExt...
-</code></pre>
-</div>
-
-<h1 id="shutdown-servers">Shutdown Servers</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>sh bin/mqshutdown broker
-The mqbroker<span class="o">(</span>36695<span class="o">)</span> is running...
-Send shutdown request to mqbroker<span class="o">(</span>36695<span class="o">)</span> OK
-
-<span class="gp">&gt; </span>sh bin/mqshutdown namesrv
-The mqnamesrv<span class="o">(</span>36664<span class="o">)</span> is running...
-Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)</span> OK
-</code></pre>
-</div>
 
         
       </section>
@@ -414,7 +397,7 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-30">December 30, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
         
       </footer>
 
@@ -423,24 +406,24 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Quick Start /docs/quick-start/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For Producer /docs/best-practice-producer/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/quick-start/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-producer/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/quick-start/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/best-practice-producer/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/quick-start/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-producer/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/docs/best-practice-namesvr/" class="pagination--pager" title="Best Practice For NameServer
+">Previous</a>
     
     
-      <a href="/docs/motivation/" class="pagination--pager" title="Motivation
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 

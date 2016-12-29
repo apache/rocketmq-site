@@ -13,30 +13,30 @@
 
 
 
-<title>Quick Start - Apache RocketMQ</title>
+<title>Best Practice For Consumer - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="How to quickly install and setup Apache RocketMQ.">
+<meta name="description" content="Some useful tips for users.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Quick Start">
+<meta property="og:title" content="Best Practice For Consumer">
 
 
 
 
-  <meta property="og:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta property="og:description" content="Some useful tips for users.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Quick Start">
-  <meta name="twitter:description" content="How to quickly install and setup Apache RocketMQ.">
+  <meta name="twitter:title" content="Best Practice For Consumer">
+  <meta name="twitter:description" content="Some useful tips for users.">
   <meta name="twitter:url" content="">
 
   
@@ -175,7 +175,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="active">Quick Start</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -271,7 +271,7 @@
             
             
 
-            <li><a href="/docs/best-practice-consumer/" class="">Consumer</a></li>
+            <li><a href="/docs/best-practice-consumer/" class="active">Consumer</a></li>
           
             
             
@@ -312,98 +312,73 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Quick Start">
-    <meta itemprop="description" content="How to quickly install and setup Apache RocketMQ.">
+    <meta itemprop="headline" content="Best Practice For Consumer">
+    <meta itemprop="description" content="Some useful tips for users.">
     <meta itemprop="datePublished" content="December 29, 2016">
-    <meta itemprop="dateModified" content="December 30, 2016">
+    <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Quick Start
+          <h1 class="page__title" itemprop="headline">Best Practice For Consumer
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>This quick start guide is to give detailed instructions, helping you setup RocketMQ messaging system on a single local machine and send/receive the very first message.</p>
+        <p>Some useful tips for users.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
-  <li><a href="#clone--build" id="markdown-toc-clone--build">Clone &amp; Build</a></li>
-  <li><a href="#start-name-server" id="markdown-toc-start-name-server">Start Name Server</a></li>
-  <li><a href="#start-broker" id="markdown-toc-start-broker">Start Broker</a></li>
-  <li><a href="#send--receive-messages" id="markdown-toc-send--receive-messages">Send &amp; Receive Messages</a></li>
-  <li><a href="#shutdown-servers" id="markdown-toc-shutdown-servers">Shutdown Servers</a></li>
+  <li><a href="#consumer-group-and-subscriptions" id="markdown-toc-consumer-group-and-subscriptions">Consumer Group and Subscriptions</a></li>
+  <li><a href="#messagelistener" id="markdown-toc-messagelistener">MessageListener</a>    <ul>
+      <li><a href="#orderly" id="markdown-toc-orderly">Orderly</a></li>
+      <li><a href="#concurrently" id="markdown-toc-concurrently">Concurrently</a></li>
+      <li><a href="#consume-status" id="markdown-toc-consume-status">Consume Status</a></li>
+      <li><a href="#blocking" id="markdown-toc-blocking">Blocking</a></li>
+    </ul>
+  </li>
+  <li><a href="#thread-number" id="markdown-toc-thread-number">Thread Number</a></li>
+  <li><a href="#consumefromwhere" id="markdown-toc-consumefromwhere">ConsumeFromWhere</a></li>
+  <li><a href="#duplication" id="markdown-toc-duplication">Duplication</a></li>
 </ul>
 
   </nav>
 </aside>
+<h2 id="consumer-group-and-subscriptions">Consumer Group and Subscriptions</h2>
+<p>The first thing you should be aware of is that different Consumer Group can consume the same topic independently, each of the group will have their own consuming offsets. 
+And make sure each Consumer within the same Group to subscribe the same topics.</p>
+<h2 id="messagelistener">MessageListener</h2>
+<h3 id="orderly">Orderly</h3>
+<p>The Consumer will lock each MessageQueue to make sure it is consumed one by one orderly. This will cause performance loss, but it is useful when you are care about the order of the messages.
+It is not recommended to throw exception, you can return ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT instead.</p>
+<h3 id="concurrently">Concurrently</h3>
+<p>As the name tells, the Consumer will consume the messages concurrently. It is recommended to use this for achieving good performance.
+It is not recommended to throw exception, you can return ConsumeConcurrentlyStatus.RECONSUME_LATER instead.</p>
+<h3 id="consume-status">Consume Status</h3>
+<p>For MessageListenerConcurrently, you can return RECONSUME_LATER to tell the consumer that you can not consume it right now and want to reconsume it later. Then you can continue to consume other messages. 
+For MessageListenerOrderly, as that you care about the order, so you can not jump over the message, but you can return SUSPEND_CURRENT_QUEUE_A_MOMENT to tell the consumer to hold on for a moment.</p>
+<h3 id="blocking">Blocking</h3>
+<p>It is not recommend to block the Listener, for in return it will block the thread pool, and finally the consuming process may get stuck.</p>
+<h2 id="thread-number">Thread Number</h2>
+<p>The consumer use a ThreadPoolExecutor to process consuming internally. So you can tune it by using setConsumeThreadMin or setConsumeThreadMax.</p>
+<h2 id="consumefromwhere">ConsumeFromWhere</h2>
+<p>When a new Consumer Group is established, it will need to decide whether it need to consume the historical messages which had already existed in the Broker. 
+CONSUME_FROM_LAST_OFFSET will ignore the historical messages, and consume any newly produced.
+CONSUME_FROM_FIRST_OFFSET will consume every message existed in the Broker.
+You can also use CONSUME_FROM_TIMESTAMP to consume messages produced after the specified timestamp.</p>
+<h2 id="duplication">Duplication</h2>
+<p>Many circumstances could cause duplication, such as:</p>
+<ul>
+  <li>Producer resend messages(i.e, in case of FLUSH_SLAVE_TIMEOUT)</li>
+  <li>Consumer shutdown with some offsets not updated to the Broker in time.</li>
+</ul>
 
-<h1 id="prerequisite">Prerequisite</h1>
+<p>So you may need to do some external work to handle this if your application cannot tolerate. For example, you may check the primary key of your DB.</p>
 
-<p>The following softwares are assumed installed:</p>
-<ol>
-  <li>64bit OS, Linux/Unix/Mac is recommended;</li>
-  <li>64bit JDK 1.7+;</li>
-  <li>Maven 3.2.x</li>
-  <li>Git</li>
-</ol>
-
-<h1 id="clone--build">Clone &amp; Build</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone https://github.com/apache/incubator-rocketmq.git
-  &gt; <span class="nb">cd </span>incubator-rocketmq
-  &gt; mvn clean package install assembly:assembly -U
-  &gt; <span class="nb">cd </span>target/apache-rocketmq-broker/apache-rocketmq/
-</code></pre>
-</div>
-
-<h1 id="start-name-server">Start Name Server</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqnamesrv &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/namesrv.log
-  The Name Server boot success...
-</code></pre>
-</div>
-
-<h1 id="start-broker">Start Broker</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqbroker -n localhost:9876 &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/broker.log 
-  The broker[%s, 172.30.30.233:10911] boot success...
-</code></pre>
-</div>
-<p>you may need to pay attention to the broker ip, for that the broker will not use the loopback network interface, So you should make sure you have connected to other network.</p>
-
-<h1 id="send--receive-messages">Send &amp; Receive Messages</h1>
-
-<p>Before sending/receiving messages, we need to tell clients where name servers are located. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable <code class="highlighter-rouge">NAMESRV_ADDR</code></p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code> &gt; <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
- SendResult <span class="o">[</span><span class="nv">sendStatus</span><span class="o">=</span>SEND_OK, <span class="nv">msgId</span><span class="o">=</span> ...
-
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
- ConsumeMessageThread_%d Receive New Messages: <span class="o">[</span>MessageExt...
-</code></pre>
-</div>
-
-<h1 id="shutdown-servers">Shutdown Servers</h1>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>sh bin/mqshutdown broker
-The mqbroker<span class="o">(</span>36695<span class="o">)</span> is running...
-Send shutdown request to mqbroker<span class="o">(</span>36695<span class="o">)</span> OK
-
-<span class="gp">&gt; </span>sh bin/mqshutdown namesrv
-The mqnamesrv<span class="o">(</span>36664<span class="o">)</span> is running...
-Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)</span> OK
-</code></pre>
-</div>
 
         
       </section>
@@ -414,7 +389,7 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-30">December 30, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
         
       </footer>
 
@@ -423,23 +398,24 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Quick Start /docs/quick-start/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For Consumer /docs/best-practice-consumer/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/quick-start/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-consumer/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/quick-start/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/best-practice-consumer/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/quick-start/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-consumer/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
+">Previous</a>
     
     
-      <a href="/docs/motivation/" class="pagination--pager" title="Motivation
+      <a href="/docs/best-practice-namesvr/" class="pagination--pager" title="Best Practice For NameServer
 ">Next</a>
     
   </nav>
