@@ -4,8 +4,6 @@ permalink: /docs/faq/
 modified: 2016-12-27T15:18:43-04:00
 ---
 The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.
-
-{% include toc %}
  
 ## General
 ### 1. Why create rocketmq project instead of selecting other products?
