@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2016-12-29T13:27:14+08:00">
+  <meta property="article:published_time" content="2016-12-29T14:51:32+08:00">
 
 
 
@@ -504,12 +504,12 @@ The PR, once pushed, will get mirrored to github. To update your github version 
 <h1 id="closing-a-pr-without-committing-for-committers">Closing a PR without committing (for committers)</h1>
 <p>When we want to reject a PR (close without committing), we can just issue an empty commit on master’s HEAD without merging the PR:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git commit --allow-empty -m "closes apache/incubator-rocketmq#ZZ *Won't fix*"
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit --allow-empty -m "ROCKETMQ-XXXX closes apache/incubator-rocketmq#ZZ *Won't fix*"
 git push apache master
 </code></pre>
 </div>
 
-<p>that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/1</p>
+<p>that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/15</p>
 
 <h1 id="apachegithub-integration-features">Apache/github integration features</h1>
 

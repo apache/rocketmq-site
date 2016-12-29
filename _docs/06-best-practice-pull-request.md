@@ -91,10 +91,10 @@ Note on squashing: Since squash discards remote branch history, repeated PRs fro
 # Closing a PR without committing (for committers)
 When we want to reject a PR (close without committing), we can just issue an empty commit on master's HEAD without merging the PR:
 
-    git commit --allow-empty -m "closes apache/incubator-rocketmq#ZZ *Won't fix*"
+    git commit --allow-empty -m "ROCKETMQ-XXXX closes apache/incubator-rocketmq#ZZ *Won't fix*"
     git push apache master
     
-that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/1
+that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/incubator-rocketmq/pull/15
 
 
 # Apache/github integration features
