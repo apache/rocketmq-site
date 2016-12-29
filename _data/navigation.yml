@@ -50,11 +50,13 @@ docs:
   - title: Best Practice
     children:
       - title: "Broker"
-        url: /docs/motivation/
+        url: /docs/best-practice-broker/
       - title: "Producer"
-        url: /docs/motivation/
+        url: /docs/best-practice-producer/
       - title: "Consumer"
-        url: /docs/core-concept/
+        url: /docs/best-practice-consumer/
+      - title: "NameServer"
+        url: /docs/best-practice-namesvr/
       - title: "Virtualization"
         url: /docs/cli-admin-tool/
   - title: FAQ
