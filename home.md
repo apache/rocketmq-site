@@ -12,29 +12,29 @@ feature_row:
   - image_path: /assets/images/rmq-feature-lowlatency.png
     alt: "Low Latency"
     title: "Low Latency"
-    excerpt: "A lot of work was done for wiping out spikes. Almost all messages could be responsed in a few milliseconds under high concurrency."
+    excerpt: "More than 99.6% response latency within 1 milliseconds under high pressure."
   - image_path: /assets/images/rmq-feature-finance.png
     alt: "Finance Oriented"
     title: "Finance Oriented"
-    excerpt: "High availability with replica. Every message could be tracked or repaired with a serial of tracking tools"
+    excerpt: "High availability with replica. Every message could be tracked or repaired with a serial of tracking tools."
   - image_path: /assets/images/rmq-feature-massiveaccumulation.png
     alt: "BigData Friendly"
     title: "BigData Friendly"
-    excerpt: "Accumulate unlimited messages as long as there is enough disk space. Without performance loss."
+    excerpt: "Batch transferring with versatile integration for flooding throughput."
 
 feature_row1:
   - image_path: /assets/images/rmq-feature-lowlatency.png
     alt: "Industry Sustainable"
     title: "Industry Sustainable"
-    excerpt: "A lot of work was done for wiping out spikes. Almost all messages could be responsed in a few milliseconds under high concurrency."
+    excerpt: "Trillions of messaging capabilities support Alibaba Group’s 11.11 Global Shopping Festival."
   - image_path: /assets/images/rmq-feature-massiveaccumulation.png
     alt: "Massive Accumulation"
     title: "Massive Accumulation"
-    excerpt: "Accumulate unlimited messages as long as there is enough disk space. Without performance loss."
+    excerpt: "Accumulate unlimited messages as long as there is enough disk space without performance loss."
   - image_path: /assets/images/rmq-feature-finance.png
     alt: "Vendor Neutral"
     title: "Vendor Neutral"
-    excerpt: "High availability with replica. Every message could be tracked or repaired with a serial of tracking tools"
+    excerpt: "A new open distributed messaging standard since latest 4.x version."
 ---
 
 {% include feature_row %}
