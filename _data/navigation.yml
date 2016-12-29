@@ -43,8 +43,6 @@ docs:
         url: /docs/best-practice-consumer/
       - title: "NameServer"
         url: /docs/best-practice-namesvr/
-      - title: "Virtualization"
-        url: /docs/cli-admin-tool/
   - title: FAQ
     url: /docs/faq/
 
