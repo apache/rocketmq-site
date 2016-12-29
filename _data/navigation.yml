@@ -7,7 +7,7 @@ main:
   - title: "Community"
     url: /community/
   - title: "About"
-    url: /about/
+    url: /about/team/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
@@ -57,3 +57,9 @@ docs:
         url: /docs/cli-admin-tool/
       - title: "Frequently Asked Questions"
         url: /docs/cluster-deployment/
+
+about:
+  - title: Team
+    url: /about/team/
+  - title: Contact
+    url: /about/contact/

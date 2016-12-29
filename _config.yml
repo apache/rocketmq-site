@@ -114,6 +114,7 @@ include:
   - .htaccess
   - _pages
   - _docs
+  - _about
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -247,6 +248,9 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
+  about:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
@@ -307,4 +311,15 @@ defaults:
       layout: single
       author_profile: false
       share: true
-
+# _about
+  - scope:
+      path: ""
+      type: about
+    values:
+      layout: single
+      read_time: false
+      author_profile: false
+      share: true
+      comments: false
+      sidebar:
+        nav: "about"
