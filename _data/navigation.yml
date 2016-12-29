@@ -33,20 +33,6 @@ docs:
         url: /docs/code-guidelines/
       - title: "Best Practice in PR"
         url: /docs/pull-request/
-  - title: Developer Guide
-    children:
-      - title: "Architecture & Design"
-        url: /docs/motivation/
-      - title: "Communication Protocol"
-        url: /docs/motivation/
-      - title: "Persistence"
-        url: /docs/core-concept/
-      - title: "Replication"
-        url: /docs/cli-admin-tool/
-      - title: "Service Discovery & Load Balance"
-        url: /docs/cluster-deployment/
-      - title: "Message Filter"
-        url: /docs/cluster-deployment/
   - title: Best Practice
     children:
       - title: "Broker"
