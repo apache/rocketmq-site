@@ -33,6 +33,9 @@
 <loc>/docs/pull-request/</loc>
 </url>
 <url>
+<loc>/docs/code-guidelines/</loc>
+</url>
+<url>
 <loc>/about/</loc>
 </url>
 <url>
@@ -79,5 +82,8 @@
 </url>
 <url>
 <loc>/docs/pull-request/</loc>
+</url>
+<url>
+<loc>/docs/code-guidelines/</loc>
 </url>
 </urlset>

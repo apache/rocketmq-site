@@ -1,0 +1,29 @@
+---
+title: "Coding Guidelines"
+permalink: /docs/code-guidelines/
+excerpt: "Apache RocketMQ Coding Guidelines"
+modified: 2016-12-29T15:01:43-04:00
+---
+
+{% include toc %}
+
+# Introduction
+This document describes formatting rules and guidelines for software source code. Note that this document does not cover best programming practices or techniques. It is solely concentrating on source code formatting and conventions.
+
+Studies have shown that 80% of development time spent on software maintenance which involves software source code understanding, refactoring and support. Established and enforced code formatting rules and guidelines improve source code readability, promote team code ownership, allow engineers understand new code more quickly and thorough as well as simplify maintenance.
+
+# Code template for idea
+## Import code style 
+![codestyle](/assets/images/code_guidelines/codestyle.png)
+
+## Import copyright
+### 1. Import from directory style -> copyright -> Apache.xml
+![copyright](/assets/images/code_guidelines/copyright.png)
+### 2. Choose Apache copyright
+![copyright-choose](/assets/images/code_guidelines/copyright-choose.png)
+
+
+## Remove author javadoc tag
+![author-javadoc-tag](/assets/images/code_guidelines/author-tag.png)
+
+

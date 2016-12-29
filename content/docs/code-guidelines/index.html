@@ -13,30 +13,30 @@
 
 
 
-<title>CLI Admin Tool - Apache RocketMQ</title>
+<title>Coding Guidelines - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="RocketMQ provides a CLI admin tool belt to query, manage and diagnose various issues.">
+<meta name="description" content="Apache RocketMQ Coding Guidelines">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="CLI Admin Tool">
+<meta property="og:title" content="Coding Guidelines">
 
 
 
 
-  <meta property="og:description" content="RocketMQ provides a CLI admin tool belt to query, manage and diagnose various issues.">
+  <meta property="og:description" content="Apache RocketMQ Coding Guidelines">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="CLI Admin Tool">
-  <meta name="twitter:description" content="RocketMQ provides a CLI admin tool belt to query, manage and diagnose various issues.">
+  <meta name="twitter:title" content="Coding Guidelines">
+  <meta name="twitter:description" content="Apache RocketMQ Coding Guidelines">
   <meta name="twitter:url" content="">
 
   
@@ -199,7 +199,7 @@
             
             
 
-            <li><a href="/docs/cli-admin-tool/" class="active">CLI Admin Tool</a></li>
+            <li><a href="/docs/cli-admin-tool/" class="">CLI Admin Tool</a></li>
           
             
             
@@ -227,7 +227,7 @@
             
             
 
-            <li><a href="/docs/code-guidelines/" class="">Code Guidelines</a></li>
+            <li><a href="/docs/code-guidelines/" class="active">Code Guidelines</a></li>
           
             
             
@@ -279,7 +279,7 @@
             
             
 
-            <li><a href="/docs/cli-admin-tool/" class="active">Replication</a></li>
+            <li><a href="/docs/cli-admin-tool/" class="">Replication</a></li>
           
             
             
@@ -339,7 +339,7 @@
             
             
 
-            <li><a href="/docs/cli-admin-tool/" class="active">Virtualization</a></li>
+            <li><a href="/docs/cli-admin-tool/" class="">Virtualization</a></li>
           
             
             
@@ -361,109 +361,59 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="CLI Admin Tool">
-    <meta itemprop="description" content="RocketMQ provides a CLI admin tool belt to query, manage and diagnose various issues.">
+    <meta itemprop="headline" content="Coding Guidelines">
+    <meta itemprop="description" content="Apache RocketMQ Coding Guidelines">
     <meta itemprop="datePublished" content="December 29, 2016">
-    <meta itemprop="dateModified" content="December 17, 2016">
+    <meta itemprop="dateModified" content="December 30, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">CLI Admin Tool
+          <h1 class="page__title" itemprop="headline">Coding Guidelines
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>RocketMQ provides a CLI admin tool belt to query, manage and diagnose various issues.</p>
-
-<aside class="sidebar__right">
+        <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
-  <li><a href="#how-to-get-it" id="markdown-toc-how-to-get-it">How To Get it</a></li>
-  <li><a href="#how-to-use" id="markdown-toc-how-to-use">How to use</a></li>
-  <li><a href="#command-manual" id="markdown-toc-command-manual">Command Manual</a></li>
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#code-template-for-idea" id="markdown-toc-code-template-for-idea">Code template for idea</a>    <ul>
+      <li><a href="#import-code-style" id="markdown-toc-import-code-style">Import code style</a></li>
+      <li><a href="#import-copyright" id="markdown-toc-import-copyright">Import copyright</a>        <ul>
+          <li><a href="#1-import-from-directory-style---copyright---apachexml" id="markdown-toc-1-import-from-directory-style---copyright---apachexml">1. Import from directory style -&gt; copyright -&gt; Apache.xml</a></li>
+          <li><a href="#2-choose-apache-copyright" id="markdown-toc-2-choose-apache-copyright">2. Choose Apache copyright</a></li>
+        </ul>
+      </li>
+      <li><a href="#remove-author-javadoc-tag" id="markdown-toc-remove-author-javadoc-tag">Remove author javadoc tag</a></li>
+    </ul>
+  </li>
 </ul>
 
   </nav>
 </aside>
 
-<h1 id="prerequisite">Prerequisite</h1>
+<h1 id="introduction">Introduction</h1>
+<p>This document describes formatting rules and guidelines for software source code. Note that this document does not cover best programming practices or techniques. It is solely concentrating on source code formatting and conventions.</p>
 
-<p>Make sure you have walked through <a href="/docs/quick-start/">Quick Start</a> and <a href="/docs/core-concept/">Core Concept</a> sections.</p>
+<p>Studies have shown that 80% of development time spent on software maintenance which involves software source code understanding, refactoring and support. Established and enforced code formatting rules and guidelines improve source code readability, promote team code ownership, allow engineers understand new code more quickly and thorough as well as simplify maintenance.</p>
 
-<h1 id="how-to-get-it">How To Get it</h1>
+<h1 id="code-template-for-idea">Code template for idea</h1>
+<h2 id="import-code-style">Import code style</h2>
+<p><img src="/assets/images/code_guidelines/codestyle.png" alt="codestyle" /></p>
 
-<p>The admin tool is shipped along with RocketMQ. Either you download a pre-built binary version or build from source by yourself, you already have it.</p>
+<h2 id="import-copyright">Import copyright</h2>
+<h3 id="1-import-from-directory-style---copyright---apachexml">1. Import from directory style -&gt; copyright -&gt; Apache.xml</h3>
+<p><img src="/assets/images/code_guidelines/copyright.png" alt="copyright" /></p>
+<h3 id="2-choose-apache-copyright">2. Choose Apache copyright</h3>
+<p><img src="/assets/images/code_guidelines/copyright-choose.png" alt="copyright-choose" /></p>
 
-<p>In case you have source code, the <a href="https://github.com/alibaba/RocketMQ/tree/master/rocketmq-tools">rocketmq-tools module</a> contains its source code.</p>
+<h2 id="remove-author-javadoc-tag">Remove author javadoc tag</h2>
+<p><img src="/assets/images/code_guidelines/author-tag.png" alt="author-javadoc-tag" /></p>
 
-<h1 id="how-to-use">How to use</h1>
-
-<p>The Admin Tool is very easy to use. Here, for demonstration purpose, *nix environment is assumed.</p>
-
-<p>Change directory to ${PACKAGE}/bin, command <code class="highlighter-rouge">bash mqadmin</code>, you should see the following help menu pops out.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>The most commonly used mqadmin commands are:
-   updateTopic          Update or create topic
-   deleteTopic          Delete topic from broker and NameServer.
-   updateSubGroup       Update or create subscription group
-   deleteSubGroup       Delete subscription group from broker.
-   updateBrokerConfig   Update broker's config
-   updateTopicPerm      Update topic perm
-   topicRoute           Examine topic route info
-   topicStatus          Examine topic Status info
-   topicClusterList     get cluster info for topic
-   brokerStatus         Fetch broker runtime status data
-   queryMsgById         Query Message by Id
-   queryMsgByKey        Query Message by Key
-   queryMsgByUniqueKey  Query Message by Unique key
-   queryMsgByOffset     Query Message by offset
-   queryMsgByUniqueKey  Query Message by Unique key
-   printMsg             Print Message Detail
-   sendMsgStatus        send msg to broker.
-   brokerConsumeStats   Fetch broker consume stats data
-   producerConnection   Query producer's socket connection and client version
-   consumerConnection   Query consumer's socket connection, client version and subscription
-   consumerProgress     Query consumers's progress, speed
-   consumerStatus       Query consumer's internal data structure
-   cloneGroupOffset     clone offset from other group.
-   clusterList          List all of clusters
-   topicList            Fetch all topic list from name server
-   updateKvConfig       Create or update KV config.
-   deleteKvConfig       Delete KV config.
-   wipeWritePerm        Wipe write perm of broker in all name server
-   resetOffsetByTime    Reset consumer offset by timestamp(without client restart).
-   updateOrderConf      Create or update or delete order conf
-   cleanExpiredCQ       Clean expired ConsumeQueue on broker.
-   cleanUnusedTopic     Clean unused topic on broker.
-   startMonitoring      Start Monitoring
-   statsAll             Topic and Consumer tps stats
-   syncDocs             Synchronize wiki and issue to github.com
-   allocateMQ           Allocate MQ
-   checkMsgSendRT       check message send response time
-   clusterRT            List All clusters Message Send RT
-
-See 'mqadmin help &lt;command&gt;' for more information on a specific command.
-</code></pre>
-</div>
-
-<p>As you see, the most commonly used commands are listed with a brief description. To get detailed manual of each command, <code class="highlighter-rouge">bash mqadmin help &lt;command&gt;</code>. For example, command <code class="highlighter-rouge">bash mqadmin help clusterList</code> will bring out the following help text:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>usage: mqadmin clusterList [-h] [-i &lt;arg&gt;] [-m] [-n &lt;arg&gt;]
- -h,--help                Print help
- -i,--interval &lt;arg&gt;      specify intervals numbers, it is in seconds
- -m,--moreStats           Print more stats
- -n,--namesrvAddr &lt;arg&gt;   Name server address list, eg: 192.168.0.1:9876;192.168.0.2:9876
-</code></pre>
-</div>
-
-<p>The help text lists possible options and interpretation of each option.</p>
-
-<h1 id="command-manual">Command Manual</h1>
 
         
       </section>
@@ -474,7 +424,7 @@ See 'mqadmin help &lt;command&gt;' for more information on a specific command.
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-30">December 30, 2016</time></p>
         
       </footer>
 
@@ -483,25 +433,24 @@ See 'mqadmin help &lt;command&gt;' for more information on a specific command.
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=CLI Admin Tool /docs/cli-admin-tool/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Coding Guidelines /docs/code-guidelines/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/cli-admin-tool/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/code-guidelines/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/cli-admin-tool/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/code-guidelines/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/cli-admin-tool/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/code-guidelines/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/core-concept/" class="pagination--pager" title="Core Concept
+      <a href="/docs/pull-request/" class="pagination--pager" title="Best Practice in Pull Request
 ">Previous</a>
     
     
-      <a href="/docs/cluster-deployment/" class="pagination--pager" title="Cluster Configuration and Deployment
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
