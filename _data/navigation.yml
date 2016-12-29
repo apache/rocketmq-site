@@ -43,8 +43,8 @@ docs:
         url: /docs/core-concept/
       - title: "Virtualization"
         url: /docs/cli-admin-tool/
-      - title: "Frequently Asked Questions"
-        url: /docs/cluster-deployment/
+  - title: FAQ
+    url: /docs/faq/
 
 about:
   - title: Team
