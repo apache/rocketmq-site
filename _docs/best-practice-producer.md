@@ -20,9 +20,10 @@ If the Broker's role is SYNC_MASTER(default is ASYNC_MASTER), but no slave Broke
 ### SEND_OK
 You should be aware that SEND_OK does not mean it is reliable. If you cannot tolerate message missing, you should also enable SYNC_MASTER or SYNC_FLUSH.
 ### Duplication or Missing
-If you get FLUSH_DISK_TIMEOUT, FLUSH_SLAVE_TIMEOUT or SLAVE_NOT_AVAILABLE, and the Broker happens to shutdown right the moment, you may get your message missing.
+If you get FLUSH_DISK_TIMEOUT, FLUSH_SLAVE_TIMEOUT and the Broker happens to shutdown right the moment, you may get your message missing.
 At this time, you have two choices, one is letting it go, which may get message missing; another is resending, which may get message duplication.
 Often we suggest resend and make a way to handle the duplication removal when consuming. Unless you feel it does not matter when some messages are missed.
+But be ware that resending has no use when you get SLAVE_NOT_AVAILABLE, you'd better keep the scene and send some alerts to the Cluster Manager. 
 ## Timeout 
 The Client send requests to Broker, and wait the responses, but if the max wait time is elapsed and no response is return, the Client will throw a RemotingTimeoutException.
 The default wait time is 3 seconds.You can also pass timeout argument using send(msg, timeout) instead of send(msg).
@@ -32,7 +33,7 @@ We suggest the message should be no more than 512K.
 ## Async Sending
 Default send(msg) will block until the response is return. So if you care about performance, we suggest you use send(msg, callback) which will act in a async way. 
 ## Producer Group
-Normally, the producer group has no effects. But if you use transaction, you should take care of it. 
+Normally, the producer group has no effects. But if you are involved in  transaction, you should pay attention to it. 
 In default, you can only create only one producer with the same producer group in the same JVM. Usually, this is enough.
 ## Thread Safety 
 The producer is thread-safe, you can just use it in your business logic.

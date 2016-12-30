@@ -12,11 +12,11 @@ feature_row:
   - image_path: /assets/images/rmq-feature-lowlatency.png
     alt: "Low Latency"
     title: "Low Latency"
-    excerpt: "More than 99.6% response latency within 1 milliseconds under high pressure."
+    excerpt: "More than 99.6% response latency within 1 millisecond under high stress."
   - image_path: /assets/images/rmq-feature-finance.png
     alt: "Finance Oriented"
     title: "Finance Oriented"
-    excerpt: "High availability with replica. Every message could be tracked or repaired with a serial of tracking tools."
+    excerpt: "High availability with tracking and auditing characteristics."
   - image_path: /assets/images/rmq-feature-bigdata.png
     alt: "BigData Friendly"
     title: "BigData Friendly"
@@ -26,15 +26,15 @@ feature_row1:
   - image_path: /assets/images/rmq-feature-industry.png
     alt: "Industry Sustainable"
     title: "Industry Sustainable"
-    excerpt: "Trillions of messaging capabilities support Alibaba Group’s 11.11 Global Shopping Festival."
+    excerpt: "Trillions of messages capacity guarantee especially in 11.11 Global Shopping Festival."
   - image_path: /assets/images/rmq-feature-massiveaccumulation.png
     alt: "Massive Accumulation"
     title: "Massive Accumulation"
-    excerpt: "Accumulate unlimited messages as long as there is enough disk space without performance loss."
+    excerpt: "Accumulate messages as long as having enough disk without performance loss."
   - image_path: /assets/images/rmq-feature-neutral.png
     alt: "Vendor Neutral"
     title: "Vendor Neutral"
-    excerpt: "A new open distributed messaging standard since latest 4.x version."
+    excerpt: "A new open distributed messaging and streaming standard since latest 4.x version."
 ---
 
 {% include feature_row %}
