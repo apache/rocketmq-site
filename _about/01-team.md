@@ -18,7 +18,7 @@ The following is a list of developers with commit privileges that have directly 
 |![brian](/assets/images/about/brianm.jpeg)|brianm| [@brianm](https://github.com/brianm)|brianm@apache.org |Mentor/PMC Member| -8 |
 |![WillemJiang](/assets/images/about/WillemJiang.jpeg)|nianjiang| [@WillemJiang](https://github.com/WillemJiang)|nianjiang@apache.org |Mentor/PMC Member| +8 |
 |![lukehan](/assets/images/about/lukehan.jpeg)|lukehan| [@lukehan](https://github.com/lukehan)|lukehan@apache.org |Mentor/PMC Member| +8 |
-|![jmclean](/assets/images/about/jmclean.jpeg)|jmclean| [@jmclean](https://github.com/jmclean)|jmclean@apache.org |Mentor/PMC Member| +11 |
+|![justinmclean](/assets/images/about/justinmclean.jpeg)|jmclean| [@justinmclean](https://github.com/justinmclean)|jmclean@apache.org |Mentor/PMC Member| +11 |
 |![vongosling](/assets/images/about/vongosling.jpeg)|vongosling|[@vongosling](https://github.com/vongosling)|vongosling@apache.org |Committer/PMC Member| +8 |
 |![vintagewang](/assets/images/about/vintagewang.jpeg)|vintagewang|[@vintagewang](https://github.com/vintagewang)|vintagewang@apache.org |Committer/PMC Member| +8 |
 |![zhouxinyu](/assets/images/about/zhouxinyu.png)|yukon|[@zhouxinyu](https://github.com/zhouxinyu)|yukon@apache.org |Committer/PMC Member| +8 |
