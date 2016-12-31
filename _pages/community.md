@@ -1,12 +1,12 @@
 ---
 layout: splash
 permalink: /community/
-title: "Community"
+title: "Apache RocketMQ"
 header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/rmq-home-page.jpg
   cta_label: "<i class='fa fa-rocket'></i> Getting Started"
-  cta_url: "/docs/quick-start-guide/"
+  cta_url: "/docs/quick-start/"
   caption:
 excerpt: 'Apache RocketMQ® is an open source distributed messaging and streaming data platform.<br /> <small><a href="https://github.com/apache/incubator-rocketmq/">Latest source v4.0.0</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 feature_row:
