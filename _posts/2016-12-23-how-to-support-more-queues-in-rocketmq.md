@@ -17,37 +17,37 @@ Kafka is a distributed streaming platform, which was born from [logging aggregat
 
 # Partition design in kafka
 1. Producer parallelism of writing is bounded by the number of partitions.
-2. The degree of consumer consumption parallelism, also is bounded by the number of partitions being consumed. Assuming that the number of partitions is 20, then the maximum concurrent consumption of Consumer is 20.
-3. Each Topic consists of a number of fixed number of partitions. Partition number determines the number of Topic that single Broker can support.
+2. The degree of consumer consumption parallelism, is also bounded by the number of partitions being consumed. Assuming that the number of partitions is 20, the maximum number of concurrent consuming consumers is 20.
+3. Each topic consists of a fixed number of partitions. Partition number determines the maximum number of topics that single broker may have without significantly affecting performance.
 
 More details please refer to [here](http://www.confluent.io/blog/how-to-choose-the-number-of-topicspartitions-in-a-kafka-cluster/).
 
 ## Why Kafka can't support more partitions
-1. Each partition stores the whole message data, although each partition is written to the disk is in order, but a number of sequential partition writing  at the same time from the aspect of operating system become a random writing.
-2. Due to the scattered data files, it is difficult to use the linux IO Group Commit mechanism.
+1. Each partition stores the whole message data. Although each partition is orderly written to the disk, as number of concurrently writing partitions increases, writing become random in the perspective of operating system.
+2. Due to the scattered data files, it is difficult to use the Linux IO Group Commit mechanism.
 
 # How to support more partition in RocketMQ?
 
 ![screenshot](/assets/images/blog/rocketmq-queues.png)
 
 
-1. All message data are stored in CommmitLog files. Complete sequential writing and random read.
-2. ConsumeQueue stores the actual user consumption location information, they are flushed to disk in sequential mode.
+1. All message data are stored in commit log files. All writes are completely sequential whilst reads are random.
+2. ConsumeQueue stores the actual user consumption location information, which are also flushed to disk in sequential manner.
 
 > pros：
 
-1. A very small amount of data on a single consume queue. Lightweight.
-2. Sequential access in disk, avoid disk lock contention, and not incur high disk iowait when more and more queues created.
+1. Each consume queue is lightweight and contains limited amount of meta data.
+2. Access to disk is totally sequential, which avoids disk lock contention, and will not incur high disk IO wait when a large number of queues has been created.
 
 > cons：
 
-1. Message consumption will read ConsumeQueue firstly, then read CommitLog if not found.This process brings a certain cost in the worst cases.
-2. CommitLog and ConsumeQueue must be keep completely consistent, increasing the complexity of programming model.
+1. Message consumption will first read consume queue, then commit log. This process brings in certain cost in worst cases.
+2. Commit log and consume queues need to be logically consistent, which introduces extra complexities to programming model.
 
 > Design Motivation：
 
-1. Random read. Read as much as possible to increase the PAGECACHE hit rate, and reduce read io operations. So bigger memory is still better. If too much message accumulation happened, whether the read performance will fall very badly? the answer is negative, reasons are as follows:
-	- [PAGECACHE prefetch](https://en.wikipedia.org/wiki/Cache_prefetching), even if the 1K message, the system will read more data in advance. You may hit the memory in the next read operation.
-	- Random access CommitLog from disk. If set the I/O scheduler to noop in SSD, the read qps will greatly accelerate than others scheduler algorithm.
-2. Because ConsumeQueue stores little information, mainly associated with consumption locations.also, supports random read. Under PAGECACHE prefetch control, read performance almost keep consistent with the main memory, even if in the message accumulation cases. In this particular case，ConsumeQueue will not hinder the read performance.
-3. CommitLog stores all the meta information, including the message data. similar db's redolog. So as long as CommitLog exists, even if the ConsumeQueue data is lost, data can be recovered.
+1. Random read. Read as much as possible to increase the page cache hit rate, and reduce read IO operations. So large memory is still preferable. If massive messages are accumulated, would the read performance degrade badly? The answer is negative, reasons are as follows:
+	- Even if size of the message is only 1KB, the system will read more data in advance, see [PAGECACHE prefetch](https://en.wikipedia.org/wiki/Cache_prefetching) for reference. This means for the sequel data read, it is access to main memory that will be carried out instead of slow disk IO read.
+	- Random access CommitLog from disk. If set the I/O scheduler to NOOP in case of SSD, the read qps will be greatly accelerated thus much faster than other elevator scheduler algorithm.
+2. Given ConsumeQueue stores fixed-size metadata only, which is mainly used to record consuming progress, random read is well supported. Taking advantage of page cache prefetch, accessing ConsumeQueue is as efficiently fast as accessing main memory, even if it's in the case of massive message accumulation. As a result，ConsumeQueue will NOT bring in noticeable penalty to the read performance.
+3. CommitLog stores virtually all information, including the message data. Similar to redo log of relational database, consume queues, message key indexes and all other required data can be completely recovered as long as commit log exists..
