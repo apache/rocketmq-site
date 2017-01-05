@@ -6,7 +6,7 @@ modified: 2016-12-24T15:01:43-04:00
 
 There are several ways to setup Git for committers and contributors.<br />
 Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers.<br />
-To keep the commit history clean take note of the use of `--squash` when merging into apache/master.
+To keep the commit history clean, make use of `--squash` when merging into `apache/master`.
 
 {% include toc %}
 
