@@ -19,7 +19,7 @@ Cloning this locally will set up `origin` to point to your remote fork on github
 Now you can create your pull requests.
 
 You will need to update a local master sometimes (to merge to your development branches sometimes).
-For this, you have to add remote for Apache Ignite mirror as follow,
+For this, you have to add remote for RocketMQ mirror as follow,
 
     git remote add upstream https://github.com/apache/incubator-rocketmq.git
 
