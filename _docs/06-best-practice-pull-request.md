@@ -4,23 +4,40 @@ permalink: /docs/pull-request/
 modified: 2016-12-24T15:01:43-04:00
 ---
 
-There are several ways to setup Git for committers and contributors. Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers. To keep the commit history clean take note of the use of --squash below when merging into apache/master.
+There are several ways to setup Git for committers and contributors.<br />
+Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers.<br />
+To keep the commit history clean take note of the use of `--squash` when merging into apache/master.
 
 {% include toc %}
 
 # Git setup for Contributors
-This describes setup for one local repo and two remotes. It allows you to push the code on your machine to either your Github repo or to git-wip-us.apache.org. You will want to fork github's apache/incubator-rocketmq to your own account on github, this will enable Pull Requests of your own. Cloning this fork locally will set up "origin" to point to your remote fork on github as the default remote. So if you perform "git push origin master" it will go to github.
+First of all, fork github’s `apache/incubator-rocketmq` to your own account on github and clone it as follows,
 
-To attach to the apache git repo do the following:
+    git clone https://github.com/<your_github_name>/incubator-rocketmq.git
+
+Cloning this locally will set up `origin` to point to your remote fork on github as the default remote.
+Now you can create your pull requests.
+
+You will need to update a local master sometimes (to merge to your development branches sometimes).
+For this, you have to add remote for Apache Ignite mirror as follow,
+
+    git remote add upstream https://github.com/apache/incubator-rocketmq.git
+
+# Git setup for Committers
+In addition to contributors' configurations, committers will have to attach the apache git repo:
 
     git remote add apache https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git
     
-To check your remote setup
-git remote -v
-you should see something like this:
+To check your remote setup, issue
 
-    origin    https://github.com/your-github-id/incubator-rocketmq.git (fetch)
-    origin    https://github.com/your-github-id/incubator-rocketmq.git (push)
+    git remote -v
+    
+You should see something like this:
+
+    origin    https://github.com/<your_github_name>/incubator-rocketmq.git (fetch)
+    origin    https://github.com/<your_github_name>/incubator-rocketmq.git (push)
+    upstream  https://github.com/apache/incubator-rocketmq.git (fetch)
+    upstream  https://github.com/apache/incubator-rocketmq.git (push)
     apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (fetch)
     apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (push)
     
@@ -53,7 +70,9 @@ Push your branch to Github:
 # How to create a PR (contributors)
 Create pull requests: [GitHub PR docs](https://help.github.com/articles/creating-a-pull-request/).
 
-Pull requests are made to apache/incubator-rocketmq repository on Github. In the Github UI you should pick the master branch to target the PR as described for committers. This will be reviewed and commented on so the merge is not automatic. This can be used for discussing a contributions in progress.
+_Make sure you follow_ [Coding Guidelines]{http://rocketmq.apache.org/docs/code-guidelines/} _before you create a pull request._
+
+Pull requests are made to `apache/incubator-rocketmq` repository on Github. In the Github UI you should pick the master branch to target the PR as described for committers. This will be reviewed and commented on so the merge is not automatic. This can be used for discussing a contributions in progress.
 
 # Merging a PR (yours or contributors)
 Start with reading [GitHub PR merging locally](https://help.github.com/articles/checking-out-pull-requests-locally/). Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor's commits. In order to do that, as well as close the PR at the same time, it is recommended to use squash commits.
