@@ -4,9 +4,7 @@ permalink: /docs/pull-request/
 modified: 2016-12-24T15:01:43-04:00
 ---
 
-There are several ways to setup Git for committers and contributors.<br />
-Contributors can safely setup Git any way they choose but committers should take extra care since they can push new commits to the master at Apache and various policies there make backing out mistakes problematic. Therefore all but very small changes should go through a PR, even for committers.<br />
-To keep the commit history clean, make use of `--squash` when merging into `apache/master`.
+This page guides you through Git setup and contribution process.
 
 {% include toc %}
 
@@ -50,6 +48,8 @@ Now if you want to experiment with a branch everything, by default, points to yo
 
     git checkout -b ROCKETMQ-xxxx #xxxx typically is a JIRA ticket number
     
+_To guarantee code quality of the master branch, all but minor changes should go through pull requests reviewed by peer committers._
+    
 # Do some work on the branch
 
     git commit -a -m "doing some work"
@@ -69,7 +69,7 @@ Push your branch to Github:
 2. Click the green "Compare, review, and create pull request" button.You can edit the to and from for the PR if it isn't correct. The "base fork" should be apache/incubator-rocketmq unless you are collaborating separately with one of the committers on the list. The "base" will be master. Don't submit a PR to one of the other branches unless you know what you are doing. The "head fork" will be your forked repo and the "compare" will be your ROCKETMQ-xxxx branch.
 3. Click the "Create pull request" button and name the request "ROCKETMQ-xxxx" all caps. This will connect the comments of the PR to the mailing list and JIRA comments.
 4. From now on the PR lives on github's apache/incubator-rocketmq. You use the commenting UI there.
-5. If you are looking for a review or sharing with someone else say so in the comments but don't worry about automated merging of your PR--you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Jira and the mailing list.
+5. If you are looking for a review or sharing with someone else say so in the comments but don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Jira and the mailing list.
 6. When you are satisfied and want to push it to Apache's remote repo proceed with Merging a PR
 
 # How to create a PR (contributors)
@@ -87,7 +87,7 @@ Merging pull requests are equivalent to a "pull" of a contributor's branch:
     git pull apache master   # fast-forward to current remote HEAD
     git pull --squash https://github.com/cuser/incubator-rocketmq.git ROCKETMQ-xxxx  # merge to master
     
---squash ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Read git help for merge or pull for more information about --squash option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve conflicts, if any, or ask a contributor to rebase on top of master, if PR went out of sync.
+`--squash` ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Read git help for merge or pull for more information about `--squash` option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve conflicts, if any, or ask a contributor to rebase on top of master, if PR went out of sync.
 
 If you are ready to merge your own (committer's) PR you probably only need to merge (not pull), since you have a local copy that you've been working on. This is the branch that you used to create the PR.
 
