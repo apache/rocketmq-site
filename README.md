@@ -17,9 +17,9 @@ This website is based on Jekyll and a Jekyll theme named Minimal Mistakes.
 5. bundle exec jekyll serve
 
 ## Deploy to asf-site
-1. Generate the site to content directory: `bundle exec jekyll build`
-2. Check the changes and commit to master.
-3. Merge the changes to asf-site branch.
+1. Merge the changes and checkout to asf-site
+2. Generate the site to content directory: `bundle exec jekyll build`
+3. Check the changes and commit.
 4. Push asf-site to remote branch.
 
 ## Questions
