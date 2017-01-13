@@ -75,7 +75,7 @@ Push your branch to Github:
 # How to create a PR (contributors)
 Before you create a pull request, make sure
 1. A corresponding [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) issue is created and has a clear problem description.
-2. You follow [Coding Guidelines](http://rocketmq.apache.org/docs/code-guidelines/).
+2. You follow [Coding Guidelines](/docs/code-guidelines/).
 
 For information on creating pull requests, see [GitHub PR docs](https://help.github.com/articles/creating-a-pull-request/).
 
