@@ -16,7 +16,7 @@ The following is a list of developers with commit privileges that have directly 
 |:---|:---|:---|:---|:---|:---|
 |![bsnyde](/assets/images/about/bsnyder.jpeg)|bsnyder| [@bsnyder](https://github.com/bsnyder)|bsnyder@apache.org |Mentor/PMC Member| -7 |
 |![brian](/assets/images/about/brianm.jpeg)|brianm| [@brianm](https://github.com/brianm)|brianm@apache.org |Mentor/PMC Member| -8 |
-|![WillemJiang](/assets/images/about/WillemJiang.jpeg)|nianjiang| [@WillemJiang](https://github.com/WillemJiang)|nianjiang@apache.org |Mentor/PMC Member| +8 |
+|![WillemJiang](/assets/images/about/WillemJiang.jpeg)|ningjiang| [@WillemJiang](https://github.com/WillemJiang)|ningjiang@apache.org |Mentor/PMC Member| +8 |
 |![lukehan](/assets/images/about/lukehan.jpeg)|lukehan| [@lukehan](https://github.com/lukehan)|lukehan@apache.org |Mentor/PMC Member| +8 |
 |![justinmclean](/assets/images/about/justinmclean.jpeg)|jmclean| [@justinmclean](https://github.com/justinmclean)|jmclean@apache.org |Mentor/PMC Member| +11 |
 |![vongosling](/assets/images/about/vongosling.jpeg)|vongosling|[@vongosling](https://github.com/vongosling)|vongosling@apache.org |Committer/PMC Member| +8 |
