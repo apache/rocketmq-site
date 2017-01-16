@@ -22,8 +22,8 @@ This quick start guide is to give detailed instructions, helping you setup Rocke
 ```shell
   > git clone https://github.com/apache/incubator-rocketmq.git
   > cd incubator-rocketmq
-  > mvn clean package install assembly:assembly -U
-  > cd target/apache-rocketmq-broker/apache-rocketmq/
+  > mvn clean package install -Prelease-all assembly:assembly -U
+  > cd target/apache-rocketmq-all/
 ```
 
  
