@@ -14,14 +14,15 @@ Studies have shown that 80% of development time spent on software maintenance wh
 
 # Code template for idea
 ## Import code style 
+![codestyle](/assets/images/code_guidelines/codestyle-pre.png)
+
 ![codestyle](/assets/images/code_guidelines/codestyle.png)
 
 ## Import copyright
-### 1. Import from directory style -> copyright -> Apache.xml
 ![copyright](/assets/images/code_guidelines/copyright.png)
-### 2. Choose Apache copyright
-![copyright-choose](/assets/images/code_guidelines/copyright-choose.png)
 
+## Choose Apache copyright
+![copyright-choose](/assets/images/code_guidelines/copyright-choose.png)
 
 ## Remove author javadoc tag
 ![author-javadoc-tag](/assets/images/code_guidelines/author-tag.png)
