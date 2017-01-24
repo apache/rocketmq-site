@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-01-24T13:56:32+08:00</updated><id>//</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><entry><title type="html">Release Notes - Apache RocketMQ - Version 4.0.0-incubating</title><link href="/release_notes/release-notes-4.0.0-incubating/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ - Version 4.0.0-incubating" /><published>2017-01-24T00:00:00+08:00</published><updated>2017-01-24T00:00:00+08:00</updated><id>/release_notes/release-notes-4.0.0-incubating</id><content type="html" xml:base="/release_notes/release-notes-4.0.0-incubating/">&lt;p&gt;Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release of RocketMQ. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;/docs/quick-start/&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt; Bug
+&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-2&quot;&gt;ROCKETMQ-2&lt;/a&gt;] - Broker tests fail with &amp;quot;Address
+        already in use&amp;quot;
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-5&quot;&gt;ROCKETMQ-5&lt;/a&gt;] - Avoid creating directories in
+        UtilAll#getDiskPartitionSpaceUsedPercent()
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-19&quot;&gt;ROCKETMQ-19&lt;/a&gt;] - Thread-unsafe in
+        MQAdminImpl#queryMessage
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-22&quot;&gt;ROCKETMQ-22&lt;/a&gt;] - new funciton &amp;#39;printWaterMark&amp;#39;
+        in version 3.5.8(4.0.0) will cause a ClassCastException
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-25&quot;&gt;ROCKETMQ-25&lt;/a&gt;] - Query Msg by key: Possible
+        concurrent access to LinkedList
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-30&quot;&gt;ROCKETMQ-30&lt;/a&gt;] - Message Filter example has
+        incorrect method signature
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-31&quot;&gt;ROCKETMQ-31&lt;/a&gt;] - Deletion needed for
+        `$HOME/rmq_bk_gc.log` in `bin/mqbroker`
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-33&quot;&gt;ROCKETMQ-33&lt;/a&gt;] - CPU Occupy 100%
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-34&quot;&gt;ROCKETMQ-34&lt;/a&gt;] - Potential NPE in
+        NettyConnetManageHandler#connect
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-35&quot;&gt;ROCKETMQ-35&lt;/a&gt;] - Consumer client can’t persist
+        consume offset table to Broker
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-45&quot;&gt;ROCKETMQ-45&lt;/a&gt;] - Delete consume queue hang file
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-47&quot;&gt;ROCKETMQ-47&lt;/a&gt;] - Broker updates NameServer
+        address list on startup twice
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-59&quot;&gt;ROCKETMQ-59&lt;/a&gt;] - Charset misusage in
+        RocketMQSerializable
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-64&quot;&gt;ROCKETMQ-64&lt;/a&gt;] - Remove duplication code line in
+        BrokerOuterAPI.registerBroker method
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-70&quot;&gt;ROCKETMQ-70&lt;/a&gt;] - Duplicate methods in
+        NettyRemotingClient
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt; Improvement
+&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-8&quot;&gt;ROCKETMQ-8&lt;/a&gt;] - Standardize build script using
+        maven wrapper
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-11&quot;&gt;ROCKETMQ-11&lt;/a&gt;] - Improve concision - Reuse local
+        variable &amp;#39;brokerAddrs&amp;#39; in RouteInfoManager.getSystemTopicList method
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-14&quot;&gt;ROCKETMQ-14&lt;/a&gt;] - Remoting invoke callback shoule
+        be invoked in an executor rather than in current thread.
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-16&quot;&gt;ROCKETMQ-16&lt;/a&gt;] - Improve the codes of setting
+        topic.json&amp;#39;s and subscriptionGroup.json&amp;#39;s path
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-18&quot;&gt;ROCKETMQ-18&lt;/a&gt;] - Repackage com.alibaba to
+        org.apache and change maven coordinate
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-20&quot;&gt;ROCKETMQ-20&lt;/a&gt;] - Default &amp;#39;consumeFromWhere&amp;#39;
+        is inconsist with example&amp;#39;s
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-29&quot;&gt;ROCKETMQ-29&lt;/a&gt;] -
+        org.apache.rocketmq.common.help.FAQUrl refers to docs in Chinese
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-32&quot;&gt;ROCKETMQ-32&lt;/a&gt;] - Improve concision - Reuse local
+        variable &amp;#39;brokerAddrs&amp;#39; in RouteInfoManager.getSystemTopicList method
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-37&quot;&gt;ROCKETMQ-37&lt;/a&gt;] - Log output information is not
+        accurate
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-43&quot;&gt;ROCKETMQ-43&lt;/a&gt;] - code style file didn&amp;#39;t match
+        check-style in typecast
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-50&quot;&gt;ROCKETMQ-50&lt;/a&gt;] - Polish unit tests for RocketMQ
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-60&quot;&gt;ROCKETMQ-60&lt;/a&gt;] - Checklist review for
+        4.0.0-incubating release
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-69&quot;&gt;ROCKETMQ-69&lt;/a&gt;] - Add link to RocketMQ web page
+        into README.md
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-1&quot;&gt;ROCKETMQ-1&lt;/a&gt;] - Update build and clean up ip for
+        4.0.0-incubating
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-38&quot;&gt;ROCKETMQ-38&lt;/a&gt;] - Polish unit tests for
+        rocketmq-remoting
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-51&quot;&gt;ROCKETMQ-51&lt;/a&gt;] - Polish unit tests for
+        rocketmq-broker
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-52&quot;&gt;ROCKETMQ-52&lt;/a&gt;] - Polish unit tests for
+        rocketmq-client
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-53&quot;&gt;ROCKETMQ-53&lt;/a&gt;] - Polish unit tests for
+        rocketmq-commons
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-54&quot;&gt;ROCKETMQ-54&lt;/a&gt;] - Polish unit tests for
+        rocketmq-namesrv
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-56&quot;&gt;ROCKETMQ-56&lt;/a&gt;] - Polish unit tests for
+        rocketmq-store
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-57&quot;&gt;ROCKETMQ-57&lt;/a&gt;] - Polish unit tests for
+        rocketmq-tools
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-58&quot;&gt;ROCKETMQ-58&lt;/a&gt;] - Add integration test for
+        RocketMQ
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-62&quot;&gt;ROCKETMQ-62&lt;/a&gt;] - Polish Maven assembly release
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-9&quot;&gt;ROCKETMQ-9&lt;/a&gt;] - Errors in rocketmq-store module
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt; Task
+&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-3&quot;&gt;ROCKETMQ-3&lt;/a&gt;] - Clean up the unit test of rocketmq
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-13&quot;&gt;ROCKETMQ-13&lt;/a&gt;] - Wrong log level for
+        AcceptSocketService termination
+    &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><category term="Release_Notes" /><category term="RocketMQ" /><category term="Version" /><summary type="html">Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.</summary></entry><entry><title type="html">Launch RocketMQ Code Marathon</title><link href="/activity/launch-rocketmq-code-marathon/" rel="alternate" type="text/html" title="Launch RocketMQ Code Marathon" /><published>2017-01-05T00:00:00+08:00</published><updated>2017-01-05T00:00:00+08:00</updated><id>/activity/launch-rocketmq-code-marathon</id><content type="html" xml:base="/activity/launch-rocketmq-code-marathon/">&lt;p&gt;&lt;img src=&quot;/assets/images/blog/banner.jpg&quot; alt=&quot;Banner&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;rocketmq-code-marathon-&quot;&gt;ROCKETMQ CODE MARATHON &lt;a href=&quot;/assets/attachment/launch-rocketmq-code-marathon.pdf&quot;&gt;&lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h5 id=&quot;january-5th-2017&quot;&gt;January 5th 2017&lt;/h5&gt;
+
+&lt;h2 id=&quot;objective&quot;&gt;Objective:&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Foster Community&lt;/li&gt;
+  &lt;li&gt;Prosper Ecology&lt;/li&gt;
+  &lt;li&gt;Incubate Committers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;output&quot;&gt;Output:&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;1~3 Milestone Releases Per Project&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;rewards&quot;&gt;Rewards:&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Two Potential Committers Per Project&lt;/li&gt;
+  &lt;li&gt;Free Offers to Active Participants for On-Site Meetup&lt;/li&gt;
+  &lt;li&gt;PMC Memberships for Qualified Committers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;projects&quot;&gt;PROJECTS&lt;/h2&gt;
+
+&lt;h3 id=&quot;rocketmq-console&quot;&gt;RocketMQ-Console&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Brand New UI&lt;/li&gt;
+  &lt;li&gt;I18n Support&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://projects.spring.io/spring-boot/&quot;&gt;Spring Boot&lt;/a&gt; + &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; Recommended&lt;/li&gt;
+  &lt;li&gt;Join by Creating Pull Requests against &lt;a href=&quot;https://github.com/rocketmq/rocketmq-console-ng&quot;&gt;RocketMQ Console Repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;rocketmq-jms&quot;&gt;RocketMQ-JMS&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Supporting JMS 2.0 Protocol&lt;/li&gt;
+  &lt;li&gt;Rich Documentation and Good Test Cases Coverage&lt;/li&gt;
+  &lt;li&gt;Join by Creating Pull Requests against &lt;a href=&quot;https://github.com/rocketmq/rocketmq-jms&quot;&gt;RocketMQ JMS Repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;rocketmq-flume&quot;&gt;RocketMQ-Flume&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Supporting Latest &lt;a href=&quot;http://flume.apache.org/&quot;&gt;Flume&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Rich Documentation and Good Test Cases Coverage&lt;/li&gt;
+  &lt;li&gt;Join by Creating Pull Requests against &lt;a href=&quot;https://github.com/rocketmq/rocketmq-flume-ng&quot;&gt;RocketMQ Flume Repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><category term="Activity" /><category term="Code" /><category term="Marathon" /><summary type="html">ROCKETMQ CODE MARATHON 
+January 5th 2017</summary></entry><entry><title type="html">Mastering Component Compatible Dependency</title><link href="/maven/mastering-component-compatible-dependency/" rel="alternate" type="text/html" title="Mastering Component Compatible Dependency" /><published>2016-12-23T00:00:00+08:00</published><updated>2016-12-23T00:00:00+08:00</updated><id>/maven/mastering-component-compatible-dependency</id><content type="html" xml:base="/maven/mastering-component-compatible-dependency/">&lt;p&gt;This article mainly includes three parts.at first,I will introduce compatibility principle(more details see &lt;a href=&quot;http://blog.csdn.net/fengjia10/article/details/7799227&quot;&gt;here&lt;/a&gt;) briefly.followed by a detailed elaborating about Java component compatible dependency,including the interface-oriented programming,single component signature protection,single component compatibility protection and multi-component compatibility compile time checking.Finally is the review and prospect,especially about &lt;strong&gt;Dependency Mediator&lt;/strong&gt; project.&lt;/p&gt;
+
+&lt;aside class=&quot;sidebar__right&quot;&gt;
+&lt;nav class=&quot;toc&quot;&gt;
+    &lt;header&gt;&lt;h4 class=&quot;nav__title&quot;&gt;&lt;i class=&quot;fa fa-file-text&quot;&gt;&lt;/i&gt; On This Page&lt;/h4&gt;&lt;/header&gt;
+&lt;ul class=&quot;toc__menu&quot; id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#compatibility&quot; id=&quot;markdown-toc-compatibility&quot;&gt;Compatibility&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#component-compatible-dependency&quot; id=&quot;markdown-toc-component-compatible-dependency&quot;&gt;Component Compatible Dependency&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#interface-oriented-programming&quot; id=&quot;markdown-toc-interface-oriented-programming&quot;&gt;Interface-oriented programming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#single-component-signature-protection&quot; id=&quot;markdown-toc-single-component-signature-protection&quot;&gt;Single component signature protection&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#single-component-compatibility-protection&quot; id=&quot;markdown-toc-single-component-compatibility-protection&quot;&gt;Single component compatibility protection&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#multi-component-compatibility-compile-time-checking&quot; id=&quot;markdown-toc-multi-component-compatibility-compile-time-checking&quot;&gt;Multi-component compatibility compile time checking&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/nav&gt;
+&lt;/aside&gt;
+
+&lt;h1 id=&quot;compatibility&quot;&gt;Compatibility&lt;/h1&gt;
+
+&lt;p&gt;what is compatibility？it is also the key to understanding the compatible dependency.Compatibility, often catch our eyes through two forms,&lt;strong&gt;binary compatibility&lt;/strong&gt;,that means they can run the same executable code, typically machine code for a general purpose computer CPU.within the framework of Release-to-Release Binary Compatibility in SOM (Forman, Conner, Danforth, and Raper, Proceedings of OOPSLA ‘95), Java programming language binaries are binary compatible under all relevant transformations that the authors identify (with some caveats with respect to the addition of instance variables). here is a list of some important binary compatible changes that the Java programming language supports:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reimplementing existing methods, constructors, and initializers to improve performance.&lt;/li&gt;
+  &lt;li&gt;Changing methods or constructors to return values on inputs for which they previously either threw exceptions that normally should not occur or failed by going into an infinite loop or causing a deadlock.&lt;/li&gt;
+  &lt;li&gt;Adding new fields, methods, or constructors to an existing class or interface.&lt;/li&gt;
+  &lt;li&gt;Deleting private fields, methods, or constructors of a class.&lt;/li&gt;
+  &lt;li&gt;When an entire package is updated, deleting default (package-only) access fields, methods, or constructors of classes and interfaces in the package.&lt;/li&gt;
+  &lt;li&gt;Reordering the fields, methods, or constructors in an existing type declaration.&lt;/li&gt;
+  &lt;li&gt;Moving a method upward in the class hierarchy.&lt;/li&gt;
+  &lt;li&gt;Reordering the list of direct superinterfaces of a class or interface.&lt;/li&gt;
+  &lt;li&gt;Inserting new class or interface types in the type hierarchy.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Generally,java language is &lt;strong&gt;upwards binary-compatible&lt;/strong&gt; with previous version,such as Java SE 6 is upwards binary-compatible with J2SE 5.0 except for some minor incompatibilities.You can get details from &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/compatibility-137541.html#binary&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another compatibility form,we call it &lt;strong&gt;source compatibility&lt;/strong&gt;,meaning that recompilation is necessary.Java language does not support downward source compatibility. Such as if source files use new language features or Java SE platform APIs, they will not be usable with an earlier version of the Java platform. Usually it will throw similar error like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;UnsupportedClassVersionError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MessageConsumer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;Unsupported&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;major&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;51.0&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ClassLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;defineClass1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Native&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ClassLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;defineClassCond&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Unknown&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Java language source compatibility policy is as follows,except for any incompatibilities listed further below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Maintenance releases (such as 1.7.25, 1.7.26) do not introduce any new language features or APIs. They will maintain source-compatibility with each other.&lt;/li&gt;
+  &lt;li&gt;Functionality releases and major releases (such as 1.4.0,5.0,6.0,7.0,8.0) maintain upwards but not downwards source-compatibility.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s sum up before going on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Document those incompatibility cases as much as possible, even some rare circumstances and corner cases.&lt;/li&gt;
+  &lt;li&gt;Recommend developer to provide facilities that alert developers to the impact of changes on pre-existing binaries that cannot be recompiled.&lt;/li&gt;
+  &lt;li&gt;Generally speaking,Binary Compatibility problems may occur in the following situations:&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Replacing the old with the new&lt;/strong&gt;,such as the Java platform Profiling Architecture in the Java SE6,JVMDI was removed and JVMPI was disabled in Java SE 6.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Combinatorial resolution&lt;/strong&gt;,such as Non class files have been moved from rt.jar in Java SE 6.if -Xbootclasspath:&lt;path to=&quot;&quot; rt.jar=&quot;&quot;&gt; is specified,and request any resource files will fail since these resources now reside in a different jar file called resources.jar.&lt;/path&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Behavior change&lt;/strong&gt;,such as Java SE 6 will throw an OverlappingFileLockException,if the application attempts to lock the overlapping region other instances of FileChannel that has been locked, in order to realize the backward compatibility, it provides disableSystemWideOverlappingFileLockCheck system properties. again, also in Java SE 6, jar will preserve file modification dates and times during extract, through the sun.tools.jar.useExtractionTime=true to achieve backward compatibility.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Structure change&lt;/strong&gt;,this is also the key problem to solve in &lt;strong&gt;Dependency Mediator&lt;/strong&gt; project. generally speaking,modification and deletion belonging to incompatible operations.and more attentions must be paid in the RPC service maintenance, more detailed description,please refer to an &lt;a href=&quot;http://blog.csdn.net/fengjia10/article/details/7799227&quot;&gt;article&lt;/a&gt; I wrote before. also you can read the the thirteenth chapter of Java language specification.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;component-compatible-dependency&quot;&gt;Component Compatible Dependency&lt;/h1&gt;
+
+&lt;p&gt;This article don’t talk about &lt;strong&gt;dependency analysis&lt;/strong&gt; and &lt;strong&gt;dependency decoupling&lt;/strong&gt;,if you care these topics,please read &lt;a href=&quot;http://java.dzone.com/articles/dependency-analysis-and-1&quot;&gt;Dependency Analysis and the Modularisation of Java Programs&lt;/a&gt;.highly recommending you try to dive into open source project &lt;a href=&quot;http://xplrarc.massey.ac.nz/&quot;&gt;Architecture Explorer&lt;/a&gt;,through bcel technology,analyzing and measuring component’s dependency relationship.but in my opinion,&lt;a href=&quot;http://clarkware.com/software/JDepend.html&quot;&gt;Jdepend&lt;/a&gt; was surely the most distinguished tool in dependency analysis and dependency decoupling area.it traverses Java class file directories and generates design quality metrics for each Java package,also allows you to automatically measure the quality of a design in terms of its extensibility, reusability, and maintainability to manage package dependencies effectively.&lt;/p&gt;
+
+&lt;p&gt;Let’s return,ask yourself，have you ever been disturbed by the following problems?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Your service depend a volatile service,volatile means your service depending neither an abstract class nor a interface,this class update at irregular intervals,you often encountered errors such as &lt;strong&gt;NoSuchMethodError&lt;/strong&gt;,&lt;strong&gt;NoSuchFieldError&lt;/strong&gt; and &lt;strong&gt;NoClassDefFoundError&lt;/strong&gt; etc.&lt;/li&gt;
+  &lt;li&gt;You are developing a new feature,but this feature can not backward compatible with previous version,
+what should you do ? How do you give a incompatible list in your release report.&lt;/li&gt;
+  &lt;li&gt;Java language library is a superb collection of beautiful things,how do you make a rational dependency exclusion and effective mediate various dependency problems when developing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is the time to introduce the key idea - &lt;strong&gt;Mediating Components Compatible Dependency&lt;/strong&gt;.Specifically,it includs the following basic principles:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Interface-oriented programming&lt;/li&gt;
+  &lt;li&gt;Single component signature protection&lt;/li&gt;
+  &lt;li&gt;Single component compatibility protection&lt;/li&gt;
+  &lt;li&gt;Multi-component compatibility compile time checking&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;interface-oriented-programming&quot;&gt;Interface-oriented programming&lt;/h2&gt;
+
+&lt;p&gt;Interface-oriented programming,It’s easier said than done.I will cite SLF4J design philosophy explain this principle.&lt;/p&gt;
+
+&lt;p&gt;Differing from commons logging,SLF4J use &lt;strong&gt;static binder technology&lt;/strong&gt; so as to avoid notorious &lt;a href=&quot;http://articles.qos.ch/classloader.html&quot;&gt;classloader problem&lt;/a&gt;,every concrete log implementation must 
+have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBinder.thus you just depend SLF4J api,not concerned about underlying implementation.some people may asking,why choose SLF4J not commons logging，I can also depend commons logging api but not concret implementation？it’s not performance but classloader problem.JCL discovery process relies on classloader hacks to find the logging framework at runtime but this mechanism leads to numerous problems including unexpected behavior,hard to debug classloading problems resulting in increased complexity.This is nicely captured by Ceki (the author of Log4J, SLF4J and Logback) in Think again before adopting the commons-logging API (which also mentions memory leaks problems observed with JCL).and this is why SLF4J, which uses static bindings, has been created. Let’s see.how to find the concrete realizations in SLF4J:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// We need to use the name of the StaticLoggerBinder class, but we can't reference&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// the class itself.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;STATIC_LOGGER_BINDER_PATH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;org/slf4j/impl/StaticLoggerBinder.class&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;cm&quot;&gt;/**
+  * It is LoggerFactory's responsibility to track version changes and manage
+  * the compatibility list.
+  * It is assumed that all versions in the 1.6 are mutually compatible.
+  */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;API_COMPATIBILITY_LIST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.6&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1.7&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// private constructor prevents instantiation&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LoggerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;versionSanityCheck&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requested&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StaticLoggerBinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;REQUESTED_API_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;API_COMPATIBILITY_LIST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requested&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;API_COMPATIBILITY_LIST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The requested version &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requested&lt;/span&gt;
+           &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; by your slf4j binding is not compatible with &quot;&lt;/span&gt;
+           &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;API_COMPATIBILITY_LIST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;See &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VERSION_MISMATCH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; for further details.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;NoSuchFieldError&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nsfe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;// given our large user base and SLF4J's commitment to backward&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;// compatibility, we cannot cry here. Only for implementations&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;// which willingly declare a REQUESTED_API_VERSION field do we&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;// emit compatibility warnings.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;// we should never reach here&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;Util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Unexpected problem occured during version sanity check&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;you can use these skills at your library.just Let others depend on your interface package,detecting certain implementation statically.&lt;/p&gt;
+
+&lt;p&gt;If you have developed an old version library,naming it as 2.x.x.next version,you hope to refactor some implementations,how to process multi-version compatibility?here is a skill from maven dependency plugin:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isMaven31&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;maven31&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isMaven2x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;maven2&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;maven3&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+* Check the current Maven version to see if it's Maven 2.x.
+*/&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isMaven2x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;canFindCoreClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;org.apache.maven.project.DependencyResolutionRequest&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Maven 3 specific&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+* Check the current Maven version to see if it's Maven 3.1.
+*/&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isMaven31&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;canFindCoreClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;org.eclipse.aether.artifact.Artifact&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Maven 3.1 specific&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;single-component-signature-protection&quot;&gt;Single component signature protection&lt;/h2&gt;
+
+&lt;p&gt;Secondly,Single component signature protection,you can using &lt;a href=&quot;http://mojo.codehaus.org/animal-sniffer/&quot;&gt;Animal Sniffer project&lt;/a&gt; as well-known Guava library,Animal Sniffer provides tools to assist verifying that classes compiled with a newer JDK/API are compatible with an older JDK/API.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;codehaus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mojo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;animal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sniffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maven&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;codehaus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mojo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sun&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sun&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;phase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;phase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;goals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;goals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So from now on, when you performing a mvn test or mvn install operation. If there is an incompatibility in one of the projects, you would find some output like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;animal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;sniffer:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;execution:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Checking&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unresolved&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;references&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;codehaus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mojo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;sun:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ERROR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Undefined&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;reference:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Ljava&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharSequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Z&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;workspace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kafka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kafka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Producer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;More details please see &lt;a href=&quot;http://blog.gvsig.org/2011/07/25/hunting-api-incompatibilities-with-the-animal-sniffer-project/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;single-component-compatibility-protection&quot;&gt;Single component compatibility protection&lt;/h2&gt;
+
+&lt;p&gt;If your a SOA develper,you almost concerned with single component compatibility protection.[Clirr project] (http://clirr.sourceforge.net/) may be your best choice.Clirr is a tool that checks Java libraries for binary and source compatibility with older releases. Basically you give it two sets of jar files and Clirr dumps out a list of changes in the public api. The Clirr Ant task can be configured to break the build if it detects incompatible api changes. In a continuous integration process Clirr can automatically prevent accidental introduction of binary or source compatibility problems.&lt;/p&gt;
+
+&lt;p&gt;How to use it？just add some config snippets in your pom :&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;codehaus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mojo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clirr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maven&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;then,run &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clirr:check&lt;/code&gt;,output may be like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clirr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maven&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;artifact&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;intl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cmq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;checking&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2bmirror&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Comparing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;version:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ERROR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7005&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CompletionListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCompletion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;its&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ERROR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7005&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CompletionListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;its&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ERROR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7005&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MessageProducer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonResult&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;its&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ERROR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7005&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MessageProducer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonResult&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CompletionListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;changed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;its&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alibaba&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CommonMessage&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Some inspiration in &lt;strong&gt;Dependency Mediator&lt;/strong&gt; project just come from here.more topics about compatible,you can reference from series article &lt;a href=&quot;http://wiki.eclipse.org/index.php/Evolving_Java-based_APIs&quot;&gt;Evolving Java-based APIs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;multi-component-compatibility-compile-time-checking&quot;&gt;Multi-component compatibility compile time checking&lt;/h2&gt;
+
+&lt;p&gt;Last but not least,Multi-component compatibility compile time checking.it’s the time to formally recommend project &lt;strong&gt;Dependency Mediator&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;unlike karaf and other lightness modular technology(like osgi,class names do not need to be unique,but the combination of class names and their defining ClassLoader must to be unique),&lt;strong&gt;Dependency Mediator&lt;/strong&gt; try to remedy component dependency conflicting problem before the runtime rather than using customized &lt;a href=&quot;http://www.onjava.com/pub/a/onjava/2005/04/13/dependencies.html&quot;&gt;classLoader&lt;/a&gt; to agree with the coexistence of different version components,thus avoid some well-konwn errors,such as &lt;strong&gt;NoSuchMethodError&lt;/strong&gt;,&lt;strong&gt;NoSuchFieldError&lt;/strong&gt; and &lt;strong&gt;NoClassDefFoundError&lt;/strong&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;What is the principle of &lt;strong&gt;Dependency Mediator&lt;/strong&gt;？&lt;strong&gt;Dependency Mediator&lt;/strong&gt; try to mediate various component conflicting problems.It uses jar or class as the smallest component unit,that is ComponentEntry:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ComponentEntry&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Comparable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ComponentEntry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * Similar file name
+   */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;pathName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * Component name ,such as fully-qualified class name or jar name
+   */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * Name of the jar which contains this entry,this field may be null
+   */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;jarName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * Jar entry meta info,if it is a jar file,this field may be null
+   */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JarEntry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It could scan directory(also including classpath,if you set system property scanClasspath) and POM.if it happen to jar,but you setting checkJars to false,it could detect inner MANIFEST file,using &lt;strong&gt;Build-Jdk&lt;/strong&gt; and &lt;strong&gt;Built-By&lt;/strong&gt; properties to decide whether duplicated jars.thus,output only report whether including duplicated jar.but if you 
+setting checkJars to true or nothing to do with this property,it will further analyzes whether existing incompatible cases.&lt;/p&gt;
+
+&lt;p&gt;It also provides a maven plugin,if your project is a web project,you must run mvn insall before next step. Maven plugin also comply with the latest annotation mojo api rather than version 2.x.x doclet api.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dependency Mediator&lt;/strong&gt; take advantage of &lt;strong&gt;nearest definition&lt;/strong&gt; dependency mediation strategy. this determines what version of a dependency will be used when multiple versions of an artifact are encountered. &lt;strong&gt;nearest definition&lt;/strong&gt;,means that it will use the version of the closest dependency to your project in the tree of dependencies. You can always guarantee a version by declaring it explicitly in your project’s POM. Note that if two dependency versions are at the same depth in the dependency tree, until Maven 2.0.8 it was not defined which one would win, but since Maven 2.0.9 it’s the order in the declaration that counts: the first declaration wins.
+&lt;strong&gt;nearest definition&lt;/strong&gt; means that the version used will be the closest one to your project in the tree of dependencies, eg. if dependencies for A, B, and C are defined as A -&amp;gt; B -&amp;gt; C -&amp;gt; D 2.0 and A -&amp;gt; E -&amp;gt; D 1.0, then D 1.0 will be used when building A because the path from A to D through E is shorter. You could explicitly add a dependency to D 2.0 in A to force the use of D 2.0.&lt;/p&gt;
+
+&lt;p&gt;If you consider the dependency hierarchy as a binary tree structure,Undoubtedly,&lt;strong&gt;nearest definition&lt;/strong&gt; means the &lt;strong&gt;minimum depth&lt;/strong&gt;. so if you put some higher version dependency library after lower version one(may be transitive dependency),you will face incompatible conflicting problems.Such as :&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WARNING&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Founded&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conflicting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dependency&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;component:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thrift&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;libthrift:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Resolved&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thrift&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;libthrift:jar:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;But&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;found&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conflicting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;artifact&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thrift&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;libthrift:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In this case,you could fix this problem through place libthrift 0.9.1 before the library imported through transitive dependency.&lt;/p&gt;
+
+&lt;p&gt;of course,all the establishment must meet a premise,that is:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Functionality releases and major releases(such as 1.4.x, 1.5.x,2.x.x,3.x.x) have source compatibility problems.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In &lt;strong&gt;Dependency Mediator&lt;/strong&gt; 2.0 version,you could customize version differentiation strategy,not limited the aformentioned.by the way, also in 2.0,I will improvement compatible dependency mediator, please wait and see.&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Through this article, you almost calculated the evolution process of the &lt;strong&gt;Dependency Mediator&lt;/strong&gt; project.in my opinion,integration with the maven enforcer plugin may be a better choice.After all,I hope &lt;strong&gt;Dependency Mediator&lt;/strong&gt; can keep sustainable development.I would try and donate this project to codehaus in the near future.&lt;/p&gt;
+
+&lt;p&gt;If you have better idea or improving suggestion, please contact &lt;a href=&quot;mailto:dev@rocketmq.incubator.apache.org&quot;&gt;dev@rocketmq.incubator.apache.org&lt;/a&gt;.&lt;/p&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><category term="Compatibility" /><category term="Dependency" /><category term="Java" /><category term="Maven" /><summary type="html">This article mainly includes three parts.at first,I will introduce compatibility principle(more details see here) briefly.followed by a detailed elaborating about Java component compatible dependency,including the interface-oriented programming,single component signature protection,single component compatibility protection and multi-component compatibility compile time checking.Finally is the review and prospect,especially about Dependency Mediator project.</summary></entry><entry><title type="html">How to Support More Queues in RocketMQ?</title><link href="/rocketmq/how-to-support-more-queues-in-rocketmq/" rel="alternate" type="text/html" title="How to Support More Queues in RocketMQ?" /><published>2016-12-23T00:00:00+08:00</published><updated>2016-12-23T00:00:00+08:00</updated><id>/rocketmq/how-to-support-more-queues-in-rocketmq</id><content type="html" xml:base="/rocketmq/how-to-support-more-queues-in-rocketmq/">&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;Kafka is a distributed streaming platform, which was born from &lt;a href=&quot;https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying&quot;&gt;logging aggregation cases&lt;/a&gt;. It does not need too high concurrency. In some large scale cases in alibaba, we found that the original model has been unable to meet our actual needs. So, we developed a messaging middleware, named RocketMQ, which can handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss. Now, in alibaba, RocketMQ clusters process more than 500 billion events every day, provide services for more than 3000 core applications.&lt;/p&gt;
+
+&lt;aside class=&quot;sidebar__right&quot;&gt;
+&lt;nav class=&quot;toc&quot;&gt;
+    &lt;header&gt;&lt;h4 class=&quot;nav__title&quot;&gt;&lt;i class=&quot;fa fa-file-text&quot;&gt;&lt;/i&gt; On This Page&lt;/h4&gt;&lt;/header&gt;
+&lt;ul class=&quot;toc__menu&quot; id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#partition-design-in-kafka&quot; id=&quot;markdown-toc-partition-design-in-kafka&quot;&gt;Partition design in kafka&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#why-kafka-cant-support-more-partitions&quot; id=&quot;markdown-toc-why-kafka-cant-support-more-partitions&quot;&gt;Why Kafka can’t support more partitions&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#how-to-support-more-partition-in-rocketmq&quot; id=&quot;markdown-toc-how-to-support-more-partition-in-rocketmq&quot;&gt;How to support more partition in RocketMQ?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/nav&gt;
+&lt;/aside&gt;
+
+&lt;h1 id=&quot;partition-design-in-kafka&quot;&gt;Partition design in kafka&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;Producer parallelism of writing is bounded by the number of partitions.&lt;/li&gt;
+  &lt;li&gt;The degree of consumer consumption parallelism, is also bounded by the number of partitions being consumed. Assuming that the number of partitions is 20, the maximum number of concurrent consuming consumers is 20.&lt;/li&gt;
+  &lt;li&gt;Each topic consists of a fixed number of partitions. Partition number determines the maximum number of topics that single broker may have without significantly affecting performance.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;More details please refer to &lt;a href=&quot;http://www.confluent.io/blog/how-to-choose-the-number-of-topicspartitions-in-a-kafka-cluster/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-kafka-cant-support-more-partitions&quot;&gt;Why Kafka can’t support more partitions&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Each partition stores the whole message data. Although each partition is orderly written to the disk, as number of concurrently writing partitions increases, writing become random in the perspective of operating system.&lt;/li&gt;
+  &lt;li&gt;Due to the scattered data files, it is difficult to use the Linux IO Group Commit mechanism.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;how-to-support-more-partition-in-rocketmq&quot;&gt;How to support more partition in RocketMQ?&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/blog/rocketmq-queues.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;All message data are stored in commit log files. All writes are completely sequential whilst reads are random.&lt;/li&gt;
+  &lt;li&gt;ConsumeQueue stores the actual user consumption location information, which are also flushed to disk in sequential manner.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;pros：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Each consume queue is lightweight and contains limited amount of meta data.&lt;/li&gt;
+  &lt;li&gt;Access to disk is totally sequential, which avoids disk lock contention, and will not incur high disk IO wait when a large number of queues has been created.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cons：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Message consumption will first read consume queue, then commit log. This process brings in certain cost in worst cases.&lt;/li&gt;
+  &lt;li&gt;Commit log and consume queues need to be logically consistent, which introduces extra complexities to programming model.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Design Motivation：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Random read. Read as much as possible to increase the page cache hit rate, and reduce read IO operations. So large memory is still preferable. If massive messages are accumulated, would the read performance degrade badly? The answer is negative, reasons are as follows:
+    &lt;ul&gt;
+      &lt;li&gt;Even if size of the message is only 1KB, the system will read more data in advance, see &lt;a href=&quot;https://en.wikipedia.org/wiki/Cache_prefetching&quot;&gt;PAGECACHE prefetch&lt;/a&gt; for reference. This means for the sequel data read, it is access to main memory that will be carried out instead of slow disk IO read.&lt;/li&gt;
+      &lt;li&gt;Random access CommitLog from disk. If set the I/O scheduler to NOOP in case of SSD, the read qps will be greatly accelerated thus much faster than other elevator scheduler algorithm.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Given ConsumeQueue stores fixed-size metadata only, which is mainly used to record consuming progress, random read is well supported. Taking advantage of page cache prefetch, accessing ConsumeQueue is as efficiently fast as accessing main memory, even if it’s in the case of massive message accumulation. As a result，ConsumeQueue will NOT bring in noticeable penalty to the read performance.&lt;/li&gt;
+  &lt;li&gt;CommitLog stores virtually all information, including the message data. Similar to redo log of relational database, consume queues, message key indexes and all other required data can be completely recovered as long as commit log exists..&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><category term="RocketMQ" /><category term="Queue" /><category term="Partition" /><category term="Message Oriented Middleware" /><summary type="html">Summary</summary></entry></feed>
