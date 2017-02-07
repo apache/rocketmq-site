@@ -303,10 +303,10 @@ Send an email to **announce@apache.org**, **general@incubator.apache.org**, and 
 
 ## References
 
-[1]. http://pirk.incubator.apache.org/releasing
-[2]. http://htrace.incubator.apache.org/building.html
-[3]. http://slider.incubator.apache.org/developing/releasing.html
-[4]. http://streams.incubator.apache.org/release-management.html
+[1]. http://pirk.incubator.apache.org/releasing  
+[2]. http://htrace.incubator.apache.org/building.html  
+[3]. http://slider.incubator.apache.org/developing/releasing.html  
+[4]. http://streams.incubator.apache.org/release-management.html  
 
 
 
