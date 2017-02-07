@@ -130,11 +130,6 @@ Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release 
     </li>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-9'>ROCKETMQ-9</a>] - Errors in rocketmq-store module
     </li>
-</ul>
-
-<h2> Task
-</h2>
-<ul>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-3'>ROCKETMQ-3</a>] - Clean up the unit test of rocketmq
     </li>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-13'>ROCKETMQ-13</a>] - Wrong log level for
