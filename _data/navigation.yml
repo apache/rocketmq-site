@@ -27,12 +27,16 @@ docs:
         url: /docs/cli-admin-tool/
       - title: "Cluster Configuration & Deployment"
         url: /docs/cluster-deployment/
-  - title: Contributor Guide
+  - title: Developer Guide
     children:
       - title: "Code Guidelines"
         url: /docs/code-guidelines/
+      - title: "Branching model"
+        url: /docs/branching-model
       - title: "Best Practice in PR"
         url: /docs/pull-request/
+      - title: "Release Manual"
+        url: /docs/release-manual
   - title: Best Practice
     children:
       - title: "Broker"
@@ -43,6 +47,11 @@ docs:
         url: /docs/best-practice-consumer/
       - title: "NameServer"
         url: /docs/best-practice-namesvr/
+  - title: Release Notes
+    children:
+      - title: "Download"
+      - title: "4.0.0-incubating"
+        url: /release_notes/release-notes-4.0.0-incubating/
   - title: FAQ
     url: /docs/faq/
 
