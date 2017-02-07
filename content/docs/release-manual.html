@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Release Manual - Apache RocketMQ</title>
+
+
+
+
+<meta name="description" content="Apache RocketMQ Release Manual">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Apache RocketMQ">
+<meta property="og:title" content="Release Manual">
+
+
+
+
+  <meta property="og:description" content="Apache RocketMQ Release Manual">
+
+
+
+  <meta name="twitter:site" content="@ApacheRocketMQ">
+  <meta name="twitter:title" content="Release Manual">
+  <meta name="twitter:description" content="Apache RocketMQ Release Manual">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-02-07T15:46:03+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Apache RocketMQ",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="aand0XZkSGsziuC-UPD4ZJniFD0m0JhGx6820y2mAQY" />
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">Apache RocketMQ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/docs/quick-start/">Documentation</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/year-archive/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/community/">Community</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/about/team/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">User Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Motivation</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/core-concept/" class="">Core Concept</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cli-admin-tool/" class="">CLI Admin Tool</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cluster-deployment/" class="">Cluster Configuration & Deployment</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Developer Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/code-guidelines/" class="">Code Guidelines</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/branching-model" class="">Branching Model</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/pull-request/" class="">Best Practice in PR</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/release-manual" class="active">Release Manual</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Best Practice</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-broker/" class="">Broker</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-producer/" class="">Producer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-consumer/" class="">Consumer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-namesvr/" class="">NameServer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Release Notes</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="" class="">Download</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/release_notes/release-notes-4.0.0-incubating/" class="">4.0.0-incubating</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Release Manual">
+    <meta itemprop="description" content="Apache RocketMQ Release Manual">
+    <meta itemprop="datePublished" content="February 07, 2017">
+    <meta itemprop="dateModified" content="February 08, 2017">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Release Manual
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#preliminaries" id="markdown-toc-preliminaries">Preliminaries</a>    <ul>
+      <li><a href="#apache-release-documentation" id="markdown-toc-apache-release-documentation">Apache Release Documentation</a></li>
+      <li><a href="#code-signing-key" id="markdown-toc-code-signing-key">Code Signing Key</a></li>
+      <li><a href="#prepare-your-maven-settings" id="markdown-toc-prepare-your-maven-settings">Prepare Your Maven Settings</a></li>
+      <li><a href="#cleanup-jira-issues" id="markdown-toc-cleanup-jira-issues">Cleanup JIRA issues</a></li>
+      <li><a href="#publish-the-release-notes" id="markdown-toc-publish-the-release-notes">Publish the Release Notes</a></li>
+    </ul>
+  </li>
+  <li><a href="#build-the-release-candidate" id="markdown-toc-build-the-release-candidate">Build the Release Candidate</a>    <ul>
+      <li><a href="#build-the-candidate-release-artifacts" id="markdown-toc-build-the-candidate-release-artifacts">Build the Candidate Release Artifacts</a></li>
+      <li><a href="#validate-the-release-candidate" id="markdown-toc-validate-the-release-candidate">Validate the Release Candidate</a></li>
+      <li><a href="#release-artifacts-to-dev-repository" id="markdown-toc-release-artifacts-to-dev-repository">Release Artifacts to Dev-Repository</a></li>
+    </ul>
+  </li>
+  <li><a href="#vote-on-the-release" id="markdown-toc-vote-on-the-release">Vote on the Release</a>    <ul>
+      <li><a href="#apache-rocketmq-community-vote" id="markdown-toc-apache-rocketmq-community-vote">Apache RocketMQ Community Vote</a></li>
+      <li><a href="#incubator-pmc-vote" id="markdown-toc-incubator-pmc-vote">Incubator PMC Vote</a></li>
+    </ul>
+  </li>
+  <li><a href="#publish-the-release" id="markdown-toc-publish-the-release">Publish the Release</a></li>
+  <li><a href="#announce-the-release" id="markdown-toc-announce-the-release">Announce the Release</a></li>
+  <li><a href="#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>This is a guide to making a release of Apache RocketMQ (incubating). Please follow the steps below.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+<h3 id="apache-release-documentation">Apache Release Documentation</h3>
+<p>There are some release documentations provided by The ASF, including the incubator release documentation, can be found here:</p>
+
+<ul>
+  <li><a href="http://www.apache.org/dev/release-publishing">Apache Release Guide</a></li>
+  <li><a href="http://www.apache.org/dev/release.html">Apache Release Policy</a></li>
+  <li><a href="http://incubator.apache.org/guides/releasemanagement.html">Apache Incubator Release Guidelines</a></li>
+  <li><a href="http://incubator.apache.org/incubation/Incubation_Policy.html#Releases">Apache Incubator Release Policy</a></li>
+  <li><a href="http://www.apache.org/dev/publishing-maven-artifacts.html">Maven Release Info</a></li>
+</ul>
+
+<h3 id="code-signing-key">Code Signing Key</h3>
+<p>Create a code signing gpg key for release signing, use <strong>&lt;your Apache ID&gt;@apache.org</strong> as your primary ID for the code signing key. See the <a href="https://www.apache.org/dev/release-signing">Apache Release Signing documentation</a> for more details.</p>
+
+<ul>
+  <li>Create new pgp key. How to use pgp please refer to <a href="http://www.apache.org/dev/openpgp.html">here</a>.</li>
+  <li>Generate a new key via <code class="highlighter-rouge">gpg --gen-key</code>, and answer 4096 bits with no expiration time.</li>
+  <li>Upload your key to a public key server, like <code class="highlighter-rouge">gpg --keyserver pgpkeys.mit.edu --send-key &lt;your key id&gt;</code>.</li>
+  <li>Get the key signed by other committers(Optional).</li>
+  <li>Add the key to the RocketMQ <a href="https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS">KEYS file</a>.</li>
+</ul>
+
+<p><strong>Tips:</strong> If you have more than one key in your gpg, set the code signing key to <code class="highlighter-rouge">~/.gnupg/gpg.conf</code> as default key is recommended.</p>
+
+<h3 id="prepare-your-maven-settings">Prepare Your Maven Settings</h3>
+<p>Make sure that your Maven settings.xml file contains the following:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
+   <span class="nt">&lt;profiles&gt;</span>
+         <span class="nt">&lt;profile&gt;</span>
+           <span class="nt">&lt;id&gt;</span>signed_release<span class="nt">&lt;/id&gt;</span>
+           <span class="nt">&lt;properties&gt;</span>
+               <span class="nt">&lt;mavenExecutorId&gt;</span>forked-path<span class="nt">&lt;/mavenExecutorId&gt;</span>
+               <span class="nt">&lt;gpg.keyname&gt;</span>yourKeyName<span class="nt">&lt;/gpg.keyname&gt;</span>
+               <span class="nt">&lt;username&gt;</span>yourApacheID<span class="nt">&lt;/username&gt;</span>
+               <span class="nt">&lt;deploy.url&gt;</span>https://dist.apache.org/repos/dist/dev/incubator/rocketmq/<span class="nt">&lt;/deploy.url&gt;</span>
+           <span class="nt">&lt;/properties&gt;</span>
+       <span class="nt">&lt;/profile&gt;</span>
+ <span class="nt">&lt;/profiles&gt;</span>
+  <span class="nt">&lt;servers&gt;</span>
+    <span class="c">&lt;!-- To publish a snapshot of some part of Maven --&gt;</span>
+    <span class="nt">&lt;server&gt;</span>
+      <span class="nt">&lt;id&gt;</span>apache.snapshots.https<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;username&gt;</span>yourApacheID<span class="nt">&lt;/username&gt;</span>
+      <span class="nt">&lt;password&gt;</span>yourApachePassword<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+    <span class="c">&lt;!-- To stage a release of some part of Maven --&gt;</span>
+    <span class="nt">&lt;server&gt;</span>
+      <span class="nt">&lt;id&gt;</span>apache.releases.https<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;username&gt;</span>yourApacheID<span class="nt">&lt;/username&gt;</span>
+      <span class="nt">&lt;password&gt;</span>yourApachePassword<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+    <span class="nt">&lt;server&gt;</span>
+      <span class="nt">&lt;id&gt;</span>gpg.passphrase<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;passphrase&gt;</span>yourKeyPassword<span class="nt">&lt;/passphrase&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+  <span class="nt">&lt;/servers&gt;</span>
+<span class="nt">&lt;/settings&gt;</span>
+</code></pre>
+</div>
+
+<p><strong>Tips:</strong> It is highly recommended to use <a href="http://maven.apache.org/guides/mini/guide-encryption.html">Maven’s password encryption capabilities</a> for your passwords.</p>
+
+<h3 id="cleanup-jira-issues">Cleanup JIRA issues</h3>
+<p>Cleanup JIRA issues related to this release version, and check all the issues has been marked with right version in the <code class="highlighter-rouge">FixVersion</code> field.</p>
+
+<h3 id="publish-the-release-notes">Publish the Release Notes</h3>
+<p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/incubator-rocketmq-site">rocketmq-site</a>, there is a <a href="http://rocketmq.incubator.apache.org/release_notes/release-notes-4.0.0-incubating/">release notes</a> of <code class="highlighter-rouge">4.0.0-incubating</code> available for reference, include the link to the release notes in the voting emails.</p>
+
+<h2 id="build-the-release-candidate">Build the Release Candidate</h2>
+<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">4.0.0-incubating</code>.</p>
+
+<h3 id="build-the-candidate-release-artifacts">Build the Candidate Release Artifacts</h3>
+<p>Before building the release artifacts, do some verifications below:</p>
+
+<ul>
+  <li>Ensure that now your are in the candidate release branch.</li>
+  <li>Ensure that all the unit tests can pass via <code class="highlighter-rouge">mvn clean install</code>.</li>
+  <li>Ensure that all the integration tests can pass via <code class="highlighter-rouge">mvn clean test -Pit-test</code>.</li>
+</ul>
+
+<p>Perform the following to generate and stage the artifacts:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">mvn clean release:clean</code></li>
+  <li><code class="highlighter-rouge">mvn release:prepare -Psigned_release -Darguments="-DskipTests"</code>, answer the right release version, SCM release tag, and the new development version.</li>
+  <li><code class="highlighter-rouge">mvn -Psigned_release release:perform -Darguments="-DskipTests"</code>, generate the artifacts and push them to the <a href="https://repository.apache.org/#stagingRepositories">Nexus repo</a>. If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true</li>
+</ol>
+
+<p>Now, the candidate release artifacts can be found in the <a href="https://repository.apache.org/#stagingRepositories">Nexus staging repo</a> and in the <code class="highlighter-rouge">target</code> folder of your local branch.</p>
+
+<p><strong>Tips:</strong> If you are performing a source-only release, please remove all artifacts from the staging repo except for the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select <code class="highlighter-rouge">Delete</code>.</p>
+
+<h3 id="validate-the-release-candidate">Validate the Release Candidate</h3>
+<p>Now the release candidate is ready, before calling a vote, the artifacts must satisfy the following checklist:</p>
+
+<ul>
+  <li>Checksums and PGP signatures are valid.</li>
+  <li>Build is successful including unit and integration tests.</li>
+  <li>DISCLAIMER is correct, filenames include “incubating”.</li>
+  <li>LICENSE and NOTICE files are correct and dependency licenses are acceptable.</li>
+  <li>All source files have license headers where appropriate, RAT checks pass</li>
+  <li>Javadocs have been generated correctly and are accurate.</li>
+  <li>The provenance of all source files is clear (ASF or software grants).</li>
+</ul>
+
+<p>Please follow the steps below to verify the checksums and PGP signatures:</p>
+
+<ol>
+  <li>Download the release artifacts, PGP signature file, MD5/SHA hash files.</li>
+  <li>
+    <p>On unix platforms the following command can be executed:</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code>  <span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span>find . -type f -iname <span class="s1">'*.asc'</span><span class="sb">`</span>
+  <span class="k">do
+   </span>gpg --verify <span class="k">${</span><span class="nv">file</span><span class="k">}</span> 
+  <span class="k">done</span>
+</code></pre>
+    </div>
+
+    <p>or</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> gpg --verify rocketmq-all-%version-number%-incubating-source-release.zip.asc rocketmq-all-%version-number%-incubating-source-release.zip
+</code></pre>
+    </div>
+    <p>Check the output to ensure it contains only good signatures:</p>
+
+    <div class="language-text highlighter-rouge"><pre class="highlight"><code> gpg: Good signature from ... gpg: Signature made ...
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Compare MD5, SHA hash generated from the below command with the downloaded hash files.</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> gpg --print-mds rocketmq-all-%version-number%-incubating-source-release.zip 
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h3 id="release-artifacts-to-dev-repository">Release Artifacts to Dev-Repository</h3>
+<p>If the release candidate appears to pass the validation checklist, close the staging repository in Nexus by selecting the staging repository <code class="highlighter-rouge">orgapacherocketmq-XXX</code> and clicking on the <code class="highlighter-rouge">Close</code> icon.</p>
+
+<p>Nexus will now run through a series of checksum and signature validations.</p>
+
+<p>If the checks pass, Nexus will close the repository and give a URL to the closed staging repo (which contains the candidate artifacts). Include this URL in the voting email so that folks can find the staged candidate release artifacts.</p>
+
+<p>If the checks do not pass, fix the issues, roll back and restart the release process.</p>
+
+<p>If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}.</p>
+
+<h2 id="vote-on-the-release">Vote on the Release</h2>
+
+<p>As per the Apache Incubator <a href="http://incubator.apache.org/incubation/Incubation_Policy.html#Releases">release guidelines</a>, all releases for incubating projects must go through a two-step voting process. First, release voting must successfully pass within the Apache RocketMQ community via the <strong>dev@rocketmq.incubator.apache.org</strong> mailing list. Then, release voting must successfully pass within the Apache Incubator PMC via the <strong>general@incubator.apache.org</strong> mailing list.</p>
+
+<p>General information regarding the Apache voting process can be found <a href="http://www.apache.org/foundation/voting.html">here</a>.</p>
+
+<h3 id="apache-rocketmq-community-vote">Apache RocketMQ Community Vote</h3>
+<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.incubator.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> and a body along the lines of:</p>
+
+<blockquote>
+  <p>Hello RocketMQ Community,</p>
+
+  <p>This is the vote for &lt;release version&gt; of Apache RocketMQ (incubating).</p>
+
+  <p><strong>The artifacts:</strong><br />
+https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}</p>
+
+  <p><strong>The staging repo:</strong><br />
+https://repository.apache.org/content/repositories/orgapacherocketmq-XXX/</p>
+
+  <p><strong>Git tag for the release:</strong><br />
+&lt;link to the tag of GitHub repo&gt;</p>
+
+  <p><strong>Hash for the release tag:</strong><br />
+&lt;Hash value of the release tag&gt;</p>
+
+  <p><strong>Release Notes:</strong><br />
+&lt;insert link to the rocketmq release notes&gt;</p>
+
+  <p>The artifacts have been signed with Key : &lt;ID of signing key&gt;, which can be found in the keys file:<br />
+https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
+
+  <p>The vote will be open for at least 72 hours or until necessary number of votes are reached.</p>
+
+  <p>Please vote accordingly:</p>
+
+  <p>[ ] +1  approve  <br />
+[ ] +0  no opinion  <br />
+[ ] -1  disapprove with the reason</p>
+
+  <p>Thanks,<br />
+The Apache RocketMQ Team</p>
+</blockquote>
+
+<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and pronouncing the release candidate a success. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> :</p>
+
+<blockquote>
+  <p>Hello RocketMQ Community,</p>
+
+  <p>The Apache RocketMQ <release version=""> vote is now closed and has passed with [number] binding +1s, [number] non-binding +1s and no 0 or -1:</release></p>
+
+  <p><strong>Binding votes +1s:</strong><br />
+User Name (Apache ID)  <br />
+User Name (Apache ID)  <br />
+User Name (Apache ID)  <br />
+….</p>
+
+  <p><strong>Non-binding votes +1s:</strong><br />
+User Name (Apache ID)<br />
+….</p>
+
+  <p>A vote Apache RocketMQ &lt;release version&gt; will now be called on general@incubator.apache.org.</p>
+
+  <p>Thanks, <br />
+The Apache RocketMQ Team</p>
+</blockquote>
+
+<h3 id="incubator-pmc-vote">Incubator PMC Vote</h3>
+<p>Once the candidate release vote passes on dev@rocketmq, send an email to <a href="mailto:dev@general@incubator.apache.org">IMPC</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> and a body along the lines of:</p>
+
+<blockquote>
+  <p>Hello Incubator PMC,</p>
+
+  <p>The Apache RocketMQ community has voted and approved the proposal to release Apache RocketMQ &lt;release version&gt; (incubating). We now kindly request the IPMC review and vote on this incubator release.</p>
+
+  <p><strong>[VOTE] Thread:</strong><br />
+&lt;link to the dev voting mail-archive&gt;</p>
+
+  <p><strong>[RESULT][VOTE] Thread:</strong><br />
+&lt;link to the dev voting mail-archive&gt;</p>
+
+  <p><strong>The artifacts:</strong><br />
+https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}</p>
+
+  <p><strong>The staging repo:</strong><br />
+https://repository.apache.org/content/repositories/orgapacherocketmq-XXX/</p>
+
+  <p><strong>Git tag for the release:</strong><br />
+&lt;link to the tag of GitHub repo&gt;</p>
+
+  <p><strong>Hash for the release tag:</strong><br />
+&lt;Hash value of the release tag&gt;</p>
+
+  <p><strong>Release Notes:</strong><br />
+&lt;insert link to the rocketmq release notes&gt;</p>
+
+  <p>The artifacts have been signed with Key : &lt;ID of signing key&gt;, which can be found in the keys file:<br />
+https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
+
+  <p>The vote will be open for at least 72 hours or until necessary number of votes are reached.</p>
+
+  <p>Please vote accordingly:</p>
+
+  <p>[ ] +1  approve <br />
+[ ] +0  no opinion <br />
+[ ] -1  disapprove with the reason</p>
+
+  <p>Thanks,<br />
+The Apache RocketMQ Team</p>
+</blockquote>
+
+<p>Also don’t forget announce the vote result:</p>
+
+<blockquote>
+  <p>Hello Incubator PMC,</p>
+
+  <p>The Apache RocketMQ <release version=""> vote is now closed and has passed wit [number] binding +1s, [number] non-binding +1s and no 0 or -1:</release></p>
+
+  <p><strong>Binding votes +1s:</strong><br />
+User Name (Apache ID) <br />
+User Name (Apache ID) <br />
+User Name (Apache ID) <br />
+….</p>
+
+  <p><strong>Non-binding votes +1s:</strong><br />
+User Name (Apache ID) <br />
+….</p>
+
+  <p>The Apache RocketMQ (incubating) community will proceed with the release.</p>
+
+  <p>Thanks,<br />
+The Apache RocketMQ Team</p>
+</blockquote>
+
+<h2 id="publish-the-release">Publish the Release</h2>
+<p>Once the Apache RocketMQ PPMC and IPMC votes both pass, publish the release artifacts to the Nexus Maven repository and to the Apache release repository.</p>
+
+<ol>
+  <li>Publish the Maven Artifacts, release the Maven artifacts in Nexus by selecting the staging repository <strong>orgapacherocketmq-XXX</strong> and clicking on the <code class="highlighter-rouge">Release</code> icon.</li>
+  <li>Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/incubator/rocketmq/${release version}</li>
+</ol>
+
+<h2 id="announce-the-release">Announce the Release</h2>
+<p>Send an email to <strong>announce@apache.org</strong>, <strong>general@incubator.apache.org</strong>, and <strong>dev@rocketmq.apache.incubator.org</strong> with the subject <strong>[ANNOUNCE] Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> and a body along the lines of:</p>
+
+<blockquote>
+  <p>Hi all,</p>
+
+  <p>The Apache RocketMQ team would like to announce the release of Apache RocketMQ &lt;release version&gt;.</p>
+
+  <p>More details regarding Apache RocketMQ can be found at:<br />
+http://rocketmq.incubator.apache.org/</p>
+
+  <p>The release artifacts can be downloaded here:<br />
+https://dist.apache.org/repos/dist/release/incubator/rocketmq/${release version}</p>
+
+  <p>The release notes can be found here:<br />
+&lt;insert link to the rocketmq release notes&gt;</p>
+
+  <p>Thanks,<br />
+The Apache RocketMQ Team</p>
+
+  <p>— DISCLAIMER  Apache RocketMQ is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code,it does indicate that the project has yet to be fully endorsed by the ASF.</p>
+</blockquote>
+
+<h2 id="references">References</h2>
+
+<p>[1]. http://pirk.incubator.apache.org/releasing<br />
+[2]. http://htrace.incubator.apache.org/building.html<br />
+[3]. http://slider.incubator.apache.org/developing/releasing.html<br />
+[4]. http://streams.incubator.apache.org/release-management.html</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-02-08">February 08, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Manual /docs/release-manual" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/release-manual" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=/docs/release-manual" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/release-manual" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/faq/" class="pagination--pager" title="Frequently Asked Questions
+">Previous</a>
+    
+    
+      <a href="/docs/branching-model" class="pagination--pager" title="Branching Model
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <style type="text/css">
+  div.columns   { float: left; margin-left: 10px;}
+  div.clear     { clear: both; } 
+</style>
+<div>
+  <div class="columns">
+    <a href="https://www.apache.org/"><img src="/assets/images/feather-small.gif" alt="Apache Software Foundation" style="height: 88px !important" /></a>
+  </div>
+  <div class="columns">
+    <div class="page__footer-follow">
+      <ul class="social-icons">
+        
+          <li><strong>Follow:</strong></li>
+        
+        
+          <li><a href="https://twitter.com/ApacheRocketMQ"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+        
+        
+          <li><a href="http://github.com/apache/incubator-rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+        
+        <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      </ul>
+    </div>
+
+    <div class="page__footer-copyright">Copyright &copy; 2017 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</div>
+  </div>
+</div>
+<div class="clear"></div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89603173-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'rocketmq';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  </body>
+</html>
