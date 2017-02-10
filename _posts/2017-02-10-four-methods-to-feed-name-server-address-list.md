@@ -20,7 +20,6 @@ provides four methods to achieve this goal.
 1. Programmatic Way
 
    For broker, we may specify `namesrvAddr=name-server-ip1:port;name-server-ip2:port` in broker configuration file.
-   Alternatively, we may pass a parameter like `-n name-server-ip1:port;name-server-ip2:port` to `mqbroker` script.
    
    For producers and consumers, we may feed name server address list to them as follows:
    
@@ -44,20 +43,22 @@ provides four methods to achieve this goal.
     defaultMQAdminExt.setNamesrvAddr("name-server1-ip:port;name-server2-ip:port");`
     
     
-2. Environment Variable
+2. Java Options
 
-   You can export `NAMESRV_ADDR` environment variable. Brokers and clients will examine and use its value if set.
+    Name server address list may also be fed to your application through specifying the sequel java option 
+    `rocketmq.namesrv.addr` before launching.
+    
+3. Environment Variable
+
+   A third method is via environment variable: you can export `NAMESRV_ADDR` environment variable. Brokers and clients 
+   will examine and use its value if set.
     
     
-3. Java Options
+4. HTTP Endpoint
 
-    Similar to environment variable, you may specify the sequel java option `rocketmq.namesrv.addr` before launching your
-    application.
-    
-4. HTTP endpoint
-
-    If you do not specify name server address list using previously mentioned methods, Apache RocketMQ will periodically 
-    access the following HTTP end point to acquire and update name server address list.
+    If you do not specify name server address list using previously mentioned methods, Apache RocketMQ will access
+     the following HTTP end point to acquire and update name server address list every two minutes with initial delay of
+     ten seconds.
     
     On default, the end point is:
     
@@ -68,4 +69,10 @@ provides four methods to achieve this goal.
     
     This method is recommended because it gives you maximum flexibility, aka, you can dynamically add or 
     remove name server node without necessity of rebooting your brokers and clients according to your name servers'
-    system load. 
+    system load.
+     
+     
+*  Priority
+
+    Methods introduced first take precedence over the latter, namely,
+    Programmatic Way > Java Options > Environment Variable > HTTP Endpoint
