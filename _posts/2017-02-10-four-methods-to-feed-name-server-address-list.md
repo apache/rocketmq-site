@@ -8,11 +8,11 @@ tags:
 ---
 
 In Apache RocketMQ, name servers are designed to coordinate each component of the distributed system
-and take much of the responsibility for managing topic route information.
+and fulfill much of this responsibility through managing topic route information.
 
-The management, roughly speaking, consists two parts
-- Brokers send their meta data to name servers and report on topics they have.
-- Name servers are serving clients, including producers, consumers and command line clients with the freshest routing information.
+The management, roughly speaking, consists two parts:
+- Brokers periodically renew meta data, including topics they have, which are kept in every name servers.
+- Name servers are serving clients, including producers, consumers and command line clients with the latest routing information.
 
 Therefore, before launching brokers and clients, we need to tell them how to reach name servers by feeding them with a name server address list.
 In Apache RocketMQ, this can be done in four ways.
@@ -32,7 +32,7 @@ In Apache RocketMQ, this can be done in four ways.
    consumer.setNamesrvAddr("name-server1-ip:port;name-server2-ip:port");`
    
    If you use admin command line from shell, you may specify this way:
-   `sh mqadmin command-name -n name-server-ip1:port;name-server-ip2:port -x other-options`
+   `sh mqadmin command-name -n name-server-ip1:port;name-server-ip2:port -X OTHER-OPTION`
    
    a simple example is:
    `sh mqadmin -n localhost:9876 clusterList`
@@ -66,9 +66,9 @@ In Apache RocketMQ, this can be done in four ways.
     You may override `jmenv.tbsite.net` by this java option: `rocketmq.namesrv.domain`,
     You may also override `nsaddr` part by this java option: `rocketmq.namesrv.domain.subgroup`
     
-    This method is recommended because it gives you maximum flexibility -- you can dynamically add or 
-    remove name server node without necessity of rebooting your brokers and clients according to your name servers'
-    system load.
+    If you are running Apache RocketMQ in production, this method is recommended because it gives you maximum flexibility
+     -- you can dynamically add or remove name server nodes without necessity of rebooting your brokers and clients 
+     according to your name servers' system load.
      
      
 *  Priority
