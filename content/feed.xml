@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-02-08T23:52:04+08:00</updated><id>//</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><entry><title type="html">Release Notes - Apache RocketMQ - Version 4.0.0-incubating</title><link href="/release_notes/release-notes-4.0.0-incubating/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ - Version 4.0.0-incubating" /><published>2017-01-24T00:00:00+08:00</published><updated>2017-01-24T00:00:00+08:00</updated><id>/release_notes/release-notes-4.0.0-incubating</id><content type="html" xml:base="/release_notes/release-notes-4.0.0-incubating/">&lt;p&gt;Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release of RocketMQ. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;/docs/quick-start/&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-02-10T20:40:12+08:00</updated><id>//</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><entry><title type="html">Four Methods to Feed Name Server Address List</title><link href="/rocketmq/four-methods-to-feed-name-server-address-list/" rel="alternate" type="text/html" title="Four Methods to Feed Name Server Address List" /><published>2017-02-10T00:00:00+08:00</published><updated>2017-02-10T00:00:00+08:00</updated><id>/rocketmq/four-methods-to-feed-name-server-address-list</id><content type="html" xml:base="/rocketmq/four-methods-to-feed-name-server-address-list/">&lt;p&gt;In Apache RocketMQ, name servers are designed to coordinate each component of the distributed system
+and fulfill much of this responsibility through managing topic route information.&lt;/p&gt;
+
+&lt;p&gt;The management, roughly speaking, consists two parts:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Brokers periodically renew meta data, including topics they have, which are kept in every name servers.&lt;/li&gt;
+  &lt;li&gt;Name servers are serving clients, including producers, consumers and command line clients with the latest routing information.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Therefore, before launching brokers and clients, we need to tell them how to reach name servers by feeding them with a name server address list.
+In Apache RocketMQ, this can be done in four ways.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Programmatic Way&lt;/p&gt;
+
+    &lt;p&gt;For broker, we may specify &lt;code class=&quot;highlighter-rouge&quot;&gt;namesrvAddr=name-server-ip1:port;name-server-ip2:port&lt;/code&gt; in broker configuration file.&lt;/p&gt;
+
+    &lt;p&gt;For producers and consumers, we may feed name server address list to them as follows:&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+DefaultMQProducer producer = new DefaultMQProducer(&quot;please_rename_unique_group_name&quot;);
+producer.setNamesrvAddr(&quot;name-server1-ip:port;name-server2-ip:port&quot;);&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(&quot;please_rename_unique_group_name&quot;);
+consumer.setNamesrvAddr(&quot;name-server1-ip:port;name-server2-ip:port&quot;);&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;If you use admin command line from shell, you may specify this way:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;sh mqadmin command-name -n name-server-ip1:port;name-server-ip2:port -X OTHER-OPTION&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;a simple example is:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;sh mqadmin -n localhost:9876 clusterList&lt;/code&gt;
+assuming to query cluster info on the name server node.&lt;/p&gt;
+
+    &lt;p&gt;If integrating admin tool into your own dashboard, you may
+&lt;code class=&quot;highlighter-rouge&quot;&gt;DefaultMQAdminExt defaultMQAdminExt = new DefaultMQAdminExt(&quot;please_rename_unique_group_name&quot;);
+ defaultMQAdminExt.setNamesrvAddr(&quot;name-server1-ip:port;name-server2-ip:port&quot;);&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Java Options&lt;/p&gt;
+
+    &lt;p&gt;Name server address list may also be fed to your application through specifying the sequel java option 
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;rocketmq.namesrv.addr&lt;/code&gt; before launching.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Environment Variable&lt;/p&gt;
+
+    &lt;p&gt;You can export &lt;code class=&quot;highlighter-rouge&quot;&gt;NAMESRV_ADDR&lt;/code&gt; environment variable. Brokers and clients will examine and use its value if set.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;HTTP Endpoint&lt;/p&gt;
+
+    &lt;p&gt;If you do not specify name server address list using previously mentioned methods, Apache RocketMQ will access
+  the following HTTP end point to acquire and update name server address list every two minutes with initial delay of
+  ten seconds.&lt;/p&gt;
+
+    &lt;p&gt;On default, the end point is:&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://jmenv.tbsite.net:8080/rocketmq/nsaddr&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;You may override &lt;code class=&quot;highlighter-rouge&quot;&gt;jmenv.tbsite.net&lt;/code&gt; by this java option: &lt;code class=&quot;highlighter-rouge&quot;&gt;rocketmq.namesrv.domain&lt;/code&gt;,
+ You may also override &lt;code class=&quot;highlighter-rouge&quot;&gt;nsaddr&lt;/code&gt; part by this java option: &lt;code class=&quot;highlighter-rouge&quot;&gt;rocketmq.namesrv.domain.subgroup&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;If you are running Apache RocketMQ in production, this method is recommended because it gives you maximum flexibility
+  – you can dynamically add or remove name server nodes without necessity of rebooting your brokers and clients 
+  according to your name servers’ system load.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Priority&lt;/p&gt;
+
+    &lt;p&gt;Methods introduced first take precedence over the latter, namely, &lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;Programmatic Way &amp;gt; Java Options &amp;gt; Environment Variable &amp;gt; HTTP Endpoint&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><category term="RocketMQ" /><category term="Name Server" /><summary type="html">In Apache RocketMQ, name servers are designed to coordinate each component of the distributed system
+and fulfill much of this responsibility through managing topic route information.</summary></entry><entry><title type="html">Release Notes - Apache RocketMQ - Version 4.0.0-incubating</title><link href="/release_notes/release-notes-4.0.0-incubating/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ - Version 4.0.0-incubating" /><published>2017-01-24T00:00:00+08:00</published><updated>2017-01-24T00:00:00+08:00</updated><id>/release_notes/release-notes-4.0.0-incubating</id><content type="html" xml:base="/release_notes/release-notes-4.0.0-incubating/">&lt;p&gt;Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release of RocketMQ. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;/docs/quick-start/&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2&gt; Bug
 &lt;/h2&gt;
@@ -46,6 +124,11 @@
     &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-70&quot;&gt;ROCKETMQ-70&lt;/a&gt;] - Duplicate methods in
         NettyRemotingClient
     &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-74&quot;&gt;ROCKETMQ-74&lt;/a&gt;] - DataVersion equals not working
+        as expected.
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-83&quot;&gt;ROCKETMQ-83&lt;/a&gt;] - Fail in quickstart-sample
+    &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt; Improvement
@@ -89,6 +172,12 @@
     &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-69&quot;&gt;ROCKETMQ-69&lt;/a&gt;] - Add link to RocketMQ web page
         into README.md
     &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-85&quot;&gt;ROCKETMQ-85&lt;/a&gt;] - Polish README file and remove
+        all the 3rd party links in it.
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-87&quot;&gt;ROCKETMQ-87&lt;/a&gt;] - Polish the LICENSE and NOTICE
+        files to match all the dependencies
+    &lt;/li&gt;
     &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-1&quot;&gt;ROCKETMQ-1&lt;/a&gt;] - Update build and clean up ip for
         4.0.0-incubating
     &lt;/li&gt;
@@ -118,12 +207,12 @@
     &lt;/li&gt;
     &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-62&quot;&gt;ROCKETMQ-62&lt;/a&gt;] - Polish Maven assembly release
     &lt;/li&gt;
-    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-9&quot;&gt;ROCKETMQ-9&lt;/a&gt;] - Errors in rocketmq-store module
-    &lt;/li&gt;
     &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-3&quot;&gt;ROCKETMQ-3&lt;/a&gt;] - Clean up the unit test of rocketmq
     &lt;/li&gt;
     &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-13&quot;&gt;ROCKETMQ-13&lt;/a&gt;] - Wrong log level for
         AcceptSocketService termination
+    &lt;/li&gt;
+    &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-9&quot;&gt;ROCKETMQ-9&lt;/a&gt;] - Errors in rocketmq-store module
     &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><category term="Release_Notes" /><category term="RocketMQ" /><category term="Version" /><summary type="html">Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.</summary></entry><entry><title type="html">Launch RocketMQ Code Marathon</title><link href="/activity/launch-rocketmq-code-marathon/" rel="alternate" type="text/html" title="Launch RocketMQ Code Marathon" /><published>2017-01-05T00:00:00+08:00</published><updated>2017-01-05T00:00:00+08:00</updated><id>/activity/launch-rocketmq-code-marathon</id><content type="html" xml:base="/activity/launch-rocketmq-code-marathon/">&lt;p&gt;&lt;img src=&quot;/assets/images/blog/banner.jpg&quot; alt=&quot;Banner&quot; /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;rocketmq-code-marathon-&quot;&gt;ROCKETMQ CODE MARATHON &lt;a href=&quot;/assets/attachment/launch-rocketmq-code-marathon.pdf&quot;&gt;&lt;i class=&quot;fa fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;
