@@ -56,6 +56,11 @@ Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release 
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-70'>ROCKETMQ-70</a>] - Duplicate methods in
         NettyRemotingClient
     </li>
+    <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-74'>ROCKETMQ-74</a>] - DataVersion equals not working
+        as expected.
+    </li>
+    <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-83'>ROCKETMQ-83</a>] - Fail in quickstart-sample
+    </li>
 </ul>
 
 <h2> Improvement
@@ -99,6 +104,12 @@ Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release 
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-69'>ROCKETMQ-69</a>] - Add link to RocketMQ web page
         into README.md
     </li>
+    <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-85'>ROCKETMQ-85</a>] - Polish README file and remove
+        all the 3rd party links in it.
+    </li>
+    <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-87'>ROCKETMQ-87</a>] - Polish the LICENSE and NOTICE
+        files to match all the dependencies
+    </li>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-1'>ROCKETMQ-1</a>] - Update build and clean up ip for
         4.0.0-incubating
     </li>
@@ -128,12 +139,12 @@ Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release 
     </li>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-62'>ROCKETMQ-62</a>] - Polish Maven assembly release
     </li>
-    <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-9'>ROCKETMQ-9</a>] - Errors in rocketmq-store module
-    </li>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-3'>ROCKETMQ-3</a>] - Clean up the unit test of rocketmq
     </li>
     <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-13'>ROCKETMQ-13</a>] - Wrong log level for
         AcceptSocketService termination
+    </li>
+    <li>[<a href='https://issues.apache.org/jira/browse/ROCKETMQ-9'>ROCKETMQ-9</a>] - Errors in rocketmq-store module
     </li>
 </ul>
         
