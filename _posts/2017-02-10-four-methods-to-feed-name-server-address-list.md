@@ -7,15 +7,15 @@ tags:
   - Name Server
 ---
 
-Apache RocketMQ is a distributed system that each components should be properly coordinated to work smoothly. Name 
-servers are designed to take much of this responsibility through managing topic route information.
+In Apache RocketMQ, name servers are designed to coordinate each component of the distributed system
+and take much of the responsibility for managing topic route information.
 
-The management, roughly speaking, consists two parts. The first one is that brokers report to name servers on meta data
-of themselves and topics they have. The second is serving clients, including producer, consumer and command line
- executables these meta data.
+The management, roughly speaking, consists two parts
+- Brokers send their meta data to name servers and report on topics they have.
+- Name servers are serving clients, including producers, consumers and command line clients with the freshest routing information.
 
-As a result, before launching brokers and clients, we need to feed name server address list to them. Apache RocketMQ 
-provides four methods to achieve this goal.
+Therefore, before launching brokers and clients, we need to tell them how to reach name servers by feeding them with a name server address list.
+In Apache RocketMQ, this can be done in four ways.
 
 1. Programmatic Way
 
@@ -50,8 +50,7 @@ provides four methods to achieve this goal.
     
 3. Environment Variable
 
-   A third method is via environment variable: you can export `NAMESRV_ADDR` environment variable. Brokers and clients 
-   will examine and use its value if set.
+   You can export `NAMESRV_ADDR` environment variable. Brokers and clients will examine and use its value if set.
     
     
 4. HTTP Endpoint
@@ -67,12 +66,12 @@ provides four methods to achieve this goal.
     You may override `jmenv.tbsite.net` by this java option: `rocketmq.namesrv.domain`,
     You may also override `nsaddr` part by this java option: `rocketmq.namesrv.domain.subgroup`
     
-    This method is recommended because it gives you maximum flexibility, aka, you can dynamically add or 
+    This method is recommended because it gives you maximum flexibility -- you can dynamically add or 
     remove name server node without necessity of rebooting your brokers and clients according to your name servers'
     system load.
      
      
 *  Priority
 
-    Methods introduced first take precedence over the latter, namely,
-    Programmatic Way > Java Options > Environment Variable > HTTP Endpoint
+    Methods introduced first take precedence over the latter, namely, <br>
+    `Programmatic Way > Java Options > Environment Variable > HTTP Endpoint`
