@@ -8,7 +8,7 @@ header:
   cta_label: "<i class='fa fa-rocket'></i> Getting Started"
   cta_url: "/docs/quick-start/"
   caption:
-excerpt: 'Apache RocketMQ® is an open source distributed messaging and streaming data platform.<br /> <small><a href="https://github.com/apache/incubator-rocketmq/">Latest source v4.0.0</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
+excerpt: 'Apache RocketMQ® is an open source distributed messaging and streaming data platform.<br /> <small><a href="/release_notes/release-notes-4.0.0-incubating/">Latest release v4.0.0-incubating</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 feature_row:
   - image_path: /assets/images/community/alibaba-logo.png
     alt: "Alibaba Group"
