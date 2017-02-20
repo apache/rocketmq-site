@@ -10,6 +10,13 @@ tags:
 
 Below is a summary of the JIRA issues addressed in the 4.0.0-incubating release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
 
+<h2> Download the 4.0.0-incubating release
+</h2>
+
+* Source: [rocketmq-all-4.0.0-incubating-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-source-release.zip) [[PGP](https://www.apache.org/dist/incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.0.0-incubating-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-bin-release.zip) [[PGP](https://www.apache.org/dist/incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/incubator/rocketmq/4.0.0-incubating/rocketmq-all-4.0.0-incubating-bin-release.zip.sha1)]
+
+
 <h2> Bug
 </h2>
 <ul>
