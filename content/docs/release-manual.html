@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-02-20T17:42:27+08:00">
+  <meta property="article:published_time" content="2017-02-21T14:50:53+08:00">
 
 
 
@@ -355,7 +355,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Release Manual">
     <meta itemprop="description" content="Apache RocketMQ Release Manual">
-    <meta itemprop="datePublished" content="February 20, 2017">
+    <meta itemprop="datePublished" content="February 21, 2017">
     <meta itemprop="dateModified" content="February 08, 2017">
 
     <div class="page__inner-wrap">
@@ -472,7 +472,7 @@
 <p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/incubator-rocketmq-site">rocketmq-site</a>, there is a <a href="http://rocketmq.incubator.apache.org/release_notes/release-notes-4.0.0-incubating/">release notes</a> of <code class="highlighter-rouge">4.0.0-incubating</code> available for reference, include the link to the release notes in the voting emails.</p>
 
 <h2 id="build-the-release-candidate">Build the Release Candidate</h2>
-<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">4.0.0-incubating</code>.</p>
+<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">release-4.0.0-incubating</code>.</p>
 
 <h3 id="build-the-candidate-release-artifacts">Build the Candidate Release Artifacts</h3>
 <p>Before building the release artifacts, do some verifications below:</p>
@@ -512,35 +512,34 @@
 
 <ol>
   <li>Download the release artifacts, PGP signature file, MD5/SHA hash files.</li>
-  <li>
-    <p>On unix platforms the following command can be executed:</p>
+  <li>On unix platforms the following command can be executed:</li>
+</ol>
 
-    <div class="language-shell highlighter-rouge"><pre class="highlight"><code>  <span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span>find . -type f -iname <span class="s1">'*.asc'</span><span class="sb">`</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  <span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span>find . -type f -iname <span class="s1">'*.asc'</span><span class="sb">`</span>
   <span class="k">do
-   </span>gpg --verify <span class="k">${</span><span class="nv">file</span><span class="k">}</span> 
+      </span>gpg --verify <span class="k">${</span><span class="nv">file</span><span class="k">}</span> 
   <span class="k">done</span>
 </code></pre>
-    </div>
+</div>
 
-    <p>or</p>
+<p>or</p>
 
-    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> gpg --verify rocketmq-all-%version-number%-incubating-source-release.zip.asc rocketmq-all-%version-number%-incubating-source-release.zip
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --verify rocketmq-all-%version-number%-incubating-source-release.zip.asc rocketmq-all-%version-number%-incubating-source-release.zip
 </code></pre>
-    </div>
-    <p>Check the output to ensure it contains only good signatures:</p>
+</div>
+<p>Check the output to ensure it contains only good signatures:</p>
 
-    <div class="language-text highlighter-rouge"><pre class="highlight"><code> gpg: Good signature from ... gpg: Signature made ...
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>  gpg: Good signature from ... gpg: Signature made ...
 </code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Compare MD5, SHA hash generated from the below command with the downloaded hash files.</p>
+</div>
 
-    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> gpg --print-mds rocketmq-all-%version-number%-incubating-source-release.zip 
-</code></pre>
-    </div>
-  </li>
+<ol>
+  <li>Compare MD5, SHA hash generated from the below command with the downloaded hash files.</li>
 </ol>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --print-mds rocketmq-all-%version-number%-incubating-source-release.zip 
+</code></pre>
+</div>
 
 <h3 id="release-artifacts-to-dev-repository">Release Artifacts to Dev-Repository</h3>
 <p>If the release candidate appears to pass the validation checklist, close the staging repository in Nexus by selecting the staging repository <code class="highlighter-rouge">orgapacherocketmq-XXX</code> and clicking on the <code class="highlighter-rouge">Close</code> icon.</p>
@@ -560,7 +559,7 @@
 <p>General information regarding the Apache voting process can be found <a href="http://www.apache.org/foundation/voting.html">here</a>.</p>
 
 <h3 id="apache-rocketmq-community-vote">Apache RocketMQ Community Vote</h3>
-<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.incubator.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> and a body along the lines of:</p>
+<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.incubator.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and a body along the lines of:</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -597,7 +596,7 @@ https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and pronouncing the release candidate a success. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> :</p>
+<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and pronouncing the release candidate a success. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> :</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -620,8 +619,10 @@ User Name (Apache ID)<br />
 The Apache RocketMQ Team</p>
 </blockquote>
 
+<p>If we do not pass the VOTE, fix the related issues, roll back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong></p>
+
 <h3 id="incubator-pmc-vote">Incubator PMC Vote</h3>
-<p>Once the candidate release vote passes on dev@rocketmq, send an email to <a href="mailto:dev@general@incubator.apache.org">IMPC</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> and a body along the lines of:</p>
+<p>Once the candidate release vote passes on dev@rocketmq, send an email to <a href="mailto:general@incubator.apache.org">IMPC</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and a body along the lines of:</p>
 
 <blockquote>
   <p>Hello Incubator PMC,</p>
@@ -701,7 +702,7 @@ The Apache RocketMQ Team</p>
 <blockquote>
   <p>Hi all,</p>
 
-  <p>The Apache RocketMQ team would like to announce the release of Apache RocketMQ &lt;release version&gt;.</p>
+  <p>The Apache RocketMQ team would like to announce the release of Apache RocketMQ &lt;release version&gt; (incubating).</p>
 
   <p>More details regarding Apache RocketMQ can be found at:<br />
 http://rocketmq.incubator.apache.org/</p>
