@@ -51,6 +51,9 @@
 <loc>/docs/code-guidelines/</loc>
 </url>
 <url>
+<loc>/docs/documentation/</loc>
+</url>
+<url>
 <loc>/docs/faq/</loc>
 </url>
 <url>
@@ -61,6 +64,9 @@
 </url>
 <url>
 <loc>/dowloading/releases/</loc>
+</url>
+<url>
+<loc>/docs/roadmap/</loc>
 </url>
 <url>
 <loc>/about/</loc>
@@ -129,6 +135,9 @@
 <loc>/docs/code-guidelines/</loc>
 </url>
 <url>
+<loc>/docs/documentation/</loc>
+</url>
+<url>
 <loc>/docs/faq/</loc>
 </url>
 <url>
@@ -139,6 +148,9 @@
 </url>
 <url>
 <loc>/dowloading/releases/</loc>
+</url>
+<url>
+<loc>/docs/roadmap/</loc>
 </url>
 <url>
 <loc>/docs/best-practice-broker/</loc>

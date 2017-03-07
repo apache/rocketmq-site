@@ -13,30 +13,30 @@
 
 
 
-<title>Core Concept - Apache RocketMQ</title>
+<title>The RoadMap of Apache RocketMQ - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="">
+<meta name="description" content="4.1.0~4.3.0-incubating RoadMap:">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Core Concept">
+<meta property="og:title" content="The RoadMap of Apache RocketMQ">
 
 
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="4.1.0~4.3.0-incubating RoadMap:">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Core Concept">
-  <meta name="twitter:description" content="">
+  <meta name="twitter:title" content="The RoadMap of Apache RocketMQ">
+  <meta name="twitter:description" content="4.1.0~4.3.0-incubating RoadMap:">
   <meta name="twitter:url" content="">
 
   
@@ -196,7 +196,7 @@
             
             
 
-            <li><a href="/docs/core-concept/" class="active">Core Concept</a></li>
+            <li><a href="/docs/core-concept/" class="">Core Concept</a></li>
           
             
             
@@ -364,148 +364,121 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Core Concept">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="The RoadMap of Apache RocketMQ">
+    <meta itemprop="description" content="4.1.0~4.3.0-incubating RoadMap:">
     <meta itemprop="datePublished" content="March 07, 2017">
-    <meta itemprop="dateModified" content="December 17, 2016">
+    <meta itemprop="dateModified" content="March 08, 2017">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Core Concept
+          <h1 class="page__title" itemprop="headline">The RoadMap of Apache RocketMQ
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p><img src="/assets/images/rmq-model.png" alt="RocketMQ model" /></p>
+        <h2 id="410430-incubating-roadmap">4.1.0~4.3.0-incubating RoadMap:</h2>
 
-<p>From the above model, we can look deeper into some topics about messaging system design:</p>
+<h3 id="openmessaging">OpenMessaging</h3>
+<p>OpenMessaging is a redefinition of the application of the access message service programming API standard. It is only API, non wire-level protocol. OpenMessaging covers large data message processing, stream computing message processing, the traditional transaction model of message processing. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-17">JIRA</a></p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#producer" id="markdown-toc-producer">Producer</a>    <ul>
-      <li><a href="#producer-group" id="markdown-toc-producer-group">Producer Group</a></li>
+  <li><a href="#410430-incubating-roadmap" id="markdown-toc-410430-incubating-roadmap">4.1.0~4.3.0-incubating RoadMap:</a>    <ul>
+      <li><a href="#openmessaging" id="markdown-toc-openmessaging">OpenMessaging</a></li>
+      <li><a href="#message-filtering" id="markdown-toc-message-filtering">Message Filtering</a></li>
+      <li><a href="#batch-messaging" id="markdown-toc-batch-messaging">Batch Messaging</a></li>
+      <li><a href="#consistent-hash-allocate-strategychas" id="markdown-toc-consistent-hash-allocate-strategychas">Consistent Hash Allocate Strategy(CHAS)</a></li>
+      <li><a href="#global-order-messaging" id="markdown-toc-global-order-messaging">Global Order Messaging</a></li>
+      <li><a href="#distributed-transaction-messaging" id="markdown-toc-distributed-transaction-messaging">Distributed Transaction Messaging</a></li>
+      <li><a href="#non-redundant-message-delivery-mechanism" id="markdown-toc-non-redundant-message-delivery-mechanism">Non-Redundant Message Delivery Mechanism</a></li>
+      <li><a href="#intellective-ha-architecture" id="markdown-toc-intellective-ha-architecture">Intellective HA Architecture</a></li>
+      <li><a href="#docker-image" id="markdown-toc-docker-image">Docker Image</a></li>
+      <li><a href="#mqtt" id="markdown-toc-mqtt">MQTT</a></li>
     </ul>
   </li>
-  <li><a href="#consumer" id="markdown-toc-consumer">Consumer</a>    <ul>
-      <li><a href="#pullconsumer" id="markdown-toc-pullconsumer">PullConsumer</a></li>
-      <li><a href="#pushconsumer" id="markdown-toc-pushconsumer">PushConsumer</a></li>
-      <li><a href="#consumer-group" id="markdown-toc-consumer-group">Consumer Group</a></li>
-    </ul>
-  </li>
-  <li><a href="#topic" id="markdown-toc-topic">Topic</a></li>
-  <li><a href="#message" id="markdown-toc-message">Message</a>    <ul>
-      <li><a href="#message-queue" id="markdown-toc-message-queue">Message Queue</a></li>
-      <li><a href="#tag" id="markdown-toc-tag">Tag</a></li>
-      <li><a href="#broker" id="markdown-toc-broker">Broker</a></li>
-    </ul>
-  </li>
-  <li><a href="#name-server" id="markdown-toc-name-server">Name Server</a></li>
-  <li><a href="#message-model" id="markdown-toc-message-model">Message Model</a></li>
-  <li><a href="#message-order" id="markdown-toc-message-order">Message Order</a></li>
+  <li><a href="#440-incubating-roadmap" id="markdown-toc-440-incubating-roadmap">4.4.0-incubating+ RoadMap:</a></li>
+  <li><a href="#rocketmq-externals" id="markdown-toc-rocketmq-externals">RocketMQ Externals</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<ul>
-  <li>Consumer Concurrency</li>
-  <li>Consumer Hot Issues</li>
-  <li>Consumer Load Balance</li>
-  <li>Message Router</li>
-  <li>Connection Multiplex</li>
-  <li>Canary Deployments</li>
-</ul>
+<h3 id="message-filtering">Message Filtering</h3>
+<p>So far, RocketMQ only support message filtering feature by <code class="highlighter-rouge">TAG</code>, but one message only can own one tag, this is too limited to meet complex business requirements.</p>
 
-<h1 id="producer">Producer</h1>
+<p>So, we want to define and implement a reasonable filter language based on a subset of the SQL 92 expression syntax to support customized message filtering. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-121">JIRA</a></p>
 
-<p>A producer sends messages generated by the business application systems to brokers. RocketMQ provides multiple paradigms of sending: synchronous, asynchronous and one-way.</p>
+<h3 id="batch-messaging">Batch Messaging</h3>
 
-<h2 id="producer-group">Producer Group</h2>
+<p>In order to use RocketMQ in big data related scenarios, batch messaging is necessary, which will bring million-level TPS for RocketMQ. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-80">JIRA</a>, <a href="https://github.com/apache/incubator-rocketmq/pull/53">PR</a></p>
 
-<p>Producers of the same role are grouped together. A different producer instance of the same producer group may be contacted by a broker to commit or roll back a transaction in case the original producer crashed after starting the transaction.</p>
+<h3 id="consistent-hash-allocate-strategychas">Consistent Hash Allocate Strategy(CHAS)</h3>
 
-<p><strong>Warning</strong>: Considering the provided producer is sufficiently powerful at sending messages, only one instance is allowed per producer group and process to avoid unnecessarily initializing of producer instances.</p>
+<p>Consumer clients use the average allocate strategy by far, which is very sensitive when clients register or unregister continually.</p>
 
-<h1 id="consumer">Consumer</h1>
+<p>A Consistent Hash allocate strategy is valuable for the developer who cares more about stabilization than averaging.</p>
 
-<p>A Consumer pulls messages from brokers and feeds them into application. In perspective of user application, two types of consumers are provided:</p>
+<p>So it’s better for us to support CHAS as a extra choice in consumer load balancing. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-67">JIRA</a>, <a href="https://github.com/apache/incubator-rocketmq/pull/67">PR</a></p>
 
-<h2 id="pullconsumer">PullConsumer</h2>
+<h3 id="global-order-messaging">Global Order Messaging</h3>
 
-<p>Pull consumer actively pulls messages from brokers. Once batches of messages are pulled, user application initiates consuming process.</p>
+<p>As we know, messages in the same queue can be consumed sequentially. So we always send the congeneric messages to the same queue to guarantee ordering, which will cause hot-point issue.</p>
 
-<h2 id="pushconsumer">PushConsumer</h2>
+<p>So It’s cool if we support a new global order messaging mechanism, without hot-points problem. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-122">JIRA</a></p>
 
-<p>Push consumer, on the other hand, encapsulates message pulling, consuming progress maintaining and other effortful work inside, leaving a callback interface to end user to implement which will be executed on message arrival.</p>
+<h3 id="distributed-transaction-messaging">Distributed Transaction Messaging</h3>
+<p>Undoubtedly, transaction messaging is very frequently-used in most business.</p>
 
-<h2 id="consumer-group">Consumer Group</h2>
+<p>But it is unfortunate that users must implement transaction mechanism by themselves until now, may be they need DataBase to implement it.</p>
 
-<p>Similar to previously mentioned producer group, consumers of the exactly same role are grouped together and named <strong>Consumer Group</strong>.</p>
+<p>It’s time to support distributed transaction messaging to make it convenient for the user, help them handle complex business with skill and ease. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-123">JIRA</a></p>
 
-<p>Consumer Group is a great concept with which achieving goals of load-balance and fault-tolerance, in terms of message consuming, is super easy.</p>
+<h3 id="non-redundant-message-delivery-mechanism">Non-Redundant Message Delivery Mechanism</h3>
 
-<p><strong>Warning</strong>: consumer instances of a consumer group <strong>must</strong> have exactly same topic subscription(s).</p>
+<p>The duplicated messages are worrisome. It will cost much if user need non-repeating messages.</p>
 
-<h1 id="topic">Topic</h1>
+<p>In most cases, user need store the consume records to judge a message is replicated or not, and the store stage should guarantee strong consistency. As you see, it’s very complicated, so support a strict and non-redundant message delivery mechanism is impending. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-124">JIRA</a></p>
 
-<p>Topic is a category to which producers deliver messages and from which consumers pull messages. Topics have very loose relation with producers and consumers. Specifically, a topic may have zero, one or multiple producers that sends messages to it; conversely, a producer can sends messages of different topics. In consumer’s view, a topic may be subscribed by zero, one or multiple consumer groups; and a consumer group, in the same paradigm, may subscribe one or multiple topics as long as instances of this group keep their subscription consistent as emphasized in the previous section.</p>
+<h3 id="intellective-ha-architecture">Intellective HA Architecture</h3>
 
-<h1 id="message">Message</h1>
+<p>RocketMQ uses master-slave as HA architecture, which has low latency and high throughput features, but this program need human intervention to recover from abnormal situations.</p>
 
-<p>Message is the envelope of your information to deliver. A message must be specified with a topic, which can be interpreted as address of your letter to mail to. A message may also have an optional tag set. Extra key-value pairs may also be included. For example, you may set a business key for your message and look up the message on broker server to diagnose issues during development.</p>
+<p>So, we want to support a multi-replication high availability／reliability mechanism, without human intervention. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-125">JIRA</a></p>
 
-<h2 id="message-queue">Message Queue</h2>
+<h3 id="docker-image">Docker Image</h3>
+<p>Provide a docker image for easy deployment and management, optimize for the latest version. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-126">JIRA</a></p>
 
-<p>Topic, internally, is logically partitioned into one or more sub-topics. We call these sub-topics “message queues”. This concept plays a major role in implementing valuable features, including fail-over, maximum concurrency, etc.</p>
+<h3 id="mqtt">MQTT</h3>
+<p>MQTT is a machine-to-machine (M2M)/”Internet of Things” connectivity protocol, which has been widely used in IoT. Support MQTT, give RocketMQ the power to connect everything. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-127">JIRA</a></p>
 
-<h2 id="tag">Tag</h2>
+<h2 id="440-incubating-roadmap">4.4.0-incubating+ RoadMap:</h2>
 
-<p>Tag, which can be thought as sub-topic, provides an extra flexibility for user. Through introducing tag,  messages with different purposes from the same business module may have the same topic yet different tag. It would be helpful to keep your code clean and coherent.</p>
+<ol>
+  <li>Support more application layer protocol: WebSocket, HTTP2, etc.</li>
+  <li>Support more native language SDK: PHP, Python, .Net, Node, Go, etc. The chosen programming languages are the result of surveying many cloud platforms.</li>
+  <li>Support advanced message queuing protocol(AMQP).</li>
+</ol>
 
-<h2 id="broker">Broker</h2>
+<h2 id="rocketmq-externals">RocketMQ Externals</h2>
 
-<p>Broker is the major role of the RocketMQ system. It receives messages sent from producers, store them and being prepared to serve pull requests from consumers. It also stores message consuming related meta data, including consumer groups, consuming progress offsets and topic / queue info.</p>
+<p>RocketMQ, as a message-oriented middleware, plays a connector role in distributed environment, so in order to embrace the ecological preferably, RocketMQ community needs a series of external projects to integrate with other excellent projects.</p>
 
-<h1 id="name-server">Name Server</h1>
-
-<p>Name server serves as the routing information provider. Producer/Consumer clients look up topics to find broker list to read from and write to.</p>
-
-<h1 id="message-model">Message Model</h1>
-
-<ul>
-  <li>
-    <p>Clustering</p>
-  </li>
-  <li>
-    <p>Broadcasting</p>
-  </li>
-</ul>
-
-<h1 id="message-order">Message Order</h1>
-
-<p>When DefaultMQPushConsumer is employed, you may decide to consume messages orderly or concurrently.</p>
-
-<ul>
-  <li>Orderly</li>
-</ul>
-
-<p>Consuming messages orderly means messages are consumed the same order they are sent by producers for each message queue. If you are dealing with scenario that global order is mandatory, make sure the topic you use has only one message queue.</p>
-
-<p><strong>Warn</strong>: If consuming orderly is specified, the maximum concurrency of message consuming is the number of message queues subscribed by the consumer group.</p>
-
-<ul>
-  <li>Concurrently</li>
-</ul>
-
-<p>When consuming concurrently, maximum concurrency of message consuming is only limited by thread pool specified for each consumer client.</p>
-
-<p><strong>Warn</strong>: Message order is no longer guaranteed in this mode.</p>
-
+<ol>
+  <li>rocketmq-console, provide a ops dashboard for RocketMQ. <a href="https://github.com/rocketmq/rocketmq-console-ng">REPO</a></li>
+  <li>rocketmq-jms, provide a new client to support JMS 2.0. <a href="https://github.com/rocketmq/rocketmq-jms">REPO</a></li>
+  <li>rocketmq-flume-ng, integrate RocketMQ with Apache Flume.<a href="https://github.com/rocketmq/rocketmq-flume-ng">REPO</a>, <a href="https://issues.apache.org/jira/browse/FLUME-3058">FLUME-JIRA</a></li>
+  <li>rocketmq-storm, integrate RocketMQ with storm. <a href="https://github.com/rocketmq/rocketmq-storm">REPO</a></li>
+  <li>rocketmq-ignite, integrate RocketMQ with ignite. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-41">JIRA</a>, <a href="https://issues.apache.org/jira/browse/IGNITE-4539">IGNITE-JIRA</a></li>
+  <li>rocketmq-spark, integrate RocketMQ with spark. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-81">JIRA</a></li>
+  <li>rocketmq-flink, integrate RocketMQ with flink. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-82">JIRA</a></li>
+  <li>rocketmq-distributedlog integrate RocketMQ with distributedlog. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-21">JIRA</a></li>
+  <li>rocketmq-spring, provide a adapter for spring and spring-boot. <a href="https://issues.apache.org/jira/browse/ROCKETMQ-120">JIRA</a></li>
+</ol>
 
         
       </section>
@@ -516,7 +489,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-03-08">March 08, 2017</time></p>
         
       </footer>
 
@@ -525,24 +498,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Core Concept /docs/core-concept/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=The RoadMap of Apache RocketMQ /docs/roadmap/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/core-concept/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/roadmap/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/core-concept/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/roadmap/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/core-concept/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/roadmap/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/motivation/" class="pagination--pager" title="Motivation
+      <a href="/dowloading/releases/" class="pagination--pager" title="Downloading the Apache RocketMQ Releases
 ">Previous</a>
     
     
-      <a href="/docs/cli-admin-tool/" class="pagination--pager" title="CLI Admin Tool
+      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
 ">Next</a>
     
   </nav>
