@@ -26,6 +26,18 @@ The following is a list of developers with commit privileges that have directly 
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![lollipop](/assets/images/about/lollipop.jpeg)|lollipop|[@lollipopjin](https://github.com/lollipopjin)|lollipop@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
+|![shroman](https://avatars2.githubusercontent.com/u/3435166?v=3&s=400)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
+|![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |Committer| +8 |
 
 ### Top Contributors
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
+
+|Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
+|:---|:---|:---|:---|:---|:---|
+|![Zhang-Ke](/assets/images/about/zhangke.png)|Zhang-Ke| [@Zhang-Ke](https://github.com/Zhang-Ke)|zhangke_beijing@qq.com |Contributor| +8 |
+|![StyleTang](/assets/images/about/StyleTang.jpeg)|StyleTang| [@StyleTang](https://github.com/StyleTang)|styletang.me@gmail.com |Contributor| +8 |
+|![tcrow](/assets/images/about/tcrow.png)|tcrow| [@tcrow](https://github.com/tcrow)||Contributor| +8 |
+|![Jaskey](/assets/images/about/Jaskey.jpeg)|Jaskey| [@Jaskey](https://github.com/Jaskey)|linjunjie1103@gmail.com |Contributor| +8 |
+|![zhaoqun911](/assets/images/about/zhaoqun911.png)|zhaoqun911| [@zhaoqun911](https://github.com/zhaoqun911)||Contributor| +8 |
+
+
