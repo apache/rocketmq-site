@@ -9,35 +9,19 @@ header:
   cta_url: "/docs/quick-start/"
   caption:
 excerpt: 'Apache RocketMQ™ is an open source distributed messaging and streaming data platform.<br /> <small><a href="/release_notes/release-notes-4.0.0-incubating/">Latest release v4.0.0-incubating</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=incubator-rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
-feature_row:
-  - image_path: /assets/images/community/alibaba-logo.png
-    alt: "Alibaba Group"
-  - image_path: /assets/images/community/ant-logo.png
-    alt: "China Telecom Group"
-  - image_path: /assets/images/community/yeahmobi-logo.png
-    alt: "YeahMobi Group"
-feature_row1:
-  - image_path: /assets/images/community/egov-logo.png
-    alt: "Egov Group"
-  - image_path: /assets/images/community/china-telecom-logo.png
-    alt: "China Telecom Group"
-  - image_path: /assets/images/community/media-logo.jpg
-    alt: "Media Group"
-feature_row2:
-  - image_path: /assets/images/community/decent-logo.png
-    alt: "Decent Group"
-  - image_path: /assets/images/community/yunpan-logo.png
-    alt: "Yunpan Group"
-  - image_path: /assets/images/community/shihai-logo.jpg
-    alt: "Shihai Group"
-intro:
-  - excerpt: "Who's Involved in RocketMQ ? &nbsp;"
 ---
-
 {% include feature_row id="intro" type="center" %}
 
-{% include feature_row %}
 
-{% include feature_row id="feature_row1" %}
+# Vision
 
-{% include feature_row id="feature_row2" %}
+[We](/about/team/) are always very happy to have contributions, whether for trivial cleanups or big new features. We want to have high quality, well documented codes for each programming language, as well as the surrounding ecosystem of integration tools that people use with Apache RocketMQ.
+
+Nor is code the only way to contribute to the project. We strongly value documentation, integration with other project, and gladly accept improvements for these aspects.
+
+We have a few mailing lists hosted by Apache, please refer to [here](/about/contact) for more details.
+
+# Ecosystem
+
+TODO
+
