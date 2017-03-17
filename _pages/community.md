@@ -31,7 +31,7 @@ feature_row2:
   - image_path: /assets/images/community/shihai-logo.jpg
     alt: "Shihai Group"
 intro:
-  - excerpt: "Who's Involved in RocketMQ ? &nbsp; [<i class='fa fa-github'></i> See the Full List](https://github.com/alibaba/RocketMQ/issues/1){: .btn .btn--twitter}"
+  - excerpt: "Who's Involved in RocketMQ ? &nbsp;"
 ---
 
 {% include feature_row id="intro" type="center" %}
