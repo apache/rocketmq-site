@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-03-17T18:12:56+08:00">
+  <meta property="article:published_time" content="2017-03-19T22:48:37+08:00">
 
 
 
@@ -243,14 +243,6 @@
             
             
 
-            <li><a href="/docs/branching-model" class="">Branching Model</a></li>
-          
-            
-            
-
-            
-            
-
             <li><a href="/docs/pull-request/" class="">Best Practice in PR</a></li>
           
             
@@ -369,7 +361,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Motivation">
     <meta itemprop="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
-    <meta itemprop="datePublished" content="March 17, 2017">
+    <meta itemprop="datePublished" content="March 19, 2017">
     <meta itemprop="dateModified" content="December 17, 2016">
 
     <div class="page__inner-wrap">
@@ -397,7 +389,7 @@
 
 <h1 id="why-rocketmq-">Why RocketMQ ?</h1>
 
-<p>Based on our observations and research, with more and more queues and virtual topics in use, ActiveMQ IO module becomes a bottleneck. In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability, see <a href="https://github.com/alibaba/RocketMQ/wiki/how_to_support_more_queues">here</a> for details.</p>
+<p>Based on our observations and research, with more and more queues and virtual topics in use, ActiveMQ IO module becomes a bottleneck. In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability, see <a href="/rocketmq/how-to-support-more-queues-in-rocketmq/">here</a> for details.</p>
 
 <p>In this context, we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss. We also created a cornerstone product based on RocketMQ, a Platform as a Service (PaaS) product named the
 <a href="https://intl.aliyun.com/">Alibaba Cloud Platform</a>. Today, more than 100 companies are using the RocketMQ open source version in their business solutions. We believe RocketMQ can benefit more people, so we would like to share it around the world.</p>
