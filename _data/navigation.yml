@@ -33,8 +33,8 @@ docs:
     children:
       - title: "Code Guidelines"
         url: /docs/code-guidelines/
-      - title: "Branching Model"
-        url: /docs/branching-model
+      #- title: "Branching Model"
+      #  url: /docs/branching-model
       - title: "Best Practice in PR"
         url: /docs/pull-request/
       - title: "Release Manual"

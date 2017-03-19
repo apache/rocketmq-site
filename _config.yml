@@ -143,6 +143,7 @@ exclude:
   - tmp
   - /test # ignore Minimal Mistakes /test
   - /docs
+  - /_docs/09-branching-model.md
 keep_files:
   - .git
   - .svn
