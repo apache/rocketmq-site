@@ -74,9 +74,9 @@ MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol, w
 
 RocketMQ, as a message-oriented middleware, plays a connector role in distributed environment, so in order to embrace the ecological preferably, RocketMQ community needs a series of external projects to integrate with other excellent projects. 
 
-1. rocketmq-console, provide a ops dashboard for RocketMQ. [REPO](https://github.com/rocketmq/rocketmq-console-ng) 
-2. rocketmq-jms, provide a new client to support JMS 2.0. [REPO](https://github.com/rocketmq/rocketmq-jms) 
-3. rocketmq-flume-ng, integrate RocketMQ with Apache Flume.[REPO](https://github.com/rocketmq/rocketmq-flume-ng), [FLUME-JIRA](https://issues.apache.org/jira/browse/FLUME-3058) 
+1. rocketmq-console, provide a ops dashboard for RocketMQ. [REPO](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-console) 
+2. rocketmq-jms, provide a new client to support JMS 2.0. [REPO](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-jms) 
+3. rocketmq-flume-ng, integrate RocketMQ with Apache Flume.[REPO](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-flume), [FLUME-JIRA](https://issues.apache.org/jira/browse/FLUME-3058) 
 4. rocketmq-storm, integrate RocketMQ with storm. [REPO](https://github.com/rocketmq/rocketmq-storm) 
 5. rocketmq-ignite, integrate RocketMQ with ignite. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-41), [IGNITE-JIRA](https://issues.apache.org/jira/browse/IGNITE-4539) 
 6. rocketmq-spark, integrate RocketMQ with spark. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-81) 
