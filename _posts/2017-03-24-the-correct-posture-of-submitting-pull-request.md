@@ -31,8 +31,8 @@ you'd better use a new branch for each PR, for it is convenient to manage your c
 
 Note: if using merge, it will dirty the commits
 
-the difference between rebase and merge can refer to:
-https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+the difference between rebase and merge can refer to:  
+[https://www.atlassian.com/git/tutorials/merging-vs-rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
 
 
@@ -62,6 +62,7 @@ For example:
 ### Attach jira or issue
 For now, we have finished the preparations of a PR. It is time to create it. For apache projects, we could attach the jira issue using specific title like "[XXX] add something", such as "[ROCKETMQ-80] Add batch feature", the "XXX" represents the the name of the jira issue.
 you could refer to:
-https://github.com/apache/incubator-rocketmq/pull/53
+
+[https://github.com/apache/incubator-rocketmq/pull/53](https://github.com/apache/incubator-rocketmq/pull/53)
 
 
