@@ -13,34 +13,34 @@
 
 
 
-<title>Launch RocketMQ Code Marathon - Apache RocketMQ</title>
+<title>The Correct Posture Of Submitting Pull Request - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="ROCKETMQ CODE MARATHON January 5th 2017">
+<meta name="description" content="The correct posture of submitting a PR">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Launch RocketMQ Code Marathon">
+<meta property="og:title" content="The Correct Posture Of Submitting Pull Request">
 
 
-  <link rel="canonical" href="http://localhost:4000/activity/launch-rocketmq-code-marathon/">
-  <meta property="og:url" content="http://localhost:4000/activity/launch-rocketmq-code-marathon/">
+  <link rel="canonical" href="http://localhost:4000/the-correct-posture-of-submitting-pull-request/">
+  <meta property="og:url" content="http://localhost:4000/the-correct-posture-of-submitting-pull-request/">
 
 
 
-  <meta property="og:description" content="ROCKETMQ CODE MARATHON January 5th 2017">
+  <meta property="og:description" content="The correct posture of submitting a PR">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Launch RocketMQ Code Marathon">
-  <meta name="twitter:description" content="ROCKETMQ CODE MARATHON January 5th 2017">
-  <meta name="twitter:url" content="http://localhost:4000/activity/launch-rocketmq-code-marathon/">
+  <meta name="twitter:title" content="The Correct Posture Of Submitting Pull Request">
+  <meta name="twitter:description" content="The correct posture of submitting a PR">
+  <meta name="twitter:url" content="http://localhost:4000/the-correct-posture-of-submitting-pull-request/">
 
   
     <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-01-05T00:00:00+08:00">
+  <meta property="article:published_time" content="2017-03-24T00:00:00+08:00">
 
 
 
@@ -289,15 +289,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Launch RocketMQ Code Marathon">
-    <meta itemprop="description" content="ROCKETMQ CODE MARATHON January 5th 2017">
-    <meta itemprop="datePublished" content="January 05, 2017">
+    <meta itemprop="headline" content="The Correct Posture Of Submitting Pull Request">
+    <meta itemprop="description" content="The correct posture of submitting a PR">
+    <meta itemprop="datePublished" content="March 24, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Launch RocketMQ Code Marathon
+          <h1 class="page__title" itemprop="headline">The Correct Posture Of Submitting Pull Request
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -305,59 +305,96 @@
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p><img src="/assets/images/blog/banner.jpg" alt="Banner" /></p>
-<h1 id="rocketmq-code-marathon-">ROCKETMQ CODE MARATHON <a href="/assets/attachment/launch-rocketmq-code-marathon.pdf"><i class="fa fa-link"></i></a></h1>
-<h5 id="january-5th-2017">January 5th 2017</h5>
+        <h2 id="the-correct-posture-of-submitting-a-pr">The correct posture of submitting a PR</h2>
 
-<h2 id="objective">Objective:</h2>
-<ol>
-  <li>Foster Community</li>
-  <li>Prosper Ecology</li>
-  <li>Incubate Committers</li>
-</ol>
+<h3 id="fork-the-original-repo">Fork the original repo</h3>
+<ul>
+  <li>fork the original repo, and clone it.</li>
+</ul>
 
-<h2 id="output">Output:</h2>
-<ol>
-  <li>1~3 Milestone Releases Per Project</li>
-</ol>
+<blockquote>
+  <p>git clone  https://github.com/dongeforever/incubator-rocketmq.git</p>
+</blockquote>
 
-<h2 id="rewards">Rewards:</h2>
-<ol>
-  <li>Two Potential Committers Per Project</li>
-  <li>Free Offers to Active Participants for On-Site Meetup</li>
-  <li>PMC Memberships for Qualified Committers</li>
-</ol>
+<ul>
+  <li>add original remote repo</li>
+</ul>
 
-<h2 id="projects">PROJECTS</h2>
+<blockquote>
+  <p>git remote add apache https://github.com/apache/incubator-rocketmq.git</p>
+</blockquote>
 
-<h3 id="rocketmq-console">RocketMQ-Console</h3>
-<ol>
-  <li>Brand New UI</li>
-  <li>I18n Support</li>
-  <li><a href="https://projects.spring.io/spring-boot/">Spring Boot</a> + <a href="http://getbootstrap.com/">Bootstrap</a> Recommended</li>
-  <li>Join by Creating Pull Requests against <a href="https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-console">RocketMQ Console Repository</a></li>
-</ol>
+<ul>
+  <li>show the remote repos</li>
+</ul>
 
-<h3 id="rocketmq-jms">RocketMQ-JMS</h3>
-<ol>
-  <li>Supporting JMS 2.0 Protocol</li>
-  <li>Rich Documentation and Good Test Cases Coverage</li>
-  <li>Join by Creating Pull Requests against <a href="https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-jms">RocketMQ JMS Repository</a></li>
-</ol>
+<blockquote>
+  <p>git remote -v<br />
+apache	 https://github.com/apache/incubator-rocketmq.git (fetch)<br />
+apache	 https://github.com/apache/incubator-rocketmq.git (push)<br />
+origin	 https://github.com/dongeforever/incubator-rocketmq.git (fetch)<br />
+origin	 https://github.com/dongeforever/incubator-rocketmq.git (push)</p>
+</blockquote>
 
-<h3 id="rocketmq-flume">RocketMQ-Flume</h3>
-<ol>
-  <li>Supporting Latest <a href="http://flume.apache.org/">Flume</a></li>
-  <li>Rich Documentation and Good Test Cases Coverage</li>
-  <li>Join by Creating Pull Requests against <a href="https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-flume">RocketMQ Flume Repository</a></li>
-</ol>
+<h3 id="use-a-new-branch-to-write-your-own-code-and-commit">Use a new branch to write your own code and commit</h3>
+<p>you’d better use a new branch for each PR, for it is convenient to manage your code and commits</p>
+<blockquote>
+  <p>git checkout -b new_pr<br />
+git push -u origin new_pr</p>
+</blockquote>
+
+<h3 id="important-rebase-instead-of-merge">[Important] rebase instead of merge</h3>
+<blockquote>
+  <p>git fetch apache<br />
+git rebase apache/develop<br />
+git push</p>
+</blockquote>
+
+<p>Note: if using merge, it will dirty the commits</p>
+
+<p>the difference between rebase and merge can refer to:
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing</p>
+
+<h3 id="suggestedsquash-the-commits">[Suggested]squash the commits</h3>
+<p>you can code and commit as usual. But when you think it is time to submit a PR, it is better to squash your commits into single one, for that others can easily identify your PR from the history commits.
+you can squash as follows:</p>
+<blockquote>
+  <p>gt reset &lt;the latest commit that dose not belong to you PR&gt;<br />
+git add –all<br />
+git commit -m “attach the issue or jira”<br />
+git push -f</p>
+</blockquote>
+
+<p>For example:</p>
+<blockquote>
+  <p>git log</p>
+</blockquote>
+
+<p><img src="https://lh3.googleusercontent.com/-xYoltD_ZDhE/WNTONuq58WI/AAAAAAAAABo/zWZdGVxNVa8/I/14864352604541.jpg" alt="" /></p>
+
+<blockquote>
+  <p>git resset b4108d2d9d3b1522e45ac5e7ea37106f2135bfa0 <br />
+git commit -m ‘Add batch feature’<br />
+git log</p>
+</blockquote>
+
+<p><img src="https://lh3.googleusercontent.com/-Pe_xYIiPAGE/WNTOOHEUd1I/AAAAAAAAABs/VfuT_wBQ5QI/I/14864353798102.jpg" alt="" /></p>
+<blockquote>
+  <p>git push -f</p>
+</blockquote>
+
+<h3 id="attach-jira-or-issue">Attach jira or issue</h3>
+<p>For now, we have finished the preparations of a PR. It is time to create it. For apache projects, we could attach the jira issue using specific title like “[XXX] add something”, such as “[ROCKETMQ-80] Add batch feature”, the “XXX” represents the the name of the jira issue.
+you could refer to:
+https://github.com/apache/incubator-rocketmq/pull/53</p>
+
 
         
       </section>
@@ -365,56 +402,10 @@
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="http://localhost:4000/tags/#activity" class="page__taxonomy-item" rel="tag">Activity</a><span class="sep">, </span>
-    
-      
-      
-      <a href="http://localhost:4000/tags/#code" class="page__taxonomy-item" rel="tag">Code</a><span class="sep">, </span>
-    
-      
-      
-      <a href="http://localhost:4000/tags/#marathon" class="page__taxonomy-item" rel="tag">Marathon</a>
-    
-    </span>
-  </p>
-
-
-
-
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="http://localhost:4000/categories/#activity" class="page__taxonomy-item" rel="tag">Activity</a>
-    
-    </span>
-  </p>
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-01-05T00:00:00+08:00">January 05, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-03-24T00:00:00+08:00">March 24, 2017</time></p>
         
       </footer>
 
@@ -423,25 +414,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Launch RocketMQ Code Marathon http://localhost:4000/activity/launch-rocketmq-code-marathon/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=The Correct Posture Of Submitting Pull Request http://localhost:4000/the-correct-posture-of-submitting-pull-request/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/activity/launch-rocketmq-code-marathon/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/the-correct-posture-of-submitting-pull-request/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://localhost:4000/activity/launch-rocketmq-code-marathon/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/the-correct-posture-of-submitting-pull-request/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/activity/launch-rocketmq-code-marathon/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/the-correct-posture-of-submitting-pull-request/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://localhost:4000/maven/mastering-component-compatible-dependency/" class="pagination--pager" title="Mastering Component Compatible Dependency
+      <a href="http://localhost:4000/rocketmq/four-methods-to-feed-name-server-address-list/" class="pagination--pager" title="Four Methods to Feed Name Server Address List
 ">Previous</a>
     
     
-      <a href="http://localhost:4000/release_notes/release-notes-4.0.0-incubating/" class="pagination--pager" title="Release Notes - Apache RocketMQ - Version 4.0.0-incubating
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
