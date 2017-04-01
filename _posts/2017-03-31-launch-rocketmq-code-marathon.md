@@ -31,7 +31,7 @@ tags:
 1. Integration of big data analysis framework
 1. Rich Documentation and Good Test Cases Coverage
 1. Apache Beam preferred 
-2. Join by Creating Pull Requests against [RocketMQ Beam Repository](https://github.com/rocketmq/rocketmq-flink)
+2. Join by Creating Pull Requests against [RocketMQ Beam Repository](https://github.com/rocketmq/rocketmq-beam)
 3. Join by Creating Pull Requests against [RocketMQ Flink Repository](https://github.com/rocketmq/rocketmq-flink)
 4. Join by Existing Pull Request against [RocketMQ Storm Repository](https://github.com/apache/storm/pull/2024)
 4. Join by Existing Pull Request against [RocketMQ Spark Repository](https://github.com/apache/incubator-rocketmq-externals/pull/5)
