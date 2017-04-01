@@ -311,47 +311,43 @@
       <section class="page__content" itemprop="text">
         <h2 id="the-correct-posture-of-submitting-a-pr">The correct posture of submitting a PR</h2>
 
-<h3 id="fork-the-original-repo">Fork the original repo</h3>
+<h3 id="prepare-the-repo">Prepare the repo</h3>
 <ul>
-  <li>fork the original repo, and clone it.</li>
-</ul>
-
-<blockquote>
-  <p>git clone  https://github.com/dongeforever/incubator-rocketmq.git</p>
-</blockquote>
-
-<ul>
-  <li>add original remote repo</li>
-</ul>
-
-<blockquote>
-  <p>git remote add apache https://github.com/apache/incubator-rocketmq.git</p>
-</blockquote>
-
-<ul>
-  <li>show the remote repos</li>
-</ul>
-
-<blockquote>
-  <p>git remote -v<br />
+  <li>fork the original repo
+<img src="http://img3.tbcdn.cn/5476e8b07b923/TB17G5kQpXXXXcUapXXXXXXXXXX" alt="" />
+Click the “fork” button, a forked repo will be added to your repo list.</li>
+  <li>clone the forked repo, here take “foo” as example
+    <blockquote>
+      <p>git clone  https://github.com/foo/incubator-rocketmq.git</p>
+    </blockquote>
+  </li>
+  <li>add original remote repo
+    <blockquote>
+      <p>git remote add apache https://github.com/apache/incubator-rocketmq.git</p>
+    </blockquote>
+  </li>
+  <li>show the remote repos
+    <blockquote>
+      <p>git remote -v<br />
 apache	 https://github.com/apache/incubator-rocketmq.git (fetch)<br />
 apache	 https://github.com/apache/incubator-rocketmq.git (push)<br />
-origin	 https://github.com/dongeforever/incubator-rocketmq.git (fetch)<br />
-origin	 https://github.com/dongeforever/incubator-rocketmq.git (push)</p>
-</blockquote>
+origin	 https://github.com/foo/incubator-rocketmq.git (fetch)<br />
+origin	 https://github.com/foo/incubator-rocketmq.git (push)</p>
+    </blockquote>
+  </li>
+</ul>
 
 <h3 id="use-a-new-branch-to-write-your-own-code-and-commit">Use a new branch to write your own code and commit</h3>
 <p>you’d better use a new branch for each PR, for it is convenient to manage your code and commits</p>
 <blockquote>
   <p>git checkout -b new_pr<br />
-git push -u origin new_pr</p>
+//do something and commit</p>
 </blockquote>
 
-<h3 id="important-rebase-instead-of-merge">[Important] rebase instead of merge</h3>
+<h3 id="important-rebase-instead-of-merge">[Important] Rebase instead of merge</h3>
 <blockquote>
   <p>git fetch apache<br />
-git rebase apache/develop<br />
-git push</p>
+git rebase apache/develop</p>
 </blockquote>
 
 <p>Note: if using merge, it will dirty the commits</p>
@@ -359,14 +355,14 @@ git push</p>
 <p>the difference between rebase and merge can refer to:<br />
 <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">https://www.atlassian.com/git/tutorials/merging-vs-rebasing</a></p>
 
-<h3 id="suggestedsquash-the-commits">[Suggested]squash the commits</h3>
+<h3 id="suggestedsquash-the-commits">[Suggested]Squash the commits</h3>
 <p>you can code and commit as usual. But when you think it is time to submit a PR, it is better to squash your commits into single one, for that others can easily identify your PR from the history commits.
 you can squash as follows:</p>
 <blockquote>
   <p>gt reset &lt;the latest commit that dose not belong to you PR&gt;<br />
 git add –all<br />
 git commit -m “attach the issue or jira”<br />
-git push -f</p>
+git push (if the commits have been already pushed to your remote repo, git push will fail , use git push -f instead)</p>
 </blockquote>
 
 <p>For example:</p>
@@ -384,7 +380,7 @@ git log</p>
 
 <p><img src="https://lh3.googleusercontent.com/-Pe_xYIiPAGE/WNTOOHEUd1I/AAAAAAAAABs/VfuT_wBQ5QI/I/14864353798102.jpg" alt="" /></p>
 <blockquote>
-  <p>git push -f</p>
+  <p>git push</p>
 </blockquote>
 
 <h3 id="attach-jira-or-issue">Attach jira or issue</h3>
