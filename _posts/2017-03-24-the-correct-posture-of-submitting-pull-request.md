@@ -1,33 +1,32 @@
 ## The correct posture of submitting a PR
 
 
-### Fork the original repo
-* fork the original repo, and clone it. 
-
-> git clone  https://github.com/dongeforever/incubator-rocketmq.git
+### Prepare the repo
+* fork the original repo
+![](http://img3.tbcdn.cn/5476e8b07b923/TB17G5kQpXXXXcUapXXXXXXXXXX)
+Click the "fork" button, a forked repo will be added to your repo list.
+* clone the forked repo, here take "foo" as example
+> git clone  https://github.com/foo/incubator-rocketmq.git
 
 * add original remote repo
-
 > git remote add apache https://github.com/apache/incubator-rocketmq.git
 
 * show the remote repos
-
 > git remote -v  
 > apache	 https://github.com/apache/incubator-rocketmq.git (fetch)  
 > apache	 https://github.com/apache/incubator-rocketmq.git (push)  
-> origin	 https://github.com/dongeforever/incubator-rocketmq.git (fetch)  
-> origin	 https://github.com/dongeforever/incubator-rocketmq.git (push)  
+> origin	 https://github.com/foo/incubator-rocketmq.git (fetch)  
+> origin	 https://github.com/foo/incubator-rocketmq.git (push)  
 
 ### Use a new branch to write your own code and commit
 you'd better use a new branch for each PR, for it is convenient to manage your code and commits
 > git checkout -b new_pr  
-> git push -u origin new_pr
+//do something and commit  
 
 
-### [Important] rebase instead of merge
+### [Important] Rebase instead of merge
 > git fetch apache  
 > git rebase apache/develop  
-> git push  
 
 Note: if using merge, it will dirty the commits
 
@@ -36,13 +35,13 @@ the difference between rebase and merge can refer to:
 
 
 
-### [Suggested]squash the commits
+### [Suggested]Squash the commits
 you can code and commit as usual. But when you think it is time to submit a PR, it is better to squash your commits into single one, for that others can easily identify your PR from the history commits.
 you can squash as follows:
 > gt reset \<the latest commit that dose not belong to you PR\>  
 > git add --all  
 > git commit -m "attach the issue or jira"  
-> git push -f  
+> git push (if the commits have been already pushed to your remote repo, git push will fail , use git push -f instead)
 
 
 For example:  
@@ -55,7 +54,7 @@ For example:
 > git log   
 
 ![](https://lh3.googleusercontent.com/-Pe_xYIiPAGE/WNTOOHEUd1I/AAAAAAAAABs/VfuT_wBQ5QI/I/14864353798102.jpg)
-> git push -f 
+> git push
 
  
 
