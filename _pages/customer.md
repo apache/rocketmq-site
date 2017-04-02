@@ -31,7 +31,7 @@ feature_row2:
   - image_path: /assets/images/community/shihai-logo.jpg
     alt: "Shihai Group"
 intro:
-  - excerpt: "Who's Involved in Aapache RocketMQ ? &nbsp;"
+  - excerpt: "Who uses Apache RocketMQ ? &nbsp;"
 ---
 
 {% include feature_row id="intro" type="center" %}
