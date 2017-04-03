@@ -313,7 +313,7 @@
 
 <h3 id="prepare-the-repo">Prepare the repo</h3>
 <ul>
-  <li>fork the original repo
+  <li>fork the apache repo on Github
 <img src="http://img3.tbcdn.cn/5476e8b07b923/TB17G5kQpXXXXcUapXXXXXXXXXX" alt="" />
 Click the “fork” button, a forked repo will be added to your repo list.</li>
   <li>clone the forked repo, here take “foo” as example
@@ -321,7 +321,7 @@ Click the “fork” button, a forked repo will be added to your repo list.</li>
       <p>git clone  https://github.com/foo/incubator-rocketmq.git</p>
     </blockquote>
   </li>
-  <li>add original remote repo
+  <li>add apache remote repo
     <blockquote>
       <p>git remote add apache https://github.com/apache/incubator-rocketmq.git</p>
     </blockquote>
@@ -336,6 +336,8 @@ origin	 https://github.com/foo/incubator-rocketmq.git (push)</p>
     </blockquote>
   </li>
 </ul>
+
+<p><strong>Note</strong>: https://github.com/apache/incubator-rocketmq.git is a read-only repo, mirrored from git://git.apache.org/incubator-rocketmq.git. For submitting PR, fork this read-only repo on Github is OK.</p>
 
 <h3 id="use-a-new-branch-to-write-your-own-code-and-commit">Use a new branch to write your own code and commit</h3>
 <p>you’d better use a new branch for each PR, for it is convenient to manage your code and commits</p>
