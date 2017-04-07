@@ -21,9 +21,8 @@ tags:
 1. 1~3 Milestone Releases Per Project
 
 ## Rewards:
-1. Two Potential Committers Per Project
+1. Two Potential Committers Candidates Per Project
 1. Free Offers to Active Participants for On-Site Meetup
-1. PMC Memberships for Qualified Committers
 
 ## PROJECTS
 
@@ -31,8 +30,8 @@ tags:
 1. Integration of big data analysis framework
 1. Rich Documentation and Good Test Cases Coverage
 1. Apache Beam preferred 
-2. Join by Creating Pull Requests against [RocketMQ Beam Repository](https://github.com/rocketmq/rocketmq-flink)
-3. Join by Creating Pull Requests against [RocketMQ Flink Repository](https://github.com/rocketmq/rocketmq-flink)
+2. Join by Creating Pull Requests against [RocketMQ Beam Repository](https://github.com/apache/incubator-rocketmq-externals)
+3. Join by Creating Pull Requests against [RocketMQ Flink Repository](https://github.com/apache/incubator-rocketmq-externals)
 4. Join by Existing Pull Request against [RocketMQ Storm Repository](https://github.com/apache/storm/pull/2024)
 4. Join by Existing Pull Request against [RocketMQ Spark Repository](https://github.com/apache/incubator-rocketmq-externals/pull/5)
 
@@ -40,15 +39,15 @@ tags:
 1. Development of RocketMQ Client
 1. Rich Documentation and Good Test Cases Coverage
 3. Go preferred
-1. Join by Creating Pull Requests against [RocketMQ Go Repository](https://github.com/rocketmq/rocketmq-go)
-2. Join by Creating Pull Requests against [RocketMQ .Net Repository](https://github.com/rocketmq/rocketmq-donet)
-3. Join by Creating Pull Requests against [RocketMQ PHP Repository](https://github.com/rocketmq/rocketmq-php)
+1. Join by Creating Pull Requests against [RocketMQ Go Repository](https://github.com/apache/incubator-rocketmq-externals)
+2. Join by Creating Pull Requests against [RocketMQ .Net Repository](https://github.com/apache/incubator-rocketmq-externals)
+3. Join by Creating Pull Requests against [RocketMQ PHP Repository](https://github.com/apache/incubator-rocketmq-externals)
 
 
 ### RocketMQ-Data Replication
 1. Implement Data Replication from Database
 1. Rich Documentation and Good Test Cases Coverage
 3. MySQL preferred
-1. Join by Creating Pull Requests against [RocketMQ MySQL Repository](https://github.com/rocketmq/rocketmq-mysql)
-2. Join by Creating Pull Requests against [RocketMQ Redis Repository](https://github.com/rocketmq/rocketmq-redis)
-3. Join by Creating Pull Requests against [RocketMQ MongoDB Repository](https://github.com/rocketmq/rocketmq-mongodb)
+1. Join by Creating Pull Requests against [RocketMQ MySQL Repository](https://github.com/apache/incubator-rocketmq-externals)
+2. Join by Creating Pull Requests against [RocketMQ Redis Repository](https://github.com/apache/incubator-rocketmq-externals)
+3. Join by Creating Pull Requests against [RocketMQ MongoDB Repository](https://github.com/apache/incubator-rocketmq-externals)
