@@ -21,7 +21,7 @@ tags:
 1. 1~3 Milestone Releases Per Project
 
 ## Rewards:
-1. Two Potential Committers Candidates Per Project
+1. Two Potential Committer Candidates Per Project
 1. Free Offers to Active Participants for On-Site Meetup
 
 ## PROJECTS
