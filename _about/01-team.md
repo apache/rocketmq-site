@@ -26,7 +26,7 @@ The following is a list of developers with commit privileges that have directly 
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![lollipop](/assets/images/about/lollipop.jpeg)|lollipop|[@lollipopjin](https://github.com/lollipopjin)|lollipop@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
-|![shroman](https://avatars2.githubusercontent.com/u/3435166?v=3&s=400)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
+|![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
 |![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |Committer| +8 |
 
 ### Top Contributors
