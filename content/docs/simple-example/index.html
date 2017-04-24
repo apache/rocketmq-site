@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Simple Message Example - Apache RocketMQ</title>
+
+
+
+
+<meta name="description" content="How to send simple message to reduce pull in RocketMQ.">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Apache RocketMQ">
+<meta property="og:title" content="Simple Message Example">
+
+
+
+
+  <meta property="og:description" content="How to send simple message to reduce pull in RocketMQ.">
+
+
+
+  <meta name="twitter:site" content="@ApacheRocketMQ">
+  <meta name="twitter:title" content="Simple Message Example">
+  <meta name="twitter:description" content="How to send simple message to reduce pull in RocketMQ.">
+  <meta name="twitter:url" content="">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-04-25T01:02:11+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Apache RocketMQ",
+      "url" : null,
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="aand0XZkSGsziuC-UPD4ZJniFD0m0JhGx6820y2mAQY" />
+
+
+  <meta name="baidu-site-verification" content="wD06EbDRkQ" />
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">Apache RocketMQ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/docs/quick-start/">Documentation</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/year-archive/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/community/">Community</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/customer/">Customer</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="/about/team/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">User Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/simple-example/" class="active">Simple Example</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/order-example/" class="">Order Example</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/broadcast-example/" class="">Broadcasting Example</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/schedule-example/" class="">Schedule Example</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/batch-example/" class="">Batch Example</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Deployment & Operations</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/rmq-arc/" class="">Architecture</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/rmq-deployment/" class="">Deployment</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/cli-admin-tool/" class="">CLI Admin Tool</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributor Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/code-guidelines/" class="">Code Guidelines</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/pull-request/" class="">Pull Request</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/release-manual" class="">Release Manual</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Best Practice</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/core-concept/" class="">Core Concept</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-broker/" class="">Broker</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-producer/" class="">Producer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-consumer/" class="">Consumer</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/best-practice-namesvr/" class="">NameServer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Release Notes</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/dowloading/releases/" class="">Download</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/release_notes/release-notes-4.0.0-incubating/" class="">4.0.0-incubating</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/docs/roadmap/"><span class="nav__sub-title">RoadMap</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          
+          
+
+          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Simple Message Example">
+    <meta itemprop="description" content="How to send simple message to reduce pull in RocketMQ.">
+    <meta itemprop="datePublished" content="April 25, 2017">
+    <meta itemprop="dateModified" content="April 25, 2017">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Simple Message Example
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#reliable-asynchronous-transmission" id="markdown-toc-reliable-asynchronous-transmission">Reliable asynchronous transmission</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>Use Rocketmq to send ordinary messages have three ways: reliable synchronous transmission, reliable
+asynchronous transmission, one-way (Oneway) send.</p>
+
+<p>This paper introduces the principle of
+each implementation, the use of the scene and the similarities and differences between the
+three implementations, and provides a code example for reference
+Reliable synchronous transmission
+Principle: synchronous transmission refers to the sender of the message issued after the
+data are received after the recipient sends back a packet should be made under the mode of
+communication
+Application scenarios: this way the application of the scene is very extensive, such as
+important notification messages, SMS notification, SMS marketing system, etc..</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Producer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">MQClientException</span><span class="o">,</span>
+        <span class="n">InterruptedException</span> <span class="o">{</span>
+         <span class="cm">/*
+         * Instantiate with a producer group name.
+         */</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span>
+            <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+         <span class="cm">/*
+         * Specify name server addresses.
+         * &lt;p/&gt;
+         *
+         * Alternatively, you may specify name server addresses via exporting
+        environmental variable: NAMESRV_ADDR
+         * &lt;pre&gt;
+         * {@code
+         * producer.setNamesrvAddr("name-server1-ip:9876;name-server2-ip:9876");
+         * }
+         * &lt;/pre&gt;
+         */</span>
+         <span class="cm">/*
+         * Launch the instance.
+         */</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                 <span class="cm">/*
+                 * Create a message instance, specifying topic, tag and message
+                body.
+                 */</span>
+                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span> <span class="cm">/* Topic */</span><span class="o">,</span>
+                    <span class="s">"TagA"</span> <span class="cm">/* Tag */</span><span class="o">,</span>
+                    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span>
+                        <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span> <span class="cm">/* Message body */</span>
+                <span class="o">);</span>
+                 <span class="cm">/*
+                 * Call send message to deliver message to one of brokers.
+                 */</span>
+                <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+         <span class="cm">/*
+         * Shut down once the producer instance is not longer in use.
+         */</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre>
+</div>
+<h4 id="reliable-asynchronous-transmission">Reliable asynchronous transmission</h4>
+<p>Principle: asynchronous transmission refers to the sender sends the data, not the receiver
+back to respond, and then send the next packet communication. Asynchronous send MQ,
+users need to realize asynchronous callback interface (SendCallback), in the implementation
+of asynchronous send message to the application server, without waiting for a response can
+be returned directly to the receiving server, through the callback interface response, and
+response to the server for processing results.</p>
+
+<p>Applications: asynchronous transmission is generally used to link time-consuming, RT
+response time sensitive business scenarios, such as user video upload after notification to
+start transcoding, the transcoding after push notification transcoding results.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AsyncProducer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">MQClientException</span><span class="o">,</span>
+        <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">UnsupportedEncodingException</span> <span class="o">{</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"Jodie_Daily_test"</span><span class="o">);</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">setRetryTimesWhenSendAsyncFailed</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="kd">final</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"Jodie_topic_1023"</span><span class="o">,</span>
+                    <span class="s">"TagA"</span><span class="o">,</span>
+                    <span class="s">"OrderID188"</span><span class="o">,</span>
+                    <span class="s">"Hello world"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">));</span>
+                <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="k">new</span> <span class="n">SendCallback</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">SendResult</span> <span class="n">sendResult</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%-10d OK %s %n"</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span>
+                            <span class="n">sendResult</span><span class="o">.</span><span class="na">getMsgId</span><span class="o">());</span>
+                    <span class="o">}</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onException</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%-10d Exception %s %n"</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+                        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Unidirectional (Oneway) transmission
+Principle: one-way (Oneway) to send the message is only responsible for sending the
+message, do not wait for the server to respond and no callback function to trigger, that is,
+send the request does not wait for a reply. The process of sending messages in this way
+takes a very short time, usually at the microsecond level.
+Application scenarios: for some very short, but not high reliability requirements of the scene,
+such as log collection.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">producerOneWay</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">MQClientException</span><span class="o">,</span>
+        <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">MQClientException</span> <span class="o">{</span>
+         <span class="cm">/*
+         * Instantiate with a producer group name.
+         */</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span>
+            <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+         <span class="cm">/*
+         * Specify name server addresses.
+         * &lt;p/&gt;
+         *
+         * Alternatively, you may specify name server addresses via exporting
+        environmental variable: NAMESRV_ADDR
+         * &lt;pre&gt;
+         * {@code
+         * producer.setNamesrvAddr("name-server1-ip:9876;name-server2-ip:9876");
+         * }
+         * &lt;/pre&gt;
+         */</span>
+         <span class="cm">/*
+         * Launch the instance.
+         */</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                 <span class="cm">/*
+                 * Create a message instance, specifying topic, tag and message
+                body.
+                 */</span>
+                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span> <span class="cm">/* Topic */</span><span class="o">,</span>
+                    <span class="s">"TagA"</span> <span class="cm">/* Tag */</span><span class="o">,</span>
+                    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span>
+                        <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span> <span class="cm">/* Message body */</span>
+                <span class="o">);</span>
+                 <span class="cm">/*
+                 * Call send message to deliver message to one of brokers.
+                 */</span>
+                <span class="n">producer</span><span class="o">.</span><span class="na">sendOneway</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+         <span class="cm">/*
+         * Shut down once the producer instance is not longer in use.
+         */</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-25">April 25, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Simple Message Example /docs/simple-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/simple-example/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=/docs/simple-example/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/simple-example/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/schedule-example/" class="pagination--pager" title="Schedule example
+">Previous</a>
+    
+    
+      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <style type="text/css">
+  div.columns   { float: left; margin-left: 10px;}
+  div.clear     { clear: both; } 
+</style>
+<div>
+  <div class="columns">
+    <a href="https://www.apache.org/"><img src="/assets/images/feather-small.gif" alt="Apache Software Foundation" style="height: 88px !important" /></a>
+  </div>
+  <div class="columns" style="width: 80%">
+    <div class="page__footer-follow">
+      <ul class="social-icons">
+        
+          <li><strong>Follow:</strong></li>
+        
+        
+          <li><a href="https://twitter.com/ApacheRocketMQ"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+        
+        
+          <li><a href="http://github.com/apache/incubator-rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+        
+        <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+      </ul>
+    </div>
+
+    <div class="page__footer-copyright">Copyright &copy; 2017 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</div>
+  </div>
+</div>
+<div class="clear"></div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89603173-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?36428f2b841d08e7405724cbf7f860d2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'rocketmq';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  </body>
+</html>

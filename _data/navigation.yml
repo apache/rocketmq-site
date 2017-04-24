@@ -21,26 +21,43 @@ docs:
     children:
       - title: "Quick Start"
         url: /docs/quick-start/
-      - title: "Motivation"
+      - title: "Why RocketMQ"
         url: /docs/motivation/
-      - title: "Core Concept"
-        url: /docs/core-concept/
+      - title: "Simple Example"
+        url: /docs/simple-example/
+      - title: "Order Example"
+        url: /docs/order-example/
+      - title: "Broadcasting Example"
+        url: /docs/broadcast-example/
+      - title: "Schedule Example"
+        url: /docs/schedule-example/
+      - title: "Batch Example"
+        url: /docs/batch-example/
+
+  - title: Deployment & Operations
+    children:
+      - title: "Architecture"
+        url: /docs/rmq-arc/
+      - title: "Deployment"
+        url: /docs/rmq-deployment/
       - title: "CLI Admin Tool"
         url: /docs/cli-admin-tool/
-      - title: "Cluster Configuration & Deployment"
-        url: /docs/cluster-deployment/
-  - title: Developer Guide
+
+  - title: Contributor Guide
     children:
       - title: "Code Guidelines"
         url: /docs/code-guidelines/
       #- title: "Branching Model"
       #  url: /docs/branching-model
-      - title: "Best Practice in PR"
+      - title: "Pull Request"
         url: /docs/pull-request/
       - title: "Release Manual"
         url: /docs/release-manual
+
   - title: Best Practice
     children:
+      - title: "Core Concept"
+        url: /docs/core-concept/
       - title: "Broker"
         url: /docs/best-practice-broker/
       - title: "Producer"

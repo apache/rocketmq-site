@@ -13,30 +13,30 @@
 
 
 
-<title>Core Concept - Apache RocketMQ</title>
+<title>Broadcasting - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="">
+<meta name="description" content="How to send broadcast messages in Apache RocketMQ.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Core Concept">
+<meta property="og:title" content="Broadcasting">
 
 
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="How to send broadcast messages in Apache RocketMQ.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Core Concept">
-  <meta name="twitter:description" content="">
+  <meta name="twitter:title" content="Broadcasting">
+  <meta name="twitter:description" content="How to send broadcast messages in Apache RocketMQ.">
   <meta name="twitter:url" content="">
 
   
@@ -215,7 +215,7 @@
             
             
 
-            <li><a href="/docs/broadcast-example/" class="">Broadcasting Example</a></li>
+            <li><a href="/docs/broadcast-example/" class="active">Broadcasting Example</a></li>
           
             
             
@@ -323,7 +323,7 @@
             
             
 
-            <li><a href="/docs/core-concept/" class="active">Core Concept</a></li>
+            <li><a href="/docs/core-concept/" class="">Core Concept</a></li>
           
             
             
@@ -419,148 +419,93 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Core Concept">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="Broadcasting">
+    <meta itemprop="description" content="How to send broadcast messages in Apache RocketMQ.">
     <meta itemprop="datePublished" content="April 25, 2017">
-    <meta itemprop="dateModified" content="December 17, 2016">
+    <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Core Concept
+          <h1 class="page__title" itemprop="headline">Broadcasting
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p><img src="/assets/images/rmq-model.png" alt="RocketMQ model" /></p>
-
-<p>From the above model, we can look deeper into some topics about messaging system design:</p>
-
-<aside class="sidebar__right">
+        <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#producer" id="markdown-toc-producer">Producer</a>    <ul>
-      <li><a href="#producer-group" id="markdown-toc-producer-group">Producer Group</a></li>
+  <li><a href="#what-is-broadcasting" id="markdown-toc-what-is-broadcasting">What is Broadcasting</a></li>
+  <li><a href="#how-to-use" id="markdown-toc-how-to-use">How to use</a>    <ul>
+      <li><a href="#firstproduce-message-as-before" id="markdown-toc-firstproduce-message-as-before">First,Produce message as before</a></li>
+      <li><a href="#secondconsume-message-in-broadcast-mode" id="markdown-toc-secondconsume-message-in-broadcast-mode">Second,Consume message in Broadcast mode</a></li>
     </ul>
   </li>
-  <li><a href="#consumer" id="markdown-toc-consumer">Consumer</a>    <ul>
-      <li><a href="#pullconsumer" id="markdown-toc-pullconsumer">PullConsumer</a></li>
-      <li><a href="#pushconsumer" id="markdown-toc-pushconsumer">PushConsumer</a></li>
-      <li><a href="#consumer-group" id="markdown-toc-consumer-group">Consumer Group</a></li>
-    </ul>
-  </li>
-  <li><a href="#topic" id="markdown-toc-topic">Topic</a></li>
-  <li><a href="#message" id="markdown-toc-message">Message</a>    <ul>
-      <li><a href="#message-queue" id="markdown-toc-message-queue">Message Queue</a></li>
-      <li><a href="#tag" id="markdown-toc-tag">Tag</a></li>
-      <li><a href="#broker" id="markdown-toc-broker">Broker</a></li>
-    </ul>
-  </li>
-  <li><a href="#name-server" id="markdown-toc-name-server">Name Server</a></li>
-  <li><a href="#message-model" id="markdown-toc-message-model">Message Model</a></li>
-  <li><a href="#message-order" id="markdown-toc-message-order">Message Order</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<ul>
-  <li>Consumer Concurrency</li>
-  <li>Consumer Hot Issues</li>
-  <li>Consumer Load Balance</li>
-  <li>Message Router</li>
-  <li>Connection Multiplex</li>
-  <li>Canary Deployments</li>
-</ul>
+<h4 id="what-is-broadcasting">What is Broadcasting</h4>
+<p>Broadcasting is when sending a meeage to a topic,all subscribers of the topic will receive the message even if they are in the same consumer group.If you want all subscribers in a group receive all the messages in a topic,broadcasting is a good choice.</p>
 
-<h1 id="producer">Producer</h1>
+<h4 id="how-to-use">How to use</h4>
 
-<p>A producer sends messages generated by the business application systems to brokers. RocketMQ provides multiple paradigms of sending: synchronous, asynchronous and one-way.</p>
+<h5 id="firstproduce-message-as-before">First,Produce message as before</h5>
 
-<h2 id="producer-group">Producer Group</h2>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"ProducerGroupName"</span><span class="o">);</span>
 
-<p>Producers of the same role are grouped together. A different producer instance of the same producer group may be contacted by a broker to commit or roll back a transaction in case the original producer crashed after starting the transaction.</p>
+<span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-<p><strong>Warning</strong>: Considering the provided producer is sufficiently powerful at sending messages, only one instance is allowed per producer group and process to avoid unnecessarily initializing of producer instances.</p>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
+                <span class="s">"TagA"</span><span class="o">,</span>
+                <span class="s">"OrderID188"</span><span class="o">,</span>
+                <span class="s">"Hello world"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">));</span>
+            <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
+        <span class="o">}</span>
 
-<h1 id="consumer">Consumer</h1>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+</code></pre>
+</div>
 
-<p>A Consumer pulls messages from brokers and feeds them into application. In perspective of user application, two types of consumers are provided:</p>
+<h5 id="secondconsume-message-in-broadcast-mode">Second,Consume message in Broadcast mode</h5>
 
-<h2 id="pullconsumer">PullConsumer</h2>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name_1"</span><span class="o">);</span>
 
-<p>Pull consumer actively pulls messages from brokers. Once batches of messages are pulled, user application initiates consuming process.</p>
+<span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="n">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span>
 
-<h2 id="pushconsumer">PushConsumer</h2>
+<span class="c1">//set to broadcast mode</span>
+<span class="n">consumer</span><span class="o">.</span><span class="na">setMessageModel</span><span class="o">(</span><span class="n">MessageModel</span><span class="o">.</span><span class="na">BROADCASTING</span><span class="o">);</span>
 
-<p>Push consumer, on the other hand, encapsulates message pulling, consuming progress maintaining and other effortful work inside, leaving a callback interface to end user to implement which will be executed on message arrival.</p>
+<span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="s">"TagA || TagC || TagD"</span><span class="o">);</span>
 
-<h2 id="consumer-group">Consumer Group</h2>
+<span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
 
-<p>Similar to previously mentioned producer group, consumers of the exactly same role are grouped together and named <strong>Consumer Group</strong>.</p>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
+        <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span> <span class="o">+</span> <span class="s">"%n"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">});</span>
 
-<p>Consumer Group is a great concept with which achieving goals of load-balance and fault-tolerance, in terms of message consuming, is super easy.</p>
+<span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Broadcast Consumer Started.%n"</span><span class="o">);</span>
+</code></pre>
+</div>
 
-<p><strong>Warning</strong>: consumer instances of a consumer group <strong>must</strong> have exactly same topic subscription(s).</p>
-
-<h1 id="topic">Topic</h1>
-
-<p>Topic is a category to which producers deliver messages and from which consumers pull messages. Topics have very loose relation with producers and consumers. Specifically, a topic may have zero, one or multiple producers that sends messages to it; conversely, a producer can sends messages of different topics. In consumer’s view, a topic may be subscribed by zero, one or multiple consumer groups; and a consumer group, in the same paradigm, may subscribe one or multiple topics as long as instances of this group keep their subscription consistent as emphasized in the previous section.</p>
-
-<h1 id="message">Message</h1>
-
-<p>Message is the envelope of your information to deliver. A message must be specified with a topic, which can be interpreted as address of your letter to mail to. A message may also have an optional tag set. Extra key-value pairs may also be included. For example, you may set a business key for your message and look up the message on broker server to diagnose issues during development.</p>
-
-<h2 id="message-queue">Message Queue</h2>
-
-<p>Topic, internally, is logically partitioned into one or more sub-topics. We call these sub-topics “message queues”. This concept plays a major role in implementing valuable features, including fail-over, maximum concurrency, etc.</p>
-
-<h2 id="tag">Tag</h2>
-
-<p>Tag, which can be thought as sub-topic, provides an extra flexibility for user. Through introducing tag,  messages with different purposes from the same business module may have the same topic yet different tag. It would be helpful to keep your code clean and coherent.</p>
-
-<h2 id="broker">Broker</h2>
-
-<p>Broker is the major role of the RocketMQ system. It receives messages sent from producers, store them and being prepared to serve pull requests from consumers. It also stores message consuming related meta data, including consumer groups, consuming progress offsets and topic / queue info.</p>
-
-<h1 id="name-server">Name Server</h1>
-
-<p>Name server serves as the routing information provider. Producer/Consumer clients look up topics to find broker list to read from and write to.</p>
-
-<h1 id="message-model">Message Model</h1>
-
-<ul>
-  <li>
-    <p>Clustering</p>
-  </li>
-  <li>
-    <p>Broadcasting</p>
-  </li>
-</ul>
-
-<h1 id="message-order">Message Order</h1>
-
-<p>When DefaultMQPushConsumer is employed, you may decide to consume messages orderly or concurrently.</p>
-
-<ul>
-  <li>Orderly</li>
-</ul>
-
-<p>Consuming messages orderly means messages are consumed the same order they are sent by producers for each message queue. If you are dealing with scenario that global order is mandatory, make sure the topic you use has only one message queue.</p>
-
-<p><strong>Warn</strong>: If consuming orderly is specified, the maximum concurrency of message consuming is the number of message queues subscribed by the consumer group.</p>
-
-<ul>
-  <li>Concurrently</li>
-</ul>
-
-<p>When consuming concurrently, maximum concurrency of message consuming is only limited by thread pool specified for each consumer client.</p>
-
-<p><strong>Warn</strong>: Message order is no longer guaranteed in this mode.</p>
-
+<p>Enjoy it.</p>
 
         
       </section>
@@ -571,7 +516,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-17">December 17, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-25">April 25, 2017</time></p>
         
       </footer>
 
@@ -580,24 +525,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Core Concept /docs/core-concept/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Broadcasting /docs/broadcast-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/core-concept/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/broadcast-example/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/core-concept/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/broadcast-example/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/core-concept/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/broadcast-example/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/motivation/" class="pagination--pager" title="Motivation
+      <a href="/docs/batch-example/" class="pagination--pager" title="Batch Example
 ">Previous</a>
     
     
-      <a href="/docs/cli-admin-tool/" class="pagination--pager" title="CLI Admin Tool
+      <a href="/docs/rmq-deployment/" class="pagination--pager" title="Deployment
 ">Next</a>
     
   </nav>
