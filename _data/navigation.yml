@@ -27,17 +27,19 @@ docs:
         url: /docs/simple-example/
       - title: "Order Example"
         url: /docs/order-example/
+      - title: "Broadcasting Example"
+        url: /docs/broadcast-example/
       - title: "Schedule Example"
         url: /docs/schedule-example/
-      - title: "Schedule Example"
-        url: /docs/schedule-example/
+      - title: "Batch Example"
+        url: /docs/batch-example/
 
   - title: Deployment & Operations
     children:
       - title: "Architecture"
-        url: /docs/architecture/
+        url: /docs/rmq-arc/
       - title: "Deployment"
-        url: /docs/deployment/
+        url: /docs/rmq-deployment/
       - title: "CLI Admin Tool"
         url: /docs/cli-admin-tool/
 
