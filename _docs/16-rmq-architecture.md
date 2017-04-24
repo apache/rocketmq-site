@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "RocketMQ Architecture"
 permalink: /docs/rmq-arc/
 excerpt: "The main Architecture of Apache RocketMQ."
 modified: 2017-04-24T15:01:43-04:00
@@ -8,7 +8,7 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-# RocketMQ Architecture
+
 ![](/assets/images/rmq-basic-arc.png)
 
 # Overview

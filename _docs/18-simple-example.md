@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Simple Message Example"
 permalink: /docs/simple-example/
 excerpt: "How to send simple message to reduce pull in RocketMQ."
 modified: 2017-04-24T15:01:43-04:00
@@ -9,8 +9,6 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-
-### Simple Message
 Use Rocketmq to send ordinary messages have three ways: reliable synchronous transmission, reliable
 asynchronous transmission, one-way (Oneway) send. 
 

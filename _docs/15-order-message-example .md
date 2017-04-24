@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Order Message "
 permalink: /docs/order-example/
 excerpt: "How to send and receive ordered messages in Apache RocketMQ."
 modified: 2017-04-24T15:01:43-04:00
@@ -9,7 +9,6 @@ modified: 2017-04-24T15:01:43-04:00
 {% include toc %}
 
 
-## Order Message 
 To send and subscribe to order messages, use Java MQ SDK 1.2.7 and above. The sequential message is a kind of message type which is provided by MQ according to the order, which is suitable for the news release and consumption according to the principle of fifo. 
 
 For more information, please refer to the sequential message file. 

@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Deployment"
 permalink: /docs/rmq-deployment/
 excerpt: "How to deploy the Apache RocketMQ."
 modified: 2017-04-24T15:01:43-04:00
@@ -7,7 +7,6 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-## Deployment
 This section is to introduce deployment solution which is considered production-ready. Generally speaking, we are deploying a resilient RocketMQ cluster having no single point of failure.
 
 ### Prerequisite

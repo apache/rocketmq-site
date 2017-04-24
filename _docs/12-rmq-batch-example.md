@@ -1,13 +1,12 @@
 ---
-title: "Quick Start"
+title: "Batch Example"
 permalink: /docs/batch-example/
-excerpt: "How to quickly install and setup Apache RocketMQ."
-modified: 2016-12-29T15:01:43-04:00
+excerpt: "How to use batch in Rocketmq"
+modified: 2017-04-24T15:01:43-04:00
 ---
 
 {% include toc %}
 
-## Batch Example
 #### When to use batch
 Batch is not for packaging but improving performance of small messages. So the messages of the same batch should act the same role, no more effort should be taken to split the batch.
 No split has another important advantage, messages of the same batch should be sent atomically, that is all successfully or all unsuccessfully, of which the importance is self-evident.

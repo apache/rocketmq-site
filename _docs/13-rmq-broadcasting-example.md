@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Broadcasting"
 permalink: /docs/broadcast-example/
 excerpt: "How to send broadcast messages in Apache RocketMQ."
 modified: 2017-04-24T15:01:43-04:00
@@ -7,7 +7,6 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-## Broadcasting
 #### What is Broadcasting
 Broadcasting is when sending a meeage to a topic,all subscribers of the topic will receive the message even if they are in the same consumer group.If you want all subscribers in a group receive all the messages in a topic,broadcasting is a good choice.
 

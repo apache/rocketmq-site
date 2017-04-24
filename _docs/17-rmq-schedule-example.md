@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Schedule example"
 permalink: /docs/schedule-example/
 excerpt: "How to use schedule component to reduce pull in RocketMQ."
 modified: 2017-04-24T15:01:43-04:00
@@ -9,8 +9,6 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-
-## Schedule example
 
 ### What is mq schedule?
 If you use `DefaultMQPullConsumer` to consume message,you have to fetch message manualy.There are some steps here to achieve this point.But with `MQPullConsumerScheduleService`,you will consume messages easily.
