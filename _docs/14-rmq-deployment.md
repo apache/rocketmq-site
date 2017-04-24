@@ -13,7 +13,7 @@ This section is to introduce deployment solution which is considered production-
 Before starting this section, make sure you have read Quick Start section, in which core concepts and components of RocketMQ are introduced.
 
 #### Production-ready Deployment
-#####Name Server
+##### Name Server
 To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is at least one name server instance alive, the whole cluster remains serving.
 
 Name server follows share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any one of name servers available while sending / consuming messages.
@@ -113,7 +113,7 @@ usage: mqadmin clusterList [-h] [-i <arg>] [-m] [-n <arg>]
 ### Replication mode
 With the purpose to guarantee that any successfully published message will not be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync & Async.
 
-#####Replication: Sync / Async Broker
+##### Replication: Sync / Async Broker
 
 Similar to many replication system, sync brokers await until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.
 

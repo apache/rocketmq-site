@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-04-25T01:02:11+08:00">
+  <meta property="article:published_time" content="2017-04-25T01:06:24+08:00">
 
 
 
@@ -439,7 +439,10 @@
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a>    <ul>
-      <li><a href="#production-ready-deployment" id="markdown-toc-production-ready-deployment">Production-ready Deployment</a></li>
+      <li><a href="#production-ready-deployment" id="markdown-toc-production-ready-deployment">Production-ready Deployment</a>        <ul>
+          <li><a href="#name-server" id="markdown-toc-name-server">Name Server</a></li>
+        </ul>
+      </li>
       <li><a href="#broker" id="markdown-toc-broker">Broker</a></li>
     </ul>
   </li>
@@ -453,6 +456,7 @@
     </ul>
   </li>
   <li><a href="#replication-mode" id="markdown-toc-replication-mode">Replication mode</a>    <ul>
+      <li><a href="#replication-sync--async-broker" id="markdown-toc-replication-sync--async-broker">Replication: Sync / Async Broker</a></li>
       <li><a href="#how-to-configure" id="markdown-toc-how-to-configure">How to configure</a></li>
       <li><a href="#deployment" id="markdown-toc-deployment">Deployment</a></li>
     </ul>
@@ -468,8 +472,8 @@
 <p>Before starting this section, make sure you have read Quick Start section, in which core concepts and components of RocketMQ are introduced.</p>
 
 <h4 id="production-ready-deployment">Production-ready Deployment</h4>
-<p>#####Name Server
-To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is at least one name server instance alive, the whole cluster remains serving.</p>
+<h5 id="name-server">Name Server</h5>
+<p>To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is at least one name server instance alive, the whole cluster remains serving.</p>
 
 <p>Name server follows share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any one of name servers available while sending / consuming messages.</p>
 
@@ -629,7 +633,7 @@ If you want to get more information about a specific command like ‘clusterList
 <h3 id="replication-mode">Replication mode</h3>
 <p>With the purpose to guarantee that any successfully published message will not be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync &amp; Async.</p>
 
-<p>#####Replication: Sync / Async Broker</p>
+<h5 id="replication-sync--async-broker">Replication: Sync / Async Broker</h5>
 
 <p>Similar to many replication system, sync brokers await until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.</p>
 
