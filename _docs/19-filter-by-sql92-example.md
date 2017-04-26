@@ -5,15 +5,14 @@ excerpt: "How to filter messages by SQL92 in Apache RocketMQ."
 modified: 2017-04-26T16:35:00-04:00
 ---
 
-
-{% include toc %}
-
-In most cases, tag is simple and useful to select message as you want.For example:
+In most cases, tag is simple and useful to select message as you want. For example:
 
 ```java
 DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("CID_EXAMPLE");
 consumer.subscribe("TOPIC", "TAGA || TAGB || TAGC");
 ```
+
+{% include toc %}
 
 Consumer will recieve messages that contains TAGA or TAGB or TAGC. But the limitation is that one message only could has one tag, this may be not suitable for more sophisticated scenarios.At this time, you could use sql expression to select messages.
 
