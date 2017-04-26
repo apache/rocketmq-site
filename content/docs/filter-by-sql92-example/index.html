@@ -13,30 +13,30 @@
 
 
 
-<title>Best Practice For Consumer - Apache RocketMQ</title>
+<title>Filter By SQL92 Example  - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="Some useful tips for users.">
+<meta name="description" content="How to filter messages by SQL92 in Apache RocketMQ.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Best Practice For Consumer">
+<meta property="og:title" content="Filter By SQL92 Example">
 
 
 
 
-  <meta property="og:description" content="Some useful tips for users.">
+  <meta property="og:description" content="How to filter messages by SQL92 in Apache RocketMQ.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Best Practice For Consumer">
-  <meta name="twitter:description" content="Some useful tips for users.">
+  <meta name="twitter:title" content="Filter By SQL92 Example">
+  <meta name="twitter:description" content="How to filter messages by SQL92 in Apache RocketMQ.">
   <meta name="twitter:url" content="">
 
   
@@ -239,7 +239,7 @@
             
             
 
-            <li><a href="/docs/filter-by-sql92-example/" class="">Filter By SQL92 Example</a></li>
+            <li><a href="/docs/filter-by-sql92-example/" class="active">Filter By SQL92 Example</a></li>
           
         </ul>
         
@@ -355,7 +355,7 @@
             
             
 
-            <li><a href="/docs/best-practice-consumer/" class="active">Consumer</a></li>
+            <li><a href="/docs/best-practice-consumer/" class="">Consumer</a></li>
           
             
             
@@ -427,72 +427,136 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Best Practice For Consumer">
-    <meta itemprop="description" content="Some useful tips for users.">
+    <meta itemprop="headline" content="Filter By SQL92 Example">
+    <meta itemprop="description" content="How to filter messages by SQL92 in Apache RocketMQ.">
     <meta itemprop="datePublished" content="April 26, 2017">
-    <meta itemprop="dateModified" content="December 25, 2016">
+    <meta itemprop="dateModified" content="April 27, 2017">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Best Practice For Consumer
+          <h1 class="page__title" itemprop="headline">Filter By SQL92 Example
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>Some useful tips for users.</p>
-
-<aside class="sidebar__right">
+        <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#consumer-group-and-subscriptions" id="markdown-toc-consumer-group-and-subscriptions">Consumer Group and Subscriptions</a></li>
-  <li><a href="#messagelistener" id="markdown-toc-messagelistener">MessageListener</a>    <ul>
-      <li><a href="#orderly" id="markdown-toc-orderly">Orderly</a></li>
-      <li><a href="#concurrently" id="markdown-toc-concurrently">Concurrently</a></li>
-      <li><a href="#consume-status" id="markdown-toc-consume-status">Consume Status</a></li>
-      <li><a href="#blocking" id="markdown-toc-blocking">Blocking</a></li>
-    </ul>
-  </li>
-  <li><a href="#thread-number" id="markdown-toc-thread-number">Thread Number</a></li>
-  <li><a href="#consumefromwhere" id="markdown-toc-consumefromwhere">ConsumeFromWhere</a></li>
-  <li><a href="#duplication" id="markdown-toc-duplication">Duplication</a></li>
+  <li><a href="#principle" id="markdown-toc-principle">Principle</a></li>
+  <li><a href="#grammars" id="markdown-toc-grammars">Grammars</a></li>
+  <li><a href="#interface" id="markdown-toc-interface">Interface</a></li>
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
 </ul>
 
   </nav>
 </aside>
-<h2 id="consumer-group-and-subscriptions">Consumer Group and Subscriptions</h2>
-<p>The first thing you should be aware of is that different Consumer Group can consume the same topic independently, each of the group will have their own consuming offsets. 
-And make sure each Consumer within the same Group to subscribe the same topics.</p>
-<h2 id="messagelistener">MessageListener</h2>
-<h3 id="orderly">Orderly</h3>
-<p>The Consumer will lock each MessageQueue to make sure it is consumed one by one orderly. This will cause performance loss, but it is useful when you are care about the order of the messages.
-It is not recommended to throw exception, you can return ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT instead.</p>
-<h3 id="concurrently">Concurrently</h3>
-<p>As the name tells, the Consumer will consume the messages concurrently. It is recommended to use this for achieving good performance.
-It is not recommended to throw exception, you can return ConsumeConcurrentlyStatus.RECONSUME_LATER instead.</p>
-<h3 id="consume-status">Consume Status</h3>
-<p>For MessageListenerConcurrently, you can return RECONSUME_LATER to tell the consumer that you can not consume it right now and want to reconsume it later. Then you can continue to consume other messages. 
-For MessageListenerOrderly, as that you care about the order, so you can not jump over the message, but you can return SUSPEND_CURRENT_QUEUE_A_MOMENT to tell the consumer to hold on for a moment.</p>
-<h3 id="blocking">Blocking</h3>
-<p>It is not recommend to block the Listener, for in return it will block the thread pool, and finally the consuming process may get stuck.</p>
-<h2 id="thread-number">Thread Number</h2>
-<p>The consumer use a ThreadPoolExecutor to process consuming internally. So you can tune it by using setConsumeThreadMin or setConsumeThreadMax.</p>
-<h2 id="consumefromwhere">ConsumeFromWhere</h2>
-<p>When a new Consumer Group is established, it will need to decide whether it need to consume the historical messages which had already existed in the Broker. 
-CONSUME_FROM_LAST_OFFSET will ignore the historical messages, and consume any newly produced.
-CONSUME_FROM_FIRST_OFFSET will consume every message existed in the Broker.
-You can also use CONSUME_FROM_TIMESTAMP to consume messages produced after the specified timestamp.</p>
-<h2 id="duplication">Duplication</h2>
-<p>Many circumstances could cause duplication, such as:</p>
-<ul>
-  <li>Producer resend messages(i.e, in case of FLUSH_SLAVE_TIMEOUT)</li>
-  <li>Consumer shutdown with some offsets not updated to the Broker in time.</li>
-</ul>
 
-<p>So you may need to do some external work to handle this if your application cannot tolerate. For example, you may check the primary key of your DB.</p>
+<p>In most cases, tag is simple and useful to select message as you want.For example:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"CID_EXAMPLE"</span><span class="o">);</span>
+<span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TOPIC"</span><span class="o">,</span> <span class="s">"TAGA || TAGB || TAGC"</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>Consumer will recieve messages that contains TAGA or TAGB or TAGC. But the limitation is that one message only could has one tag, this may be not suitable for more sophisticated scenarios.At this time, you could use sql expression to select messages.</p>
+
+<h3 id="principle">Principle</h3>
+
+<p>SQL feature could do some calculation through the properties you put in messages when sending. Under the grammars defined by RocketMQ, you can implement some interesting logic as you want. Here is an example:</p>
+
+<pre>
+------------
+| message  |
+|----------|  a &gt; 5 AND b = 'abc'
+| a = 10   |  --------------------&gt; Gotten
+| b = 'abc'|
+| c = true |
+------------
+------------
+| message  |
+|----------|   a &gt; 5 AND b = 'abc'
+| a = 1    |  --------------------&gt; Missed
+| b = 'abc'|
+| c = true |
+------------
+</pre>
+
+<h3 id="grammars">Grammars</h3>
+
+<p>RocketMQ only defines some basic grammars to support this feature. Not enough ? You could also extend it easily.</p>
+
+<ol>
+  <li>Numeric comparison, like <code class="highlighter-rouge">&gt;</code>, <code class="highlighter-rouge">&gt;=</code>, <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">BETWEEN</code>, <code class="highlighter-rouge">=</code>;</li>
+  <li>Character comparison, like <code class="highlighter-rouge">=</code>, <code class="highlighter-rouge">&lt;&gt;</code>, <code class="highlighter-rouge">IN</code>;</li>
+  <li><code class="highlighter-rouge">IS NULL</code> or <code class="highlighter-rouge">IS NOT NULL</code>;</li>
+  <li>Logical <code class="highlighter-rouge">AND</code>, logical <code class="highlighter-rouge">OR</code>, logical <code class="highlighter-rouge">NOT</code>;</li>
+</ol>
+
+<p>Constant type are:</p>
+
+<ol>
+  <li>Numeric, like 123, 3.1415;</li>
+  <li>Character, like ‘abc’, must be maked with single quotes;</li>
+  <li><code class="highlighter-rouge">NULL</code>, special constant;</li>
+  <li>Boolean, <code class="highlighter-rouge">TRUE</code> or <code class="highlighter-rouge">FALSE</code>;</li>
+</ol>
+
+<h3 id="interface">Interface</h3>
+
+<p>Only push consumer could select messages by SQL92.The interface is:</p>
+
+<p><code class="highlighter-rouge">public void subscribe(final String topic, final MessageSelector messageSelector)</code></p>
+
+<h3 id="examples">Examples</h3>
+
+<p>You can put properties in message through method <code class="highlighter-rouge">putUserProperty</code> when sending.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MQClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="k">return</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
+    <span class="n">tag</span><span class="o">,</span>
+    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span>
+<span class="o">);</span>
+<span class="c1">// Set some properties.</span>
+<span class="n">msg</span><span class="o">.</span><span class="na">putUserProperty</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+
+<span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+   
+<span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<p>Use <code class="highlighter-rouge">MessageSelector.bySql</code> to select messages through SQL92 when consuming.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name_4"</span><span class="o">);</span>
+
+<span class="k">try</span> <span class="o">{</span>
+	<span class="c1">// only subsribe messages have property a, also a &gt;=0 and a &lt;= 3</span>
+    <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="n">MessageSelector</span><span class="o">.</span><span class="na">bySql</span><span class="o">(</span><span class="s">"a between 0 and 3"</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MQClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="k">return</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span> <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+<span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</code></pre>
+</div>
 
 
         
@@ -504,7 +568,7 @@ You can also use CONSUME_FROM_TIMESTAMP to consume messages produced after the s
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-27">April 27, 2017</time></p>
         
       </footer>
 
@@ -513,24 +577,24 @@ You can also use CONSUME_FROM_TIMESTAMP to consume messages produced after the s
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For Consumer /docs/best-practice-consumer/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Filter By SQL92 Example  /docs/filter-by-sql92-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-consumer/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/filter-by-sql92-example/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/best-practice-consumer/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/filter-by-sql92-example/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-consumer/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/filter-by-sql92-example/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
+      <a href="/docs/simple-example/" class="pagination--pager" title="Simple Message Example
 ">Previous</a>
     
     
-      <a href="/docs/best-practice-namesvr/" class="pagination--pager" title="Best Practice For NameServer
+      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
 ">Next</a>
     
   </nav>
