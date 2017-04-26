@@ -33,7 +33,7 @@ docs:
         url: /docs/schedule-example/
       - title: "Batch Example"
         url: /docs/batch-example/
-      - title: "Filter By SQL92 Example"
+      - title: "Filter Example"
         url: /docs/filter-by-sql92-example/
 
   - title: Deployment & Operations
