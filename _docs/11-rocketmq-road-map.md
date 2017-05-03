@@ -8,7 +8,7 @@ modified: 2017-3-7T15:01:43-04:00
 
 
 ### OpenMessaging 
-OpenMessaging is a redefinition of the application of the access message service programming API standard. It is only API, non wire-level protocol. OpenMessaging covers large data message processing, stream computing message processing, the traditional transaction model of message processing. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-17) 
+OpenMessaging, which includes the establishment of industry guidelines and messaging, streaming specifications to provide a common framework for finance, e-commerce, IoT and big-data area. The design principles are the cloud-oriented, simplicity, flexibility, and language independent in distributed heterogeneous environments. Conformance to these specifications will make it possible to develop a heterogeneous messaging applications across all major platforms and operating systems. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-17) 
 
 
 {% include toc %} 
