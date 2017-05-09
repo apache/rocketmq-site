@@ -22,7 +22,7 @@ This quick start guide is to give detailed instructions, helping you setup Rocke
 ```shell
   > git clone -b develop https://github.com/apache/incubator-rocketmq.git
   > cd incubator-rocketmq
-  > mvn -Prelease-all -DskipTests clean install -U
+  > mvn -Prelease-all -DskipTests clean package install -U
   > cd distribution/target/apache-rocketmq
 ```
 
