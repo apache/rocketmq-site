@@ -19,10 +19,10 @@ main:
 docs:
   - title: User Guide
     children:
-      - title: "Quick Start"
-        url: /docs/quick-start/
       - title: "Why RocketMQ"
         url: /docs/motivation/
+      - title: "Quick Start"
+        url: /docs/quick-start/
       - title: "Simple Example"
         url: /docs/simple-example/
       - title: "Order Example"

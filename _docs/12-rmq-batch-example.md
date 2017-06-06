@@ -7,23 +7,16 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-#### When to use batch
-Batch is not for packaging but improving performance of small messages. So the messages of the same batch should act the same role, no more effort should be taken to split the batch.
-No split has another important advantage, messages of the same batch should be sent atomically, that is all successfully or all unsuccessfully, of which the importance is self-evident.
-So performance and atomicity are the original intentions, which will reflect on the usage constraints. 
-That is to say, if you want to improve performance for small messages or to send messages atomically, batch is a nice solution for you.
-#### Usage constraints
-Performance and atomicity are worth  the following constraints:
-messages of the same batch should have:
+### Why batch?
+Sending messages in batch improves performance of delivering small messages. 
 
-1. same topic: If they belong to different topics(internally the queues), then may be sent to different brokers, which will against atomicity.
-2. same waitStoreMsgOK: also differences will against atomicity.
-3. no delay level: If we care about the delay level, we need to decode the internal properties of every message, which will cause much performance loss.
+### Usage constraints
+Messages of the same batch should have: same topic, same waitStoreMsgOK and no schedule support.
 
-And the most important, the total size, that is the sum of size of each message in one batch, should be no more than 1M.
+Besides, the total size of the messages in one batch should be no more than 1MiB.
 
-#### How to use batch
-If you just send several small messages in a time and do not need to worry about the size limit, it is easy to use batch:
+### How to use batch
+If you just send messages of no more than 1MiB at a time, it is easy to use batch:
 
 ```java
 String topic = "BatchTest";
@@ -39,8 +32,8 @@ try {
 }
     
 ```
-#### Split into lists
-The complexity only grow when you send large batch and you may not sure if it exceeds the size limit (1M).
+### Split into lists
+The complexity only grow when you send large batch and you may not sure if it exceeds the size limit (1MiB).
 
 At this time, you'd better split the lists:
 

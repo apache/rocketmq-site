@@ -3,20 +3,20 @@ title: "Frequently Asked Questions"
 permalink: /docs/faq/
 modified: 2016-12-27T15:18:43-04:00
 ---
-The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.
+The following questions are frequently asked with regard to the RocketMQ project in general.
  
 ## General
-### 1. Why create rocketmq project instead of selecting other products?
-In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability. So we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss.
+### 1. Why did we create rocketmq project instead of selecting other products?
+Please refer to [Why RocketMQ](/docs/motivation/)
 
 ### 2. Do I have to install other softewares, such as zookeeper, to use RocketMQ?
-No. RocketMQ can run without any other softeware, you can run broker server and name server indepentently. Aslo, the topic can be created by using command, such as sh mqadmin updatetopic etc. After creating successfully, you enjoy yourself with RocketMQ.
+No. RocketMQ can run independently.
 
 ## Usage
 ### 1. Where does the newly created Consumer ID start consuming messages?
  
-1. If the topic sends a message within three days, then the consumer start consume message from the first message saved in the server.
-2. If the topic sends a message in three days ago, the consumer start consume message from the latest message in the server, in other words, starting to consume the message queue tail.
+1. If the topic sends a message within three days, then the consumer start consuming messages from the first message saved in the server.
+2. If the topic sends a message three days ago, the consumer start consuming messages from the latest message in the server, in other words, starting from the tail of message queue.
 3. If such consumer is the second reboot, then start to consumer message from the last consumption location.
 
 ### 2. How to reconsume message when consumption fails?

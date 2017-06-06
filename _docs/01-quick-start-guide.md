@@ -5,7 +5,7 @@ excerpt: "How to quickly install and setup Apache RocketMQ."
 modified: 2016-12-29T15:01:43-04:00
 ---
 
-This quick start guide is to give detailed instructions, helping you setup RocketMQ messaging system on a single local machine and send/receive the very first message.
+This quick start guide is a detailed instruction of setting up RocketMQ messaging system on a local machine and sending/receiving messages.
 
 {% include toc %}
 
@@ -42,12 +42,11 @@ This quick start guide is to give detailed instructions, helping you setup Rocke
   > tail -f ~/logs/rocketmqlogs/broker.log 
   The broker[%s, 172.30.30.233:10911] boot success...
 ```
-  you may need to pay attention to the broker ip, for that the broker will not use the loopback network interface, So you should make sure you have connected to other network.
-
+  
 
 # Send & Receive Messages
 
-Before sending/receiving messages, we need to tell clients where name servers are located. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable `NAMESRV_ADDR`
+Before sending/receiving messages, we need to tell clients the location of name servers. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable `NAMESRV_ADDR`
 
 ```shell
  > export NAMESRV_ADDR=localhost:9876

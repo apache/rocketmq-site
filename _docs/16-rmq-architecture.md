@@ -13,17 +13,17 @@ modified: 2017-04-24T15:01:43-04:00
 
 # Overview
 
-The greatest innovation of RocketMQ is high throughput, high reliability, and low latency of supporting massive messages through exquisite scale out and scale up. RocketMQ consists of four parts, Name Servers, Brokers, Producers and Consumers. Each of them can be horizontally extended without single Point of Failure. As shown in screenshot below.
+The greatest strengths of RocketMQ are high throughput, high reliability, and low latency when supporting massive messages through exquisite scale out and scale up. RocketMQ consists of four parts: name servers, brokers, producers and consumers. Each of them can be horizontally extended without a single Point of Failure. As shown in screenshot below.
 
 
 
 **NameServer Cluster**
 
-Name Servers provide lightweight service discovery and routing. Each Name Server records full routing information, provides equivalent reading and writing service, and supports fast storage expansion.
+Name Servers provide lightweight service discovery and routing. Each Name Server records full routing information, provides corresponding reading and writing service, and supports fast storage expansion.
 
 **Broker Cluster**
 
-Brokers take care of message storage by providing lightweight TOPIC and QUEUE mechanisms. It supports the Push and Pull modes, fault tolerance mechanism (2 copies or 3 copies), strong padding of peaks and capacity of accumulating hundreds of billion messages in their original time order. In addition, Brokers provide disaster recovery, rich metrics statistics, and alert mechanisms, all of which are lack in traditional messaging systems.
+Brokers take care of message storage by providing lightweight TOPIC and QUEUE mechanisms. It supports the Push and Pull model, contains fault tolerance mechanism (2 copies or 3 copies), and provides strong padding of peaks and capacity of accumulating hundreds of billion messages in their original time order. In addition, Brokers provide disaster recovery, rich metrics statistics, and alert mechanisms, all of which are lacking in traditional messaging systems.
 
 **Producer Cluster**
 
@@ -31,17 +31,17 @@ Producers support distributed deployment. Distributed Producers send messages to
 
 **Consumer Cluster**
 
-Consumers support distributed deployment in the Push and Pull models as well. It also supports cluster consumption and message broadcast. It provides real-time message subscription mechanism and can meet most consumer scenarios. 
-RocketMQ’s website provide a quick-start guide[3] for those guys who want to have a try without too much labor.
+Consumers support distributed deployment in the Push and Pull model as well. It also supports cluster consumption and message broadcasting. It provides real-time message subscription mechanism and can meet most consumer requirements. 
+RocketMQ’s website provides a simple quick-start guide[3] to interested users.
 
 # NameServer
 
-NameServer is a little but fully functional server, which mainly includes two features:
+NameServer is a fully functional server, which mainly includes two features:
 
-* Broker Management, **NameServer** accepts the register from Broker cluster and provides heartbeat mechanism to ensure whether a broker is alive.
+* Broker Management, **NameServer** accepts the register from Broker cluster and provides heartbeat mechanism to check whether a broker is alive.
 * Routing Management, each NameServer will hold whole routing info about the broker cluster and the **queue** info for clients query.
 
-As we know, RocketMQ clients(Producer/Consumer) will query the queue routing info from NameServer, but how do the clients find NameServer address?
+As we know, RocketMQ clients(Producer/Consumer) will query the queue routing info from NameServer, but how do clients find NameServer address?
 
 There are four methods to feed NameServer address list to clients:
 
