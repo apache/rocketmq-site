@@ -14,14 +14,14 @@ Before starting this section, make sure you have read Quick Start section, in wh
 
 #### Production-ready Deployment
 ##### Name Server
-To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is at least one name server instance alive, the whole cluster remains serving.
+To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is one name server instance alive, the whole cluster remains in service.
 
-Name server follows share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any one of name servers available while sending / consuming messages.
+Name server follows the share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any of name servers available while sending / consuming messages.
 
 #### Broker
 Brokers can be divided into two categories according to their roles: master and slave. Master brokers provide RW access while slave brokers only accept read access.
 
-To deploy a high-availability RocketMQ cluster which has no single point of failure, a series of broker sets should be deployed. One broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.
+To deploy a high-availability RocketMQ cluster which has no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.
 
 ### Configuration
 When deploying a RocketMQ cluster, below configurations should be taken into consideration.
@@ -111,11 +111,11 @@ usage: mqadmin clusterList [-h] [-i <arg>] [-m] [-n <arg>]
 ```
 
 ### Replication mode
-With the purpose to guarantee that any successfully published message will not be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync & Async.
+To guarantee any successfully published message won't be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync & Async.
 
 ##### Replication: Sync / Async Broker
 
-Similar to many replication system, sync brokers await until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.
+Like many replication system, sync brokers wait until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.
 
 ##### How to configure
 There are three pre-built configurations shipped with the distribution of RocketMQ under conf folder for your reference:
