@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -429,7 +429,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Broadcasting">
     <meta itemprop="description" content="How to send broadcast messages in Apache RocketMQ.">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -446,31 +446,25 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#what-is-broadcasting" id="markdown-toc-what-is-broadcasting">What is Broadcasting</a></li>
-  <li><a href="#how-to-use" id="markdown-toc-how-to-use">How to use</a>    <ul>
-      <li><a href="#firstproduce-message-as-before" id="markdown-toc-firstproduce-message-as-before">First,Produce message as before</a></li>
-      <li><a href="#secondconsume-message-in-broadcast-mode" id="markdown-toc-secondconsume-message-in-broadcast-mode">Second,Consume message in Broadcast mode</a></li>
-    </ul>
-  </li>
+  <li><a href="#what-is-broadcasting" id="markdown-toc-what-is-broadcasting">What is broadcasting</a></li>
+  <li><a href="#producer-example" id="markdown-toc-producer-example">Producer example</a></li>
+  <li><a href="#consumer-example" id="markdown-toc-consumer-example">Consumer example</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h4 id="what-is-broadcasting">What is Broadcasting</h4>
-<p>Broadcasting is when sending a meeage to a topic,all subscribers of the topic will receive the message even if they are in the same consumer group.If you want all subscribers in a group receive all the messages in a topic,broadcasting is a good choice.</p>
+<h3 id="what-is-broadcasting">What is broadcasting</h3>
+<p>Broadcasting is sending a message to all subscribers of a topic. If you want all subscribers receive messages about a topic, broadcasting is a good choice.</p>
 
-<h4 id="how-to-use">How to use</h4>
+<h3 id="producer-example">Producer example</h3>
 
-<h5 id="firstproduce-message-as-before">First,Produce message as before</h5>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BroadcastProducer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"ProducerGroupName"</span><span class="o">);</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"ProducerGroupName"</span><span class="o">);</span>
-
-<span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-
-<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
             <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
                 <span class="s">"TagA"</span><span class="o">,</span>
                 <span class="s">"OrderID188"</span><span class="o">,</span>
@@ -478,42 +472,42 @@
             <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
         <span class="o">}</span>
-
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-<span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
 </code></pre>
 </div>
 
-<h5 id="secondconsume-message-in-broadcast-mode">Second,Consume message in Broadcast mode</h5>
+<h3 id="consumer-example">Consumer example</h3>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name_1"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BroadcastConsumer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
 
-<span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="n">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="n">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span>
 
-<span class="c1">//set to broadcast mode</span>
-<span class="n">consumer</span><span class="o">.</span><span class="na">setMessageModel</span><span class="o">(</span><span class="n">MessageModel</span><span class="o">.</span><span class="na">BROADCASTING</span><span class="o">);</span>
+        <span class="c1">//set to broadcast mode</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">setMessageModel</span><span class="o">(</span><span class="n">MessageModel</span><span class="o">.</span><span class="na">BROADCASTING</span><span class="o">);</span>
 
-<span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="s">"TagA || TagC || TagD"</span><span class="o">);</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="s">"TagA || TagC || TagD"</span><span class="o">);</span>
 
-<span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
-        <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span> <span class="o">+</span> <span class="s">"%n"</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
+                <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span> <span class="o">+</span> <span class="s">"%n"</span><span class="o">);</span>
+                <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Broadcast Consumer Started.%n"</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">});</span>
-
-<span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Broadcast Consumer Started.%n"</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre>
 </div>
 
-<p>Enjoy it.</p>
 
         
       </section>

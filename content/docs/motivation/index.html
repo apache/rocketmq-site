@@ -18,7 +18,7 @@
 
 
 
-<meta name="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+<meta name="description" content="At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for async communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also become urgent.">
 
 
 
@@ -30,13 +30,13 @@
 
 
 
-  <meta property="og:description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+  <meta property="og:description" content="At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for async communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also become urgent.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
   <meta name="twitter:title" content="Motivation">
-  <meta name="twitter:description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
+  <meta name="twitter:description" content="At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for async communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also become urgent.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="active">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="active">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -428,8 +428,8 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Motivation">
-    <meta itemprop="description" content="In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="description" content="At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for async communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also become urgent.">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="December 17, 2016">
 
     <div class="page__inner-wrap">
@@ -442,7 +442,7 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>In the early stages, we constructed our distributed messaging middleware on the basis of ActiveMQ 5.x(less than 5.3). Our international business uses it for async communication, search, social network activity stream, data pipeline, even in our trade order process. As our trade business throughput rises more and more inconceivably, pressure originating from our messaging cluster also become more and more obvious.</p>
+        <p>At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for async communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also become urgent.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
@@ -457,12 +457,12 @@
 
 <h1 id="why-rocketmq-">Why RocketMQ ?</h1>
 
-<p>Based on our observations and research, with more and more queues and virtual topics in use, ActiveMQ IO module becomes a bottleneck. In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability, see <a href="/rocketmq/how-to-support-more-queues-in-rocketmq/">here</a> for details.</p>
+<p>Based on our research, with increased queues and virtual topics in use, ActiveMQ IO module reaches a bottleneck. We tried our best to solve this problem through throttling, circuit breaker or degradation, but it didn’t work well. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements especially low latency and high reliability, see <a href="/rocketmq/how-to-support-more-queues-in-rocketmq/">here</a> for details.</p>
 
-<p>In this context, we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss. We also created a cornerstone product based on RocketMQ, a Platform as a Service (PaaS) product named the
-<a href="https://intl.aliyun.com/">Alibaba Cloud Platform</a>. Today, more than 100 companies are using the RocketMQ open source version in their business solutions. We believe RocketMQ can benefit more people, so we would like to share it around the world.</p>
+<p>In this context, we decided to invent a new messaging engine to handle a broader set of use cases, ranging from traditional pub/sub scenarios to high volume realtime zero-loss tolerance transaction system. We believe this solution can be beneficial, so we would like to open source it to the community. Today, more than 100 companies are using the open source version of RocketMQ in their business. We also published a commercial distribution based on RocketMQ, a Platform as a Service (PaaS) product called the
+<a href="https://intl.aliyun.com/">Alibaba Cloud Platform</a>.</p>
 
-<p>The following are some different design between RocketMQ, ActiveMQ and Kafka（They are the apache’s most popular messaging solutions according to <a href="https://github.com/akullpp/awesome-java">awesome-java</a>):</p>
+<p>The following table demonstrates the comparison between RocketMQ, ActiveMQ and Kafka (Apache’s most popular messaging solutions according to <a href="https://github.com/akullpp/awesome-java">awesome-java</a>):</p>
 
 <h1 id="rocketmq-vs-activemq-vs-kafka">RocketMQ vs. ActiveMQ vs. Kafka</h1>
 

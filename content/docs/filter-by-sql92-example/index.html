@@ -13,7 +13,7 @@
 
 
 
-<title>Filter By SQL92 Example  - Apache RocketMQ</title>
+<title>Filter Example  - Apache RocketMQ</title>
 
 
 
@@ -25,7 +25,7 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Filter By SQL92 Example">
+<meta property="og:title" content="Filter Example">
 
 
 
@@ -35,7 +35,7 @@
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Filter By SQL92 Example">
+  <meta name="twitter:title" content="Filter Example">
   <meta name="twitter:description" content="How to filter messages by SQL92 in Apache RocketMQ.">
   <meta name="twitter:url" content="">
 
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -427,22 +427,22 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Filter By SQL92 Example">
+    <meta itemprop="headline" content="Filter Example">
     <meta itemprop="description" content="How to filter messages by SQL92 in Apache RocketMQ.">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="April 27, 2017">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Filter By SQL92 Example
+          <h1 class="page__title" itemprop="headline">Filter Example
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>In most cases, tag is simple and useful to select message as you want. For example:</p>
+        <p>In most cases, tag is a simple and useful design to select message you want. For example:</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"CID_EXAMPLE"</span><span class="o">);</span>
 <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TOPIC"</span><span class="o">,</span> <span class="s">"TAGA || TAGB || TAGC"</span><span class="o">);</span>
@@ -455,18 +455,19 @@
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#principle" id="markdown-toc-principle">Principle</a></li>
   <li><a href="#grammars" id="markdown-toc-grammars">Grammars</a></li>
-  <li><a href="#interface" id="markdown-toc-interface">Interface</a></li>
-  <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
+  <li><a href="#usage-constraints" id="markdown-toc-usage-constraints">Usage constraints</a></li>
+  <li><a href="#producer-example" id="markdown-toc-producer-example">Producer example</a></li>
+  <li><a href="#consumer-example" id="markdown-toc-consumer-example">Consumer example</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<p>Consumer will recieve messages that contains TAGA or TAGB or TAGC. But the limitation is that one message only could has one tag, this may be not suitable for more sophisticated scenarios.At this time, you could use sql expression to select messages.</p>
+<p>The consumer will recieve messages that contains TAGA or TAGB or TAGC. But the limitation is that one message only can have one tag, and this may not work for sophisticated scenarios. In this case, you can use SQL expression to filter out messages.</p>
 
 <h3 id="principle">Principle</h3>
 
-<p>SQL feature could do some calculation through the properties you put in messages when sending. Under the grammars defined by RocketMQ, you can implement some interesting logic as you want. Here is an example:</p>
+<p>SQL feature could do some calculation through the properties you put in when sending messages. Under the grammars defined by RocketMQ, you can implement some interesting logic. Here is an example:</p>
 
 <pre>
 ------------
@@ -487,41 +488,36 @@
 
 <h3 id="grammars">Grammars</h3>
 
-<p>RocketMQ only defines some basic grammars to support this feature. Not enough ? You could also extend it easily.</p>
+<p>RocketMQ only defines some basic grammars to support this feature. You could also extend it easily.</p>
 
 <ol>
   <li>Numeric comparison, like <code class="highlighter-rouge">&gt;</code>, <code class="highlighter-rouge">&gt;=</code>, <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">BETWEEN</code>, <code class="highlighter-rouge">=</code>;</li>
   <li>Character comparison, like <code class="highlighter-rouge">=</code>, <code class="highlighter-rouge">&lt;&gt;</code>, <code class="highlighter-rouge">IN</code>;</li>
   <li><code class="highlighter-rouge">IS NULL</code> or <code class="highlighter-rouge">IS NOT NULL</code>;</li>
-  <li>Logical <code class="highlighter-rouge">AND</code>, logical <code class="highlighter-rouge">OR</code>, logical <code class="highlighter-rouge">NOT</code>;</li>
+  <li>Logical <code class="highlighter-rouge">AND</code>, <code class="highlighter-rouge">OR</code>, <code class="highlighter-rouge">NOT</code>;</li>
 </ol>
 
-<p>Constant type are:</p>
+<p>Constant types are:</p>
 
 <ol>
   <li>Numeric, like 123, 3.1415;</li>
-  <li>Character, like ‘abc’, must be maked with single quotes;</li>
+  <li>Character, like ‘abc’, must be made with single quotes;</li>
   <li><code class="highlighter-rouge">NULL</code>, special constant;</li>
   <li>Boolean, <code class="highlighter-rouge">TRUE</code> or <code class="highlighter-rouge">FALSE</code>;</li>
 </ol>
 
-<h3 id="interface">Interface</h3>
+<h3 id="usage-constraints">Usage constraints</h3>
 
-<p>Only push consumer could select messages by SQL92.The interface is:</p>
+<p>Only push consumer could select messages by SQL92. The interface is:</p>
 
 <p><code class="highlighter-rouge">public void subscribe(final String topic, final MessageSelector messageSelector)</code></p>
 
-<h3 id="examples">Examples</h3>
+<h3 id="producer-example">Producer example</h3>
 
 <p>You can put properties in message through method <code class="highlighter-rouge">putUserProperty</code> when sending.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MQClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-    <span class="k">return</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
 <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
     <span class="n">tag</span><span class="o">,</span>
@@ -536,17 +532,14 @@
 </code></pre>
 </div>
 
+<h3 id="consumer-example">Consumer example</h3>
+
 <p>Use <code class="highlighter-rouge">MessageSelector.bySql</code> to select messages through SQL92 when consuming.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name_4"</span><span class="o">);</span>
 
-<span class="k">try</span> <span class="o">{</span>
-	<span class="c1">// only subsribe messages have property a, also a &gt;=0 and a &lt;= 3</span>
-    <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="n">MessageSelector</span><span class="o">.</span><span class="na">bySql</span><span class="o">(</span><span class="s">"a between 0 and 3"</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MQClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-    <span class="k">return</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="c1">// only subsribe messages have property a, also a &gt;=0 and a &lt;= 3</span>
+<span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="n">MessageSelector</span><span class="o">.</span><span class="na">bySql</span><span class="o">(</span><span class="s">"a between 0 and 3"</span><span class="o">);</span>
 
 <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -577,7 +570,7 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Filter By SQL92 Example  /docs/filter-by-sql92-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Filter Example  /docs/filter-by-sql92-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/filter-by-sql92-example/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 

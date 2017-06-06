@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -429,7 +429,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Batch Example">
     <meta itemprop="description" content="How to use batch in Rocketmq">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -446,7 +446,7 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#when-to-use-batch" id="markdown-toc-when-to-use-batch">When to use batch</a></li>
+  <li><a href="#why-batch" id="markdown-toc-why-batch">Why batch?</a></li>
   <li><a href="#usage-constraints" id="markdown-toc-usage-constraints">Usage constraints</a></li>
   <li><a href="#how-to-use-batch" id="markdown-toc-how-to-use-batch">How to use batch</a></li>
   <li><a href="#split-into-lists" id="markdown-toc-split-into-lists">Split into lists</a></li>
@@ -455,25 +455,16 @@
   </nav>
 </aside>
 
-<h4 id="when-to-use-batch">When to use batch</h4>
-<p>Batch is not for packaging but improving performance of small messages. So the messages of the same batch should act the same role, no more effort should be taken to split the batch.
-No split has another important advantage, messages of the same batch should be sent atomically, that is all successfully or all unsuccessfully, of which the importance is self-evident.
-So performance and atomicity are the original intentions, which will reflect on the usage constraints. 
-That is to say, if you want to improve performance for small messages or to send messages atomically, batch is a nice solution for you.</p>
-<h4 id="usage-constraints">Usage constraints</h4>
-<p>Performance and atomicity are worth  the following constraints:
-messages of the same batch should have:</p>
+<h3 id="why-batch">Why batch?</h3>
+<p>Sending messages in batch improves performance of delivering small messages.</p>
 
-<ol>
-  <li>same topic: If they belong to different topics(internally the queues), then may be sent to different brokers, which will against atomicity.</li>
-  <li>same waitStoreMsgOK: also differences will against atomicity.</li>
-  <li>no delay level: If we care about the delay level, we need to decode the internal properties of every message, which will cause much performance loss.</li>
-</ol>
+<h3 id="usage-constraints">Usage constraints</h3>
+<p>Messages of the same batch should have: same topic, same waitStoreMsgOK and no schedule support.</p>
 
-<p>And the most important, the total size, that is the sum of size of each message in one batch, should be no more than 1M.</p>
+<p>Besides, the total size of the messages in one batch should be no more than 1MiB.</p>
 
-<h4 id="how-to-use-batch">How to use batch</h4>
-<p>If you just send several small messages in a time and do not need to worry about the size limit, it is easy to use batch:</p>
+<h3 id="how-to-use-batch">How to use batch</h3>
+<p>If you just send messages of no more than 1MiB at a time, it is easy to use batch:</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">String</span> <span class="n">topic</span> <span class="o">=</span> <span class="s">"BatchTest"</span><span class="o">;</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
@@ -489,8 +480,8 @@ messages of the same batch should have:</p>
     
 </code></pre>
 </div>
-<h4 id="split-into-lists">Split into lists</h4>
-<p>The complexity only grow when you send large batch and you may not sure if it exceeds the size limit (1M).</p>
+<h3 id="split-into-lists">Split into lists</h3>
+<p>The complexity only grow when you send large batch and you may not sure if it exceeds the size limit (1MiB).</p>
 
 <p>At this time, you’d better split the lists:</p>
 

@@ -18,7 +18,7 @@
 
 
 
-<meta name="description" content="The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.General1. Why create rocketmq project instead of selecting other products?In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability. So we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss.">
+<meta name="description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
 
 
 
@@ -30,13 +30,13 @@
 
 
 
-  <meta property="og:description" content="The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.General1. Why create rocketmq project instead of selecting other products?In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability. So we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss.">
+  <meta property="og:description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
   <meta name="twitter:title" content="Frequently Asked Questions">
-  <meta name="twitter:description" content="The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.General1. Why create rocketmq project instead of selecting other products?In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability. So we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss.">
+  <meta name="twitter:description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -428,8 +428,8 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Frequently Asked Questions">
-    <meta itemprop="description" content="The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.General1. Why create rocketmq project instead of selecting other products?In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability. So we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss.">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="December 28, 2016">
 
     <div class="page__inner-wrap">
@@ -442,21 +442,21 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>The following questions are frequently asked with regard to the RocketMQ project in general. If you have further questions, make sure to consult the documentation or ask the community.</p>
+        <p>The following questions are frequently asked with regard to the RocketMQ project in general.</p>
 
 <h2 id="general">General</h2>
-<h3 id="1-why-create-rocketmq-project-instead-of-selecting-other-products">1. Why create rocketmq project instead of selecting other products?</h3>
-<p>In some cases, slower consumers can slow down the producers. We tried our best efforts to handle this problems through throttling, circuit breaker or degradation, but it cannot scale out gracefully. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements such as low latency and high reliability. So we decided to innovate a new messaging middleware to handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss.</p>
+<h3 id="1-why-did-we-create-rocketmq-project-instead-of-selecting-other-products">1. Why did we create rocketmq project instead of selecting other products?</h3>
+<p>Please refer to <a href="/docs/motivation/">Why RocketMQ</a></p>
 
 <h3 id="2-do-i-have-to-install-other-softewares-such-as-zookeeper-to-use-rocketmq">2. Do I have to install other softewares, such as zookeeper, to use RocketMQ?</h3>
-<p>No. RocketMQ can run without any other softeware, you can run broker server and name server indepentently. Aslo, the topic can be created by using command, such as sh mqadmin updatetopic etc. After creating successfully, you enjoy yourself with RocketMQ.</p>
+<p>No. RocketMQ can run independently.</p>
 
 <h2 id="usage">Usage</h2>
 <h3 id="1-where-does-the-newly-created-consumer-id-start-consuming-messages">1. Where does the newly created Consumer ID start consuming messages?</h3>
 
 <ol>
-  <li>If the topic sends a message within three days, then the consumer start consume message from the first message saved in the server.</li>
-  <li>If the topic sends a message in three days ago, the consumer start consume message from the latest message in the server, in other words, starting to consume the message queue tail.</li>
+  <li>If the topic sends a message within three days, then the consumer start consuming messages from the first message saved in the server.</li>
+  <li>If the topic sends a message three days ago, the consumer start consuming messages from the latest message in the server, in other words, starting from the tail of message queue.</li>
   <li>If such consumer is the second reboot, then start to consumer message from the last consumption location.</li>
 </ol>
 

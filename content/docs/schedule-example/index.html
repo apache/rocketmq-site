@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -429,7 +429,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Schedule example">
     <meta itemprop="description" content="How to use schedule component to reduce pull in RocketMQ.">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -446,7 +446,7 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#what-is-mq-schedule" id="markdown-toc-what-is-mq-schedule">What is mq schedule?</a>    <ul>
+  <li><a href="#what-is-scheduled-message" id="markdown-toc-what-is-scheduled-message">What is scheduled message?</a>    <ul>
       <li><a href="#defaultmqpullconsumer-use-case" id="markdown-toc-defaultmqpullconsumer-use-case">DefaultMQPullConsumer use case</a></li>
       <li><a href="#use-mqpullconsumerscheduleservice-consume-message" id="markdown-toc-use-mqpullconsumerscheduleservice-consume-message">Use MQPullConsumerScheduleService consume message</a></li>
       <li><a href="#have-fun-with-mqpullconsumerscheduleservice" id="markdown-toc-have-fun-with-mqpullconsumerscheduleservice">Have fun with <code class="highlighter-rouge">MQPullConsumerScheduleService</code>.</a></li>
@@ -457,8 +457,9 @@
   </nav>
 </aside>
 
-<h3 id="what-is-mq-schedule">What is mq schedule?</h3>
-<p>If you use <code class="highlighter-rouge">DefaultMQPullConsumer</code> to consume message,you have to fetch message manualy.There are some steps here to achieve this point.But with <code class="highlighter-rouge">MQPullConsumerScheduleService</code>,you will consume messages easily.</p>
+<h3 id="what-is-scheduled-message">What is scheduled message?</h3>
+<p>Scheduled messages differ from normal messages such that they won’t be delivered until a provided time later.
+If you use <code class="highlighter-rouge">DefaultMQPullConsumer</code> to consume message, you have to fetch message manually. There are other options availible but  <code class="highlighter-rouge">MQPullConsumerScheduleService</code> is the easiest.</p>
 
 <h4 id="defaultmqpullconsumer-use-case">DefaultMQPullConsumer use case</h4>
 

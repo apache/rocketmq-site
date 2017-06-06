@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-02T15:31:28+08:00">
+  <meta property="article:published_time" content="2017-06-06T21:20:18+08:00">
 
 
 
@@ -183,7 +183,7 @@
             
             
 
-            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
+            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
           
             
             
@@ -191,7 +191,7 @@
             
             
 
-            <li><a href="/docs/motivation/" class="">Why RocketMQ</a></li>
+            <li><a href="/docs/quick-start/" class="">Quick Start</a></li>
           
             
             
@@ -429,7 +429,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Deployment">
     <meta itemprop="description" content="How to deploy the Apache RocketMQ.">
-    <meta itemprop="datePublished" content="June 02, 2017">
+    <meta itemprop="datePublished" content="June 06, 2017">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -481,14 +481,14 @@
 
 <h4 id="production-ready-deployment">Production-ready Deployment</h4>
 <h5 id="name-server">Name Server</h5>
-<p>To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is at least one name server instance alive, the whole cluster remains serving.</p>
+<p>To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is one name server instance alive, the whole cluster remains in service.</p>
 
-<p>Name server follows share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any one of name servers available while sending / consuming messages.</p>
+<p>Name server follows the share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any of name servers available while sending / consuming messages.</p>
 
 <h4 id="broker">Broker</h4>
 <p>Brokers can be divided into two categories according to their roles: master and slave. Master brokers provide RW access while slave brokers only accept read access.</p>
 
-<p>To deploy a high-availability RocketMQ cluster which has no single point of failure, a series of broker sets should be deployed. One broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.</p>
+<p>To deploy a high-availability RocketMQ cluster which has no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.</p>
 
 <h3 id="configuration">Configuration</h3>
 <p>When deploying a RocketMQ cluster, below configurations should be taken into consideration.</p>
@@ -639,11 +639,11 @@ If you want to get more information about a specific command like ‘clusterList
 </div>
 
 <h3 id="replication-mode">Replication mode</h3>
-<p>With the purpose to guarantee that any successfully published message will not be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync &amp; Async.</p>
+<p>To guarantee any successfully published message won’t be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync &amp; Async.</p>
 
 <h5 id="replication-sync--async-broker">Replication: Sync / Async Broker</h5>
 
-<p>Similar to many replication system, sync brokers await until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.</p>
+<p>Like many replication system, sync brokers wait until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.</p>
 
 <h5 id="how-to-configure">How to configure</h5>
 <p>There are three pre-built configurations shipped with the distribution of RocketMQ under conf folder for your reference:</p>
