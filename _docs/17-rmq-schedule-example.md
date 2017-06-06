@@ -10,8 +10,9 @@ modified: 2017-04-24T15:01:43-04:00
 {% include toc %}
 
 
-### What is mq schedule?
-If you use `DefaultMQPullConsumer` to consume message,you have to fetch message manualy.There are some steps here to achieve this point.But with `MQPullConsumerScheduleService`,you will consume messages easily.
+### What is scheduled message?
+Scheduled messages differ from normal messages such that they won't be delivered until a provided time later.
+If you use `DefaultMQPullConsumer` to consume message, you have to fetch message manually. There are other options availible but  `MQPullConsumerScheduleService` is the easiest.
 
 #### DefaultMQPullConsumer use case
 
