@@ -17,7 +17,7 @@ Make sure you have walked through [Quick Start](/docs/quick-start/) and [Core Co
 
 The admin tool is shipped along with RocketMQ. Either you download a pre-built binary version or build from source by yourself, you already have it.
 
-In case you have source code, the [rocketmq-tools module](https://github.com/apache/incubator-rocketmq/tree/master/tools) contains its source code.
+In case you don't have source code, the [rocketmq-tools module](https://github.com/apache/incubator-rocketmq/tree/master/tools) contains its source code.
 
 # How to use
 
