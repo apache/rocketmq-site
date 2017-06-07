@@ -7,24 +7,24 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-This section is to introduce deployment solution which is considered production-ready. Generally speaking, we are deploying a resilient RocketMQ cluster having no single point of failure.
+This section introduces production-ready deployment solution. Generally speaking, we are deploying a resilient RocketMQ cluster having no single point of failure.
 
 ### Prerequisite
-Before starting this section, make sure you have read Quick Start section, in which core concepts and components of RocketMQ are introduced.
+Before starting this section, make sure you have read Quick Start section, and are farmiliar with the core concepts and components of RocketMQ.
 
 #### Production-ready Deployment
 ##### Name Server
-To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is one name server instance alive, the whole cluster remains in service.
+To ensure the cluster can still function when one instance crashes, two or more name server instances are recommended. As long as there is one name server instance alive, the whole cluster remains in service.
 
-Name server follows the share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any of name servers available while sending / consuming messages.
+Name server follows the share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers can query meta data from any of name servers available while sending / consuming messages.
 
 #### Broker
 Brokers can be divided into two categories according to their roles: master and slave. Master brokers provide RW access while slave brokers only accept read access.
 
-To deploy a high-availability RocketMQ cluster which has no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.
+To deploy a high-availability RocketMQ cluster with no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.
 
 ### Configuration
-When deploying a RocketMQ cluster, below configurations should be taken into consideration.
+When deploying a RocketMQ cluster, recommended configuration is listed below:
 
 ##### Broker configuration
 
@@ -75,13 +75,13 @@ The most commonly used mqadmin commands are:
    queryMsgByOffset     Query Message by offset
    queryMsgByUniqueKey  Query Message by Unique key
    printMsg             Print Message Detail
-   sendMsgStatus        send msg to broker
+   sendMsgStatus        Send msg to broker
    brokerConsumeStats   Fetch broker consume stats data
    producerConnection   Query producer's socket connection and client version
    consumerConnection   Query consumer's socket connection, client version and subscription
    consumerProgress     Query consumers's progress, speed
    consumerStatus       Query consumer's internal data structure
-   cloneGroupOffset     clone offset from other group
+   cloneGroupOffset     Clone offset from other group
    clusterList          List all of clusters
    topicList            Fetch all topic list from name server
    updateKvConfig       Create or update KV config
@@ -95,7 +95,7 @@ The most commonly used mqadmin commands are:
    statsAll             Topic and Consumer tps stats
    syncDocs             Synchronize wiki and issue to github.com
    allocateMQ           Allocate MQ
-   checkMsgSendRT       check message send response time
+   checkMsgSendRT       Check message send response time
    clusterRT            List All clusters Message Send RT
 
 ```
@@ -111,7 +111,7 @@ usage: mqadmin clusterList [-h] [-i <arg>] [-m] [-n <arg>]
 ```
 
 ### Replication mode
-To guarantee any successfully published message won't be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync & Async.
+To make sure that no successfully published message will be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication ways: Sync & Async.
 
 ##### Replication: Sync / Async Broker
 

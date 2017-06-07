@@ -1,5 +1,5 @@
 ---
-title: "Best Practice in Pull Request"
+title: "How to manage Pull Request"
 permalink: /docs/pull-request/
 modified: 2016-12-24T15:01:43-04:00
 ---
@@ -21,8 +21,7 @@ For this, you have to add remote for RocketMQ mirror as follows,
 
     git remote add upstream https://github.com/apache/incubator-rocketmq.git
     
-and update your local master via `git fetch` followed by `git rebase`, for instance, as follows
-
+and update your local master via `git fetch` followed by `git rebase`, for instance:
     git fetch upstream master
     git rebase upstream/master
 
@@ -48,14 +47,14 @@ Now if you want to experiment with a branch everything, by default, points to yo
 
     git checkout -b ROCKETMQ-xxxx #xxxx typically is a JIRA ticket number
     
-_To guarantee code quality of the master branch, all but minor changes should go through pull requests reviewed by peer committers._
+_To ensure the code quality of the master branch, all but minor changes should go through pull requests reviewed by peer committers._
     
 # Do some work on the branch
 
     git commit -a -m "doing some work"
     git push origin ROCKETMQ-xxxx # notice pushing to **origin** not **apache**
     
-Once you are ready to commit to the apache remote you can merge and push them directly or better yet create a PR.
+Once you are ready to commit to the apache remote you can merge and push them directly, otherwise always create a PR.
 
 # How to create a PR (committers)
 
@@ -64,48 +63,48 @@ Push your branch to Github:
     git checkout ROCKETMQ-xxxx
     git push origin ROCKETMQ-xxxx
     
-1. Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github's apache/incubator-rocketmq. it will default any PR to go to apache/master.
+1. Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github's apache/incubator-rocketmq. By default all PR will go to apache/master.
 
-2. Click the green "Compare, review, and create pull request" button.You can edit the to and from for the PR if it isn't correct. The "base fork" should be apache/incubator-rocketmq unless you are collaborating separately with one of the committers on the list. The "base" will be master. Don't submit a PR to one of the other branches unless you know what you are doing. The "head fork" will be your forked repo and the "compare" will be your ROCKETMQ-xxxx branch.
+2. Click the green "Compare, review, and create pull request" button. You can edit the to and from for the PR if it isn't correct. The "base fork" should be apache/incubator-rocketmq unless you are collaborating with one of the committers on the list. The "base" will be master. Don't submit a PR to any other branches unless permitted by branch owner. The "head fork" will be your forked repo and the "compare" will be your ROCKETMQ-xxxx branch.
 3. Click the "Create pull request" button and name the request "ROCKETMQ-xxxx" all caps. This will connect the comments of the PR to the mailing list and JIRA comments.
-4. From now on the PR lives on github's apache/incubator-rocketmq. You use the commenting UI there.
-5. If you are looking for a review or sharing with someone else say so in the comments but don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Jira and the mailing list.
-6. When you are satisfied and want to push it to Apache's remote repo proceed with Merging a PR
+4. From now on the PR lives on github's apache/incubator-rocketmq. You can use the commenting UI there.
+5. If you are looking for a review or wanting to share with someone else please write a note in the comments and don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to JIRA and the mailing list.
+6. When you are satisfied and want to push it to Apache's remote repo, you can merge this PR.
 
 # How to create a PR (contributors)
 Before you create a pull request, make sure
 1. A corresponding [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) issue is created and has a clear problem description.
-2. You follow [Coding Guidelines](/docs/code-guidelines/).
-3. You have unit tests for it, whenever applicable.
+2. Make sure you follow [Coding Guidelines](/docs/code-guidelines/).
+3. You have unit tests for everything you are about to commit.
 
-For information on creating pull requests, see [GitHub PR docs](https://help.github.com/articles/creating-a-pull-request/).
+For information about creating pull requests, please check [GitHub PR docs](https://help.github.com/articles/creating-a-pull-request/).
 
 Pull requests are made to `apache/incubator-rocketmq` repository on Github. 
-In the Github UI you should pick the master branch to target the PR as described in the section for committers. <br /> 
-You pull request will be reviewed and commented by committers, and issues can be discussed the contribution in progress. When all reviewers are positive on the pull request, it will be merged.
+In the Github UI you should pick the master branch as target of the PR. <br /> 
+You pull request will be reviewed and commented by committers, and issues can be discussed. When all reviewers are positive on the pull request, it will be merged.
 
 # Merging a PR (yours or contributors)
-Start with reading [GitHub PR merging locally](https://help.github.com/articles/checking-out-pull-requests-locally/). Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor's commits. In order to do that, as well as close the PR at the same time, it is recommended to use squash commits.
+Start with reading [GitHub PR merging locally](https://help.github.com/articles/checking-out-pull-requests-locally/). Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor's commits. In order to do that, as well as to close the PR at the same time, it is recommended to use squash commits.
 Merging pull requests are equivalent to a "pull" of a contributor's branch:
 
     git checkout master      # switch to local master branch
     git pull apache master   # fast-forward to current remote HEAD
     git pull --squash https://github.com/cuser/incubator-rocketmq.git ROCKETMQ-xxxx  # merge to master
     
-`--squash` ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Read git help for merge or pull for more information about `--squash` option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve conflicts, if any, or ask a contributor to rebase on top of master, if PR went out of sync.
+`--squash` ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Please refer to git help for merge or pull for more information about `--squash` option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve all conflicts, or ask a contributor to rebase on top of master, if PR went out of sync.
 
-If you are ready to merge your own (committer's) PR you probably only need to merge (not pull), since you have a local copy that you've been working on. This is the branch that you used to create the PR.
+If you are ready to merge your own (committer's) PR you only need to merge (not pull), since you have a local copy that you've been working on. This is the branch that you used to create the PR.
 
     git checkout master      # switch to local master branch
     git pull apache master   # fast-forward to current remote HEAD
     git merge --squash ROCKETMQ-xxxx
     
-Remember to run regular patch checks, build with tests enabled, and change CHANGELOG.
-If everything is fine, you now can commit the squashed request along the lines
+Please run regular patch checks, build with tests enabled, and change CHANGELOG whenever needed.
+If all requirements are met, you can commit the squashed request using:
 
     git commit --author="contributor_name <contributor_email>" -a -m "ROCKETMQ-XXXX description closes apache/incubator-rocketmq#ZZ"
     
-ROCKETMQ-XXXX is all caps and where ZZ is the pull request number on apache/incubator-rocketmq repository. Including "closes apache/incubator-rocketmq#ZZ" will close the PR automatically. More information is found here [GitHub PR closing docs.](https://help.github.com/articles/closing-issues-via-commit-messages/).
+ROCKETMQ-XXXX is all capitalized and ZZ is the pull request number on apache/incubator-rocketmq repository. Including "closes apache/incubator-rocketmq#ZZ" will close the PR automatically. More information can be found here [GitHub PR closing docs.](https://help.github.com/articles/closing-issues-via-commit-messages/).
 Next, push to git-wip-us.apache.org:
 
     git push apache master
@@ -115,7 +114,7 @@ The PR, once pushed, will get mirrored to github. To update your github version 
 
     git push origin master
     
-Note on squashing: Since squash discards remote branch history, repeated PRs from the same remote branch are difficult for merging. The workflow implies that every new PR starts with a new rebased branch. This is more important for contributors to know, rather than for committers, because if new PR is not mergeable, github would warn to begin with. Anyway, watch for dupe PRs (based on same source branches). This is a bad practice.
+Note on squashing: Since squash discards remote branch history, repeated PRs from the same remote branch are difficult to be merged. The workflow implies that every new PR starts with a new rebased branch. This is more important for contributors to know, rather than for committers, because if new PR is not mergeable, github would warn at the start. Please watch for dupe PRs (based on same source branches).
 
 # Closing a PR without committing (for committers)
 When we want to reject a PR (close without committing), we can just issue an empty commit on master's HEAD without merging the PR:
@@ -130,18 +129,18 @@ that should close PR ZZ on github mirror without merging and any code modificati
 
 Read [infra blog](https://blogs.apache.org/infra/entry/improved_integration_between_apache_and). Comments and PRs with RocketMQ issue handles should post to mailing lists and JIRA. RocketMQ issue handles must in the form ROCKETMQ-YYYYY (all capitals). Usually it makes sense to file a JIRA issue first, and then create a PR with description
 ROCKETMQ-YYYY: <jira-issue-description>
-In this case all subsequent comments will automatically be copied to jira without having to mention JIRA issue explicitly in each comment of the PR.
+All subsequent comments will then automatically be copied to JIRA.
 
 # Best Practises
 
 ## Avoiding accidentally committing private branches to the ASF repo
 
-Its dangerously easy —especially when using IDEs— to accidentally commit changes to the ASF repo, be it direct to the trunk, branch-2 or other standard branch on which you are developing, or to a private branch you had intended to keep on github (or a private repo).
+It's dangerous —especially when using IDEs— to accidentally commit changes to the ASF repo, be directed to the trunk, branch-2, other standard branch on which you are developing, or to a private branch you had intended to keep on github (or a private repo).
 
-Committers can avoid this by having the directory in which they develop code set up with read only access to the ASF repository on github, without the apache repository added. A separate directory should be set up with write access to the ASF repository as well as read access to your other repositories. Merging operations and pushes back to the ASF repo are done from this directory —so isolated from all local development.
+Committers can avoid this by setting the directory in which they develop code to read only access to the ASF repository on github. A separate directory should also be set up with write access to the ASF repository as well as read access to your other repositories. Merging operations and push backs to the ASF repo are done from this directory —so it will be immune to all local changes.
 
-If you accidentally commit a patch to an ASF branch, do not attempt to roll back the branch and force out a new update. Simply commit and push out a new patch revoking the change.
+If you accidentally committed a patch to an ASF branch, do not attempt to roll back the branch and force out a new update. Simply commit and push out a new patch revoking the change.
 
-If you do accidentally commit a branch to the ASF repo, the infrastructure team can delete it —but they cannot stop it propagating to github and potentially being visible. Try not to do that.
+If you do accidentally committed a branch to the ASF repo, the infrastructure team can delete it —but they cannot stop it propagating to github and potentially being visible. Please avoid this.
 
 

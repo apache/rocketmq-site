@@ -15,15 +15,15 @@ Make sure you have walked through [Quick Start](/docs/quick-start/) and [Core Co
 
 # How To Get it
 
-The admin tool is shipped along with RocketMQ. Either you download a pre-built binary version or build from source by yourself, you already have it.
+The admin tool is shipped along with RocketMQ. Whether you download a pre-built binary version or build from source by yourself, you have the tool with the package.
 
-In case you don't have source code, the [rocketmq-tools module](https://github.com/apache/incubator-rocketmq/tree/master/tools) contains its source code.
+If you want to look at the source code, please refer to [rocketmq-tools module](https://github.com/apache/incubator-rocketmq/tree/master/tools)
 
 # How to use
 
-The Admin Tool is very easy to use. Here, for demonstration purpose, *nix environment is assumed.
+The Admin Tool is very user friendly. Here, for demonstration purpose, *nix environment is assumed.
 
-Change directory to ${PACKAGE}/bin, command `bash mqadmin`, you should see the following help menu pops out.
+Change directory to ${PACKAGE}/bin, command `bash mqadmin`, you should see the following help menu.
 
     The most commonly used mqadmin commands are:
        updateTopic          Update or create topic
@@ -34,7 +34,7 @@ Change directory to ${PACKAGE}/bin, command `bash mqadmin`, you should see the f
        updateTopicPerm      Update topic perm
        topicRoute           Examine topic route info
        topicStatus          Examine topic Status info
-       topicClusterList     get cluster info for topic
+       topicClusterList     Get cluster info for topic
        brokerStatus         Fetch broker runtime status data
        queryMsgById         Query Message by Id
        queryMsgByKey        Query Message by Key
@@ -42,13 +42,13 @@ Change directory to ${PACKAGE}/bin, command `bash mqadmin`, you should see the f
        queryMsgByOffset     Query Message by offset
        queryMsgByUniqueKey  Query Message by Unique key
        printMsg             Print Message Detail
-       sendMsgStatus        send msg to broker.
+       sendMsgStatus        Send msg to broker.
        brokerConsumeStats   Fetch broker consume stats data
        producerConnection   Query producer's socket connection and client version
        consumerConnection   Query consumer's socket connection, client version and subscription
        consumerProgress     Query consumers's progress, speed
        consumerStatus       Query consumer's internal data structure
-       cloneGroupOffset     clone offset from other group.
+       cloneGroupOffset     Clone offset from other group.
        clusterList          List all of clusters
        topicList            Fetch all topic list from name server
        updateKvConfig       Create or update KV config.
@@ -62,7 +62,7 @@ Change directory to ${PACKAGE}/bin, command `bash mqadmin`, you should see the f
        statsAll             Topic and Consumer tps stats
        syncDocs             Synchronize wiki and issue to github.com
        allocateMQ           Allocate MQ
-       checkMsgSendRT       check message send response time
+       checkMsgSendRT       Check message send response time
        clusterRT            List All clusters Message Send RT
     
     See 'mqadmin help <command>' for more information on a specific command.
