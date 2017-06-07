@@ -16,7 +16,7 @@ First of all, fork github’s `apache/incubator-rocketmq` to your own account on
 Cloning this locally will set up `origin` to point to your remote fork on github as the default remote.
 Now you can create your pull requests.
 
-You will need to update a local master sometimes (to merge to your development branches sometimes).
+You will need to update a local master sometimes (to merge to your development branches).
 For this, you have to add remote for RocketMQ mirror as follows,
 
     git remote add upstream https://github.com/apache/incubator-rocketmq.git

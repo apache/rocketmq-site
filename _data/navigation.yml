@@ -53,8 +53,6 @@ docs:
         url: /docs/code-guidelines/
       #- title: "Branching Model"
       #  url: /docs/branching-model
-      - title: "Create Pull Request"
-        url: /docs/create-pull-request/
       - title: "Manage Pull Request"
         url: /docs/pull-request/
       - title: "Release Manual"

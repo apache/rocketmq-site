@@ -8,14 +8,14 @@ modified: 2017-3-7T15:01:43-04:00
 
 
 ### OpenMessaging 
-OpenMessaging, which includes the establishment of industry guidelines and messaging, streaming specifications to provide a common framework for finance, e-commerce, IoT and big-data area. The design principles are the cloud-oriented, simplicity, flexibility, and language independent in distributed heterogeneous environments. Conformance to these specifications will make it possible to develop a heterogeneous messaging applications across all major platforms and operating systems. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-17) 
+OpenMessaging, which includes the establishment of industry guidelines and messaging, streaming specifications to provide a common framework for finance, e-commerce, IoT and big-data area. The design principles are the cloud-orientedness, simplicity, flexibility, and language independency in distributed heterogeneous environments. Conformance to these specifications allows the development of a heterogeneous messaging applications across all major platforms and operating systems. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-17) 
 
 
 {% include toc %} 
 
 
 ### Message Filtering 
-So far, RocketMQ only support message filtering feature by `TAG`, but one message only can own one tag, this is too limited to meet complex business requirements. 
+So far, RocketMQ only supports message filtering feature by `TAG`, but one message can only own one tag, which is too limited to meet complex business requirements. 
 
 
 So, we want to define and implement a reasonable filter language based on a subset of the SQL 92 expression syntax to support customized message filtering. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-121) 
@@ -23,38 +23,38 @@ So, we want to define and implement a reasonable filter language based on a subs
 
 ### Batch Messaging 
 
-In order to use RocketMQ in big data related scenarios, batch messaging is necessary, which will bring million-level TPS for RocketMQ. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-80), [PR](https://github.com/apache/incubator-rocketmq/pull/53) 
+In order to use RocketMQ in big data related scenarios, batch messaging is necessary and will bring million-level TPS for RocketMQ. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-80), [PR](https://github.com/apache/incubator-rocketmq/pull/53) 
 
 ### Consistent Hash Allocate Strategy(CHAS) 
 
-Consumer clients use the average allocate strategy by far, which is very sensitive when clients register or unregister continually. 
+Consumer clients use the average allocate strategy by far, which is very sensitive when clients register or unregister continuously. 
 
-A Consistent Hash allocate strategy is valuable for the developer who cares more about stabilization than averaging. 
+A Consistent Hash allocate strategy is valuable for developers who care more about stabilization than averaging. 
 
-So it's better for us to support CHAS as a extra choice in consumer load balancing. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-67), [PR](https://github.com/apache/incubator-rocketmq/pull/67) 
+So we decided to support CHAS as an extra choice in consumer load balancing. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-67), [PR](https://github.com/apache/incubator-rocketmq/pull/67) 
 
 ### Global Order Messaging 
 
 As we know, messages in the same queue can be consumed sequentially. So we always send the congeneric messages to the same queue to guarantee ordering, which will cause hot-point issue. 
 
-So It's cool if we support a new global order messaging mechanism, without hot-points problem. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-122) 
+So it'd be cool if we can support a new global order messaging mechanism without the hot-point problem. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-122) 
 
 ### Distributed Transaction Messaging 
-Undoubtedly, transaction messaging is very frequently-used in most business.  
+Undoubtedly, transaction messaging is frequently used in most business.  
 
-But it is unfortunate that users must implement transaction mechanism by themselves until now, may be they need DataBase to implement it. 
+But users have to implement transaction mechanism by themselves for now, so there is a potential need of a database implementation to solve the problem. 
  
-It's time to support distributed transaction messaging to make it convenient for the user, help them handle complex business with skill and ease. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-123) 
+Now we can support distributed transaction messaging to make it convenient for the users and help them handle complex business. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-123) 
 
 ### Non-Redundant Message Delivery Mechanism 
 
-The duplicated messages are worrisome. It will cost much if user need non-repeating messages. 
+The duplicated messages will impose extra cost if user needs non-repeating messages. 
 
-In most cases, user need store the consume records to judge a message is replicated or not, and the store stage should guarantee strong consistency. As you see, it's very complicated, so support a strict and non-redundant message delivery mechanism is impending. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-124) 
+In most cases, user needs to store the consume records to determine if a message is duplicated, and the store stage should guarantee consistency. So we need to support a strict and non-redundant message delivery mechanism. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-124) 
 
 ### Intellective HA Architecture 
 
-RocketMQ uses master-slave as HA architecture, which has low latency and high throughput features, but this program need human intervention to recover from abnormal situations. 
+RocketMQ uses master-slave as HA architecture, which has low latency and high throughput, but this program needs human intervention to recover from abnormal situations. 
   
 So, we want to support a multi-replication high availability／reliability mechanism, without human intervention. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-125) 
 
@@ -67,7 +67,7 @@ MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol, w
 ## 4.4.0-incubating+ RoadMap: 
 
 1. Support more application layer protocol: WebSocket, HTTP2, etc. 
-2. Support more native language SDK: PHP, Python, .Net, Node, Go, etc. The chosen programming languages are the result of surveying many cloud platforms. 
+2. Support more native language SDK: PHP, Python, .Net, Node, Go, etc. The chosen programming languages are based on the investigation of many cloud platforms. 
 3. Support advanced message queuing protocol(AMQP). 
 
 ## RocketMQ Externals 

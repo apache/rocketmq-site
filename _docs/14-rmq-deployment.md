@@ -28,7 +28,7 @@ When deploying a RocketMQ cluster, recommended configuration is listed below:
 
 ##### Broker configuration
 
-| Property Name        | Default values           | Details  |
+| Property Name        | Default value           | Details  |
 | ----------------- |:------------------:| ---------------:|
 | listenPort      | 10911 | listen port for client |
 | namesrvAddr      | null      |   name server address |
@@ -50,12 +50,12 @@ RocketMQ provides a CLI(command-line interface) admin tool belt to query, manage
 #### How To Get
 The admin tool is shipped along with RocketMQ. Either you download a pre-built binary version or build from source by yourself, you already have it.
 
-In case you have source code, the rocketmq-tools module contains its source code.
+In case you need the source code, the rocketmq-tools module contains its source code.
 
 #### How to use
 The Admin Tool is very easy to use. Here, for demonstration purpose, *nix environment is assumed.
 
-Change directory to ${PACKAGE}/bin, command bash mqadmin, you should see the following help menu pops out:
+Change directory to ${PACKAGE}/bin, command bash mqadmin, you should see the following help menu:
 
 ```java 
 The most commonly used mqadmin commands are:
