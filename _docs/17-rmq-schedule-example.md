@@ -80,3 +80,7 @@ public class ScheduledMessageProducer {
     
 }
 ```
+
+3. Verification 
+
+You should see messages are consumed about 10 seconds later than their storing time. 
