@@ -16,7 +16,8 @@ This page introduces:
 the use cases, similarities and differences between the three implementations, 
 and a code example for reference.
 
-####Reliable synchronous transmission
+#### Reliable synchronous transmission
+
 
 Application: Reliable synchronous transmission is used in extensive scenes, such as
 important notification messages, SMS notification, SMS marketing system, etc..
@@ -47,6 +48,7 @@ public class SyncProducer {
 
 ```
 #### Reliable asynchronous transmission
+
 
 Application: asynchronous transmission is generally used to link time-consuming, 
 response time sensitive business scenarios.
@@ -85,7 +87,9 @@ public class AsyncProducer {
 }
 ```
 
-One-way transmission
+
+#### One-way transmission
+
 
 Application: One-way transmission is used for cases requiring moderate reliability,
 such as log collection.

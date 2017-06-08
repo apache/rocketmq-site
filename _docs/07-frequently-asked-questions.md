@@ -19,6 +19,7 @@ No. RocketMQ can run independently.
 2. If the topic sends a message three days ago, the consumer starts to consume messages from the latest message in the server, in other words, starting from the tail of message queue.
 3. If such consumer is rebooted, then it starts to consume messages from the last consumption location.
 
+
 ### 2. How to reconsume message when consumption fails?
 	
 1. Cluster consumption pattern
