@@ -35,6 +35,8 @@ docs:
         url: /docs/batch-example/
       - title: "Filter Example"
         url: /docs/filter-by-sql92-example/
+      - title: "Logappender Example"
+        url: /docs/logappender-example/
       - title: "FAQ"
         url: /docs/faq/
 
