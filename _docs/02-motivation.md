@@ -4,16 +4,25 @@ permalink: /docs/motivation/
 modified: 2016-12-16T15:01:43-04:00
 ---
 
-At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for async communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also become urgent.
+At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our 
+multinational business uses it for asynchronous communication, search, social network activity stream, data pipeline,
+even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster
+also becomes urgent.
 
 {% include toc %}
 
 # Why RocketMQ ?
 
-Based on our research, with increased queues and virtual topics in use, ActiveMQ IO module reaches a bottleneck. We tried our best to solve this problem through throttling, circuit breaker or degradation, but it didn't work well. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements especially low latency and high reliability, see [here](/rocketmq/how-to-support-more-queues-in-rocketmq/) for details.
+Based on our research, with increased queues and virtual topics in use, ActiveMQ IO module reaches a bottleneck. We 
+tried our best to solve this problem through throttling, circuit breaker or degradation, but it did not work well. So 
+we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our 
+requirements especially in terms of low latency and high reliability, see [here](/rocketmq/how-to-support-more-queues-in-rocketmq/) for details.
 
-In this context, we decided to invent a new messaging engine to handle a broader set of use cases, ranging from traditional pub/sub scenarios to high volume realtime zero-loss tolerance transaction system. We believe this solution can be beneficial, so we would like to open source it to the community. Today, more than 100 companies are using the open source version of RocketMQ in their business. We also published a commercial distribution based on RocketMQ, a Platform as a Service (PaaS) product called the
-[Alibaba Cloud Platform](https://intl.aliyun.com/).
+In this context, we decided to invent a new messaging engine to handle a broader set of use cases, ranging from 
+traditional pub/sub scenarios to high volume real-time zero-loss tolerance transaction system. We believe this solution
+can be beneficial, so we would like to open source it to the community. Today, more than 100 companies are using the 
+open source version of RocketMQ in their business. We also published a commercial distribution based on RocketMQ, a PaaS
+ product called the [Alibaba Cloud Platform](https://intl.aliyun.com/).
 
 
 The following table demonstrates the comparison between RocketMQ, ActiveMQ and Kafka (Apache's most popular messaging solutions according to [awesome-java](https://github.com/akullpp/awesome-java)):

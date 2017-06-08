@@ -22,7 +22,7 @@ Name server follows share-nothing design paradigm. Brokers send heartbeat data t
 
 # Broker
 
-Brokers can be divided into two categories according to their roles: master and slave. Master brokers can read and write while slave brokers can only read messages replicated from master. Master brokers have brokerId=0; brokerId of slave is non-zero. 
+Brokers can be divided into two categories according to their roles: master and slave. Master brokers can read and write while slave brokers can only read messages replicated from master. Master brokers have brokerID=0; brokerID of slave is non-zero.
 
 Brokers may also be grouped by the brokerName property. Slave brokers find their master through brokerName. One master broker along with zero, one or multiple slave brokers is called a broker set.
 

@@ -35,6 +35,8 @@ docs:
         url: /docs/batch-example/
       - title: "Filter Example"
         url: /docs/filter-by-sql92-example/
+      - title: "FAQ"
+        url: /docs/faq/
 
   - title: Deployment & Operations
     children:
@@ -51,7 +53,7 @@ docs:
         url: /docs/code-guidelines/
       #- title: "Branching Model"
       #  url: /docs/branching-model
-      - title: "Pull Request"
+      - title: "Manage Pull Request"
         url: /docs/pull-request/
       - title: "Release Manual"
         url: /docs/release-manual
@@ -76,8 +78,7 @@ docs:
         url: /release_notes/release-notes-4.0.0-incubating/
   - title: RoadMap
     url: /docs/roadmap/
-  - title: FAQ
-    url: /docs/faq/
+
 
 about:
   - title: Team

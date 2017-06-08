@@ -30,6 +30,11 @@ feature_row2:
     alt: "Yunpan Group"
   - image_path: /assets/images/community/shihai-logo.jpg
     alt: "Shihai Group"
+feature_row3:
+  - image_path: /assets/images/community/tree-logo.png
+    alt: "Tree Finance Group"
+  - image_path: /assets/images/community/yhsoft-logo.png
+    alt: "YH software Group"
 intro:
   - excerpt: "Who uses Apache RocketMQ ? &nbsp;"
 ---
@@ -41,3 +46,5 @@ intro:
 {% include feature_row id="feature_row1" %}
 
 {% include feature_row id="feature_row2" %}
+
+{% include feature_row id="feature_row3" %}

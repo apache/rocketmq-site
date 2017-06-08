@@ -5,7 +5,8 @@ excerpt: "How to quickly install and setup Apache RocketMQ."
 modified: 2016-12-29T15:01:43-04:00
 ---
 
-This quick start guide is a detailed instruction of setting up RocketMQ messaging system on a local machine and sending/receiving messages.
+This quick start guide is a detailed instruction of setting up RocketMQ messaging system on your local machine to send 
+and receive messages.
 
 {% include toc %}
 
@@ -42,7 +43,7 @@ This quick start guide is a detailed instruction of setting up RocketMQ messagin
   > tail -f ~/logs/rocketmqlogs/broker.log 
   The broker[%s, 172.30.30.233:10911] boot success...
 ```
-  
+
 
 # Send & Receive Messages
 
