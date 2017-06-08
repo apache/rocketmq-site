@@ -33,6 +33,10 @@ Release Notes - Apache RocketMQ - Version 4.1.0-incubating
 *   [[ROCKETMQ-176](https://issues.apache.org/jira/browse/ROCKETMQ-176)] - Improvement the Maven Central Badge in readme
 *   [[ROCKETMQ-187](https://issues.apache.org/jira/browse/ROCKETMQ-187)] - Measure the code coverage for Integration Tests
 *   [[ROCKETMQ-148](https://issues.apache.org/jira/browse/ROCKETMQ-148)] - Migrate all relevant docs from the old Github project's wiki to the ASF site
+*   [[ROCKETMQ-218](https://issues.apache.org/jira/browse/ROCKETMQ-218)] - Add IT test for Filter By SQL 92
+*   [[ROCKETMQ-219](https://issues.apache.org/jira/browse/ROCKETMQ-219)] - Add Batch Example
+*   [[ROCKETMQ-220](https://issues.apache.org/jira/browse/ROCKETMQ-220)] - README.md update, remove some github links
+
 
 ## Bug
 
@@ -57,6 +61,8 @@ Release Notes - Apache RocketMQ - Version 4.1.0-incubating
 *   [[ROCKETMQ-199](https://issues.apache.org/jira/browse/ROCKETMQ-199)] - consumers can not receive stock information.
 *   [[ROCKETMQ-200](https://issues.apache.org/jira/browse/ROCKETMQ-200)] - Cluster name is always missing when fetch ClusterInfo from name server
 *   [[ROCKETMQ-206](https://issues.apache.org/jira/browse/ROCKETMQ-206)] - Load JSON config file error if non-1byte character exists
+*   [[ROCKETMQ-208](https://issues.apache.org/jira/browse/ROCKETMQ-208)] - incompatibility problem found in enviroment of JDK 1.7 when running client
+
 
 
 
