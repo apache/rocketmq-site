@@ -10,13 +10,12 @@ modified: 2017-04-24T15:01:43-04:00
 {% include toc %}
 
 Use RocketMQ to send messages in three ways: reliable synchronous, reliable
-asynchronous, and one-way transmission. 
+asynchronous, and one-way transmission.
 
-This page introduces: 
-the use cases, similarities and differences between the three implementations, 
-and a code example for reference.
+This page exemplifies these three message-sending ways. Checkout the notes along with the example to figure out which 
+way to use for your specific use case.
 
-### Reliable synchronous transmission
+#### Reliable synchronous transmission
 
 Application: Reliable synchronous transmission is used in extensive scenes, such as
 important notification messages, SMS notification, SMS marketing system, etc..
@@ -46,16 +45,15 @@ public class SyncProducer {
 }
 
 ```
-### Reliable asynchronous transmission
+#### Reliable asynchronous transmission
 
-Application: asynchronous transmission is generally used to link time-consuming, 
-response time sensitive business scenarios.
+Application: asynchronous transmission is generally used in response time sensitive business scenarios.
 
 ```java
 public class AsyncProducer {
     public static void main(String[] args) throws Exception {
         //Instantiate with a producer group name.
-        DefaultMQProducer producer = new DefaultMQProducer("Jodie_Daily_test");
+        DefaultMQProducer producer = new DefaultMQProducer("ExampleProducerGroup");
         //Launch the instance.
         producer.start();
         producer.setRetryTimesWhenSendAsyncFailed(0);
@@ -85,7 +83,7 @@ public class AsyncProducer {
 }
 ```
 
-### One-way transmission
+#### One-way transmission
 
 Application: One-way transmission is used for cases requiring moderate reliability,
 such as log collection.
@@ -94,7 +92,7 @@ such as log collection.
 public class OnewayProducer {
     public static void main(String[] args) throws Exception{
         //Instantiate with a producer group name.
-        DefaultMQProducer producer = new DefaultMQProducer("example_group_name");
+        DefaultMQProducer producer = new DefaultMQProducer("ExampleProducerGroup");
         //Launch the instance.
         producer.start();
         for (int i = 0; i < 100; i++) {
@@ -106,7 +104,7 @@ public class OnewayProducer {
             );
             //Call send message to deliver message to one of brokers.
             producer.sendOneway(msg);
-            
+
         }
         //Shut down once the producer instance is not longer in use.
         producer.shutdown();
