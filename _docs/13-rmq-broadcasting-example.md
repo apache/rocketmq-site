@@ -7,10 +7,11 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-### What is broadcasting
+#### What is broadcasting
 Broadcasting is sending a message to all subscribers of a topic. If you want all subscribers receive messages about a topic, broadcasting is a good choice.
 
-### Producer example
+#### Producer example
+
 
 ```java
 public class BroadcastProducer {
@@ -31,7 +32,8 @@ public class BroadcastProducer {
 }
 ```
 
-### Consumer example
+#### Consumer example
+
 
 ```java
 public class BroadcastConsumer {
