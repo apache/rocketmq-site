@@ -11,11 +11,14 @@ modified: 2017-04-24T15:01:43-04:00
 Sending messages in batch improves performance of delivering small messages. 
 
 #### Usage constraints
+
 Messages of the same batch should have: same topic, same waitStoreMsgOK and no schedule support.
 
 Besides, the total size of the messages in one batch should be no more than 1MiB.
 
+
 #### How to use batch
+
 If you just send messages of no more than 1MiB at a time, it is easy to use batch:
 
 ```java
@@ -33,6 +36,7 @@ try {
     
 ```
 #### Split into lists
+
 The complexity only grow when you send large batch and you may not sure if it exceeds the size limit (1MiB).
 
 At this time, you'd better split the lists:
