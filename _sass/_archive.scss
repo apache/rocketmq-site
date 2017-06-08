@@ -63,7 +63,7 @@
   border-radius: $border-radius;
   overflow: hidden;
   img {
-    max-width: 60%;
+    max-width: 100%;
   }
 }
 
@@ -158,8 +158,6 @@
 .feature__item {
   margin-bottom: 2em;
   font-size: 1.25rem;
-  height: 80px;
-  line-height: 80px;
 
   @include breakpoint($small) {
     margin-bottom: 0;
