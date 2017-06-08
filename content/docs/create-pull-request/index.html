@@ -13,30 +13,30 @@
 
 
 
-<title>Core Concept - Apache RocketMQ</title>
+<title>How to create Pull Request - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="">
+<meta name="description" content="This page guides you through the pull request creation process.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Core Concept">
+<meta property="og:title" content="How to create Pull Request">
 
 
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="This page guides you through the pull request creation process.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Core Concept">
-  <meta name="twitter:description" content="">
+  <meta name="twitter:title" content="How to create Pull Request">
+  <meta name="twitter:description" content="This page guides you through the pull request creation process.">
   <meta name="twitter:url" content="">
 
   
@@ -339,7 +339,7 @@
             
             
 
-            <li><a href="/docs/core-concept/" class="active">Core Concept</a></li>
+            <li><a href="/docs/core-concept/" class="">Core Concept</a></li>
           
             
             
@@ -424,148 +424,132 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Core Concept">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="How to create Pull Request">
+    <meta itemprop="description" content="This page guides you through the pull request creation process.">
     <meta itemprop="datePublished" content="June 08, 2017">
-    <meta itemprop="dateModified" content="December 16, 2016">
+    <meta itemprop="dateModified" content="December 24, 2016">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Core Concept
+          <h1 class="page__title" itemprop="headline">How to create Pull Request
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p><img src="/assets/images/rmq-model.png" alt="RocketMQ model" /></p>
-
-<p>According to the above model, we can dig deeper into some topics about messaging system design:</p>
+        <p>This page guides you through the pull request creation process.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#producer" id="markdown-toc-producer">Producer</a>    <ul>
-      <li><a href="#producer-group" id="markdown-toc-producer-group">Producer Group</a></li>
-    </ul>
-  </li>
-  <li><a href="#consumer" id="markdown-toc-consumer">Consumer</a>    <ul>
-      <li><a href="#pullconsumer" id="markdown-toc-pullconsumer">PullConsumer</a></li>
-      <li><a href="#pushconsumer" id="markdown-toc-pushconsumer">PushConsumer</a></li>
-      <li><a href="#consumer-group" id="markdown-toc-consumer-group">Consumer Group</a></li>
-    </ul>
-  </li>
-  <li><a href="#topic" id="markdown-toc-topic">Topic</a></li>
-  <li><a href="#message" id="markdown-toc-message">Message</a>    <ul>
-      <li><a href="#message-queue" id="markdown-toc-message-queue">Message Queue</a></li>
-      <li><a href="#tag" id="markdown-toc-tag">Tag</a></li>
-      <li><a href="#broker" id="markdown-toc-broker">Broker</a></li>
-    </ul>
-  </li>
-  <li><a href="#name-server" id="markdown-toc-name-server">Name Server</a></li>
-  <li><a href="#message-model" id="markdown-toc-message-model">Message Model</a></li>
-  <li><a href="#message-order" id="markdown-toc-message-order">Message Order</a></li>
+  <li><a href="#git-setup-for-contributors" id="markdown-toc-git-setup-for-contributors">Git setup for Contributors</a></li>
+  <li><a href="#git-setup-for-committers" id="markdown-toc-git-setup-for-committers">Git setup for Committers</a></li>
+  <li><a href="#do-some-work-on-the-branch" id="markdown-toc-do-some-work-on-the-branch">Do some work on the branch</a></li>
+  <li><a href="#how-to-create-a-pr-committers" id="markdown-toc-how-to-create-a-pr-committers">How to create a PR (committers)</a></li>
+  <li><a href="#how-to-create-a-pr-contributors" id="markdown-toc-how-to-create-a-pr-contributors">How to create a PR (contributors)</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<ul>
-  <li>Consumer Concurrency</li>
-  <li>Consumer Hot Issues</li>
-  <li>Consumer Load Balance</li>
-  <li>Message Router</li>
-  <li>Connection Multiplex</li>
-  <li>Canary Deployments</li>
-</ul>
+<h1 id="git-setup-for-contributors">Git setup for Contributors</h1>
+<p>First of all, fork github’s <code class="highlighter-rouge">apache/incubator-rocketmq</code> to your own account on github and clone it as follows,</p>
 
-<h1 id="producer">Producer</h1>
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/&lt;your_github_name&gt;/incubator-rocketmq.git
+</code></pre>
+</div>
 
-<p>A producer sends messages generated by the business application systems to brokers. RocketMQ provides multiple paradigms of sending: synchronous, asynchronous and one-way.</p>
+<p>Cloning this locally will set up <code class="highlighter-rouge">origin</code> to point to your remote fork on github as the default remote.
+Now you can create your pull requests.</p>
 
-<h2 id="producer-group">Producer Group</h2>
+<p>You will need to update a local master sometimes (to merge to your development branches sometimes).
+For this, you have to add remote for RocketMQ mirror as follows,</p>
 
-<p>Producers of the same role are grouped together. A different producer instance of the same producer group may be contacted by a broker to commit or roll back a transaction in case the original producer crashed after the transaction.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add upstream https://github.com/apache/incubator-rocketmq.git
+</code></pre>
+</div>
 
-<p><strong>Warning</strong>: Considering the provided producer is sufficiently powerful at sending messages, only one instance is allowed per producer group to avoid unnecessary initialization of producer instances.</p>
+<p>and update your local master via <code class="highlighter-rouge">git fetch</code> followed by <code class="highlighter-rouge">git rebase</code>, for instance:
+    git fetch upstream master
+    git rebase upstream/master</p>
 
-<h1 id="consumer">Consumer</h1>
+<h1 id="git-setup-for-committers">Git setup for Committers</h1>
+<p>In addition to contributors’ configurations, committers will have to attach the apache git repo:</p>
 
-<p>A Consumer pulls messages from brokers and feeds them into application. In perspective of user application, two types of consumers are provided:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git
+</code></pre>
+</div>
 
-<h2 id="pullconsumer">PullConsumer</h2>
+<p>To check your remote setup, issue</p>
 
-<p>Pull consumer actively pulls messages from brokers. Once batches of messages are pulled, user application initiates consuming process.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote -v
+</code></pre>
+</div>
 
-<h2 id="pushconsumer">PushConsumer</h2>
+<p>You should see something like this:</p>
 
-<p>Push consumer, on the other hand, encapsulates message pulling, consuming progress and maintaining other work inside, leaving a callback interface to end user to implement which will be executed on message arrival.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>origin    https://github.com/&lt;your_github_name&gt;/incubator-rocketmq.git (fetch)
+origin    https://github.com/&lt;your_github_name&gt;/incubator-rocketmq.git (push)
+upstream  https://github.com/apache/incubator-rocketmq.git (fetch)
+upstream  https://github.com/apache/incubator-rocketmq.git (push)
+apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (fetch)
+apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (push)
+</code></pre>
+</div>
 
-<h2 id="consumer-group">Consumer Group</h2>
+<p>Now if you want to experiment with a branch everything, by default, points to your github account because ‘origin’ is default. You can work as normal using only github until you are ready to merge with the apache remote. Some conventions will integrate with Apache JIRA ticket numbers.</p>
 
-<p>Similar to previously mentioned producer group, consumers of the exactly same role are grouped together and named <strong>Consumer Group</strong>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b ROCKETMQ-xxxx #xxxx typically is a JIRA ticket number
+</code></pre>
+</div>
 
-<p>Consumer Group is a great concept with which achieving goals of load-balance and fault-tolerance, in terms of message consuming, is super easy.</p>
+<p><em>To ensure the code quality of the master branch, all but minor changes should go through pull requests reviewed by peer committers.</em></p>
 
-<p><strong>Warning</strong>: consumer instances of a consumer group <strong>must</strong> have exactly the same topic subscription(s).</p>
+<h1 id="do-some-work-on-the-branch">Do some work on the branch</h1>
 
-<h1 id="topic">Topic</h1>
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit -a -m "doing some work"
+git push origin ROCKETMQ-xxxx # notice pushing to **origin** not **apache**
+</code></pre>
+</div>
 
-<p>Topic is a category in which producers deliver messages and consumers pull messages. Topics have very loose relationship with producers and consumers. Specifically, a topic may have zero, one or multiple producers that sends messages to it; conversely, a producer can send messages of different topics. In consumer’s perspective, a topic may be subscribed by zero, one or multiple consumer groups. And a consumer group, similarly, may subscribe to one or more topics as long as instances of this group keep their subscription consistent.</p>
+<p>Once you are ready to commit to the apache remote you can merge and push them directly, otherwise always create a PR.</p>
 
-<h1 id="message">Message</h1>
+<h1 id="how-to-create-a-pr-committers">How to create a PR (committers)</h1>
 
-<p>Message is the information to be delivered. A message must have a topic, which can be interpreted as address of your letter to mail to. A message may also have an optional tag and extra key-value pairs. For example, you may set a business key to your message and look up the message on a broker server to diagnose issues during development.</p>
+<p>Push your branch to Github:</p>
 
-<h2 id="message-queue">Message Queue</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout ROCKETMQ-xxxx
+git push origin ROCKETMQ-xxxx
+</code></pre>
+</div>
 
-<p>Topic is partitioned into one or more sub-topics, “message queues”.</p>
-
-<h2 id="tag">Tag</h2>
-
-<p>Tag, in other words sub-topic, provides extra flexibility to users. With tag, messages with different purposes from the same business module may have the same topic and different tag. Tags would be helpful to keep your code clean and coherent, and tags also can facilitate the query system RocketMQ provides.</p>
-
-<h2 id="broker">Broker</h2>
-
-<p>Broker is a major component of the RocketMQ system. It receives messages sent from producers, store them and prepare to handle pull requests from consumers. It also stores message related meta data, including consumer groups, consuming progress offsets and topic / queue info.</p>
-
-<h1 id="name-server">Name Server</h1>
-
-<p>Name server serves as the routing information provider. Producer/Consumer clients look up topics to find the corresponding broker list.</p>
-
-<h1 id="message-model">Message Model</h1>
-
-<ul>
+<ol>
   <li>
-    <p>Clustering</p>
+    <p>Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github’s apache/incubator-rocketmq. By default all PR will go to apache/master.</p>
   </li>
-  <li>
-    <p>Broadcasting</p>
-  </li>
-</ul>
+  <li>Click the green “Compare, review, and create pull request” button. You can edit the to and from for the PR if it isn’t correct. The “base fork” should be apache/incubator-rocketmq unless you are collaborating with one of the committers on the list. The “base” will be master. Don’t submit a PR to any other branches unless permitted by branch owner. The “head fork” will be your forked repo and the “compare” will be your ROCKETMQ-xxxx branch.</li>
+  <li>Click the “Create pull request” button and name the request “ROCKETMQ-xxxx” all caps. This will connect the comments of the PR to the mailing list and JIRA comments.</li>
+  <li>From now on the PR lives on github’s apache/incubator-rocketmq. You can use the commenting UI there.</li>
+  <li>If you are looking for a review or wanting to share with someone else please write a note in the comments and don’t worry about automated merging of your PR – you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to JIRA and the mailing list.</li>
+  <li>When you are satisfied and want to push it to Apache’s remote repo, you can merge this PR.</li>
+</ol>
 
-<h1 id="message-order">Message Order</h1>
+<h1 id="how-to-create-a-pr-contributors">How to create a PR (contributors)</h1>
+<p>Before you create a pull request, make sure</p>
+<ol>
+  <li>A corresponding <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">JIRA</a> issue is created and has a clear problem description.</li>
+  <li>Make sure you follow <a href="/docs/code-guidelines/">Coding Guidelines</a>.</li>
+  <li>You have unit tests for everything you are about to commit.</li>
+</ol>
 
-<p>When DefaultMQPushConsumer is employed, you may decide to consume messages orderly or concurrently.</p>
+<p>For information about creating pull requests, please check <a href="https://help.github.com/articles/creating-a-pull-request/">GitHub PR docs</a>.</p>
 
-<ul>
-  <li>Orderly</li>
-</ul>
-
-<p>Consuming messages orderly means messages are consumed the same order they are sent by producers for each message queue. If you are dealing with scenario that global order is mandatory, make sure the topic you use has only one message queue.</p>
-
-<p><strong>Warn</strong>: If consuming orderly is specified, the maximum concurrency of message consuming is the number of message queues subscribed by the consumer group.</p>
-
-<ul>
-  <li>Concurrently</li>
-</ul>
-
-<p>When consuming messages concurrently, maximum concurrency of message consuming is only limited by thread pool specified for each consumer client.</p>
-
-<p><strong>Warn</strong>: Message order is no longer guaranteed in this mode.</p>
-
+<p>Pull requests are made to <code class="highlighter-rouge">apache/incubator-rocketmq</code> repository on Github.
+In the Github UI you should pick the master branch as target of the PR. <br />
+You pull request will be reviewed and commented by committers, and issues can be discussed. When all reviewers are positive on the pull request, it will be merged.</p>
 
         
       </section>
@@ -576,7 +560,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-16">December 16, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-24">December 24, 2016</time></p>
         
       </footer>
 
@@ -585,24 +569,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Core Concept /docs/core-concept/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=How to create Pull Request /docs/create-pull-request/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/core-concept/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/create-pull-request/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/core-concept/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/create-pull-request/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/core-concept/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/create-pull-request/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/motivation/" class="pagination--pager" title="Motivation
+      <a href="/docs/best-practice-consumer/" class="pagination--pager" title="Best Practice For Consumer
 ">Previous</a>
     
     
-      <a href="/docs/cli-admin-tool/" class="pagination--pager" title="CLI Admin Tool
+      <a href="/docs/best-practice-namesvr/" class="pagination--pager" title="Best Practice For NameServer
 ">Next</a>
     
   </nav>

@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-08T11:24:44+08:00">
+  <meta property="article:published_time" content="2017-06-08T13:09:18+08:00">
 
 
 
@@ -241,6 +241,14 @@
 
             <li><a href="/docs/filter-by-sql92-example/" class="">Filter Example</a></li>
           
+            
+            
+
+            
+            
+
+            <li><a href="/docs/faq/" class="">FAQ</a></li>
+          
         </ul>
         
       </li>
@@ -303,7 +311,7 @@
             
             
 
-            <li><a href="/docs/pull-request/" class="">Pull Request</a></li>
+            <li><a href="/docs/pull-request/" class="">Manage Pull Request</a></li>
           
             
             
@@ -408,17 +416,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -458,7 +455,7 @@
 
 <h1 id="overview">Overview</h1>
 
-<p>The greatest strengths of RocketMQ are high throughput, high reliability, and low latency when supporting massive messages through exquisite scale out and scale up. RocketMQ consists of four parts: name servers, brokers, producers and consumers. Each of them can be horizontally extended without a single Point of Failure. As shown in screenshot below.</p>
+<p>Apache RocketMQ is a distributed messaging and streaming platform with low latency, high performance and reliability, trillion-level capacity and flexible scalability. It consists of four parts: name servers, brokers, producers and consumers. Each of them can be horizontally extended without a single Point of Failure. As shown in screenshot above.</p>
 
 <p><strong>NameServer Cluster</strong></p>
 
@@ -466,7 +463,7 @@
 
 <p><strong>Broker Cluster</strong></p>
 
-<p>Brokers take care of message storage by providing lightweight TOPIC and QUEUE mechanisms. It supports the Push and Pull model, contains fault tolerance mechanism (2 copies or 3 copies), and provides strong padding of peaks and capacity of accumulating hundreds of billion messages in their original time order. In addition, Brokers provide disaster recovery, rich metrics statistics, and alert mechanisms, all of which are lacking in traditional messaging systems.</p>
+<p>Brokers take care of message storage by providing lightweight TOPIC and QUEUE mechanisms. They support the Push and Pull model, contains fault tolerance mechanism (2 copies or 3 copies), and provides strong padding of peaks and capacity of accumulating hundreds of billion messages in their original time order. In addition, Brokers provide disaster recovery, rich metrics statistics, and alert mechanisms, all of which are lacking in traditional messaging systems.</p>
 
 <p><strong>Producer Cluster</strong></p>
 
@@ -475,7 +472,7 @@
 <p><strong>Consumer Cluster</strong></p>
 
 <p>Consumers support distributed deployment in the Push and Pull model as well. It also supports cluster consumption and message broadcasting. It provides real-time message subscription mechanism and can meet most consumer requirements. 
-RocketMQ’s website provides a simple quick-start guide[3] to interested users.</p>
+RocketMQ’s website provides a simple quick-start guide to interested users.</p>
 
 <h1 id="nameserver">NameServer</h1>
 
@@ -506,11 +503,11 @@ RocketMQ’s website provides a simple quick-start guide[3] to interested users.
 <p>As shown in image below, Broker server has searval important sub modules:</p>
 
 <ul>
-  <li>Remoting Module, the entry of broker, handle the requests from clients.</li>
-  <li>Client Manager, manage the clients (Producer/Consumer), maintain topic subscription of consumer.</li>
-  <li>Store Service, provide simple APIs to store or query message in physical disk.</li>
-  <li>HA Service, provide data sync feature between master broker and slave broker.</li>
-  <li>Index Service, build index for messages by specified key and provide quick message query function.</li>
+  <li>Remoting Module, the entry of broker, handles the requests from clients.</li>
+  <li>Client Manager, manages the clients (Producer/Consumer) and maintains topic subscription of consumer.</li>
+  <li>Store Service, provides simple APIs to store or query message in physical disk.</li>
+  <li>HA Service, provides data sync feature between master broker and slave broker.</li>
+  <li>Index Service, builds index for messages by specified key and provides quick message query.</li>
 </ul>
 
 <p><img src="/assets/images/rmq-basic-component.png" alt="" /></p>

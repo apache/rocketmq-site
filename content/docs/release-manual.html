@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-08T11:24:44+08:00">
+  <meta property="article:published_time" content="2017-06-08T13:09:18+08:00">
 
 
 
@@ -241,6 +241,14 @@
 
             <li><a href="/docs/filter-by-sql92-example/" class="">Filter Example</a></li>
           
+            
+            
+
+            
+            
+
+            <li><a href="/docs/faq/" class="">FAQ</a></li>
+          
         </ul>
         
       </li>
@@ -303,7 +311,7 @@
             
             
 
-            <li><a href="/docs/pull-request/" class="">Pull Request</a></li>
+            <li><a href="/docs/pull-request/" class="">Manage Pull Request</a></li>
           
             
             
@@ -408,17 +416,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -473,11 +470,11 @@
   </nav>
 </aside>
 
-<p>This is a guide to making a release of Apache RocketMQ (incubating). Please follow the steps below.</p>
+<p>This is a guide to make a released version of Apache RocketMQ (incubating). Please follow the steps below:</p>
 
 <h2 id="preliminaries">Preliminaries</h2>
 <h3 id="apache-release-documentation">Apache Release Documentation</h3>
-<p>There are some release documentations provided by The ASF, including the incubator release documentation, can be found here:</p>
+<p>The release documentations provided by The ASF can be found here:</p>
 
 <ul>
   <li><a href="http://www.apache.org/dev/release-publishing">Apache Release Guide</a></li>
@@ -488,12 +485,12 @@
 </ul>
 
 <h3 id="code-signing-key">Code Signing Key</h3>
-<p>Create a code signing gpg key for release signing, use <strong>&lt;your Apache ID&gt;@apache.org</strong> as your primary ID for the code signing key. See the <a href="https://www.apache.org/dev/release-signing">Apache Release Signing documentation</a> for more details.</p>
+<p>Create a code signing gpg key for release signing, use <strong>&lt;your Apache ID&gt;@apache.org</strong> as your primary ID for the code signing key. See <a href="https://www.apache.org/dev/release-signing">Apache Release Signing documentation</a> for more details.</p>
 
 <ul>
-  <li>Create new pgp key. How to use pgp please refer to <a href="http://www.apache.org/dev/openpgp.html">here</a>.</li>
+  <li>Create new pgp key. Please refer to <a href="http://www.apache.org/dev/openpgp.html">here</a> on how to use gpg key.</li>
   <li>Generate a new key via <code class="highlighter-rouge">gpg --gen-key</code>, and answer 4096 bits with no expiration time.</li>
-  <li>Upload your key to a public key server, like <code class="highlighter-rouge">gpg --keyserver pgpkeys.mit.edu --send-key &lt;your key id&gt;</code>.</li>
+  <li>Upload your key to a public key server by <code class="highlighter-rouge">gpg --keyserver pgpkeys.mit.edu --send-key &lt;your key id&gt;</code>.</li>
   <li>Get the key signed by other committers(Optional).</li>
   <li>Add the key to the RocketMQ <a href="https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS">KEYS file</a>.</li>
 </ul>
@@ -501,7 +498,7 @@
 <p><strong>Tips:</strong> If you have more than one key in your gpg, set the code signing key to <code class="highlighter-rouge">~/.gnupg/gpg.conf</code> as default key is recommended.</p>
 
 <h3 id="prepare-your-maven-settings">Prepare Your Maven Settings</h3>
-<p>Make sure that your Maven settings.xml file contains the following:</p>
+<p>Make sure your Maven settings.xml file contains the following:</p>
 
 <div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
    <span class="nt">&lt;profiles&gt;</span>
@@ -552,33 +549,33 @@
 <p>Before building the release artifacts, do some verifications below:</p>
 
 <ul>
-  <li>Ensure that now your are in the candidate release branch.</li>
-  <li>Ensure that all the unit tests can pass via <code class="highlighter-rouge">mvn clean install</code>.</li>
-  <li>Ensure that all the integration tests can pass via <code class="highlighter-rouge">mvn clean test -Pit-test</code>.</li>
+  <li>Make sure that your are in the candidate release branch.</li>
+  <li>Make sure that all the unit tests can pass via <code class="highlighter-rouge">mvn clean install</code>.</li>
+  <li>Make sure that all the integration tests can pass via <code class="highlighter-rouge">mvn clean test -Pit-test</code>.</li>
 </ul>
 
 <p>Perform the following to generate and stage the artifacts:</p>
 
 <ol>
   <li><code class="highlighter-rouge">mvn clean release:clean</code></li>
-  <li><code class="highlighter-rouge">mvn release:prepare -Psigned_release -Darguments="-DskipTests"</code>, answer the right release version, SCM release tag, and the new development version.</li>
+  <li><code class="highlighter-rouge">mvn release:prepare -Psigned_release -Darguments="-DskipTests"</code>, answer the correct release version, SCM release tag, and the new development version.</li>
   <li><code class="highlighter-rouge">mvn -Psigned_release release:perform -Darguments="-DskipTests"</code>, generate the artifacts and push them to the <a href="https://repository.apache.org/#stagingRepositories">Nexus repo</a>. If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true</li>
 </ol>
 
 <p>Now, the candidate release artifacts can be found in the <a href="https://repository.apache.org/#stagingRepositories">Nexus staging repo</a> and in the <code class="highlighter-rouge">target</code> folder of your local branch.</p>
 
-<p><strong>Tips:</strong> If you are performing a source-only release, please remove all artifacts from the staging repo except for the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select <code class="highlighter-rouge">Delete</code>.</p>
+<p><strong>Tips:</strong> If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select <code class="highlighter-rouge">Delete</code>.</p>
 
 <h3 id="validate-the-release-candidate">Validate the Release Candidate</h3>
-<p>Now the release candidate is ready, before calling a vote, the artifacts must satisfy the following checklist:</p>
+<p>Now the release candidate is ready, before calling a vote, the artifacts must satisfy the following requirements:</p>
 
 <ul>
   <li>Checksums and PGP signatures are valid.</li>
   <li>Build is successful including unit and integration tests.</li>
-  <li>DISCLAIMER is correct, filenames include “incubating”.</li>
+  <li>DISCLAIMER is correct and filenames must include “incubating”.</li>
   <li>LICENSE and NOTICE files are correct and dependency licenses are acceptable.</li>
-  <li>All source files have license headers where appropriate, RAT checks pass</li>
-  <li>Javadocs have been generated correctly and are accurate.</li>
+  <li>All source files have license headers and pass RAT checks.</li>
+  <li>Javadocs have been generated correctly.</li>
   <li>The provenance of all source files is clear (ASF or software grants).</li>
 </ul>
 
@@ -601,14 +598,14 @@
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --verify rocketmq-all-%version-number%-incubating-source-release.zip.asc rocketmq-all-%version-number%-incubating-source-release.zip
 </code></pre>
 </div>
-<p>Check the output to ensure it contains only good signatures:</p>
+<p>Check the output to ensure it only contains good signatures:</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>  gpg: Good signature from ... gpg: Signature made ...
 </code></pre>
 </div>
 
 <ol>
-  <li>Compare MD5, SHA hash generated from the below command with the downloaded hash files.</li>
+  <li>Compare MD5, SHA hash generated by the below command with the downloaded hash files.</li>
 </ol>
 
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --print-mds rocketmq-all-%version-number%-incubating-source-release.zip 
@@ -616,13 +613,13 @@
 </div>
 
 <h3 id="release-artifacts-to-dev-repository">Release Artifacts to Dev-Repository</h3>
-<p>If the release candidate appears to pass the validation checklist, close the staging repository in Nexus by selecting the staging repository <code class="highlighter-rouge">orgapacherocketmq-XXX</code> and clicking on the <code class="highlighter-rouge">Close</code> icon.</p>
+<p>If the release candidate passes the validation checklist, close the staging repository in Nexus by selecting the staging repository <code class="highlighter-rouge">orgapacherocketmq-XXX</code> and clicking on the <code class="highlighter-rouge">Close</code> icon.</p>
 
 <p>Nexus will now run through a series of checksum and signature validations.</p>
 
-<p>If the checks pass, Nexus will close the repository and give a URL to the closed staging repo (which contains the candidate artifacts). Include this URL in the voting email so that folks can find the staged candidate release artifacts.</p>
+<p>If the checks are passed, Nexus will close the repository and produce a URL to the closed staging repo (which contains the candidate artifacts). Include this URL in the voting email so that folks can find the staged candidate release artifacts.</p>
 
-<p>If the checks do not pass, fix the issues, roll back and restart the release process.</p>
+<p>If the checks aren’t passed, fix the issues then go back and restart the release process.</p>
 
 <p>If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}.</p>
 
@@ -633,7 +630,7 @@
 <p>General information regarding the Apache voting process can be found <a href="http://www.apache.org/foundation/voting.html">here</a>.</p>
 
 <h3 id="apache-rocketmq-community-vote">Apache RocketMQ Community Vote</h3>
-<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.incubator.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and a body along the lines of:</p>
+<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.incubator.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and body:</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -670,7 +667,7 @@ https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and pronouncing the release candidate a success. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> :</p>
+<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> :</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -693,7 +690,7 @@ User Name (Apache ID)<br />
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>If we do not pass the VOTE, fix the related issues, roll back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong></p>
+<p>If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong></p>
 
 <h3 id="incubator-pmc-vote">Incubator PMC Vote</h3>
 <p>Once the candidate release vote passes on dev@rocketmq, send an email to <a href="mailto:general@incubator.apache.org">IMPC</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and a body along the lines of:</p>
@@ -739,7 +736,7 @@ https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>Also don’t forget announce the vote result:</p>
+<p>Also don’t forget to announce the vote result:</p>
 
 <blockquote>
   <p>Hello Incubator PMC,</p>

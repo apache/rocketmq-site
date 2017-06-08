@@ -18,7 +18,7 @@
 
 
 
-<meta name="description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand fulfill much of this responsibility through managing topic route information.">
+<meta name="description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand the coordination is mainly achieved through managing topic routing information.">
 
 
 
@@ -30,13 +30,13 @@
 
 
 
-  <meta property="og:description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand fulfill much of this responsibility through managing topic route information.">
+  <meta property="og:description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand the coordination is mainly achieved through managing topic routing information.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
   <meta name="twitter:title" content="Best Practice For NameServer">
-  <meta name="twitter:description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand fulfill much of this responsibility through managing topic route information.">
+  <meta name="twitter:description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand the coordination is mainly achieved through managing topic routing information.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-08T11:24:44+08:00">
+  <meta property="article:published_time" content="2017-06-08T13:09:18+08:00">
 
 
 
@@ -241,6 +241,14 @@
 
             <li><a href="/docs/filter-by-sql92-example/" class="">Filter Example</a></li>
           
+            
+            
+
+            
+            
+
+            <li><a href="/docs/faq/" class="">FAQ</a></li>
+          
         </ul>
         
       </li>
@@ -303,7 +311,7 @@
             
             
 
-            <li><a href="/docs/pull-request/" class="">Pull Request</a></li>
+            <li><a href="/docs/pull-request/" class="">Manage Pull Request</a></li>
           
             
             
@@ -408,17 +416,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -428,7 +425,7 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Best Practice For NameServer">
-    <meta itemprop="description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand fulfill much of this responsibility through managing topic route information.">
+    <meta itemprop="description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand the coordination is mainly achieved through managing topic routing information.">
     <meta itemprop="datePublished" content="June 08, 2017">
     <meta itemprop="dateModified" content="December 24, 2016">
 
@@ -443,7 +440,7 @@
 
       <section class="page__content" itemprop="text">
         <p>In Apache RocketMQ, name servers are designed to coordinate each component of the distributed system
-and fulfill much of this responsibility through managing topic route information.</p>
+and the coordination is mainly achieved through managing topic routing information.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
@@ -459,9 +456,9 @@ and fulfill much of this responsibility through managing topic route information
   </nav>
 </aside>
 
-<p>The management, roughly speaking, consists two parts:</p>
+<p>Management consists of two parts:</p>
 <ul>
-  <li>Brokers periodically renew meta data, including topics they have, which are kept in every name servers.</li>
+  <li>Brokers periodically renew meta data kept in every name server.</li>
   <li>Name servers are serving clients, including producers, consumers and command line clients with the latest routing information.</li>
 </ul>
 
@@ -470,9 +467,9 @@ In Apache RocketMQ, this can be done in four ways.</p>
 
 <h2 id="programmatic-way">Programmatic Way</h2>
 
-<p>For broker, we may specify <code class="highlighter-rouge">namesrvAddr=name-server-ip1:port;name-server-ip2:port</code> in broker configuration file.</p>
+<p>For brokers, we can specify <code class="highlighter-rouge">namesrvAddr=name-server-ip1:port;name-server-ip2:port</code> in broker configuration file.</p>
 
-<p>For producers and consumers, we may feed name server address list to them as follows:</p>
+<p>For producers and consumers, we can feed name server address list to them as follows:</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
@@ -482,17 +479,17 @@ In Apache RocketMQ, this can be done in four ways.</p>
 </code></pre>
 </div>
 
-<p>If you use admin command line from shell, you may specify this way:</p>
+<p>If you use admin command line from shell, you can also specify this way:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">sh</span> <span class="n">mqadmin</span> <span class="n">command</span><span class="o">-</span><span class="n">name</span> <span class="o">-</span><span class="n">n</span> <span class="n">name</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="nl">ip1:</span><span class="n">port</span><span class="o">;</span><span class="n">name</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="nl">ip2:</span><span class="n">port</span> <span class="o">-</span><span class="n">X</span> <span class="n">OTHER</span><span class="o">-</span><span class="n">OPTION</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sh mqadmin <span class="nb">command</span>-name -n name-server-ip1:port;name-server-ip2:port -X OTHER-OPTION
 </code></pre>
 </div>
 
-<p>a simple example is:
+<p>A simple example is:
 <code class="highlighter-rouge">sh mqadmin -n localhost:9876 clusterList</code>
 assuming to query cluster info on the name server node.</p>
 
-<p>If integrating admin tool into your own dashboard, you may</p>
+<p>If you have integrated admin tool into your own dashboard, you can:</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">defaultMQAdminExt</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
@@ -514,12 +511,12 @@ assuming to query cluster info on the name server node.</p>
  the following HTTP end point to acquire and update name server address list every two minutes with initial delay of
  ten seconds.</p>
 
-<p>On default, the end point is:</p>
+<p>By default, the end point is:</p>
 
 <p><code class="highlighter-rouge">http://jmenv.tbsite.net:8080/rocketmq/nsaddr</code></p>
 
-<p>You may override <code class="highlighter-rouge">jmenv.tbsite.net</code> by this java option: <code class="highlighter-rouge">rocketmq.namesrv.domain</code>,
-You may also override <code class="highlighter-rouge">nsaddr</code> part by this java option: <code class="highlighter-rouge">rocketmq.namesrv.domain.subgroup</code></p>
+<p>You may override <code class="highlighter-rouge">jmenv.tbsite.net</code> using this Java option: <code class="highlighter-rouge">rocketmq.namesrv.domain</code>,
+You may also override <code class="highlighter-rouge">nsaddr</code> part using this Java option: <code class="highlighter-rouge">rocketmq.namesrv.domain.subgroup</code></p>
 
 <p>If you are running Apache RocketMQ in production, this method is recommended because it gives you maximum flexibility
  – you can dynamically add or remove name server nodes without necessity of rebooting your brokers and clients 
@@ -527,7 +524,7 @@ You may also override <code class="highlighter-rouge">nsaddr</code> part by this
 
 <h2 id="priority">Priority</h2>
 
-<p>Methods introduced first take precedence over the latter, namely, <br />
+<p>Methods introduced first take precedence over the latter ones: <br />
 <code class="highlighter-rouge">Programmatic Way &gt; Java Options &gt; Environment Variable &gt; HTTP Endpoint</code></p>
 
 
@@ -562,7 +559,7 @@ You may also override <code class="highlighter-rouge">nsaddr</code> part by this
       
   <nav class="pagination">
     
-      <a href="/docs/best-practice-consumer/" class="pagination--pager" title="Best Practice For Consumer
+      <a href="/docs/create-pull-request/" class="pagination--pager" title="How to create Pull Request
 ">Previous</a>
     
     

@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-08T11:24:44+08:00">
+  <meta property="article:published_time" content="2017-06-08T13:09:18+08:00">
 
 
 
@@ -241,6 +241,14 @@
 
             <li><a href="/docs/filter-by-sql92-example/" class="">Filter Example</a></li>
           
+            
+            
+
+            
+            
+
+            <li><a href="/docs/faq/" class="">FAQ</a></li>
+          
         </ul>
         
       </li>
@@ -303,7 +311,7 @@
             
             
 
-            <li><a href="/docs/pull-request/" class="">Pull Request</a></li>
+            <li><a href="/docs/pull-request/" class="">Manage Pull Request</a></li>
           
             
             
@@ -408,17 +416,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -474,24 +471,24 @@
   </nav>
 </aside>
 
-<p>This section is to introduce deployment solution which is considered production-ready. Generally speaking, we are deploying a resilient RocketMQ cluster having no single point of failure.</p>
+<p>This section introduces production-ready deployment solution. Generally speaking, we are deploying a resilient RocketMQ cluster having no single point of failure.</p>
 
 <h3 id="prerequisite">Prerequisite</h3>
-<p>Before starting this section, make sure you have read Quick Start section, in which core concepts and components of RocketMQ are introduced.</p>
+<p>Before starting this section, make sure you have read Quick Start section, and are farmiliar with the core concepts and components of RocketMQ.</p>
 
 <h4 id="production-ready-deployment">Production-ready Deployment</h4>
 <h5 id="name-server">Name Server</h5>
-<p>To ensure the cluster can still operate normally when one instance crashes, two or more name server instances are recommended. As long as there is one name server instance alive, the whole cluster remains in service.</p>
+<p>To ensure the cluster can still function when one instance crashes, two or more name server instances are recommended. As long as there is one name server instance alive, the whole cluster remains in service.</p>
 
-<p>Name server follows the share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers may query meta data from any of name servers available while sending / consuming messages.</p>
+<p>Name server follows the share-nothing design paradigm. Brokers send heartbeat data to all name servers. Producers and consumers can query meta data from any of name servers available while sending / consuming messages.</p>
 
 <h4 id="broker">Broker</h4>
 <p>Brokers can be divided into two categories according to their roles: master and slave. Master brokers provide RW access while slave brokers only accept read access.</p>
 
-<p>To deploy a high-availability RocketMQ cluster which has no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.</p>
+<p>To deploy a high-availability RocketMQ cluster with no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.</p>
 
 <h3 id="configuration">Configuration</h3>
-<p>When deploying a RocketMQ cluster, below configurations should be taken into consideration.</p>
+<p>When deploying a RocketMQ cluster, recommended configuration is listed below:</p>
 
 <h5 id="broker-configuration">Broker configuration</h5>
 
@@ -499,7 +496,7 @@
   <thead>
     <tr>
       <th>Property Name</th>
-      <th style="text-align: center">Default values</th>
+      <th style="text-align: center">Default value</th>
       <th style="text-align: right">Details</th>
     </tr>
   </thead>
@@ -578,12 +575,12 @@
 <h4 id="how-to-get">How To Get</h4>
 <p>The admin tool is shipped along with RocketMQ. Either you download a pre-built binary version or build from source by yourself, you already have it.</p>
 
-<p>In case you have source code, the rocketmq-tools module contains its source code.</p>
+<p>In case you need the source code, the rocketmq-tools module contains its source code.</p>
 
 <h4 id="how-to-use">How to use</h4>
 <p>The Admin Tool is very easy to use. Here, for demonstration purpose, *nix environment is assumed.</p>
 
-<p>Change directory to ${PACKAGE}/bin, command bash mqadmin, you should see the following help menu pops out:</p>
+<p>Change directory to ${PACKAGE}/bin, command bash mqadmin, you should see the following help menu:</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">The</span> <span class="n">most</span> <span class="n">commonly</span> <span class="n">used</span> <span class="n">mqadmin</span> <span class="n">commands</span> <span class="nl">are:</span>
    <span class="n">updateTopic</span>          <span class="n">Update</span> <span class="n">or</span> <span class="n">create</span> <span class="n">topic</span>
@@ -602,13 +599,13 @@
    <span class="n">queryMsgByOffset</span>     <span class="n">Query</span> <span class="n">Message</span> <span class="n">by</span> <span class="n">offset</span>
    <span class="n">queryMsgByUniqueKey</span>  <span class="n">Query</span> <span class="n">Message</span> <span class="n">by</span> <span class="n">Unique</span> <span class="n">key</span>
    <span class="n">printMsg</span>             <span class="n">Print</span> <span class="n">Message</span> <span class="n">Detail</span>
-   <span class="n">sendMsgStatus</span>        <span class="n">send</span> <span class="n">msg</span> <span class="n">to</span> <span class="n">broker</span>
+   <span class="n">sendMsgStatus</span>        <span class="n">Send</span> <span class="n">msg</span> <span class="n">to</span> <span class="n">broker</span>
    <span class="n">brokerConsumeStats</span>   <span class="n">Fetch</span> <span class="n">broker</span> <span class="n">consume</span> <span class="n">stats</span> <span class="n">data</span>
    <span class="n">producerConnection</span>   <span class="n">Query</span> <span class="n">producer</span><span class="err">'</span><span class="n">s</span> <span class="n">socket</span> <span class="n">connection</span> <span class="n">and</span> <span class="n">client</span> <span class="n">version</span>
    <span class="n">consumerConnection</span>   <span class="n">Query</span> <span class="n">consumer</span><span class="err">'</span><span class="n">s</span> <span class="n">socket</span> <span class="n">connection</span><span class="o">,</span> <span class="n">client</span> <span class="n">version</span> <span class="n">and</span> <span class="n">subscription</span>
    <span class="n">consumerProgress</span>     <span class="n">Query</span> <span class="n">consumers</span><span class="err">'</span><span class="n">s</span> <span class="n">progress</span><span class="o">,</span> <span class="n">speed</span>
    <span class="n">consumerStatus</span>       <span class="n">Query</span> <span class="n">consumer</span><span class="err">'</span><span class="n">s</span> <span class="n">internal</span> <span class="n">data</span> <span class="n">structure</span>
-   <span class="n">cloneGroupOffset</span>     <span class="n">clone</span> <span class="n">offset</span> <span class="n">from</span> <span class="n">other</span> <span class="n">group</span>
+   <span class="n">cloneGroupOffset</span>     <span class="n">Clone</span> <span class="n">offset</span> <span class="n">from</span> <span class="n">other</span> <span class="n">group</span>
    <span class="n">clusterList</span>          <span class="n">List</span> <span class="n">all</span> <span class="n">of</span> <span class="n">clusters</span>
    <span class="n">topicList</span>            <span class="n">Fetch</span> <span class="n">all</span> <span class="n">topic</span> <span class="n">list</span> <span class="n">from</span> <span class="n">name</span> <span class="n">server</span>
    <span class="n">updateKvConfig</span>       <span class="n">Create</span> <span class="n">or</span> <span class="n">update</span> <span class="n">KV</span> <span class="n">config</span>
@@ -622,7 +619,7 @@
    <span class="n">statsAll</span>             <span class="n">Topic</span> <span class="n">and</span> <span class="n">Consumer</span> <span class="n">tps</span> <span class="n">stats</span>
    <span class="n">syncDocs</span>             <span class="n">Synchronize</span> <span class="n">wiki</span> <span class="n">and</span> <span class="n">issue</span> <span class="n">to</span> <span class="n">github</span><span class="o">.</span><span class="na">com</span>
    <span class="n">allocateMQ</span>           <span class="n">Allocate</span> <span class="n">MQ</span>
-   <span class="n">checkMsgSendRT</span>       <span class="n">check</span> <span class="n">message</span> <span class="n">send</span> <span class="n">response</span> <span class="n">time</span>
+   <span class="n">checkMsgSendRT</span>       <span class="n">Check</span> <span class="n">message</span> <span class="n">send</span> <span class="n">response</span> <span class="n">time</span>
    <span class="n">clusterRT</span>            <span class="n">List</span> <span class="n">All</span> <span class="n">clusters</span> <span class="n">Message</span> <span class="n">Send</span> <span class="n">RT</span>
 
 </code></pre>
@@ -639,7 +636,7 @@ If you want to get more information about a specific command like ‘clusterList
 </div>
 
 <h3 id="replication-mode">Replication mode</h3>
-<p>To guarantee any successfully published message won’t be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication way: Sync &amp; Async.</p>
+<p>To make sure that no successfully published message will be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication ways: Sync &amp; Async.</p>
 
 <h5 id="replication-sync--async-broker">Replication: Sync / Async Broker</h5>
 

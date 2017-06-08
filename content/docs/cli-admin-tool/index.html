@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-06-08T11:24:44+08:00">
+  <meta property="article:published_time" content="2017-06-08T13:09:18+08:00">
 
 
 
@@ -241,6 +241,14 @@
 
             <li><a href="/docs/filter-by-sql92-example/" class="">Filter Example</a></li>
           
+            
+            
+
+            
+            
+
+            <li><a href="/docs/faq/" class="">FAQ</a></li>
+          
         </ul>
         
       </li>
@@ -303,7 +311,7 @@
             
             
 
-            <li><a href="/docs/pull-request/" class="">Pull Request</a></li>
+            <li><a href="/docs/pull-request/" class="">Manage Pull Request</a></li>
           
             
             
@@ -408,17 +416,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/faq/"><span class="nav__sub-title">FAQ</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -463,15 +460,15 @@
 
 <h1 id="how-to-get-it">How To Get it</h1>
 
-<p>The admin tool is shipped along with RocketMQ. Either you download a pre-built binary version or build from source by yourself, you already have it.</p>
+<p>The admin tool is shipped along with RocketMQ. Whether you download a pre-built binary version or build from source by yourself, you have the tool with the package.</p>
 
-<p>In case you don’t have source code, the <a href="https://github.com/apache/incubator-rocketmq/tree/master/tools">rocketmq-tools module</a> contains its source code.</p>
+<p>If you want to look at the source code, please refer to <a href="https://github.com/apache/incubator-rocketmq/tree/master/tools">rocketmq-tools module</a></p>
 
 <h1 id="how-to-use">How to use</h1>
 
-<p>The Admin Tool is very easy to use. Here, for demonstration purpose, *nix environment is assumed.</p>
+<p>The Admin Tool is very user friendly. Here, for demonstration purpose, *nix environment is assumed.</p>
 
-<p>Change directory to ${PACKAGE}/bin, command <code class="highlighter-rouge">bash mqadmin</code>, you should see the following help menu pops out.</p>
+<p>Change directory to ${PACKAGE}/bin, command <code class="highlighter-rouge">bash mqadmin</code>, you should see the following help menu.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>The most commonly used mqadmin commands are:
    updateTopic          Update or create topic
@@ -482,7 +479,7 @@
    updateTopicPerm      Update topic perm
    topicRoute           Examine topic route info
    topicStatus          Examine topic Status info
-   topicClusterList     get cluster info for topic
+   topicClusterList     Get cluster info for topic
    brokerStatus         Fetch broker runtime status data
    queryMsgById         Query Message by Id
    queryMsgByKey        Query Message by Key
@@ -490,13 +487,13 @@
    queryMsgByOffset     Query Message by offset
    queryMsgByUniqueKey  Query Message by Unique key
    printMsg             Print Message Detail
-   sendMsgStatus        send msg to broker.
+   sendMsgStatus        Send msg to broker.
    brokerConsumeStats   Fetch broker consume stats data
    producerConnection   Query producer's socket connection and client version
    consumerConnection   Query consumer's socket connection, client version and subscription
    consumerProgress     Query consumers's progress, speed
    consumerStatus       Query consumer's internal data structure
-   cloneGroupOffset     clone offset from other group.
+   cloneGroupOffset     Clone offset from other group.
    clusterList          List all of clusters
    topicList            Fetch all topic list from name server
    updateKvConfig       Create or update KV config.
@@ -510,7 +507,7 @@
    statsAll             Topic and Consumer tps stats
    syncDocs             Synchronize wiki and issue to github.com
    allocateMQ           Allocate MQ
-   checkMsgSendRT       check message send response time
+   checkMsgSendRT       Check message send response time
    clusterRT            List All clusters Message Send RT
 
 See 'mqadmin help &lt;command&gt;' for more information on a specific command.
