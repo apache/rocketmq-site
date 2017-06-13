@@ -49,6 +49,7 @@ Release Notes - Apache RocketMQ - Version 4.1.0-incubating
 *   [[ROCKETMQ-119](https://issues.apache.org/jira/browse/ROCKETMQ-119)] - Shutdown PullMessageService properly
 *   [[ROCKETMQ-140](https://issues.apache.org/jira/browse/ROCKETMQ-140)] - Register higher version broker against old name servers
 *   [[ROCKETMQ-143](https://issues.apache.org/jira/browse/ROCKETMQ-143)] - Update fastjson from 1.2.12 to 1.2.29
+*   [[ROCKETMQ-145](https://issues.apache.org/jira/browse/ROCKETMQ-145)] - Hit ConcurrentModificationException in doWaitTransfer which happens very offen
 *   [[ROCKETMQ-153](https://issues.apache.org/jira/browse/ROCKETMQ-153)] - Fetch name server address dynamically
 *   [[ROCKETMQ-155](https://issues.apache.org/jira/browse/ROCKETMQ-155)] - Fix typo in ClientConfig
 *   [[ROCKETMQ-165](https://issues.apache.org/jira/browse/ROCKETMQ-165)] - Maximum pull batch size hard-coded restricted
