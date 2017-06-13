@@ -13,30 +13,30 @@
 
 
 
-<title>Frequently Asked Questions - Apache RocketMQ</title>
+<title>Logappender Example - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
+<meta name="description" content="How to use logappender in RocketMQ.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Frequently Asked Questions">
+<meta property="og:title" content="Logappender Example">
 
 
 
 
-  <meta property="og:description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
+  <meta property="og:description" content="How to use logappender in RocketMQ.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Frequently Asked Questions">
-  <meta name="twitter:description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
+  <meta name="twitter:title" content="Logappender Example">
+  <meta name="twitter:description" content="How to use logappender in RocketMQ.">
   <meta name="twitter:url" content="">
 
   
@@ -247,7 +247,7 @@
             
             
 
-            <li><a href="/docs/logappender-example/" class="">Logappender Example</a></li>
+            <li><a href="/docs/logappender-example/" class="active">Logappender Example</a></li>
           
             
             
@@ -255,7 +255,7 @@
             
             
 
-            <li><a href="/docs/faq/" class="active">FAQ</a></li>
+            <li><a href="/docs/faq/" class="">FAQ</a></li>
           
         </ul>
         
@@ -432,130 +432,104 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Frequently Asked Questions">
-    <meta itemprop="description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
+    <meta itemprop="headline" content="Logappender Example">
+    <meta itemprop="description" content="How to use logappender in RocketMQ.">
     <meta itemprop="datePublished" content="June 13, 2017">
-    <meta itemprop="dateModified" content="December 28, 2016">
+    <meta itemprop="dateModified" content="June 09, 2017">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Frequently Asked Questions
+          <h1 class="page__title" itemprop="headline">Logappender Example
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>The following questions are frequently asked with regard to the RocketMQ project in general.</p>
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#log4j" id="markdown-toc-log4j">log4j</a></li>
+  <li><a href="#log4j2" id="markdown-toc-log4j2">log4j2</a></li>
+  <li><a href="#logback" id="markdown-toc-logback">logback</a></li>
+</ul>
 
-<h2 id="general">General</h2>
-<h3 id="1-why-did-we-create-rocketmq-project-instead-of-selecting-other-products">1. Why did we create rocketmq project instead of selecting other products?</h3>
-<p>Please refer to <a href="/docs/motivation/">Why RocketMQ</a></p>
+  </nav>
+</aside>
 
-<h3 id="2-do-i-have-to-install-other-softewares-such-as-zookeeper-to-use-rocketmq">2. Do I have to install other softewares, such as zookeeper, to use RocketMQ?</h3>
-<p>No. RocketMQ can run independently.</p>
+<p>RocketMQ logappender provides log4j appender, log4j2 appender and logback appender for bussiness to use, below are config examples.</p>
 
-<h2 id="usage">Usage</h2>
-<h3 id="1-where-does-the-newly-created-consumer-id-start-consuming-messages">1. Where does the newly created Consumer ID start consuming messages?</h3>
+<h4 id="log4j">log4j</h4>
 
-<ol>
-  <li>If the topic sends a message within three days, then the consumer start consuming messages from the first message saved in the server.</li>
-  <li>If the topic sends a message three days ago, the consumer starts to consume messages from the latest message in the server, in other words, starting from the tail of message queue.</li>
-  <li>If such consumer is rebooted, then it starts to consume messages from the last consumption location.</li>
-</ol>
+<p>When using log4j properties config file,config as below.</p>
 
-<h3 id="2-how-to-reconsume-message-when-consumption-fails">2. How to reconsume message when consumption fails?</h3>
-
-<ol>
-  <li>
-    <p>Cluster consumption pattern
-The consumer business logic code returns Action.ReconsumerLater, NULL, or throws an exception, if a message failed to be consumed, it will retry for up to 16 times, after that, the message would be descarded.</p>
-  </li>
-  <li>
-    <p>Broadcast consumption pattern
-The broadcaset consumption still ensures that a message is consumered at least once, but no resend option is provided.</p>
-  </li>
-</ol>
-
-<h3 id="3-how-to-query-the-failed-message-if-there-is-a-consumption-failure">3. How to query the failed message if there is a consumption failure?</h3>
-
-<ol>
-  <li>Using topic query by time, you can query messages within a period of time.</li>
-  <li>Using Topic and Message Id to accurately query the message.</li>
-  <li>Using Topic and Message Key accurately query a class of messages with the same Message Key.</li>
-</ol>
-
-<h3 id="4-are-messages-delivered-exactly-once">4. Are messages delivered exactly once?</h3>
-
-<p>RocketMQ ensures that all messages are delivered at least once. In most cases, the messages are not repeated.</p>
-
-<h3 id="5-how-to-add-a-new-broker">5. How to add a new broker?</h3>
-
-<ol>
-  <li>Start up a new broker and register it to the same list of name servers.</li>
-  <li>By default, only internal system topics and consumer groups are created automatically. If you would like to have your business topic and consumer groups on the new node, please replicate them from the existing broker. Admin tool and command lines are provided to handle this.</li>
-</ol>
-
-<h2 id="configuration-related">Configuration related</h2>
-<p>The following answers are all default values and can be modified by configuration.</p>
-<h3 id="1-how-long-are-the-messages-saved-on-the-server">1. How long are the messages saved on the server?</h3>
-
-<p>Stored messages are will be saved for up to 3 days, and messages that are not consumed for more than 3 days will be deleted.</p>
-
-<h3 id="2-what-is-the-size-limit-for-message-body">2. What is the size limit for message Body?</h3>
-<p>Generally 256KB.</p>
-
-<h3 id="3-how-to-set-the-number-of-consumer-threads">3. How to set the number of consumer threads?</h3>
-<p>When you start Consumer, set a ConsumeThreadNums property, example is as follows:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>consumer.setConsumeThreadMin(20);
-consumer.setConsumeThreadMax(20);
+<div class="highlighter-rouge"><pre class="highlight"><code>log4j.appender.mq=org.apache.rocketmq.logappender.log4j.RocketmqLog4jAppender
+log4j.appender.mq.Tag=yourTag
+log4j.appender.mq.Topic=yourLogTopic
+log4j.appender.mq.ProducerGroup=yourLogGroup
+log4j.appender.mq.NameServerAddress=yourRocketmqNameserverAddress
+log4j.appender.mq.layout=org.apache.log4j.PatternLayout
+log4j.appender.mq.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-4r [%t] (%F:%L) %-5p - %m%n
 </code></pre>
 </div>
 
-<h2 id="errors">Errors</h2>
-<h3 id="1-if-you-start-a-producer-or-consumer-failed-and-the-error-message-is-producer-group-or-consumer-repeat">1. If you start a producer or consumer failed and the error message is producer group or consumer repeat?</h3>
-<p>Reason：Using the same Producer /Consumer Group to launch multiple instances of Producer/Consumer in the same JVM may cause the client fail to start.</p>
+<p>When using log4j xml config file,config it as this and also add a async appender:</p>
 
-<p>Solution: Make sure that a JVM corresponding to one Producer /Consumer Group starts only with one Producer/Consumer instance.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;appender name="mqAppender1" class="org.apache.rocketmq.logappender.log4j.RocketmqLog4jAppender"&gt;
+    &lt;param name="Tag" value="yourTag" /&gt;
+    &lt;param name="Topic" value="yourLogTopic" /&gt;
+    &lt;param name="ProducerGroup" value="yourLogGroup" /&gt;
+    &lt;param name="NameServerAddress" value="yourRocketmqNameserverAddress"/&gt;
+    &lt;layout class="org.apache.log4j.PatternLayout"&gt;
+        &lt;param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}-%p %t %c - %m%n" /&gt;
+    &lt;/layout&gt;
+&lt;/appender&gt;
 
-<h3 id="2-if-consumer-failed-to-start-loading-json-file-in-broadcast-mode">2. If consumer failed to start loading json file in broadcast mode?</h3>
-<p>Reason: Fastjson version is too low to allow the broadcast consumer to load local offsets.json, causing the consumer boot failure. Damaged fastjson file can also cause the same problem.</p>
+&lt;appender name="mqAsyncAppender1" class="org.apache.log4j.AsyncAppender"&gt;
+    &lt;param name="BufferSize" value="1024" /&gt;
+    &lt;param name="Blocking" value="false" /&gt;
+    &lt;appender-ref ref="mqAppender1"/&gt;
+&lt;/appender&gt;
+</code></pre>
+</div>
 
-<p>Solution: Fastjson version has to be upgraded to rocketmq client dependent version to ensure that the local offsets.json can be loaded. By default offsets.json file is in /home/{user}/.rocketmq_offsets. Or check the integrity of fastjson.</p>
+<h4 id="log4j2">log4j2</h4>
+<p>When using log4j2,config as this.If you want noneblock,just config an asyncAppender for ref.</p>
 
-<h3 id="3-what-is-the-impact-of-a-broker-crash">3. What is the impact of a broker crash?</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
+     topic="yourLogTopic" tag="yourTag"&gt;
+    &lt;PatternLayout pattern="%d [%p] hahahah %c %m%n"/&gt;
+&lt;/RocketMQ&gt;
 
-<ol>
-  <li>Master crashes</li>
-</ol>
+</code></pre>
+</div>
 
-<p>Messages can no longer be sent to this broker set, but if you have another broker set available, messages can still be sent given the topic is present. Messages can still be consumed from slaves.</p>
+<h4 id="logback">logback</h4>
+<p>When using logback,an asyncAppender also needed.</p>
 
-<ol>
-  <li>Some slave crash</li>
-</ol>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;appender name="mqAppender1" class="org.apache.rocketmq.logappender.logback.RocketmqLogbackAppender"&gt;
+    &lt;tag&gt;yourTag&lt;/tag&gt;
+    &lt;topic&gt;yourLogTopic&lt;/topic&gt;
+    &lt;producerGroup&gt;yourLogGroup&lt;/producerGroup&gt;
+    &lt;nameServerAddress&gt;yourRocketmqNameserverAddress&lt;/nameServerAddress&gt;
+    &lt;layout&gt;
+        &lt;pattern&gt;%date %p %t - %m%n&lt;/pattern&gt;
+    &lt;/layout&gt;
+&lt;/appender&gt;
 
-<p>As long as there is another working slave, there will be no impact on sending messages. There will also be no impact on consuming messages except when the consumer group is set to consume from this slave preferably. By default, comsumer group consumes from master.</p>
+&lt;appender name="mqAsyncAppender1" class="ch.qos.logback.classic.AsyncAppender"&gt;
+    &lt;queueSize&gt;1024&lt;/queueSize&gt;
+    &lt;discardingThreshold&gt;80&lt;/discardingThreshold&gt;
+    &lt;maxFlushTime&gt;2000&lt;/maxFlushTime&gt;
+    &lt;neverBlock&gt;true&lt;/neverBlock&gt;
+    &lt;appender-ref ref="mqAppender1"/&gt;
+&lt;/appender&gt;
 
-<ol>
-  <li>All slaves crash</li>
-</ol>
+</code></pre>
+</div>
 
-<p>There will be no impact on sending messages to master, but, if the master is SYNC_MASTER, producer will get a SLAVE_NOT_AVAILABLE indicating that the message is not sent to any slaves. There will also be no impact on consuming messages except that if the consumer group is set to consume from slave preferably. By default, comsumer group consumes from master.</p>
-
-<h3 id="4-producer-complains-no-topic-route-info-how-to-diagnose">4. Producer complains “No Topic Route Info”, how to diagnose?</h3>
-<p>This happens when you are trying to send messages to a topic whose routing info is not available to the producer.</p>
-
-<ol>
-  <li>Make sure that the producer can connect to a name server and is capable of fetching routing meta info from it.</li>
-  <li>Make sure that name servers do contain routing meta info of the topic. You may query the routing meta info from name server through topicRoute using admin tools or web console.</li>
-  <li>Make sure that your brokers are sending heartbeats to the same list of name servers your producer is connecting to.</li>
-  <li>Make sure that the topic’s permssion is 6(rw-), or at least 2(-w-).</li>
-</ol>
-
-<p>If you can’t find this topic, create it on a broker via admin tools command updateTopic or web console.</p>
 
         
       </section>
@@ -566,7 +540,7 @@ consumer.setConsumeThreadMax(20);
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-28">December 28, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-06-09">June 09, 2017</time></p>
         
       </footer>
 
@@ -575,24 +549,24 @@ consumer.setConsumeThreadMax(20);
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Frequently Asked Questions /docs/faq/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Logappender Example /docs/logappender-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/faq/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/logappender-example/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/faq/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/logappender-example/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/faq/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/logappender-example/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/documentation/" class="pagination--pager" title="Documentation
+      <a href="/docs/filter-by-sql92-example/" class="pagination--pager" title="Filter Example
 ">Previous</a>
     
     
-      <a href="/docs/release-manual" class="pagination--pager" title="Release Manual
+      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
 ">Next</a>
     
   </nav>
