@@ -1,0 +1,83 @@
+---
+title: "RocketMQ Transmission Security"
+categories:
+  - RocketMQ
+tags:
+  - RocketMQ
+  - Security
+  - Transmission Encryption
+---
+
+Many of use scenarios require end-to-end security, aka, it's mandatory to encrypt data during transmission even if both
+parties are in the private network. Apache RocketMQ can be configured to achieve this goal leveraging TLS.
+
+## Server
+
+RocketMQ server may be configured to serve in one of the following three modes in terms of SSL via the following Java 
+option `-Dorg.apache.rocketmq.remoting.ssl.mode=permissive`.
+
+1. disabled
+ 
+    This mode support insecure connection only. Incoming SSL handshake will be rejected and connection will be closed.
+    
+1. permissive
+
+    This is the default value. This mode supports both SSL and non-SSL connections.
+    
+1. enforcing
+
+    This mode supports SSL connection only. non-SSL connection will be rejected.
+
+
+By default, if we enable SSL(the latter two modes described above), RocketMQ will attempt to read
+ `/etc/rocketmq/ssl.properties` for further specific SSL configuration items, aka, certificate/key/trust certificate
+chain files. Location of ssl.properties can also be overridden by Java option:
+`-Dorg.apache.rocketmq.remoting.ssl.config.file=/path/to/your/ssl.properties`
+
+Here is a sample ssl.properties file:
+```properties
+    client.keyCertChainFile=/Users/lizhanhui/work/openssl/certs/client.crt
+    client.keyFile=/Users/lizhanhui/work/openssl/private/client.pem
+    client.password=changeit
+    client.trustManager=/Users/lizhanhui/work/openssl/cacert.pem
+    server.keyCertChainFile=/Users/lizhanhui/work/openssl/certs/server.crt
+    server.keyFile=/Users/lizhanhui/work/openssl/private/server.pem
+    server.password=changeit
+    server.trustManager=/Users/lizhanhui/work/openssl/cacert.pem
+    server.auth.client=required
+```
+
+Meaning of each item is self-explanatory.
+
+Note: all certificate files are in X509 format and all key files are in PKCS8 format.
+
+If specified ssl.properties file is absent, RocketMQ will use a self-signed key-certificate pair. 
+
+## Client
+
+Similar to server, client can configure SSL using custom key/certificate pair, the only difference is, client only 
+need to configure the following items in ssl.properties:
+ ```properties
+    client.keyCertChainFile=/Users/lizhanhui/work/openssl/certs/client.crt
+    client.keyFile=/Users/lizhanhui/work/openssl/private/client.pem
+    client.password=changeit
+    client.trustManager=/Users/lizhanhui/work/openssl/cacert.pem
+```
+
+Also, we need programmatically enable SSL for client as below:
+
+```java
+    public class ExampleProducer {
+        public static void main(String[] args) throws Exception {
+            DefaultMQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
+            producer.setUseTLS(true);
+            producer.start();
+            
+            // Send messages as usual.
+            
+            producer.shutdown();
+        }    
+    }
+        
+```
+
