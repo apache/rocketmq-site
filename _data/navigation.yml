@@ -37,6 +37,8 @@ docs:
         url: /docs/filter-by-sql92-example/
       - title: "Logappender Example"
         url: /docs/logappender-example/
+      - title: "OpenMessaging Example"
+        url: /docs/openmessaging-example/
       - title: "FAQ"
         url: /docs/faq/
 
