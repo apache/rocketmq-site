@@ -14,20 +14,20 @@ The following is a list of developers with commit privileges that have directly 
 
 |Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:---|:---|:---|:---|:---|
-|![bsnyde](/assets/images/about/bsnyder.jpeg)|bsnyder| [@bsnyder](https://github.com/bsnyder)|bsnyder@apache.org |Mentor/PMC Member| -7 |
-|![brian](/assets/images/about/brianm.jpeg)|brianm| [@brianm](https://github.com/brianm)|brianm@apache.org |Mentor/PMC Member| -8 |
-|![WillemJiang](/assets/images/about/WillemJiang.jpeg)|ningjiang| [@WillemJiang](https://github.com/WillemJiang)|ningjiang@apache.org |Mentor/PMC Member| +8 |
-|![lukehan](/assets/images/about/lukehan.jpeg)|lukehan| [@lukehan](https://github.com/lukehan)|lukehan@apache.org |Mentor/PMC Member| +8 |
-|![justinmclean](/assets/images/about/justinmclean.jpeg)|jmclean| [@justinmclean](https://github.com/justinmclean)|jmclean@apache.org |Mentor/PMC Member| +11 |
+|![bsnyde](/assets/images/about/bsnyder.jpeg)|bsnyder| [@bsnyder](https://github.com/bsnyder)|bsnyder@apache.org |Mentor| -7 |
+|![justinmclean](/assets/images/about/justinmclean.jpeg)|jmclean| [@justinmclean](https://github.com/justinmclean)|jmclean@apache.org |Mentor| +11 |
+|![jim](/assets/images/about/jim.jpg)|jim| [@jim](https://github.com/jimjag)|jim@apache.org |Mentor| -7 |
+|![WillemJiang](/assets/images/about/WillemJiang.jpeg)|ningjiang| [@WillemJiang](https://github.com/WillemJiang)|ningjiang@apache.org |Mentor| +8 |
+|![lukehan](/assets/images/about/lukehan.jpeg)|lukehan| [@lukehan](https://github.com/lukehan)|lukehan@apache.org |Mentor| +8 |
 |![vongosling](/assets/images/about/vongosling.jpeg)|vongosling|[@vongosling](https://github.com/vongosling)|vongosling@apache.org |Committer/PMC Member| +8 |
-|![vintagewang](/assets/images/about/vintagewang.jpeg)|vintagewang|[@vintagewang](https://github.com/vintagewang)|vintagewang@apache.org |Committer/PMC Member| +8 |
+|![vintagewang](/assets/images/about/vintagewang.jpeg)|vintagewang|[@vintagewang](https://github.com/vintagewang)|vintagewang@apache.org |Committer/PMC Member| +8|
 |![zhouxinyu](/assets/images/about/zhouxinyu.png)|yukon|[@zhouxinyu](https://github.com/zhouxinyu)|yukon@apache.org |Committer/PMC Member| +8 |
-|![lizhanhui](/assets/images/about/lizhanhui.jpg)|lizhanhui|[@lizhanhui](https://github.com/lizhanhui)|lizhanhui@apache.org |Committer| +8 |
-|![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
+|![lizhanhui](/assets/images/about/lizhanhui.jpg)|lizhanhui|[@lizhanhui](https://github.com/lizhanhui)|lizhanhui@apache.org |Committer/PMC Member| +8 |
+|![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |Committer| +8 |
 |![lollipop](/assets/images/about/lollipop.jpeg)|lollipop|[@lollipopjin](https://github.com/lollipopjin)|lollipop@apache.org |Committer| +8 |
+|![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
-|![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |Committer| +8 |
 |![vsair](/assets/images/about/vsair.png)|vsair|[@vsair](https://github.com/vsair)|vsair@apache.org |Committer| +8 |
 
 ### Top Contributors
