@@ -1,5 +1,7 @@
 ---
 title: "Release Notes - Apache RocketMQ - Version 4.1.0-incubating"
+categories:
+  - Release_Notes
 ---
 
 Release Notes - Apache RocketMQ - Version 4.1.0-incubating
