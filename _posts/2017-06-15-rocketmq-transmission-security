@@ -53,6 +53,8 @@ Note: all certificate files are in X509 format and all key files are in PKCS8 fo
 
 If specified ssl.properties file is absent, RocketMQ will use a self-signed key-certificate pair. 
 
+**Note:** Latest JDK releases have disabled a few algorithms(MD5withRSA for example), check [it](https://java.com/en/download/faq/release_changes.xml) out.
+
 ## Client
 
 Similar to server, client can configure SSL using custom key/certificate pair, the only difference is, client only 
