@@ -14,7 +14,7 @@ and receive messages.
 
    The following softwares are assumed installed:
    1. 64bit OS, Linux/Unix/Mac is recommended;
-   1. 64bit JDK 1.7+; 
+   1. 64bit JDK 1.8+; 
    1. Maven 3.2.x
    1. Git 
 
