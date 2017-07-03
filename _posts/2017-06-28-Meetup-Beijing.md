@@ -1,5 +1,5 @@
 ---
-title: "Apache RocketMQ Meetup Beijing"
+title: "Annoucement of Apache RocketMQ Meetup Beijing in Advance"
 categories:
   - RocketMQ
 ---
