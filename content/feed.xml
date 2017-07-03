@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-03T14:58:44+08:00</updated><id>//</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><entry><title type="html">Field Report of Apache RocketMQ Meetup Beijing</title><link href="/rocketmq/Field-Report-Meetup-Beijing/" rel="alternate" type="text/html" title="Field Report of Apache RocketMQ Meetup Beijing" /><published>2017-07-02T00:00:00+08:00</published><updated>2017-07-02T00:00:00+08:00</updated><id>/rocketmq/Field-Report-Meetup-Beijing</id><content type="html" xml:base="/rocketmq/Field-Report-Meetup-Beijing/">&lt;p&gt;In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-03T15:39:55+08:00</updated><id>//</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;A fast, low latency, reliable, scalable, distributed MOM.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.incubator.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://incubator.staging.apache.org/projects/rocketmq.html&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/incubator-rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.incubator.apache.org</email><uri>http://incubator.staging.apache.org/projects/rocketmq.html</uri></author><entry><title type="html">Field Report of Apache RocketMQ Meetup Beijing</title><link href="/rocketmq/Field-Report-Meetup-Beijing/" rel="alternate" type="text/html" title="Field Report of Apache RocketMQ Meetup Beijing" /><published>2017-07-02T00:00:00+08:00</published><updated>2017-07-02T00:00:00+08:00</updated><id>/rocketmq/Field-Report-Meetup-Beijing</id><content type="html" xml:base="/rocketmq/Field-Report-Meetup-Beijing/">&lt;p&gt;In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.&lt;/p&gt;
 
 &lt;p&gt;It is really appreciated that over 300 RocketMQ or open source enthusiasts gathered in Institute of Software, Chinese Academy of Sciences, to attend this meetup in such a hot summer day.
 &lt;img src=&quot;/assets/images/blog/meetup_beijing_group&quot; alt=&quot;meetup_beijing_group&quot; /&gt;&lt;/p&gt;
@@ -21,31 +21,31 @@
 ​ 
 &lt;img src=&quot;/assets/images/blog/meetup_topic2&quot; alt=&quot;meetup_topic2&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;topic3-performance-and-bigdata-ecosystem&quot;&gt;Topic3: Performance and BigData Ecosystem&lt;/h3&gt;
+&lt;h3 id=&quot;topic-3-performance-and-bigdata-ecosystem&quot;&gt;Topic 3: Performance and BigData Ecosystem&lt;/h3&gt;
 
 &lt;p&gt;dongeforever(RocketMQ Committer) started with Kafka’s Overview Design and batch performance, and then introduced the ecosystem of Apache RocketMQ, especially the new batch feature of Apache RocketMQ, which aimed to integrate with BigData Ecosystem.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/blog/meetup_topic3&quot; alt=&quot;meetup_topic3&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;topic4-performance-tuning-in-rocketmq&quot;&gt;Topic4: Performance Tuning in RocketMQ&lt;/h3&gt;
+&lt;h3 id=&quot;topic-4-performance-tuning-in-rocketmq&quot;&gt;Topic 4: Performance Tuning in RocketMQ&lt;/h3&gt;
 
 &lt;p&gt;The speaker yukon(RocketMQ Committer/PMC Member) shared the low latency and high throughput secrets of Apache RocketMQ.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/blog/meetup_topic4&quot; alt=&quot;meetup_topic4&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;topic5-streaming-and-messaging&quot;&gt;Topic5: Streaming and Messaging&lt;/h3&gt;
+&lt;h3 id=&quot;topic-5-streaming-and-messaging&quot;&gt;Topic 5: Streaming and Messaging&lt;/h3&gt;
 
 &lt;p&gt;Xin Wang(Apache Storm Committer/PMC member)’s topic covered the relations between streaming and messaging platform, and the challenges and tips in Storm usage.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/blog/meetup_topic5&quot; alt=&quot;meetup_topic5&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;topic6-rocketmq-mysql-replicator&quot;&gt;Topic6: RocketMQ-MySQL-Replicator&lt;/h3&gt;
+&lt;h3 id=&quot;topic-6-rocketmq-mysql-replicator&quot;&gt;Topic 6: RocketMQ-MySQL-Replicator&lt;/h3&gt;
 
 &lt;p&gt;Qun Zhao(RocketMQ Top Contributor) brought a new community project for us, RocketMQ-MySQL-Replicator.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/blog/meetup_topic6&quot; alt=&quot;meetup_topic6&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;topic7-messaging-community-and-ecosystem&quot;&gt;Topic7: Messaging Community and Ecosystem&lt;/h3&gt;
+&lt;h3 id=&quot;topic-7-messaging-community-and-ecosystem&quot;&gt;Topic 7: Messaging Community and Ecosystem&lt;/h3&gt;
 
 &lt;p&gt;vongosling(RocketMQ Core-creator, Committer/PMC member)’s topic &lt;em&gt;Messaging Community and Ecosystem&lt;/em&gt; mainly focused on comprehension of Apache way and how to build a healthy Apache community.&lt;/p&gt;
 
