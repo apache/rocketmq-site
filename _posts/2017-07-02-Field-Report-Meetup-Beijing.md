@@ -8,13 +8,13 @@ categories:
 In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone's participation. 
 
 It is really appreciated that over 300 RocketMQ or open source enthusiasts gathered in Institute of Software, Chinese Academy of Sciences, to attend this meetup in such a hot summer day.
-![meetup_beijing_group](/assets/images/blog/meetup_beijing_group)   
+![meetup_beijing_group](/assets/images/blog/meetup_beijing_group.jpg)   
 
 ### The Opening:
 
 The emcee introduced the history of Apache RocketMQ, the road travelled from Alibaba to Apache, and the map of global user distribution.
 
-![meetup_opening](/assets/images/blog/meetup_opening)
+![meetup_opening](/assets/images/blog/meetup_opening.jpg)
 
 ### Topic 1: Best Practice for Apache RocketMQ
 
