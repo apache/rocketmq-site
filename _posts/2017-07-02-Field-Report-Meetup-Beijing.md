@@ -31,27 +31,27 @@ The speaker lollipop(RocketMQ Committer/PMC Member) shared core features and bes
 ![meetup_topic2](/assets/images/blog/meetup_topic2)
 
 
-### Topic3: Performance and BigData Ecosystem
+### Topic 3: Performance and BigData Ecosystem
 
 dongeforever(RocketMQ Committer) started with Kafka's Overview Design and batch performance, and then introduced the ecosystem of Apache RocketMQ, especially the new batch feature of Apache RocketMQ, which aimed to integrate with BigData Ecosystem.
 
 ![meetup_topic3](/assets/images/blog/meetup_topic3)
 
-### Topic4: Performance Tuning in RocketMQ
+### Topic 4: Performance Tuning in RocketMQ
 
 The speaker yukon(RocketMQ Committer/PMC Member) shared the low latency and high throughput secrets of Apache RocketMQ.
 
 ![meetup_topic4](/assets/images/blog/meetup_topic4)
 
 
-### Topic5: Streaming and Messaging
+### Topic 5: Streaming and Messaging
 
 Xin Wang(Apache Storm Committer/PMC member)'s topic covered the relations between streaming and messaging platform, and the challenges and tips in Storm usage.
 
 ![meetup_topic5](/assets/images/blog/meetup_topic5)
 
 
-### Topic6: RocketMQ-MySQL-Replicator
+### Topic 6: RocketMQ-MySQL-Replicator
 
 Qun Zhao(RocketMQ Top Contributor) brought a new community project for us, RocketMQ-MySQL-Replicator. 
 
@@ -59,7 +59,7 @@ Qun Zhao(RocketMQ Top Contributor) brought a new community project for us, Rocke
 
 
 
-### Topic7: Messaging Community and Ecosystem
+### Topic 7: Messaging Community and Ecosystem
 
 vongosling(RocketMQ Core-creator, Committer/PMC member)'s topic *Messaging Community and Ecosystem* mainly focused on comprehension of Apache way and how to build a healthy Apache community.
 
