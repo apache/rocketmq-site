@@ -82,7 +82,7 @@ analytics:
 author:
   name             : *name
   avatar           : "/assets/images/rmq-logo.png"
-  bio              : "A fast, low latency, reliable, scalable, distributed MOM."
+  bio              : "An open source distributed messaging and streaming data platform."
   location         : "Hangzhou, China"
   email            : "dev@rocketmq.incubator.apache.org"
   uri              : "http://incubator.staging.apache.org/projects/rocketmq.html"
