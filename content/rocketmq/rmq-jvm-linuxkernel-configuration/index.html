@@ -13,30 +13,30 @@
 
 
 
-<title>Field Report of Apache RocketMQ Meetup Beijing - Apache RocketMQ</title>
+<title>RocketMQ JVM/Linux Configuration - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.">
+<meta name="description" content="This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Field Report of Apache RocketMQ Meetup Beijing">
+<meta property="og:title" content="RocketMQ JVM/Linux Configuration">
 
 
 
 
-  <meta property="og:description" content="In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.">
+  <meta property="og:description" content="This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Field Report of Apache RocketMQ Meetup Beijing">
-  <meta name="twitter:description" content="In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.">
+  <meta name="twitter:title" content="RocketMQ JVM/Linux Configuration">
+  <meta name="twitter:description" content="This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-07-02T00:00:00+08:00">
+  <meta property="article:published_time" content="2017-07-14T00:00:00+08:00">
 
 
 
@@ -286,15 +286,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Field Report of Apache RocketMQ Meetup Beijing">
-    <meta itemprop="description" content="In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.">
-    <meta itemprop="datePublished" content="July 02, 2017">
+    <meta itemprop="headline" content="RocketMQ JVM/Linux Configuration">
+    <meta itemprop="description" content="This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.">
+    <meta itemprop="datePublished" content="July 14, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Field Report of Apache RocketMQ Meetup Beijing
+          <h1 class="page__title" itemprop="headline">RocketMQ JVM/Linux Configuration
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -302,68 +302,92 @@
 
 
 
-  1 minute read
+  2 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>In July 1st, Apache RocketMQ community launched a meetup in Beijing with a perfect ending. Thanks for everyone’s participation.</p>
+        <p>This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.</p>
 
-<p>It is really appreciated that over 300 RocketMQ or open source enthusiasts gathered in Institute of Software, Chinese Academy of Sciences, to attend this meetup in such a hot summer day.
-<img src="/assets/images/blog/meetup_beijing_group.jpg" alt="meetup_beijing_group" /></p>
+<aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#jvm-options" id="markdown-toc-jvm-options">JVM Options</a></li>
+  <li><a href="#linux-kernel-parameters" id="markdown-toc-linux-kernel-parameters">Linux Kernel Parameters</a></li>
+  <li><a href="#reference" id="markdown-toc-reference">Reference</a></li>
+</ul>
 
-<h3 id="the-opening">The Opening:</h3>
+  </nav>
+</aside>
 
-<p>The emcee introduced the history of Apache RocketMQ, the road travelled from Alibaba to Apache, and the map of global user distribution.</p>
+<h1 id="jvm-options">JVM Options</h1>
 
-<p><img src="/assets/images/blog/meetup_opening.jpg" alt="meetup_opening" /></p>
+<p>The latest released version of JDK 1.8 is recommended, with server compiler and a 8g heap. Set the same Xms and Xmx value to prevent the JVM from resizing the heap for better performance. A simple JVM configurations looks like this:</p>
 
-<h3 id="topic-1-best-practice-for-apache-rocketmq">Topic 1: Best Practice for Apache RocketMQ</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>-server -Xms8g -Xmx8g -Xmn4g
+</code></pre>
+</div>
 
-<p>The speaker lollipop(RocketMQ Committer/PMC Member) shared core features and best practices of RocketMQ.</p>
+<p>If you don’t care about the boot time of RocketMQ broker, pre-touch the Java heap to make sure that every page will be allocated during JVM initialization is a better choice. Those who don’t care about the boot time can enable it:</p>
 
-<p><img src="/assets/images/blog/meetup_topic1" alt="meetup_topic1" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:+AlwaysPreTouch
+</code></pre>
+</div>
 
-<h3 id="topic-2-apache-rocketmq-usecase">Topic 2: Apache RocketMQ UseCase</h3>
+<p>Disable biased locking may reduce JVM pauses:</p>
 
-<p>​ lizhanhui(RocketMQ Committer/PMC Member)’s presentation focused on extensible, scalable, developer skill set of Apache RocketMQ.
-​ 
-<img src="/assets/images/blog/meetup_topic2" alt="meetup_topic2" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:-UseBiasedLocking
+</code></pre>
+</div>
 
-<h3 id="topic-3-performance-and-bigdata-ecosystem">Topic 3: Performance and BigData Ecosystem</h3>
+<p>As for garbage collection, G1 collector with JDK 1.8 is recommended:</p>
 
-<p>dongeforever(RocketMQ Committer) started with Kafka’s Overview Design and batch performance, and then introduced the ecosystem of Apache RocketMQ, especially the new batch feature of Apache RocketMQ, which aimed to integrate with BigData Ecosystem.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30
+</code></pre>
+</div>
 
-<p><img src="/assets/images/blog/meetup_topic3" alt="meetup_topic3" /></p>
+<p>These GC options looks a little aggressive, but it’s proved to have good performance in our production environment.</p>
 
-<h3 id="topic-4-performance-tuning-in-rocketmq">Topic 4: Performance Tuning in RocketMQ</h3>
+<p>Don’t set a too small value for <code class="highlighter-rouge">-XX:MaxGCPauseMillis</code>, otherwise JVM will use a small young generation to achieve this goal which will cause very frequent minor GC.</p>
 
-<p>The speaker yukon(RocketMQ Committer/PMC Member) shared the low latency and high throughput secrets of Apache RocketMQ.</p>
+<p>And use rolling GC log file is recommended:</p>
 
-<p><img src="/assets/images/blog/meetup_topic4" alt="meetup_topic4" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=30m
+</code></pre>
+</div>
 
-<h3 id="topic-5-streaming-and-messaging">Topic 5: Streaming and Messaging</h3>
+<p>If write GC file will increase latency of broker, consider redirect GC log file to a memory file system:</p>
 
-<p>Xin Wang(Apache Storm Committer/PMC member)’s topic covered the relations between streaming and messaging platform, and the challenges and tips in Storm usage.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>-Xloggc:/dev/shm/mq_gc_%p.log
+</code></pre>
+</div>
 
-<p><img src="/assets/images/blog/meetup_topic5" alt="meetup_topic5" /></p>
+<h1 id="linux-kernel-parameters">Linux Kernel Parameters</h1>
 
-<h3 id="topic-6-rocketmq-mysql-replicator">Topic 6: RocketMQ-MySQL-Replicator</h3>
+<p>There is a <code class="highlighter-rouge">os.sh</code> script that lists a lot of kernel parameters in folder <code class="highlighter-rouge">bin</code> which can be used for production use with minor changes. Below parameters need attention, and more details please refer to documentation for /proc/sys/vm/*[1].</p>
 
-<p>Qun Zhao(RocketMQ Top Contributor) brought a new community project for us, RocketMQ-MySQL-Replicator.</p>
+<p><strong>vm.extra_free_kbytes</strong>, tells the VM to keep extra free memory between the threshold where background reclaim (kswapd) kicks in, and the threshold where direct reclaim (by allocating processes) kicks in. RocketMQ uses this parameter to avoid high latency in memory allocation.</p>
 
-<p><img src="/assets/images/blog/meetup_topic6" alt="meetup_topic6" /></p>
+<p><strong>vm.min_free_kbytes</strong>, if you set this to lower than 1024KB, your system will
+become subtly broken, and prone to deadlock under high loads.</p>
 
-<h3 id="topic-7-messaging-community-and-ecosystem">Topic 7: Messaging Community and Ecosystem</h3>
+<p><strong>vm.max_map_count</strong>, limits the maximum number of memory map areas a process
+may have. RocketMQ will use mmap to load CommitLog and ConsumeQueue, so set a bigger value for this parameter is recommended.</p>
 
-<p>vongosling(RocketMQ Core-creator, Committer/PMC member)’s topic <em>Messaging Community and Ecosystem</em> mainly focused on comprehension of Apache way and how to build a healthy Apache community.</p>
+<p><strong>vm.swappiness</strong>, define how aggressive the kernel will swap memory pages. Higher values will increase agressiveness, lower values decrease the amount of swap. 10 for this value to avoid swap latency is recommended.</p>
 
-<p><img src="/assets/images/blog/meetup_topic7" alt="meetup_topic7" /></p>
+<p><strong>File descriptor limits</strong>, RocketMQ needs open file descriptors for files(CommitLog and ConsumeQueue) and network connections. We recommend set 655350 for file descriptors.</p>
 
-<p>More details please refer to our <a href="https://twitter.com/ApacheRocketMQ">live streaming with photos and words in twitter</a></p>
+<p><strong>Disk scheduler</strong>, the deadline I/O scheduler is recommended for RocketMQ, which attempts to provide a guaranteed latency for requests[2].</p>
 
+<h1 id="reference">Reference</h1>
+<ol>
+  <li>https://www.kernel.org/doc/Documentation/sysctl/vm.txt</li>
+  <li>https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/ch06s04s02.html</li>
+</ol>
 
         
       </section>
@@ -371,6 +395,33 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#configuration" class="page__taxonomy-item" rel="tag">Configuration</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#operations" class="page__taxonomy-item" rel="tag">Operations</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#rocketmq" class="page__taxonomy-item" rel="tag">RocketMQ</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -393,7 +444,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-07-02T00:00:00+08:00">July 02, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-07-14T00:00:00+08:00">July 14, 2017</time></p>
         
       </footer>
 
@@ -402,25 +453,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Field Report of Apache RocketMQ Meetup Beijing /rocketmq/Field-Report-Meetup-Beijing/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=RocketMQ JVM/Linux Configuration /rocketmq/rmq-jvm-linuxkernel-configuration/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/rocketmq/Field-Report-Meetup-Beijing/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/rocketmq/rmq-jvm-linuxkernel-configuration/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/rocketmq/Field-Report-Meetup-Beijing/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/rocketmq/rmq-jvm-linuxkernel-configuration/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/rocketmq/Field-Report-Meetup-Beijing/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/rocketmq/rmq-jvm-linuxkernel-configuration/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/rocketmq/Meetup-Beijing/" class="pagination--pager" title="Annoucement of Apache RocketMQ Meetup Beijing in Advance
+      <a href="/rocketmq/Field-Report-Meetup-Beijing/" class="pagination--pager" title="Field Report of Apache RocketMQ Meetup Beijing
 ">Previous</a>
     
     
-      <a href="/rocketmq/rmq-jvm-linuxkernel-configuration/" class="pagination--pager" title="RocketMQ JVM/Linux Configuration
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
