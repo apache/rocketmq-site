@@ -74,6 +74,8 @@ docs:
         url: /docs/best-practice-consumer/
       - title: "NameServer"
         url: /docs/best-practice-namesvr/
+      - title: "JVM/Kernel Config"
+        url: /docs/system-config/
   - title: Release Notes
     children:
       - title: "Download"
