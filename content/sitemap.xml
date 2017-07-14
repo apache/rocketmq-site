@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/rocketmq/rmq-jvm-linuxkernel-configuration/</loc>
-<lastmod>2017-07-14T00:00:00+08:00</lastmod>
-</url>
-<url>
 <loc>/rocketmq/Field-Report-Meetup-Beijing/</loc>
 <lastmod>2017-07-02T00:00:00+08:00</lastmod>
 </url>
@@ -124,6 +120,9 @@
 <loc>/docs/openmessaging-example/</loc>
 </url>
 <url>
+<loc>/docs/system-config/</loc>
+</url>
+<url>
 <loc>/about/</loc>
 </url>
 <url>
@@ -239,6 +238,9 @@
 </url>
 <url>
 <loc>/docs/openmessaging-example/</loc>
+</url>
+<url>
+<loc>/docs/system-config/</loc>
 </url>
 <url>
 <loc>/docs/best-practice-broker/</loc>
