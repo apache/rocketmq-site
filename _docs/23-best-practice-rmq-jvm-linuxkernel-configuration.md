@@ -1,11 +1,7 @@
 ---
 title: "RocketMQ JVM/Linux Configuration"
-categories:
-  - RocketMQ
-tags:
-  - RocketMQ
-  - Operations
-  - Configuration
+permalink: /docs/system-config/
+modified: 2017-7-14T15:01:43-04:00
 ---
 
 This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.
