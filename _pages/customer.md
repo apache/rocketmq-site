@@ -14,27 +14,35 @@ feature_row:
     alt: "Alibaba Group"
   - image_path: /assets/images/community/ant-logo.png
     alt: "China Telecom Group"
+  - image_path: /assets/images/community/webank-logo.png
+    alt: "WeBank Group"
+feature_row1:
+  - image_path: /assets/images/community/didi-logo.png
+    alt: "DiDi Group"
   - image_path: /assets/images/community/yeahmobi-logo.png
     alt: "YeahMobi Group"
-feature_row1:
   - image_path: /assets/images/community/egov-logo.png
     alt: "Egov Group"
+feature_row2:
   - image_path: /assets/images/community/china-telecom-logo.png
     alt: "China Telecom Group"
   - image_path: /assets/images/community/media-logo.jpg
     alt: "Media Group"
-feature_row2:
   - image_path: /assets/images/community/decent-logo.png
     alt: "Decent Group"
+feature_row3:
   - image_path: /assets/images/community/yunpan-logo.png
     alt: "Yunpan Group"
   - image_path: /assets/images/community/shihai-logo.jpg
     alt: "Shihai Group"
-feature_row3:
   - image_path: /assets/images/community/tree-logo.png
     alt: "Tree Finance Group"
+feature_row4:
   - image_path: /assets/images/community/yhsoft-logo.png
     alt: "YH software Group"
+  - image_path: /assets/images/community/fenqile-logo.png
+    alt: "Fenqile Group"
+
 intro:
   - excerpt: "Who uses Apache RocketMQ ? &nbsp;"
 ---
@@ -48,3 +56,5 @@ intro:
 {% include feature_row id="feature_row2" %}
 
 {% include feature_row id="feature_row3" %}
+
+{% include feature_row id="feature_row4" %}
