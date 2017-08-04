@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-07-26T22:26:26+08:00">
+  <meta property="article:published_time" content="2017-08-04T17:20:11+08:00">
 
 
 
@@ -458,7 +458,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Motivation">
     <meta itemprop="description" content="At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for asynchronous communication, search, social network activity stream, data pipeline,even in its trade processes. As our trade business throughput rises, pressure originating from our messaging clusteralso becomes urgent.">
-    <meta itemprop="datePublished" content="July 26, 2017">
+    <meta itemprop="datePublished" content="August 04, 2017">
     <meta itemprop="dateModified" content="December 17, 2016">
 
     <div class="page__inner-wrap">
@@ -510,11 +510,14 @@ open source version of RocketMQ in their business. We also published a commercia
       <th>Messaging Product</th>
       <th>Client SDK</th>
       <th>Protocol and Specification</th>
-      <th>Order Message</th>
+      <th>Ordered Message</th>
+      <th>Scheduled Message</th>
+      <th>Batched Message</th>
+      <th>BroadCast Message</th>
       <th>Message Filter</th>
       <th>Server Triggered Redelivery</th>
-      <th>Persistent Message</th>
-      <th>Retroactive Consumers</th>
+      <th>Message Storage</th>
+      <th>Message Retroactive</th>
       <th>Message Priority</th>
       <th>High Availability and Failover</th>
       <th>Message Track</th>
@@ -530,6 +533,9 @@ open source version of RocketMQ in their business. We also published a commercia
       <td>Exclusive Consumer or Exclusive Queues can ensure ordering</td>
       <td>Supported</td>
       <td>Not Supported</td>
+      <td>Supported</td>
+      <td>Supported</td>
+      <td>Not Supported</td>
       <td>Supports very fast persistence using JDBC along with a high performance journal，such as levelDB, kahaDB</td>
       <td>Supported</td>
       <td>Supported</td>
@@ -543,6 +549,9 @@ open source version of RocketMQ in their business. We also published a commercia
       <td>Java, Scala etc.</td>
       <td>Pull model, support TCP</td>
       <td>Ensure ordering of messages within a partition</td>
+      <td>Not Supported</td>
+      <td>Supported, with async producer</td>
+      <td>Not Supported</td>
       <td>Supported, you can use Kafka Streams to filter messages</td>
       <td>Not Supported</td>
       <td>High performance file storage</td>
@@ -555,13 +564,16 @@ open source version of RocketMQ in their business. We also published a commercia
     </tr>
     <tr>
       <td>RocketMQ</td>
-      <td>Java, .NET, C++</td>
-      <td>Pull model, support TCP, JMS</td>
-      <td>Ensure strict ordering of messages, have no hot spot problem,and can scale out gracefully</td>
-      <td>Supported, you can even upload yourself custom-built filter code snippets</td>
+      <td>Java, C++, Go</td>
+      <td>Pull model, support TCP, JMS, OpenMessaging</td>
+      <td>Ensure strict ordering of messages,and can scale out gracefully</td>
+      <td>Supported</td>
+      <td>Supported, with sync mode to avoid message loss</td>
+      <td>Supported</td>
+      <td>Supported, property filter expressions based on SQL92</td>
       <td>Supported</td>
       <td>High performance and low latency file storage</td>
-      <td>Supported timestamp and offset 2 indicates</td>
+      <td>Supported timestamp and offset two indicates</td>
       <td>Not Supported</td>
       <td>Supported, Master-Slave model, without another kit</td>
       <td>Supported</td>
