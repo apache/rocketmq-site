@@ -6,8 +6,8 @@ main:
     url: /year-archive/
   - title: "Community"
     url: /community/
-  - title: "Customer"
-    url: /customer/
+  - title: "Users"
+    url: /users/
   - title: "About"
     url: /about/team/
   # - title: "Sample Collections"
