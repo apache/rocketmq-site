@@ -153,13 +153,13 @@
 <loc>/community/</loc>
 </url>
 <url>
-<loc>/customer/</loc>
-</url>
-<url>
 <loc>/</loc>
 </url>
 <url>
 <loc>/tags/</loc>
+</url>
+<url>
+<loc>/users/</loc>
 </url>
 <url>
 <loc>/year-archive/</loc>
