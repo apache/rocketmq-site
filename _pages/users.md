@@ -1,6 +1,6 @@
 ---
 layout: splash
-permalink: /customer/
+permalink: /users/
 title: "Apache RocketMQ"
 header:
   overlay_color: "#5e616c"
