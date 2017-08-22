@@ -13,35 +13,56 @@ feature_row:
   - image_path: /assets/images/community/alibaba-logo.png
     alt: "Alibaba Group"
   - image_path: /assets/images/community/ant-logo.png
-    alt: "China Telecom Group"
-  - image_path: /assets/images/community/webank-logo.png
-    alt: "WeBank Group"
+    alt: "Ant Finance"
+  - image_path: /assets/images/community/huawei-logo.png
+    alt: "HuaWei Group"
 feature_row1:
   - image_path: /assets/images/community/didi-logo.png
     alt: "DiDi Group"
-  - image_path: /assets/images/community/yeahmobi-logo.png
-    alt: "YeahMobi Group"
-  - image_path: /assets/images/community/egov-logo.png
-    alt: "Egov Group"
+  - image_path: /assets/images/community/webank-logo.png
+    alt: "WeBank Group"
+  - image_path: /assets/images/community/iqiyi-logo.png
+    alt: "IQiYi"
 feature_row2:
+  - image_path: /assets/images/community/mingsheng-logo.png
+    alt: "Ming Sheng Bank"
+  - image_path: /assets/images/community/shunfeng-logo.png
+    alt: "ShunFeng Group"
+  - image_path: /assets/images/community/kedaxunfei-logo.png
+    alt: "KeDaXunFei"
+feature_row3:
   - image_path: /assets/images/community/china-telecom-logo.png
     alt: "China Telecom Group"
   - image_path: /assets/images/community/media-logo.jpg
     alt: "Media Group"
-  - image_path: /assets/images/community/decent-logo.png
-    alt: "Decent Group"
-feature_row3:
+  - image_path: /assets/images/community/mogujie-logo.png
+    alt: "Mogujie"
+feature_row4:
+  - image_path: /assets/images/community/gome-logo.png
+    alt: "Gome"
+  - image_path: /assets/images/community/wensihaihui-logo.png
+    alt: "WenSiHaiHui"
+  - image_path: /assets/images/community/mobike-logo.png
+    alt: "MoBike"
+feature_row5:
   - image_path: /assets/images/community/yunpan-logo.png
     alt: "Yunpan Group"
   - image_path: /assets/images/community/shihai-logo.jpg
     alt: "Shihai Group"
   - image_path: /assets/images/community/tree-logo.png
     alt: "Tree Finance Group"
-feature_row4:
+feature_row6:
   - image_path: /assets/images/community/yhsoft-logo.png
     alt: "YH software Group"
   - image_path: /assets/images/community/fenqile-logo.png
     alt: "Fenqile Group"
+  - image_path: /assets/images/community/egov-logo.png
+    alt: "Egov Group"
+feature_row7:
+  - image_path: /assets/images/community/shouqi-logo.png
+    alt: "ShouQiYueChe"
+  - image_path: /assets/images/community/decent-logo.png
+    alt: "Decent Group"
 
 intro:
   - excerpt: "Who uses Apache RocketMQ ? &nbsp;"
@@ -58,3 +79,9 @@ intro:
 {% include feature_row id="feature_row3" %}
 
 {% include feature_row id="feature_row4" %}
+
+{% include feature_row id="feature_row5" %}
+
+{% include feature_row id="feature_row6" %}
+
+{% include feature_row id="feature_row7" %}
