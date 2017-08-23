@@ -53,6 +53,8 @@ docs:
 
   - title: Contributor Guide
     children:
+      - title: "How To Contribute"
+        url: "/docs/how-to-contribute/"
       - title: "Code Guidelines"
         url: /docs/code-guidelines/
       #- title: "Branching Model"
