@@ -123,6 +123,9 @@
 <loc>/docs/system-config/</loc>
 </url>
 <url>
+<loc>/docs/how-to-contribute/</loc>
+</url>
+<url>
 <loc>/about/</loc>
 </url>
 <url>
@@ -241,6 +244,9 @@
 </url>
 <url>
 <loc>/docs/system-config/</loc>
+</url>
+<url>
+<loc>/docs/how-to-contribute/</loc>
 </url>
 <url>
 <loc>/docs/best-practice-broker/</loc>
