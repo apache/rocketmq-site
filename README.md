@@ -1,6 +1,6 @@
 # Apache RocketMQ (incubating) website
 
-This is the website for [Apache RocketMQ](	http://rocketmq.incubator.apache.org/) (incubating).
+This is the website for [Apache RocketMQ](	http://rocketmq.apache.org/) (incubating).
 
 ## About
 This website is based on Jekyll and a Jekyll theme named Minimal Mistakes.

@@ -73,7 +73,7 @@ Make sure your Maven settings.xml file contains the following:
 Cleanup JIRA issues related to this release version, and check all the issues has been marked with right version in the `FixVersion` field.
 
 ### Publish the Release Notes
-Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/incubator-rocketmq-site), there is a [release notes](http://rocketmq.incubator.apache.org/release_notes/release-notes-4.0.0-incubating/) of `4.0.0-incubating` available for reference, include the link to the release notes in the voting emails.
+Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/incubator-rocketmq-site), there is a [release notes](http://rocketmq.apache.org/release_notes/release-notes-4.0.0-incubating/) of `4.0.0-incubating` available for reference, include the link to the release notes in the voting emails.
 
 ## Build the Release Candidate
 Firstly, checkout a new branch from `master` with its name equal to the release version, like `release-4.0.0-incubating`.
@@ -288,7 +288,7 @@ Send an email to **announce@apache.org**, **general@incubator.apache.org**, and 
 > The Apache RocketMQ team would like to announce the release of Apache RocketMQ \<release version\> (incubating).  
 >
 > More details regarding Apache RocketMQ can be found at:  
-> http://rocketmq.incubator.apache.org/  
+> http://rocketmq.apache.org/  
 >
 > The release artifacts can be downloaded here:  
 > https://dist.apache.org/repos/dist/release/incubator/rocketmq/${release version}  
