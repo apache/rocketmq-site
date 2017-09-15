@@ -97,7 +97,7 @@ Each pull request should follow this checklist to help us incorporate your contr
 
 ```
 
-Remember use `- [x]` mark a item finished in the check list and there is a [demo pull request](https://github.com/apache/incubator-rocketmq/pull/152) can be your reference. 
+Remember use `- [x]` mark an item finished in the check list and there is a [demo pull request](https://github.com/apache/incubator-rocketmq/pull/152) can be your reference. 
 
 # Merging a PR (yours or contributors)
 Start with reading [GitHub PR merging locally](https://help.github.com/articles/checking-out-pull-requests-locally/). Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor's commits. In order to do that, as well as to close the PR at the same time, it is recommended to use squash commits.
