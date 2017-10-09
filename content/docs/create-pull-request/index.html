@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-10-09T16:24:07+08:00">
+  <meta property="article:published_time" content="2017-10-09T19:05:19+08:00">
 
 
 
@@ -496,9 +496,9 @@
 </aside>
 
 <h1 id="git-setup-for-contributors">Git setup for Contributors</h1>
-<p>First of all, fork github’s <code class="highlighter-rouge">apache/incubator-rocketmq</code> to your own account on github and clone it as follows,</p>
+<p>First of all, fork github’s <code class="highlighter-rouge">apache/rocketmq</code> to your own account on github and clone it as follows,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/&lt;your_github_name&gt;/incubator-rocketmq.git
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/&lt;your_github_name&gt;/rocketmq.git
 </code></pre>
 </div>
 
@@ -508,7 +508,7 @@ Now you can create your pull requests.</p>
 <p>You will need to update a local master sometimes (to merge to your development branches sometimes).
 For this, you have to add remote for RocketMQ mirror as follows,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add upstream https://github.com/apache/incubator-rocketmq.git
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add upstream https://github.com/apache/rocketmq.git
 </code></pre>
 </div>
 
@@ -519,7 +519,7 @@ For this, you have to add remote for RocketMQ mirror as follows,</p>
 <h1 id="git-setup-for-committers">Git setup for Committers</h1>
 <p>In addition to contributors’ configurations, committers will have to attach the apache git repo:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://git-wip-us.apache.org/repos/asf/rocketmq.git
 </code></pre>
 </div>
 
@@ -531,12 +531,12 @@ For this, you have to add remote for RocketMQ mirror as follows,</p>
 
 <p>You should see something like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>origin    https://github.com/&lt;your_github_name&gt;/incubator-rocketmq.git (fetch)
-origin    https://github.com/&lt;your_github_name&gt;/incubator-rocketmq.git (push)
-upstream  https://github.com/apache/incubator-rocketmq.git (fetch)
-upstream  https://github.com/apache/incubator-rocketmq.git (push)
-apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (fetch)
-apache    https://git-wip-us.apache.org/repos/asf/incubator-rocketmq.git (push)
+<div class="highlighter-rouge"><pre class="highlight"><code>origin    https://github.com/&lt;your_github_name&gt;/rocketmq.git (fetch)
+origin    https://github.com/&lt;your_github_name&gt;/rocketmq.git (push)
+upstream  https://github.com/apache/rocketmq.git (fetch)
+upstream  https://github.com/apache/rocketmq.git (push)
+apache    https://git-wip-us.apache.org/repos/asf/rocketmq.git (fetch)
+apache    https://git-wip-us.apache.org/repos/asf/rocketmq.git (push)
 </code></pre>
 </div>
 
@@ -568,11 +568,11 @@ git push origin ROCKETMQ-xxxx
 
 <ol>
   <li>
-    <p>Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github’s apache/incubator-rocketmq. By default all PR will go to apache/master.</p>
+    <p>Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github’s apache/rocketmq. By default all PR will go to apache/master.</p>
   </li>
-  <li>Click the green “Compare, review, and create pull request” button. You can edit the to and from for the PR if it isn’t correct. The “base fork” should be apache/incubator-rocketmq unless you are collaborating with one of the committers on the list. The “base” will be master. Don’t submit a PR to any other branches unless permitted by branch owner. The “head fork” will be your forked repo and the “compare” will be your ROCKETMQ-xxxx branch.</li>
+  <li>Click the green “Compare, review, and create pull request” button. You can edit the to and from for the PR if it isn’t correct. The “base fork” should be apache/rocketmq unless you are collaborating with one of the committers on the list. The “base” will be master. Don’t submit a PR to any other branches unless permitted by branch owner. The “head fork” will be your forked repo and the “compare” will be your ROCKETMQ-xxxx branch.</li>
   <li>Click the “Create pull request” button and name the request “ROCKETMQ-xxxx” all caps. This will connect the comments of the PR to the mailing list and JIRA comments.</li>
-  <li>From now on the PR lives on github’s apache/incubator-rocketmq. You can use the commenting UI there.</li>
+  <li>From now on the PR lives on github’s apache/rocketmq. You can use the commenting UI there.</li>
   <li>If you are looking for a review or wanting to share with someone else please write a note in the comments and don’t worry about automated merging of your PR – you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to JIRA and the mailing list.</li>
   <li>When you are satisfied and want to push it to Apache’s remote repo, you can merge this PR.</li>
 </ol>
@@ -587,7 +587,7 @@ git push origin ROCKETMQ-xxxx
 
 <p>For information about creating pull requests, please check <a href="https://help.github.com/articles/creating-a-pull-request/">GitHub PR docs</a>.</p>
 
-<p>Pull requests are made to <code class="highlighter-rouge">apache/incubator-rocketmq</code> repository on Github.
+<p>Pull requests are made to <code class="highlighter-rouge">apache/rocketmq</code> repository on Github.
 In the Github UI you should pick the master branch as target of the PR. <br />
 You pull request will be reviewed and commented by committers, and issues can be discussed. When all reviewers are positive on the pull request, it will be merged.</p>
 
@@ -672,7 +672,7 @@ You pull request will be reviewed and commented by committers, and issues can be
         
         
         
-          <li><a href="http://github.com/apache/incubator-rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="http://github.com/apache/rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
         
         <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>

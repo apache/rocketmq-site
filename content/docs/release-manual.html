@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-10-09T16:24:07+08:00">
+  <meta property="article:published_time" content="2017-10-09T19:05:19+08:00">
 
 
 
@@ -499,18 +499,16 @@
   </li>
   <li><a href="#vote-on-the-release" id="markdown-toc-vote-on-the-release">Vote on the Release</a>    <ul>
       <li><a href="#apache-rocketmq-community-vote" id="markdown-toc-apache-rocketmq-community-vote">Apache RocketMQ Community Vote</a></li>
-      <li><a href="#incubator-pmc-vote" id="markdown-toc-incubator-pmc-vote">Incubator PMC Vote</a></li>
     </ul>
   </li>
   <li><a href="#publish-the-release" id="markdown-toc-publish-the-release">Publish the Release</a></li>
   <li><a href="#announce-the-release" id="markdown-toc-announce-the-release">Announce the Release</a></li>
-  <li><a href="#references" id="markdown-toc-references">References</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<p>This is a guide to make a released version of Apache RocketMQ (incubating). Please follow the steps below:</p>
+<p>This is a guide to make a released version of Apache RocketMQ. Please follow the steps below:</p>
 
 <h2 id="preliminaries">Preliminaries</h2>
 <h3 id="apache-release-documentation">Apache Release Documentation</h3>
@@ -519,8 +517,6 @@
 <ul>
   <li><a href="http://www.apache.org/dev/release-publishing">Apache Release Guide</a></li>
   <li><a href="http://www.apache.org/dev/release.html">Apache Release Policy</a></li>
-  <li><a href="http://incubator.apache.org/guides/releasemanagement.html">Apache Incubator Release Guidelines</a></li>
-  <li><a href="http://incubator.apache.org/incubation/Incubation_Policy.html#Releases">Apache Incubator Release Policy</a></li>
   <li><a href="http://www.apache.org/dev/publishing-maven-artifacts.html">Maven Release Info</a></li>
 </ul>
 
@@ -532,7 +528,7 @@
   <li>Generate a new key via <code class="highlighter-rouge">gpg --gen-key</code>, and answer 4096 bits with no expiration time.</li>
   <li>Upload your key to a public key server by <code class="highlighter-rouge">gpg --keyserver pgpkeys.mit.edu --send-key &lt;your key id&gt;</code>.</li>
   <li>Get the key signed by other committers(Optional).</li>
-  <li>Add the key to the RocketMQ <a href="https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS">KEYS file</a>.</li>
+  <li>Add the key to the RocketMQ <a href="https://dist.apache.org/repos/dist/dev/rocketmq/KEYS">KEYS file</a>.</li>
 </ul>
 
 <p><strong>Tips:</strong> If you have more than one key in your gpg, set the code signing key to <code class="highlighter-rouge">~/.gnupg/gpg.conf</code> as default key is recommended.</p>
@@ -548,7 +544,7 @@
                <span class="nt">&lt;mavenExecutorId&gt;</span>forked-path<span class="nt">&lt;/mavenExecutorId&gt;</span>
                <span class="nt">&lt;gpg.keyname&gt;</span>yourKeyName<span class="nt">&lt;/gpg.keyname&gt;</span>
                <span class="nt">&lt;username&gt;</span>yourApacheID<span class="nt">&lt;/username&gt;</span>
-               <span class="nt">&lt;deploy.url&gt;</span>https://dist.apache.org/repos/dist/dev/incubator/rocketmq/<span class="nt">&lt;/deploy.url&gt;</span>
+               <span class="nt">&lt;deploy.url&gt;</span>https://dist.apache.org/repos/dist/dev/rocketmq/<span class="nt">&lt;/deploy.url&gt;</span>
            <span class="nt">&lt;/properties&gt;</span>
        <span class="nt">&lt;/profile&gt;</span>
  <span class="nt">&lt;/profiles&gt;</span>
@@ -580,10 +576,10 @@
 <p>Cleanup JIRA issues related to this release version, and check all the issues has been marked with right version in the <code class="highlighter-rouge">FixVersion</code> field.</p>
 
 <h3 id="publish-the-release-notes">Publish the Release Notes</h3>
-<p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/incubator-rocketmq-site">rocketmq-site</a>, there is a <a href="http://rocketmq.apache.org/release_notes/release-notes-4.0.0-incubating/">release notes</a> of <code class="highlighter-rouge">4.0.0-incubating</code> available for reference, include the link to the release notes in the voting emails.</p>
+<p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/rocketmq-site">rocketmq-site</a>, there is a <a href="http://rocketmq.apache.org/release_notes/release-notes-4.0.0-incubating/">release notes</a> of <code class="highlighter-rouge">4.0.0-incubating</code> available for reference, include the link to the release notes in the voting emails.</p>
 
 <h2 id="build-the-release-candidate">Build the Release Candidate</h2>
-<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">release-4.0.0-incubating</code>.</p>
+<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">release-4.2.0</code>.</p>
 
 <h3 id="build-the-candidate-release-artifacts">Build the Candidate Release Artifacts</h3>
 <p>Before building the release artifacts, do some verifications below:</p>
@@ -612,7 +608,6 @@
 <ul>
   <li>Checksums and PGP signatures are valid.</li>
   <li>Build is successful including unit and integration tests.</li>
-  <li>DISCLAIMER is correct and filenames must include “incubating”.</li>
   <li>LICENSE and NOTICE files are correct and dependency licenses are acceptable.</li>
   <li>All source files have license headers and pass RAT checks.</li>
   <li>Javadocs have been generated correctly.</li>
@@ -635,7 +630,7 @@
 
 <p>or</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --verify rocketmq-all-%version-number%-incubating-source-release.zip.asc rocketmq-all-%version-number%-incubating-source-release.zip
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --verify rocketmq-all-%version-number%-source-release.zip.asc rocketmq-all-%version-number%-source-release.zip
 </code></pre>
 </div>
 <p>Check the output to ensure it only contains good signatures:</p>
@@ -648,7 +643,7 @@
   <li>Compare MD5, SHA hash generated by the below command with the downloaded hash files.</li>
 </ol>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --print-mds rocketmq-all-%version-number%-incubating-source-release.zip 
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --print-mds rocketmq-all-%version-number%-source-release.zip 
 </code></pre>
 </div>
 
@@ -661,24 +656,24 @@
 
 <p>If the checks aren’t passed, fix the issues then go back and restart the release process.</p>
 
-<p>If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}.</p>
+<p>If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/rocketmq/${release version}.</p>
 
 <h2 id="vote-on-the-release">Vote on the Release</h2>
 
-<p>As per the Apache Incubator <a href="http://incubator.apache.org/incubation/Incubation_Policy.html#Releases">release guidelines</a>, all releases for incubating projects must go through a two-step voting process. First, release voting must successfully pass within the Apache RocketMQ community via the <strong>dev@rocketmq.incubator.apache.org</strong> mailing list. Then, release voting must successfully pass within the Apache Incubator PMC via the <strong>general@incubator.apache.org</strong> mailing list.</p>
+<p>Release voting must successfully pass within the Apache RocketMQ community via the <strong>dev@rocketmq.apache.org</strong> mailing list.</p>
 
 <p>General information regarding the Apache voting process can be found <a href="http://www.apache.org/foundation/voting.html">here</a>.</p>
 
 <h3 id="apache-rocketmq-community-vote">Apache RocketMQ Community Vote</h3>
-<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.incubator.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and body:</p>
+<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt; RC&lt;RC Number&gt;</strong> and body:</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
 
-  <p>This is the vote for &lt;release version&gt; of Apache RocketMQ (incubating).</p>
+  <p>This is the vote for &lt;release version&gt; of Apache RocketMQ.</p>
 
   <p><strong>The artifacts:</strong><br />
-https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}</p>
+https://dist.apache.org/repos/dist/dev/rocketmq/${release version}</p>
 
   <p><strong>The staging repo:</strong><br />
 https://repository.apache.org/content/repositories/orgapacherocketmq-XXX/</p>
@@ -693,7 +688,7 @@ https://repository.apache.org/content/repositories/orgapacherocketmq-XXX/</p>
 &lt;insert link to the rocketmq release notes&gt;</p>
 
   <p>The artifacts have been signed with Key : &lt;ID of signing key&gt;, which can be found in the keys file:<br />
-https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
+https://dist.apache.org/repos/dist/dev/rocketmq/KEYS</p>
 
   <p>The vote will be open for at least 72 hours or until necessary number of votes are reached.</p>
 
@@ -707,7 +702,7 @@ https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> :</p>
+<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt; RC&lt;RC Number&gt;</strong> :</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -724,118 +719,42 @@ User Name (Apache ID)  <br />
 User Name (Apache ID)<br />
 ….</p>
 
-  <p>A vote Apache RocketMQ &lt;release version&gt; will now be called on general@incubator.apache.org.</p>
+  <p>The release will be published soon.</p>
 
   <p>Thanks, <br />
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong></p>
-
-<h3 id="incubator-pmc-vote">Incubator PMC Vote</h3>
-<p>Once the candidate release vote passes on dev@rocketmq, send an email to <a href="mailto:general@incubator.apache.org">IMPC</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt;(incubating) RC&lt;RC Number&gt;</strong> and a body along the lines of:</p>
-
-<blockquote>
-  <p>Hello Incubator PMC,</p>
-
-  <p>The Apache RocketMQ community has voted and approved the proposal to release Apache RocketMQ &lt;release version&gt; (incubating). We now kindly request the IPMC review and vote on this incubator release.</p>
-
-  <p><strong>[VOTE] Thread:</strong><br />
-&lt;link to the dev voting mail-archive&gt;</p>
-
-  <p><strong>[RESULT][VOTE] Thread:</strong><br />
-&lt;link to the dev voting mail-archive&gt;</p>
-
-  <p><strong>The artifacts:</strong><br />
-https://dist.apache.org/repos/dist/dev/incubator/rocketmq/${release version}</p>
-
-  <p><strong>The staging repo:</strong><br />
-https://repository.apache.org/content/repositories/orgapacherocketmq-XXX/</p>
-
-  <p><strong>Git tag for the release:</strong><br />
-&lt;link to the tag of GitHub repo&gt;</p>
-
-  <p><strong>Hash for the release tag:</strong><br />
-&lt;Hash value of the release tag&gt;</p>
-
-  <p><strong>Release Notes:</strong><br />
-&lt;insert link to the rocketmq release notes&gt;</p>
-
-  <p>The artifacts have been signed with Key : &lt;ID of signing key&gt;, which can be found in the keys file:<br />
-https://dist.apache.org/repos/dist/dev/incubator/rocketmq/KEYS</p>
-
-  <p>The vote will be open for at least 72 hours or until necessary number of votes are reached.</p>
-
-  <p>Please vote accordingly:</p>
-
-  <p>[ ] +1  approve <br />
-[ ] +0  no opinion <br />
-[ ] -1  disapprove with the reason</p>
-
-  <p>Thanks,<br />
-The Apache RocketMQ Team</p>
-</blockquote>
-
-<p>Also don’t forget to announce the vote result:</p>
-
-<blockquote>
-  <p>Hello Incubator PMC,</p>
-
-  <p>The Apache RocketMQ <release version=""> vote is now closed and has passed wit [number] binding +1s, [number] non-binding +1s and no 0 or -1:</release></p>
-
-  <p><strong>Binding votes +1s:</strong><br />
-User Name (Apache ID) <br />
-User Name (Apache ID) <br />
-User Name (Apache ID) <br />
-….</p>
-
-  <p><strong>Non-binding votes +1s:</strong><br />
-User Name (Apache ID) <br />
-….</p>
-
-  <p>The Apache RocketMQ (incubating) community will proceed with the release.</p>
-
-  <p>Thanks,<br />
-The Apache RocketMQ Team</p>
-</blockquote>
+<p>If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release version&gt; RC&lt;RC Number&gt;</strong></p>
 
 <h2 id="publish-the-release">Publish the Release</h2>
-<p>Once the Apache RocketMQ PPMC and IPMC votes both pass, publish the release artifacts to the Nexus Maven repository and to the Apache release repository.</p>
+<p>Once the Apache RocketMQ PPMC votes pass, publish the release artifacts to the Nexus Maven repository and to the Apache release repository.</p>
 
 <ol>
   <li>Publish the Maven Artifacts, release the Maven artifacts in Nexus by selecting the staging repository <strong>orgapacherocketmq-XXX</strong> and clicking on the <code class="highlighter-rouge">Release</code> icon.</li>
-  <li>Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/incubator/rocketmq/${release version}</li>
+  <li>Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release version}</li>
 </ol>
 
 <h2 id="announce-the-release">Announce the Release</h2>
-<p>Send an email to <strong>announce@apache.org</strong>, <strong>general@incubator.apache.org</strong>, and <strong>dev@rocketmq.apache.incubator.org</strong> with the subject <strong>[ANNOUNCE] Release Apache RocketMQ &lt;release version&gt;(incubating)</strong> and a body along the lines of:</p>
+<p>Send an email to <strong>announce@apache.org</strong>, and <strong>dev@rocketmq.apache.org</strong> with the subject <strong>[ANNOUNCE] Release Apache RocketMQ &lt;release version&gt;</strong> and a body along the lines of:</p>
 
 <blockquote>
   <p>Hi all,</p>
 
-  <p>The Apache RocketMQ team would like to announce the release of Apache RocketMQ &lt;release version&gt; (incubating).</p>
+  <p>The Apache RocketMQ team would like to announce the release of Apache RocketMQ &lt;release version&gt;.</p>
 
   <p>More details regarding Apache RocketMQ can be found at:<br />
 http://rocketmq.apache.org/</p>
 
   <p>The release artifacts can be downloaded here:<br />
-https://dist.apache.org/repos/dist/release/incubator/rocketmq/${release version}</p>
+https://dist.apache.org/repos/dist/release/rocketmq/${release version}</p>
 
   <p>The release notes can be found here:<br />
 &lt;insert link to the rocketmq release notes&gt;</p>
 
   <p>Thanks,<br />
 The Apache RocketMQ Team</p>
-
-  <p>— DISCLAIMER  Apache RocketMQ is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code,it does indicate that the project has yet to be fully endorsed by the ASF.</p>
 </blockquote>
-
-<h2 id="references">References</h2>
-
-<p>[1]. http://pirk.incubator.apache.org/releasing<br />
-[2]. http://htrace.incubator.apache.org/building.html<br />
-[3]. http://slider.incubator.apache.org/developing/releasing.html<br />
-[4]. http://streams.incubator.apache.org/release-management.html</p>
 
 
         
@@ -919,7 +838,7 @@ The Apache RocketMQ Team</p>
         
         
         
-          <li><a href="http://github.com/apache/incubator-rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="http://github.com/apache/rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
         
         <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
