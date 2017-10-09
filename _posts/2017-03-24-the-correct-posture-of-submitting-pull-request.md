@@ -6,19 +6,19 @@
 ![](http://img3.tbcdn.cn/5476e8b07b923/TB17G5kQpXXXXcUapXXXXXXXXXX)
 Click the "fork" button, a forked repo will be added to your repo list.
 * clone the forked repo, here take "foo" as example
-> git clone  https://github.com/foo/incubator-rocketmq.git
+> git clone  https://github.com/foo/rocketmq.git
 
 * add apache remote repo
-> git remote add apache https://github.com/apache/incubator-rocketmq.git
+> git remote add apache https://github.com/apache/rocketmq.git
 
 * show the remote repos
 > git remote -v  
-> apache	 https://github.com/apache/incubator-rocketmq.git (fetch)  
-> apache	 https://github.com/apache/incubator-rocketmq.git (push)  
-> origin	 https://github.com/foo/incubator-rocketmq.git (fetch)  
-> origin	 https://github.com/foo/incubator-rocketmq.git (push)  
+> apache	 https://github.com/apache/rocketmq.git (fetch)  
+> apache	 https://github.com/apache/rocketmq.git (push)  
+> origin	 https://github.com/foo/rocketmq.git (fetch)  
+> origin	 https://github.com/foo/rocketmq.git (push)  
 
-**Note**: https://github.com/apache/incubator-rocketmq.git is a read-only repo, mirrored from git://git.apache.org/incubator-rocketmq.git. For submitting PR, fork this read-only repo on Github is OK.
+**Note**: https://github.com/apache/rocketmq.git is a read-only repo, mirrored from git://git.apache.org/rocketmq.git. For submitting PR, fork this read-only repo on Github is OK.
 
 ### Use a new branch to write your own code and commit
 you'd better use a new branch for each PR, for it is convenient to manage your code and commits
@@ -64,6 +64,6 @@ For example:
 For now, we have finished the preparations of a PR. It is time to create it. For apache projects, we could attach the jira issue using specific title like "[XXX] add something", such as "[ROCKETMQ-80] Add batch feature", the "XXX" represents the the name of the jira issue.
 you could refer to:
 
-[https://github.com/apache/incubator-rocketmq/pull/53](https://github.com/apache/incubator-rocketmq/pull/53)
+[https://github.com/apache/rocketmq/pull/53](https://github.com/apache/rocketmq/pull/53)
 
 

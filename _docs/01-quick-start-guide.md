@@ -21,8 +21,8 @@ and receive messages.
 # Clone & Build
 
 ```shell
-  > git clone -b develop https://github.com/apache/incubator-rocketmq.git
-  > cd incubator-rocketmq
+  > git clone -b develop https://github.com/apache/rocketmq.git
+  > cd rocketmq
   > mvn -Prelease-all -DskipTests clean install -U
   > cd distribution/target/apache-rocketmq
 ```

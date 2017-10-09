@@ -265,4 +265,4 @@ In **Dependency Mediator** 2.0 version,you could customize version differentiati
 
 Through this article, you almost calculated the evolution process of the **Dependency Mediator** project.in my opinion,integration with the maven enforcer plugin may be a better choice.After all,I hope **Dependency Mediator** can keep sustainable development.I would try and donate this project to codehaus in the near future.
 
-If you have better idea or improving suggestion, please contact <dev@rocketmq.incubator.apache.org>.
+If you have better idea or improving suggestion, please contact <dev@rocketmq.apache.org>.

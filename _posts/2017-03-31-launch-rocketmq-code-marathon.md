@@ -29,24 +29,24 @@ tags:
 1. Integration of big data analysis framework
 1. Rich Documentation and Good Test Cases Coverage
 1. Apache Beam preferred 
-2. Join by Creating Pull Requests against [RocketMQ Beam Repository](https://github.com/apache/incubator-rocketmq-externals)
-3. Join by Creating Pull Requests against [RocketMQ Flink Repository](https://github.com/apache/incubator-rocketmq-externals)
+2. Join by Creating Pull Requests against [RocketMQ Beam Repository](https://github.com/apache/rocketmq-externals)
+3. Join by Creating Pull Requests against [RocketMQ Flink Repository](https://github.com/apache/rocketmq-externals)
 4. Join by Existing Pull Request against [RocketMQ Storm Repository](https://github.com/apache/storm/pull/2024)
-4. Join by Existing Pull Request against [RocketMQ Spark Repository](https://github.com/apache/incubator-rocketmq-externals/pull/5)
+4. Join by Existing Pull Request against [RocketMQ Spark Repository](https://github.com/apache/rocketmq-externals/pull/5)
 
 ### RocketMQ-Client SDK
 1. Development of RocketMQ Client
 1. Rich Documentation and Good Test Cases Coverage
 3. Go preferred
-1. Join by Creating Pull Requests against [RocketMQ Go Repository](https://github.com/apache/incubator-rocketmq-externals)
-2. Join by Creating Pull Requests against [RocketMQ .Net Repository](https://github.com/apache/incubator-rocketmq-externals)
-3. Join by Creating Pull Requests against [RocketMQ PHP Repository](https://github.com/apache/incubator-rocketmq-externals)
+1. Join by Creating Pull Requests against [RocketMQ Go Repository](https://github.com/apache/rocketmq-externals)
+2. Join by Creating Pull Requests against [RocketMQ .Net Repository](https://github.com/apache/rocketmq-externals)
+3. Join by Creating Pull Requests against [RocketMQ PHP Repository](https://github.com/apache/rocketmq-externals)
 
 
 ### RocketMQ-Data Replication
 1. Implement Data Replication from Database
 1. Rich Documentation and Good Test Cases Coverage
 3. MySQL preferred
-1. Join by Creating Pull Requests against [RocketMQ MySQL Repository](https://github.com/apache/incubator-rocketmq-externals)
-2. Join by Creating Pull Requests against [RocketMQ Redis Repository](https://github.com/apache/incubator-rocketmq-externals)
-3. Join by Creating Pull Requests against [RocketMQ MongoDB Repository](https://github.com/apache/incubator-rocketmq-externals)
+1. Join by Creating Pull Requests against [RocketMQ MySQL Repository](https://github.com/apache/rocketmq-externals)
+2. Join by Creating Pull Requests against [RocketMQ Redis Repository](https://github.com/apache/rocketmq-externals)
+3. Join by Creating Pull Requests against [RocketMQ MongoDB Repository](https://github.com/apache/rocketmq-externals)

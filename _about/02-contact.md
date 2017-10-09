@@ -12,10 +12,10 @@ These are the mailing lists that have been established for RocketMQ. For each li
 
 |Name|Description|Subscribe|Unsubscribe|Archive|
 |:---|:---|:---|:---|:---|
-|Users|User support and questions mailing list|	[Subscribe](mailto:users-subscribe@rocketmq.incubator.apache.org)|[Unsubscribe](mailto:users-unsubscribe@rocketmq.incubator.apache.org)|[mail-archives.apache.org](http://mail-archives.apache.org/mod_mbox/incubator-rocketmq-users/)|
-|Issues|Mirror of all JIRA activity|	[Subscribe](mailto:issues-subscribe@rocketmq.incubator.apache.org)|[Unsubscribe](mailto:issues-unsubscribe@rocketmq.incubator.apache.org)|[mail-archives.apache.org](http://mail-archives.apache.org/mod_mbox/incubator-rocketmq-issues/)|
-|Development|Development related discussions|[Subscribe](mailto:dev-subscribe@rocketmq.incubator.apache.org)|[Unsubscribe](mailto:dev-unsubscribe@rocketmq.incubator.apache.org)|[mail-archives.apache.org](http://mail-archives.apache.org/mod_mbox/incubator-rocketmq-dev//)|
-|Commits|All commits to repositories|[Subscribe](mailto:commits-subscribe@rocketmq.incubator.apache.org)|[Unsubscribe](mailto:commits-unsubscribe@rocketmq.incubator.apache.org)|[mail-archives.apache.org](http://mail-archives.apache.org/mod_mbox/incubator-rocketmq-commits/)|
+|Users|User support and questions mailing list|	[Subscribe](mailto:users-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:users-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?users@rocketmq.apache.org)|
+|Issues|Mirror of all JIRA activity|	[Subscribe](mailto:issues-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:issues-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?issues@rocketmq.apache.org)|
+|Development|Development related discussions|[Subscribe](mailto:dev-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:dev-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?dev@rocketmq.apache.org)|
+|Commits|All commits to repositories|[Subscribe](mailto:commits-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:commits-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?commits@rocketmq.apache.org)|
 
 ## Security Issues Tracking
 

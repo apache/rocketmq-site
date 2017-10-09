@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors                 = ["Michael Rose"]
 
   spec.summary                 = %q{A flexible two-column Jekyll theme.}
-  spec.homepage                = "https://github.com/apache/incubator-rocketmq/"
+  spec.homepage                = "https://github.com/apache/rocketmq/"
   spec.license                 = "MIT"
 
   spec.metadata["plugin_type"] = "theme"

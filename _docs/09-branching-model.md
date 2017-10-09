@@ -118,8 +118,8 @@ It is exactly at the start of a release branch that the upcoming release gets as
 Release branches are created from the develop branch:
 
 ```shell
-$ git checkout -b release-4.0.0-incubating develop
-Switched to a new branch "release-4.0.0-incubating"
+$ git checkout -b release-4.2.0 develop
+Switched to a new branch "release-4.2.0"
 ```
 
 Please refer to [here](/docs/release-manual) for the following process.

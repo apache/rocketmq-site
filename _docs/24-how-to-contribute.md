@@ -60,7 +60,7 @@ We maintain a list of all known bugs, proposed improvements and suggested featur
 Good documentation is crucial for any kind of software. The Apache RocketMQ community aims to provide concise, precise, and complete documentation and welcomes any contribution to improve Apache RocketMQ’s documentation.
 
 * Please report missing, incorrect, or out-dated documentation as a [JIRA ISSUE](https://issues.apache.org/jira/projects/ROCKETMQ).
-* RocketMQ’s documentation is written in Markdown and located in the docs folder in RocketMQ’s [site source code repository](https://github.com/apache/incubator-rocketmq-site). See the Contribute [documentation guidelines](/docs/code-guidelines/) for detailed instructions for how to update and improve the documentation and to contribute your changes.
+* RocketMQ’s documentation is written in Markdown and located in the docs folder in RocketMQ’s [site source code repository](https://github.com/apache/rocketmq-site). See the Contribute [documentation guidelines](/docs/code-guidelines/) for detailed instructions for how to update and improve the documentation and to contribute your changes.
 
 ## Improve the website
 
@@ -73,7 +73,7 @@ The Apache RocketMQ website presents Apache RocketMQ and its community. It serve
 We welcome any contribution to improve our website.
 
 Please open a [JIRA issue](https://issues.apache.org/jira/projects/ROCKETMQ) if you think our website could be improved.
-Please follow the Improve the [website guidelines](https://github.com/apache/incubator-rocketmq-site) if you would like to update and improve the website.
+Please follow the Improve the [website guidelines](https://github.com/apache/rocketmq-site) if you would like to update and improve the website.
 
 ## More ways to contribute…
 
