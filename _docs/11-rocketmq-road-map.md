@@ -23,7 +23,7 @@ So, we want to define and implement a reasonable filter language based on a subs
 
 ### Batch Messaging 
 
-In order to use RocketMQ in big data related scenarios, batch messaging is necessary and will bring million-level TPS for RocketMQ. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-80), [PR](https://github.com/apache/incubator-rocketmq/pull/53)
+In order to use RocketMQ in big data related scenarios, batch messaging is necessary and will bring million-level TPS for RocketMQ. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-80), [PR](https://github.com/apache/rocketmq/pull/53)
 
 ### Consistent Hash Allocate Strategy(CHAS) 
 
@@ -31,7 +31,7 @@ Consumer clients use the average allocate strategy by far, which is very sensiti
 
 A Consistent Hash allocate strategy is valuable for developers who care more about stabilization than averaging.
 
-So we decided to support CHAS as an extra choice in consumer load balancing. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-67), [PR](https://github.com/apache/incubator-rocketmq/pull/67)
+So we decided to support CHAS as an extra choice in consumer load balancing. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-67), [PR](https://github.com/apache/rocketmq/pull/67)
 
 ### Global Order Messaging 
 
@@ -64,7 +64,7 @@ Provide a docker image for easy deployment and management, optimize for the late
 ### MQTT 
 MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol, which has been widely used in IoT. Support MQTT, give RocketMQ the power to connect everything. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-127) 
 
-## 4.4.0-incubating+ RoadMap: 
+## 4.4.0+ RoadMap: 
 
 1. Support more application layer protocol: WebSocket, HTTP2, etc. 
 2. Support more native language SDK: PHP, Python, .Net, Node, Go, etc. The chosen programming languages are based on the investigation of many cloud platforms.
@@ -74,9 +74,9 @@ MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol, w
 
 RocketMQ, as a message-oriented middleware, plays a connector role in distributed environment, so in order to embrace the ecological preferably, RocketMQ community needs a series of external projects to integrate with other excellent projects. 
 
-1. rocketmq-console, provide a ops dashboard for RocketMQ. [REPO](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-console) 
-2. rocketmq-jms, provide a new client to support JMS 2.0. [REPO](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-jms) 
-3. rocketmq-flume-ng, integrate RocketMQ with Apache Flume.[REPO](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-flume), [FLUME-JIRA](https://issues.apache.org/jira/browse/FLUME-3058) 
+1. rocketmq-console, provide a ops dashboard for RocketMQ. [REPO](https://github.com/apache/rocketmq-externals/tree/master/rocketmq-console) 
+2. rocketmq-jms, provide a new client to support JMS 2.0. [REPO](https://github.com/apache/rocketmq-externals/tree/master/rocketmq-jms) 
+3. rocketmq-flume-ng, integrate RocketMQ with Apache Flume.[REPO](https://github.com/apache/rocketmq-externals/tree/master/rocketmq-flume), [FLUME-JIRA](https://issues.apache.org/jira/browse/FLUME-3058) 
 4. rocketmq-storm, integrate RocketMQ with storm. [REPO](https://github.com/rocketmq/rocketmq-storm) 
 5. rocketmq-ignite, integrate RocketMQ with ignite. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-41), [IGNITE-JIRA](https://issues.apache.org/jira/browse/IGNITE-4539) 
 6. rocketmq-spark, integrate RocketMQ with spark. [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ-81) 

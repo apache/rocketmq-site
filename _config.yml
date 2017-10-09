@@ -13,7 +13,7 @@ name                     : "Apache RocketMQ"
 description              : "The homepage of RocketMQ."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "apache/incubator-rocketmq"
+repository               : "apache/rocketmq"
 comment-repository       : "zhouxinyu/rocketmq-comments"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 destination              : content
@@ -84,15 +84,15 @@ author:
   avatar           : "/assets/images/rmq-logo.png"
   bio              : "An open source distributed messaging and streaming data platform."
   location         : "Hangzhou, China"
-  email            : "dev@rocketmq.incubator.apache.org"
-  uri              : "http://incubator.staging.apache.org/projects/rocketmq.html"
+  email            : "dev@rocketmq.apache.org"
+  uri              : "http://rocketmq.apache.org"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           : "apache/incubator-rocketmq"
+  github           : "apache/rocketmq"
   google_plus      :
   keybase          :
   instagram        :

@@ -31,15 +31,15 @@ tags:
 1. Brand New UI
 1. I18n Support
 1. [Spring Boot](https://projects.spring.io/spring-boot/) + [Bootstrap](http://getbootstrap.com/) Recommended
-1. Join by Creating Pull Requests against [RocketMQ Console Repository](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-console)
+1. Join by Creating Pull Requests against [RocketMQ Console Repository](https://github.com/apache/rocketmq-externals/tree/master/rocketmq-console)
 
 ### RocketMQ-JMS
 1. Supporting JMS 2.0 Protocol
 1. Rich Documentation and Good Test Cases Coverage
-1. Join by Creating Pull Requests against [RocketMQ JMS Repository](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-jms)
+1. Join by Creating Pull Requests against [RocketMQ JMS Repository](https://github.com/apache/rocketmq-externals/tree/master/rocketmq-jms)
 
 
 ### RocketMQ-Flume
 1. Supporting Latest [Flume](http://flume.apache.org/)
 1. Rich Documentation and Good Test Cases Coverage
-1. Join by Creating Pull Requests against [RocketMQ Flume Repository](https://github.com/apache/incubator-rocketmq-externals/tree/master/rocketmq-flume)
+1. Join by Creating Pull Requests against [RocketMQ Flume Repository](https://github.com/apache/rocketmq-externals/tree/master/rocketmq-flume)
