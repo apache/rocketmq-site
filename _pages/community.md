@@ -4,7 +4,7 @@ permalink: /community/
 title: "Apache RocketMQ"
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/rmq-home-page.jpg
+  overlay_image: /assets/images/bright/rmq-home-page.png
   cta_label: "<i class='fa fa-rocket'></i> Getting Started"
   cta_url: "/docs/quick-start/"
   caption:
