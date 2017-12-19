@@ -40,3 +40,9 @@ feature_row1:
 {% include feature_row %}
 
 {% include feature_row id="feature_row1" %}
+
+<style type="text/css">
+  .archive__item-title {
+    text-decoration: none !important;
+  }
+</style>

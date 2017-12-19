@@ -17,7 +17,7 @@
     <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
       <div class="archive__item">
         {% if f.image_path %}
-          <div class="archive__item-teaser">
+          <div class="">
             <img src=
               {% if f.image_path contains "://" %}
                 "{{ f.image_path }}"
