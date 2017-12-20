@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-12-20T00:13:49+08:00">
+  <meta property="article:published_time" content="2017-12-20T19:20:23+08:00">
 
 
 
@@ -495,7 +495,7 @@ and receive messages.</p>
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
-  <li><a href="#clone--build" id="markdown-toc-clone--build">Clone &amp; Build</a></li>
+  <li><a href="#download--build-from-release" id="markdown-toc-download--build-from-release">Download &amp; Build from Release</a></li>
   <li><a href="#start-name-server" id="markdown-toc-start-name-server">Start Name Server</a></li>
   <li><a href="#start-broker" id="markdown-toc-start-broker">Start Broker</a></li>
   <li><a href="#send--receive-messages" id="markdown-toc-send--receive-messages">Send &amp; Receive Messages</a></li>
@@ -515,10 +515,14 @@ and receive messages.</p>
   <li>Git</li>
 </ol>
 
-<h1 id="clone--build">Clone &amp; Build</h1>
+<h1 id="download--build-from-release">Download &amp; Build from Release</h1>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; git clone -b develop https://github.com/apache/rocketmq.git
-  &gt; <span class="nb">cd </span>rocketmq
+<p>Click <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.2.0/rocketmq-all-4.2.0-source-release.zip">here</a> to download the 4.2.0 source release. Also you could download a binary release from <a href="http://rocketmq.apache.org/release_notes/release-notes-4.2.0/">here</a>.</p>
+
+<p>Now execute the following commands to unpack 4.2.0 source release and build the binary artifact.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; unzip rocketmq-all-4.2.0-source-release.zip
+  &gt; <span class="nb">cd </span>rocketmq-all-4.2.0/
   &gt; mvn -Prelease-all -DskipTests clean install -U
   &gt; <span class="nb">cd </span>distribution/target/apache-rocketmq
 </code></pre>
