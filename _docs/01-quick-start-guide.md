@@ -18,11 +18,15 @@ and receive messages.
    1. Maven 3.2.x
    1. Git 
 
-# Clone & Build
+# Download & Build from Release
+
+Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.2.0/rocketmq-all-4.2.0-source-release.zip) to download the 4.2.0 source release. Also you could download a binary release from [here](http://rocketmq.apache.org/release_notes/release-notes-4.2.0/).
+
+Now execute the following commands to unpack 4.2.0 source release and build the binary artifact.
 
 ```shell
-  > git clone -b develop https://github.com/apache/rocketmq.git
-  > cd rocketmq
+  > unzip rocketmq-all-4.2.0-source-release.zip
+  > cd rocketmq-all-4.2.0/
   > mvn -Prelease-all -DskipTests clean install -U
   > cd distribution/target/apache-rocketmq
 ```
