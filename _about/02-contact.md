@@ -13,13 +13,13 @@ These are the mailing lists that have been established for RocketMQ. For each li
 |Name|Description|Subscribe|Unsubscribe|Archive|
 |:---|:---|:---|:---|:---|
 |Users|User support and questions mailing list|	[Subscribe](mailto:users-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:users-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?users@rocketmq.apache.org)|
-|Issues|Mirror of all JIRA activity|	[Subscribe](mailto:issues-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:issues-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?issues@rocketmq.apache.org)|
+|Issues|Mirror of all Github issue activity|	[Subscribe](mailto:issues-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:issues-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?issues@rocketmq.apache.org)|
 |Development|Development related discussions|[Subscribe](mailto:dev-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:dev-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?dev@rocketmq.apache.org)|
 |Commits|All commits to repositories|[Subscribe](mailto:commits-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:commits-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?commits@rocketmq.apache.org)|
 
 ## Security Issues Tracking
 
-Apache RocketMQ specifically offers security features and is responsive to issues around its features. If you have any concern around RocketMQ Security or believe you have uncovered a vulnerability, please report it via the e-mail address [private@rocketmq.apache.org](mailto:private@rocketmq.apache.org). In the message, try to provide a description of the issue and ideally a way of reproducing it.
+Apache RocketMQ specifically offers security features and is responsive to issues around its features. If you have any concern around RocketMQ Security or believe you have uncovered a vulnerability, please report it via the e-mail address [security@apache.org](mailto:security@apache.org). In the message, try to provide a description of the issue and ideally a way of reproducing it.
 
 Dealing with fixed issues or general questions on how to use the security features should be handled regularly via the users and the dev lists. 
 
@@ -27,9 +27,9 @@ The ASF Security team maintains a page with a description of how vulnerabilities
 
 ## Issue Tracking
 
-Apache RocketMQ project uses JIRA for issue tracking.
+Apache RocketMQ project uses Github for issue tracking.
 
-Issues, bugs, and feature requests should be submitted to the [issue tracking system](https://issues.apache.org/jira/browse/ROCKETMQ) for this project.
+Issues, bugs, and feature requests should be submitted to the [issue tracking system](https://github.com/apache/rocketmq/issues) for this project.
 
 ## RocketMQ on Stack Overflow
 
