@@ -43,9 +43,9 @@ You should see something like this:
     apache    https://git-wip-us.apache.org/repos/asf/rocketmq.git (fetch)
     apache    https://git-wip-us.apache.org/repos/asf/rocketmq.git (push)
     
-Now if you want to experiment with a branch everything, by default, points to your github account because 'origin' is default. You can work as normal using only github until you are ready to merge with the apache remote. Some conventions will integrate with Apache JIRA ticket numbers.
+Now if you want to experiment with a branch everything, by default, points to your github account because 'origin' is default. You can work as normal using only github until you are ready to merge with the apache remote. Some conventions will integrate with Apache Github issue ticket numbers.
 
-    git checkout -b ROCKETMQ-xxxx #xxxx typically is a JIRA ticket number
+    git checkout -b ROCKETMQ-xxxx #xxxx typically is a Github issue ticket number
     
 _To ensure the code quality of the master branch, all but minor changes should go through pull requests reviewed by peer committers._
     
@@ -66,14 +66,14 @@ Push your branch to Github:
 1. Go to your ROCKETMQ-xxxx branch on Github. Since you forked it from Github's apache/rocketmq. By default all PR will go to apache/master.
 
 2. Click the green "Compare, review, and create pull request" button. You can edit the to and from for the PR if it isn't correct. The "base fork" should be apache/rocketmq unless you are collaborating with one of the committers on the list. The "base" will be master. Don't submit a PR to any other branches unless permitted by branch owner. The "head fork" will be your forked repo and the "compare" will be your ROCKETMQ-xxxx branch.
-3. Click the "Create pull request" button and name the request "ROCKETMQ-xxxx" all caps. This will connect the comments of the PR to the mailing list and JIRA comments.
+3. Click the "Create pull request" button and name the request "ROCKETMQ-xxxx" all caps. This will connect the comments of the PR to the mailing list and issue comments.
 4. From now on the PR lives on github's apache/rocketmq. You can use the commenting UI there.
-5. If you are looking for a review or wanting to share with someone else please write a note in the comments and don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to JIRA and the mailing list.
+5. If you are looking for a review or wanting to share with someone else please write a note in the comments and don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Github issue and the mailing list.
 6. When you are satisfied and want to push it to Apache's remote repo, you can merge this PR.
 
 # How to create a PR (contributors)
 Before you create a pull request, make sure
-1. A corresponding [JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) issue is created and has a clear problem description.
+1. A corresponding [Github issue](https://github.com/apache/rocketmq/issues) is created and has a clear problem description.
 2. Make sure you follow [Coding Guidelines](/docs/code-guidelines/).
 3. You have unit tests for everything you are about to commit.
 
@@ -88,13 +88,12 @@ You pull request will be reviewed and commented by committers, and issues can be
 Each pull request should follow this checklist to help us incorporate your contribution quickly and easily:
 
 ```markdown
-- [x] Make sure there is a [JIRA issue](https://issues.apache.org/jira/projects/ROCKETMQ/issues/) filed for the change (usually before you start working on it). Trivial changes like typos do not require a JIRA issue. Your pull request should address just this issue, without pulling in other changes - one PR resolves one issue. 
-- [ ] Format the pull request title like `[ROCKETMQ-XXX] Fix UnknownException when host config not exist`. Each commit in the pull request should have a meaningful subject line and body.
+- [x] Make sure there is a Github issue filed for the change (usually before you start working on it). Trivial changes like typos do not require a Github issue. Your pull request should address just this issue, without pulling in other changes - one PR resolves one issue. 
+- [ ] Format the pull request title like `[ISSUE #123] Fix UnknownException when host config not exist`. Each commit in the pull request should have a meaningful subject line and body.
 - [ ] Write a pull request description that is detailed enough to understand what the pull request does, how, and why.
 - [ ] Write necessary unit-test to verify your logic correction, more mock a little better when cross module dependency exist. If the new feature or significant change is committed, please remember to add integration-test in [test module](https://github.com/apache/rocketmq/tree/master/test).
 - [ ] Run `mvn -B clean apache-rat:check findbugs:findbugs checkstyle:checkstyle` to make sure basic checks pass. Run `mvn clean install -DskipITs` to make sure unit-test pass. Run `mvn clean test-compile failsafe:integration-test`  to make sure integration-test pass.
 - [ ] If this contribution is large, please file an [Apache Individual Contributor License Agreement](http://www.apache.org/licenses/#clas).
-
 ```
 
 Remember use `- [x]` mark an item finished in the check list and there is a [demo pull request](https://github.com/apache/rocketmq/pull/152) can be your reference. 
@@ -139,13 +138,6 @@ When we want to reject a PR (close without committing), we can just issue an emp
     git push apache master
     
 that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/rocketmq/pull/15
-
-
-# Apache/github integration features
-
-Read [infra blog](https://blogs.apache.org/infra/entry/improved_integration_between_apache_and). Comments and PRs with RocketMQ issue handles should post to mailing lists and JIRA. RocketMQ issue handles must in the form ROCKETMQ-YYYYY (all capitals). Usually it makes sense to file a JIRA issue first, and then create a PR with description
-ROCKETMQ-YYYY: <jira-issue-description>
-All subsequent comments will then automatically be copied to JIRA.
 
 # Best Practises
 

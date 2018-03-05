@@ -56,7 +56,7 @@ More details about how to find NameServer address please refer to [here](/rocket
 
 Broker server is responsible for message store and delivery, message query, HA guarantee, and so on.
 
-As shown in image below, Broker server has searval important sub modules:
+As shown in image below, Broker server has several important sub modules:
 
 * Remoting Module, the entry of broker, handles the requests from clients.
 * Client Manager, manages the clients (Producer/Consumer) and maintains topic subscription of consumer.
