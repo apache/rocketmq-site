@@ -1,0 +1,35 @@
+{%- assign options = '' | split: '' -%}
+{%- for locale in site.available_locales -%}
+    {%- if page.locale -%}
+        {%- assign srcPermalink = page.permalink | split:'/' | pop | join: '/' | append: '/' -%}
+    {%- else -%}
+        {%- assign srcPermalink = page.permalink -%}
+    {%- endif -%}
+
+    {%- if locale == site.locale -%}
+        {%- if !page.locale -%}{%- assign selected = ' selected="selected"' -%}{%- else -%}{%- assign selected = '' -%}{%- endif -%}
+        {%- assign option = '<option value="' | append: srcPermalink | append: '"' | append: selected | append: '>' -%}
+        {%- assign option = option | append: site.data.locale-name[locale] -%}
+        {%- assign option = option | append: '</option>' -%}
+        {%- assign options = options | push: option -%}
+    {%- else -%}
+        {%- assign permalink = srcPermalink | append: locale -%}
+
+        {%- assign localedPageArray = site.pages | where:"permalink",permalink -%}
+        {%- if localedPageArray.size > 0 -%}
+            {%- if locale == page.locale -%}{%- assign selected = ' selected="selected"' -%}{%- else -%}{%- assign selected = '' -%}{%- endif -%}
+            {%- assign option = '<option value="' | append: permalink | append: '"' | append: selected | append: '>' -%}
+            {%- assign option = option | append: site.data.locale-name[locale] -%}
+            {%- assign option = option | append: '</option>' -%}
+            {%- assign options = options | push: option -%}
+        {%- endif -%}
+    {%- endif -%}
+
+{%- endfor -%}
+{%- if options.size > 0 -%}
+<select id="select-locale" onchange="location.href = this.value;">
+    {%- for option in options -%}
+        {{ option }}
+    {%- endfor -%}
+</select>
+{%- endif -%}

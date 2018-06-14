@@ -1,3 +1,4 @@
+{% assign locale = page.locale | default: site.locale %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
@@ -5,7 +6,7 @@
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ '/' | absolute_url }}">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
+          {% for link in site.data.navigation[locale].main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
@@ -13,6 +14,7 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
+          <li class="masthead__menu-item">{% include locale-selector.html %}</li>
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>

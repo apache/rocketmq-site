@@ -1,101 +1,225 @@
-# main links
-main:
-  - title: "Documentation"
-    url: /docs/quick-start/
-  - title: "Blog"
-    url: /year-archive/
-  - title: "Community"
-    url: /community/
-  - title: "Users"
-    url: /users/
-  - title: "About"
-    url: /about/team/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+# English (default)
+# -----------------
+en: &DEFAULT_EN
+  # main links
+  main:
+    - title: "Documentation"
+      url: /docs/quick-start/
+    - title: "Blog"
+      url: /year-archive/
+    - title: "Community"
+      url: /community/
+    - title: "Users"
+      url: /users/
+    - title: "About"
+      url: /about/team/
+    # - title: "Sample Collections"
+    #   url: /collection-archive/
+    # - title: "Sitemap"
+    #   url: /sitemap/
 
-# documentation links
-docs:
-  - title: User Guide
-    children:
-      - title: "Why RocketMQ"
-        url: /docs/motivation/
-      - title: "Quick Start"
-        url: /docs/quick-start/
-      - title: "Simple Example"
-        url: /docs/simple-example/
-      - title: "Order Example"
-        url: /docs/order-example/
-      - title: "Broadcasting Example"
-        url: /docs/broadcast-example/
-      - title: "Schedule Example"
-        url: /docs/schedule-example/
-      - title: "Batch Example"
-        url: /docs/batch-example/
-      - title: "Filter Example"
-        url: /docs/filter-by-sql92-example/
-      - title: "Logappender Example"
-        url: /docs/logappender-example/
-      - title: "OpenMessaging Example"
-        url: /docs/openmessaging-example/
-      - title: "FAQ"
-        url: /docs/faq/
+  # documentation links
+  docs:
+    - title: User Guide
+      children:
+        - title: "Why RocketMQ"
+          url: /docs/motivation/
+        - title: "Quick Start"
+          url: /docs/quick-start/
+        - title: "Simple Example"
+          url: /docs/simple-example/
+        - title: "Order Example"
+          url: /docs/order-example/
+        - title: "Broadcasting Example"
+          url: /docs/broadcast-example/
+        - title: "Schedule Example"
+          url: /docs/schedule-example/
+        - title: "Batch Example"
+          url: /docs/batch-example/
+        - title: "Filter Example"
+          url: /docs/filter-by-sql92-example/
+        - title: "Logappender Example"
+          url: /docs/logappender-example/
+        - title: "OpenMessaging Example"
+          url: /docs/openmessaging-example/
+        - title: "FAQ"
+          url: /docs/faq/
 
-  - title: Deployment & Operations
-    children:
-      - title: "Architecture"
-        url: /docs/rmq-arc/
-      - title: "Deployment"
-        url: /docs/rmq-deployment/
-      - title: "CLI Admin Tool"
-        url: /docs/cli-admin-tool/
+    - title: Deployment & Operations
+      children:
+        - title: "Architecture"
+          url: /docs/rmq-arc/
+        - title: "Deployment"
+          url: /docs/rmq-deployment/
+        - title: "CLI Admin Tool"
+          url: /docs/cli-admin-tool/
 
-  - title: Contributor Guide
-    children:
-      - title: "How To Contribute"
-        url: "/docs/how-to-contribute/"
-      - title: "Code Guidelines"
-        url: /docs/code-guidelines/
-      #- title: "Branching Model"
-      #  url: /docs/branching-model
-      - title: "Manage Pull Request"
-        url: /docs/pull-request/
-      - title: "Release Manual"
-        url: /docs/release-manual
+    - title: Contributor Guide
+      children:
+        - title: "How To Contribute"
+          url: "/docs/how-to-contribute/"
+        - title: "Code Guidelines"
+          url: /docs/code-guidelines/
+        #- title: "Branching Model"
+        #  url: /docs/branching-model
+        - title: "Manage Pull Request"
+          url: /docs/pull-request/
+        - title: "Release Manual"
+          url: /docs/release-manual
 
-  - title: Best Practice
-    children:
-      - title: "Core Concept"
-        url: /docs/core-concept/
-      - title: "Broker"
-        url: /docs/best-practice-broker/
-      - title: "Producer"
-        url: /docs/best-practice-producer/
-      - title: "Consumer"
-        url: /docs/best-practice-consumer/
-      - title: "NameServer"
-        url: /docs/best-practice-namesvr/
-      - title: "JVM/Kernel Config"
-        url: /docs/system-config/
-  - title: Release Notes
-    children:
-      - title: "Download"
-        url: "/dowloading/releases/"
-      - title: "4.2.0"
-        url: /release_notes/release-notes-4.2.0/
-      - title: "4.1.0-incubating"
-        url: /release_notes/release-notes-4.1.0-incubating/
-      - title: "4.0.0-incubating"
-        url: /release_notes/release-notes-4.0.0-incubating/
-  - title: RoadMap
-    url: /docs/roadmap/
+    - title: Best Practice
+      children:
+        - title: "Core Concept"
+          url: /docs/core-concept/
+        - title: "Broker"
+          url: /docs/best-practice-broker/
+        - title: "Producer"
+          url: /docs/best-practice-producer/
+        - title: "Consumer"
+          url: /docs/best-practice-consumer/
+        - title: "NameServer"
+          url: /docs/best-practice-namesvr/
+        - title: "JVM/Kernel Config"
+          url: /docs/system-config/
+    - title: Release Notes
+      children:
+        - title: "Download"
+          url: "/dowloading/releases/"
+        - title: "4.2.0"
+          url: /release_notes/release-notes-4.2.0/
+        - title: "4.1.0-incubating"
+          url: /release_notes/release-notes-4.1.0-incubating/
+        - title: "4.0.0-incubating"
+          url: /release_notes/release-notes-4.0.0-incubating/
+    - title: RoadMap
+      url: /docs/roadmap/
 
 
-about:
-  - title: Team
-    url: /about/team/
-  - title: Contact
-    url: /about/contact/
-  - title: Rewards
-    url: /about/rewards/
+  about:
+    - title: Team
+      url: /about/team/
+    - title: Contact
+      url: /about/contact/
+    - title: Rewards
+      url: /about/rewards/
+en-US:
+  <<: *DEFAULT_EN
+en-CA:
+  <<: *DEFAULT_EN
+en-GB:
+  <<: *DEFAULT_EN
+en-AU:
+  <<: *DEFAULT_EN
+
+# Chinese  (zh-CN Chinese - China)
+# -----------------
+zh: &DEFAULT_ZH
+  # main links
+  main:
+    - title: "文档"
+      url: /docs/quick-start/zh-CN
+    - title: "博客"
+      url: /year-archive/
+    - title: "社区"
+      url: /community/
+    - title: "用户"
+      url: /users/
+    - title: "关于"
+      url: /about/team/
+    # - title: "Sample Collections"
+    #   url: /collection-archive/
+    # - title: "Sitemap"
+    #   url: /sitemap/
+
+  # documentation links
+  docs:
+    - title: 使用指南
+      children:
+        - title: "为何选择 RocketMQ"
+          url: /docs/motivation/
+        - title: "快速入门"
+          url: /docs/quick-start/
+        - title: "Simple Example"
+          url: /docs/simple-example/
+        - title: "Order Example"
+          url: /docs/order-example/
+        - title: "Broadcasting Example"
+          url: /docs/broadcast-example/
+        - title: "Schedule Example"
+          url: /docs/schedule-example/
+        - title: "Batch Example"
+          url: /docs/batch-example/
+        - title: "Filter Example"
+          url: /docs/filter-by-sql92-example/
+        - title: "Logappender Example"
+          url: /docs/logappender-example/
+        - title: "OpenMessaging Example"
+          url: /docs/openmessaging-example/
+        - title: "FAQ"
+          url: /docs/faq/
+
+    - title: Deployment & Operations
+      children:
+        - title: "Architecture"
+          url: /docs/rmq-arc/
+        - title: "Deployment"
+          url: /docs/rmq-deployment/
+        - title: "CLI Admin Tool"
+          url: /docs/cli-admin-tool/
+
+    - title: Contributor Guide
+      children:
+        - title: "How To Contribute"
+          url: "/docs/how-to-contribute/"
+        - title: "Code Guidelines"
+          url: /docs/code-guidelines/
+        #- title: "Branching Model"
+        #  url: /docs/branching-model
+        - title: "Manage Pull Request"
+          url: /docs/pull-request/
+        - title: "Release Manual"
+          url: /docs/release-manual
+
+    - title: Best Practice
+      children:
+        - title: "Core Concept"
+          url: /docs/core-concept/
+        - title: "Broker"
+          url: /docs/best-practice-broker/
+        - title: "Producer"
+          url: /docs/best-practice-producer/
+        - title: "Consumer"
+          url: /docs/best-practice-consumer/
+        - title: "NameServer"
+          url: /docs/best-practice-namesvr/
+        - title: "JVM/Kernel Config"
+          url: /docs/system-config/
+    - title: Release Notes
+      children:
+        - title: "Download"
+          url: "/dowloading/releases/"
+        - title: "4.2.0"
+          url: /release_notes/release-notes-4.2.0/
+        - title: "4.1.0-incubating"
+          url: /release_notes/release-notes-4.1.0-incubating/
+        - title: "4.0.0-incubating"
+          url: /release_notes/release-notes-4.0.0-incubating/
+    - title: RoadMap
+      url: /docs/roadmap/
+
+
+  about:
+    - title: Team
+      url: /about/team/
+    - title: Contact
+      url: /about/contact/
+    - title: Rewards
+      url: /about/rewards/
+zh-CN:
+  <<: *DEFAULT_ZH
+zh-HK:
+  <<: *DEFAULT_ZH
+zh-SG:
+  <<: *DEFAULT_ZH
+zh-TW:
+  <<: *DEFAULT_ZH
