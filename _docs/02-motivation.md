@@ -29,6 +29,9 @@ The following table demonstrates the comparison between RocketMQ, ActiveMQ and K
 
 # RocketMQ vs. ActiveMQ vs. Kafka
 
+Please note this documentation is written by the RocketMQ team. Although the ideal is a disinterested comparison of technology and features, the authors’ expertise and biases obviously favor RocketMQ.
+
+The table below is a handy quick reference for spotting the differences among RocketMQ and its most popular alternatives at a glance.
 
 | Messaging Product|Client SDK| Protocol and Specification | Ordered Message  | Scheduled Message | Batched Message |BroadCast Message| Message Filter|Server Triggered Redelivery|Message Storage|Message Retroactive|Message Priority|High Availability and Failover|Message Track|Configuration|Management and Operation Tools|
 | -------|--------|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
