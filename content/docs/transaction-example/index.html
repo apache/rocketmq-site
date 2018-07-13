@@ -13,30 +13,30 @@
 
 
 
-<title>Best Practice For Broker - Apache RocketMQ</title>
+<title>Transaction example - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="Some useful tips for users.">
+<meta name="description" content="How to use transactional component to implement eventual consistency in RocketMQ.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Best Practice For Broker">
+<meta property="og:title" content="Transaction example">
 
 
 
 
-  <meta property="og:description" content="Some useful tips for users.">
+  <meta property="og:description" content="How to use transactional component to implement eventual consistency in RocketMQ.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Best Practice For Broker">
-  <meta name="twitter:description" content="Some useful tips for users.">
+  <meta name="twitter:title" content="Transaction example">
+  <meta name="twitter:description" content="How to use transactional component to implement eventual consistency in RocketMQ.">
   <meta name="twitter:url" content="">
 
   
@@ -263,7 +263,7 @@
             
             
 
-            <li><a href="/docs/transaction-example/" class="">Transaction Example</a></li>
+            <li><a href="/docs/transaction-example/" class="active">Transaction Example</a></li>
           
             
             
@@ -379,7 +379,7 @@
             
             
 
-            <li><a href="/docs/best-practice-broker/" class="active">Broker</a></li>
+            <li><a href="/docs/best-practice-broker/" class="">Broker</a></li>
           
             
             
@@ -480,48 +480,148 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Best Practice For Broker">
-    <meta itemprop="description" content="Some useful tips for users.">
+    <meta itemprop="headline" content="Transaction example">
+    <meta itemprop="description" content="How to use transactional component to implement eventual consistency in RocketMQ.">
     <meta itemprop="datePublished" content="July 13, 2018">
-    <meta itemprop="dateModified" content="December 25, 2016">
+    <meta itemprop="dateModified" content="July 13, 2018">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Best Practice For Broker
+          <h1 class="page__title" itemprop="headline">Transaction example
 </h1>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>Some useful tips for users.</p>
-
-<aside class="sidebar__right">
+        <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#broker-role" id="markdown-toc-broker-role">Broker Role</a></li>
-  <li><a href="#flushdisktype" id="markdown-toc-flushdisktype">FlushDiskType</a></li>
-  <li><a href="#reentrantlock-vs-cas" id="markdown-toc-reentrantlock-vs-cas">ReentrantLock vs CAS</a></li>
-  <li><a href="#ossh" id="markdown-toc-ossh">os.sh</a></li>
+  <li><a href="#what-is-transactional-message" id="markdown-toc-what-is-transactional-message">What is transactional message?</a></li>
+  <li><a href="#usage-constraint" id="markdown-toc-usage-constraint">Usage Constraint</a></li>
+  <li><a href="#application" id="markdown-toc-application">Application</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h2 id="broker-role">Broker Role</h2>
-<p>Broker Role is ASYNC_MASTER, SYNC_MASTER or SLAVE.
-If you cannot tolerate message missing, we suggest you deploy SYNC_MASTER and attach a SLAVE to it.
-If you feel ok about missing, but you want the Broker to be always available, you may deploy ASYNC_MASTER with SLAVE.
-If you just want to make it easy, you may only need a ASYNC_MASTER without SLAVE.</p>
-<h2 id="flushdisktype">FlushDiskType</h2>
-<p>ASYNC_FLUSH is recommended, for SYNC_FLUSH is expensive and will cause too much performance loss. If you want reliability, we recommend you use SYNC_MASTER with SLAVE.</p>
-<h2 id="reentrantlock-vs-cas">ReentrantLock vs CAS</h2>
-<p>to be finished</p>
-<h2 id="ossh">os.sh</h2>
-<p>to be finished</p>
+<h3 id="what-is-transactional-message">What is transactional message?</h3>
 
+<p>It can be thought of as a two-phase commit message implementation to ensure eventual consistency in distributed system. 
+Transactional message ensures that the execution of local transaction and the sending of message can be performed atomically.</p>
+
+<h3 id="usage-constraint">Usage Constraint</h3>
+
+<p>(1) Messages of the transactional have no schedule and batch support.<br />
+(2) In order to avoid a single message being checked too many times and lead to half queue message accumulation， we limited the number of checks for a single message to 15 times by default, but users can change this limit by change the “transactionCheckMax” parameter in the configuration of the broker， if one message has been checked over “transactionCheckMax” times， broker will discard this message and print an error log at the same time by default. Users can change this behavior by override the “AbstractTransactionCheckListener” class.<br />
+(3) A transactional message will be checked after a certain period of time that determined by parameter “transactionMsgTimeout” in the configuration of the broker. And users also can change this limit by set user property “CHECK_IMMUNITY_TIME_IN_SECONDS” when sending transactional message, this parameter takes precedence over the “transactionMsgTimeout” parameter. <br />
+(4) A transactional message maybe checked or consumed more than once. <br />
+(5) Committed message reput to the user’s target topic may fail. Currently, it depends on the log record. High availability is ensured by the high availability mechanism of RocketMQ itself. If you want to ensure that the transactional message isn’t lost and the transaction integrity is guaranteed, it is recommended to use synchronous double write. mechanism. <br />
+(6) Producer IDs of transactional messages cannot be shared with producer IDs of other types of messages. Unlike other types of message, transactional messages allow backward queries. MQ Server query clients by their Producer IDs.</p>
+
+<h3 id="application">Application</h3>
+
+<p>1、	Transactional status</p>
+
+<p>There are three states for transactional message:<br />
+   (1) TransactionStatus.CommitTransaction: commit transaction，it means that allow consumers to consume this message.<br />
+   (2) TransactionStatus.RollbackTransaction: rollback transaction，it means that the message will be deleted and not allowed to consume.<br />
+   (3) TransactionStatus.Unknown: intermediate state，it means that MQ is needed to check back to determine the status.</p>
+
+<p>2、Send transactional message</p>
+
+<p>（1）Create the transactional producer<br />
+   Use TransactionMQProducer class to create producer client, and specify a unique producerGroup, and you can set up a custom thread pool to process check requests. After executing the local transaction, you need to reply to MQ according to the execution result，and the reply status is described in the above section.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
+import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
+import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
+import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
+import org.apache.rocketmq.common.message.MessageExt;
+import java.util.List;
+
+public class TransactionProducer {
+    public static void main(String[] args) throws MQClientException, InterruptedException {
+        TransactionListener transactionListener = new TransactionListenerImpl();
+        TransactionMQProducer producer = new TransactionMQProducer("please_rename_unique_group_name");
+        ExecutorService executorService = new ThreadPoolExecutor(2, 5, 100, TimeUnit.SECONDS, new ArrayBlockingQueue&lt;Runnable&gt;(2000), new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread(r);
+                thread.setName("client-transaction-msg-check-thread");
+                return thread;
+            }
+        });
+
+        producer.setExecutorService(executorService);
+        producer.setTransactionListener(transactionListener);
+        producer.start();
+
+        String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
+        for (int i = 0; i &lt; 10; i++) {
+            try {
+                Message msg =
+                    new Message("TopicTest1234", tags[i % tags.length], "KEY" + i,
+                        ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
+                SendResult sendResult = producer.sendMessageInTransaction(msg, null);
+                System.out.printf("%s%n", sendResult);
+
+                Thread.sleep(10);
+            } catch (MQClientException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (int i = 0; i &lt; 100000; i++) {
+            Thread.sleep(1000);
+        }
+        producer.shutdown();
+    }
+}
+```
+</code></pre>
+</div>
+
+<p>（2）Implement the TransactionListener interface<br />
+   The “executeLocalTransaction” method is used to execute local transaction when send half message succeed. It returns one of three transaction status mentioned in the previous section.<br />
+   The “checkLocalTransaction” method is used to check the local transaction status and respond to MQ check requests. It also returns one of three transaction status mentioned in the previous section.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>   import ...
+   
+   public class TransactionListenerImpl implements TransactionListener {
+       private AtomicInteger transactionIndex = new AtomicInteger(0);
+   
+       private ConcurrentHashMap&lt;String, Integer&gt; localTrans = new ConcurrentHashMap&lt;&gt;();
+   
+       @Override
+       public LocalTransactionState executeLocalTransaction(Message msg, Object arg) {
+           int value = transactionIndex.getAndIncrement();
+           int status = value % 3;
+           localTrans.put(msg.getTransactionId(), status);
+           return LocalTransactionState.UNKNOW;
+       }
+   
+       @Override
+       public LocalTransactionState checkLocalTransaction(MessageExt msg) {
+           Integer status = localTrans.get(msg.getTransactionId());
+           if (null != status) {
+               switch (status) {
+                   case 0:
+                       return LocalTransactionState.UNKNOW;
+                   case 1:
+                       return LocalTransactionState.COMMIT_MESSAGE;
+                   case 2:
+                       return LocalTransactionState.ROLLBACK_MESSAGE;
+               }
+           }
+           return LocalTransactionState.COMMIT_MESSAGE;
+       }
+   }
+   ```
+</code></pre>
+</div>
 
         
       </section>
@@ -532,7 +632,7 @@ If you just want to make it easy, you may only need a ASYNC_MASTER without SLAVE
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-07-13">July 13, 2018</time></p>
         
       </footer>
 
@@ -541,24 +641,24 @@ If you just want to make it easy, you may only need a ASYNC_MASTER without SLAVE
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Best Practice For Broker /docs/best-practice-broker/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Transaction example /docs/transaction-example/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/best-practice-broker/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/docs/transaction-example/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/docs/best-practice-broker/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/docs/transaction-example/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/best-practice-broker/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/docs/transaction-example/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docs/transaction-example/" class="pagination--pager" title="Transaction example
+      <a href="/docs/how-to-contribute/" class="pagination--pager" title="How To Contribute
 ">Previous</a>
     
     
-      <a href="/docs/best-practice-consumer/" class="pagination--pager" title="Best Practice For Consumer
+      <a href="/docs/best-practice-broker/" class="pagination--pager" title="Best Practice For Broker
 ">Next</a>
     
   </nav>
