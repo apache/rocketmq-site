@@ -39,6 +39,8 @@ docs:
         url: /docs/logappender-example/
       - title: "OpenMessaging Example"
         url: /docs/openmessaging-example/
+      - title: "Transaction Example"
+        url: /docs/transaction-example/
       - title: "FAQ"
         url: /docs/faq/
 
