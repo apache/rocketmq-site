@@ -38,11 +38,14 @@ Network disconnection or producer application restart may result in the loss of 
 Just as the figure shows, in order to mask the underlying implementation of storage, all transactional message operations focus on the transaction service interface.
 RocketMQ provides a default implementation with its own storage system，and we used a transaction bridge to implement our transactional storage logic，instead of modify RocketMQ's storage layer directly. 
 
-> Sending transactional message：
+> Sending transactional message: 
 
 ![screenshot](/assets/images/blog/sending-transactional-message.png)  
-This figure describes the sending transactional message timing relationships. From this figure, we can clearly understand how transaction messages are submitted in two phases.
-> Checking transactional message：
+This figure describes the timing relationships of sending transactional message. From this figure, we can clearly see that how transactional messages are committed in two phases.  
+
+> Checking transactional message: 
 
 ![screenshot](/assets/images/blog/checking-transactional-message.png)  
 This figure describes the checking logic for transactional messages，when MQ server finds that a message remains a half message for a long time，it will send a request to the message producer，to get the status of the current transaction.
+
+> Design Motivation: 
