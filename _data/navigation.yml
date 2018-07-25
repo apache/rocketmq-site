@@ -84,6 +84,8 @@ docs:
     children:
       - title: "Download"
         url: "/dowloading/releases/"
+      - title: "4.3.0"
+        url: /release_notes/release-notes-4.3.0/
       - title: "4.2.0"
         url: /release_notes/release-notes-4.2.0/
       - title: "4.1.0-incubating"
