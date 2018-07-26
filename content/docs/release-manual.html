@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-07-25T14:43:18+08:00">
+  <meta property="article:published_time" content="2018-07-26T16:43:48+08:00">
 
 
 
@@ -490,7 +490,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Release Manual">
     <meta itemprop="description" content="Apache RocketMQ Release Manual">
-    <meta itemprop="datePublished" content="July 25, 2018">
+    <meta itemprop="datePublished" content="July 26, 2018">
     <meta itemprop="dateModified" content="February 08, 2017">
 
     <div class="page__inner-wrap">
@@ -507,26 +507,33 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#preliminaries" id="markdown-toc-preliminaries">Preliminaries</a>    <ul>
-      <li><a href="#apache-release-documentation" id="markdown-toc-apache-release-documentation">Apache Release Documentation</a></li>
-      <li><a href="#code-signing-key" id="markdown-toc-code-signing-key">Code Signing Key</a></li>
-      <li><a href="#prepare-your-maven-settings" id="markdown-toc-prepare-your-maven-settings">Prepare Your Maven Settings</a></li>
-      <li><a href="#cleanup-jira-issues" id="markdown-toc-cleanup-jira-issues">Cleanup JIRA issues</a></li>
-      <li><a href="#publish-the-release-notes" id="markdown-toc-publish-the-release-notes">Publish the Release Notes</a></li>
+  <li><a href="#1-preliminaries" id="markdown-toc-1-preliminaries">1. Preliminaries</a>    <ul>
+      <li><a href="#11-apache-release-documentation" id="markdown-toc-11-apache-release-documentation">1.1 Apache Release Documentation</a></li>
+      <li><a href="#12-code-signing-key" id="markdown-toc-12-code-signing-key">1.2 Code Signing Key</a></li>
+      <li><a href="#13-prepare-your-maven-settings" id="markdown-toc-13-prepare-your-maven-settings">1.3 Prepare Your Maven Settings</a></li>
+      <li><a href="#14-cleanup-issues" id="markdown-toc-14-cleanup-issues">1.4 Cleanup Issues</a></li>
+      <li><a href="#15-publish-the-release-notes" id="markdown-toc-15-publish-the-release-notes">1.5 Publish the Release Notes</a></li>
     </ul>
   </li>
-  <li><a href="#build-the-release-candidate" id="markdown-toc-build-the-release-candidate">Build the Release Candidate</a>    <ul>
-      <li><a href="#build-the-candidate-release-artifacts" id="markdown-toc-build-the-candidate-release-artifacts">Build the Candidate Release Artifacts</a></li>
-      <li><a href="#validate-the-release-candidate" id="markdown-toc-validate-the-release-candidate">Validate the Release Candidate</a></li>
-      <li><a href="#release-artifacts-to-dev-repository" id="markdown-toc-release-artifacts-to-dev-repository">Release Artifacts to Dev-Repository</a></li>
+  <li><a href="#2build-the-binary-release-candidate" id="markdown-toc-2build-the-binary-release-candidate">2.Build the Binary Release Candidate</a></li>
+  <li><a href="#3build-the-source-release-candidate" id="markdown-toc-3build-the-source-release-candidate">3.Build the Source Release Candidate</a>    <ul>
+      <li><a href="#31-release-to-the-maven-repository" id="markdown-toc-31-release-to-the-maven-repository">3.1 Release to the maven repository</a></li>
+      <li><a href="#32-rollback-and-retry" id="markdown-toc-32-rollback-and-retry">3.2 Rollback and Retry</a></li>
     </ul>
   </li>
-  <li><a href="#vote-on-the-release" id="markdown-toc-vote-on-the-release">Vote on the Release</a>    <ul>
-      <li><a href="#apache-rocketmq-community-vote" id="markdown-toc-apache-rocketmq-community-vote">Apache RocketMQ Community Vote</a></li>
+  <li><a href="#4-validate-the-release-candidate" id="markdown-toc-4-validate-the-release-candidate">4. Validate the Release Candidate</a>    <ul>
+      <li><a href="#41-check-list-for-binary-release" id="markdown-toc-41-check-list-for-binary-release">4.1 check list for binary release:</a></li>
+      <li><a href="#42-check-list-for-source-release" id="markdown-toc-42-check-list-for-source-release">4.2 check list for source release:</a></li>
+      <li><a href="#43-verify-tools" id="markdown-toc-43-verify-tools">4.3 verify tools</a></li>
     </ul>
   </li>
-  <li><a href="#publish-the-release" id="markdown-toc-publish-the-release">Publish the Release</a></li>
-  <li><a href="#announce-the-release" id="markdown-toc-announce-the-release">Announce the Release</a></li>
+  <li><a href="#5-release-the-staging-artifacts" id="markdown-toc-5-release-the-staging-artifacts">5. Release the Staging Artifacts</a></li>
+  <li><a href="#6-vote-on-the-release" id="markdown-toc-6-vote-on-the-release">6. Vote on the Release</a>    <ul>
+      <li><a href="#61-apache-rocketmq-community-vote" id="markdown-toc-61-apache-rocketmq-community-vote">6.1 Apache RocketMQ Community Vote</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-publish-the-release" id="markdown-toc-7-publish-the-release">7. Publish the Release</a></li>
+  <li><a href="#8-announce-the-release" id="markdown-toc-8-announce-the-release">8. Announce the Release</a></li>
 </ul>
 
   </nav>
@@ -534,8 +541,8 @@
 
 <p>This is a guide to make a released version of Apache RocketMQ. Please follow the steps below:</p>
 
-<h2 id="preliminaries">Preliminaries</h2>
-<h3 id="apache-release-documentation">Apache Release Documentation</h3>
+<h2 id="1-preliminaries">1. Preliminaries</h2>
+<h4 id="11-apache-release-documentation">1.1 Apache Release Documentation</h4>
 <p>The release documentations provided by The ASF can be found here:</p>
 
 <ul>
@@ -544,7 +551,7 @@
   <li><a href="http://www.apache.org/dev/publishing-maven-artifacts.html">Maven Release Info</a></li>
 </ul>
 
-<h3 id="code-signing-key">Code Signing Key</h3>
+<h4 id="12-code-signing-key">1.2 Code Signing Key</h4>
 <p>Create a code signing gpg key for release signing, use <strong>&lt;your Apache ID&gt;@apache.org</strong> as your primary ID for the code signing key. See <a href="https://www.apache.org/dev/release-signing">Apache Release Signing documentation</a> for more details.</p>
 
 <ul>
@@ -557,7 +564,7 @@
 
 <p><strong>Tips:</strong> If you have more than one key in your gpg, set the code signing key to <code class="highlighter-rouge">~/.gnupg/gpg.conf</code> as default key is recommended.</p>
 
-<h3 id="prepare-your-maven-settings">Prepare Your Maven Settings</h3>
+<h4 id="13-prepare-your-maven-settings">1.3 Prepare Your Maven Settings</h4>
 <p>Make sure your Maven settings.xml file contains the following:</p>
 
 <div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
@@ -567,7 +574,6 @@
            <span class="nt">&lt;properties&gt;</span>
                <span class="nt">&lt;mavenExecutorId&gt;</span>forked-path<span class="nt">&lt;/mavenExecutorId&gt;</span>
                <span class="nt">&lt;gpg.keyname&gt;</span>yourKeyName<span class="nt">&lt;/gpg.keyname&gt;</span>
-               <span class="nt">&lt;username&gt;</span>yourApacheID<span class="nt">&lt;/username&gt;</span>
                <span class="nt">&lt;deploy.url&gt;</span>https://dist.apache.org/repos/dist/dev/rocketmq/<span class="nt">&lt;/deploy.url&gt;</span>
            <span class="nt">&lt;/properties&gt;</span>
        <span class="nt">&lt;/profile&gt;</span>
@@ -596,17 +602,17 @@
 
 <p><strong>Tips:</strong> It is highly recommended to use <a href="http://maven.apache.org/guides/mini/guide-encryption.html">Maven’s password encryption capabilities</a> for your passwords.</p>
 
-<h3 id="cleanup-jira-issues">Cleanup JIRA issues</h3>
-<p>Cleanup JIRA issues related to this release version, and check all the issues has been marked with right version in the <code class="highlighter-rouge">FixVersion</code> field.</p>
+<h4 id="14-cleanup-issues">1.4 Cleanup Issues</h4>
+<p>Cleanup JIRA issues or Github Issues related to this release version, and check all the issues has been marked with right version in the <code class="highlighter-rouge">FixVersion</code> field.</p>
 
-<h3 id="publish-the-release-notes">Publish the Release Notes</h3>
-<p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/rocketmq-site">rocketmq-site</a>, there is a <a href="http://rocketmq.apache.org/release_notes/release-notes-4.0.0-incubating/">release notes</a> of <code class="highlighter-rouge">4.0.0-incubating</code> available for reference, include the link to the release notes in the voting emails.</p>
+<p>Also, remember to check the current version of MQVersion, which should be equal to this released version.</p>
 
-<h2 id="build-the-release-candidate">Build the Release Candidate</h2>
-<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">release-4.2.0</code>.</p>
+<h4 id="15-publish-the-release-notes">1.5 Publish the Release Notes</h4>
+<p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/rocketmq-site">rocketmq-site</a>, there is a <a href="https://rocketmq.apache.org/release_notes/release-notes-4.2.0/">release notes</a> available for reference, include the link to the release notes in the voting emails.</p>
 
-<h3 id="build-the-candidate-release-artifacts">Build the Candidate Release Artifacts</h3>
-<p>Before building the release artifacts, do some verifications below:</p>
+<h2 id="2build-the-binary-release-candidate">2.Build the Binary Release Candidate</h2>
+<p>Checkout the code to be released, and build the binary artifact.
+Be aware of the os version, for some dependency is os sensitive, such as netty tc-native.</p>
 
 <ul>
   <li>Make sure that your are in the candidate release branch.</li>
@@ -614,30 +620,57 @@
   <li>Make sure that all the integration tests can pass via <code class="highlighter-rouge">mvn clean test -Pit-test</code>.</li>
 </ul>
 
+<p>After the successful building, remember to sign the artifact, and copy them to the svn repository, you could refer to <a href="https://dist.apache.org/repos/dist/release/rocketmq/4.2.0">svn repository</a> .</p>
+
+<h2 id="3build-the-source-release-candidate">3.Build the Source Release Candidate</h2>
+<p>In this process, you need to use maven release plugin to release the artifact to maven repository. And also, copy them to the svn repository.</p>
+
+<h4 id="31-release-to-the-maven-repository">3.1 Release to the maven repository</h4>
+
+<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">release-4.2.0</code>.</p>
+
 <p>Perform the following to generate and stage the artifacts:</p>
 
 <ol>
   <li><code class="highlighter-rouge">mvn clean release:clean</code></li>
-  <li><code class="highlighter-rouge">mvn release:prepare -Psigned_release -Darguments="-DskipTests"</code>, answer the correct release version, SCM release tag, and the new development version.</li>
-  <li><code class="highlighter-rouge">mvn -Psigned_release release:perform -Darguments="-DskipTests"</code>, generate the artifacts and push them to the <a href="https://repository.apache.org/#stagingRepositories">Nexus repo</a>. If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true</li>
+  <li><code class="highlighter-rouge">mvn release:prepare -Psigned_release -Darguments="-DskipTests"</code>, answer the correct release version(use the default, the version in pom, just enter), SCM release tag(use the default, the branch name, just enter), and the new development version(increate the version by 1.0, if you release 4.2.0, then the next version should be 4.3.0).</li>
+  <li><code class="highlighter-rouge">mvn -Psigned_release release:perform -Darguments="-DskipTests"</code>, generate the artifacts and push them to the <a href="https://repository.apache.org/#stagingRepositories">Nexus repo</a>. If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true.</li>
 </ol>
 
 <p>Now, the candidate release artifacts can be found in the <a href="https://repository.apache.org/#stagingRepositories">Nexus staging repo</a> and in the <code class="highlighter-rouge">target</code> folder of your local branch.</p>
 
 <p><strong>Tips:</strong> If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select <code class="highlighter-rouge">Delete</code>.</p>
 
-<h3 id="validate-the-release-candidate">Validate the Release Candidate</h3>
-<p>Now the release candidate is ready, before calling a vote, the artifacts must satisfy the following requirements:</p>
+<h4 id="32-rollback-and-retry">3.2 Rollback and Retry</h4>
+<p>If the staging process encounter problem, you may need to rollback:
+Delete the branch and tag created in 3.1 and then redo it.</p>
+
+<h2 id="4-validate-the-release-candidate">4. Validate the Release Candidate</h2>
+
+<h4 id="41-check-list-for-binary-release">4.1 check list for binary release:</h4>
 
 <ul>
-  <li>Checksums and PGP signatures are valid.</li>
-  <li>Build is successful including unit and integration tests.</li>
-  <li>LICENSE and NOTICE files are correct and dependency licenses are acceptable.</li>
-  <li>All source files have license headers and pass RAT checks.</li>
-  <li>Javadocs have been generated correctly.</li>
-  <li>The provenance of all source files is clear (ASF or software grants).</li>
+  <li>check the os on which to build the artifact, for the netty tc-native is os sensitive</li>
+  <li>check LICENSE, should be Apache V2</li>
+  <li>check NOTICE, should have a notice for third-party dependency if necessary</li>
+  <li>extract the zip and check if the binary version is correct</li>
+  <li>verify the asc(pgp sign), md5, sha1</li>
+  <li>start nameserver and broker according to the quick-start</li>
+  <li>run clusterList command to see if the version is correct</li>
 </ul>
 
+<h4 id="42-check-list-for-source-release">4.2 check list for source release:</h4>
+
+<ul>
+  <li>check LICENSE, should be Apache V2</li>
+  <li>check NOTICE, should have a notice for third-party dependency if necessary</li>
+  <li>extract the zip and check if the source version is correct</li>
+  <li>verify the asc(pgp sign), md5, sha1</li>
+  <li>build the source, start nameserver and broker according to the quick-start</li>
+  <li>run clusterList command to see if the version is correct</li>
+</ul>
+
+<h4 id="43-verify-tools">4.3 verify tools</h4>
 <p>Please follow the steps below to verify the checksums and PGP signatures:</p>
 
 <ol>
@@ -671,7 +704,7 @@
 </code></pre>
 </div>
 
-<h3 id="release-artifacts-to-dev-repository">Release Artifacts to Dev-Repository</h3>
+<h2 id="5-release-the-staging-artifacts">5. Release the Staging Artifacts</h2>
 <p>If the release candidate passes the validation checklist, close the staging repository in Nexus by selecting the staging repository <code class="highlighter-rouge">orgapacherocketmq-XXX</code> and clicking on the <code class="highlighter-rouge">Close</code> icon.</p>
 
 <p>Nexus will now run through a series of checksum and signature validations.</p>
@@ -680,16 +713,16 @@
 
 <p>If the checks aren’t passed, fix the issues then go back and restart the release process.</p>
 
-<p>If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/rocketmq/${release version}.</p>
+<p>If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/rocketmq/${release-version}.</p>
 
-<h2 id="vote-on-the-release">Vote on the Release</h2>
+<h2 id="6-vote-on-the-release">6. Vote on the Release</h2>
 
 <p>Release voting must successfully pass within the Apache RocketMQ community via the <strong>dev@rocketmq.apache.org</strong> mailing list.</p>
 
 <p>General information regarding the Apache voting process can be found <a href="http://www.apache.org/foundation/voting.html">here</a>.</p>
 
-<h3 id="apache-rocketmq-community-vote">Apache RocketMQ Community Vote</h3>
-<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release version&gt; RC&lt;RC Number&gt;</strong> and body:</p>
+<h4 id="61-apache-rocketmq-community-vote">6.1 Apache RocketMQ Community Vote</h4>
+<p>To vote on a candidate release, send an email to the <a href="mailto:dev@rocketmq.apache.org">dev list</a> with subject <strong>[VOTE]: Release Apache RocketMQ &lt;release-version&gt; RC&lt;RC Number&gt;</strong> and body:</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -726,7 +759,7 @@ https://dist.apache.org/repos/dist/dev/rocketmq/KEYS</p>
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release version&gt; RC&lt;RC Number&gt;</strong> :</p>
+<p>Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: <strong>[RESULT][VOTE]: Release Apache RocketMQ &lt;release-version&gt; RC&lt;RC Number&gt;</strong> :</p>
 
 <blockquote>
   <p>Hello RocketMQ Community,</p>
@@ -749,18 +782,18 @@ User Name (Apache ID)<br />
 The Apache RocketMQ Team</p>
 </blockquote>
 
-<p>If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release version&gt; RC&lt;RC Number&gt;</strong></p>
+<p>If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: <strong>[RESTART][VOTE][#&lt;Attempt Number&gt;]: Release Apache RocketMQ &lt;release-version&gt; RC&lt;RC Number&gt;</strong></p>
 
-<h2 id="publish-the-release">Publish the Release</h2>
+<h2 id="7-publish-the-release">7. Publish the Release</h2>
 <p>Once the Apache RocketMQ PPMC votes pass, publish the release artifacts to the Nexus Maven repository and to the Apache release repository.</p>
 
 <ol>
   <li>Publish the Maven Artifacts, release the Maven artifacts in Nexus by selecting the staging repository <strong>orgapacherocketmq-XXX</strong> and clicking on the <code class="highlighter-rouge">Release</code> icon.</li>
-  <li>Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release version}</li>
+  <li>Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release-version}</li>
 </ol>
 
-<h2 id="announce-the-release">Announce the Release</h2>
-<p>Send an email to <strong>announce@apache.org</strong>, and <strong>dev@rocketmq.apache.org</strong> with the subject <strong>[ANNOUNCE] Release Apache RocketMQ &lt;release version&gt;</strong> and a body along the lines of:</p>
+<h2 id="8-announce-the-release">8. Announce the Release</h2>
+<p>Send an email to <strong>announce@apache.org</strong>, and <strong>dev@rocketmq.apache.org</strong> with the subject <strong>[ANNOUNCE] Release Apache RocketMQ &lt;release-version&gt;</strong> and a body along the lines of:</p>
 
 <blockquote>
   <p>Hi all,</p>
@@ -771,7 +804,7 @@ The Apache RocketMQ Team</p>
 http://rocketmq.apache.org/</p>
 
   <p>The release artifacts can be downloaded here:<br />
-https://dist.apache.org/repos/dist/release/rocketmq/${release version}</p>
+https://dist.apache.org/repos/dist/release/rocketmq/${release-version}</p>
 
   <p>The release notes can be found here:<br />
 &lt;insert link to the rocketmq release notes&gt;</p>
