@@ -241,7 +241,7 @@ Once the Apache RocketMQ PPMC votes pass, publish the release artifacts to the N
 2. Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release-version}
 
 ## 8. Announce the Release
-Send an email to **announce@apache.org**, and **dev@rocketmq.apache.org** with the subject **[ANNOUNCE] Release Apache RocketMQ \<release-version\>** and a body along the lines of:
+Send an email to **announce@apache.org**, **users@rocketmq.apache.org**, **private@rocketmq.apache.org**, and **dev@rocketmq.apache.org** with the subject **[ANNOUNCE] Release Apache RocketMQ \<release-version\>** and a body along the lines of:
 
 > Hi all,
 >

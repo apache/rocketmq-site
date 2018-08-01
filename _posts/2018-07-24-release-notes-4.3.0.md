@@ -55,7 +55,7 @@ Below is a summary of the JIRA issues addressed in the 4.3.0 release of RocketMQ
 ## Bug
 
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issu/66'>ISSUE-66</a>] -   Fix the issue that message body compressed multi times when resending a message.
+<li>[<a href='https://github.com/apache/rocketmq/issues/66'>ISSUE-66</a>] -   Fix the issue that message body compressed multi times when resending a message.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/260'>ISSUE-260</a>] -   Fix the concurrency issue in StoreStatsService, to yield more accurate statistics.
 </li>
