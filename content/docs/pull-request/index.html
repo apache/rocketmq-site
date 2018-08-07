@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-08-01T15:12:33+08:00">
+  <meta property="article:published_time" content="2018-08-07T18:09:53+08:00">
 
 
 
@@ -490,7 +490,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="How to manage Pull Request">
     <meta itemprop="description" content="This page guides you through Git setup and contribution process.">
-    <meta itemprop="datePublished" content="August 01, 2018">
+    <meta itemprop="datePublished" content="August 07, 2018">
     <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
@@ -510,17 +510,12 @@
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#git-setup-for-contributors" id="markdown-toc-git-setup-for-contributors">Git setup for Contributors</a></li>
-  <li><a href="#git-setup-for-committers" id="markdown-toc-git-setup-for-committers">Git setup for Committers</a></li>
   <li><a href="#do-some-work-on-the-branch" id="markdown-toc-do-some-work-on-the-branch">Do some work on the branch</a></li>
   <li><a href="#how-to-create-a-pr-committers" id="markdown-toc-how-to-create-a-pr-committers">How to create a PR (committers)</a></li>
   <li><a href="#how-to-create-a-pr-contributors" id="markdown-toc-how-to-create-a-pr-contributors">How to create a PR (contributors)</a></li>
   <li><a href="#check-list-for-a-pr" id="markdown-toc-check-list-for-a-pr">Check List for a PR</a></li>
   <li><a href="#merging-a-pr-yours-or-contributors" id="markdown-toc-merging-a-pr-yours-or-contributors">Merging a PR (yours or contributors)</a></li>
   <li><a href="#closing-a-pr-without-committing-for-committers" id="markdown-toc-closing-a-pr-without-committing-for-committers">Closing a PR without committing (for committers)</a></li>
-  <li><a href="#best-practises" id="markdown-toc-best-practises">Best Practises</a>    <ul>
-      <li><a href="#avoiding-accidentally-committing-private-branches-to-the-asf-repo" id="markdown-toc-avoiding-accidentally-committing-private-branches-to-the-asf-repo">Avoiding accidentally committing private branches to the ASF repo</a></li>
-    </ul>
-  </li>
 </ul>
 
   </nav>
@@ -539,45 +534,16 @@ Now you can create your pull requests.</p>
 <p>You will need to update a local master sometimes (to merge to your development branches).
 For this, you have to add remote for RocketMQ mirror as follows,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add upstream https://github.com/apache/rocketmq.git
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://github.com/apache/rocketmq.git
 </code></pre>
 </div>
 
-<p>and update your local master via <code class="highlighter-rouge">git fetch</code> followed by <code class="highlighter-rouge">git rebase</code>, for instance:
-    git fetch upstream master
-    git rebase upstream/master</p>
+<p>and update your local master via <code class="highlighter-rouge">git fetch</code> followed by <code class="highlighter-rouge">git rebase</code>, for instance:</p>
 
-<h1 id="git-setup-for-committers">Git setup for Committers</h1>
-<p>In addition to contributors’ configurations, committers will have to attach the apache git repo:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://git-wip-us.apache.org/repos/asf/rocketmq.git
+<div class="highlighter-rouge"><pre class="highlight"><code>git fetch apache master
+git rebase apache/master
 </code></pre>
 </div>
-
-<p>To check your remote setup, issue</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote -v
-</code></pre>
-</div>
-
-<p>You should see something like this:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>origin    https://github.com/&lt;your_github_name&gt;/rocketmq.git (fetch)
-origin    https://github.com/&lt;your_github_name&gt;/rocketmq.git (push)
-upstream  https://github.com/apache/rocketmq.git (fetch)
-upstream  https://github.com/apache/rocketmq.git (push)
-apache    https://git-wip-us.apache.org/repos/asf/rocketmq.git (fetch)
-apache    https://git-wip-us.apache.org/repos/asf/rocketmq.git (push)
-</code></pre>
-</div>
-
-<p>Now if you want to experiment with a branch everything, by default, points to your github account because ‘origin’ is default. You can work as normal using only github until you are ready to merge with the apache remote. Some conventions will integrate with Apache Github issue ticket numbers.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b ROCKETMQ-xxxx #xxxx typically is a Github issue ticket number
-</code></pre>
-</div>
-
-<p><em>To ensure the code quality of the master branch, all but minor changes should go through pull requests reviewed by peer committers.</em></p>
 
 <h1 id="do-some-work-on-the-branch">Do some work on the branch</h1>
 
@@ -624,16 +590,7 @@ You pull request will be reviewed and commented by committers, and issues can be
 
 <h1 id="check-list-for-a-pr">Check List for a PR</h1>
 
-<p>Each pull request should follow this checklist to help us incorporate your contribution quickly and easily:</p>
-
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">-</span> <span class="p">[</span><span class="nv">x</span><span class="p">]</span> Make sure there is a Github issue filed for the change (usually before you start working on it). Trivial changes like typos do not require a Github issue. Your pull request should address just this issue, without pulling in other changes - one PR resolves one issue. 
-<span class="p">-</span> <span class="p">[</span><span class="nv"> </span><span class="p">]</span> Format the pull request title like <span class="sb">`[ISSUE #123] Fix UnknownException when host config not exist`</span>. Each commit in the pull request should have a meaningful subject line and body.
-<span class="p">-</span> <span class="p">[</span><span class="nv"> </span><span class="p">]</span> Write a pull request description that is detailed enough to understand what the pull request does, how, and why.
-<span class="p">-</span> <span class="p">[</span><span class="nv"> </span><span class="p">]</span> Write necessary unit-test to verify your logic correction, more mock a little better when cross module dependency exist. If the new feature or significant change is committed, please remember to add integration-test in <span class="p">[</span><span class="nv">test module</span><span class="p">](</span><span class="sx">https://github.com/apache/rocketmq/tree/master/test</span><span class="p">)</span>.
-<span class="p">-</span> <span class="p">[</span><span class="nv"> </span><span class="p">]</span> Run <span class="sb">`mvn -B clean apache-rat:check findbugs:findbugs checkstyle:checkstyle` to make sure basic checks pass. Run `mvn clean install -DskipITs` to make sure unit-test pass. Run `mvn clean test-compile failsafe:integration-test`</span>  to make sure integration-test pass.
-<span class="p">-</span> <span class="p">[</span><span class="nv"> </span><span class="p">]</span> If this contribution is large, please file an <span class="p">[</span><span class="nv">Apache Individual Contributor License Agreement</span><span class="p">](</span><span class="sx">http://www.apache.org/licenses/#clas</span><span class="p">)</span>.
-</code></pre>
-</div>
+<p>Each pull request should follow the <a href="https://github.com/apache/rocketmq/blob/master/.github/PULL_REQUEST_TEMPLATE.md">checklist</a> to help us incorporate your contribution quickly and easily.</p>
 
 <p>Remember use <code class="highlighter-rouge">- [x]</code> mark an item finished in the check list and there is a <a href="https://github.com/apache/rocketmq/pull/152">demo pull request</a> can be your reference.</p>
 
@@ -665,7 +622,7 @@ If all requirements are met, you can commit the squashed request using:</p>
 </div>
 
 <p>ROCKETMQ-XXXX is all capitalized and ZZ is the pull request number on apache/rocketmq repository. Including “closes apache/rocketmq#ZZ” will close the PR automatically. More information can be found here <a href="https://help.github.com/articles/closing-issues-via-commit-messages/">GitHub PR closing docs.</a>.
-Next, push to git-wip-us.apache.org:</p>
+Next, push to apache:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>git push apache master
 </code></pre>
@@ -688,19 +645,7 @@ git push apache master
 </code></pre>
 </div>
 
-<p>that should close PR ZZ on github mirror without merging and any code modifications in the master repository.more detail please refer to RocketMQ PR https://github.com/apache/rocketmq/pull/15</p>
-
-<h1 id="best-practises">Best Practises</h1>
-
-<h2 id="avoiding-accidentally-committing-private-branches-to-the-asf-repo">Avoiding accidentally committing private branches to the ASF repo</h2>
-
-<p>It’s dangerous —especially when using IDEs— to accidentally commit changes to the ASF repo, be directed to the trunk, branch-2, other standard branch on which you are developing, or to a private branch you had intended to keep on github (or a private repo).</p>
-
-<p>Committers can avoid this by setting the directory in which they develop code to read only access to the ASF repository on github. A separate directory should also be set up with write access to the ASF repository as well as read access to your other repositories. Merging operations and push backs to the ASF repo are done from this directory —so it will be immune to all local changes.</p>
-
-<p>If you accidentally committed a patch to an ASF branch, do not attempt to roll back the branch and force out a new update. Simply commit and push out a new patch revoking the change.</p>
-
-<p>If you do accidentally committed a branch to the ASF repo, the infrastructure team can delete it —but they cannot stop it propagating to github and potentially being visible. Please avoid this.</p>
+<p>that should close PR ZZ on github mirror without merging and any code modifications in the master repository.</p>
 
 
         
