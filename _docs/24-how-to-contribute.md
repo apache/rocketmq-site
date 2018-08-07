@@ -1,5 +1,5 @@
 ---
-title: "How To Contribute"
+title: "How to Contribute"
 permalink: /docs/how-to-contribute/
 modified: 2017-8-23T15:01:43-04:00
 ---
@@ -12,11 +12,11 @@ Apache RocketMQ is developed by an open and friendly community. Everybody is cor
 The Apache RocketMQ community is eager to help and to answer your questions. We have a [user mailing list](/about/contact/) and [apache-rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) tag on Stack Overflow.
 
 ## File a bug report
-Please let us know if you experienced a problem with RocketMQ and file a bug report. Open [JIRA Issue](https://issues.apache.org/jira/projects/ROCKETMQ) and click on the blue Create button at the top. Please give detailed information about the problem you encountered and, if possible, add a description that helps to reproduce the problem. Thank you very much.
+Please let us know if you experienced a problem with RocketMQ and file a bug report. Open [Github Issue](https://github.com/apache/rocketmq/issues) and click on the New issue. 
 
 ## Propose an improvement or a new feature
 
-Our community is constantly looking for feedback to improve Apache RocketMQ. If you have an idea how to improve RocketMQ or have a new feature in mind that would be beneficial for RocketMQ users, please open an issue in [RocketMQ’s JIRA](https://issues.apache.org/jira/projects/ROCKETMQ). The improvement or new feature should be described in appropriate detail and include the scope and its requirements if possible. Detailed information is important for a few reasons:
+Our community is constantly looking for feedback to improve Apache RocketMQ. If you have an idea how to improve RocketMQ or have a new feature in mind that would be beneficial for RocketMQ users, please open an issue in [RocketMQ’s ISSUE](https://github.com/apache/rocketmq/issues). The improvement or new feature should be described in appropriate detail and include the scope and its requirements if possible. Detailed information is important for a few reasons:
 
 * It ensures your requirements are met when the improvement or feature is implemented.
 * It helps to estimate the effort and to design a solution that addresses your needs.
@@ -53,13 +53,13 @@ Please do also read the Submit a [Contributor License Agreement Section](http://
 
 Looking for an issue to work on?
 
-We maintain a list of all known bugs, proposed improvements and suggested features in [RocketMQ’s JIRA](https://issues.apache.org/jira/projects/ROCKETMQ).
+We maintain a list of all known bugs, proposed improvements and suggested features in [Github issue](https://github.com/apache/rocketmq/issues).
 
 ## Contribute documentation
 
 Good documentation is crucial for any kind of software. The Apache RocketMQ community aims to provide concise, precise, and complete documentation and welcomes any contribution to improve Apache RocketMQ’s documentation.
 
-* Please report missing, incorrect, or out-dated documentation as a [JIRA ISSUE](https://issues.apache.org/jira/projects/ROCKETMQ).
+* Please report missing, incorrect, or out-dated documentation as a [Github issue](https://github.com/apache/rocketmq/issues).
 * RocketMQ’s documentation is written in Markdown and located in the docs folder in RocketMQ’s [site source code repository](https://github.com/apache/rocketmq-site). See the Contribute [documentation guidelines](/docs/code-guidelines/) for detailed instructions for how to update and improve the documentation and to contribute your changes.
 
 ## Improve the website
@@ -72,7 +72,7 @@ The Apache RocketMQ website presents Apache RocketMQ and its community. It serve
 
 We welcome any contribution to improve our website.
 
-Please open a [JIRA issue](https://issues.apache.org/jira/projects/ROCKETMQ) if you think our website could be improved.
+Please open a [Github issue](https://github.com/apache/rocketmq-site/issues) if you think our website could be improved.
 Please follow the Improve the [website guidelines](https://github.com/apache/rocketmq-site) if you would like to update and improve the website.
 
 ## More ways to contribute…
