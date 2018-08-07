@@ -20,13 +20,13 @@ and receive messages.
 
 # Download & Build from Release
 
-Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.2.0/rocketmq-all-4.2.0-source-release.zip) to download the 4.2.0 source release. Also you could download a binary release from [here](http://rocketmq.apache.org/release_notes/release-notes-4.2.0/).
+Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.0/rocketmq-all-4.3.0-source-release.zip) to download the 4.3.0 source release. Also you could download a binary release from [here](http://rocketmq.apache.org/release_notes/release-notes-4.3.0/).
 
-Now execute the following commands to unpack 4.2.0 source release and build the binary artifact.
+Now execute the following commands to unpack 4.3.0 source release and build the binary artifact.
 
 ```shell
-  > unzip rocketmq-all-4.2.0-source-release.zip
-  > cd rocketmq-all-4.2.0/
+  > unzip rocketmq-all-4.3.0-source-release.zip
+  > cd rocketmq-all-4.3.0/
   > mvn -Prelease-all -DskipTests clean install -U
   > cd distribution/target/apache-rocketmq
 ```
