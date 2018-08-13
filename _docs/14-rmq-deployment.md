@@ -118,7 +118,7 @@ To make sure that no successfully published message will be lost, RocketMQ provi
 Like many replication system, sync brokers wait until commit log is replicated to the slave before acknowledging. Async brokers, instead, return immediately after messages are processed on master.
 
 ##### How to configure
-There are three pre-built configurations shipped with the distribution of RocketMQ under conf folder for your reference:
+For your reference, there are three pre-built configurations shipped with the distribution of RocketMQ under conf folder:
 
 ```java
 2m-2s-sync
@@ -128,7 +128,7 @@ There are three pre-built configurations shipped with the distribution of Rocket
 Note: all configurations uses ASYNC_FLUSH.
 
 #### Deployment
-Take the deployment of 2m-2s-sync as example. First, start up two name servers as is shown in the Quick Start section. Assume their IPs are 192.168.0.2 and 192.168.0.3.
+Take the deployment of 2m-2s-sync as example. First, start up two name servers as it is shown in the Quick Start section. Assume their IPs are 192.168.0.2 and 192.168.0.3.
 
 Then start the brokers(Assume binary RocketMQ is at /home/rocketmq/dist)
 
