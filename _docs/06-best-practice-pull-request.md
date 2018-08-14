@@ -9,7 +9,7 @@ This page guides you through Git setup and contribution process.
 {% include toc %}
 
 # Git setup for Contributors
-First of all, fork github’s `apache/rocketmq` to your own account on github and clone it as follows,
+First of all, fork github’s `apache/rocketmq` to your github account and clone it as follows:
 
     git clone https://github.com/<your_github_name>/rocketmq.git
 
@@ -31,7 +31,7 @@ and update your local master via `git fetch` followed by `git rebase`, for insta
     git commit -a -m "doing some work"
     git push origin ROCKETMQ-xxxx # notice pushing to **origin** not **apache**
     
-Once you are ready to commit to the apache remote you can merge and push them directly, otherwise always create a PR.
+Once you are ready to commit to the apache remote, you can merge and push them directly, otherwise always create a PR.
 
 # How to create a PR (committers)
 
@@ -45,7 +45,7 @@ Push your branch to Github:
 2. Click the green "Compare, review, and create pull request" button. You can edit the to and from for the PR if it isn't correct. The "base fork" should be apache/rocketmq unless you are collaborating with one of the committers on the list. The "base" will be master. Don't submit a PR to any other branches unless permitted by branch owner. The "head fork" will be your forked repo and the "compare" will be your ROCKETMQ-xxxx branch.
 3. Click the "Create pull request" button and name the request "ROCKETMQ-xxxx" all caps. This will connect the comments of the PR to the mailing list and issue comments.
 4. From now on the PR lives on github's apache/rocketmq. You can use the commenting UI there.
-5. If you are looking for a review or wanting to share with someone else please write a note in the comments and don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Github issue and the mailing list.
+5. If you are looking for a review or wanting to share with someone else, please write a note in the comments and don't worry about automated merging of your PR -- you will have to do that later. The PR is tied to your branch so you can respond to comments, make fixes, and commit them from your local repo. They will appear on the PR page and be mirrored to Github issue and the mailing list.
 6. When you are satisfied and want to push it to Apache's remote repo, you can merge this PR.
 
 # How to create a PR (contributors)
@@ -57,7 +57,7 @@ Before you create a pull request, make sure
 For information about creating pull requests, please check [GitHub PR docs](https://help.github.com/articles/creating-a-pull-request/).
 
 Pull requests are made to `apache/rocketmq` repository on Github. 
-In the Github UI you should pick the master branch as target of the PR. <br />
+In the Github UI you should pick the master branch as the target of the PR. <br />
 You pull request will be reviewed and commented by committers, and issues can be discussed. When all reviewers are positive on the pull request, it will be merged.
 
 # Check List for a PR
@@ -67,14 +67,14 @@ Each pull request should follow the [checklist](https://github.com/apache/rocket
 Remember use `- [x]` mark an item finished in the check list and there is a [demo pull request](https://github.com/apache/rocketmq/pull/152) can be your reference. 
 
 # Merging a PR (yours or contributors)
-Start with reading [GitHub PR merging locally](https://help.github.com/articles/checking-out-pull-requests-locally/). Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor's commits. In order to do that, as well as to close the PR at the same time, it is recommended to use squash commits.
+Start with reading [GitHub PR merging locally](https://help.github.com/articles/checking-out-pull-requests-locally/). Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case, it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor's commits. In order to do that, as well as to close the PR at the same time, it is recommended to use squash commits.
 Merging pull requests are equivalent to a "pull" of a contributor's branch:
 
     git checkout master      # switch to local master branch
     git pull apache master   # fast-forward to current remote HEAD
     git pull --squash https://github.com/cuser/rocketmq.git ROCKETMQ-xxxx  # merge to master
     
-`--squash` ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Please refer to git help for merge or pull for more information about `--squash` option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve all conflicts, or ask a contributor to rebase on top of master, if PR went out of sync.
+`--squash` ensures all PR history is squashed into a single commit, and allows the committer to use his/her own message. Please refer to git help for merge or pull for more information about `--squash` option. In this example we assume that the contributor's Github handle is "cuser" and the PR branch name is "ROCKETMQ-xxxx". Next, resolve all conflicts, or ask a contributor to rebase on top of master, if PR went out of sync.
 
 If you are ready to merge your own (committer's) PR you only need to merge (not pull), since you have a local copy that you've been working on. This is the branch that you used to create the PR.
 
