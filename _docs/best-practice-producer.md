@@ -27,7 +27,7 @@ But keep in mind that resending is useless when you get SLAVE_NOT_AVAILABLE. If 
 ## Timeout 
 The Client sends requests to Broker, and wait for the responses, but if the max wait time has elapsed and no response is returned, the Client will throw a RemotingTimeoutException.
 The default wait time is 3 seconds. You can also pass timeout argument using send(msg, timeout) instead of send(msg).
-Note that we do not suggest the wait time to be too small, as the Broker needs some time to flush the disk or synchronize with slaves. Also the value may have little effect if it exceeds syncFlushTimeout by a lot as Broker may return a response with FLUSH_SLAVE_TIMEOUT or FLUSH_SLAVE_TIMEOUT before the timeout.
+Note that we do not suggest the wait time to be too small, as the Broker needs some time to flush the disk or synchronize with slaves. Also the value may have little effect if it exceeds syncFlushTimeout by a lot as Broker may return a response with FLUSH_SLAVE_TIMEOUT or FLUSH_DISK_TIMEOUT before the timeout.
 ## Message Size
 We suggest the size of message should be no more than 512K.
 ## Async Sending
