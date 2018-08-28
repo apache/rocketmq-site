@@ -117,6 +117,7 @@ Delete the branch and tag created in 3.1 and then redo it.
  *   verify the asc(pgp sign), md5, sha1
  *   start nameserver and broker according to the quick-start 
  *   run clusterList command to see if the version is correct
+ *   make sure there is no nohup.out in the binary files
 
 #### 4.2 check list for source release:
  
