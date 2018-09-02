@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-08-29T20:13:15+08:00">
+  <meta property="article:published_time" content="2018-09-02T12:01:44+08:00">
 
 
 
@@ -498,7 +498,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Simple Message Example">
     <meta itemprop="description" content="How to send simple message to reduce pull in RocketMQ.">
-    <meta itemprop="datePublished" content="August 29, 2018">
+    <meta itemprop="datePublished" content="September 02, 2018">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -515,23 +515,43 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#reliable-synchronous-transmission" id="markdown-toc-reliable-synchronous-transmission">Reliable synchronous transmission</a></li>
-  <li><a href="#reliable-asynchronous-transmission" id="markdown-toc-reliable-asynchronous-transmission">Reliable asynchronous transmission</a></li>
-  <li><a href="#one-way-transmission" id="markdown-toc-one-way-transmission">One-way transmission</a></li>
+  <li><a href="#1-add-dependency" id="markdown-toc-1-add-dependency">1. Add Dependency</a></li>
+  <li><a href="#21-send-messages-synchronously" id="markdown-toc-21-send-messages-synchronously">2.1 Send Messages Synchronously</a></li>
+  <li><a href="#22-send-messages-asynchronously" id="markdown-toc-22-send-messages-asynchronously">2.2 Send Messages Asynchronously</a></li>
+  <li><a href="#23-send-messages-in-one-way-mode" id="markdown-toc-23-send-messages-in-one-way-mode">2.3 Send Messages in One-way Mode</a></li>
+  <li><a href="#3-consume-messages" id="markdown-toc-3-consume-messages">3. Consume Messages</a></li>
+  <li><a href="#4-find-more" id="markdown-toc-4-find-more">4. Find More</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<p>Use RocketMQ to send messages in three ways: reliable synchronous, reliable
-asynchronous, and one-way transmission.</p>
+<ul>
+  <li>Use RocketMQ to send messages in three ways: reliable synchronous, reliable
+asynchronous, and one-way transmission.</li>
+  <li>Use RocketMQ to consume messages</li>
+</ul>
 
-<p>This page exemplifies these three message-sending ways. Checkout the notes along with the example to figure out which 
-way to use for your specific use case.</p>
+<h4 id="1-add-dependency">1. Add Dependency</h4>
+<p>maven:</p>
 
-<h4 id="reliable-synchronous-transmission">Reliable synchronous transmission</h4>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">rocketmq</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">rocketmq</span><span class="o">-</span><span class="n">client</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">4.3</span><span class="o">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</code></pre>
+</div>
 
-<p>Application: Reliable synchronous transmission is used in extensive scenes, such as
+<p>gradle:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">compile</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">rocketmq</span><span class="o">:</span><span class="n">rocketmq</span><span class="o">-</span><span class="nl">client:</span><span class="mf">4.3</span><span class="o">.</span><span class="mi">0</span><span class="err">'</span>
+</code></pre>
+</div>
+
+<h4 id="21-send-messages-synchronously">2.1 Send Messages Synchronously</h4>
+
+<p>Reliable synchronous transmission is used in extensive scenes, such as
 important notification messages, SMS notification, SMS marketing system, etc..</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SyncProducer</span> <span class="o">{</span>
@@ -539,6 +559,8 @@ important notification messages, SMS notification, SMS marketing system, etc..</
         <span class="c1">//Instantiate with a producer group name.</span>
         <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span>
             <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="c1">// Specify name server addresses.</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
@@ -559,14 +581,16 @@ important notification messages, SMS notification, SMS marketing system, etc..</
 
 </code></pre>
 </div>
-<h4 id="reliable-asynchronous-transmission">Reliable asynchronous transmission</h4>
+<h4 id="22-send-messages-asynchronously">2.2 Send Messages Asynchronously</h4>
 
-<p>Application: asynchronous transmission is generally used in response time sensitive business scenarios.</p>
+<p>Asynchronous transmission is generally used in response time sensitive business scenarios.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AsyncProducer</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
-        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"ExampleProducerGroup"</span><span class="o">);</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="c1">// Specify name server addresses.</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">setRetryTimesWhenSendAsyncFailed</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
@@ -597,15 +621,17 @@ important notification messages, SMS notification, SMS marketing system, etc..</
 </code></pre>
 </div>
 
-<h4 id="one-way-transmission">One-way transmission</h4>
+<h4 id="23-send-messages-in-one-way-mode">2.3 Send Messages in One-way Mode</h4>
 
-<p>Application: One-way transmission is used for cases requiring moderate reliability,
+<p>One-way transmission is used for cases requiring moderate reliability,
 such as log collection.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OnewayProducer</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
-        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"ExampleProducerGroup"</span><span class="o">);</span>
+        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="c1">// Specify name server addresses.</span>
+        <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
@@ -626,6 +652,45 @@ such as log collection.</p>
 
 </code></pre>
 </div>
+
+<h4 id="3-consume-messages">3. Consume Messages</h4>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Consumer</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">MQClientException</span> <span class="o">{</span>
+
+        <span class="c1">// Instantiate with specified consumer group name.</span>
+        <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+         
+        <span class="c1">// Specify name server addresses.</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
+        
+        <span class="c1">// Subscribe one more more topics to consume.</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="s">"*"</span><span class="o">);</span>
+        <span class="c1">// Register callback to execute on arrival of messages fetched from brokers.</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
+                <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s Receive New Messages: %s %n"</span><span class="o">,</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span> <span class="n">msgs</span><span class="o">);</span>
+                <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="c1">//Launch the consumer instance.</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer Started.%n"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="4-find-more">4. Find More</h4>
+<p>Alternatively, you could get more examples from:
+https://github.com/apache/rocketmq/tree/master/example</p>
+
 
         
       </section>
