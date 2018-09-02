@@ -9,15 +9,30 @@ modified: 2017-04-24T15:01:43-04:00
 
 {% include toc %}
 
-Use RocketMQ to send messages in three ways: reliable synchronous, reliable
+* Use RocketMQ to send messages in three ways: reliable synchronous, reliable
 asynchronous, and one-way transmission.
+* Use RocketMQ to consume messages
 
-This page exemplifies these three message-sending ways. Checkout the notes along with the example to figure out which 
-way to use for your specific use case.
+#### 1. Add Dependency
+maven:
 
-#### Reliable synchronous transmission
+```java
+    <dependency>
+        <groupId>org.apache.rocketmq</groupId>
+        <artifactId>rocketmq-client</artifactId>
+        <version>4.3.0</version>
+    </dependency>
+```
 
-Application: Reliable synchronous transmission is used in extensive scenes, such as
+gradle:
+
+```java
+compile 'org.apache.rocketmq:rocketmq-client:4.3.0'
+```
+
+#### 2.1 Send Messages Synchronously
+
+Reliable synchronous transmission is used in extensive scenes, such as
 important notification messages, SMS notification, SMS marketing system, etc..
 
 ```java
@@ -26,6 +41,8 @@ public class SyncProducer {
         //Instantiate with a producer group name.
         DefaultMQProducer producer = new
             DefaultMQProducer("please_rename_unique_group_name");
+        // Specify name server addresses.
+        producer.setNamesrvAddr("localhost:9876");
         //Launch the instance.
         producer.start();
         for (int i = 0; i < 100; i++) {
@@ -45,15 +62,17 @@ public class SyncProducer {
 }
 
 ```
-#### Reliable asynchronous transmission
+#### 2.2 Send Messages Asynchronously
 
-Application: asynchronous transmission is generally used in response time sensitive business scenarios.
+Asynchronous transmission is generally used in response time sensitive business scenarios.
 
 ```java
 public class AsyncProducer {
     public static void main(String[] args) throws Exception {
         //Instantiate with a producer group name.
-        DefaultMQProducer producer = new DefaultMQProducer("ExampleProducerGroup");
+        DefaultMQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
+        // Specify name server addresses.
+        producer.setNamesrvAddr("localhost:9876");
         //Launch the instance.
         producer.start();
         producer.setRetryTimesWhenSendAsyncFailed(0);
@@ -83,16 +102,18 @@ public class AsyncProducer {
 }
 ```
 
-#### One-way transmission
+#### 2.3 Send Messages in One-way Mode
 
-Application: One-way transmission is used for cases requiring moderate reliability,
+One-way transmission is used for cases requiring moderate reliability,
 such as log collection.
 
 ```java
 public class OnewayProducer {
     public static void main(String[] args) throws Exception{
         //Instantiate with a producer group name.
-        DefaultMQProducer producer = new DefaultMQProducer("ExampleProducerGroup");
+        DefaultMQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
+        // Specify name server addresses.
+        producer.setNamesrvAddr("localhost:9876");
         //Launch the instance.
         producer.start();
         for (int i = 0; i < 100; i++) {
@@ -112,3 +133,43 @@ public class OnewayProducer {
 }
 
 ```
+
+#### 3. Consume Messages
+
+```java
+public class Consumer {
+
+    public static void main(String[] args) throws InterruptedException, MQClientException {
+
+        // Instantiate with specified consumer group name.
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
+         
+        // Specify name server addresses.
+        consumer.setNamesrvAddr("localhost:9876");
+        
+        // Subscribe one more more topics to consume.
+        consumer.subscribe("TopicTest", "*");
+        // Register callback to execute on arrival of messages fetched from brokers.
+        consumer.registerMessageListener(new MessageListenerConcurrently() {
+
+            @Override
+            public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
+                ConsumeConcurrentlyContext context) {
+                System.out.printf("%s Receive New Messages: %s %n", Thread.currentThread().getName(), msgs);
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+            }
+        });
+
+        //Launch the consumer instance.
+        consumer.start();
+
+        System.out.printf("Consumer Started.%n");
+    }
+}
+```
+
+#### 4. Find More
+Alternatively, you could get more examples from:
+https://github.com/apache/rocketmq/tree/master/example
+
+
