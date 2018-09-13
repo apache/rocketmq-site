@@ -6,6 +6,13 @@ categories:
 
 Release Notes - Apache RocketMQ - Version 4.1.0-incubating
 
+<h2> Download the 4.1.0-incubating release
+</h2>
+
+* Source: [rocketmq-all-4.1.0-incubating-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.1.0-incubating-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.1.0-incubating/rocketmq-all-4.1.0-incubating-bin-release.zip.sha1)]
+
+
 ## New Feature
 
 *   [[ROCKETMQ-80](https://issues.apache.org/jira/browse/ROCKETMQ-80)] - Add batch feature

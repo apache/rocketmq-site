@@ -9,15 +9,15 @@ modified: 2017-02-7T15:01:43-04:00
 
 This is a guide to make a released version of Apache RocketMQ. Please follow the steps below:
 
-## Preliminaries
-### Apache Release Documentation
+## 1. Preliminaries
+#### 1.1 Apache Release Documentation
 The release documentations provided by The ASF can be found here:
 
 * [Apache Release Guide](http://www.apache.org/dev/release-publishing)
 * [Apache Release Policy](http://www.apache.org/dev/release.html)
 * [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
 
-### Code Signing Key
+#### 1.2 Code Signing Key
 Create a code signing gpg key for release signing, use **\<your Apache ID\>@apache.org** as your primary ID for the code signing key. See [Apache Release Signing documentation](https://www.apache.org/dev/release-signing) for more details.
 
 * Create new pgp key. Please refer to [here](http://www.apache.org/dev/openpgp.html) on how to use gpg key.
@@ -28,7 +28,7 @@ Create a code signing gpg key for release signing, use **\<your Apache ID\>@apac
 
 **Tips:** If you have more than one key in your gpg, set the code signing key to `~/.gnupg/gpg.conf` as default key is recommended.
  
-### Prepare Your Maven Settings
+#### 1.3 Prepare Your Maven Settings
 Make sure your Maven settings.xml file contains the following:
 
 ```xml
@@ -39,7 +39,6 @@ Make sure your Maven settings.xml file contains the following:
            <properties>
                <mavenExecutorId>forked-path</mavenExecutorId>
                <gpg.keyname>yourKeyName</gpg.keyname>
-               <username>yourApacheID</username>
                <deploy.url>https://dist.apache.org/repos/dist/dev/rocketmq/</deploy.url>
            </properties>
        </profile>
@@ -67,42 +66,70 @@ Make sure your Maven settings.xml file contains the following:
 
 **Tips:** It is highly recommended to use [Maven's password encryption capabilities](http://maven.apache.org/guides/mini/guide-encryption.html) for your passwords.
 
-### Cleanup JIRA issues
-Cleanup JIRA issues related to this release version, and check all the issues has been marked with right version in the `FixVersion` field.
+#### 1.4 Cleanup Issues
+Cleanup JIRA issues or Github Issues related to this release version, and check all the issues has been marked with right version in the `FixVersion` field.
 
-### Publish the Release Notes
-Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](http://rocketmq.apache.org/release_notes/release-notes-4.0.0-incubating/) of `4.0.0-incubating` available for reference, include the link to the release notes in the voting emails.
+Also, remember to check the current version of MQVersion, which should be equal to this released version.
 
-## Build the Release Candidate
-Firstly, checkout a new branch from `master` with its name equal to the release version, like `release-4.2.0`.
+#### 1.5 Publish the Release Notes
+Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](https://rocketmq.apache.org/release_notes/release-notes-4.2.0/) available for reference, include the link to the release notes in the voting emails.
 
-### Build the Candidate Release Artifacts
-Before building the release artifacts, do some verifications below:
+## 2.Build the Binary Release Candidate
+Checkout the code to be released, and build the binary artifact.
+Be aware of the os version, for some dependency is os sensitive, such as netty tc-native.
 
 * Make sure that your are in the candidate release branch.
 * Make sure that all the unit tests can pass via `mvn clean install`.
 * Make sure that all the integration tests can pass via `mvn clean test -Pit-test`.
 
+After the successful building, remember to sign the artifact, and copy them to the svn repository, you could refer to [svn repository](https://dist.apache.org/repos/dist/release/rocketmq/4.2.0) .
+
+## 3.Build the Source Release Candidate
+In this process, you need to use maven release plugin to release the artifact to maven repository. And also, copy them to the svn repository.
+
+#### 3.1 Release to the maven repository
+
+
+Firstly, checkout a new branch from `master` with its name equal to the release version, like `release-4.2.0`.
+
 Perform the following to generate and stage the artifacts:
 
 1. `mvn clean release:clean`
-2. `mvn release:prepare -Psigned_release -Darguments="-DskipTests"`, answer the correct release version, SCM release tag, and the new development version.
-3. `mvn -Psigned_release release:perform -Darguments="-DskipTests"`, generate the artifacts and push them to the [Nexus repo](https://repository.apache.org/#stagingRepositories). If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true
+2. `mvn release:prepare -Psigned_release -Darguments="-DskipTests"`, answer the correct release version(use the default, the version in pom, just enter), SCM release tag(use the default, the branch name, just enter), and the new development version(increate the version by 1.0, if you release 4.2.0, then the next version should be 4.3.0).
+3. `mvn -Psigned_release release:perform -Darguments="-DskipTests"`, generate the artifacts and push them to the [Nexus repo](https://repository.apache.org/#stagingRepositories). If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true.
 
 Now, the candidate release artifacts can be found in the [Nexus staging repo](https://repository.apache.org/#stagingRepositories) and in the `target` folder of your local branch.
 
 **Tips:** If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select `Delete`.
 
-### Validate the Release Candidate
-Now the release candidate is ready, before calling a vote, the artifacts must satisfy the following requirements:
+#### 3.2 Rollback and Retry
+If the staging process encounter problem, you may need to rollback:
+Delete the branch and tag created in 3.1 and then redo it.
 
-* Checksums and PGP signatures are valid.
-* Build is successful including unit and integration tests.
-* LICENSE and NOTICE files are correct and dependency licenses are acceptable.
-* All source files have license headers and pass RAT checks.
-* Javadocs have been generated correctly.
-* The provenance of all source files is clear (ASF or software grants).
+## 4. Validate the Release Candidate
 
+#### 4.1 check list for binary release:
+
+ *   check the os on which to build the artifact, for the netty tc-native is os sensitive
+ *   check LICENSE, should be Apache V2   
+ *   check NOTICE, should have a notice for third-party dependency if necessary
+ *   extract the zip and check if the binary version is correct
+ *   verify the asc(pgp sign), md5, sha1
+ *   start nameserver and broker according to the quick-start 
+ *   run clusterList command to see if the version is correct
+ *   make sure there is no nohup.out in the binary files
+
+#### 4.2 check list for source release:
+ 
+ * check LICENSE, should be Apache V2   
+ * check NOTICE, should have a notice for third-party dependency if necessary
+ * extract the zip and check if the source version is correct
+ * verify the asc(pgp sign), md5, sha1
+ * build the source, start nameserver and broker according to the quick-start
+ * run clusterList command to see if the version is correct
+
+
+#### 4.3 verify tools
 Please follow the steps below to verify the checksums and PGP signatures:
 
 1. Download the release artifacts, PGP signature file, MD5/SHA hash files.
@@ -132,7 +159,7 @@ Please follow the steps below to verify the checksums and PGP signatures:
   gpg --print-mds rocketmq-all-%version-number%-source-release.zip 
   ```
 
-### Release Artifacts to Dev-Repository
+## 5. Release the Staging Artifacts
 If the release candidate passes the validation checklist, close the staging repository in Nexus by selecting the staging repository `orgapacherocketmq-XXX` and clicking on the `Close` icon.
 
 Nexus will now run through a series of checksum and signature validations.
@@ -141,16 +168,16 @@ If the checks are passed, Nexus will close the repository and produce a URL to t
 
 If the checks aren't passed, fix the issues then go back and restart the release process.
 
-If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/rocketmq/${release version}.
+If everything is ok, use svn to copy the candidate release artifacts to RocketMQ repo: https://dist.apache.org/repos/dist/dev/rocketmq/${release-version}.
 
-## Vote on the Release
+## 6. Vote on the Release
 
 Release voting must successfully pass within the Apache RocketMQ community via the **dev@rocketmq.apache.org** mailing list.
 
 General information regarding the Apache voting process can be found [here](http://www.apache.org/foundation/voting.html).
 
-### Apache RocketMQ Community Vote
-To vote on a candidate release, send an email to the [dev list](mailto:dev@rocketmq.apache.org) with subject **[VOTE]: Release Apache RocketMQ \<release version\> RC\<RC Number\>** and body:
+#### 6.1 Apache RocketMQ Community Vote
+To vote on a candidate release, send an email to the [dev list](mailto:dev@rocketmq.apache.org) with subject **[VOTE]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>** and body:
 
 > Hello RocketMQ Community,  
 >
@@ -185,7 +212,7 @@ To vote on a candidate release, send an email to the [dev list](mailto:dev@rocke
 > Thanks,  
 > The Apache RocketMQ Team  
 
-Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: **[RESULT][VOTE]: Release Apache RocketMQ \<release version\> RC\<RC Number\>** :
+Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: **[RESULT][VOTE]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>** :
 
 > Hello RocketMQ Community,  
 >
@@ -206,16 +233,16 @@ Once 72 hours has passed (which is generally preferred) and/or at least three +1
 > Thanks,   
 > The Apache RocketMQ Team
 
-If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: **[RESTART][VOTE][#\<Attempt Number\>]: Release Apache RocketMQ \<release version\> RC\<RC Number\>**
+If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: **[RESTART][VOTE][#\<Attempt Number\>]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>**
 
-## Publish the Release
+## 7. Publish the Release
 Once the Apache RocketMQ PPMC votes pass, publish the release artifacts to the Nexus Maven repository and to the Apache release repository.
 
 1. Publish the Maven Artifacts, release the Maven artifacts in Nexus by selecting the staging repository **orgapacherocketmq-XXX** and clicking on the `Release` icon.
-2. Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release version}
+2. Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release-version}
 
-## Announce the Release
-Send an email to **announce@apache.org**, and **dev@rocketmq.apache.org** with the subject **[ANNOUNCE] Release Apache RocketMQ \<release version\>** and a body along the lines of:
+## 8. Announce the Release
+Send an email to **announce@apache.org**, **users@rocketmq.apache.org**, **private@rocketmq.apache.org**, and **dev@rocketmq.apache.org** with the subject **[ANNOUNCE] Release Apache RocketMQ \<release-version\>** and a body along the lines of:
 
 > Hi all,
 >
@@ -225,7 +252,7 @@ Send an email to **announce@apache.org**, and **dev@rocketmq.apache.org** with t
 > http://rocketmq.apache.org/  
 >
 > The release artifacts can be downloaded here:  
-> https://dist.apache.org/repos/dist/release/rocketmq/${release version}  
+> https://dist.apache.org/repos/dist/release/rocketmq/${release-version}  
 >
 > The release notes can be found here:  
 > \<insert link to the rocketmq release notes\>  

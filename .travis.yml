@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 2.4.1
+env:
+  global:
+  - secure: TOCP3WNXd7BbrQRSw6nkyGMqjzykzidKxTRm+USNEUqUgesUwED5O5TeYenkqwMEusGe72pl7Ru1bZFR2hxodjbvYBkpBttQJAbsLQXJnKNp/wdTSH8wDHomzrQ8jvWF+xf7PW16/j6uwlviq3xTYqmXdzo46398e3OTcr+1i6eJCofCApePhf8qAzOEYeCbWTQY8s4XesZbP5q6Z4cgn8TinvR+TUovdagacZoyV1A0tGuFUOA+AqJ7tmkYIlCLM3BqI2LvMhNVRBxhfzMBvscjxl1fzjRkWns6QKDmPH6ILBpt09KC/4xrMbdzwHhDu8pMYp3Lwf4Uwux4ckWxdKheYH04O7rDJ63vxL3OoOb4sInxAC/DnGHmD4J9FcB3nVFQktmEiE5MR5bRZK63mxxEfqHbIVV96pCFw8n4b1Hztle0+woFuT0P6wEI+oNuIy/qU6hhlu3S/32naW2DVoGtmO5zQ2ldcVPBHXnv58xK2e8iGG5iG7yQEt/b2p2cW9K49xm83Xe79giGhy/PNtXsJPnu+lbD4u5UqiFEqVI8DNUJcBfzkkDCJE2Hi6Wh0pRYmuFuggMREbqXQPc3Mf2z+1+CMqFQXweFzJAW/O5LItErfPvoAa6FsiVNu8SILRHPBlL+xOHvtVbcZ66Tc/aoZ3Qzr3QJCb8DBktrMKE=
+install: make setup
+script:
+- build install
+- build exec jekyll build
+after_success:
+- bash .utility/push-site-to-master.sh
