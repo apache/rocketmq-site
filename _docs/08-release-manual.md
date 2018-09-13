@@ -182,6 +182,7 @@ To vote on a candidate release, send an email to the [dev list](mailto:dev@rocke
 > Hello RocketMQ Community,  
 >
 > This is the vote for \<release version\> of Apache RocketMQ.  
+> ${A brief introduction to RocketMQ and the features of this release.}
 >
 > **The artifacts:**  
 > https://dist.apache.org/repos/dist/dev/rocketmq/${release version}
@@ -247,6 +248,8 @@ Send an email to **announce@apache.org**, **users@rocketmq.apache.org**, **priva
 > Hi all,
 >
 > The Apache RocketMQ team would like to announce the release of Apache RocketMQ \<release version\>.  
+>
+> ${A brief introduction to RocketMQ and the features of this release.}
 >
 > More details regarding Apache RocketMQ can be found at:  
 > http://rocketmq.apache.org/  
