@@ -28,6 +28,9 @@
 <meta property="og:title" content="Archive Layout with Content">
 
 
+  <link rel="canonical" href="http://localhost:4000/archive-layout-with-content/">
+  <meta property="og:url" content="http://localhost:4000/archive-layout-with-content/">
+
 
 
 
@@ -35,7 +38,7 @@
   <meta name="twitter:site" content="@ApacheRocketMQ">
   <meta name="twitter:title" content="Archive Layout with Content">
   <meta name="twitter:description" content="The homepage of RocketMQ.">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/archive-layout-with-content/">
 
   
     <meta name="twitter:card" content="summary">
@@ -66,7 +69,7 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "Apache RocketMQ",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -84,7 +87,7 @@
 <!-- end SEO -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -96,7 +99,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -117,22 +120,22 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">Apache RocketMQ</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Apache RocketMQ</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/docs/quick-start/">Documentation</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/quick-start/">Documentation</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/year-archive/">Blog</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/community/">Community</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/community/">Community</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/users/">Users</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/users/">Users</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/about/team/">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/team/">About</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -155,7 +158,7 @@
   
     <div class="author__avatar">
       
-        <img src="/assets/images/rmq-logo.png" class="author__avatar" alt="" itemprop="image">
+        <img src="http://localhost:4000/assets/images/rmq-logo.png" class="author__avatar" alt="" itemprop="image">
       
     </div>
   
@@ -452,9 +455,8 @@
 
 <p>Make any link standout more when applying the <code class="highlighter-rouge">.btn</code> class.</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn--success"</span><span class="nt">&gt;</span>Success Button<span class="nt">&lt;/a&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn--success"</span><span class="nt">&gt;</span>Success Button<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
 
 <p><a href="#" class="btn">Primary Button</a>
 <a href="#" class="btn btn--success">Success Button</a>
@@ -464,31 +466,29 @@
 <a href="#" class="btn btn--inverse">Inverse Button</a>
 <a href="#" class="btn btn--light-outline">Light Outline Button</a></p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">Primary Button Text</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn}
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Primary Button Text</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn}
 <span class="p">[</span><span class="nv">Success Button Text</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--success}
 <span class="p">[</span><span class="nv">Warning Button Text</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--warning}
 <span class="p">[</span><span class="nv">Danger Button Text</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--danger}
 <span class="p">[</span><span class="nv">Info Button Text</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--info}
 <span class="p">[</span><span class="nv">Inverse Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--inverse}
 <span class="p">[</span><span class="nv">Light Outline Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--light-outline}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="#" class="btn btn--x-large">X-Large Button</a>
 <a href="#" class="btn btn--large">Large Button</a>
 <a href="#" class="btn">Default Button</a>
 <a href="#" class="btn btn--small">Small Button</a></p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">X-Large Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--x-large}
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">X-Large Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--x-large}
 <span class="p">[</span><span class="nv">Large Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--large}
 <span class="p">[</span><span class="nv">Default Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn}
 <span class="p">[</span><span class="nv">Small Button</span><span class="p">](</span><span class="sx">#link</span><span class="p">)</span>{: .btn .btn--small}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="notices">Notices</h2>
 
-<p class="notice"><strong>Watch out!</strong> You can also add notices by appending <code class="highlighter-rouge"><span class="p">{</span><span class="err">:</span><span class="w"> </span><span class="err">.notice</span><span class="p">}</span></code> to a paragraph.</p>
+<p class="notice"><strong>Watch out!</strong> You can also add notices by appending <code class="highlighter-rouge">{: .notice}</code> to a paragraph.</p>
 
 <h2 id="html-tags">HTML Tags</h2>
 
@@ -569,7 +569,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/quick-start/" rel="permalink">Quick Start</a>
+        <a href="http://localhost:4000/docs/quick-start/" rel="permalink">Quick Start</a>
       
     </h2>
     
@@ -583,7 +583,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/about/team/" rel="permalink">TEAM</a>
+        <a href="http://localhost:4000/about/team/" rel="permalink">TEAM</a>
       
     </h2>
     
@@ -597,7 +597,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/about/contact/" rel="permalink">CONTACT</a>
+        <a href="http://localhost:4000/about/contact/" rel="permalink">CONTACT</a>
       
     </h2>
     
@@ -611,7 +611,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/motivation/" rel="permalink">Motivation</a>
+        <a href="http://localhost:4000/docs/motivation/" rel="permalink">Motivation</a>
       
     </h2>
     
@@ -624,7 +624,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/core-concept/" rel="permalink">Core Concept</a>
+        <a href="http://localhost:4000/docs/core-concept/" rel="permalink">Core Concept</a>
       
     </h2>
     
@@ -637,7 +637,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/about/rewards/" rel="permalink">REWARDS</a>
+        <a href="http://localhost:4000/about/rewards/" rel="permalink">REWARDS</a>
       
     </h2>
     
@@ -651,7 +651,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/cli-admin-tool/" rel="permalink">CLI Admin Tool</a>
+        <a href="http://localhost:4000/docs/cli-admin-tool/" rel="permalink">CLI Admin Tool</a>
       
     </h2>
     
@@ -664,7 +664,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/cluster-deployment/" rel="permalink">Cluster Configuration and Deployment</a>
+        <a href="http://localhost:4000/docs/cluster-deployment/" rel="permalink">Cluster Configuration and Deployment</a>
       
     </h2>
     
@@ -677,7 +677,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/pull-request/" rel="permalink">How to manage Pull Request</a>
+        <a href="http://localhost:4000/docs/pull-request/" rel="permalink">How to manage Pull Request</a>
       
     </h2>
     
@@ -690,7 +690,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/code-guidelines/" rel="permalink">Coding Guidelines</a>
+        <a href="http://localhost:4000/docs/code-guidelines/" rel="permalink">Coding Guidelines</a>
       
     </h2>
     
@@ -704,7 +704,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/documentation/" rel="permalink">Documentation</a>
+        <a href="http://localhost:4000/docs/documentation/" rel="permalink">Documentation</a>
       
     </h2>
     
@@ -718,7 +718,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/faq/" rel="permalink">Frequently Asked Questions</a>
+        <a href="http://localhost:4000/docs/faq/" rel="permalink">Frequently Asked Questions</a>
       
     </h2>
     
@@ -731,7 +731,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/release-manual" rel="permalink">Release Manual</a>
+        <a href="http://localhost:4000/docs/release-manual" rel="permalink">Release Manual</a>
       
     </h2>
     
@@ -745,7 +745,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/dowloading/releases/" rel="permalink">Downloading the Apache RocketMQ Releases</a>
+        <a href="http://localhost:4000/dowloading/releases/" rel="permalink">Downloading the Apache RocketMQ Releases</a>
       
     </h2>
     
@@ -758,7 +758,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/roadmap/" rel="permalink">The RoadMap of Apache RocketMQ</a>
+        <a href="http://localhost:4000/docs/roadmap/" rel="permalink">The RoadMap of Apache RocketMQ</a>
       
     </h2>
     
@@ -771,7 +771,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/batch-example/" rel="permalink">Batch Example</a>
+        <a href="http://localhost:4000/docs/batch-example/" rel="permalink">Batch Example</a>
       
     </h2>
     
@@ -785,7 +785,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/broadcast-example/" rel="permalink">Broadcasting</a>
+        <a href="http://localhost:4000/docs/broadcast-example/" rel="permalink">Broadcasting</a>
       
     </h2>
     
@@ -799,7 +799,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/rmq-deployment/" rel="permalink">Deployment</a>
+        <a href="http://localhost:4000/docs/rmq-deployment/" rel="permalink">Deployment</a>
       
     </h2>
     
@@ -813,7 +813,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/order-example/" rel="permalink">Order Message </a>
+        <a href="http://localhost:4000/docs/order-example/" rel="permalink">Order Message </a>
       
     </h2>
     
@@ -827,7 +827,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/rmq-arc/" rel="permalink">RocketMQ Architecture</a>
+        <a href="http://localhost:4000/docs/rmq-arc/" rel="permalink">RocketMQ Architecture</a>
       
     </h2>
     
@@ -841,7 +841,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/schedule-example/" rel="permalink">Schedule example</a>
+        <a href="http://localhost:4000/docs/schedule-example/" rel="permalink">Schedule example</a>
       
     </h2>
     
@@ -855,7 +855,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/simple-example/" rel="permalink">Simple Message Example</a>
+        <a href="http://localhost:4000/docs/simple-example/" rel="permalink">Simple Message Example</a>
       
     </h2>
     
@@ -869,7 +869,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/filter-by-sql92-example/" rel="permalink">Filter Example </a>
+        <a href="http://localhost:4000/docs/filter-by-sql92-example/" rel="permalink">Filter Example </a>
       
     </h2>
     
@@ -883,7 +883,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/logappender-example/" rel="permalink">Logappender Example</a>
+        <a href="http://localhost:4000/docs/logappender-example/" rel="permalink">Logappender Example</a>
       
     </h2>
     
@@ -897,7 +897,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/openmessaging-example/" rel="permalink">OpenMessaging Example</a>
+        <a href="http://localhost:4000/docs/openmessaging-example/" rel="permalink">OpenMessaging Example</a>
       
     </h2>
     
@@ -911,7 +911,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/system-config/" rel="permalink">RocketMQ JVM/Linux Configuration</a>
+        <a href="http://localhost:4000/docs/system-config/" rel="permalink">RocketMQ JVM/Linux Configuration</a>
       
     </h2>
     
@@ -924,7 +924,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/how-to-contribute/" rel="permalink">How to Contribute</a>
+        <a href="http://localhost:4000/docs/how-to-contribute/" rel="permalink">How to Contribute</a>
       
     </h2>
     
@@ -937,7 +937,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/transaction-example/" rel="permalink">Transaction example</a>
+        <a href="http://localhost:4000/docs/transaction-example/" rel="permalink">Transaction example</a>
       
     </h2>
     
@@ -951,7 +951,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/404.html" rel="permalink">Page Not Found</a>
+        <a href="http://localhost:4000/404.html" rel="permalink">Page Not Found</a>
       
     </h2>
     
@@ -965,7 +965,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/about/" rel="permalink">About</a>
+        <a href="http://localhost:4000/about/" rel="permalink">About</a>
       
     </h2>
     
@@ -979,7 +979,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/archive-layout-with-content/" rel="permalink">Archive Layout with Content</a>
+        <a href="http://localhost:4000/archive-layout-with-content/" rel="permalink">Archive Layout with Content</a>
       
     </h2>
     
@@ -992,7 +992,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/best-practice-broker/" rel="permalink">Best Practice For Broker</a>
+        <a href="http://localhost:4000/docs/best-practice-broker/" rel="permalink">Best Practice For Broker</a>
       
     </h2>
     
@@ -1005,7 +1005,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/best-practice-consumer/" rel="permalink">Best Practice For Consumer</a>
+        <a href="http://localhost:4000/docs/best-practice-consumer/" rel="permalink">Best Practice For Consumer</a>
       
     </h2>
     
@@ -1018,7 +1018,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/create-pull-request/" rel="permalink">How to create Pull Request</a>
+        <a href="http://localhost:4000/docs/create-pull-request/" rel="permalink">How to create Pull Request</a>
       
     </h2>
     
@@ -1031,7 +1031,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/best-practice-namesvr/" rel="permalink">Best Practice For NameServer</a>
+        <a href="http://localhost:4000/docs/best-practice-namesvr/" rel="permalink">Best Practice For NameServer</a>
       
     </h2>
     
@@ -1044,7 +1044,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docs/best-practice-producer/" rel="permalink">Best Practice For Producer</a>
+        <a href="http://localhost:4000/docs/best-practice-producer/" rel="permalink">Best Practice For Producer</a>
       
     </h2>
     
@@ -1057,7 +1057,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/categories/" rel="permalink">Posts by Category</a>
+        <a href="http://localhost:4000/categories/" rel="permalink">Posts by Category</a>
       
     </h2>
     
@@ -1070,7 +1070,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/collection-archive/" rel="permalink">Posts by Collection</a>
+        <a href="http://localhost:4000/collection-archive/" rel="permalink">Posts by Collection</a>
       
     </h2>
     
@@ -1083,61 +1083,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/community/" rel="permalink">Apache RocketMQ</a>
-      
-    </h2>
-    
-    <p class="archive__item-excerpt" itemprop="description">Apache RocketMQ™ is an open source distributed messaging and streaming data platform. Latest release v4.2.0  
-</p>
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/" rel="permalink"></a>
-      
-    </h2>
-    
-    <p class="archive__item-excerpt" itemprop="description">Apache RocketMQ™ is an open source distributed messaging and streaming data platform. Latest release v4.3.0  
-</p>
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/assets/css/main.css" rel="permalink"></a>
-      
-    </h2>
-    
-    
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/tags/" rel="permalink">Posts by Tags</a>
-      
-    </h2>
-    
-    
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/users/" rel="permalink">Apache RocketMQ</a>
+        <a href="http://localhost:4000/community/" rel="permalink">Apache RocketMQ</a>
       
     </h2>
     
@@ -1151,7 +1097,21 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/year-archive/" rel="permalink">Read and Comment</a>
+        <a href="http://localhost:4000/" rel="permalink"></a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Apache RocketMQ™ is an open source distributed messaging and streaming data platform. Latest release v4.3.1  
+</p>
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/assets/css/main.css" rel="permalink"></a>
       
     </h2>
     
@@ -1164,7 +1124,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/feed.xml" rel="permalink"></a>
+        <a href="http://localhost:4000/tags/" rel="permalink">Posts by Tags</a>
       
     </h2>
     
@@ -1177,7 +1137,60 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/feed.xslt.xml" rel="permalink"></a>
+        <a href="http://localhost:4000/users/" rel="permalink">Apache RocketMQ</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Apache RocketMQ™ is an open source distributed messaging and streaming data platform. Latest release v4.2.0  
+</p>
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/year-archive/" rel="permalink">Read and Comment</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/sitemap.xml" rel="permalink"></a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/robots.txt" rel="permalink"></a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/feed.xml" rel="permalink"></a>
       
     </h2>
     
@@ -1215,7 +1228,7 @@
           <li><a href="https://github.com/apache/rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
         
-        <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+        <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
       </ul>
     </div>
 
@@ -1235,7 +1248,7 @@
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 

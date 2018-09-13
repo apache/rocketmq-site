@@ -28,6 +28,9 @@
 <meta property="og:title" content="Mastering Component Compatible Dependency">
 
 
+  <link rel="canonical" href="http://localhost:4000/maven/mastering-component-compatible-dependency/">
+  <meta property="og:url" content="http://localhost:4000/maven/mastering-component-compatible-dependency/">
+
 
 
   <meta property="og:description" content="This article mainly includes three parts.at first,I will introduce compatibility principle(more details see here) briefly.followed by a detailed elaborating about Java component compatible dependency,including the interface-oriented programming,single component signature protection,single component compatibility protection and multi-component compatibility compile time checking.Finally is the review and prospect,especially about Dependency Mediator project.">
@@ -37,7 +40,7 @@
   <meta name="twitter:site" content="@ApacheRocketMQ">
   <meta name="twitter:title" content="Mastering Component Compatible Dependency">
   <meta name="twitter:description" content="This article mainly includes three parts.at first,I will introduce compatibility principle(more details see here) briefly.followed by a detailed elaborating about Java component compatible dependency,including the interface-oriented programming,single component signature protection,single component compatibility protection and multi-component compatibility compile time checking.Finally is the review and prospect,especially about Dependency Mediator project.">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="http://localhost:4000/maven/mastering-component-compatible-dependency/">
 
   
     <meta name="twitter:card" content="summary">
@@ -71,7 +74,7 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "Apache RocketMQ",
-      "url" : null,
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -89,7 +92,7 @@
 <!-- end SEO -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Apache RocketMQ Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -101,7 +104,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -122,22 +125,22 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="/">Apache RocketMQ</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Apache RocketMQ</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/docs/quick-start/">Documentation</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/docs/quick-start/">Documentation</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/year-archive/">Blog</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/community/">Community</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/community/">Community</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/users/">Users</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/users/">Users</a></li>
           
             
-            <li class="masthead__menu-item"><a href="/about/team/">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/team/">About</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -160,7 +163,7 @@
   
     <div class="author__avatar">
       
-        <img src="/assets/images/rmq-logo.png" class="author__avatar" alt="" itemprop="image">
+        <img src="http://localhost:4000/assets/images/rmq-logo.png" class="author__avatar" alt="" itemprop="image">
       
     </div>
   
@@ -349,12 +352,11 @@
 
 <p>Another compatibility form,we call it <strong>source compatibility</strong>,meaning that recompilation is necessary.Java language does not support downward source compatibility. Such as if source files use new language features or Java SE platform APIs, they will not be usable with an earlier version of the Java platform. Usually it will throw similar error like this:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">UnsupportedClassVersionError</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">MessageConsumer</span> <span class="o">:</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">UnsupportedClassVersionError</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">MessageConsumer</span> <span class="o">:</span>
          <span class="n">Unsupported</span> <span class="n">major</span><span class="o">.</span><span class="na">minor</span> <span class="n">version</span> <span class="mf">51.0</span>
          <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassLoader</span><span class="o">.</span><span class="na">defineClass1</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
          <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassLoader</span><span class="o">.</span><span class="na">defineClassCond</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Java language source compatibility policy is as follows,except for any incompatibilities listed further below:</p>
 
@@ -404,7 +406,7 @@ what should you do ? How do you give a incompatible list in your release report.
 <p>Differing from commons logging,SLF4J use <strong>static binder technology</strong> so as to avoid notorious <a href="http://articles.qos.ch/classloader.html">classloader problem</a>,every concrete log implementation must 
 have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBinder.thus you just depend SLF4J api,not concerned about underlying implementation.some people may asking,why choose SLF4J not commons logging，I can also depend commons logging api but not concret implementation？it’s not performance but classloader problem.JCL discovery process relies on classloader hacks to find the logging framework at runtime but this mechanism leads to numerous problems including unexpected behavior,hard to debug classloading problems resulting in increased complexity.This is nicely captured by Ceki (the author of Log4J, SLF4J and Logback) in Think again before adopting the commons-logging API (which also mentions memory leaks problems observed with JCL).and this is why SLF4J, which uses static bindings, has been created. Let’s see.how to find the concrete realizations in SLF4J:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// We need to use the name of the StaticLoggerBinder class, but we can't reference</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// We need to use the name of the StaticLoggerBinder class, but we can't reference</span>
 <span class="c1">// the class itself.</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">STATIC_LOGGER_BINDER_PATH</span> <span class="o">=</span> <span class="s">"org/slf4j/impl/StaticLoggerBinder.class"</span><span class="o">;</span>
  <span class="cm">/**
@@ -441,14 +443,13 @@ have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBi
  <span class="n">Util</span><span class="o">.</span><span class="na">report</span><span class="o">(</span><span class="s">"Unexpected problem occured during version sanity check"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>you can use these skills at your library.just Let others depend on your interface package,detecting certain implementation statically.</p>
 
 <p>If you have developed an old version library,naming it as 2.x.x.next version,you hope to refactor some implementations,how to process multi-version compatibility?here is a skill from maven dependency plugin:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">String</span> <span class="n">hint</span> <span class="o">=</span> <span class="n">isMaven31</span><span class="o">()</span> <span class="o">?</span> <span class="s">"maven31"</span> <span class="o">:</span> <span class="n">isMaven2x</span><span class="o">()</span> <span class="o">?</span> <span class="s">"maven2"</span> <span class="o">:</span> <span class="s">"maven3"</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">hint</span> <span class="o">=</span> <span class="n">isMaven31</span><span class="o">()</span> <span class="o">?</span> <span class="s">"maven31"</span> <span class="o">:</span> <span class="n">isMaven2x</span><span class="o">()</span> <span class="o">?</span> <span class="s">"maven2"</span> <span class="o">:</span> <span class="s">"maven3"</span><span class="o">;</span>
 
 <span class="cm">/**
 * Check the current Maven version to see if it's Maven 2.x.
@@ -465,14 +466,13 @@ have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBi
 <span class="o">{</span>
    <span class="k">return</span> <span class="nf">canFindCoreClass</span><span class="o">(</span> <span class="s">"org.eclipse.aether.artifact.Artifact"</span> <span class="o">);</span> <span class="c1">// Maven 3.1 specific</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="single-component-signature-protection">Single component signature protection</h2>
 
 <p>Secondly,Single component signature protection,you can using <a href="http://mojo.codehaus.org/animal-sniffer/">Animal Sniffer project</a> as well-known Guava library,Animal Sniffer provides tools to assist verifying that classes compiled with a newer JDK/API are compatible with an older JDK/API.</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">codehaus</span><span class="o">.</span><span class="na">mojo</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">animal</span><span class="o">-</span><span class="n">sniffer</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
    <span class="o">&lt;</span><span class="n">configuration</span><span class="o">&gt;</span>
@@ -492,16 +492,14 @@ have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBi
      <span class="o">&lt;/</span><span class="n">execution</span><span class="o">&gt;</span>
    <span class="o">&lt;/</span><span class="n">executions</span><span class="o">&gt;</span>
  <span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>So from now on, when you performing a mvn test or mvn install operation. If there is an incompatibility in one of the projects, you would find some output like this:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="o">[</span><span class="n">animal</span><span class="o">-</span><span class="nl">sniffer:</span><span class="n">check</span> <span class="o">{</span><span class="nl">execution:</span> <span class="n">check</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">api</span><span class="o">}]</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="o">[</span><span class="n">animal</span><span class="o">-</span><span class="nl">sniffer:</span><span class="n">check</span> <span class="o">{</span><span class="nl">execution:</span> <span class="n">check</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">api</span><span class="o">}]</span>
 <span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="n">Checking</span> <span class="n">unresolved</span> <span class="n">references</span> <span class="n">to</span> <span class="n">org</span><span class="o">.</span><span class="na">codehaus</span><span class="o">.</span><span class="na">mojo</span><span class="o">.</span><span class="na">signature</span><span class="o">:</span><span class="n">java16</span><span class="o">-</span><span class="nl">sun:</span><span class="mf">1.0</span>
 <span class="o">[</span><span class="n">ERROR</span><span class="o">]</span> <span class="n">Undefined</span> <span class="nl">reference:</span> <span class="n">java</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">String</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">Ljava</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">CharSequence</span><span class="o">;)</span><span class="n">Z</span> <span class="n">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">kafka</span><span class="o">/</span><span class="n">target</span><span class="o">/</span><span class="n">classes</span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">kafka</span><span class="o">/</span><span class="n">tools</span><span class="o">...</span><span class="na">Producer</span><span class="o">.</span><span class="na">class</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>More details please see <a href="http://blog.gvsig.org/2011/07/25/hunting-api-incompatibilities-with-the-animal-sniffer-project/">here</a>.</p>
 
@@ -511,25 +509,23 @@ have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBi
 
 <p>How to use it？just add some config snippets in your pom :</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">codehaus</span><span class="o">.</span><span class="na">mojo</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">clirr</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then,run <code class="highlighter-rouge">mvn clirr:check</code>,output may be like this:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="o">---</span> <span class="n">clirr</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="nl">plugin:</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">1</span><span class="o">:</span><span class="n">check</span> <span class="o">(</span><span class="k">default</span><span class="o">-</span><span class="n">cli</span><span class="o">)</span> <span class="err">@</span> <span class="n">cmq</span><span class="o">.</span><span class="na">common</span> <span class="o">---</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="o">---</span> <span class="n">clirr</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="nl">plugin:</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">1</span><span class="o">:</span><span class="n">check</span> <span class="o">(</span><span class="k">default</span><span class="o">-</span><span class="n">cli</span><span class="o">)</span> <span class="err">@</span> <span class="n">cmq</span><span class="o">.</span><span class="na">common</span> <span class="o">---</span>
 <span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="n">artifact</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">intl</span><span class="o">.</span><span class="na">base</span><span class="o">.</span><span class="na">cmq</span><span class="o">:</span><span class="n">cmq</span><span class="o">.</span><span class="na">common</span><span class="o">:</span> <span class="n">checking</span> <span class="k">for</span> <span class="n">updates</span> <span class="n">from</span> <span class="n">b2bmirror</span><span class="o">-</span><span class="n">all</span>
 <span class="o">[</span><span class="n">INFO</span><span class="o">]</span> <span class="n">Comparing</span> <span class="n">to</span> <span class="nl">version:</span> <span class="mf">2.0</span><span class="o">.</span><span class="mi">1</span>
 <span class="o">[</span><span class="n">ERROR</span><span class="o">]</span> <span class="mi">7005</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">CompletionListener</span><span class="o">:</span> <span class="n">Parameter</span> <span class="mi">1</span> <span class="n">of</span> <span class="err">'</span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCompletion</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">model</span><span class="o">.</span><span class="na">CommonMessage</span><span class="o">)</span><span class="err">'</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">its</span> <span class="n">type</span> <span class="n">to</span>   <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">CommonMessage</span>
 <span class="o">[</span><span class="n">ERROR</span><span class="o">]</span> <span class="mi">7005</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">CompletionListener</span><span class="o">:</span> <span class="n">Parameter</span> <span class="mi">1</span> <span class="n">of</span> <span class="err">'</span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onException</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">model</span><span class="o">.</span><span class="na">CommonMessage</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Exception</span><span class="o">)</span><span class="err">'</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">its</span> <span class="n">type</span> <span class="n">to</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">CommonMessage</span>
 <span class="o">[</span><span class="n">ERROR</span><span class="o">]</span> <span class="mi">7005</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">MessageProducer</span><span class="o">:</span> <span class="n">Parameter</span> <span class="mi">1</span> <span class="n">of</span> <span class="err">'</span><span class="kd">public</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">CommonResult</span> <span class="nf">send</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">model</span><span class="o">.</span><span class="na">CommonMessage</span><span class="o">)</span><span class="err">'</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">its</span> <span class="n">type</span> <span class="n">to</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">CommonMessage</span>
 <span class="o">[</span><span class="n">ERROR</span><span class="o">]</span> <span class="mi">7005</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">MessageProducer</span><span class="o">:</span> <span class="n">Parameter</span> <span class="mi">1</span> <span class="n">of</span> <span class="err">'</span><span class="kd">public</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">CommonResult</span> <span class="nf">send</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">model</span><span class="o">.</span><span class="na">CommonMessage</span><span class="o">,</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">CompletionListener</span><span class="o">)</span><span class="err">'</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">its</span> <span class="n">type</span> <span class="n">to</span> <span class="n">com</span><span class="o">.</span><span class="na">alibaba</span><span class="o">.</span><span class="na">mq</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">CommonMessage</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Some inspiration in <strong>Dependency Mediator</strong> project just come from here.more topics about compatible,you can reference from series article <a href="http://wiki.eclipse.org/index.php/Evolving_Java-based_APIs">Evolving Java-based APIs</a></p>
 
@@ -541,7 +537,7 @@ have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBi
 
 <p>What is the principle of <strong>Dependency Mediator</strong>？<strong>Dependency Mediator</strong> try to mediate various component conflicting problems.It uses jar or class as the smallest component unit,that is ComponentEntry:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComponentEntry</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">ComponentEntry</span><span class="o">&gt;</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComponentEntry</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">ComponentEntry</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="cm">/**
    * Similar file name
    */</span>
@@ -559,8 +555,7 @@ have a class named StaticLoggerBinder and implementing SLF4J spi LoggerFactoryBi
    */</span>
   <span class="kd">private</span> <span class="n">JarEntry</span> <span class="n">entry</span><span class="o">;</span>
   <span class="o">....</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>It could scan directory(also including classpath,if you set system property scanClasspath) and POM.if it happen to jar,but you setting checkJars to false,it could detect inner MANIFEST file,using <strong>Build-Jdk</strong> and <strong>Built-By</strong> properties to decide whether duplicated jars.thus,output only report whether including duplicated jar.but if you 
 setting checkJars to true or nothing to do with this property,it will further analyzes whether existing incompatible cases.</p>
@@ -572,9 +567,8 @@ setting checkJars to true or nothing to do with this property,it will further an
 
 <p>If you consider the dependency hierarchy as a binary tree structure,Undoubtedly,<strong>nearest definition</strong> means the <strong>minimum depth</strong>. so if you put some higher version dependency library after lower version one(may be transitive dependency),you will face incompatible conflicting problems.Such as :</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">[</span><span class="n">WARNING</span><span class="o">]</span> <span class="n">Founded</span> <span class="n">conflicting</span> <span class="n">dependency</span> <span class="nl">component:</span><span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">thrift</span><span class="o">:</span><span class="nl">libthrift:</span><span class="n">jar</span> <span class="n">Resolved</span> <span class="n">version</span> <span class="n">is</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">thrift</span><span class="o">:</span><span class="nl">libthrift:jar:</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">0</span><span class="o">:</span><span class="n">compile</span> <span class="n">But</span> <span class="n">found</span> <span class="n">conflicting</span> <span class="n">artifact</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">thrift</span><span class="o">:</span><span class="nl">libthrift:</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">1</span>
-</code></pre>
-</div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="n">WARNING</span><span class="o">]</span> <span class="n">Founded</span> <span class="n">conflicting</span> <span class="n">dependency</span> <span class="nl">component:</span><span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">thrift</span><span class="o">:</span><span class="nl">libthrift:</span><span class="n">jar</span> <span class="n">Resolved</span> <span class="n">version</span> <span class="n">is</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">thrift</span><span class="o">:</span><span class="nl">libthrift:jar:</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">0</span><span class="o">:</span><span class="n">compile</span> <span class="n">But</span> <span class="n">found</span> <span class="n">conflicting</span> <span class="n">artifact</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">thrift</span><span class="o">:</span><span class="nl">libthrift:</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">1</span>
+</code></pre></div></div>
 
 <p>In this case,you could fix this problem through place libthrift 0.9.1 before the library imported through transitive dependency.</p>
 
@@ -610,19 +604,19 @@ setting checkJars to true or nothing to do with this property,it will further an
     
       
       
-      <a href="/tags/#compatibility" class="page__taxonomy-item" rel="tag">Compatibility</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#compatibility" class="page__taxonomy-item" rel="tag">Compatibility</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#dependency" class="page__taxonomy-item" rel="tag">Dependency</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#dependency" class="page__taxonomy-item" rel="tag">Dependency</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#java" class="page__taxonomy-item" rel="tag">Java</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/#java" class="page__taxonomy-item" rel="tag">Java</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#maven" class="page__taxonomy-item" rel="tag">Maven</a>
+      <a href="http://localhost:4000/tags/#maven" class="page__taxonomy-item" rel="tag">Maven</a>
     
     </span>
   </p>
@@ -643,7 +637,7 @@ setting checkJars to true or nothing to do with this property,it will further an
     
       
       
-      <a href="/categories/#maven" class="page__taxonomy-item" rel="tag">Maven</a>
+      <a href="http://localhost:4000/categories/#maven" class="page__taxonomy-item" rel="tag">Maven</a>
     
     </span>
   </p>
@@ -659,24 +653,24 @@ setting checkJars to true or nothing to do with this property,it will further an
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Mastering Component Compatible Dependency /maven/mastering-component-compatible-dependency/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Mastering Component Compatible Dependency http://localhost:4000/maven/mastering-component-compatible-dependency/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/maven/mastering-component-compatible-dependency/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/maven/mastering-component-compatible-dependency/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/maven/mastering-component-compatible-dependency/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/maven/mastering-component-compatible-dependency/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/maven/mastering-component-compatible-dependency/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/maven/mastering-component-compatible-dependency/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/rocketmq/how-to-support-more-queues-in-rocketmq/" class="pagination--pager" title="How to Support More Queues in RocketMQ?
+      <a href="http://localhost:4000/rocketmq/how-to-support-more-queues-in-rocketmq/" class="pagination--pager" title="How to Support More Queues in RocketMQ?
 ">Previous</a>
     
     
-      <a href="/activity/launch-rocketmq-code-marathon/" class="pagination--pager" title="Launch RocketMQ Code Marathon
+      <a href="http://localhost:4000/activity/launch-rocketmq-code-marathon/" class="pagination--pager" title="Launch RocketMQ Code Marathon
 ">Next</a>
     
   </nav>
@@ -695,6 +689,130 @@ setting checkJars to true or nothing to do with this property,it will further an
   </article>
 
   
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/release_notes/release-notes-4.3.1/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.3.1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the 4.3.1 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Q...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/release_notes/release-notes-4.3.0/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.3.0
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the JIRA issues addressed in the 4.3.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/rocketmq/the-design-of-transactional-message/" rel="permalink">The Design Of Transactional Message
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+     On This Page
+
+  Concept Introduction
+
+
+  
+
+Concept Introduction
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/release_notes/release-notes-4.2.0/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.2.0
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the JIRA issues addressed in the 4.2.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer...</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
   
 </div>
 
@@ -725,7 +843,7 @@ setting checkJars to true or nothing to do with this property,it will further an
           <li><a href="https://github.com/apache/rocketmq"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
         
-        <li><a href="/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+        <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
       </ul>
     </div>
 
@@ -745,7 +863,7 @@ setting checkJars to true or nothing to do with this property,it will further an
       </footer>
     </div>
 
-    <script src="/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 
