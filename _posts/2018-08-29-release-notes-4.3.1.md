@@ -11,10 +11,10 @@ tags:
 Below is a summary of the issues addressed in the 4.3.1 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
 
 
-[^_^]: <h2> Download the 4.3.1 release</h2>
+<h2> Download the 4.3.1 release</h2>
     
-[^_^]: * Source: [rocketmq-all-4.3.1-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip.sha1)]
-[^_^]: * Binary: [rocketmq-all-4.3.1-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip.sha1)]
+* Source: [rocketmq-all-4.3.1-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.3.1-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.1/rocketmq-all-4.3.1-bin-release.zip.sha1)]
 
 
 ## Improvement
