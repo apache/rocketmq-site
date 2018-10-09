@@ -21,7 +21,18 @@ Nor is code the only way to contribute to the project. We strongly value documen
 
 We have a few mailing lists hosted by Apache, please refer to [here](/about/contact) for more details.
 
+# RIP(RocketMQ Improvement Proposals)
+It is easy to start a RIP from sending proposals to mailing lists.And the whole procedure of a RIP may follow below:
+![How Rip Work](/assets/images/how_rip_work.png)
+
+
+[RIP Template](https://docs.google.com/document/d/19JssoEGnNp1x9MoXVMoeGCWSBnBdyv97FuGcIH1fV1g/edit#heading=h.nwczedg8v2na)
+
+[RIP-1 MQTT Bridge](https://docs.google.com/document/d/1G1-aJ74ZTjy_rxtJU3jm_YoICexNTdUVSR9E78K9xlo/edit?usp=sharing)
+
+
 # Ecosystem
 
-![](/assets/images/eco.png)
+![Apache RocketMQ Ecosystem](/assets/images/eco.png)
+
 
