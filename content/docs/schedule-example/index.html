@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-09-17T12:10:34+08:00">
+  <meta property="article:published_time" content="2018-10-09T19:47:19+08:00">
 
 
 
@@ -498,7 +498,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Schedule example">
     <meta itemprop="description" content="How to use schedule component to reduce pull in RocketMQ.">
-    
+    <meta itemprop="datePublished" content="October 09, 2018">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -532,7 +532,7 @@
   <li>
     <p>Start consumer to wait for incoming subscribed messages</p>
 
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.consumer.DefaultMQPushConsumer</span><span class="o">;</span>
+    <div class="language-java highlighter-rouge"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.consumer.DefaultMQPushConsumer</span><span class="o">;</span>
  <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext</span><span class="o">;</span>
  <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus</span><span class="o">;</span>
  <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently</span><span class="o">;</span>
@@ -562,12 +562,13 @@
          <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
      <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div>    </div>
+</code></pre>
+    </div>
   </li>
   <li>
     <p>Send scheduled messages</p>
 
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.producer.DefaultMQProducer</span><span class="o">;</span>
+    <div class="language-java highlighter-rouge"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">org.apache.rocketmq.client.producer.DefaultMQProducer</span><span class="o">;</span>
  <span class="kn">import</span> <span class="nn">org.apache.rocketmq.common.message.Message</span><span class="o">;</span>
     
  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ScheduledMessageProducer</span> <span class="o">{</span>
@@ -591,7 +592,8 @@
      <span class="o">}</span>
         
  <span class="o">}</span>
-</code></pre></div>    </div>
+</code></pre>
+    </div>
   </li>
   <li>
     <p>Verification</p>

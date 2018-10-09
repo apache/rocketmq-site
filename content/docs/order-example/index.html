@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-09-17T12:10:34+08:00">
+  <meta property="article:published_time" content="2018-10-09T19:47:19+08:00">
 
 
 
@@ -498,7 +498,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Order Message">
     <meta itemprop="description" content="How to send and receive ordered messages in Apache RocketMQ.">
-    
+    <meta itemprop="datePublished" content="October 09, 2018">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -527,7 +527,7 @@
 <p>The following example demonstrates sending/recieving of globally and partitionally ordered message.</p>
 <h4 id="send-message-sample-code">Send message sample code</h4>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderedProducer</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderedProducer</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
         <span class="n">MQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
@@ -554,11 +554,12 @@
         <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <h4 id="subscription-message-sample-code">Subscription message sample code</h4>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderedConsumer</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderedConsumer</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
         <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
 
@@ -595,7 +596,8 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer Started.%n"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>
+</code></pre>
+</div>
 
 
         

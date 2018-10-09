@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-09-17T12:10:34+08:00">
+  <meta property="article:published_time" content="2018-10-09T19:47:19+08:00">
 
 
 
@@ -498,7 +498,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="RocketMQ JVM/Linux Configuration">
     <meta itemprop="description" content="This is an introduction for configuring RocketMQ broker JVM/OS parameters. It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.">
-    
+    <meta itemprop="datePublished" content="October 09, 2018">
     <meta itemprop="dateModified" content="July 15, 2017">
 
     <div class="page__inner-wrap">
@@ -529,23 +529,27 @@
 
 <p>The latest released version of JDK 1.8 is recommended, with server compiler and a 8g heap. Set the same Xms and Xmx value to prevent the JVM from resizing the heap for better performance. A simple JVM configurations looks like this:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-server -Xms8g -Xmx8g -Xmn4g
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>-server -Xms8g -Xmx8g -Xmn4g
+</code></pre>
+</div>
 
 <p>If you don’t care about the boot time of RocketMQ broker, pre-touch the Java heap to make sure that every page will be allocated during JVM initialization is a better choice. Those who don’t care about the boot time can enable it:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-XX:+AlwaysPreTouch
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:+AlwaysPreTouch
+</code></pre>
+</div>
 
 <p>Disable biased locking may reduce JVM pauses:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-XX:-UseBiasedLocking
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:-UseBiasedLocking
+</code></pre>
+</div>
 
 <p>As for garbage collection, G1 collector with JDK 1.8 is recommended:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30
+</code></pre>
+</div>
 
 <p>These GC options looks a little aggressive, but it’s proved to have good performance in our production environment.</p>
 
@@ -553,13 +557,15 @@
 
 <p>And use rolling GC log file is recommended:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=30m
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>-XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=30m
+</code></pre>
+</div>
 
 <p>If write GC file will increase latency of broker, consider redirect GC log file to a memory file system:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-Xloggc:/dev/shm/mq_gc_%p.log
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>-Xloggc:/dev/shm/mq_gc_%p.log
+</code></pre>
+</div>
 
 <h1 id="linux-kernel-parameters">Linux Kernel Parameters</h1>
 

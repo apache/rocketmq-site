@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-09-17T12:10:34+08:00">
+  <meta property="article:published_time" content="2018-10-09T19:47:19+08:00">
 
 
 
@@ -498,7 +498,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Batch Example">
     <meta itemprop="description" content="How to use batch in Rocketmq">
-    
+    <meta itemprop="datePublished" content="October 09, 2018">
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -535,7 +535,7 @@
 <h4 id="how-to-use-batch">How to use batch</h4>
 <p>If you just send messages of no more than 1MiB at a time, it is easy to use batch:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">topic</span> <span class="o">=</span> <span class="s">"BatchTest"</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">String</span> <span class="n">topic</span> <span class="o">=</span> <span class="s">"BatchTest"</span><span class="o">;</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID001"</span><span class="o">,</span> <span class="s">"Hello world 0"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
 <span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID002"</span><span class="o">,</span> <span class="s">"Hello world 1"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
@@ -547,13 +547,14 @@
     <span class="c1">//handle the error</span>
 <span class="o">}</span>
     
-</code></pre></div></div>
+</code></pre>
+</div>
 <h4 id="split-into-lists">Split into lists</h4>
 <p>The complexity only grow when you send large batch and you may not sure if it exceeds the size limit (1MiB).</p>
 
 <p>At this time, you’d better split the lists:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListSplitter</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListSplitter</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">SIZE_LIMIT</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">currIndex</span><span class="o">;</span>
@@ -606,7 +607,8 @@
        <span class="c1">//handle the error</span>
    <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>
+</code></pre>
+</div>
 
         
       </section>

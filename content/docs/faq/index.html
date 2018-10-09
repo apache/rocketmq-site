@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-09-17T12:10:34+08:00">
+  <meta property="article:published_time" content="2018-10-09T19:47:19+08:00">
 
 
 
@@ -498,7 +498,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Frequently Asked Questions">
     <meta itemprop="description" content="The following questions are frequently asked with regard to the RocketMQ project in general.General1. Why did we create rocketmq project instead of selecting other products?Please refer to Why RocketMQ">
-    
+    <meta itemprop="datePublished" content="October 09, 2018">
     <meta itemprop="dateModified" content="December 28, 2016">
 
     <div class="page__inner-wrap">
@@ -573,9 +573,10 @@ The broadcaset consumption still ensures that a message is consumered at least o
 <h3 id="3-how-to-set-the-number-of-consumer-threads">3. How to set the number of consumer threads?</h3>
 <p>When you start Consumer, set a ConsumeThreadNums property, example is as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>consumer.setConsumeThreadMin(20);
+<div class="highlighter-rouge"><pre class="highlight"><code>consumer.setConsumeThreadMin(20);
 consumer.setConsumeThreadMax(20);
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <h2 id="errors">Errors</h2>
 <h3 id="1-if-you-start-a-producer-or-consumer-failed-and-the-error-message-is-producer-group-or-consumer-repeat">1. If you start a producer or consumer failed and the error message is producer group or consumer repeat?</h3>
