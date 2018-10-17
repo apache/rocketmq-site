@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-10-09T19:47:19+08:00">
+  <meta property="article:published_time" content="2018-10-17T21:05:42+08:00">
 
 
 
@@ -498,8 +498,8 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Quick Start">
     <meta itemprop="description" content="How to quickly install and setup Apache RocketMQ.">
-    <meta itemprop="datePublished" content="October 09, 2018">
-    <meta itemprop="dateModified" content="December 30, 2016">
+    
+    <meta itemprop="dateModified" content="December 29, 2016">
 
     <div class="page__inner-wrap">
       
@@ -545,53 +545,48 @@ and receive messages.</p>
 
 <p>Now execute the following commands to unpack 4.3.0 source release and build the binary artifact.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; unzip rocketmq-all-4.3.0-source-release.zip
-  &gt; <span class="nb">cd </span>rocketmq-all-4.3.0/
-  &gt; mvn -Prelease-all -DskipTests clean install -U
-  &gt; <span class="nb">cd </span>distribution/target/apache-rocketmq
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&gt;</span> unzip rocketmq-all-4.3.0-source-release.zip
+  <span class="o">&gt;</span> <span class="nb">cd </span>rocketmq-all-4.3.0/
+  <span class="o">&gt;</span> mvn <span class="nt">-Prelease-all</span> <span class="nt">-DskipTests</span> clean <span class="nb">install</span> <span class="nt">-U</span>
+  <span class="o">&gt;</span> <span class="nb">cd </span>distribution/target/apache-rocketmq
+</code></pre></div></div>
 
 <h1 id="start-name-server">Start Name Server</h1>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqnamesrv &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/namesrv.log
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&gt;</span> <span class="nb">nohup </span>sh bin/mqnamesrv &amp;
+  <span class="o">&gt;</span> <span class="nb">tail</span> <span class="nt">-f</span> ~/logs/rocketmqlogs/namesrv.log
   The Name Server boot success...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="start-broker">Start Broker</h1>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &gt; nohup sh bin/mqbroker -n localhost:9876 &amp;
-  &gt; tail -f ~/logs/rocketmqlogs/broker.log 
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&gt;</span> <span class="nb">nohup </span>sh bin/mqbroker <span class="nt">-n</span> localhost:9876 &amp;
+  <span class="o">&gt;</span> <span class="nb">tail</span> <span class="nt">-f</span> ~/logs/rocketmqlogs/broker.log 
   The broker[%s, 172.30.30.233:10911] boot success...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="send--receive-messages">Send &amp; Receive Messages</h1>
 
 <p>Before sending/receiving messages, we need to tell clients the location of name servers. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable <code class="highlighter-rouge">NAMESRV_ADDR</code></p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code> &gt; <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">&gt;</span> <span class="nb">export </span><span class="nv">NAMESRV_ADDR</span><span class="o">=</span>localhost:9876
+ <span class="o">&gt;</span> sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
  SendResult <span class="o">[</span><span class="nv">sendStatus</span><span class="o">=</span>SEND_OK, <span class="nv">msgId</span><span class="o">=</span> ...
 
- &gt; sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
+ <span class="o">&gt;</span> sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: <span class="o">[</span>MessageExt...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="shutdown-servers">Shutdown Servers</h1>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>sh bin/mqshutdown broker
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> sh bin/mqshutdown broker
 The mqbroker<span class="o">(</span>36695<span class="o">)</span> is running...
 Send shutdown request to mqbroker<span class="o">(</span>36695<span class="o">)</span> OK
 
-<span class="gp">&gt; </span>sh bin/mqshutdown namesrv
+<span class="o">&gt;</span> sh bin/mqshutdown namesrv
 The mqnamesrv<span class="o">(</span>36664<span class="o">)</span> is running...
 Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)</span> OK
-</code></pre>
-</div>
+</code></pre></div></div>
 
         
       </section>
@@ -602,7 +597,7 @@ Send shutdown request to mqnamesrv<span class="o">(</span>36664<span class="o">)
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-30">December 30, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-29">December 29, 2016</time></p>
         
       </footer>
 
