@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-11-02T22:58:44+08:00">
+  <meta property="article:published_time" content="2018-11-05T16:44:23+08:00">
 
 
 
@@ -506,7 +506,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="How to manage Pull Request">
     <meta itemprop="description" content="This page guides you through Git setup and contribution process.">
-    
+    <meta itemprop="datePublished" content="November 05, 2018">
     <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
@@ -540,8 +540,9 @@
 <h1 id="git-setup-for-contributors">Git setup for Contributors</h1>
 <p>First of all, fork github’s <code class="highlighter-rouge">apache/rocketmq</code> to your own account on github and clone it as follows,</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/&lt;your_github_name&gt;/rocketmq.git
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/&lt;your_github_name&gt;/rocketmq.git
+</code></pre>
+</div>
 
 <p>Cloning this locally will set up <code class="highlighter-rouge">origin</code> to point to your remote fork on github as the default remote.
 Now you can create your pull requests.</p>
@@ -549,20 +550,23 @@ Now you can create your pull requests.</p>
 <p>You will need to update a local master sometimes (to merge to your development branches).
 For this, you have to add remote for RocketMQ mirror as follows,</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add apache https://github.com/apache/rocketmq.git
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>git remote add apache https://github.com/apache/rocketmq.git
+</code></pre>
+</div>
 
 <p>and update your local master via <code class="highlighter-rouge">git fetch</code> followed by <code class="highlighter-rouge">git rebase</code>, for instance:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch apache master
+<div class="highlighter-rouge"><pre class="highlight"><code>git fetch apache master
 git rebase apache/master
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <h1 id="do-some-work-on-the-branch">Do some work on the branch</h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -a -m "doing some work"
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit -a -m "doing some work"
 git push origin ROCKETMQ-xxxx # notice pushing to **origin** not **apache**
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p>Once you are ready to commit to the apache remote you can merge and push them directly, otherwise always create a PR.</p>
 
@@ -570,9 +574,10 @@ git push origin ROCKETMQ-xxxx # notice pushing to **origin** not **apache**
 
 <p>Push your branch to Github:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout ROCKETMQ-xxxx
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout ROCKETMQ-xxxx
 git push origin ROCKETMQ-xxxx
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <ol>
   <li>
@@ -609,46 +614,52 @@ You pull request will be reviewed and commented by committers, and issues can be
 <p>Start with reading <a href="https://help.github.com/articles/checking-out-pull-requests-locally/">GitHub PR merging locally</a>. Remember that pull requests are equivalent to a remote github branch with potentially a multitude of commits. In this case it is recommended to squash remote commit history to have one commit per issue, rather than merging in a multitude of contributor’s commits. In order to do that, as well as to close the PR at the same time, it is recommended to use squash commits.
 Merging pull requests are equivalent to a “pull” of a contributor’s branch:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master      # switch to local master branch
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout master      # switch to local master branch
 git pull apache master   # fast-forward to current remote HEAD
 git pull --squash https://github.com/cuser/rocketmq.git ROCKETMQ-xxxx  # merge to master
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p><code class="highlighter-rouge">--squash</code> ensures all PR history is squashed into single commit, and allows committer to use his/her own message. Please refer to git help for merge or pull for more information about <code class="highlighter-rouge">--squash</code> option. In this example we assume that the contributor’s Github handle is “cuser” and the PR branch name is “ROCKETMQ-xxxx”. Next, resolve all conflicts, or ask a contributor to rebase on top of master, if PR went out of sync.</p>
 
 <p>If you are ready to merge your own (committer’s) PR you only need to merge (not pull), since you have a local copy that you’ve been working on. This is the branch that you used to create the PR.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master      # switch to local master branch
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout master      # switch to local master branch
 git pull apache master   # fast-forward to current remote HEAD
 git merge --squash ROCKETMQ-xxxx
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p>Please run regular patch checks, build with tests enabled, and change CHANGELOG whenever needed.
 If all requirements are met, you can commit the squashed request using:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit --author="contributor_name &lt;contributor_email&gt;" -a -m "ROCKETMQ-XXXX description closes apache/rocketmq#ZZ"
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit --author="contributor_name &lt;contributor_email&gt;" -a -m "ROCKETMQ-XXXX description closes apache/rocketmq#ZZ"
+</code></pre>
+</div>
 
 <p>ROCKETMQ-XXXX is all capitalized and ZZ is the pull request number on apache/rocketmq repository. Including “closes apache/rocketmq#ZZ” will close the PR automatically. More information can be found here <a href="https://help.github.com/articles/closing-issues-via-commit-messages/">GitHub PR closing docs.</a>.
 Next, push to apache:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push apache master
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>git push apache master
+</code></pre>
+</div>
 
 <p>(this will require Apache handle credentials).
 The PR, once pushed, will get mirrored to github. To update your github version push there too:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>git push origin master
+</code></pre>
+</div>
 
 <p>Note on squashing: Since squash discards remote branch history, repeated PRs from the same remote branch are difficult to be merged. The workflow implies that every new PR starts with a new rebased branch. This is more important for contributors to know, rather than for committers, because if new PR is not mergeable, github would warn at the start. Please watch for dupe PRs (based on same source branches).</p>
 
 <h1 id="closing-a-pr-without-committing-for-committers">Closing a PR without committing (for committers)</h1>
 <p>When we want to reject a PR (close without committing), we can just issue an empty commit on master’s HEAD without merging the PR:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit --allow-empty -m "ROCKETMQ-XXXX closes apache/rocketmq#ZZ *Won't fix*"
+<div class="highlighter-rouge"><pre class="highlight"><code>git commit --allow-empty -m "ROCKETMQ-XXXX closes apache/rocketmq#ZZ *Won't fix*"
 git push apache master
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p>that should close PR ZZ on github mirror without merging and any code modifications in the master repository.</p>
 

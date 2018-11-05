@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-11-02T22:58:44+08:00">
+  <meta property="article:published_time" content="2018-11-05T16:44:23+08:00">
 
 
 
@@ -506,7 +506,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Release Manual">
     <meta itemprop="description" content="Apache RocketMQ Release Manual">
-    
+    <meta itemprop="datePublished" content="November 05, 2018">
     <meta itemprop="dateModified" content="February 08, 2017">
 
     <div class="page__inner-wrap">
@@ -531,12 +531,12 @@
       <li><a href="#15-publish-the-release-notes" id="markdown-toc-15-publish-the-release-notes">1.5 Publish the Release Notes</a></li>
     </ul>
   </li>
-  <li><a href="#2build-the-binary-release-candidate" id="markdown-toc-2build-the-binary-release-candidate">2.Build the Binary Release Candidate</a></li>
-  <li><a href="#3build-the-source-release-candidate" id="markdown-toc-3build-the-source-release-candidate">3.Build the Source Release Candidate</a>    <ul>
-      <li><a href="#31-release-to-the-maven-repository" id="markdown-toc-31-release-to-the-maven-repository">3.1 Release to the maven repository</a></li>
-      <li><a href="#32-rollback-and-retry" id="markdown-toc-32-rollback-and-retry">3.2 Rollback and Retry</a></li>
+  <li><a href="#2build-the-source-release-candidate" id="markdown-toc-2build-the-source-release-candidate">2.Build the Source Release Candidate</a>    <ul>
+      <li><a href="#21-release-to-the-maven-repository" id="markdown-toc-21-release-to-the-maven-repository">2.1 Release to the maven repository</a></li>
+      <li><a href="#22-rollback-and-retry" id="markdown-toc-22-rollback-and-retry">2.2 Rollback and Retry</a></li>
     </ul>
   </li>
+  <li><a href="#3build-the-binary-release-candidate" id="markdown-toc-3build-the-binary-release-candidate">3.Build the Binary Release Candidate</a></li>
   <li><a href="#4-validate-the-release-candidate" id="markdown-toc-4-validate-the-release-candidate">4. Validate the Release Candidate</a>    <ul>
       <li><a href="#41-check-list-for-binary-release" id="markdown-toc-41-check-list-for-binary-release">4.1 check list for binary release:</a></li>
       <li><a href="#42-check-list-for-source-release" id="markdown-toc-42-check-list-for-source-release">4.2 check list for source release:</a></li>
@@ -583,7 +583,7 @@
 <h4 id="13-prepare-your-maven-settings">1.3 Prepare Your Maven Settings</h4>
 <p>Make sure your Maven settings.xml file contains the following:</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;settings&gt;</span>
    <span class="nt">&lt;profiles&gt;</span>
          <span class="nt">&lt;profile&gt;</span>
            <span class="nt">&lt;id&gt;</span>signed_release<span class="nt">&lt;/id&gt;</span>
@@ -613,7 +613,8 @@
     <span class="nt">&lt;/server&gt;</span>
   <span class="nt">&lt;/servers&gt;</span>
 <span class="nt">&lt;/settings&gt;</span>
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p><strong>Tips:</strong> It is highly recommended to use <a href="http://maven.apache.org/guides/mini/guide-encryption.html">Maven’s password encryption capabilities</a> for your passwords.</p>
 
@@ -625,24 +626,12 @@
 <h4 id="15-publish-the-release-notes">1.5 Publish the Release Notes</h4>
 <p>Generate the release notes via <a href="https://issues.apache.org/jira/browse/ROCKETMQ/">RocketMQ JIRA</a> and publish it to the <a href="https://github.com/apache/rocketmq-site">rocketmq-site</a>, there is a <a href="https://rocketmq.apache.org/release_notes/release-notes-4.2.0/">release notes</a> available for reference, include the link to the release notes in the voting emails.</p>
 
-<h2 id="2build-the-binary-release-candidate">2.Build the Binary Release Candidate</h2>
-<p>Checkout the code to be released, and build the binary artifact.
-Be aware of the os version, for some dependency is os sensitive, such as netty tc-native.</p>
-
-<ul>
-  <li>Make sure that your are in the candidate release branch.</li>
-  <li>Make sure that all the unit tests can pass via <code class="highlighter-rouge">mvn clean install</code>.</li>
-  <li>Make sure that all the integration tests can pass via <code class="highlighter-rouge">mvn clean test -Pit-test</code>.</li>
-</ul>
-
-<p>After the successful building, remember to sign the artifact, and copy them to the svn repository, you could refer to <a href="https://dist.apache.org/repos/dist/release/rocketmq/4.2.0">svn repository</a> .</p>
-
-<h2 id="3build-the-source-release-candidate">3.Build the Source Release Candidate</h2>
+<h2 id="2build-the-source-release-candidate">2.Build the Source Release Candidate</h2>
 <p>In this process, you need to use maven release plugin to release the artifact to maven repository. And also, copy them to the svn repository.</p>
 
-<h4 id="31-release-to-the-maven-repository">3.1 Release to the maven repository</h4>
+<h4 id="21-release-to-the-maven-repository">2.1 Release to the maven repository</h4>
 
-<p>Firstly, checkout a new branch from <code class="highlighter-rouge">master</code> with its name equal to the release version, like <code class="highlighter-rouge">release-4.2.0</code>.</p>
+<p>Firstly, checkout a new branch from the target branch(master or develop) with its name equal to the release version, like <code class="highlighter-rouge">release-4.2.0</code>.</p>
 
 <p>Perform the following to generate and stage the artifacts:</p>
 
@@ -656,9 +645,21 @@ Be aware of the os version, for some dependency is os sensitive, such as netty t
 
 <p><strong>Tips:</strong> If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select <code class="highlighter-rouge">Delete</code>.</p>
 
-<h4 id="32-rollback-and-retry">3.2 Rollback and Retry</h4>
+<h4 id="22-rollback-and-retry">2.2 Rollback and Retry</h4>
 <p>If the staging process encounter problem, you may need to rollback:
 Delete the branch and tag created in 3.1 and then redo it.</p>
+
+<h2 id="3build-the-binary-release-candidate">3.Build the Binary Release Candidate</h2>
+<p>Checkout the code to be released(must be the same as the source branch), and build the binary artifact.
+Be aware of the os version, for some dependency is os sensitive, such as netty tc-native.</p>
+
+<ul>
+  <li>Make sure that your are in the candidate release branch.</li>
+  <li>Make sure that all the unit tests can pass via <code class="highlighter-rouge">mvn clean install</code>.</li>
+  <li>Make sure that all the integration tests can pass via <code class="highlighter-rouge">mvn clean test -Pit-test</code>.</li>
+</ul>
+
+<p>After the successful building, remember to sign the artifact, and copy them to the svn repository, you could refer to <a href="https://dist.apache.org/repos/dist/release/rocketmq/4.2.0">svn repository</a> .</p>
 
 <h2 id="4-validate-the-release-candidate">4. Validate the Release Candidate</h2>
 
@@ -694,27 +695,31 @@ Delete the branch and tag created in 3.1 and then redo it.</p>
   <li>On unix platforms the following command can be executed:</li>
 </ol>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-iname</span> <span class="s1">'*.asc'</span><span class="sb">`</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  <span class="k">for </span>file <span class="k">in</span> <span class="sb">`</span>find . -type f -iname <span class="s1">'*.asc'</span><span class="sb">`</span>
   <span class="k">do
-      </span>gpg <span class="nt">--verify</span> <span class="k">${</span><span class="nv">file</span><span class="k">}</span> 
+      </span>gpg --verify <span class="k">${</span><span class="nv">file</span><span class="k">}</span> 
   <span class="k">done</span>
-</code></pre></div></div>
+</code></pre>
+</div>
 
 <p>or</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  gpg <span class="nt">--verify</span> rocketmq-all-%version-number%-source-release.zip.asc rocketmq-all-%version-number%-source-release.zip
-</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --verify rocketmq-all-%version-number%-source-release.zip.asc rocketmq-all-%version-number%-source-release.zip
+</code></pre>
+</div>
 <p>Check the output to ensure it only contains good signatures:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  gpg: Good signature from ... gpg: Signature made ...
-</code></pre></div></div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>  gpg: Good signature from ... gpg: Signature made ...
+</code></pre>
+</div>
 
 <ol>
   <li>Compare MD5, SHA hash generated by the below command with the downloaded hash files.</li>
 </ol>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  gpg <span class="nt">--print-mds</span> rocketmq-all-%version-number%-source-release.zip 
-</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  gpg --print-mds rocketmq-all-%version-number%-source-release.zip 
+</code></pre>
+</div>
 
 <h2 id="5-release-the-staging-artifacts">5. Release the Staging Artifacts</h2>
 <p>If the release candidate passes the validation checklist, close the staging repository in Nexus by selecting the staging repository <code class="highlighter-rouge">orgapacherocketmq-XXX</code> and clicking on the <code class="highlighter-rouge">Close</code> icon.</p>
