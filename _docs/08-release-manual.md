@@ -74,23 +74,14 @@ Also, remember to check the current version of MQVersion, which should be equal 
 #### 1.5 Publish the Release Notes
 Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](https://rocketmq.apache.org/release_notes/release-notes-4.2.0/) available for reference, include the link to the release notes in the voting emails.
 
-## 2.Build the Binary Release Candidate
-Checkout the code to be released, and build the binary artifact.
-Be aware of the os version, for some dependency is os sensitive, such as netty tc-native.
 
-* Make sure that your are in the candidate release branch.
-* Make sure that all the unit tests can pass via `mvn clean install`.
-* Make sure that all the integration tests can pass via `mvn clean test -Pit-test`.
-
-After the successful building, remember to sign the artifact, and copy them to the svn repository, you could refer to [svn repository](https://dist.apache.org/repos/dist/release/rocketmq/4.2.0) .
-
-## 3.Build the Source Release Candidate
+## 2.Build the Source Release Candidate
 In this process, you need to use maven release plugin to release the artifact to maven repository. And also, copy them to the svn repository.
 
-#### 3.1 Release to the maven repository
+#### 2.1 Release to the maven repository
 
 
-Firstly, checkout a new branch from `master` with its name equal to the release version, like `release-4.2.0`.
+Firstly, checkout a new branch from the target branch(master or develop) with its name equal to the release version, like `release-4.2.0`.
 
 Perform the following to generate and stage the artifacts:
 
@@ -102,9 +93,20 @@ Now, the candidate release artifacts can be found in the [Nexus staging repo](ht
 
 **Tips:** If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select `Delete`.
 
-#### 3.2 Rollback and Retry
+#### 2.2 Rollback and Retry
 If the staging process encounter problem, you may need to rollback:
 Delete the branch and tag created in 3.1 and then redo it.
+
+## 3.Build the Binary Release Candidate
+Checkout the code to be released(must be the same as the source branch), and build the binary artifact.
+Be aware of the os version, for some dependency is os sensitive, such as netty tc-native.
+
+* Make sure that your are in the candidate release branch.
+* Make sure that all the unit tests can pass via `mvn clean install`.
+* Make sure that all the integration tests can pass via `mvn clean test -Pit-test`.
+
+After the successful building, remember to sign the artifact, and copy them to the svn repository, you could refer to [svn repository](https://dist.apache.org/repos/dist/release/rocketmq/4.2.0) .
+
 
 ## 4. Validate the Release Candidate
 
