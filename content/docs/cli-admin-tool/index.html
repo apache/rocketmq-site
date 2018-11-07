@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-11-05T16:44:23+08:00">
+  <meta property="article:published_time" content="2018-11-07T09:20:27+08:00">
 
 
 
@@ -506,7 +506,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="CLI Admin Tool">
     <meta itemprop="description" content="RocketMQ provides a CLI admin tool belt to query, manage and diagnose various issues.">
-    <meta itemprop="datePublished" content="November 05, 2018">
+    
     <meta itemprop="dateModified" content="December 17, 2016">
 
     <div class="page__inner-wrap">
@@ -550,7 +550,7 @@
 
 <p>Change directory to ${PACKAGE}/bin, command <code class="highlighter-rouge">bash mqadmin</code>, you should see the following help menu.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>The most commonly used mqadmin commands are:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The most commonly used mqadmin commands are:
    updateTopic          Update or create topic
    deleteTopic          Delete topic from broker and NameServer.
    updateSubGroup       Update or create subscription group
@@ -591,18 +591,16 @@
    clusterRT            List All clusters Message Send RT
 
 See 'mqadmin help &lt;command&gt;' for more information on a specific command.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>As you see, the most commonly used commands are listed with a brief description. To get detailed manual of each command, <code class="highlighter-rouge">bash mqadmin help &lt;command&gt;</code>. For example, command <code class="highlighter-rouge">bash mqadmin help clusterList</code> will bring out the following help text:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usage: mqadmin clusterList [-h] [-i &lt;arg&gt;] [-m] [-n &lt;arg&gt;]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: mqadmin clusterList [-h] [-i &lt;arg&gt;] [-m] [-n &lt;arg&gt;]
  -h,--help                Print help
  -i,--interval &lt;arg&gt;      specify intervals numbers, it is in seconds
  -m,--moreStats           Print more stats
  -n,--namesrvAddr &lt;arg&gt;   Name server address list, eg: 192.168.0.1:9876;192.168.0.2:9876
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The help text lists possible options and interpretation of each option.</p>
 

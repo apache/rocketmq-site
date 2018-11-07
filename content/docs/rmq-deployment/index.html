@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-11-05T16:44:23+08:00">
+  <meta property="article:published_time" content="2018-11-07T09:20:27+08:00">
 
 
 
@@ -506,7 +506,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Deployment">
     <meta itemprop="description" content="How to deploy the Apache RocketMQ.">
-    <meta itemprop="datePublished" content="November 05, 2018">
+    
     <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
@@ -662,7 +662,7 @@
 
 <p>Change directory to ${PACKAGE}/bin, command bash mqadmin, you should see the following help menu:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">The</span> <span class="n">most</span> <span class="n">commonly</span> <span class="n">used</span> <span class="n">mqadmin</span> <span class="n">commands</span> <span class="nl">are:</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">The</span> <span class="n">most</span> <span class="n">commonly</span> <span class="n">used</span> <span class="n">mqadmin</span> <span class="n">commands</span> <span class="nl">are:</span>
    <span class="n">updateTopic</span>          <span class="n">Update</span> <span class="n">or</span> <span class="n">create</span> <span class="n">topic</span>
    <span class="n">deleteTopic</span>          <span class="n">Delete</span> <span class="n">topic</span> <span class="n">from</span> <span class="n">broker</span> <span class="n">and</span> <span class="n">NameServer</span>
    <span class="n">updateSubGroup</span>       <span class="n">Update</span> <span class="n">or</span> <span class="n">create</span> <span class="n">subscription</span> <span class="n">group</span>
@@ -702,18 +702,16 @@
    <span class="n">checkMsgSendRT</span>       <span class="n">Check</span> <span class="n">message</span> <span class="n">send</span> <span class="n">response</span> <span class="n">time</span>
    <span class="n">clusterRT</span>            <span class="n">List</span> <span class="n">All</span> <span class="n">clusters</span> <span class="n">Message</span> <span class="n">Send</span> <span class="n">RT</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>See ‘mqadmin help <command />’ for more information on a specific command. 
 If you want to get more information about a specific command like ‘clusterList’, just type bash mqadmin help clusterList and you will see:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nl">usage:</span> <span class="n">mqadmin</span> <span class="n">clusterList</span> <span class="o">[-</span><span class="n">h</span><span class="o">]</span> <span class="o">[-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;]</span> <span class="o">[-</span><span class="n">m</span><span class="o">]</span> <span class="o">[-</span><span class="n">n</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;]</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">usage:</span> <span class="n">mqadmin</span> <span class="n">clusterList</span> <span class="o">[-</span><span class="n">h</span><span class="o">]</span> <span class="o">[-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;]</span> <span class="o">[-</span><span class="n">m</span><span class="o">]</span> <span class="o">[-</span><span class="n">n</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;]</span>
  <span class="o">-</span><span class="n">h</span><span class="o">,--</span><span class="n">help</span>                <span class="n">Print</span> <span class="n">help</span>
  <span class="o">-</span><span class="n">i</span><span class="o">,--</span><span class="n">interval</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;</span>      <span class="n">specify</span> <span class="n">intervals</span> <span class="n">numbers</span><span class="o">,</span> <span class="n">it</span> <span class="n">is</span> <span class="n">in</span> <span class="n">seconds</span>
  <span class="o">-</span><span class="n">m</span><span class="o">,--</span><span class="n">moreStats</span>           <span class="n">Print</span> <span class="n">more</span> <span class="n">stats</span>
  <span class="o">-</span><span class="n">n</span><span class="o">,--</span><span class="n">namesrvAddr</span> <span class="o">&lt;</span><span class="n">arg</span><span class="o">&gt;</span>   <span class="n">Name</span> <span class="n">server</span> <span class="n">address</span> <span class="n">list</span><span class="o">,</span> <span class="nl">eg:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span><span class="o">:</span><span class="mi">9876</span><span class="o">;</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.2</span><span class="o">:</span><span class="mi">9876</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="replication-mode">Replication mode</h3>
 <p>To make sure that no successfully published message will be lost, RocketMQ provides a Replication mode to gain stronger durability and higher availability with two replication ways: Sync &amp; Async.</p>
@@ -725,11 +723,10 @@ If you want to get more information about a specific command like ‘clusterList
 <h5 id="how-to-configure">How to configure</h5>
 <p>There are three pre-built configurations shipped with the distribution of RocketMQ under conf folder for your reference:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="n">s</span><span class="o">-</span><span class="n">sync</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="n">s</span><span class="o">-</span><span class="n">sync</span>
 <span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="n">s</span><span class="o">-</span><span class="n">async</span>
 <span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="n">noslave</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Note: all configurations uses ASYNC_FLUSH.</p>
 
 <h4 id="deployment">Deployment</h4>
@@ -737,7 +734,7 @@ If you want to get more information about a specific command like ‘clusterList
 
 <p>Then start the brokers(Assume binary RocketMQ is at /home/rocketmq/dist)</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rocketmq</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">bin</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rocketmq</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">bin</span>
 <span class="o">&gt;</span><span class="n">bash</span> <span class="n">mqbroker</span> <span class="o">-</span><span class="n">c</span> <span class="o">../</span><span class="n">conf</span><span class="o">/</span><span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="n">s</span><span class="o">-</span><span class="n">sync</span><span class="o">/</span><span class="n">broker</span><span class="o">-</span><span class="n">a</span><span class="o">.</span><span class="na">properties</span> <span class="o">-</span><span class="n">n</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.2</span><span class="o">:</span><span class="mi">9876</span><span class="o">,</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.3</span><span class="o">:</span><span class="mi">9876</span>
 <span class="o">&gt;</span><span class="n">bash</span> <span class="n">mqbroker</span> <span class="o">-</span><span class="n">c</span> <span class="o">../</span><span class="n">conf</span><span class="o">/</span><span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="n">s</span><span class="o">-</span><span class="n">sync</span><span class="o">/</span><span class="n">broker</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">s</span><span class="o">.</span><span class="na">properties</span> <span class="o">-</span><span class="n">n</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.2</span><span class="o">:</span><span class="mi">9876</span><span class="o">,</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.3</span><span class="o">:</span><span class="mi">9876</span>
 <span class="o">&gt;</span><span class="n">bash</span> <span class="n">mqbroker</span> <span class="o">-</span><span class="n">c</span> <span class="o">../</span><span class="n">conf</span><span class="o">/</span><span class="mi">2</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="n">s</span><span class="o">-</span><span class="n">sync</span><span class="o">/</span><span class="n">broker</span><span class="o">-</span><span class="n">b</span><span class="o">.</span><span class="na">properties</span> <span class="o">-</span><span class="n">n</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.2</span><span class="o">:</span><span class="mi">9876</span><span class="o">,</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.3</span><span class="o">:</span><span class="mi">9876</span>
@@ -745,8 +742,7 @@ If you want to get more information about a specific command like ‘clusterList
 <span class="n">How</span> <span class="n">to</span> <span class="n">verify</span>
 <span class="n">Execute</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">verify</span> <span class="n">according</span> <span class="n">to</span> <span class="n">the</span> <span class="n">CLI</span> <span class="nl">section:</span>
 <span class="o">&gt;</span> <span class="n">bash</span> <span class="n">mqadmin</span> <span class="n">clusterlist</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
         

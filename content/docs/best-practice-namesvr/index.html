@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-11-05T16:44:23+08:00">
+  <meta property="article:published_time" content="2018-11-07T09:20:27+08:00">
 
 
 
@@ -506,7 +506,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Best Practice For NameServer">
     <meta itemprop="description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand the coordination is mainly achieved through managing topic routing information.">
-    <meta itemprop="datePublished" content="November 05, 2018">
+    
     <meta itemprop="dateModified" content="December 25, 2016">
 
     <div class="page__inner-wrap">
@@ -551,19 +551,17 @@ In Apache RocketMQ, this can be done in four ways.</p>
 
 <p>For producers and consumers, we can feed name server address list to them as follows:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 
 <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If you use admin command line from shell, you can also specify this way:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sh mqadmin <span class="nb">command</span>-name -n name-server-ip1:port;name-server-ip2:port -X OTHER-OPTION
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh mqadmin command-name <span class="nt">-n</span> name-server-ip1:port<span class="p">;</span>name-server-ip2:port <span class="nt">-X</span> OTHER-OPTION
+</code></pre></div></div>
 
 <p>A simple example is:
 <code class="highlighter-rouge">sh mqadmin -n localhost:9876 clusterList</code>
@@ -571,10 +569,9 @@ assuming to query cluster info on the name server node.</p>
 
 <p>If you have integrated admin tool into your own dashboard, you can:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">defaultMQAdminExt</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="java-options">Java Options</h2>
 
