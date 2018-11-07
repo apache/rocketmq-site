@@ -16,16 +16,6 @@ Below is a summary of the issues addressed in the 4.3.2 release of RocketMQ. For
 * Source: [rocketmq-all-4.3.2-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.sha1)]
 * Binary: [rocketmq-all-4.3.2-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.sha1)]
 
-## New Feature
-<ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/462'>ISSUE-462</a>] -  Add the python [client](https://github.com/apache/rocketmq-client-python), which is based on the encapsulation of the C interface.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/488'>ISSUE-488</a>] -  Add the C/C++ [client](https://github.com/apache/rocketmq-client-cpp). A bunch of other client will be built on top of it, including Python, node.js, go .The C/C++ Client with robust high performance support for produce, pull/push consumer, etc.
-</li>
-</ul>
-
-
-
 ## Improvement
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/411'>ISSUE-411</a>] -  Fixed ClassCastException when get the instance of the store.
@@ -37,7 +27,6 @@ Below is a summary of the issues addressed in the 4.3.2 release of RocketMQ. For
 </ul>
 
 ## Bug
-
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/406'>ISSUE-406</a>] -  Fixed the NPE issue occurred when getting the storehost using admin tool.
 </li>
