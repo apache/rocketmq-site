@@ -13,10 +13,11 @@ and receive messages.
 # Prerequisite
 
    The following softwares are assumed installed:
-   1. 64bit OS, Linux/Unix/Mac is recommended;
+   1. 64bit OS, Linux/Unix/Mac is recommended; 
    1. 64bit JDK 1.8+; 
-   1. Maven 3.2.x
-   1. Git 
+   1. Maven 3.2.x;
+   1. Git;
+   1. 4G+ free Disk for Broker server
 
 # Download & Build from Release
 
