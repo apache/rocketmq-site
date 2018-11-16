@@ -43,7 +43,12 @@ docs:
         url: /docs/transaction-example/
       - title: "FAQ"
         url: /docs/faq/
-
+        
+  - title: Release Notes
+    children:
+      - title: "Download"
+        url: "/dowloading/releases/"
+        
   - title: Deployment & Operations
     children:
       - title: "Architecture"
@@ -80,13 +85,9 @@ docs:
         url: /docs/best-practice-namesvr/
       - title: "JVM/Kernel Config"
         url: /docs/system-config/
-  - title: Release Notes
-    children:
-      - title: "Download"
-        url: "/dowloading/releases/"
+
   - title: RoadMap
     url: /docs/roadmap/
-
 
 about:
   - title: Team
