@@ -43,7 +43,12 @@ docs:
         url: /docs/transaction-example/
       - title: "FAQ"
         url: /docs/faq/
-
+        
+  - title: Release Notes
+    children:
+      - title: "Download"
+        url: "/dowloading/releases/"
+        
   - title: Deployment & Operations
     children:
       - title: "Architecture"
@@ -80,25 +85,9 @@ docs:
         url: /docs/best-practice-namesvr/
       - title: "JVM/Kernel Config"
         url: /docs/system-config/
-  - title: Release Notes
-    children:
-      - title: "Download"
-        url: "/dowloading/releases/"
-      - title: "4.3.2"
-        url: /release_notes/release-notes-4.3.2/
-      - title: "4.3.1"
-        url: /release_notes/release-notes-4.3.1/
-      - title: "4.3.0"
-        url: /release_notes/release-notes-4.3.0/
-      - title: "4.2.0"
-        url: /release_notes/release-notes-4.2.0/
-      - title: "4.1.0-incubating"
-        url: /release_notes/release-notes-4.1.0-incubating/
-      - title: "4.0.0-incubating"
-        url: /release_notes/release-notes-4.0.0-incubating/
+
   - title: RoadMap
     url: /docs/roadmap/
-
 
 about:
   - title: Team
