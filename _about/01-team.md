@@ -24,13 +24,13 @@ The following is a list of developers with commit privileges that have directly 
 |![lizhanhui](/assets/images/about/lizhanhui.jpg)|lizhanhui|[@lizhanhui](https://github.com/lizhanhui)|lizhanhui@apache.org |PMC Member| +8 |
 |![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |PMC Member| +8 |
 |![lollipop](/assets/images/about/lollipop.jpeg)|lollipop|[@lollipopjin](https://github.com/lollipopjin)|lollipop@apache.org |PMC Member| +8 |
+|![Heng Du](/assets/images/about/duhengforever.jpeg)|duhengforever|[@duhenglucky](https://github.com/duhenglucky)|duhengforever@apache.org |PMC Member| +8 |
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
 |![vsair](/assets/images/about/vsair.png)|vsair|[@vsair](https://github.com/vsair)|vsair@apache.org |Committer| +8 |
 |![Jaskey](/assets/images/about/Jaskey.jpeg)|Jaskey|[@Jaskey](https://github.com/jaskey)|linjunjie@apache.org |Committer| +8 |
 |![Xin Wang](/assets/images/about/XinWang.jpeg)|xinwang|[@vesense](https://github.com/vesense)|xinwang@apache.org |Committer| +8 |
-|![Heng Du](/assets/images/about/duhengforever.jpeg)|duhengforever|[@duhengforever](https://github.com/duhengforever)|duhengforever@apache.org |Committer| +8 |
 
 ### Top Contributors
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
