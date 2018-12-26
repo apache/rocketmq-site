@@ -31,6 +31,7 @@ The following is a list of developers with commit privileges that have directly 
 |![vsair](/assets/images/about/vsair.png)|vsair|[@vsair](https://github.com/vsair)|vsair@apache.org |Committer| +8 |
 |![Jaskey](/assets/images/about/Jaskey.jpeg)|Jaskey|[@Jaskey](https://github.com/jaskey)|linjunjie@apache.org |Committer| +8 |
 |![Xin Wang](/assets/images/about/XinWang.jpeg)|xinwang|[@vesense](https://github.com/vesense)|xinwang@apache.org |Committer| +8 |
+|![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |Committer| +8 |
 
 ### Top Contributors
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
