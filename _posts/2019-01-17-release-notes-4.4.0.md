@@ -20,39 +20,39 @@ Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/403'>ISSUE-403</a>] -  Support the ACL standard for RocketMQ.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/502'>ISSUE-502</a>] -  Support SQL92 filter in pull comsumer.
+<li>[<a href='https://github.com/apache/rocketmq/issues/502'>ISSUE-502</a>] -  Support SQL92 filter in pull consumer.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/525'>ISSUE-525</a>] -  Support message track.
+<li>[<a href='https://github.com/apache/rocketmq/issues/525'>ISSUE-525</a>] -  Support message trace.
 </li>
 </ul>
 
 ## Improvement
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/511'>ISSUE-511</a>] -  Fix typo in comment for CountDownLatch.
+<li>[<a href='https://github.com/apache/rocketmq/issues/511'>ISSUE-511</a>] -  Polish comment for CountDownLatch.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/536'>ISSUE-536</a>] -  update fastjson version to 1.2.51.
+<li>[<a href='https://github.com/apache/rocketmq/issues/536'>ISSUE-536</a>] -  Update fastjson version to 1.2.51.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/571'>ISSUE-571</a>] -  Polish max body size to exactly 64K.
+<li>[<a href='https://github.com/apache/rocketmq/issues/571'>ISSUE-571</a>] -  Polish a default value for DB message.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/581'>ISSUE-581</a>] -  Update Copyright in NOTICE file.
+<li>[<a href='https://github.com/apache/rocketmq/issues/581'>ISSUE-581</a>] -  Polish Copyright in NOTICE file.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/582'>ISSUE-582</a>] -  Update asynchronous send thread pool from callback executor to an exclusive one.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/586'>ISSUE-586</a>] -  Format output number in admin tools.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/640'>ISSUE-640</a>] -  Fixed error when running travis-ci.
+<li>[<a href='https://github.com/apache/rocketmq/issues/640'>ISSUE-640</a>] -  Polish config file for travis-ci.
 </li>
 </ul>
 
 ## Bug
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/512'>ISSUE-512</a>] -  Fixed the issue that RocketMQ option -p can not print config items.
+<li>[<a href='https://github.com/apache/rocketmq/issues/512'>ISSUE-512</a>] -  Fixed the issue that RocketMQ can not print config items with -p option.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/544'>ISSUE-544</a>] -  Fixed transactional message will be lost under extreme condition.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/556'>ISSUE-556</a>] -  Fixed the issue that epoll native selector start error in broker.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/604'>ISSUE-604</a>] -  Fixed the issue that semaphore was raised when asyn invoke timeout.
+<li>[<a href='https://github.com/apache/rocketmq/issues/604'>ISSUE-604</a>] -  Fixed the issue that semaphore was not released when asyn invoke timeout.
 </li>
 </ul>
                                         
