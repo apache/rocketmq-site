@@ -28,9 +28,19 @@ Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For
 
 ## Improvement
 <ul>
+<li>[<a href='https://github.com/apache/rocketmq/issues/511'>ISSUE-511</a>] -  Fix typo in comment for CountDownLatch.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/536'>ISSUE-536</a>] -  update fastjson version to 1.2.51.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/571'>ISSUE-571</a>] -  Polish max body size to exactly 64K.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/581'>ISSUE-581</a>] -  Update Copyright in NOTICE file.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/582'>ISSUE-582</a>] -  Update asynchronous send thread pool from callback executor to an exclusive one.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/586'>ISSUE-586</a>] -  Format output number in admin tools.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/640'>ISSUE-640</a>] -  Fixed error when running travis-ci.
 </li>
 </ul>
 
