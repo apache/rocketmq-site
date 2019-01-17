@@ -12,17 +12,25 @@ The table below shows the supported jre environment for components of each relea
 | 4.1.0-incubating | >=1.6 | >=1.8 | >=1.8 |
 | 4.2.0 | >=1.6 | >=1.8 | >=1.8 |
 | 4.3.x | >=1.6 | >=1.8 | >=1.8 |
+| 4.4.x | >=1.6 | >=1.8 | >=1.8 |
 
 
 # Download links
-Use the links below to download the Apache RocketMQ Releases, the latest release is 4.3.2.
+Use the links below to download the Apache RocketMQ Releases, the latest release is 4.4.0.
+
+## 4.4.0 release
+
+* Released January 17, 2019
+* [Release Notes](/release_notes/release-notes-4.4.0)
+* Source: [rocketmq-all-4.4.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.4.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.sha1)]
 
 ## 4.3.2 release
 
 * Released November 2, 2018
 * [Release Notes](/release_notes/release-notes-4.3.2)
-* Source: [rocketmq-all-4.3.2-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.1-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.sha1)]
-* Binary: [rocketmq-all-4.3.2-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.1-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.sha1)]
+* Source: [rocketmq-all-4.3.2-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.3.2-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.sha1)]
 
 ## 4.3.1 release
 
