@@ -21,7 +21,7 @@ RIPs should be used for significant user-facing or cross-cutting changes, not sm
 It is easy to start a RIP from sending proposals to mailing lists. And the whole procedure of a RIP may follow below:    
 ![How Rip Work](/assets/images/how_rip_work.png)
 
-You can find detailed information about RIP in  [RocketMQ Improvement Proposal](https://github.com/apache/rocketmq/wiki/RocketMQ-Improvement-Proposal),and all the RIP have migrated to the [RockeMQ Wiki](https://github.com/apache/rocketmq/wiki)
+You can find detailed information about RIP in  [RocketMQ Improvement Proposal](https://github.com/apache/rocketmq/wiki/RocketMQ-Improvement-Proposal), and all the RIPs have migrated to the [RockeMQ Wiki](https://github.com/apache/rocketmq/wiki) now.
 
 # Ecosystem
 
