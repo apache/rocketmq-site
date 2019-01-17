@@ -16,14 +16,12 @@ excerpt: 'Apache RocketMQ™ is an open source distributed messaging and streami
 # RIP(RocketMQ Improvement Proposals)
 In the past, we hoped to add a new feature to RocketMQ by propose a issue on Github. It's a nice way for a request but not very formal and easy to trace and manage. So We introduce the RIP(RocketMQ Improvement Proposal) mechanism to replace the current Feature Request Process.      
 RIPs should be used for significant user-facing or cross-cutting changes, not small incremental improvements. When in doubt, if a committer thinks a change needs an RIP, it does.    
+
+# How to contribute
 It is easy to start a RIP from sending proposals to mailing lists. And the whole procedure of a RIP may follow below:    
 ![How Rip Work](/assets/images/how_rip_work.png)
 
-
-[RIP Template](https://docs.google.com/document/d/19JssoEGnNp1x9MoXVMoeGCWSBnBdyv97FuGcIH1fV1g/edit#heading=h.nwczedg8v2na)
-
-[RIP-1 MQTT Bridge](https://docs.google.com/document/d/1G1-aJ74ZTjy_rxtJU3jm_YoICexNTdUVSR9E78K9xlo/edit?usp=sharing)
-
+You can find detailed information about RIP in  [RocketMQ Improvement Proposal](https://github.com/apache/rocketmq/wiki/RocketMQ-Improvement-Proposal),and all the RIP have migrated to the [RockeMQ Wiki](https://github.com/apache/rocketmq/wiki)
 
 # Ecosystem
 
