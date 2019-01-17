@@ -18,7 +18,7 @@ Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For
 
 ## New Fearture
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/403'>ISSUE-403</a>] -  Support the ACL strandard for RocketMQ.
+<li>[<a href='https://github.com/apache/rocketmq/issues/403'>ISSUE-403</a>] -  Support the ACL standard for RocketMQ.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/502'>ISSUE-502</a>] -  Support SQL92 filter in pull comsumer.
 </li>
