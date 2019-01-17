@@ -21,8 +21,9 @@ The release documentations provided by The ASF can be found here:
 Create a code signing gpg key for release signing, use **\<your Apache ID\>@apache.org** as your primary ID for the code signing key. See [Apache Release Signing documentation](https://www.apache.org/dev/release-signing) for more details.
 
 * Create new pgp key. Please refer to [here](http://www.apache.org/dev/openpgp.html) on how to use gpg key.
-* Generate a new key via `gpg --gen-key`, and answer 4096 bits with no expiration time.
+* Generate a new key via `gpg --full-generate-key`, and answer 4096 bits with no expiration time.
 * Upload your key to a public key server by `gpg --keyserver pgpkeys.mit.edu --send-key <your key id>`.
+* Export your public key to a file by `gpg --armor --export <your key id> >> gpgapachekey.txt`.
 * Get the key signed by other committers(Optional).
 * Add the key to the RocketMQ [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS).
 
@@ -72,7 +73,7 @@ Cleanup JIRA issues or Github Issues related to this release version, and check 
 Also, remember to check the current version of MQVersion, which should be equal to this released version.
 
 #### 1.5 Publish the Release Notes
-Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](https://rocketmq.apache.org/release_notes/release-notes-4.2.0/) available for reference, include the link to the release notes in the voting emails.
+Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](https://rocketmq.apache.org/release_notes/release-notes-4.4.0/) available for reference, include the link to the release notes in the voting emails.
 
 
 ## 2.Build the Source Release Candidate
