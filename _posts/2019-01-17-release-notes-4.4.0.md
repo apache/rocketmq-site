@@ -42,6 +42,8 @@ Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/640'>ISSUE-640</a>] -  Polish config file for travis-ci.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/693'>ISSUE-693</a>] -  Add instance name to enable to send trace message to different clusters.
+</li>
 </ul>
 
 ## Bug
