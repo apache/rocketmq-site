@@ -1,4 +1,4 @@
----
+-----
 title: "Release Notes - Apache RocketMQ - Version 4.5.0"
 categories:
   - Release_Notes
@@ -6,7 +6,7 @@ tags:
   - Release_Notes
   - RocketMQ
   - Version
----
+-----
 
 Below is a summary of the issues addressed in the 4.5.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
 
