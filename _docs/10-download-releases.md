@@ -13,10 +13,18 @@ The table below shows the supported jre environment for components of each relea
 | 4.2.0 | >=1.6 | >=1.8 | >=1.8 |
 | 4.3.x | >=1.6 | >=1.8 | >=1.8 |
 | 4.4.x | >=1.6 | >=1.8 | >=1.8 |
+| 4.5.x | >=1.6 | >=1.8 | >=1.8 |
 
 
 # Download links
-Use the links below to download the Apache RocketMQ Releases, the latest release is 4.4.0.
+Use the links below to download the Apache RocketMQ Releases, the latest release is 4.5.0.
+
+## 4.5.0 release
+
+* Released March 15, 2019
+* [Release Notes](/release_notes/release-notes-4.5.0)
+* Source: [rocketmq-all-4.5.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.5.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.sha1)]
 
 ## 4.4.0 release
 

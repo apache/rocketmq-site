@@ -1,4 +1,4 @@
------
+---
 title: "Release Notes - Apache RocketMQ - Version 4.5.0"
 categories:
   - Release_Notes
@@ -6,12 +6,12 @@ tags:
   - Release_Notes
   - RocketMQ
   - Version
------
+---
 
 Below is a summary of the issues addressed in the 4.5.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
 
 
-<h2> Download the 4.4.0 release</h2>
+<h2> Download the 4.5.0 release</h2>
     
 * Source: [rocketmq-all-4.5.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.sha1)]
 * Binary: [rocketmq-all-4.5.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.sha1)]
