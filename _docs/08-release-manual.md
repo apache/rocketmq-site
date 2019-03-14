@@ -79,11 +79,14 @@ Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/br
 ## 2.Build the Source Release Candidate
 In this process, you need to use maven release plugin to release the artifact to maven repository. And also, copy them to the svn repository.
 
-#### 2.1 Release to the maven repository
+#### 2.1 Check the MQVersion
+Remember to check the current version of MQVersion again, which should be equal to this released version like `release-4.5.0`.
+ ```java
+  public static final int CURRENT_VERSION = Version.V4_5_0.ordinal();
+ ```
+#### 2.2 Release to the maven repository
 
-
-Firstly, checkout a new branch from the target branch(master or develop) with its name equal to the release version, like `release-4.2.0`.
-
+Make sure that you are in the develop branch, and Github PRs related to this release version are merged.
 Perform the following to generate and stage the artifacts:
 
 1. `mvn clean release:clean`
@@ -94,9 +97,12 @@ Now, the candidate release artifacts can be found in the [Nexus staging repo](ht
 
 **Tips:** If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select `Delete`.
 
-#### 2.2 Rollback and Retry
+#### 2.3 Checkout release branch
+Checkout a new branch from the target branch(master or develop) according to the release tag with its name equal to the release version, like `release-4.5.0`.
+
+#### 2.4 Rollback and Retry
 If the staging process encounter problem, you may need to rollback:
-Delete the branch and tag created in 3.1 and then redo it.
+Delete the branch and tag created in 2.1 and then redo it.
 
 ## 3.Build the Binary Release Candidate
 Checkout the code to be released(must be the same as the source branch), and build the binary artifact.
