@@ -112,7 +112,7 @@ Be aware of the os version, for some dependency is os sensitive, such as netty t
 * Make sure that all the unit tests can pass via `mvn clean install`.
 * Make sure that all the integration tests can pass via `mvn clean test -Pit-test`.
 
-After the successful building, remember to sign the artifact(GPG and SHA512 signatures are required), and copy them to the svn repository, you could refer to [svn repository](https://dist.apache.org/repos/dist/release/rocketmq/4.2.0) .
+After the successful building, remember to sign the artifact(PGP and SHA512 signatures are required), and copy them to the svn repository, you could refer to [svn repository](https://dist.apache.org/repos/dist/release/rocketmq/4.2.0) .
 
 
 ## 4. Validate the Release Candidate
@@ -123,7 +123,7 @@ After the successful building, remember to sign the artifact(GPG and SHA512 sign
  *   check LICENSE, should be Apache V2   
  *   check NOTICE, should have a notice for third-party dependency if necessary
  *   extract the zip and check if the binary version is correct
- *   verify the asc(pgp sign), md5, sha1
+ *   verify the asc(PGP sign), SHA512
  *   start nameserver and broker according to the quick-start 
  *   run clusterList command to see if the version is correct
  *   make sure there is no nohup.out in the binary files
@@ -133,15 +133,15 @@ After the successful building, remember to sign the artifact(GPG and SHA512 sign
  * check LICENSE, should be Apache V2   
  * check NOTICE, should have a notice for third-party dependency if necessary
  * extract the zip and check if the source version is correct
- * verify the asc(pgp sign), md5, sha1
+ * verify the asc(PGP sign),SHA512
  * build the source, start nameserver and broker according to the quick-start
  * run clusterList command to see if the version is correct
 
 
 #### 4.3 verify tools
-Please follow the steps below to verify the checksums and GPG signatures:
+Please follow the steps below to verify the checksums and PGP signatures:
 
-1. Download the release artifacts, GPG signature file, SHA512 hash files.
+1. Download the release artifacts, PGP signature file, SHA512 hash files.
 2. On unix platforms the following command can be executed:
   
   ```shell
