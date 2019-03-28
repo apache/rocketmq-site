@@ -3,6 +3,12 @@ title: "Downloading the Apache RocketMQ Releases"
 permalink: /dowloading/releases/
 modified: 2017-2-20T15:01:43-04:00
 ---
+
+Today, more than 100 companies are using the 
+open source version of RocketMQ in their business. We also published a commercial distribution based on RocketMQ, a PaaS
+ product called the [Alibaba ONS](https://www.aliyun.com/product/ons/).   
+ 
+ 
 # Compatibility Guide
 The table below shows the supported jre environment for components of each release.
 
@@ -17,6 +23,7 @@ The table below shows the supported jre environment for components of each relea
 
 
 # Download links
+
 Use the links below to download the Apache RocketMQ Releases, the latest release is 4.5.0.
 
 ## 4.5.0 release
