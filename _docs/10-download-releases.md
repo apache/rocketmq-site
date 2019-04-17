@@ -28,10 +28,10 @@ Use the links below to download the Apache RocketMQ Releases, the latest release
 
 ## 4.5.0 release
 
-* Released March 15, 2019
+* Released March 29, 2019
 * [Release Notes](/release_notes/release-notes-4.5.0)
-* Source: [rocketmq-all-4.5.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.sha1)]
-* Binary: [rocketmq-all-4.5.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.sha1)]
+* Source: [rocketmq-all-4.5.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.sha512)]
+* Binary: [rocketmq-all-4.5.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.sha512)]
 
 ## 4.4.0 release
 
