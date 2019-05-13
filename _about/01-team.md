@@ -2,7 +2,7 @@
 title: "TEAM"
 permalink: /about/team/
 excerpt: "Project team."
-modified: 2018-09-14T19:55:43-04:00
+modified: 2019-05-13T19:55:43-04:00
 ---
 
 The RocketMQ team is comprised of Members and Contributors. Members have direct access to the source of RocketMQ project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to RocketMQ are greatly appreciated, whether for trivial cleanups, big new features or other material rewards. More details see [here](https://github.com/apache/rocketmq/blob/master/CONTRIBUTING.md).
@@ -40,9 +40,13 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 
 |Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:---|:---|:---|:---|:---|
-|![Zhang-Ke](/assets/images/about/zhangke.png)|Zhang-Ke| [@Zhang-Ke](https://github.com/Zhang-Ke)|zhangke_beijing@qq.com |Contributor| +8 |
-|![StyleTang](/assets/images/about/StyleTang.jpeg)|StyleTang| [@StyleTang](https://github.com/StyleTang)|styletang.me@gmail.com |Contributor| +8 |
-|![tcrow](/assets/images/about/tcrow.png)|tcrow| [@tcrow](https://github.com/tcrow)||Contributor| +8 |
-|![zhaoqun911](/assets/images/about/zhaoqun911.png)|zhaoqun911| [@zhaoqun911](https://github.com/zhaoqun911)||Contributor| +8 |
+|![hdchen](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|chenhoudao@qq.com |Contributor| +8 |
+|![xiangwangcheng](/assets/images/about/chengxiangwang.jpeg)|xiangwangcheng| [@xiangwangcheng](https://github.com/xiangwangcheng)|chxw_@126.com |Contributor| +8 |
+|![liwei](/assets/images/about/liwei.jpeg)|francis lee| [@francisoliverlee](https://github.com/francisoliverlee)|1026203200@qq.com|Contributor| +8 |
+|![wangwenfeng](/assets/images/about/wangwenfeng.jpeg)|wenfeng| [@wenfengwang](https://github.com/wenfengwang)|sxian.wang@gmail.com|Contributor| +8 |
+|![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ywhjames@hotmail.com|Contributor| +8 |
+|![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
+|![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)||Contributor| +8 |
+|![liaotian](/assets/images/about/liaotian.jpeg)|Kevin Wang| [@walking98](https://github.com/walking98)|wiseking.wq@gmail.com|Contributor| +8 |
 
 
