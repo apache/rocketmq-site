@@ -1,7 +1,7 @@
 ---
 title: "Downloading the Apache RocketMQ Releases"
 permalink: /dowloading/releases/
-modified: 2017-2-20T15:01:43-04:00
+modified: 2019-5-14T15:01:43-04:00
 ---
 
 Today, more than 100 companies are using the 
