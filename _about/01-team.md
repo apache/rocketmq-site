@@ -41,7 +41,7 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:---|:---|:---|:---|:---|
 |![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|jonnxu@163.com|Contributor| +8 |
-|![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)||Contributor| +8 |
+|![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|14106312@qq.com|Contributor| +8 |
 |![xiangwangcheng](/assets/images/about/chengxiangwang.jpeg)|xiangwangcheng| [@xiangwangcheng](https://github.com/xiangwangcheng)|chxw_@126.com |Contributor| +8 |
 |![liwei](/assets/images/about/liwei.jpeg)|francis lee| [@francisoliverlee](https://github.com/francisoliverlee)|1026203200@qq.com|Contributor| +8 |
 |![wangwenfeng](/assets/images/about/wangwenfeng.jpeg)|wenfeng| [@wenfengwang](https://github.com/wenfengwang)|sxian.wang@gmail.com|Contributor| +8 |
