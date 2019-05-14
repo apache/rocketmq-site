@@ -18,19 +18,31 @@ Below is a summary of the issues addressed in the 4.5.1 release of RocketMQ. For
 
 ## New Fearture
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/pull/1046'>ISSUE-1046</a>] -  TBD.
+<li>[<a href='https://github.com/apache/rocketmq/pull/1175'>ISSUE-1174</a>] -  Support domain host for name server.
 </li>
 </ul>
 
 ## Improvement
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/608'>ISSUE-608</a>] -  TBD.
+<li>[<a href='https://github.com/apache/rocketmq/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+milestone%3A4.5.1+RIP-9'>RIP-9</a>] -  Provide RocketMQ Developer's Guide in English and Chinese.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+milestone%3A4.5.1+RIP-10'>RIP-10</a>] -  Add unit test cases.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/pull/1129'>ISSUE-1129</a>] -  Change the release package style to rocketmq-{version}.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1138'>ISSUE-1138</a>] -  Deprecate admin interface exposed in producer/consumer.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/pull/1201'>ISSUE-1200</a>] -  Polish default message trace topic trace.
 </li>
 </ul>
 
 ## Bug
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1147'>ISSUE-762</a>] -  Fixed the issue that broker will report exception if open the aclEnable and enableDLegerCommitLog flag at the same time.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1078'>ISSUE-1078</a>] -  Fixed the issue that User can't use mqadmin command normally if they don't copy the tool.yml file to related fold and AclEnable flag is closed. 
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1147'>ISSUE-1147</a>] -  Fixed the issue that broker will report exception if open the aclEnable and enableDLegerCommitLog flag at the same time.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1164'>ISSUE-1164</a>] -  Fixed the issue that Consumer Instance can't consume message from slave when cluster is in the high level tps when master has been killed. 
 </li>
 </ul>
                                         
