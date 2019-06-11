@@ -34,13 +34,13 @@ The following is a list of developers with commit privileges that have directly 
 |![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |Committer| +8 |
 |![wlliqipeng](/assets/images/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |Committer| +8 |
 |![huzongtang](/assets/images/about/huzongtang.jpeg)|huzongtang|[@zongtanghu](https://github.com/zongtanghu)|huzongtang@apache.org |Committer| +8 |
- 
+|![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|xujiang@apache.org|Contributor| +8 |
+
 ### Top Contributors
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
 
 |Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:---|:---|:---|:---|:---|
-|![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|jonnxu@163.com|Contributor| +8 |
 |![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|14106312@qq.com|Contributor| +8 |
 |![xiangwangcheng](/assets/images/about/chengxiangwang.jpeg)|xiangwangcheng| [@xiangwangcheng](https://github.com/xiangwangcheng)|chxw_@126.com |Contributor| +8 |
 |![liwei](/assets/images/about/liwei.jpeg)|francis lee| [@francisoliverlee](https://github.com/francisoliverlee)|1026203200@qq.com|Contributor| +8 |
