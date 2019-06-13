@@ -2,7 +2,7 @@
 title: "TEAM"
 permalink: /about/team/
 excerpt: "Project team."
-modified: 2019-05-13T19:55:43-04:00
+modified: 2019-06-13T17:55:43+08:00
 ---
 
 The RocketMQ team is comprised of Members and Contributors. Members have direct access to the source of RocketMQ project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to RocketMQ are greatly appreciated, whether for trivial cleanups, big new features or other material rewards. More details see [here](https://github.com/apache/rocketmq/blob/master/CONTRIBUTING.md).
