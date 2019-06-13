@@ -25,13 +25,13 @@ The following is a list of developers with commit privileges that have directly 
 |![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |PMC Member| +8 |
 |![lollipop](/assets/images/about/lollipop.jpeg)|lollipop|[@lollipopjin](https://github.com/lollipopjin)|lollipop@apache.org |PMC Member| +8 |
 |![Heng Du](/assets/images/about/duhengforever.jpeg)|duhengforever|[@duhenglucky](https://github.com/duhenglucky)|duhengforever@apache.org |PMC Member| +8 |
+|![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |PMC Member| +8 |
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
 |![vsair](/assets/images/about/vsair.png)|vsair|[@vsair](https://github.com/vsair)|vsair@apache.org |Committer| +8 |
 |![Jaskey](/assets/images/about/Jaskey.jpeg)|Jaskey|[@Jaskey](https://github.com/jaskey)|linjunjie@apache.org |Committer| +8 |
 |![Xin Wang](/assets/images/about/XinWang.jpeg)|xinwang|[@vesense](https://github.com/vesense)|xinwang@apache.org |Committer| +8 |
-|![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |Committer| +8 |
 |![wlliqipeng](/assets/images/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |Committer| +8 |
 |![huzongtang](/assets/images/about/huzongtang.jpeg)|huzongtang|[@zongtanghu](https://github.com/zongtanghu)|huzongtang@apache.org |Committer| +8 |
 |![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|xujiang@apache.org|Contributor| +8 |
