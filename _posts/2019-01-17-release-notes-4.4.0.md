@@ -16,7 +16,7 @@ Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For
 * Source: [rocketmq-all-4.4.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.sha1)]
 * Binary: [rocketmq-all-4.4.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.sha1)]
 
-## New Fearture
+## New Feature
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/403'>ISSUE-403</a>] -  Support the ACL standard for RocketMQ.
 </li>

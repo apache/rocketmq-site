@@ -16,7 +16,7 @@ Below is a summary of the issues addressed in the 4.5.0 release of RocketMQ. For
 * Source: [rocketmq-all-4.5.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-source-release.zip.sha512)]
 * Binary: [rocketmq-all-4.5.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.5.0/rocketmq-all-4.5.0-bin-release.zip.sha512)]
 
-## New Fearture
+## New Feature
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/pull/1046'>ISSUE-1046</a>] -  Support multiple replicas for RocketMQ.
 </li>
