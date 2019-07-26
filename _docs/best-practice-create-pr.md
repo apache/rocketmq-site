@@ -80,5 +80,5 @@ Before you create a pull request, make sure
 For information about creating pull requests, please check [GitHub PR docs](https://help.github.com/articles/creating-a-pull-request/).
 
 Pull requests are made to `apache/rocketmq` repository on Github.
-In the Github UI you should pick the master branch as target of the PR. <br />
+In the Github UI you can pick the develop branch as target of the PR. <br />
 You pull request will be reviewed and commented by committers, and issues can be discussed. When all reviewers are positive on the pull request, it will be merged.
