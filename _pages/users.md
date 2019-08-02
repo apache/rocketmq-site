@@ -61,6 +61,8 @@ feature_row6:
 feature_row7:
   - image_path: /assets/images/community/shouqi-logo.png
     alt: "ShouQiYueChe"
+  - image_path: /assets/images/community/beibei-logo.png
+    alt: "Beibei Group"
   - image_path: /assets/images/community/decent-logo.png
     alt: "Decent Group"
 
