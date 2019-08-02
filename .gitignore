@@ -8,11 +8,9 @@
 _asset_bundler_cache
 _site
 .idea/
-content
 codekit-config.json
 example/_site
 Gemfile.lock
 node_modules
-vendor
 npm-debug.log*
 *.iml
