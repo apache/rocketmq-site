@@ -35,6 +35,7 @@ The following is a list of developers with commit privileges that have directly 
 |![wlliqipeng](/assets/images/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |Committer| +8 |
 |![huzongtang](/assets/images/about/huzongtang.jpeg)|huzongtang|[@zongtanghu](https://github.com/zongtanghu)|huzongtang@apache.org |Committer| +8 |
 |![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|xujiang@apache.org|Committer| +8 |
+|![liaotian](/assets/images/about/liaotian.jpeg)|Kevin Wang| [@walking98](https://github.com/walking98)|walking98@apache.org|Committer| +8 |
 
 ### Top Contributors
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
@@ -48,5 +49,3 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ywhjames@hotmail.com|Contributor| +8 |
 |![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
-|![liaotian](/assets/images/about/liaotian.jpeg)|Kevin Wang| [@walking98](https://github.com/walking98)|wiseking.wq@gmail.com|Contributor| +8 |
-
