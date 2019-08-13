@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-08-05T10:42:32+08:00">
+  <meta property="article:published_time" content="2019-08-13T20:57:29+08:00">
 
 
 
@@ -459,7 +459,7 @@
     <meta itemprop="headline" content="Best Practice For NameServer">
     <meta itemprop="description" content="In Apache RocketMQ, name servers are designed to coordinate each component of the distributed systemand the coordination is mainly achieved through managing topic routing information.">
     
-    <meta itemprop="dateModified" content="December 25, 2016">
+    <meta itemprop="dateModified" content="December 24, 2016">
 
     <div class="page__inner-wrap">
       
@@ -503,10 +503,10 @@ In Apache RocketMQ, this can be done in four ways.</p>
 
 <p>For producers and consumers, we can feed name server address list to them as follows:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 
-<span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -521,7 +521,7 @@ assuming to query cluster info on the name server node.</p>
 
 <p>If you have integrated admin tool into your own dashboard, you can:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">defaultMQAdminExt</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -566,7 +566,7 @@ You may also override <code class="highlighter-rouge">nsaddr</code> part using t
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-25">December 25, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-24">December 24, 2016</time></p>
         
       </footer>
 

@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-08-05T10:42:32+08:00">
+  <meta property="article:published_time" content="2019-08-13T20:57:29+08:00">
 
 
 
@@ -459,7 +459,7 @@
     <meta itemprop="headline" content="Order Message">
     <meta itemprop="description" content="How to send and receive ordered messages in Apache RocketMQ.">
     
-    <meta itemprop="dateModified" content="April 25, 2017">
+    <meta itemprop="dateModified" content="April 24, 2017">
 
     <div class="page__inner-wrap">
       
@@ -488,27 +488,27 @@
 <h4 id="send-message-sample-code">Send message sample code</h4>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderedProducer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
-        <span class="n">MQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
+        <span class="nc">MQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-        <span class="n">String</span><span class="o">[]</span> <span class="n">tags</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">"TagA"</span><span class="o">,</span> <span class="s">"TagB"</span><span class="o">,</span> <span class="s">"TagC"</span><span class="o">,</span> <span class="s">"TagD"</span><span class="o">,</span> <span class="s">"TagE"</span><span class="o">};</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">tags</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">"TagA"</span><span class="o">,</span> <span class="s">"TagB"</span><span class="o">,</span> <span class="s">"TagC"</span><span class="o">,</span> <span class="s">"TagD"</span><span class="o">,</span> <span class="s">"TagE"</span><span class="o">};</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
             <span class="kt">int</span> <span class="n">orderId</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>
             <span class="c1">//Create a message instance, specifying topic, tag and message body.</span>
-            <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTestjjj"</span><span class="o">,</span> <span class="n">tags</span><span class="o">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">tags</span><span class="o">.</span><span class="na">length</span><span class="o">],</span> <span class="s">"KEY"</span> <span class="o">+</span> <span class="n">i</span><span class="o">,</span>
-                    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">));</span>
-            <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="k">new</span> <span class="n">MessageQueueSelector</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="s">"TopicTestjjj"</span><span class="o">,</span> <span class="n">tags</span><span class="o">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">tags</span><span class="o">.</span><span class="na">length</span><span class="o">],</span> <span class="s">"KEY"</span> <span class="o">+</span> <span class="n">i</span><span class="o">,</span>
+                    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">));</span>
+            <span class="nc">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="k">new</span> <span class="nc">MessageQueueSelector</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="n">MessageQueue</span> <span class="nf">select</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageQueue</span><span class="o">&gt;</span> <span class="n">mqs</span><span class="o">,</span> <span class="n">Message</span> <span class="n">msg</span><span class="o">,</span> <span class="n">Object</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Integer</span> <span class="n">id</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span> <span class="n">arg</span><span class="o">;</span>
+            <span class="kd">public</span> <span class="nc">MessageQueue</span> <span class="nf">select</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">MessageQueue</span><span class="o">&gt;</span> <span class="n">mqs</span><span class="o">,</span> <span class="nc">Message</span> <span class="n">msg</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">Integer</span> <span class="n">id</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">arg</span><span class="o">;</span>
                 <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">id</span> <span class="o">%</span> <span class="n">mqs</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
                 <span class="k">return</span> <span class="n">mqs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
             <span class="o">}</span>
             <span class="o">},</span> <span class="n">orderId</span><span class="o">);</span>
 
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
         <span class="o">}</span>
         <span class="c1">//server shutdown</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
@@ -519,40 +519,40 @@
 <h4 id="subscription-message-sample-code">Subscription message sample code</h4>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderedConsumer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"example_group_name"</span><span class="o">);</span>
 
-        <span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="n">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">setConsumeFromWhere</span><span class="o">(</span><span class="nc">ConsumeFromWhere</span><span class="o">.</span><span class="na">CONSUME_FROM_FIRST_OFFSET</span><span class="o">);</span>
 
         <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="s">"TagA || TagC || TagD"</span><span class="o">);</span>
 
-        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerOrderly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">MessageListenerOrderly</span><span class="o">()</span> <span class="o">{</span>
 
-            <span class="n">AtomicLong</span> <span class="n">consumeTimes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicLong</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+            <span class="nc">AtomicLong</span> <span class="n">consumeTimes</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AtomicLong</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
             <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="n">ConsumeOrderlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
-                                                       <span class="n">ConsumeOrderlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="nc">ConsumeOrderlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
+                                                       <span class="nc">ConsumeOrderlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">context</span><span class="o">.</span><span class="na">setAutoCommit</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span> <span class="o">+</span> <span class="s">"%n"</span><span class="o">);</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" Receive New Messages: "</span> <span class="o">+</span> <span class="n">msgs</span> <span class="o">+</span> <span class="s">"%n"</span><span class="o">);</span>
                 <span class="k">this</span><span class="o">.</span><span class="na">consumeTimes</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">();</span>
                 <span class="k">if</span> <span class="o">((</span><span class="k">this</span><span class="o">.</span><span class="na">consumeTimes</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="n">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">;</span>
+                    <span class="k">return</span> <span class="nc">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">;</span>
                 <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">((</span><span class="k">this</span><span class="o">.</span><span class="na">consumeTimes</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">%</span> <span class="mi">3</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="n">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">ROLLBACK</span><span class="o">;</span>
+                    <span class="k">return</span> <span class="nc">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">ROLLBACK</span><span class="o">;</span>
                 <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">((</span><span class="k">this</span><span class="o">.</span><span class="na">consumeTimes</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">%</span> <span class="mi">4</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="n">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">COMMIT</span><span class="o">;</span>
+                    <span class="k">return</span> <span class="nc">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">COMMIT</span><span class="o">;</span>
                 <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">((</span><span class="k">this</span><span class="o">.</span><span class="na">consumeTimes</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">%</span> <span class="mi">5</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
                     <span class="n">context</span><span class="o">.</span><span class="na">setSuspendCurrentQueueTimeMillis</span><span class="o">(</span><span class="mi">3000</span><span class="o">);</span>
-                    <span class="k">return</span> <span class="n">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">SUSPEND_CURRENT_QUEUE_A_MOMENT</span><span class="o">;</span>
+                    <span class="k">return</span> <span class="nc">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">SUSPEND_CURRENT_QUEUE_A_MOMENT</span><span class="o">;</span>
                 <span class="o">}</span>
-                <span class="k">return</span> <span class="n">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">;</span>
+                <span class="k">return</span> <span class="nc">ConsumeOrderlyStatus</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">;</span>
 
             <span class="o">}</span>
         <span class="o">});</span>
 
         <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer Started.%n"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer Started.%n"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -567,7 +567,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-25">April 25, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-24">April 24, 2017</time></p>
         
       </footer>
 
