@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-08-13T20:57:29+08:00">
+  <meta property="article:published_time" content="2019-08-20T22:09:00+08:00">
 
 
 
@@ -459,7 +459,7 @@
     <meta itemprop="headline" content="Schedule example">
     <meta itemprop="description" content="How to use schedule component to reduce pull in RocketMQ.">
     
-    <meta itemprop="dateModified" content="April 24, 2017">
+    <meta itemprop="dateModified" content="April 25, 2017">
 
     <div class="page__inner-wrap">
       
@@ -501,21 +501,21 @@
     
  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ScheduledMessageConsumer</span> <span class="o">{</span>
     
-     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
          <span class="c1">// Instantiate message consumer</span>
-         <span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"ExampleConsumer"</span><span class="o">);</span>
+         <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"ExampleConsumer"</span><span class="o">);</span>
          <span class="c1">// Subscribe topics</span>
          <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TestTopic"</span><span class="o">,</span> <span class="s">"*"</span><span class="o">);</span>
          <span class="c1">// Register message listener</span>
-         <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+         <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
              <span class="nd">@Override</span>
-             <span class="kd">public</span> <span class="nc">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">MessageExt</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">,</span> <span class="nc">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-                 <span class="k">for</span> <span class="o">(</span><span class="nc">MessageExt</span> <span class="n">message</span> <span class="o">:</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
+             <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">,</span> <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="k">for</span> <span class="o">(</span><span class="n">MessageExt</span> <span class="n">message</span> <span class="o">:</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
                      <span class="c1">// Print approximate delay time period</span>
-                     <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Receive message[msgId="</span> <span class="o">+</span> <span class="n">message</span><span class="o">.</span><span class="na">getMsgId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"] "</span>
-                             <span class="o">+</span> <span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">message</span><span class="o">.</span><span class="na">getStoreTimestamp</span><span class="o">())</span> <span class="o">+</span> <span class="s">"ms later"</span><span class="o">);</span>
+                     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Receive message[msgId="</span> <span class="o">+</span> <span class="n">message</span><span class="o">.</span><span class="na">getMsgId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"] "</span>
+                             <span class="o">+</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">message</span><span class="o">.</span><span class="na">getStoreTimestamp</span><span class="o">())</span> <span class="o">+</span> <span class="s">"ms later"</span><span class="o">);</span>
                  <span class="o">}</span>
-                 <span class="k">return</span> <span class="nc">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+                 <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
              <span class="o">}</span>
          <span class="o">});</span>
          <span class="c1">// Launch consumer</span>
@@ -532,14 +532,14 @@
     
  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ScheduledMessageProducer</span> <span class="o">{</span>
     
-     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
          <span class="c1">// Instantiate a producer to send scheduled messages</span>
-         <span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"ExampleProducerGroup"</span><span class="o">);</span>
+         <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"ExampleProducerGroup"</span><span class="o">);</span>
          <span class="c1">// Launch producer</span>
          <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
          <span class="kt">int</span> <span class="n">totalMessagesToSend</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
          <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">totalMessagesToSend</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-             <span class="nc">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="s">"TestTopic"</span><span class="o">,</span> <span class="o">(</span><span class="s">"Hello scheduled message "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">());</span>
+             <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TestTopic"</span><span class="o">,</span> <span class="o">(</span><span class="s">"Hello scheduled message "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">());</span>
              <span class="c1">// This message will be delivered to consumer 10 seconds later.</span>
              <span class="n">message</span><span class="o">.</span><span class="na">setDelayTimeLevel</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
              <span class="c1">// Send the message</span>
@@ -569,7 +569,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-24">April 24, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-25">April 25, 2017</time></p>
         
       </footer>
 

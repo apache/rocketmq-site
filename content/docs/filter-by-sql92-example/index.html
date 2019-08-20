@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-08-13T20:57:29+08:00">
+  <meta property="article:published_time" content="2019-08-20T22:09:00+08:00">
 
 
 
@@ -459,7 +459,7 @@
     <meta itemprop="headline" content="Filter Example">
     <meta itemprop="description" content="How to filter messages by SQL92 in Apache RocketMQ.">
     
-    <meta itemprop="dateModified" content="April 26, 2017">
+    <meta itemprop="dateModified" content="April 27, 2017">
 
     <div class="page__inner-wrap">
       
@@ -473,7 +473,7 @@
       <section class="page__content" itemprop="text">
         <p>In most cases, tag is a simple and useful design to select message you want. For example:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"CID_EXAMPLE"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"CID_EXAMPLE"</span><span class="o">);</span>
 <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TOPIC"</span><span class="o">,</span> <span class="s">"TAGA || TAGB || TAGC"</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -544,17 +544,17 @@
 
 <p>You can put properties in message through method <code class="highlighter-rouge">putUserProperty</code> when sending.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-<span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
+<span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
     <span class="n">tag</span><span class="o">,</span>
-    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span>
+    <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span> <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span>
 <span class="o">);</span>
 <span class="c1">// Set some properties.</span>
-<span class="n">msg</span><span class="o">.</span><span class="na">putUserProperty</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+<span class="n">msg</span><span class="o">.</span><span class="na">putUserProperty</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
 
-<span class="nc">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+<span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
    
 <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
 </code></pre></div></div>
@@ -563,15 +563,15 @@
 
 <p>Use <code class="highlighter-rouge">MessageSelector.bySql</code> to select messages through SQL92 when consuming.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name_4"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name_4"</span><span class="o">);</span>
 
 <span class="c1">// only subsribe messages have property a, also a &gt;=0 and a &lt;= 3</span>
-<span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="nc">MessageSelector</span><span class="o">.</span><span class="na">bySql</span><span class="o">(</span><span class="s">"a between 0 and 3"</span><span class="o">);</span>
+<span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="n">MessageSelector</span><span class="o">.</span><span class="na">bySql</span><span class="o">(</span><span class="s">"a between 0 and 3"</span><span class="o">);</span>
 
-<span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+<span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nc">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span> <span class="nc">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span> <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">});</span>
 <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
@@ -587,7 +587,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-26">April 26, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-27">April 27, 2017</time></p>
         
       </footer>
 

@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-08-13T20:57:29+08:00">
+  <meta property="article:published_time" content="2019-08-20T22:09:00+08:00">
 
 
 
@@ -459,7 +459,7 @@
     <meta itemprop="headline" content="OpenMessaging Example">
     <meta itemprop="description" content="How to use OpenMessaging in RocketMQ.">
     
-    <meta itemprop="dateModified" content="June 08, 2017">
+    <meta itemprop="dateModified" content="June 09, 2017">
 
     <div class="page__inner-wrap">
       
@@ -492,42 +492,42 @@
 <p>The following example shows how to send message to RocketMQ broker in synchronous, asynchronous, or one-way transmissions.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OMSProducer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="nc">MessagingAccessPoint</span> <span class="n">messagingAccessPoint</span> <span class="o">=</span> <span class="nc">MessagingAccessPointFactory</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">MessagingAccessPoint</span> <span class="n">messagingAccessPoint</span> <span class="o">=</span> <span class="n">MessagingAccessPointFactory</span>
             <span class="o">.</span><span class="na">getMessagingAccessPoint</span><span class="o">(</span><span class="s">"openmessaging:rocketmq://IP1:9876,IP2:9876/namespace"</span><span class="o">);</span>
 
-        <span class="kd">final</span> <span class="nc">Producer</span> <span class="n">producer</span> <span class="o">=</span> <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">createProducer</span><span class="o">();</span>
+        <span class="kd">final</span> <span class="n">Producer</span> <span class="n">producer</span> <span class="o">=</span> <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">createProducer</span><span class="o">();</span>
 
         <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">startup</span><span class="o">();</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"MessagingAccessPoint startup OK%n"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"MessagingAccessPoint startup OK%n"</span><span class="o">);</span>
 
         <span class="n">producer</span><span class="o">.</span><span class="na">startup</span><span class="o">();</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Producer startup OK%n"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Producer startup OK%n"</span><span class="o">);</span>
 
         <span class="o">{</span>
-            <span class="nc">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">createBytesMessageToTopic</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="s">"OMS_HELLO_BODY"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">)));</span>
-            <span class="nc">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send sync message OK, msgId: %s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">.</span><span class="na">messageId</span><span class="o">());</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">createBytesMessageToTopic</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="s">"OMS_HELLO_BODY"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">)));</span>
+            <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send sync message OK, msgId: %s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">.</span><span class="na">messageId</span><span class="o">());</span>
         <span class="o">}</span>
 
         <span class="o">{</span>
-            <span class="kd">final</span> <span class="nc">Promise</span><span class="o">&lt;</span><span class="nc">SendResult</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">sendAsync</span><span class="o">(</span><span class="n">producer</span><span class="o">.</span><span class="na">createBytesMessageToTopic</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="s">"OMS_HELLO_BODY"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))));</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">PromiseListener</span><span class="o">&lt;</span><span class="nc">SendResult</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="kd">final</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="n">SendResult</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">sendAsync</span><span class="o">(</span><span class="n">producer</span><span class="o">.</span><span class="na">createBytesMessageToTopic</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="s">"OMS_HELLO_BODY"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))));</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">PromiseListener</span><span class="o">&lt;</span><span class="n">SendResult</span><span class="o">&gt;()</span> <span class="o">{</span>
                 <span class="nd">@Override</span>
-                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationCompleted</span><span class="o">(</span><span class="nc">Promise</span><span class="o">&lt;</span><span class="nc">SendResult</span><span class="o">&gt;</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send async message OK, msgId: %s%n"</span><span class="o">,</span> <span class="n">promise</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">messageId</span><span class="o">());</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationCompleted</span><span class="o">(</span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">SendResult</span><span class="o">&gt;</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send async message OK, msgId: %s%n"</span><span class="o">,</span> <span class="n">promise</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">messageId</span><span class="o">());</span>
                 <span class="o">}</span>
 
                 <span class="nd">@Override</span>
-                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationFailed</span><span class="o">(</span><span class="nc">Promise</span><span class="o">&lt;</span><span class="nc">SendResult</span><span class="o">&gt;</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send async message Failed, error: %s%n"</span><span class="o">,</span> <span class="n">promise</span><span class="o">.</span><span class="na">getThrowable</span><span class="o">().</span><span class="na">getMessage</span><span class="o">());</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationFailed</span><span class="o">(</span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">SendResult</span><span class="o">&gt;</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send async message Failed, error: %s%n"</span><span class="o">,</span> <span class="n">promise</span><span class="o">.</span><span class="na">getThrowable</span><span class="o">().</span><span class="na">getMessage</span><span class="o">());</span>
                 <span class="o">}</span>
             <span class="o">});</span>
         <span class="o">}</span>
 
         <span class="o">{</span>
-            <span class="n">producer</span><span class="o">.</span><span class="na">sendOneway</span><span class="o">(</span><span class="n">producer</span><span class="o">.</span><span class="na">createBytesMessageToTopic</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="s">"OMS_HELLO_BODY"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))));</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send oneway message OK%n"</span><span class="o">);</span>
+            <span class="n">producer</span><span class="o">.</span><span class="na">sendOneway</span><span class="o">(</span><span class="n">producer</span><span class="o">.</span><span class="na">createBytesMessageToTopic</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="s">"OMS_HELLO_BODY"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))));</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Send oneway message OK%n"</span><span class="o">);</span>
         <span class="o">}</span>
 
         <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
@@ -541,23 +541,23 @@
 <p>Use OMS PullConsumer to poll messages from a specified queue.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OMSPullConsumer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="nc">MessagingAccessPoint</span> <span class="n">messagingAccessPoint</span> <span class="o">=</span> <span class="nc">MessagingAccessPointFactory</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">MessagingAccessPoint</span> <span class="n">messagingAccessPoint</span> <span class="o">=</span> <span class="n">MessagingAccessPointFactory</span>
             <span class="o">.</span><span class="na">getMessagingAccessPoint</span><span class="o">(</span><span class="s">"openmessaging:rocketmq://IP1:9876,IP2:9876/namespace"</span><span class="o">);</span>
 
-        <span class="kd">final</span> <span class="nc">PullConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">createPullConsumer</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span>
-            <span class="no">OMS</span><span class="o">.</span><span class="na">newKeyValue</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="nc">NonStandardKeys</span><span class="o">.</span><span class="na">CONSUMER_GROUP</span><span class="o">,</span> <span class="s">"OMS_CONSUMER"</span><span class="o">));</span>
+        <span class="kd">final</span> <span class="n">PullConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">createPullConsumer</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span>
+            <span class="n">OMS</span><span class="o">.</span><span class="na">newKeyValue</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="n">NonStandardKeys</span><span class="o">.</span><span class="na">CONSUMER_GROUP</span><span class="o">,</span> <span class="s">"OMS_CONSUMER"</span><span class="o">));</span>
 
         <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">startup</span><span class="o">();</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"MessagingAccessPoint startup OK%n"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"MessagingAccessPoint startup OK%n"</span><span class="o">);</span>
         
         <span class="n">consumer</span><span class="o">.</span><span class="na">startup</span><span class="o">();</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer startup OK%n"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer startup OK%n"</span><span class="o">);</span>
 
-        <span class="nc">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+        <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">message</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">String</span> <span class="n">msgId</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="na">headers</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="nc">MessageHeader</span><span class="o">.</span><span class="na">MESSAGE_ID</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Received one message: %s%n"</span><span class="o">,</span> <span class="n">msgId</span><span class="o">);</span>
+            <span class="n">String</span> <span class="n">msgId</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="na">headers</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">MessageHeader</span><span class="o">.</span><span class="na">MESSAGE_ID</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Received one message: %s%n"</span><span class="o">,</span> <span class="n">msgId</span><span class="o">);</span>
             <span class="n">consumer</span><span class="o">.</span><span class="na">ack</span><span class="o">(</span><span class="n">msgId</span><span class="o">);</span>
         <span class="o">}</span>
 
@@ -572,17 +572,17 @@
 <p>Attaches OMS PushConsumer to a specified queue and consumes messages by MessageListener</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OMSPushConsumer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="nc">MessagingAccessPoint</span> <span class="n">messagingAccessPoint</span> <span class="o">=</span> <span class="nc">MessagingAccessPointFactory</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">MessagingAccessPoint</span> <span class="n">messagingAccessPoint</span> <span class="o">=</span> <span class="n">MessagingAccessPointFactory</span>
             <span class="o">.</span><span class="na">getMessagingAccessPoint</span><span class="o">(</span><span class="s">"openmessaging:rocketmq://IP1:9876,IP2:9876/namespace"</span><span class="o">);</span>
 
-        <span class="kd">final</span> <span class="nc">PushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="n">messagingAccessPoint</span><span class="o">.</span>
-            <span class="nf">createPushConsumer</span><span class="o">(</span><span class="no">OMS</span><span class="o">.</span><span class="na">newKeyValue</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="nc">NonStandardKeys</span><span class="o">.</span><span class="na">CONSUMER_GROUP</span><span class="o">,</span> <span class="s">"OMS_CONSUMER"</span><span class="o">));</span>
+        <span class="kd">final</span> <span class="n">PushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="n">messagingAccessPoint</span><span class="o">.</span>
+            <span class="nf">createPushConsumer</span><span class="o">(</span><span class="n">OMS</span><span class="o">.</span><span class="na">newKeyValue</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="n">NonStandardKeys</span><span class="o">.</span><span class="na">CONSUMER_GROUP</span><span class="o">,</span> <span class="s">"OMS_CONSUMER"</span><span class="o">));</span>
 
         <span class="n">messagingAccessPoint</span><span class="o">.</span><span class="na">startup</span><span class="o">();</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"MessagingAccessPoint startup OK%n"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"MessagingAccessPoint startup OK%n"</span><span class="o">);</span>
 
-        <span class="nc">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">addShutdownHook</span><span class="o">(</span><span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">addShutdownHook</span><span class="o">(</span><span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
                 <span class="n">consumer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
@@ -590,10 +590,10 @@
             <span class="o">}</span>
         <span class="o">}));</span>
         
-        <span class="n">consumer</span><span class="o">.</span><span class="na">attachQueue</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">MessageListener</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">attachQueue</span><span class="o">(</span><span class="s">"OMS_HELLO_TOPIC"</span><span class="o">,</span> <span class="k">new</span> <span class="n">MessageListener</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMessage</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Message</span> <span class="n">message</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">ReceivedMessageContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Received one message: %s%n"</span><span class="o">,</span> <span class="n">message</span><span class="o">.</span><span class="na">headers</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="nc">MessageHeader</span><span class="o">.</span><span class="na">MESSAGE_ID</span><span class="o">));</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMessage</span><span class="o">(</span><span class="kd">final</span> <span class="n">Message</span> <span class="n">message</span><span class="o">,</span> <span class="kd">final</span> <span class="n">ReceivedMessageContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Received one message: %s%n"</span><span class="o">,</span> <span class="n">message</span><span class="o">.</span><span class="na">headers</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">MessageHeader</span><span class="o">.</span><span class="na">MESSAGE_ID</span><span class="o">));</span>
                 <span class="n">context</span><span class="o">.</span><span class="na">ack</span><span class="o">();</span>
             <span class="o">}</span>
         <span class="o">});</span>
@@ -612,7 +612,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-06-08">June 08, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-06-09">June 09, 2017</time></p>
         
       </footer>
 
