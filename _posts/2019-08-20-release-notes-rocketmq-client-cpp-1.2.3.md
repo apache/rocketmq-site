@@ -8,10 +8,10 @@ tags:
   - Version
 ---
 
-Below is a summary of the issues addressed in the 1.2.3 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to [Quick Start](https://github.com/apache/rocketmq-client-cpp).
+Below is a summary of the issues addressed in the version 1.2.3 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to [Quick Start](https://github.com/apache/rocketmq-client-cpp).
 
 
-<h2> Download the 4.5.2 release</h2>
+<h2> Download the 1.2.3 release</h2>
     
 * Source: [rocketmq-client-cpp-1.2.3-source-release.tar.gz](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-source-release.tar.gz) [[PGP](https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-source-release.tar.gz.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-source-release.tar.gz.sha512)]
 * Binary: [rocketmq-client-cpp-1.2.3-bin-release.tar.gz](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-bin-release.tar.gz) [[PGP](https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-bin-release.tar.gz.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-bin-release.tar.gz.sha512)]
