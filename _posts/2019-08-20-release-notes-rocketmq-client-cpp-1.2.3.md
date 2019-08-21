@@ -17,6 +17,7 @@ Below is a summary of the issues addressed in the version 1.2.3 release of Rocke
 * Binary: [rocketmq-client-cpp-1.2.3-bin-release.tar.gz](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-bin-release.tar.gz) [[PGP](https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-bin-release.tar.gz.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.3/rocketmq-client-cpp-1.2.3-bin-release.tar.gz.sha512)]
 
 ## Improvement
+<ul>
 <li>[<a href='https://github.com/apache/rocketmq-client-cpp/pull/139'>ISSUE-139</a>] -  Export send batch messages api in c style.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-client-cpp/pull/154'>ISSUE-154</a>] -  Support transaction message.
@@ -25,7 +26,7 @@ Below is a summary of the issues addressed in the version 1.2.3 release of Rocke
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-client-cpp/pull/140'>ISSUE-140</a>] -  Fix build warnings in namespace util.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq-client-cpp/pull/143'>ISSUE-143</a>] -  Replace unsigned int by auto to save string::size_type..
+<li>[<a href='https://github.com/apache/rocketmq-client-cpp/pull/143'>ISSUE-143</a>] -  Replace unsigned int by auto to save string::size_type.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-client-cpp/pull/157'>ISSUE-157</a>] -  Remove two unused functionalities, removeDropedPullRequestOpaque and deleteOpaqueForDropPullRequest.
 </li>
