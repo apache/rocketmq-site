@@ -32,7 +32,7 @@ Below is a summary of the issues addressed in the 4.5.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1138'>ISSUE-1138</a>] -  Deprecate admin interface exposed in producer/consumer.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/pull/1201'>ISSUE-1200</a>] -  Polish default message trace topic trace.
+<li>[<a href='https://github.com/apache/rocketmq/pull/1201'>ISSUE-1200</a>] -  Polish the default message trace topic config.
 </li>
 </ul>
 
