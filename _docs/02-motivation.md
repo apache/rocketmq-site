@@ -21,9 +21,7 @@ requirements especially in terms of low latency and high reliability, see [here]
 In this context, we decided to invent a new messaging engine to handle a broader set of use cases, ranging from 
 traditional pub/sub scenarios to high volume real-time zero-loss tolerance transaction system. We believe this solution
 can be beneficial, so we would like to open source it to the community. Today, more than 100 companies are using the 
-open source version of RocketMQ in their business. We also published a commercial distribution based on RocketMQ, a PaaS
- product called the [Alibaba ONS](https://www.aliyun.com/product/ons/).
-
+open source version of RocketMQ in their business. 
 
 The following table demonstrates the comparison between RocketMQ, ActiveMQ and Kafka (Apache's most popular messaging solutions according to [awesome-java](https://github.com/akullpp/awesome-java)):
 
