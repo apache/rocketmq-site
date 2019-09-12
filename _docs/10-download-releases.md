@@ -5,8 +5,7 @@ modified: 2019-5-14T15:01:43-04:00
 ---
 
 Today, more than 100 companies are using the 
-open source version of RocketMQ in their business. We also published a commercial distribution based on RocketMQ, a PaaS
- product called the [Alibaba ONS](https://www.aliyun.com/product/ons/).   
+open source version of RocketMQ in their business.  
  
  
 # Compatibility Guide
