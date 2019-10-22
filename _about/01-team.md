@@ -26,6 +26,7 @@ The following is a list of developers with commit privileges that have directly 
 |![lollipop](/assets/images/about/lollipop.jpeg)|lollipop|[@lollipopjin](https://github.com/lollipopjin)|lollipop@apache.org |PMC Member| +8 |
 |![Heng Du](/assets/images/about/duhengforever.jpeg)|duhengforever|[@duhenglucky](https://github.com/duhenglucky)|duhengforever@apache.org |PMC Member| +8 |
 |![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |PMC Member| +8 |
+|![wlliqipeng](/assets/images/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |PMC Member| +8 |
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
@@ -36,6 +37,7 @@ The following is a list of developers with commit privileges that have directly 
 |![huzongtang](/assets/images/about/huzongtang.jpeg)|huzongtang|[@zongtanghu](https://github.com/zongtanghu)|huzongtang@apache.org |Committer| +8 |
 |![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|xujiang@apache.org|Committer| +8 |
 |![liaotian](/assets/images/about/liaotian.jpeg)|Kevin Wang| [@walking98](https://github.com/walking98)|walking98@apache.org|Committer| +8 |
+|![wangwenfeng](/assets/images/about/wangwenfeng.jpeg)|wenfeng| [@wenfengwang](https://github.com/wenfengwang)|wenfeng@apache.org|Committer| +8 |
 
 ### Top Contributors
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
@@ -45,7 +47,6 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|14106312@qq.com|Contributor| +8 |
 |![xiangwangcheng](/assets/images/about/chengxiangwang.jpeg)|xiangwangcheng| [@xiangwangcheng](https://github.com/xiangwangcheng)|chxw_@126.com |Contributor| +8 |
 |![liwei](/assets/images/about/liwei.jpeg)|francis lee| [@francisoliverlee](https://github.com/francisoliverlee)|1026203200@qq.com|Contributor| +8 |
-|![wangwenfeng](/assets/images/about/wangwenfeng.jpeg)|wenfeng| [@wenfengwang](https://github.com/wenfengwang)|sxian.wang@gmail.com|Contributor| +8 |
 |![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ywhjames@hotmail.com|Contributor| +8 |
 |![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
