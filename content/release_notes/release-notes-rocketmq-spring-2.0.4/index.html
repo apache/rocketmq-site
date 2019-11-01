@@ -13,30 +13,30 @@
 
 
 
-<title>The Design Of Transactional Message - Apache RocketMQ</title>
+<title>Release Notes - Apache RocketMQ Spring - Version 2.0.4 - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="     On This Page  Concept Introduction  Concept Introduction">
+<meta name="description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="The Design Of Transactional Message">
+<meta property="og:title" content="Release Notes - Apache RocketMQ Spring - Version 2.0.4">
 
 
 
 
-  <meta property="og:description" content="     On This Page  Concept Introduction  Concept Introduction">
+  <meta property="og:description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="The Design Of Transactional Message">
-  <meta name="twitter:description" content="     On This Page  Concept Introduction  Concept Introduction">
+  <meta name="twitter:title" content="Release Notes - Apache RocketMQ Spring - Version 2.0.4">
+  <meta name="twitter:description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-07-13T00:00:00+08:00">
+  <meta property="article:published_time" content="2019-11-01T00:00:00+08:00">
 
 
 
@@ -286,15 +286,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="The Design Of Transactional Message">
-    <meta itemprop="description" content="     On This Page  Concept Introduction  Concept Introduction">
-    <meta itemprop="datePublished" content="July 13, 2018">
+    <meta itemprop="headline" content="Release Notes - Apache RocketMQ Spring - Version 2.0.4">
+    <meta itemprop="description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+    <meta itemprop="datePublished" content="November 01, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">The Design Of Transactional Message
+          <h1 class="page__title" itemprop="headline">Release Notes - Apache RocketMQ Spring - Version 2.0.4
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -302,76 +302,47 @@
 
 
 
-  1 minute read
+  less than 1 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <aside class="sidebar__right">
-<nav class="toc">
-    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
-<ul class="toc__menu" id="markdown-toc">
-  <li><a href="#concept-introduction" id="markdown-toc-concept-introduction">Concept Introduction</a></li>
-  <li><a href="#execute-flow-chart" id="markdown-toc-execute-flow-chart">Execute Flow Chart</a></li>
-  <li><a href="#detailed-design" id="markdown-toc-detailed-design">Detailed Design</a></li>
+        <p>Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to <a href="https://github.com/apache/rocketmq-spring">Quick Start</a>.</p>
+
+<h2> Download the 2.0.4 release</h2>
+
+<ul>
+  <li>Source: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.tar.gz">rocketmq-spring-all-2.0.4-source-release.tar.gz</a> [<a href="https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.tar.gz.sha512">SHA512</a>]</li>
+  <li>Binary: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-bin-release.tar.gz">rocketmq-spring-all-2.0.4-bin-release.tar.gz</a> [<a href="https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-bin-release.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-bin-release.tar.gz.sha512">SHA512</a>]</li>
 </ul>
 
-  </nav>
-</aside>
-<h1 id="concept-introduction">Concept Introduction</h1>
+<h2 id="improvement">Improvement</h2>
+<ul>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/87">ISSUE #86</a>] -  Support to configure whether consumer listener is enabled through configuration file.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/97">ISSUE #96</a>] -  Support resolve  placeholder for listener.txProducerGroup.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/129">ISSUE #103</a>] -  Support resolve placeholder for selectorExpression.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/137">ISSUE #137</a>] -  Upgrade rocketmq dependency to 4.5.2.
+</li>
+</ul>
 
-<blockquote>
-  <p>Half(Prepare) Message</p>
-</blockquote>
-
-<p>Refers to a message that cannot be delivered temporarily. When a message is successfully sent to the MQ server, but the server did not receive the second acknowledgement of the message from the producer, then the message is marked as “temporarily undeliverable”. The message in this status is called a half message.</p>
-
-<blockquote>
-  <p>Message Status Check</p>
-</blockquote>
-
-<p>Network disconnection or producer application restart may result in the loss of the second acknowledgement of a transactional message. When MQ server finds that a message remains a half message for a long time, it will send a request to the message producer, checking the final status of the message (Commit or Rollback).</p>
-
-<h1 id="execute-flow-chart">Execute Flow Chart</h1>
-
-<p><img src="/assets/images/blog/transaction-execute-flow.png" alt="screenshot" /></p>
-<ol>
-  <li>Producer send half message to MQ server.</li>
-  <li>After send half message succeed, execute local transaction.</li>
-  <li>Send commit or rollback message to MQ Server based on local transaction results.</li>
-  <li>If commit/rollback message missed or producer pended during the execution of local transaction，MQ server will send check message to each producers in the same group to obtain transaction status.</li>
-  <li>Producer reply commit/rollback message based on local transaction status.</li>
-  <li>Committed message will be delivered to consumer but rolled back message will be discarded by MQ server.</li>
-</ol>
-
-<h1 id="detailed-design">Detailed Design</h1>
-<blockquote>
-  <p>Outline:</p>
-</blockquote>
-
-<p><img src="/assets/images/blog/transaction-outline-design.png" alt="screenshot" /><br />
-Just as the figure shows, in order to mask the underlying implementation of storage, all transactional message operations focus on the transaction service interface.
-RocketMQ provides a default implementation with its own storage system，and we used a transaction bridge to implement our transactional storage logic，instead of modify RocketMQ’s storage layer directly.</p>
-
-<blockquote>
-  <p>Sending transactional message:</p>
-</blockquote>
-
-<p><img src="/assets/images/blog/sending-transactional-message.png" alt="screenshot" /><br />
-This figure describes the timing relationships of sending transactional message. From this figure, we can clearly see that how transactional messages are committed in two phases.</p>
-
-<blockquote>
-  <p>Checking transactional message:</p>
-</blockquote>
-
-<p><img src="/assets/images/blog/checking-transactional-message.png" alt="screenshot" /><br />
-This figure describes the checking logic for transactional messages，when MQ server finds that a message remains a half message for a long time，it will send a request to the message producer，to get the status of the current transaction.</p>
-
-<blockquote>
-  <p>Design Motivation:</p>
-</blockquote>
+<h2 id="bug">Bug</h2>
+<ul>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/150">ISSUE #81</a>] -  Fix RocketMQTemplate.syncSend collection type method signature.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/84">ISSUE #83</a>] -  Fix addUserProperties will override headers from rocketmq.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/138">ISSUE #107</a>] -  Fix the message was consumed twice because of the same instanceName.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/119">ISSUE #117</a>] -  Fix timeout failed in syncSendOrderly.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-spring/pull/164">ISSUE #163</a>] -  Fix transactionProducer has incorrect namespace.
+</li>
+</ul>
 
         
       </section>
@@ -392,7 +363,7 @@ This figure describes the checking logic for transactional messages，when MQ se
     
       
       
-      <a href="/tags/#message-oriented-middleware" class="page__taxonomy-item" rel="tag">Message Oriented Middleware</a><span class="sep">, </span>
+      <a href="/tags/#release-notes" class="page__taxonomy-item" rel="tag">Release_Notes</a><span class="sep">, </span>
     
       
       
@@ -400,7 +371,7 @@ This figure describes the checking logic for transactional messages，when MQ se
     
       
       
-      <a href="/tags/#transaction" class="page__taxonomy-item" rel="tag">Transaction</a>
+      <a href="/tags/#version" class="page__taxonomy-item" rel="tag">Version</a>
     
     </span>
   </p>
@@ -421,14 +392,14 @@ This figure describes the checking logic for transactional messages，when MQ se
     
       
       
-      <a href="/categories/#rocketmq" class="page__taxonomy-item" rel="tag">RocketMQ</a>
+      <a href="/categories/#release-notes" class="page__taxonomy-item" rel="tag">Release_Notes</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-07-13T00:00:00+08:00">July 13, 2018</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-11-01T00:00:00+08:00">November 01, 2019</time></p>
         
       </footer>
 
@@ -437,25 +408,24 @@ This figure describes the checking logic for transactional messages，when MQ se
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=The Design Of Transactional Message /rocketmq/the-design-of-transactional-message/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Notes - Apache RocketMQ Spring - Version 2.0.4 /release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/rocketmq/the-design-of-transactional-message/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/rocketmq/the-design-of-transactional-message/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/rocketmq/the-design-of-transactional-message/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/release_notes/release-notes-4.2.0/" class="pagination--pager" title="Release Notes - Apache RocketMQ - Version 4.2.0
+      <a href="/release_notes/release-notes-rocketmq-client-cpp-1.2.3/" class="pagination--pager" title="Release Notes - Apache RocketMQ Client CPP- Version 1.2.3
 ">Previous</a>
     
     
-      <a href="/release_notes/release-notes-4.3.0/" class="pagination--pager" title="Release Notes - Apache RocketMQ - Version 4.3.0
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -479,32 +449,6 @@ This figure describes the checking logic for transactional messages，when MQ se
         <h4 class="page__related-title">You May Also Enjoy</h4>
       
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/release_notes/release-notes-rocketmq-spring-2.0.4/" rel="permalink">Release Notes - Apache RocketMQ Spring - Version 2.0.4
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, pl...</p>
-  </article>
-</div>
         
           
 
@@ -581,6 +525,32 @@ This figure describes the checking logic for transactional messages，when MQ se
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the 4.5.1 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Q...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/release_notes/release-notes-4.5.0/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.5.0
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the 4.5.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Q...</p>
   </article>
 </div>
         
