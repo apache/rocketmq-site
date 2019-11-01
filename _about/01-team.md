@@ -49,4 +49,4 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ywhjames@hotmail.com|Contributor| +8 |
 |![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
-|![xujianhai666](/assets/images/about/xujianhai.jpg)|Xu Jianhai| [@xujianhai666](https://github.com/xujianhai666)|snow4young@gmail.com|Contributor| +8 |
+|![xujianhai666](/assets/images/about/xujianhai.jpeg)|Xu Jianhai| [@xujianhai666](https://github.com/xujianhai666)|snow4young@gmail.com|Contributor| +8 |
