@@ -26,6 +26,8 @@ Below is a summary of the issues addressed in the version 2.0.4 release of Rocke
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/137'>ISSUE #137</a>] -  Upgrade rocketmq dependency to 4.5.2.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq-spring/pull/152'>ISSUE #152</a>] -  An enhancement about the convert in RocketMQTemplate.
+</li>
 </ul>
 
 ## Bug
