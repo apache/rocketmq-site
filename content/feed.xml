@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-11-01T15:42:19+08:00</updated><id>/feed.xml</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><entry><title type="html">Release Notes - Apache RocketMQ Spring - Version 2.0.4</title><link href="/release_notes/release-notes-rocketmq-spring-2.0.4/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ Spring - Version 2.0.4" /><published>2019-11-01T00:00:00+08:00</published><updated>2019-11-01T00:00:00+08:00</updated><id>/release_notes/release-notes-rocketmq-spring-2.0.4</id><content type="html" xml:base="/release_notes/release-notes-rocketmq-spring-2.0.4/">&lt;p&gt;Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;https://github.com/apache/rocketmq-spring&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-11-11T11:33:04+08:00</updated><id>/feed.xml</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><entry><title type="html">Release Notes - Apache RocketMQ Client CPP- Version 1.2.4</title><link href="/release_notes/release-notes-rocketmq-client-cpp-1.2.4/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ Client CPP- Version 1.2.4" /><published>2019-11-11T00:00:00+08:00</published><updated>2019-11-11T00:00:00+08:00</updated><id>/release_notes/release-notes-rocketmq-client-cpp-1.2.4</id><content type="html" xml:base="/release_notes/release-notes-rocketmq-client-cpp-1.2.4/">&lt;p&gt;Below is a summary of the issues addressed in the version 1.2.4 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt; Download the 1.2.4 release&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Source: &lt;a href=&quot;https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/1.2.4/rocketmq-client-cpp-1.2.4-source-release.tar.gz&quot;&gt;rocketmq-client-cpp-1.2.4-source-release.tar.gz&lt;/a&gt; [&lt;a href=&quot;https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.4/rocketmq-client-cpp-1.2.4-source-release.tar.gz.asc&quot;&gt;PGP&lt;/a&gt;] [&lt;a href=&quot;https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.4/rocketmq-client-cpp-1.2.4-source-release.tar.gz.sha512&quot;&gt;SHA512&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Binary: &lt;a href=&quot;https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/1.2.4/rocketmq-client-cpp-1.2.4-bin-release.tar.gz&quot;&gt;rocketmq-client-cpp-1.2.4-bin-release.tar.gz&lt;/a&gt; [&lt;a href=&quot;https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.4/rocketmq-client-cpp-1.2.4-bin-release.tar.gz.asc&quot;&gt;PGP&lt;/a&gt;] [&lt;a href=&quot;https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/1.2.4/rocketmq-client-cpp-1.2.4-bin-release.tar.gz.sha512&quot;&gt;SHA512&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;improvement&quot;&gt;Improvement&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/188&quot;&gt;ISSUE-188&lt;/a&gt;] -  feat(producer): add method for orderly message sending by shardingkey.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/190&quot;&gt;ISSUE-190&lt;/a&gt;] -  feat(consumer): add set max cache size for consumer c-style apis.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/193&quot;&gt;ISSUE-193&lt;/a&gt;] -  feat(producer): Support user data in async callback.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/199&quot;&gt;ISSUE-199&lt;/a&gt;] -  feat(transaction): add transaction message for C APIs.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/165&quot;&gt;ISSUE-165&lt;/a&gt;] -  optimize transport layer.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/171&quot;&gt;ISSUE-171&lt;/a&gt;] -  replace boost::thread::hardware_concurrency with std version.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/195&quot;&gt;ISSUE-195&lt;/a&gt;] -  style(example):format the code style in example.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/201&quot;&gt;ISSUE-201&lt;/a&gt;] -  feat(errorno): add new error no for transaction producer.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bug&quot;&gt;Bug&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/178&quot;&gt;ISSUE-178&lt;/a&gt;] -  fixed typo bug in DefaultMQPushConsumer::getConsumerRunningInfo. 
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/183&quot;&gt;ISSUE-183&lt;/a&gt;] -  remove boost from StringIdMaker, and fixed some bugs.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/186&quot;&gt;ISSUE-186&lt;/a&gt;] -  fix: skip compressing if message is a batch one.
+&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><category term="Release_Notes" /><category term="RocketMQ" /><category term="Version" /><summary type="html">Below is a summary of the issues addressed in the version 1.2.4 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to Quick Start.</summary></entry><entry><title type="html">Release Notes - Apache RocketMQ Spring - Version 2.0.4</title><link href="/release_notes/release-notes-rocketmq-spring-2.0.4/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ Spring - Version 2.0.4" /><published>2019-11-01T00:00:00+08:00</published><updated>2019-11-01T00:00:00+08:00</updated><id>/release_notes/release-notes-rocketmq-spring-2.0.4</id><content type="html" xml:base="/release_notes/release-notes-rocketmq-spring-2.0.4/">&lt;p&gt;Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;https://github.com/apache/rocketmq-spring&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2&gt; Download the 2.0.4 release&lt;/h2&gt;
 
@@ -382,66 +419,4 @@
 &lt;/li&gt;
 &lt;li&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/ROCKETMQ-355&quot;&gt;ISSUE-355&lt;/a&gt;] -   Fix the timeout semantic of async send method
 &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><category term="Release_Notes" /><category term="RocketMQ" /><category term="Version" /><summary type="html">Below is a summary of the JIRA issues addressed in the 4.3.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.</summary></entry><entry><title type="html">The Design Of Transactional Message</title><link href="/rocketmq/the-design-of-transactional-message/" rel="alternate" type="text/html" title="The Design Of Transactional Message" /><published>2018-07-13T00:00:00+08:00</published><updated>2018-07-13T00:00:00+08:00</updated><id>/rocketmq/the-design-of-transactional-message</id><content type="html" xml:base="/rocketmq/the-design-of-transactional-message/">&lt;aside class=&quot;sidebar__right&quot;&gt;
-&lt;nav class=&quot;toc&quot;&gt;
-    &lt;header&gt;&lt;h4 class=&quot;nav__title&quot;&gt;&lt;i class=&quot;fa fa-file-text&quot;&gt;&lt;/i&gt; On This Page&lt;/h4&gt;&lt;/header&gt;
-&lt;ul class=&quot;toc__menu&quot; id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#concept-introduction&quot; id=&quot;markdown-toc-concept-introduction&quot;&gt;Concept Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#execute-flow-chart&quot; id=&quot;markdown-toc-execute-flow-chart&quot;&gt;Execute Flow Chart&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#detailed-design&quot; id=&quot;markdown-toc-detailed-design&quot;&gt;Detailed Design&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;/nav&gt;
-&lt;/aside&gt;
-&lt;h1 id=&quot;concept-introduction&quot;&gt;Concept Introduction&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Half(Prepare) Message&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Refers to a message that cannot be delivered temporarily. When a message is successfully sent to the MQ server, but the server did not receive the second acknowledgement of the message from the producer, then the message is marked as “temporarily undeliverable”. The message in this status is called a half message.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Message Status Check&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Network disconnection or producer application restart may result in the loss of the second acknowledgement of a transactional message. When MQ server finds that a message remains a half message for a long time, it will send a request to the message producer, checking the final status of the message (Commit or Rollback).&lt;/p&gt;
-
-&lt;h1 id=&quot;execute-flow-chart&quot;&gt;Execute Flow Chart&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/blog/transaction-execute-flow.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Producer send half message to MQ server.&lt;/li&gt;
-  &lt;li&gt;After send half message succeed, execute local transaction.&lt;/li&gt;
-  &lt;li&gt;Send commit or rollback message to MQ Server based on local transaction results.&lt;/li&gt;
-  &lt;li&gt;If commit/rollback message missed or producer pended during the execution of local transaction，MQ server will send check message to each producers in the same group to obtain transaction status.&lt;/li&gt;
-  &lt;li&gt;Producer reply commit/rollback message based on local transaction status.&lt;/li&gt;
-  &lt;li&gt;Committed message will be delivered to consumer but rolled back message will be discarded by MQ server.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;detailed-design&quot;&gt;Detailed Design&lt;/h1&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Outline:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/blog/transaction-outline-design.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;br /&gt;
-Just as the figure shows, in order to mask the underlying implementation of storage, all transactional message operations focus on the transaction service interface.
-RocketMQ provides a default implementation with its own storage system，and we used a transaction bridge to implement our transactional storage logic，instead of modify RocketMQ’s storage layer directly.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sending transactional message:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/blog/sending-transactional-message.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;br /&gt;
-This figure describes the timing relationships of sending transactional message. From this figure, we can clearly see that how transactional messages are committed in two phases.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Checking transactional message:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/blog/checking-transactional-message.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;br /&gt;
-This figure describes the checking logic for transactional messages，when MQ server finds that a message remains a half message for a long time，it will send a request to the message producer，to get the status of the current transaction.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Design Motivation:&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><category term="RocketMQ" /><category term="Transaction" /><category term="Message Oriented Middleware" /><summary type="html">On This Page Concept Introduction Concept Introduction</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><category term="Release_Notes" /><category term="RocketMQ" /><category term="Version" /><summary type="html">Below is a summary of the JIRA issues addressed in the 4.3.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.</summary></entry></feed>
