@@ -14,7 +14,6 @@ Below is a summary of the issues addressed in the version 2.0.4 release of Rocke
 <h2> Download the 2.0.4 release</h2>
     
 * Source: [rocketmq-spring-all-2.0.4-source-release.tar.gz](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.tar.gz) [[PGP](https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.tar.gz.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.tar.gz.sha512)]
-* Binary: [rocketmq-spring-all-2.0.4-bin-release.tar.gz](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-bin-release.tar.gz) [[PGP](https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-bin-release.tar.gz.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-bin-release.tar.gz.sha512)]
 
 ## Improvement
 <ul>
