@@ -20,7 +20,7 @@ Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1388'>ISSUE-1388</a>] -  Add lite pull consumer support for RocketMQ.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/pull/1413'>RIP-15</a>] -  Add Ipv6 support for RocketMQ.
+<li>[<a href='https://github.com/apache/rocketmq/pull/1413'>RIP-15</a>] -  Add IPv6 support for RocketMQ.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/pull/1422'>RIP-16</a>] -  Add Request-Reply support for RocketMQ.
 </li>
@@ -64,7 +64,7 @@ Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1568'>ISSUE-1568</a>] -  Resolve repeat compress issue of transaction message.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1564'>ISSUE-1564</a>] -  Fix the ip filter logic in ipv6/ipv4 coexist environment .
+<li>[<a href='https://github.com/apache/rocketmq/issues/1564'>ISSUE-1564</a>] -  Fix the IP filter logic in ipv6/ipv4 coexist environment .
 </li>
 </ul>
 
