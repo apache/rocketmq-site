@@ -13,30 +13,30 @@
 
 
 
-<title>Release Notes - Apache RocketMQ - Version 4.4.0 - Apache RocketMQ</title>
+<title>Release Notes - Apache RocketMQ - Version 4.6.0 - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+<meta name="description" content="Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Release Notes - Apache RocketMQ - Version 4.4.0">
+<meta property="og:title" content="Release Notes - Apache RocketMQ - Version 4.6.0">
 
 
 
 
-  <meta property="og:description" content="Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+  <meta property="og:description" content="Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Release Notes - Apache RocketMQ - Version 4.4.0">
-  <meta name="twitter:description" content="Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+  <meta name="twitter:title" content="Release Notes - Apache RocketMQ - Version 4.6.0">
+  <meta name="twitter:description" content="Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-01-17T00:00:00+08:00">
+  <meta property="article:published_time" content="2019-11-20T00:00:00+08:00">
 
 
 
@@ -286,15 +286,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Release Notes - Apache RocketMQ - Version 4.4.0">
-    <meta itemprop="description" content="Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
-    <meta itemprop="datePublished" content="January 17, 2019">
+    <meta itemprop="headline" content="Release Notes - Apache RocketMQ - Version 4.6.0">
+    <meta itemprop="description" content="Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+    <meta itemprop="datePublished" content="November 20, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Release Notes - Apache RocketMQ - Version 4.4.0
+          <h1 class="page__title" itemprop="headline">Release Notes - Apache RocketMQ - Version 4.6.0
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -309,54 +309,80 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>Below is a summary of the issues addressed in the 4.4.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href="/docs/quick-start/">Quick Start</a>.</p>
+        <p>Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href="/docs/quick-start/">Quick Start</a>.</p>
 
-<h2> Download the 4.4.0 release</h2>
+<h2> Download the 4.6.0 release</h2>
 
 <ul>
-  <li>Source: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip">rocketmq-all-4.4.0-source-release.zip</a> [<a href="https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.md5">MD5</a>] [<a href="https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip.sha1">SHA1</a>]</li>
-  <li>Binary: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip">rocketmq-all-4.4.0-bin-release.zip</a> [<a href="https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.md5">MD5</a>] [<a href="https://www.apache.org/dist/rocketmq/4.4.0/rocketmq-all-4.4.0-bin-release.zip.sha1">SHA1</a>]</li>
+  <li>Source: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.6.0/rocketmq-all-4.6.0-source-release.zip">rocketmq-all-4.6.0-source-release.zip</a> [<a href="https://www.apache.org/dist/rocketmq/4.6.0/rocketmq-all-4.6.0-source-release.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/4.6.0/rocketmq-all-4.6.0-source-release.zip.sha512">SHA512</a>]</li>
+  <li>Binary: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.6.0/rocketmq-all-4.6.0-bin-release.zip">rocketmq-all-4.6.0-bin-release.zip</a> [<a href="https://www.apache.org/dist/rocketmq/4.6.0/rocketmq-all-4.6.0-bin-release.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/4.6.0/rocketmq-all-4.6.0-bin-release.zip.sha512">SHA512</a>]</li>
 </ul>
 
 <h2 id="new-feature">New Feature</h2>
 <ul>
-<li>[<a href="https://github.com/apache/rocketmq/issues/403">ISSUE-403</a>] -  Support the ACL standard for RocketMQ.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1388">ISSUE-1388</a>] -  Add lite pull consumer support for RocketMQ.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/502">ISSUE-502</a>] -  Support SQL92 filter in pull consumer.
+<li>[<a href="https://github.com/apache/rocketmq/pull/1413">RIP-15</a>] -  Add Ipv6 support for RocketMQ.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/525">ISSUE-525</a>] -  Support message trace.
+<li>[<a href="https://github.com/apache/rocketmq/pull/1422">RIP-16</a>] -  Add Request-Reply support for RocketMQ.
 </li>
 </ul>
 
 <h2 id="improvement">Improvement</h2>
 <ul>
-<li>[<a href="https://github.com/apache/rocketmq/issues/511">ISSUE-511</a>] -  Polish comment for CountDownLatch.
+<li>[<a href="https://github.com/apache/rocketmq/issues/504">ISSUE-504</a>] -  Polish 'No route info of this topic' exception.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/536">ISSUE-536</a>] -  Update fastjson version to 1.2.51.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1483">ISSUE-1483</a>] -  Make QueryMsgByIdSubCommand print offsetID only once.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/571">ISSUE-571</a>] -  Polish a default value for DB message.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1435">ISSUE-1435</a>] -  Fix discarded mqadmin subcommand document description.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/581">ISSUE-581</a>] -  Polish Copyright in NOTICE file.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1528">ISSUE-1528</a>] -  Mocking related functions to make producer get right topicrouteinfo and invoke callback functions.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/582">ISSUE-582</a>] -  Update asynchronous send thread pool from callback executor to an exclusive one.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1519">ISSUE-1519</a>] -  Optimise performance/stability of transaction message.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/586">ISSUE-586</a>] -  Format output number in admin tools.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1531">ISSUE-1531</a>] -  Upgrade fastjson version.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/640">ISSUE-640</a>] -  Polish config file for travis-ci.
-</li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/693">ISSUE-693</a>] -  Add instance name to enable to send trace message to different clusters.
+<li>[<a href="https://github.com/apache/rocketmq/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Amerged+RIP-10">RIP-10</a>] -  Add test cases for ConsumeMessageOrderlyService#consumeMessageDirectly.
 </li>
 </ul>
 
 <h2 id="bug">Bug</h2>
 <ul>
-<li>[<a href="https://github.com/apache/rocketmq/issues/512">ISSUE-512</a>] -  Fixed the issue that RocketMQ can not print config items with -p option.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1082">ISSUE-1082</a>] -  Fix disconnection of HA. 
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/544">ISSUE-544</a>] -  Fixed transactional message will be lost under extreme condition.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1456">ISSUE-1456</a>] -  Fix replica abnormal recover slow issue.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/556">ISSUE-556</a>] -  Fixed the issue that epoll native selector start error in broker.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1108">ISSUE-1108</a>] -  Fix concurrent problems with client-side connection creation.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq/issues/604">ISSUE-604</a>] -  Fixed the issue that semaphore was not released when asyn invoke timeout.
+<li>[<a href="https://github.com/apache/rocketmq/issues/1464">ISSUE-1464</a>] -  Fix the issue that master node route info was lost when the node joined the group in dledger mode.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1470">ISSUE-1470</a>] -  Fix the issue that lite pull consumer lost messages.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1491">ISSUE-1491</a>] -  Ignore IllegalStateException when remove shutdown hook.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1535">ISSUE-1535</a>] -  Fix ha sync transfer timeout.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1528">ISSUE-1528</a>] -  Fix the unit tests of DefaultMQProducer.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1568">ISSUE-1568</a>] -  Resolve repeat compress issue of transaction message.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1564">ISSUE-1564</a>] -  Fix the ip filter logic in ipv6/ipv4 coexist environment .
+</li>
+</ul>
+
+<h2 id="document--and-code-style-improvement">Document  and code style improvement</h2>
+<ul>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1420">ISSUE-1420</a>] -  Polish code style. 
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1556">ISSUE-1556</a>] -  Fix cacography in guide doc.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1438">ISSUE-1438</a>] -  Polish definite article and indefinite article usage.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1439">ISSUE-1439</a>] -  Fix transaction typo in doc.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1526">ISSUE-1526</a>] -  Modify docs-cn description error.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq/issues/1503">ISSUE-1503</a>] -  Fix some typo in docs/cn/design.md.
 </li>
 </ul>
 
@@ -416,7 +442,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-01-17T00:00:00+08:00">January 17, 2019</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-11-20T00:00:00+08:00">November 20, 2019</time></p>
         
       </footer>
 
@@ -425,25 +451,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Notes - Apache RocketMQ - Version 4.4.0 /release_notes/release-notes-4.4.0/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Notes - Apache RocketMQ - Version 4.6.0 /release_notes/release-notes-4.6.0/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/release_notes/release-notes-4.4.0/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/release_notes/release-notes-4.6.0/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/release_notes/release-notes-4.4.0/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/release_notes/release-notes-4.6.0/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/release_notes/release-notes-4.4.0/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/release_notes/release-notes-4.6.0/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/release_notes/release-notes-4.3.2/" class="pagination--pager" title="Release Notes - Apache RocketMQ - Version 4.3.2
+      <a href="/release_notes/release-notes-rocketmq-client-cpp-1.2.4/" class="pagination--pager" title="Release Notes - Apache RocketMQ Client CPP- Version 1.2.4
 ">Previous</a>
     
     
-      <a href="/release_notes/release-notes-4.5.0/" class="pagination--pager" title="Release Notes - Apache RocketMQ - Version 4.5.0
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -467,32 +492,6 @@
         <h4 class="page__related-title">You May Also Enjoy</h4>
       
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/release_notes/release-notes-4.6.0/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.6.0
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Q...</p>
-  </article>
-</div>
         
           
 
@@ -569,6 +568,32 @@
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 1.2.3 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/release_notes/release-notes-4.5.2/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.5.2
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the 4.5.2 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Q...</p>
   </article>
 </div>
         
