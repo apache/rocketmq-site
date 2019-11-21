@@ -13,8 +13,8 @@ Below is a summary of the issues addressed in the 4.3.2 release of RocketMQ. For
 
 <h2> Download the 4.3.2 release</h2>
     
-* Source: [rocketmq-all-4.3.2-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.sha1)]
-* Binary: [rocketmq-all-4.3.2-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.asc)] [[MD5](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.md5)] [[SHA1](https://www.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.sha1)]
+* Source: [rocketmq-all-4.3.2-source-release.zip](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip) [[PGP](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.asc)] [[MD5](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.md5)] [[SHA1](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-source-release.zip.sha1)]
+* Binary: [rocketmq-all-4.3.2-bin-release.zip](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip) [[PGP](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.asc)] [[MD5](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.md5)] [[SHA1](https://archive.apache.org/dist/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip.sha1)]
 
 ## Improvement
 <ul>
