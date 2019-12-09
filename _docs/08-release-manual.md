@@ -73,7 +73,7 @@ Cleanup JIRA issues or Github Issues related to this release version, and check 
 Also, remember to check the current version of MQVersion, which should be equal to this released version.
 
 #### 1.5 Publish the Release Notes
-Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](https://rocketmq.apache.org/release_notes/release-notes-4.4.0/) available for reference, include the link to the release notes in the voting emails.
+Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) and publish it to the [rocketmq-site](https://github.com/apache/rocketmq-site), there is a [release notes](https://rocketmq.apache.org/release_notes/release-notes-4.6.0/) available for reference, include the link to the release notes in the voting emails.
 
 
 ## 2.Build the Source Release Candidate
