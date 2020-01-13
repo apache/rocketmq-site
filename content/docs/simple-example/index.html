@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-12-23T19:52:01+08:00">
+  <meta property="article:published_time" content="2020-01-13T19:13:36+08:00">
 
 
 
@@ -437,17 +437,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/roadmap/"><span class="nav__sub-title">RoadMap</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -513,24 +502,24 @@ asynchronous, and one-way transmission.</li>
 important notification messages, SMS notification, SMS marketing system, etc..</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SyncProducer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
-        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span>
-            <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span>
+            <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
         <span class="c1">// Specify name server addresses.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
             <span class="c1">//Create a message instance, specifying topic, tag and message body.</span>
-            <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span> <span class="cm">/* Topic */</span><span class="o">,</span>
+            <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="s">"TopicTest"</span> <span class="cm">/* Topic */</span><span class="o">,</span>
                 <span class="s">"TagA"</span> <span class="cm">/* Tag */</span><span class="o">,</span>
                 <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span>
-                    <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span> <span class="cm">/* Message body */</span>
+                    <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span> <span class="cm">/* Message body */</span>
             <span class="o">);</span>
             <span class="c1">//Call send message to deliver message to one of brokers.</span>
-            <span class="n">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
+            <span class="nc">SendResult</span> <span class="n">sendResult</span> <span class="o">=</span> <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s%n"</span><span class="o">,</span> <span class="n">sendResult</span><span class="o">);</span>
         <span class="o">}</span>
         <span class="c1">//Shut down once the producer instance is not longer in use.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
@@ -543,9 +532,9 @@ important notification messages, SMS notification, SMS marketing system, etc..</
 <p>Asynchronous transmission is generally used in response time sensitive business scenarios.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AsyncProducer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
-        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
         <span class="c1">// Specify name server addresses.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
@@ -554,19 +543,19 @@ important notification messages, SMS notification, SMS marketing system, etc..</
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
                 <span class="kd">final</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
                 <span class="c1">//Create a message instance, specifying topic, tag and message body.</span>
-                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
+                <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span>
                     <span class="s">"TagA"</span><span class="o">,</span>
                     <span class="s">"OrderID188"</span><span class="o">,</span>
-                    <span class="s">"Hello world"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">));</span>
-                <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="k">new</span> <span class="n">SendCallback</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="s">"Hello world"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">));</span>
+                <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SendCallback</span><span class="o">()</span> <span class="o">{</span>
                     <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">SendResult</span> <span class="n">sendResult</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%-10d OK %s %n"</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="nc">SendResult</span> <span class="n">sendResult</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%-10d OK %s %n"</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span>
                             <span class="n">sendResult</span><span class="o">.</span><span class="na">getMsgId</span><span class="o">());</span>
                     <span class="o">}</span>
                     <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onException</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%-10d Exception %s %n"</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onException</span><span class="o">(</span><span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%-10d Exception %s %n"</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
                         <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
                     <span class="o">}</span>
                 <span class="o">});</span>
@@ -583,19 +572,19 @@ important notification messages, SMS notification, SMS marketing system, etc..</
 such as log collection.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OnewayProducer</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
         <span class="c1">//Instantiate with a producer group name.</span>
-        <span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
         <span class="c1">// Specify name server addresses.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
         <span class="c1">//Launch the instance.</span>
         <span class="n">producer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
             <span class="c1">//Create a message instance, specifying topic, tag and message body.</span>
-            <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="s">"TopicTest"</span> <span class="cm">/* Topic */</span><span class="o">,</span>
+            <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="s">"TopicTest"</span> <span class="cm">/* Topic */</span><span class="o">,</span>
                 <span class="s">"TagA"</span> <span class="cm">/* Tag */</span><span class="o">,</span>
                 <span class="o">(</span><span class="s">"Hello RocketMQ "</span> <span class="o">+</span>
-                    <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="n">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span> <span class="cm">/* Message body */</span>
+                    <span class="n">i</span><span class="o">).</span><span class="na">getBytes</span><span class="o">(</span><span class="nc">RemotingHelper</span><span class="o">.</span><span class="na">DEFAULT_CHARSET</span><span class="o">)</span> <span class="cm">/* Message body */</span>
             <span class="o">);</span>
             <span class="c1">//Call send message to deliver message to one of brokers.</span>
             <span class="n">producer</span><span class="o">.</span><span class="na">sendOneway</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
@@ -612,10 +601,10 @@ such as log collection.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Consumer</span> <span class="o">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">MQClientException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span><span class="o">,</span> <span class="nc">MQClientException</span> <span class="o">{</span>
 
         <span class="c1">// Instantiate with specified consumer group name.</span>
-        <span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+        <span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
          
         <span class="c1">// Specify name server addresses.</span>
         <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"localhost:9876"</span><span class="o">);</span>
@@ -623,20 +612,20 @@ such as log collection.</p>
         <span class="c1">// Subscribe one more more topics to consume.</span>
         <span class="n">consumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="s">"TopicTest"</span><span class="o">,</span> <span class="s">"*"</span><span class="o">);</span>
         <span class="c1">// Register callback to execute on arrival of messages fetched from brokers.</span>
-        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">consumer</span><span class="o">.</span><span class="na">registerMessageListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">MessageListenerConcurrently</span><span class="o">()</span> <span class="o">{</span>
 
             <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="n">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
-                <span class="n">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s Receive New Messages: %s %n"</span><span class="o">,</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span> <span class="n">msgs</span><span class="o">);</span>
-                <span class="k">return</span> <span class="n">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
+            <span class="kd">public</span> <span class="nc">ConsumeConcurrentlyStatus</span> <span class="nf">consumeMessage</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">MessageExt</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span>
+                <span class="nc">ConsumeConcurrentlyContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s Receive New Messages: %s %n"</span><span class="o">,</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span> <span class="n">msgs</span><span class="o">);</span>
+                <span class="k">return</span> <span class="nc">ConsumeConcurrentlyStatus</span><span class="o">.</span><span class="na">CONSUME_SUCCESS</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">});</span>
 
         <span class="c1">//Launch the consumer instance.</span>
         <span class="n">consumer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer Started.%n"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Consumer Started.%n"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -734,7 +723,7 @@ https://github.com/apache/rocketmq/tree/master/example</p>
       </ul>
     </div>
 
-    <div class="page__footer-copyright">Copyright &copy; 2019 <a href="http://www.apache.org/">The Apache Software Foundation</a>. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></div>
+    <div class="page__footer-copyright">Copyright &copy; 2020 <a href="http://www.apache.org/">The Apache Software Foundation</a>. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></div>
     <div class="page__footer-copyright">Apache RocketMQ, RocketMQ, Apache, the Apache feather logo and the Apache RocketMQ logo are trademarks of The Apache Software Foundation.</div>
     <br>
     <div class="page__footer-copyright"><a href="https://www.apache.org/licenses/">License</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> | <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></div>

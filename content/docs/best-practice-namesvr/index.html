@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-12-23T19:52:01+08:00">
+  <meta property="article:published_time" content="2020-01-13T19:13:36+08:00">
 
 
 
@@ -437,17 +437,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/roadmap/"><span class="nav__sub-title">RoadMap</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -503,10 +492,10 @@ In Apache RocketMQ, this can be done in four ways.</p>
 
 <p>For producers and consumers, we can feed name server address list to them as follows:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQProducer</span> <span class="n">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQProducer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">producer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 
-<span class="n">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<span class="nc">DefaultMQPushConsumer</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQPushConsumer</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">consumer</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -521,7 +510,7 @@ assuming to query cluster info on the name server node.</p>
 
 <p>If you have integrated admin tool into your own dashboard, you can:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">DefaultMQAdminExt</span> <span class="n">defaultMQAdminExt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMQAdminExt</span><span class="o">(</span><span class="s">"please_rename_unique_group_name"</span><span class="o">);</span>
 <span class="n">defaultMQAdminExt</span><span class="o">.</span><span class="na">setNamesrvAddr</span><span class="o">(</span><span class="s">"name-server1-ip:port;name-server2-ip:port"</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -645,7 +634,7 @@ You may also override <code class="highlighter-rouge">nsaddr</code> part using t
       </ul>
     </div>
 
-    <div class="page__footer-copyright">Copyright &copy; 2019 <a href="http://www.apache.org/">The Apache Software Foundation</a>. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></div>
+    <div class="page__footer-copyright">Copyright &copy; 2020 <a href="http://www.apache.org/">The Apache Software Foundation</a>. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></div>
     <div class="page__footer-copyright">Apache RocketMQ, RocketMQ, Apache, the Apache feather logo and the Apache RocketMQ logo are trademarks of The Apache Software Foundation.</div>
     <br>
     <div class="page__footer-copyright"><a href="https://www.apache.org/licenses/">License</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> | <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></div>

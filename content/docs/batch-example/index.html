@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-12-23T19:52:01+08:00">
+  <meta property="article:published_time" content="2020-01-13T19:13:36+08:00">
 
 
 
@@ -437,17 +437,6 @@
         
       </li>
     
-      <li>
-        
-          
-          
-
-          <a href="/docs/roadmap/"><span class="nav__sub-title">RoadMap</span></a>
-        
-
-        
-      </li>
-    
   </ul>
 </nav>
     
@@ -495,14 +484,14 @@
 <h4 id="how-to-use-batch">How to use batch</h4>
 <p>If you just send messages of no more than 1MiB at a time, it is easy to use batch:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">topic</span> <span class="o">=</span> <span class="s">"BatchTest"</span><span class="o">;</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID001"</span><span class="o">,</span> <span class="s">"Hello world 0"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
-<span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID002"</span><span class="o">,</span> <span class="s">"Hello world 1"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
-<span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID003"</span><span class="o">,</span> <span class="s">"Hello world 2"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">topic</span> <span class="o">=</span> <span class="s">"BatchTest"</span><span class="o">;</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID001"</span><span class="o">,</span> <span class="s">"Hello world 0"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+<span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID002"</span><span class="o">,</span> <span class="s">"Hello world 1"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+<span class="n">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Message</span><span class="o">(</span><span class="n">topic</span><span class="o">,</span> <span class="s">"TagA"</span><span class="o">,</span> <span class="s">"OrderID003"</span><span class="o">,</span> <span class="s">"Hello world 2"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
 <span class="k">try</span> <span class="o">{</span>
     <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">messages</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
     <span class="c1">//handle the error</span>
 <span class="o">}</span>
@@ -513,28 +502,28 @@
 
 <p>At this time, you’d better split the lists:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListSplitter</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">SIZE_LIMIT</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListSplitter</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">SIZE_LIMIT</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">currIndex</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">ListSplitter</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">ListSplitter</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">this</span><span class="o">.</span><span class="na">messages</span> <span class="o">=</span> <span class="n">messages</span><span class="o">;</span>
     <span class="o">}</span>
     <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">currIndex</span> <span class="o">&lt;</span> <span class="n">messages</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
     <span class="o">}</span>
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
         <span class="kt">int</span> <span class="n">nextIndex</span> <span class="o">=</span> <span class="n">currIndex</span><span class="o">;</span>
         <span class="kt">int</span> <span class="n">totalSize</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
         <span class="k">for</span> <span class="o">(;</span> <span class="n">nextIndex</span> <span class="o">&lt;</span> <span class="n">messages</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">nextIndex</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">messages</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nextIndex</span><span class="o">);</span>
+            <span class="nc">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="n">messages</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nextIndex</span><span class="o">);</span>
             <span class="kt">int</span> <span class="n">tmpSize</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="na">getTopic</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">message</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">length</span><span class="o">;</span>
-            <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">properties</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">properties</span><span class="o">.</span><span class="na">entrySet</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">properties</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="nc">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">properties</span><span class="o">.</span><span class="na">entrySet</span><span class="o">())</span> <span class="o">{</span>
                 <span class="n">tmpSize</span> <span class="o">+=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">length</span><span class="o">();</span>
             <span class="o">}</span>
             <span class="n">tmpSize</span> <span class="o">=</span> <span class="n">tmpSize</span> <span class="o">+</span> <span class="mi">20</span><span class="o">;</span> <span class="c1">//for log overhead</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">tmpSize</span> <span class="o">&gt;</span> <span class="n">SIZE_LIMIT</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">tmpSize</span> <span class="o">&gt;</span> <span class="no">SIZE_LIMIT</span><span class="o">)</span> <span class="o">{</span>
                 <span class="c1">//it is unexpected that single message exceeds the SIZE_LIMIT</span>
                 <span class="c1">//here just let it go, otherwise it will block the splitting process</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">nextIndex</span> <span class="o">-</span> <span class="n">currIndex</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
@@ -543,25 +532,25 @@
                 <span class="o">}</span>
                 <span class="k">break</span><span class="o">;</span>
             <span class="o">}</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">tmpSize</span> <span class="o">+</span> <span class="n">totalSize</span> <span class="o">&gt;</span> <span class="n">SIZE_LIMIT</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">tmpSize</span> <span class="o">+</span> <span class="n">totalSize</span> <span class="o">&gt;</span> <span class="no">SIZE_LIMIT</span><span class="o">)</span> <span class="o">{</span>
                 <span class="k">break</span><span class="o">;</span>
             <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
                 <span class="n">totalSize</span> <span class="o">+=</span> <span class="n">tmpSize</span><span class="o">;</span>
             <span class="o">}</span>
     
         <span class="o">}</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">subList</span> <span class="o">=</span> <span class="n">messages</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">currIndex</span><span class="o">,</span> <span class="n">nextIndex</span><span class="o">);</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;</span> <span class="n">subList</span> <span class="o">=</span> <span class="n">messages</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">currIndex</span><span class="o">,</span> <span class="n">nextIndex</span><span class="o">);</span>
         <span class="n">currIndex</span> <span class="o">=</span> <span class="n">nextIndex</span><span class="o">;</span>
         <span class="k">return</span> <span class="n">subList</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 <span class="c1">//then you could split the large list into small ones:</span>
-<span class="n">ListSplitter</span> <span class="n">splitter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListSplitter</span><span class="o">(</span><span class="n">messages</span><span class="o">);</span>
+<span class="nc">ListSplitter</span> <span class="n">splitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListSplitter</span><span class="o">(</span><span class="n">messages</span><span class="o">);</span>
 <span class="k">while</span> <span class="o">(</span><span class="n">splitter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
    <span class="k">try</span> <span class="o">{</span>
-       <span class="n">List</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span>  <span class="n">listItem</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+       <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&gt;</span>  <span class="n">listItem</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
        <span class="n">producer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">listItem</span><span class="o">);</span>
-   <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+   <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
        <span class="c1">//handle the error</span>
    <span class="o">}</span>
@@ -656,7 +645,7 @@
       </ul>
     </div>
 
-    <div class="page__footer-copyright">Copyright &copy; 2019 <a href="http://www.apache.org/">The Apache Software Foundation</a>. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></div>
+    <div class="page__footer-copyright">Copyright &copy; 2020 <a href="http://www.apache.org/">The Apache Software Foundation</a>. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></div>
     <div class="page__footer-copyright">Apache RocketMQ, RocketMQ, Apache, the Apache feather logo and the Apache RocketMQ logo are trademarks of The Apache Software Foundation.</div>
     <br>
     <div class="page__footer-copyright"><a href="https://www.apache.org/licenses/">License</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> | <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></div>
