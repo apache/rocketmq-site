@@ -86,8 +86,6 @@ docs:
       - title: "JVM/Kernel Config"
         url: /docs/system-config/
 
-  - title: RoadMap
-    url: /docs/roadmap/
 
 about:
   - title: Team
