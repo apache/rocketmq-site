@@ -1,5 +1,5 @@
 # Apache RocketMQ website
-[![TravisCI](https://travis-ci.org/apache/rocketmq-site.svg)](https://travis-ci.org/apache/rocketmq-site)
+[![Build Status](https://travis-ci.com/apache/rocketmq-site.svg?branch=master)](https://travis-ci.com/apache/rocketmq-site)
 
 This is the website for [Apache RocketMQ](	http://rocketmq.apache.org/).
 
