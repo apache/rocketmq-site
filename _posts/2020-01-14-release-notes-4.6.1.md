@@ -37,7 +37,7 @@ Below is a summary of the issues addressed in the 4.6.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1694'>ISSUE-1694</a>] -  Fix concurrent problem in ProducerManager.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1659'>ISSUE-1659</a>] -  Add pull request sysFlag and support consume from where in first startup.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1659'>ISSUE-1659</a>] -  Add pull request sysFlag and support consume from where in startup.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1656'>ISSUE-1656</a>] -  Fix stats data could be inaccurate of first minute/hour/day.
 </li>
@@ -47,7 +47,7 @@ Below is a summary of the issues addressed in the 4.6.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1722'>ISSUE-1722</a>] -  Avoid delay message in schedule queue enter half message queue.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1724'>ISSUE-1724</a>] -  Fix spelling mistake in DefaultLitePullConsumerImpl#seekToEnd
+<li>[<a href='https://github.com/apache/rocketmq/issues/1724'>ISSUE-1724</a>] -  Fix spelling mistake in litePullConsumerImpl seekToEnd.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1735'>ISSUE-1735</a>] -  Optimize benchmark consumer and add consume fail rate option.
 </li>
