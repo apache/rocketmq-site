@@ -13,30 +13,30 @@
 
 
 
-<title>How to Support More Queues in RocketMQ? - Apache RocketMQ</title>
+<title>Release Notes - Apache RocketMQ Client CPP- Version 2.0.0 - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="Summary">
+<meta name="description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="How to Support More Queues in RocketMQ?">
+<meta property="og:title" content="Release Notes - Apache RocketMQ Client CPP- Version 2.0.0">
 
 
 
 
-  <meta property="og:description" content="Summary">
+  <meta property="og:description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="How to Support More Queues in RocketMQ?">
-  <meta name="twitter:description" content="Summary">
+  <meta name="twitter:title" content="Release Notes - Apache RocketMQ Client CPP- Version 2.0.0">
+  <meta name="twitter:description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to Quick Start.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2016-12-23T00:00:00+08:00">
+  <meta property="article:published_time" content="2020-02-14T00:00:00+08:00">
 
 
 
@@ -286,15 +286,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="How to Support More Queues in RocketMQ?">
-    <meta itemprop="description" content="Summary">
-    <meta itemprop="datePublished" content="December 23, 2016">
+    <meta itemprop="headline" content="Release Notes - Apache RocketMQ Client CPP- Version 2.0.0">
+    <meta itemprop="description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+    <meta itemprop="datePublished" content="February 14, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">How to Support More Queues in RocketMQ?
+          <h1 class="page__title" itemprop="headline">Release Notes - Apache RocketMQ Client CPP- Version 2.0.0
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -302,88 +302,66 @@
 
 
 
-  2 minute read
+  1 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <h1 id="summary">Summary</h1>
+        <p>Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to <a href="https://github.com/apache/rocketmq-client-cpp">Quick Start</a>.</p>
 
-<p>Kafka is a distributed streaming platform, which was born from <a href="https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying">logging aggregation cases</a>. It does not need too high concurrency. In some large scale cases in alibaba, we found that the original model has been unable to meet our actual needs. So, we developed a messaging middleware, named RocketMQ, which can handle a broad set of use cases, ranging from traditional publish/subscribe scenario to demandingly high volume realtime transaction system that tolerates no message loss. Now, in alibaba, RocketMQ clusters process more than 500 billion events every day, provide services for more than 3000 core applications.</p>
+<h2> Download the 2.0.0 release</h2>
 
-<aside class="sidebar__right">
-<nav class="toc">
-    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
-<ul class="toc__menu" id="markdown-toc">
-  <li><a href="#summary" id="markdown-toc-summary">Summary</a></li>
-  <li><a href="#partition-design-in-kafka" id="markdown-toc-partition-design-in-kafka">Partition design in kafka</a>    <ul>
-      <li><a href="#why-kafka-cant-support-more-partitions" id="markdown-toc-why-kafka-cant-support-more-partitions">Why Kafka can’t support more partitions</a></li>
-    </ul>
-  </li>
-  <li><a href="#how-to-support-more-partition-in-rocketmq" id="markdown-toc-how-to-support-more-partition-in-rocketmq">How to support more partition in RocketMQ?</a></li>
+<ul>
+  <li>Source: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/2.0.0/rocketmq-client-cpp-2.0.0-source-release.tar.gz">rocketmq-client-cpp-2.0.0-source-release.tar.gz</a> [<a href="https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/2.0.0/rocketmq-client-cpp-2.0.0-source-release.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/2.0.0/rocketmq-client-cpp-2.0.0-source-release.tar.gz.sha512">SHA512</a>]</li>
+  <li>Binary: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-cpp/2.0.0/rocketmq-client-cpp-2.0.0-bin-release.tar.gz">rocketmq-client-cpp-2.0.0-bin-release.tar.gz</a> [<a href="https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/2.0.0/rocketmq-client-cpp-2.0.0-bin-release.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/rocketmq-client-cpp/2.0.0/rocketmq-client-cpp-2.0.0-bin-release.tar.gz.sha512">SHA512</a>]</li>
 </ul>
 
-  </nav>
-</aside>
+<h2 id="improvement">Improvement</h2>
+<ul>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/206">ISSUE-206</a>] -  refactor(rebalance): use smart_ptr to manage pull request.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/207">ISSUE-207</a>] -  feat(namespace): add name space support.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/214">ISSUE-214</a>] -  fix(unittest): refactor some unitests.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/222">ISSUE-222</a>] -  feat(client): add timer to clean off line broker and test case.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/225">ISSUE-225</a>] -  fix(send): try to use command v2 to send messages.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/227">ISSUE-227</a>] -  feat(memleak): remove mem leak in factory schedule task.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/230">ISSUE-230</a>] -  feat(version): add maxConsumerTimes to support higher client version.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/232">ISSUE-232</a>] -  feat(callback): use start pointer to manager callbacks.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/233">ISSUE-233</a>] -  feat(consumer): remove event if consumer service shutdown.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/235">ISSUE-235</a>] -  feat(interface): remove boost in header file and examples.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/236">ISSUE-236</a>] -  feat(apis):refactor apis for CPP styles.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/238">ISSUE-238</a>] -  feat(package): add rpm build and dpkg build script.
+</li>
+</ul>
 
-<h1 id="partition-design-in-kafka">Partition design in kafka</h1>
-<ol>
-  <li>Producer parallelism of writing is bounded by the number of partitions.</li>
-  <li>The degree of consumer consumption parallelism, is also bounded by the number of partitions being consumed. Assuming that the number of partitions is 20, the maximum number of concurrent consuming consumers is 20.</li>
-  <li>Each topic consists of a fixed number of partitions. Partition number determines the maximum number of topics that single broker may have without significantly affecting performance.</li>
-</ol>
+<h2 id="bug">Bug</h2>
+<ul>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/209">ISSUE-209</a>] -  fix(consumer): fix the issue that msg lost when send back to broker failed. 
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/210">ISSUE-210</a>] -  fix(consumer): send back error when consuming failed.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/213">ISSUE-213</a>] -  fix(producer) crash in DestroyProducer shutdown.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/223">ISSUE-223</a>] -  fix(protocol): delete string print in header decode and open test cases.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/228">ISSUE-228</a>] -  feat(libevent): update libevent to v2.1.11 to avoid get mutex time out.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-cpp/pull/237">ISSUE-237</a>] -  fix(build): fix variable in build script.
+</li>
+</ul>
 
-<p>More details please refer to <a href="http://www.confluent.io/blog/how-to-choose-the-number-of-topicspartitions-in-a-kafka-cluster/">here</a>.</p>
-
-<h2 id="why-kafka-cant-support-more-partitions">Why Kafka can’t support more partitions</h2>
-<ol>
-  <li>Each partition stores the whole message data. Although each partition is orderly written to the disk, as number of concurrently writing partitions increases, writing become random in the perspective of operating system.</li>
-  <li>Due to the scattered data files, it is difficult to use the Linux IO Group Commit mechanism.</li>
-</ol>
-
-<h1 id="how-to-support-more-partition-in-rocketmq">How to support more partition in RocketMQ?</h1>
-
-<p><img src="/assets/images/blog/rocketmq-queues.png" alt="screenshot" /></p>
-
-<ol>
-  <li>All message data are stored in commit log files. All writes are completely sequential whilst reads are random.</li>
-  <li>ConsumeQueue stores the actual user consumption location information, which are also flushed to disk in sequential manner.</li>
-</ol>
-
-<blockquote>
-  <p>pros：</p>
-</blockquote>
-
-<ol>
-  <li>Each consume queue is lightweight and contains limited amount of meta data.</li>
-  <li>Access to disk is totally sequential, which avoids disk lock contention, and will not incur high disk IO wait when a large number of queues has been created.</li>
-</ol>
-
-<blockquote>
-  <p>cons：</p>
-</blockquote>
-
-<ol>
-  <li>Message consumption will first read consume queue, then commit log. This process brings in certain cost in worst cases.</li>
-  <li>Commit log and consume queues need to be logically consistent, which introduces extra complexities to programming model.</li>
-</ol>
-
-<blockquote>
-  <p>Design Motivation：</p>
-</blockquote>
-
-<ol>
-  <li>Random read. Read as much as possible to increase the page cache hit rate, and reduce read IO operations. So large memory is still preferable. If massive messages are accumulated, would the read performance degrade badly? The answer is negative, reasons are as follows:
-    <ul>
-      <li>Even if size of the message is only 1KB, the system will read more data in advance, see <a href="https://en.wikipedia.org/wiki/Cache_prefetching">PAGECACHE prefetch</a> for reference. This means for the sequel data read, it is access to main memory that will be carried out instead of slow disk IO read.</li>
-      <li>Random access CommitLog from disk. If set the I/O scheduler to NOOP in case of SSD, the read qps will be greatly accelerated thus much faster than other elevator scheduler algorithm.</li>
-    </ul>
-  </li>
-  <li>Given ConsumeQueue stores fixed-size metadata only, which is mainly used to record consuming progress, random read is well supported. Taking advantage of page cache prefetch, accessing ConsumeQueue is as efficiently fast as accessing main memory, even if it’s in the case of massive message accumulation. As a result，ConsumeQueue will NOT bring in noticeable penalty to the read performance.</li>
-  <li>CommitLog stores virtually all information, including the message data. Similar to redo log of relational database, consume queues, message key indexes and all other required data can be completely recovered as long as commit log exists..</li>
-</ol>
 
         
       </section>
@@ -404,19 +382,15 @@
     
       
       
-      <a href="/tags/#message-oriented-middleware" class="page__taxonomy-item" rel="tag">Message Oriented Middleware</a><span class="sep">, </span>
+      <a href="/tags/#release-notes" class="page__taxonomy-item" rel="tag">Release_Notes</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#partition" class="page__taxonomy-item" rel="tag">Partition</a><span class="sep">, </span>
+      <a href="/tags/#rocketmq" class="page__taxonomy-item" rel="tag">RocketMQ</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#queue" class="page__taxonomy-item" rel="tag">Queue</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#rocketmq" class="page__taxonomy-item" rel="tag">RocketMQ</a>
+      <a href="/tags/#version" class="page__taxonomy-item" rel="tag">Version</a>
     
     </span>
   </p>
@@ -437,14 +411,14 @@
     
       
       
-      <a href="/categories/#rocketmq" class="page__taxonomy-item" rel="tag">RocketMQ</a>
+      <a href="/categories/#release-notes" class="page__taxonomy-item" rel="tag">Release_Notes</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-23T00:00:00+08:00">December 23, 2016</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-02-14T00:00:00+08:00">February 14, 2020</time></p>
         
       </footer>
 
@@ -453,24 +427,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=How to Support More Queues in RocketMQ? /rocketmq/how-to-support-more-queues-in-rocketmq/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Notes - Apache RocketMQ Client CPP- Version 2.0.0 /release_notes/release-notes-rocketmq-client-cpp-2.0.0/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/rocketmq/how-to-support-more-queues-in-rocketmq/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/release_notes/release-notes-rocketmq-client-cpp-2.0.0/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/rocketmq/how-to-support-more-queues-in-rocketmq/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/release_notes/release-notes-rocketmq-client-cpp-2.0.0/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/rocketmq/how-to-support-more-queues-in-rocketmq/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/release_notes/release-notes-rocketmq-client-cpp-2.0.0/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/release_notes/release-notes-rocketmq-spring-2.1.0/" class="pagination--pager" title="Release Notes - Apache RocketMQ Spring - Version 2.1.0
+">Previous</a>
     
     
-      <a href="/maven/mastering-component-compatible-dependency/" class="pagination--pager" title="Mastering Component Compatible Dependency
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -494,32 +468,6 @@
         <h4 class="page__related-title">You May Also Enjoy</h4>
       
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/release_notes/release-notes-rocketmq-client-cpp-2.0.0/" rel="permalink">Release Notes - Apache RocketMQ Client CPP- Version 2.0.0
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started...</p>
-  </article>
-</div>
         
           
 
@@ -596,6 +544,32 @@
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 1.2.4 release of RocketMQ Client Go. For full documentation of the release, a guide to get started,...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/release_notes/release-notes-4.6.0/" rel="permalink">Release Notes - Apache RocketMQ - Version 4.6.0
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the 4.6.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to Q...</p>
   </article>
 </div>
         
