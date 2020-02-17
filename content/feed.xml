@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-02-14T12:34:27+08:00</updated><id>/feed.xml</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><entry><title type="html">Release Notes - Apache RocketMQ Client CPP- Version 2.0.0</title><link href="/release_notes/release-notes-rocketmq-client-cpp-2.0.0/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ Client CPP- Version 2.0.0" /><published>2020-02-14T00:00:00+08:00</published><updated>2020-02-14T00:00:00+08:00</updated><id>/release_notes/release-notes-rocketmq-client-cpp-2.0.0</id><content type="html" xml:base="/release_notes/release-notes-rocketmq-client-cpp-2.0.0/">&lt;p&gt;Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-02-17T19:37:03+08:00</updated><id>/feed.xml</id><title type="html">Apache RocketMQ</title><subtitle>The homepage of RocketMQ.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;avatar&quot;=&gt;&quot;/assets/images/rmq-logo.png&quot;, &quot;bio&quot;=&gt;&quot;An open source distributed messaging and streaming data platform.&quot;, &quot;location&quot;=&gt;&quot;Hangzhou, China&quot;, &quot;email&quot;=&gt;&quot;dev@rocketmq.apache.org&quot;, &quot;uri&quot;=&gt;&quot;http://rocketmq.apache.org&quot;, &quot;bitbucket&quot;=&gt;nil, &quot;codepen&quot;=&gt;nil, &quot;dribbble&quot;=&gt;nil, &quot;flickr&quot;=&gt;nil, &quot;facebook&quot;=&gt;nil, &quot;foursquare&quot;=&gt;nil, &quot;github&quot;=&gt;&quot;apache/rocketmq&quot;, &quot;google_plus&quot;=&gt;nil, &quot;keybase&quot;=&gt;nil, &quot;instagram&quot;=&gt;nil, &quot;lastfm&quot;=&gt;nil, &quot;linkedin&quot;=&gt;nil, &quot;pinterest&quot;=&gt;nil, &quot;soundcloud&quot;=&gt;nil, &quot;stackoverflow&quot;=&gt;&quot;questions/tagged/rocketmq&quot;, &quot;steam&quot;=&gt;nil, &quot;tumblr&quot;=&gt;nil, &quot;twitter&quot;=&gt;&quot;ApacheRocketMQ&quot;, &quot;vine&quot;=&gt;nil, &quot;weibo&quot;=&gt;nil, &quot;xing&quot;=&gt;nil, &quot;youtube&quot;=&gt;nil, &quot;quora&quot;=&gt;&quot;topic/RocketMQ&quot;}</name><email>dev@rocketmq.apache.org</email><uri>http://rocketmq.apache.org</uri></author><entry><title type="html">Release Notes - Apache RocketMQ Client CPP- Version 2.0.0</title><link href="/release_notes/release-notes-rocketmq-client-cpp-2.0.0/" rel="alternate" type="text/html" title="Release Notes - Apache RocketMQ Client CPP- Version 2.0.0" /><published>2020-02-14T00:00:00+08:00</published><updated>2020-02-14T00:00:00+08:00</updated><id>/release_notes/release-notes-rocketmq-client-cpp-2.0.0</id><content type="html" xml:base="/release_notes/release-notes-rocketmq-client-cpp-2.0.0/">&lt;p&gt;Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started, please refer to &lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp&quot;&gt;Quick Start&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2&gt; Download the 2.0.0 release&lt;/h2&gt;
 
@@ -9,27 +9,27 @@
 
 &lt;h2 id=&quot;improvement&quot;&gt;Improvement&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/206&quot;&gt;ISSUE-206&lt;/a&gt;] -  refactor(rebalance): use smart_ptr to manage pull request.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/206&quot;&gt;ISSUE-206&lt;/a&gt;] -  refactor(rebalance): use smart_ptr to manage pullrequest and refactor rebalancing process.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/207&quot;&gt;ISSUE-207&lt;/a&gt;] -  feat(namespace): add name space support.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/207&quot;&gt;ISSUE-207&lt;/a&gt;] -  feat(namespace): add namespace support.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/214&quot;&gt;ISSUE-214&lt;/a&gt;] -  fix(unittest): refactor some unitests.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/214&quot;&gt;ISSUE-214&lt;/a&gt;] -  test(unittest): refactor some unitests.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/222&quot;&gt;ISSUE-222&lt;/a&gt;] -  feat(client): add timer to clean off line broker and test case.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/222&quot;&gt;ISSUE-222&lt;/a&gt;] -  refactor(client): add timer to clean the offline brokers and and test case for it.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/225&quot;&gt;ISSUE-225&lt;/a&gt;] -  fix(send): try to use command v2 to send messages.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/225&quot;&gt;ISSUE-225&lt;/a&gt;] -  feat(protocol): try to use command v2 to send messages.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/227&quot;&gt;ISSUE-227&lt;/a&gt;] -  feat(memleak): remove mem leak in factory schedule task.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/227&quot;&gt;ISSUE-227&lt;/a&gt;] -  refactor(memleak): remove mem leak in the factory schedule task.
 &lt;/li&gt;
 &lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/230&quot;&gt;ISSUE-230&lt;/a&gt;] -  feat(version): add maxConsumerTimes to support higher client version.
 &lt;/li&gt;
 &lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/232&quot;&gt;ISSUE-232&lt;/a&gt;] -  feat(callback): use start pointer to manager callbacks.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/233&quot;&gt;ISSUE-233&lt;/a&gt;] -  feat(consumer): remove event if consumer service shutdown.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/233&quot;&gt;ISSUE-233&lt;/a&gt;] -  refactor(consumer): remove event if consumer service shutdown.
 &lt;/li&gt;
 &lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/235&quot;&gt;ISSUE-235&lt;/a&gt;] -  feat(interface): remove boost in header file and examples.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/236&quot;&gt;ISSUE-236&lt;/a&gt;] -  feat(apis):refactor apis for CPP styles.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/236&quot;&gt;ISSUE-236&lt;/a&gt;] -  style(apis): remove unnessary comments in the CPP head files.
 &lt;/li&gt;
 &lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/238&quot;&gt;ISSUE-238&lt;/a&gt;] -  feat(package): add rpm build and dpkg build script.
 &lt;/li&gt;
@@ -37,15 +37,17 @@
 
 &lt;h2 id=&quot;bug&quot;&gt;Bug&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/209&quot;&gt;ISSUE-209&lt;/a&gt;] -  fix(consumer): fix the issue that msg lost when send back to broker failed. 
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/209&quot;&gt;ISSUE-209&lt;/a&gt;] -  fix(consumer): fix the issue that message will be lost if sent back to broker failed.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/210&quot;&gt;ISSUE-210&lt;/a&gt;] -  fix(consumer): send back error when consuming failed.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/210&quot;&gt;ISSUE-210&lt;/a&gt;] -  fix(consumer): the message was sent back to broker error when it be consumed failed.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/213&quot;&gt;ISSUE-213&lt;/a&gt;] -  fix(producer) crash in DestroyProducer shutdown.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/213&quot;&gt;ISSUE-213&lt;/a&gt;] -  fix(producer): fix the issue that it will coredump in DestroyProducer function when the producer shutdown.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/223&quot;&gt;ISSUE-223&lt;/a&gt;] -  fix(protocol): delete string print in header decode and open test cases.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/220&quot;&gt;ISSUE-220&lt;/a&gt;] -  chore(notice): update the year to 2020 in notice file.
 &lt;/li&gt;
-&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/228&quot;&gt;ISSUE-228&lt;/a&gt;] -  feat(libevent): update libevent to v2.1.11 to avoid get mutex time out.
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/223&quot;&gt;ISSUE-223&lt;/a&gt;] -  style(protocol): remove unnessary printing in the protocol decode file and add some test cases for it.
+&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/228&quot;&gt;ISSUE-228&lt;/a&gt;] -  style(protocol): feat(libevent): update libevent to v2.1.11 to avoid get mutex time out.
 &lt;/li&gt;
 &lt;li&gt;[&lt;a href=&quot;https://github.com/apache/rocketmq-client-cpp/pull/237&quot;&gt;ISSUE-237&lt;/a&gt;] -  fix(build): fix variable in build script.
 &lt;/li&gt;
