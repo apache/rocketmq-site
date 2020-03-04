@@ -1,0 +1,51 @@
+---
+title: "Release Notes - Apache RocketMQ - Version 4.7.0"
+categories:
+  - Release_Notes
+tags:
+  - Release_Notes
+  - RocketMQ
+  - Version
+---
+
+Below is a summary of the issues addressed in the 4.7.0 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
+
+
+<h2> Download the 4.7.0 release</h2>
+    
+* Source: [rocketmq-all-4.7.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.0/rocketmq-all-4.7.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-source-release.zip.sha512)]
+* Binary: [rocketmq-all-4.7.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip.sha512)]
+
+
+## Improvement
+<ul>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1515'>ISSUE-1515</a>] -  Synchronous replication could be change into pipeline manner.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1809'>ISSUE-1809</a>] -  Improve exception handle of transaction check service.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1794'>ISSUE-1794</a>] -  Upgrade fastjson version.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1774'>ISSUE-1774</a>] -  Prevent the client from committing too frequently.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1771'>ISSUE-1771</a>] -  Add MessageExt.getBrokerName method.
+</li>
+</ul>
+
+## Bug
+<ul>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1805'>ISSUE-1805</a>] -  Cannot find callback in MQPullConsumerScheduleService. 
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1787'>ISSUE-1787</a>] -  The queryCq command of mqadmin returned incorrect data.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1751'>ISSUE-1751</a>] -  Fix bug in MessageClientIDSetter.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1409'>ISSUE-1409</a>] -  Fix bug using queryMsgByKey or queryMsgByUniqueKey command when acl is turned on.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1781'>ISSUE-1781</a>] -  Fix bug with asynchronous retry.
+</li>
+
+</ul>
+                                        
+            
+
+
