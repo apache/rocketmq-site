@@ -17,17 +17,20 @@ Below is a summary of the issues addressed in the 4.7.0 release of RocketMQ. For
 * Binary: [rocketmq-all-4.7.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip.sha512)]
 
 
+## New Feature
+<li>[<a href='https://github.com/apache/rocketmq/issues/1515'>ISSUE-1515</a>] -  Synchronous replication change to pipeline manner.
+</li>
+
+
 ## Improvement
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1515'>ISSUE-1515</a>] -  Synchronous replication could be change into pipeline manner.
-</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1809'>ISSUE-1809</a>] -  Improve exception handle of transaction check service.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1794'>ISSUE-1794</a>] -  Upgrade fastjson version.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1774'>ISSUE-1774</a>] -  Prevent the client from committing too frequently.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1771'>ISSUE-1771</a>] -  Add MessageExt.getBrokerName method.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1771'>ISSUE-1771</a>] -  Enable MessageExt to get brokername information.
 </li>
 </ul>
 
@@ -37,11 +40,13 @@ Below is a summary of the issues addressed in the 4.7.0 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1787'>ISSUE-1787</a>] -  The queryCq command of mqadmin returned incorrect data.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1751'>ISSUE-1751</a>] -  Fix bug in MessageClientIDSetter.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1751'>ISSUE-1751</a>] -  Fix bug that MessageClientIDSetter inject wrong pid.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1409'>ISSUE-1409</a>] -  Fix bug using queryMsgByKey or queryMsgByUniqueKey command when acl is turned on.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1781'>ISSUE-1781</a>] -  Fix bug with asynchronous retry.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1821'>ISSUE-1821</a>] -  Fix bug that MessageClientIDSetter#getIPFromID return wrong pid.
 </li>
 
 </ul>
