@@ -20,18 +20,26 @@ The table below shows the supported jre environment for components of each relea
 | 4.4.x | >=1.6 | >=1.8 | >=1.8 |
 | 4.5.x | >=1.6 | >=1.8 | >=1.8 |
 | 4.6.x | >=1.6 | >=1.8 | >=1.8 |
+| 4.7.x | >=1.6 | >=1.8 | >=1.8 |
 
 
 # Download links
 
-Use the links below to download the Apache RocketMQ Releases, the latest release is 4.6.0.
+Use the links below to download the Apache RocketMQ Releases, the latest release is 4.7.0.
+
+## 4.7.0 release
+
+* Released March 16, 2020
+* [Release Notes](/release_notes/release-notes-4.7.0)
+* Source: [rocketmq-all-4.7.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.0/rocketmq-all-4.7.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-source-release.zip.sha512)]
+* Binary: [rocketmq-all-4.7.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip.sha512)]
 
 ## 4.6.1 release
 
 * Released Feb 14, 2020
 * [Release Notes](/release_notes/release-notes-4.6.1)
-* Source: [rocketmq-all-4.6.1-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.6.1/rocketmq-all-4.6.1-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-source-release.zip.sha512)]
-* Binary: [rocketmq-all-4.6.1-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip.sha512)]
+* Source: [rocketmq-all-4.6.1-source-release.zip](https://archive.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-source-release.zip) [[PGP](https://archive.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-source-release.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-source-release.zip.sha512)]
+* Binary: [rocketmq-all-4.6.1-bin-release.zip](https://archive.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip) [[PGP](https://archive.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip.sha512)]
 
 ## 4.6.0 release
 
