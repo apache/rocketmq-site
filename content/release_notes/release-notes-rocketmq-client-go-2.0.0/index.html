@@ -13,30 +13,30 @@
 
 
 
-<title>Release Notes - Apache RocketMQ Spring - Version 2.0.4 - Apache RocketMQ</title>
+<title>Release Notes - Apache RocketMQ Client Go- Version 2.0.0 - Apache RocketMQ</title>
 
 
 
 
-<meta name="description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+<meta name="description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client Go. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Apache RocketMQ">
-<meta property="og:title" content="Release Notes - Apache RocketMQ Spring - Version 2.0.4">
+<meta property="og:title" content="Release Notes - Apache RocketMQ Client Go- Version 2.0.0">
 
 
 
 
-  <meta property="og:description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+  <meta property="og:description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client Go. For full documentation of the release, a guide to get started, please refer to Quick Start.">
 
 
 
   <meta name="twitter:site" content="@ApacheRocketMQ">
-  <meta name="twitter:title" content="Release Notes - Apache RocketMQ Spring - Version 2.0.4">
-  <meta name="twitter:description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+  <meta name="twitter:title" content="Release Notes - Apache RocketMQ Client Go- Version 2.0.0">
+  <meta name="twitter:description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client Go. For full documentation of the release, a guide to get started, please refer to Quick Start.">
   <meta name="twitter:url" content="">
 
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-11-01T00:00:00+08:00">
+  <meta property="article:published_time" content="2020-03-31T00:00:00+08:00">
 
 
 
@@ -286,15 +286,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Release Notes - Apache RocketMQ Spring - Version 2.0.4">
-    <meta itemprop="description" content="Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to Quick Start.">
-    <meta itemprop="datePublished" content="November 01, 2019">
+    <meta itemprop="headline" content="Release Notes - Apache RocketMQ Client Go- Version 2.0.0">
+    <meta itemprop="description" content="Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client Go. For full documentation of the release, a guide to get started, please refer to Quick Start.">
+    <meta itemprop="datePublished" content="March 31, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Release Notes - Apache RocketMQ Spring - Version 2.0.4
+          <h1 class="page__title" itemprop="headline">Release Notes - Apache RocketMQ Client Go- Version 2.0.0
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -309,39 +309,41 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>Below is a summary of the issues addressed in the version 2.0.4 release of RocketMQ Spring. For full documentation of the release, a guide to get started, please refer to <a href="https://github.com/apache/rocketmq-spring">Quick Start</a>.</p>
+        <p>Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client Go. For full documentation of the release, a guide to get started, please refer to <a href="https://github.com/apache/rocketmq-client-go">Quick Start</a>.</p>
 
-<h2> Download the 2.0.4 release</h2>
+<h2> Download the 2.0.0 release</h2>
 
 <ul>
-  <li>Source: <a href="https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.zip">rocketmq-spring-all-2.0.4-source-release.zip</a> [<a href="https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.zip.asc">PGP</a>] [<a href="https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.0.4/rocketmq-spring-all-2.0.4-source-release.zip.sha512">SHA512</a>]</li>
+  <li>Source: <a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-go/2.0.0/rocketmq-client-go-2.0.0-source-release.tar.gz">rocketmq-client-go-2.0.0-source-release.tar.gz</a> [<a href="https://www.apache.org/dist/rocketmq/rocketmq-client-go/2.0.0/rocketmq-client-go-2.0.0-source-release.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/rocketmq/rocketmq-client-go/2.0.0/rocketmq-client-go-2.0.0-source-release.tar.gz.sha512">SHA512</a>]</li>
 </ul>
 
 <h2 id="improvement">Improvement</h2>
 <ul>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/87">ISSUE #86</a>] -  Support to configure whether consumer listener is enabled through configuration file.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pulls?q=is%3Apr+is%3Aclosed+milestone%3ANative-0.9.0">FEATURE-1</a>] -  Features in 2.0.0-alpha1.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/97">ISSUE #96</a>] -  Support resolve  placeholder for listener.txProducerGroup.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pulls?q=is%3Apr+is%3Aclosed+milestone%3ANative-2.0.0-alpha2">FEATURE-2</a>] -  Features in 2.0.0-alpha2.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/129">ISSUE #103</a>] -  Support resolve placeholder for selectorExpression.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pulls?q=is%3Apr+is%3Aclosed+milestone%3ANative-2.0.0-alpha3">FEATURE-3</a>] -  Features in 2.0.0-alpha3.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/137">ISSUE #137</a>] -  Upgrade rocketmq dependency to 4.5.2.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pulls?q=is%3Apr+is%3Aclosed+milestone%3A2.0.0-RC1">FEATURE-4</a>] -  Features in 2.0.0-rc1.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/152">ISSUE #152</a>] -  An enhancement about the convert in RocketMQTemplate.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pulls?q=is%3Apr+is%3Aclosed+milestone%3A2.0.0-RC2">FEATURE-5</a>] -  Features in 2.0.0-rc2.
 </li>
 </ul>
 
 <h2 id="bug">Bug</h2>
 <ul>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/150">ISSUE #81</a>] -  Fix RocketMQTemplate.syncSend collection type method signature.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pull/438">ISSUE-438</a>] -  Add WithNameServerDomain for producer opt. 
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/84">ISSUE #83</a>] -  Fix addUserProperties will override headers from rocketmq.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pull/437">ISSUE-437</a>] -  Fix the issue that can not consume the messages in the retry topic.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/138">ISSUE #107</a>] -  Fix the message was consumed twice because of the same instanceName.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pull/445">ISSUE-445</a>] -  UpdateNameServerAddress shoule be called before producer start to avoid to lead to a panic.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/119">ISSUE #117</a>] -  Fix timeout failed in syncSendOrderly.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pull/449">ISSUE-449</a>] -  Correct msgid using unique id.
 </li>
-<li>[<a href="https://github.com/apache/rocketmq-spring/pull/164">ISSUE #163</a>] -  Fix transactionProducer has incorrect namespace.
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pull/450">ISSUE-450</a>] -  Ignore eof error when conn closed.
+</li>
+<li>[<a href="https://github.com/apache/rocketmq-client-go/pull/462">ISSUE-462</a>] -  Fix the trace message was send failed.
 </li>
 </ul>
 
@@ -400,7 +402,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-11-01T00:00:00+08:00">November 01, 2019</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-31T00:00:00+08:00">March 31, 2020</time></p>
         
       </footer>
 
@@ -409,25 +411,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Notes - Apache RocketMQ Spring - Version 2.0.4 /release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=ApacheRocketMQ&text=Release Notes - Apache RocketMQ Client Go- Version 2.0.0 /release_notes/release-notes-rocketmq-client-go-2.0.0/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/release_notes/release-notes-rocketmq-client-go-2.0.0/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=/release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=/release_notes/release-notes-rocketmq-client-go-2.0.0/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/release_notes/release-notes-rocketmq-spring-2.0.4/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=/release_notes/release-notes-rocketmq-client-go-2.0.0/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/release_notes/release-notes-rocketmq-client-cpp-1.2.3/" class="pagination--pager" title="Release Notes - Apache RocketMQ Client CPP- Version 1.2.3
+      <a href="/release_notes/release-notes-rocketmq-client-cpp-2.1.0/" class="pagination--pager" title="Release Notes - Apache RocketMQ Client CPP- Version 2.1.0
 ">Previous</a>
     
     
-      <a href="/release_notes/release-notes-rocketmq-client-cpp-1.2.4/" class="pagination--pager" title="Release Notes - Apache RocketMQ Client CPP- Version 1.2.4
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -451,32 +452,6 @@
         <h4 class="page__related-title">You May Also Enjoy</h4>
       
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/release_notes/release-notes-rocketmq-client-go-2.0.0/" rel="permalink">Release Notes - Apache RocketMQ Client Go- Version 2.0.0
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client Go. For full documentation of the release, a guide to get started,...</p>
-  </article>
-</div>
         
           
 
@@ -553,6 +528,32 @@
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 2.0.0 release of RocketMQ Client CPP. For full documentation of the release, a guide to get started...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/release_notes/release-notes-rocketmq-spring-2.1.0/" rel="permalink">Release Notes - Apache RocketMQ Spring - Version 2.1.0
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Below is a summary of the issues addressed in the version 2.1.0 release of RocketMQ Spring. For full documentation of the release, a guide to get started, pl...</p>
   </article>
 </div>
         
