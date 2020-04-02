@@ -27,6 +27,7 @@ The following is a list of developers with commit privileges that have directly 
 |![Heng Du](/assets/images/about/duhengforever.jpeg)|duhengforever|[@duhenglucky](https://github.com/duhenglucky)|duhengforever@apache.org |PMC Member| +8 |
 |![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |PMC Member| +8 |
 |![wlliqipeng](/assets/images/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |PMC Member| +8 |
+|![jinrongtong](/assets/images/about/jinrongtong.jpg)|jinrongtong| [@RongtongJin](https://github.com/RongtongJin)|jinrongtong@apache.org|PMC Member| +8 |
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
@@ -37,7 +38,6 @@ The following is a list of developers with commit privileges that have directly 
 |![xujiang](/assets/images/about/xujiang.jpg)|jonnxu| [@jonnxu](https://github.com/jonnxu)|xujiang@apache.org|Committer| +8 |
 |![liaotian](/assets/images/about/liaotian.jpeg)|Kevin Wang| [@walking98](https://github.com/walking98)|walking98@apache.org|Committer| +8 |
 |![wangwenfeng](/assets/images/about/wangwenfeng.jpeg)|wenfeng| [@wenfengwang](https://github.com/wenfengwang)|wenfeng@apache.org|Committer| +8 |
-|![jinrongtong](/assets/images/about/jinrongtong.jpg)|jingrongtong| [@RongtongJin](https://github.com/RongtongJin)|jinrongtong@apache.org|Committer| +8 |
 |![fangjian0423](/assets/images/about/fangjian.jpeg)|fangjian0423| [@fangjian0423](https://github.com/fangjian0423)|fangjian0423@apache.org|Committer| +8 |
 |![chenguangsheng](/assets/images/about/chenguangsheng.jpg)|chenguangsheng| [@qqeasonchen](https://github.com/qqeasonchen)|chenguangsheng@apache.org|Committer| +8 |
 
