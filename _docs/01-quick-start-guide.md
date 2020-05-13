@@ -8,6 +8,9 @@ modified: 2020-02-13T15:01:43-04:00
 This quick start guide is a detailed instruction of setting up RocketMQ messaging system on your local machine to send 
 and receive messages.
 
+More Details:
+* English：[https://github.com/apache/rocketmq/tree/master/docs/en](https://github.com/apache/rocketmq/tree/master/docs/en)
+* Chinese：[https://github.com/apache/rocketmq/tree/master/docs/cn](https://github.com/apache/rocketmq/tree/master/docs/cn)
 {% include toc %}
 
 # Prerequisite
