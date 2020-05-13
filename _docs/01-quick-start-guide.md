@@ -10,7 +10,7 @@ and receive messages.
 
 More Details:
 * English：[https://github.com/apache/rocketmq/tree/master/docs/en](https://github.com/apache/rocketmq/tree/master/docs/en)
-* Chinese：[https://github.com/apache/rocketmq/tree/master/docs/cn](https://github.com/apache/rocketmq/tree/master/docs/cn)
+* 中文：[https://github.com/apache/rocketmq/tree/master/docs/cn](https://github.com/apache/rocketmq/tree/master/docs/cn)
 {% include toc %}
 
 # Prerequisite
