@@ -19,6 +19,10 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 
 ## Improvement
 <ul>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2065'>ISSUE-2065</a>] -  Fix Fastjson version for RCE problem.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2044'>ISSUE-2044</a>] -  Fix DefaultLitePullConsumerImpl NPE.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Select a new namesrv when the old one removed from namesrvAddrList.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2036'>ISSUE-2036</a>] -  Skip the null value in messageProperties2String method.
@@ -33,9 +37,15 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1992'>ISSUE-1992</a>] -  Polish the log in Broker2Client.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1988'>ISSUE-1988</a>] -  Fix the issue that can not update messageDelay correctly with mqadmin updateBrokerConfig command.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1978'>ISSUE-1978</a>] -  Fix MessageExt#getBornHostString null pointer exception.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1976'>ISSUE-1976</a>] -  System topic should add permission checking globally.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1950'>ISSUE-1950</a>] -  Fix DefaultMQProducer didn't shutdown completely.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1931'>ISSUE-1931</a>] -  Fix the issue of duplicate doAfterRpcHooks.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1912'>ISSUE-1912</a>] -  Polish the commited offset logic for the lite default pull consumer.
 </li>
@@ -75,7 +85,9 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2035'>ISSUE-2035</a>] -  Fix typo error in RequestResponseFuture. 
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2043'>ISSUE-2043</a>] -  Correct the Java doc for MessageListenerOrderly.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2034'>ISSUE-2034</a>] -  Correct the Java doc for MessageListenerOrderly.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2011'>ISSUE-2011</a>] -  Add english README.md document.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2006'>ISSUE-2006</a>] -  Add request-reply document.
 </li>
