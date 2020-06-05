@@ -87,12 +87,17 @@ Download latest binary release. and extract zip file into your local disk. Such 
 
 ## Add Environment Variables
 
-You need set ENV var
+You need set environment variables
 1. From the desktop, right click the Computer icon.
 2. Choose Properties from the context menu.
 3. Click the Advanced system settings link.
 4. Click Environment Variables. 
 5. Then add or change Environment Variables.
+
+```bash
+ROCKETMQ_HOME="D:\rocketmq"
+NAMESRV_ADDR="localhost:9876"
+```
 
 Or just in the openning powershell, type the needed environment variables.
 
