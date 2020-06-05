@@ -83,46 +83,59 @@ Send shutdown request to mqnamesrv(36664) OK
 
 The guide is working for windows 10 , please make sure you have powershell installed.
 
-Download latest binary release. and extract zip file into your local disk. Such as: `D:\soft\rocketmq-all-4.7.0-bin-release`
+Download latest binary release. and extract zip file into your local disk. Such as: `D:\rocketmq`
 
+## Add Environment Variables
 
+You need set ENV var
+1. From the desktop, right click the Computer icon.
+2. Choose Properties from the context menu.
+3. Click the Advanced system settings link.
+4. Click Environment Variables. 
+5. Then add or change Environment Variables.
+
+Or just in the openning powershell, type the needed environment variables.
+
+```bash
+$Env:ROCKETMQ_HOME="D:\rocketmq"
+$Env:NAMESRV_ADDR="localhost:9876"
+```
+
+If you choose the powershell way. you should do it for every new open powershell window.
 
 ## Start Name Server
 
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
+
 ```bash
-$Env:ROCKETMQ_HOME="D:\soft\rocketmq-all-4.7.0-bin-release"
-$Env:NAMESRV_ADDR="localhost:9876"
 .\bin\mqnamesrv.cmd
 ```
 
 ## Start Broker
 
-Open new powershell window. change directory to rocketmq 
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
 
 ```bash
-$Env:ROCKETMQ_HOME="D:\soft\rocketmq-all-4.7.0-bin-release"
-$Env:NAMESRV_ADDR="localhost:9876"
 .\bin\mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true
 ```
 
 ## Send & Receive Messages
 
-Open new powershell window. change directory to rocketmq 
+### Send Messages
+
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
 
 ```bash
-$Env:ROCKETMQ_HOME="D:\soft\rocketmq-all-4.7.0-bin-release"
-$Env:NAMESRV_ADDR="localhost:9876"
 .\bin\tool.cmd  org.apache.rocketmq.example.quickstart.Producer
 ```
+### Receive Messages
 
 Then you will see messages produced. and now we can try consumer messages.
 
-Open new powershell window. change directory to rocketmq 
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
 
 
 ```bash
-$Env:ROCKETMQ_HOME="D:\soft\rocketmq-all-4.7.0-bin-release"
-$Env:NAMESRV_ADDR="localhost:9876"
 .\bin\tool.cmd  org.apache.rocketmq.example.quickstart.Consumer
 ```
 
