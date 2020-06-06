@@ -19,11 +19,11 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 
 ## Improvement
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2065'>ISSUE-2065</a>] -  Fix Fastjson version for RCE problem.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2065'>ISSUE-2065</a>] -  Fix fastjson version for RCE problem.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2044'>ISSUE-2044</a>] -  Fix DefaultLitePullConsumerImpl NPE.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Select a new namesrv when the old one removed from namesrvAddrList.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Select a new nameserver when the old one removed from namesrvAddrList.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2036'>ISSUE-2036</a>] -  Skip the null value in messageProperties2String method.
 </li>
