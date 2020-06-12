@@ -68,10 +68,12 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 </ul>
 
 ## Test
+<ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1878'>ISSUE-1878</a>] -  Add unit test about cleaning index file.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1859'>ISSUE-1859</a>] -  Add codecov report for CI.
 </li>
+</ul>
 
 ## Document and code style improvement
 <ul>
