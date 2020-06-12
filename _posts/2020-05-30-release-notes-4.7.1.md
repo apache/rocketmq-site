@@ -21,9 +21,9 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2065'>ISSUE-2065</a>] -  Upgrade fastjson version to prevent RCE problem.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2044'>ISSUE-2044</a>] -  Fix the issue that DefaultLitePullConsumerImpl class may throw null pointer exception.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2044'>ISSUE-2044</a>] -  Fix the issue that DefaultLitePullConsumerImpl may throw null pointer exception.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Fix the issue that client still connected to the old name server even it was removed from namesrvAddr list.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Fix the issue that client still connect to the old name server even it is removed from namesrvAddr list.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2036'>ISSUE-2036</a>] -  Fix the issue that encode null value caused incorrect encoding result.
 </li>
@@ -31,9 +31,9 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1992'>ISSUE-1992</a>] -  Optimize the log output in Broker2Client class.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1988'>ISSUE-1988</a>] -  Fix the issue that can not update messageDelay property correctly with updateBrokerConfig command.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1988'>ISSUE-1988</a>] -  Fix the issue that update messageDelay property incorrectly with updateBrokerConfig command.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1978'>ISSUE-1978</a>] -  Fix issue that getBornHostString method may throw null pointer exception.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1978'>ISSUE-1978</a>] -  Fix the issue that getBornHostString method may throw null pointer exception.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1976'>ISSUE-1976</a>] -  Improve the security of the system topic operation.
 </li>
@@ -43,7 +43,7 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1912'>ISSUE-1912</a>] -  Polish the consumer offset commit logic for lite pull consumer.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1895'>ISSUE-1895</a>] -  Expose the flush disk timeout error to user.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1895'>ISSUE-1895</a>] -  Expose the flush disk timeout error to user when sending messages.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1879'>ISSUE-1879</a>] -  Fix the issue that GroupTransferService may be blocked by ResponseCallback in SYNC_MASTER mode.
 </li>
@@ -61,7 +61,7 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 
 ## Bug
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1901'>ISSUE-1901</a>] -  Fix the bug that create reply message fail in sending request/reply message.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1901'>ISSUE-1901</a>] -  Fix the bug that create reply message fail when using request/reply mode.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1906'>ISSUE-1906</a>] -  Fix the issue that BooleanConstantExpression might lead to class loading deadlock.
 </li>
@@ -87,7 +87,7 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2020'>ISSUE-2020</a>] -  Replace notify code blocks with existing method wakeup in ServiceThread.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2025'>ISSUE-2025</a>] -  Refactor the code in MQClientAPIImpl#processSendResponse method.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2025'>ISSUE-2025</a>] -  Refactor the code in processSendResponse method.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2011'>ISSUE-2011</a>] -  Add english README.md document.
 </li>
