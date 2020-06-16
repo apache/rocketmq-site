@@ -16,7 +16,7 @@ More Details:
 # Prerequisite
 
    The following softwares are assumed installed:
-   1. 64bit OS, Linux/Unix/Mac is recommended;
+   1. 64bit OS, Linux/Unix/Mac is recommended;(Windows user see guide below)
    1. 64bit JDK 1.8+; 
    1. Maven 3.2.x;
    1. Git;
@@ -34,9 +34,9 @@ Now execute the following commands to unpack 4.7.0 source release and build the 
   > mvn -Prelease-all -DskipTests clean install -U
   > cd distribution/target/rocketmq-4.7.0/rocketmq-4.7.0
 ```
-
+# Linux 
  
-# Start Name Server
+## Start Name Server
 
 ```shell
   > nohup sh bin/mqnamesrv &
@@ -44,7 +44,7 @@ Now execute the following commands to unpack 4.7.0 source release and build the 
   The Name Server boot success...
 ```  
 
-# Start Broker
+## Start Broker
 
 ```shell 
   > nohup sh bin/mqbroker -n localhost:9876 &
@@ -53,7 +53,7 @@ Now execute the following commands to unpack 4.7.0 source release and build the 
 ```
 
 
-# Send & Receive Messages
+## Send & Receive Messages
 
 Before sending/receiving messages, we need to tell clients the location of name servers. RocketMQ provides multiple ways to achieve this. For simplicity, we use environment variable `NAMESRV_ADDR`
 
@@ -66,7 +66,7 @@ Before sending/receiving messages, we need to tell clients the location of name 
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
-# Shutdown Servers
+## Shutdown Servers
 
 ```shell
 > sh bin/mqshutdown broker
@@ -77,3 +77,73 @@ Send shutdown request to mqbroker(36695) OK
 The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK
 ```
+
+
+# Windows 
+
+The guide is working for windows 10 , please make sure you have powershell installed.
+
+Download latest binary release. and extract zip file into your local disk. Such as: `D:\rocketmq`
+
+## Add Environment Variables
+
+You need set environment variables
+1. From the desktop, right click the Computer icon.
+2. Choose Properties from the context menu.
+3. Click the Advanced system settings link.
+4. Click Environment Variables. 
+5. Then add or change Environment Variables.
+
+```bash
+ROCKETMQ_HOME="D:\rocketmq"
+NAMESRV_ADDR="localhost:9876"
+```
+
+Or just in the openning powershell, type the needed environment variables.
+
+```bash
+$Env:ROCKETMQ_HOME="D:\rocketmq"
+$Env:NAMESRV_ADDR="localhost:9876"
+```
+
+If you choose the powershell way. you should do it for every new open powershell window.
+
+## Start Name Server
+
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
+
+```bash
+.\bin\mqnamesrv.cmd
+```
+
+## Start Broker
+
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
+
+```bash
+.\bin\mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true
+```
+
+## Send & Receive Messages
+
+### Send Messages
+
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
+
+```bash
+.\bin\tool.cmd  org.apache.rocketmq.example.quickstart.Producer
+```
+### Receive Messages
+
+Then you will see messages produced. and now we can try consumer messages.
+
+Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
+
+
+```bash
+.\bin\tool.cmd  org.apache.rocketmq.example.quickstart.Consumer
+```
+
+## Shutdown Servers
+
+Normally, you can just closed these powershell windows. (Do not do it at production environment)
