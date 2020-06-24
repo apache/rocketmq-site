@@ -19,51 +19,61 @@ Below is a summary of the issues addressed in the 4.7.1 release of RocketMQ. For
 
 ## Improvement
 <ul>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2088'>ISSUE-2088</a>] -  Optimize RocketMQ client's stats of RT to make sense.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2085'>ISSUE-2085</a>] -  Support graceful shutdown for push consumer.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2082'>ISSUE-2082</a>] -  Use StringBuilder instead of StringBuffer.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2065'>ISSUE-2065</a>] -  Upgrade fastjson version to prevent RCE problem.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2044'>ISSUE-2044</a>] -  Fix the issue that DefaultLitePullConsumerImpl may throw null pointer exception.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Fix the issue that client still connect to the old name server even it is removed from namesrvAddr list.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2036'>ISSUE-2036</a>] -  Fix the issue that encode null value caused incorrect encoding result.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2007'>ISSUE-2007</a>] -  Upgrade fastjson version to prevent serious security problem.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1992'>ISSUE-1992</a>] -  Optimize the log output in Broker2Client class.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1988'>ISSUE-1988</a>] -  Fix the issue that update messageDelay property incorrectly with updateBrokerConfig command.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1978'>ISSUE-1978</a>] -  Fix the issue that getBornHostString method may throw null pointer exception.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1988'>ISSUE-1988</a>] -  Update messageDelay property incorrectly with updateBrokerConfig command.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1976'>ISSUE-1976</a>] -  Improve the security of the system topic operation.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1950'>ISSUE-1950</a>] -  Fix the issue that residual threads still exist after producer calls shutdown.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1931'>ISSUE-1931</a>] -  Fix the issue that doAfterRpcHooks is called twice in processRequestCommand method.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1912'>ISSUE-1912</a>] -  Polish the consumer offset commit logic for lite pull consumer.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1895'>ISSUE-1895</a>] -  Expose the flush disk timeout error to user when sending messages.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1879'>ISSUE-1879</a>] -  Fix the issue that GroupTransferService may be blocked by ResponseCallback in SYNC_MASTER mode.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1807'>ISSUE-1807</a>] -  Fix statistical error about hashSlotCount in index file.
-</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1689'>ISSUE-1689</a>] -  Add interfaces to remove unused statsItem in BrokerStatsManager class.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1400'>ISSUE-1400</a>] -  Fix the issue that disk space detection may be blocked when deleting a lot of files.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/729'>ISSUE-729</a>] -  Fix the issue that wipeWritePermOfBroker method may throw null pointer exception.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/705'>ISSUE-705</a>] -  Fix the issue the content of waitingThreadTable is not updated in time.
 </li>
 </ul>
 
 ## Bug
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1901'>ISSUE-1901</a>] -  Fix the bug that create reply message fail when using request/reply mode.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2118'>ISSUE-2118</a>] -  Fix AdminBrokerProcessorTest can not pass when machine's hostname contains illegal characters.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1906'>ISSUE-1906</a>] -  Fix the issue that BooleanConstantExpression might lead to class loading deadlock.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2078'>ISSUE-2078</a>] -  HmacSHA1 not available when use openjdk.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1901'>ISSUE-1901</a>] -  Create reply message fail when using request/reply mode.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1906'>ISSUE-1906</a>] -  BooleanConstantExpression might lead to class loading deadlock.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2044'>ISSUE-2044</a>] -  DefaultLitePullConsumerImpl may throw null pointer exception.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2042'>ISSUE-2042</a>] -  Client still connect to the old name server even it is removed from namesrvAddr list.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/2036'>ISSUE-2036</a>] -  Encode null value caused incorrect encoding result.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1978'>ISSUE-1978</a>] -  The getBornHostString method may throw null pointer exception.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1950'>ISSUE-1950</a>] -  Residual threads still exist after producer calls shutdown.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1931'>ISSUE-1931</a>] -  The doAfterRpcHooks method is called twice in processRequestCommand method.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1879'>ISSUE-1879</a>] -  GroupTransferService may be blocked by ResponseCallback in SYNC_MASTER mode.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1400'>ISSUE-1400</a>] -  Disk space detection may be blocked when deleting a lot of files.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/729'>ISSUE-729</a>] -  The wipeWritePermOfBroker method may throw null pointer exception.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/705'>ISSUE-705</a>] -  The content of waitingThreadTable is not updated in time.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/1807'>ISSUE-1807</a>] -  Fix statistical error about hashSlotCount in index file.
 </li>
 </ul>
 
