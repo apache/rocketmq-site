@@ -24,7 +24,7 @@ More Details:
 
 # Download & Build from Release
 
-Click [here](https://archive.apache.org/dist/rocketmq/4.7.1/rocketmq-all-4.7.1-source-release.zip) to download the 4.7.1 source release. Also you could download a binary release from [here](http://rocketmq.apache.org/release_notes/release-notes-4.7.1/).
+Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.1/rocketmq-all-4.7.1-source-release.zip) to download the 4.7.1 source release. Also you could download a binary release from [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.7.1/rocketmq-all-4.7.1-bin-release.zip).
 
 Now execute the following commands to unpack 4.7.1 source release and build the binary artifact.
 
