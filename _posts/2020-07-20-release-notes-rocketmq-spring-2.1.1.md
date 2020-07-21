@@ -23,13 +23,13 @@ Below is a summary of the issues addressed in the version 2.1.1 release of Rocke
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/285'>ISSUE #285</a>] -  Upgrade jackson and fastjson version.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq-spring/pull/266'>ISSUE #262</a>] -  Support custom AsyncSenderExecutor when sending messages asynchronously.
+</li>
 </ul>
 
 ## Bug
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/269'>ISSUE #271</a>] -  AccessKey and secretKey are wrong when create procducer.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq-spring/pull/266'>ISSUE #262</a>] -  Support custom AsyncSenderExecutor when sending messages asynchronously.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/247'>ISSUE #241</a>] -  Make the unit of consumeTimeout in rocketmq-spring consistent with rocketmq client.
 </li>
