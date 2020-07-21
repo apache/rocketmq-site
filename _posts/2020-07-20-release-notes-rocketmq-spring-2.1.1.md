@@ -21,6 +21,8 @@ Below is a summary of the issues addressed in the version 2.1.1 release of Rocke
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/265'>ISSUE #263</a>] -  Change the version of rocketmq client in the pom's file.
 </li>
+<li>[<a href='https://github.com/apache/rocketmq-spring/pull/285'>ISSUE #285</a>] -  Upgrade jackson and fastjson version.
+</li>
 </ul>
 
 ## Bug
@@ -31,6 +33,6 @@ Below is a summary of the issues addressed in the version 2.1.1 release of Rocke
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/247'>ISSUE #241</a>] -  Make the unit of consumeTimeout in rocketmq-spring consistent with rocketmq client.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq-spring/pull/244'>ISSUE #242</a>] -  Fix Bug Of BatchMessage SyncSend without timeout param.
+<li>[<a href='https://github.com/apache/rocketmq-spring/pull/244'>ISSUE #242</a>] -  SyncSend batchMessage method without timeout param.
 </li>
 </ul>
