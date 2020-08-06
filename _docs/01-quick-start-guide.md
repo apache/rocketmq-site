@@ -131,7 +131,7 @@ Open new powershell window, after set the correct environment variable. then cha
 Open new powershell window, after set the correct environment variable. then change directory to rocketmq type and run:
 
 ```bash
-.\bin\tool.cmd  org.apache.rocketmq.example.quickstart.Producer
+.\bin\tools.cmd  org.apache.rocketmq.example.quickstart.Producer
 ```
 ### Receive Messages
 
@@ -141,7 +141,7 @@ Open new powershell window, after set the correct environment variable. then cha
 
 
 ```bash
-.\bin\tool.cmd  org.apache.rocketmq.example.quickstart.Consumer
+.\bin\tools.cmd  org.apache.rocketmq.example.quickstart.Consumer
 ```
 
 ## Shutdown Servers
