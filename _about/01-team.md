@@ -45,6 +45,7 @@ The following is a list of developers with commit privileges that have directly 
 |![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|hdchen@apache.org|Committer| +8 |
 |![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ifplusor@apache.org|Committer| +8 |
 |![imaffe](/assets/images/about/affe.jpeg)|affe| [@imaffe](https://github.com/imaffe)|affe@apache.org|Committer| +8 |
+|![liuruiyiyang](/assets/images/about/liurui.jpeg)|liurui| [@liuruiyiyang](https://github.com/liuruiyiyang)|liurui@apache.org|Committer| +8 |
 
 ### Top Contributors
 
