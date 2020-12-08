@@ -18,7 +18,7 @@ Below is a summary of the issues addressed in the 4.8.0 release of RocketMQ. For
 
 ## Feature
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1846'>ISSUE-1846</a>] -  Dledger model change into pipeline manner to improve performance.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1846'>ISSUE-1846</a>] -  Change into pipeline manner to improve performance in dledger model .
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/690'>ISSUE-690</a>] -  Support batch messages in dledger mode.
 </li>
