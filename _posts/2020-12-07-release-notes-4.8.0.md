@@ -38,7 +38,7 @@ Below is a summary of the issues addressed in the 4.8.0 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2162'>ISSUE-2162</a>] -  Polish the description getBrokerConfig help info.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2180'>ISSUE-2180</a>] -  Polish the namesrc start script.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2180'>ISSUE-2180</a>] -  Polish the name server start script.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2170'>ISSUE-2170</a>] -  Use thread safe vector in BrokerOuterAPI.
 </li>
