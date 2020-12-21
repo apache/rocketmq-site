@@ -80,7 +80,7 @@ Below is a summary of the issues addressed in the 4.8.0 release of RocketMQ. For
 
 ## Bug
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq/issues/1437'>ISSUE-1437</a>] -  Fix wrong trace message's clientHost.
+<li>[<a href='https://github.com/apache/rocketmq/issues/1473'>ISSUE-1473</a>] -  Fix wrong trace message's clientHost.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/1576'>ISSUE-1576</a>] -  Fix wrong logic in selectMessageQueue.
 </li>
