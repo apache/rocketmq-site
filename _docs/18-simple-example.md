@@ -76,27 +76,35 @@ public class AsyncProducer {
         //Launch the instance.
         producer.start();
         producer.setRetryTimesWhenSendAsyncFailed(0);
-        for (int i = 0; i < 100; i++) {
+        
+        int messageCount = 100;
+        final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
+        for (int i = 0; i < messageCount; i++) {
+            try {
                 final int index = i;
-                //Create a message instance, specifying topic, tag and message body.
-                Message msg = new Message("TopicTest",
+                Message msg = new Message("Jodie_topic_1023",
                     "TagA",
                     "OrderID188",
                     "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
                 producer.send(msg, new SendCallback() {
                     @Override
                     public void onSuccess(SendResult sendResult) {
-                        System.out.printf("%-10d OK %s %n", index,
-                            sendResult.getMsgId());
+                        countDownLatch.countDown();
+                        System.out.printf("%-10d OK %s %n", index, sendResult.getMsgId());
                     }
+
                     @Override
                     public void onException(Throwable e) {
+                        countDownLatch.countDown();
                         System.out.printf("%-10d Exception %s %n", index, e);
                         e.printStackTrace();
                     }
                 });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        //Shut down once the producer instance is not longer in use.
+        countDownLatch.await(5, TimeUnit.SECONDS);
         producer.shutdown();
     }
 }
@@ -125,9 +133,9 @@ public class OnewayProducer {
             );
             //Call send message to deliver message to one of brokers.
             producer.sendOneway(msg);
-
         }
-        //Shut down once the producer instance is not longer in use.
+        //Wait for sending to complete
+        Thread.sleep(5000);        
         producer.shutdown();
     }
 }

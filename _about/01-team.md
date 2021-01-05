@@ -7,7 +7,6 @@ modified: 2019-06-13T17:55:43+08:00
 
 The RocketMQ team is comprised of Members and Contributors. Members have direct access to the source of RocketMQ project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to RocketMQ are greatly appreciated, whether for trivial cleanups, big new features or other material rewards. More details see [here](https://github.com/apache/rocketmq/blob/master/CONTRIBUTING.md).
 
-
 ### Members
 
 The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
@@ -42,14 +41,17 @@ The following is a list of developers with commit privileges that have directly 
 |![chenguangsheng](/assets/images/about/chenguangsheng.jpg)|chenguangsheng| [@qqeasonchen](https://github.com/qqeasonchen)|chenguangsheng@apache.org|Committer| +8 |
 |![xiangwangcheng](/assets/images/about/chengxiangwang.jpeg)|xiangwangcheng| [@xiangwangcheng](https://github.com/xiangwangcheng)|chengxiangwang@apache.org|Committer| +8 |
 |![xujianhai666](/assets/images/about/xujianhai.jpeg)|Xu Jianhai| [@xujianhai666](https://github.com/xujianhai666)|jianhaixu@apache.org|Committer| +8 |
+|![liwei](/assets/images/about/liwei.jpeg)|Li Wei| [@francisoliverlee](https://github.com/francisoliverlee)|tigerlee@apache.org|Committer| +8 |
+|![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|hdchen@apache.org|Committer| +8 |
+|![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ifplusor@apache.org|Committer| +8 |
+|![imaffe](/assets/images/about/affe.jpeg)|affe| [@imaffe](https://github.com/imaffe)|affe@apache.org|Committer| +8 |
+|![liuruiyiyang](/assets/images/about/liurui.jpeg)|liurui| [@liuruiyiyang](https://github.com/liuruiyiyang)|liurui@apache.org|Committer| +8 |
 
 ### Top Contributors
+
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
 
 |Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:---|:---|:---|:---|:---|
-|![chenhoudao](/assets/images/about/chenhoudao.jpeg)|hdchen| [@hdchen](https://github.com/hdchen)|14106312@qq.com|Contributor| +8 |
-|![liwei](/assets/images/about/liwei.jpeg)|francis lee| [@francisoliverlee](https://github.com/francisoliverlee)|1026203200@qq.com|Contributor| +8 |
-|![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ywhjames@hotmail.com|Contributor| +8 |
 |![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
