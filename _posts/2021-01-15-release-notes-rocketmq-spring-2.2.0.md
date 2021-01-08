@@ -1,5 +1,5 @@
 ---
-title: "Release Notes - Apache RocketMQ Spring - Version 2.1.1"
+title: "Release Notes - Apache RocketMQ Spring - Version 2.2.0"
 categories:
   - Release_Notes
 tags:
