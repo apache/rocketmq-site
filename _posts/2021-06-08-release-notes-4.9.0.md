@@ -20,9 +20,9 @@ Below is a summary of the issues addressed in the 4.9.0 release of RocketMQ. For
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2860'>ISSUE-2860</a>] -  Support producer and cunsumer opentracing.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2833]'>ISSUE-2833</a>] -  Support trace for TranscationProducer.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2833'>ISSUE-2833</a>] -  Support trace for TranscationProducer.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2556]'>ISSUE-2556</a>] -  Support Lite pull consumer messaging trace.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2556'>ISSUE-2556</a>] -  Support Lite pull consumer messaging trace.
 </li>
 </ul>
 
@@ -30,11 +30,11 @@ Below is a summary of the issues addressed in the 4.9.0 release of RocketMQ. For
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2133'>ISSUE-2133</a>] -  RMQ_SYS_TRANS_OP_HALF_TOPIC be deleted after delete topic/group.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2328]'>ISSUE-2328</a>] -  The broker instance failed to start due to ACL parameter error.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2328'>ISSUE-2328</a>] -  The broker instance failed to start due to ACL parameter error.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2615]'>ISSUE-2615</a>] -  Add property of benchmark`s producer that specifies how many messages to send.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2615'>ISSUE-2615</a>] -  Add property of benchmark`s producer that specifies how many messages to send.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/2683]'>ISSUE-2683</a>] -  Add delay message stats to brokerStatsManager.
+<li>[<a href='https://github.com/apache/rocketmq/issues/2683'>ISSUE-2683</a>] -  Add delay message stats to brokerStatsManager.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2698'>ISSUE-2698</a>] -  TopicRouteSubCommand enhancement.
 </li>
