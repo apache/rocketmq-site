@@ -27,6 +27,7 @@ The following is a list of developers with commit privileges that have directly 
 |![dinglei](/assets/images/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |PMC Member| +8 |
 |![wlliqipeng](/assets/images/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |PMC Member| +8 |
 |![jinrongtong](/assets/images/about/jinrongtong.jpg)|jinrongtong| [@RongtongJin](https://github.com/RongtongJin)|jinrongtong@apache.org|PMC Member| +8 |
+|![lizhimin](/assets/images/about/lizhimin.jpg)|lizhimins| [@lizhimins](https://github.com/lizhimins) |lizhimin@apache.org|PMC Member| +8 |
 |![stevensche](/assets/images/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/assets/images/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/assets/images/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
