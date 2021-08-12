@@ -13,7 +13,6 @@ These are the mailing lists that have been established for RocketMQ. For each li
 |Name|Description|Subscribe|Unsubscribe|Archive|
 |:---|:---|:---|:---|:---|
 |Users|User support and questions mailing list|	[Subscribe](mailto:users-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:users-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?users@rocketmq.apache.org)|
-|Issues|Mirror of all Github issue activity|	[Subscribe](mailto:issues-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:issues-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?issues@rocketmq.apache.org)|
 |Development|Development related discussions|[Subscribe](mailto:dev-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:dev-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?dev@rocketmq.apache.org)|
 |Commits|All commits to repositories|[Subscribe](mailto:commits-subscribe@rocketmq.apache.org)|[Unsubscribe](mailto:commits-unsubscribe@rocketmq.apache.org)|[Mail Archives](https://lists.apache.org/list.html?commits@rocketmq.apache.org)|
 
