@@ -46,6 +46,9 @@ The following is a list of developers with commit privileges that have directly 
 |![weiheyin](/assets/images/about/yinweihe.jpeg)|YinWeihe| [@ifplusor](https://github.com/ifplusor)|ifplusor@apache.org|Committer| +8 |
 |![imaffe](/assets/images/about/affe.jpeg)|affe| [@imaffe](https://github.com/imaffe)|affe@apache.org|Committer| +8 |
 |![liuruiyiyang](/assets/images/about/liurui.jpeg)|liurui| [@liuruiyiyang](https://github.com/liuruiyiyang)|liurui@apache.org|Committer| +8 |
+|![maixiaohai](/assets/images/about/zhangxu.png)|maixiaohai|[@maixiaohai](https://github.com/maixiaohai)|maixiaohai@apache.org|Committer| +8 |
+|![lizhimin](/assets/images/about/lizhimin.jpg)|lizhimins| [@lizhimins](https://github.com/lizhimins)|lizhimin@apache.org|Committer| +8 |
+|![StyleTang](/assets/images/about/styletang.jpeg)|styletang| [@styletang](https://github.com/styletang)|styletang@apache.org|Committer| +8 |
 
 ### Top Contributors
 
@@ -55,3 +58,4 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |:---|:---|:---|:---|:---|:---|
 |![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
+|![panzhi33](/assets/images/about/panzhi.jpg)|Pan Zhi| [@panzhi33](https://github.com/panzhi33)|panzhi33@qq.com|Contributor| +8 |
