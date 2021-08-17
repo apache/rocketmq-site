@@ -8,5 +8,5 @@ env:
 script:
 - bundle install
 - bundle exec jekyll build
-after_success:
-- bash .utility/push-site-to-master.sh
+#after_success:
+#- bash .utility/push-site-to-master.sh
