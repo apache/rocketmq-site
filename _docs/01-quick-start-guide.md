@@ -24,15 +24,15 @@ More Details:
 
 # Download & Build from Release
 
-Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.0/rocketmq-all-4.9.0-source-release.zip) to download the 4.9.0 source release. Also you could download a binary release from [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.0/rocketmq-all-4.9.0-bin-release.zip).
+Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.1/rocketmq-all-4.9.1-source-release.zip) to download the 4.9.1 source release. Also you could download a binary release from [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.1/rocketmq-all-4.9.1-bin-release.zip).
 
-Now execute the following commands to unpack 4.9.0 source release and build the binary artifact.
+Now execute the following commands to unpack 4.9.1 source release and build the binary artifact.
 
 ```shell
-  > unzip rocketmq-all-4.9.0-source-release.zip
-  > cd rocketmq-all-4.9.0/
+  > unzip rocketmq-all-4.9.1-source-release.zip
+  > cd rocketmq-all-4.9.1/
   > mvn -Prelease-all -DskipTests clean install -U
-  > cd distribution/target/rocketmq-4.9.0/rocketmq-4.9.0
+  > cd distribution/target/rocketmq-4.9.1/rocketmq-4.9.1
 ```
 # Linux 
  

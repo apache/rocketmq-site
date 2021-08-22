@@ -30,10 +30,6 @@ Below is a summary of the issues addressed in the 4.9.1 release of RocketMQ. For
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3162'>ISSUE-3162</a>] -  Add msgTraceEnable config in transaction producer benchmark.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/3154'>ISSUE-3154</a>] -  Delete the unuse code.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/3144'>ISSUE-3144</a>] -  Fix spell error.
-</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2883'>ISSUE-2883</a>] -  [Part B]Improve produce performance in M/S mode.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2883'>ISSUE-2883</a>] -  [Part C]Improve produce performance in M/S mode.
@@ -55,8 +51,6 @@ Below is a summary of the issues addressed in the 4.9.1 release of RocketMQ. For
 <li>[<a href='https://github.com/apache/rocketmq/issues/3123'>ISSUE-3123</a>] -  Fix namesrv endpoint.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3109'>ISSUE-3109</a>] -  AdminBrokerProcess do not reply anything in default case.
-</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/3109'>ISSUE-3110</a>] -  Fix: remove useless code.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/603'>ISSUE-603</a>] -  Log exception stack.
 </li>
@@ -122,5 +116,11 @@ Below is a summary of the issues addressed in the 4.9.1 release of RocketMQ. For
 <li>[<a href='https://github.com/apache/rocketmq/issues/2997'>ISSUE-2997</a>] -  Add a Chinese version of Configuration_System.md.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2990'>ISSUE-2990</a>] -  Add message tracing switch in sendMessage command of mqadmin, and add document.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/3154'>ISSUE-3154</a>] -  Delete the unuse code.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/3144'>ISSUE-3144</a>] -  Fix spell error.
+</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/3109'>ISSUE-3110</a>] -  Fix: remove useless code.
 </li>
 </ul>          

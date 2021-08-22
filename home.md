@@ -7,7 +7,7 @@ header:
   cta_label: "<i class='fa fa-rocket'></i> Getting Started"
   cta_url: "/docs/quick-start/"
   caption:
-excerpt: 'Apache RocketMQ™ is a unified messaging engine, lightweight data processing platform.<br /> <small><a href="/release_notes/release-notes-4.9.0/">Latest release v4.9.0</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
+excerpt: 'Apache RocketMQ™ is a unified messaging engine, lightweight data processing platform.<br /> <small><a href="/release_notes/release-notes-4.9.1/">Latest release v4.9.1</a></small><br /><br /> {::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 feature_row:
   - image_path: /assets/images/bright/rmq-feature-lowlatency.png
     alt: "Low Latency"
