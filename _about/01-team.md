@@ -9,16 +9,16 @@ The RocketMQ team is comprised of Members and Contributors. Members have direct 
 
 ### Members
 
-The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+The following is a list of developers with commit privileges that have directly contributed to the project in one way or another, or you can refer to [here](https://projects.apache.org/committee.html?rocketmq) for the complete committee information of Apache RocketMQ.
 
 |Image| Id| Github Id | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:---|:---|:---|:---|:---|
+|![vintagewang](/assets/images/about/vintagewang.jpeg)|vintagewang|[@vintagewang](https://github.com/vintagewang)|vintagewang@apache.org |PMC Chair| +8|
 |![bsnyde](/assets/images/about/bsnyder.jpeg)|bsnyder| [@bsnyder](https://github.com/bsnyder)|bsnyder@apache.org |PMC Member| -7 |
 |![justinmclean](/assets/images/about/justinmclean.jpeg)|jmclean| [@justinmclean](https://github.com/justinmclean)|jmclean@apache.org |PMC Member| +11 |
 |![jim](/assets/images/about/jim.jpg)|jim| [@jim](https://github.com/jimjag)|jim@apache.org |PMC Member| -7 |
 |![WillemJiang](/assets/images/about/WillemJiang.jpeg)|ningjiang| [@WillemJiang](https://github.com/WillemJiang)|ningjiang@apache.org |PMC Member| +8 |
 |![vongosling](/assets/images/about/vongosling.jpeg)|vongosling|[@vongosling](https://github.com/vongosling)|vongosling@apache.org |PMC Member| +8 |
-|![vintagewang](/assets/images/about/vintagewang.jpeg)|vintagewang|[@vintagewang](https://github.com/vintagewang)|vintagewang@apache.org |PMC Member| +8|
 |![zhouxinyu](/assets/images/about/zhouxinyu.png)|yukon|[@zhouxinyu](https://github.com/zhouxinyu)|yukon@apache.org |PMC Member| +8 |
 |![lizhanhui](/assets/images/about/lizhanhui.jpg)|lizhanhui|[@lizhanhui](https://github.com/lizhanhui)|lizhanhui@apache.org |PMC Member| +8 |
 |![dongeforever](/assets/images/about/dongeforever.jpeg)|dongeforever|[@dongeforever](https://github.com/dongeforever)|dongeforever@apache.org |PMC Member| +8 |
