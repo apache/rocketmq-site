@@ -50,6 +50,7 @@ The following is a list of developers with commit privileges that have directly 
 |![lizhimin](/assets/images/about/lizhimin.jpg)|lizhimins| [@lizhimins](https://github.com/lizhimins)|lizhimin@apache.org|Committer| +8 |
 |![StyleTang](/assets/images/about/styletang.jpeg)|styletang| [@styletang](https://github.com/styletang)|styletang@apache.org|Committer| +8 |
 |![yuz10](/assets/images/about/yuz10.jpeg)|Yu Zhou| [@yuz10](https://github.com/yuz10)|yuzhou@apache.org|Committer| +8 |
+|![zhangjidi](/assets/images/about/zhangjidi.jpeg)|ZhangJiDi| [@zhangjidi](https://github.com/zhangjidi2016)|zhangjidi@apache.org|Committer| +8 |
 
 ### Top Contributors
 
