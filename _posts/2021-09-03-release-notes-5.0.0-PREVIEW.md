@@ -12,9 +12,8 @@ Below is a summary of the issues addressed in the 5.0.0-PREVIEW release of Rocke
 
 
 <h2> Download the 5.0.0-PREVIEW release</h2>
-    
-* Source: [rocketmq-all-5.0.0-PREVIEW-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-source-release.zip.sha512)]
-* Binary: [rocketmq-all-5.0.0-PREVIEW-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-bin-release.zip.sha512)]
+
+* Source: [rocketmq-all-5.0.0-PREVIEW-source-release.zip](https://archive.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-source-release.zip) [[PGP](https://archive.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-source-release.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/5.0.0-PREVIEW/rocketmq-all-5.0.0-PREVIEW-source-release.zip.sha512)]
 
 ## RIP
 <ul>
