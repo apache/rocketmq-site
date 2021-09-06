@@ -19,6 +19,6 @@ Below is a summary of the issues addressed in the 5.0.0-PREVIEW release of Rocke
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/wiki/%5BRIP-19%5D-Server-side-rebalance,--lightweight-consumer-client-support'>RIP-19</a>] -  Server side rebalance, lightweight consumer client support.
 </li>
-<li>[<a href='https://github.com/apache/rocketmq/wiki/RIP-21-logical-queue-abstraction-for-fast-scale-out'>RIP-21</a>] -  logical queue abstraction for fast scale out".
+<li>[<a href='https://github.com/apache/rocketmq/wiki/RIP-21-logical-queue-abstraction-for-fast-scale-out'>RIP-21</a>] -  Logical queue abstraction for fast scale out.
 </li>
 </ul>
