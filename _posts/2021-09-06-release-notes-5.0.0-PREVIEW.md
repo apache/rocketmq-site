@@ -1,11 +1,11 @@
 ---
 title: "Release Notes - Apache RocketMQ - Version 5.0.0-PREVIEW"
 categories:
-- Release_Notes
-  tags:
-- Release_Notes
-- RocketMQ
-- Version
+    - Release_Notes
+tags:
+    - Release_Notes
+    - RocketMQ
+    - Version
 ---
 
 Below is a summary of the issues addressed in the 5.0.0-PREVIEW release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
