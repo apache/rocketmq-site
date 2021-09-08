@@ -13,8 +13,8 @@ Below is a summary of the issues addressed in the 4.8.0 release of RocketMQ. For
 
 <h2> Download the 4.8.0 release</h2>
     
-* Source: [rocketmq-all-4.8.0-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.8.0/rocketmq-all-4.8.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-source-release.zip.sha512)]
-* Binary: [rocketmq-all-4.8.0-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.8.0/rocketmq-all-4.8.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-bin-release.zip.sha512)]
+* Source: [rocketmq-all-4.8.0-source-release.zip](https://archive.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-source-release.zip.sha512)]
+* Binary: [rocketmq-all-4.8.0-bin-release.zip](https://archive.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.8.0/rocketmq-all-4.8.0-bin-release.zip.sha512)]
 
 ## Feature
 <ul>
