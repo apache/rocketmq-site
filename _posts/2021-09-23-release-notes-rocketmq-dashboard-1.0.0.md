@@ -18,10 +18,15 @@ Below is a summary of the issues addressed in the version 1.0.0 release of Rocke
 ## Improvement
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/19'>ISSUE #19</a>] -  Message track query enhancement
+</li>
 <li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/16'>ISSUE #16</a>] -  Manage DefaultMQAdminExt objects using an object pool.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/13'>ISSUE #13</a>] -  Rocketmq-Dashboard License
+</li>
 <li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/8'>ISSUE #8</a>] -  The @MultiMQAdminCmdMethod annotation on the method is redundant
+</li>
 <li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/5'>ISSUE #5</a>] -  Added permission control for the login user role in rocketmq-dashboard.
+</li>
 <li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/2'>ISSUE #2</a>] -  Use rocketmq-dashboard instead of rocketmq-console
 </li>
 </ul>
