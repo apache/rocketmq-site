@@ -1,0 +1,28 @@
+---
+title: "Release Notes - Apache RocketMQ Dashboard - Version 1.0.0"
+categories:
+  - Release_Notes
+tags:
+  - Release_Notes
+  - RocketMQ
+  - Version
+---
+
+Apache RocketMQ Dashboard comes from [apache/rocketmq-externals](https://github.com/apache/rocketmq-externals), this is the first release of RocketMQ Dashboard.
+
+Below is a summary of the issues addressed in the version 1.0.0 release of RocketMQ Dashboard. For full documentation of the release, a guide to get started, please refer to [Quick Start](https://github.com/apache/rocketmq-dashboard).
+<h2> Download the 1.0.0 release</h2>
+
+* Source: [rocketmq-dashboard-1.0.0-source-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-dashboard/1.0.0-rc1/rocketmq-dashboard-1.0.0-source-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-dashboard/1.0.0-rc1/rocketmq-dashboard-1.0.0-source-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-dashboard/1.0.0-rc1/rocketmq-dashboard-1.0.0-source-release.zip.sha512)]
+
+## Improvement
+<ul>
+<li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/19'>ISSUE #19</a>] -  Message track query enhancement
+<li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/16'>ISSUE #16</a>] -  Manage DefaultMQAdminExt objects using an object pool.
+<li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/13'>ISSUE #13</a>] -  Rocketmq-Dashboard License
+<li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/8'>ISSUE #8</a>] -  The @MultiMQAdminCmdMethod annotation on the method is redundant
+<li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/5'>ISSUE #5</a>] -  Added permission control for the login user role in rocketmq-dashboard.
+<li>[<a href='https://github.com/apache/rocketmq-dashboard/issues/2'>ISSUE #2</a>] -  Use rocketmq-dashboard instead of rocketmq-console
+</li>
+</ul>
+
