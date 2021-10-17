@@ -29,7 +29,7 @@ Below is a summary of the issues addressed in the version 2.1.1 release of Rocke
 
 ## Bug
 <ul>
-<li>[<a href='https://github.com/apache/rocketmq-spring/pull/269'>ISSUE #271</a>] -  AccessKey and secretKey are wrong when create procducer.
+<li>[<a href='https://github.com/apache/rocketmq-spring/pull/269'>ISSUE #271</a>] -  AccessKey and secretKey are wrong when create producer.
 </li>
 <li>[<a href='https://github.com/apache/rocketmq-spring/pull/247'>ISSUE #241</a>] -  Make the unit of consumeTimeout in rocketmq-spring consistent with rocketmq client.
 </li>

@@ -134,10 +134,10 @@ Then start the brokers(Assume binary RocketMQ is at /home/rocketmq/dist)
 
 ```java
 >cd /home/rocketmq/dist/bin
->bash mqbroker -c ../conf/2m-2s-sync/broker-a.properties -n 192.168.0.2:9876,192.168.0.3:9876
->bash mqbroker -c ../conf/2m-2s-sync/broker-a-s.properties -n 192.168.0.2:9876,192.168.0.3:9876
->bash mqbroker -c ../conf/2m-2s-sync/broker-b.properties -n 192.168.0.2:9876,192.168.0.3:9876
->bash mqbroker -c ../conf/2m-2s-sync/broker-b-s.properties -n 192.168.0.2:9876,192.168.0.3:9876
+>bash mqbroker -c ../conf/2m-2s-sync/broker-a.properties -n 192.168.0.2:9876;192.168.0.3:9876
+>bash mqbroker -c ../conf/2m-2s-sync/broker-a-s.properties -n 192.168.0.2:9876;192.168.0.3:9876
+>bash mqbroker -c ../conf/2m-2s-sync/broker-b.properties -n 192.168.0.2:9876;192.168.0.3:9876
+>bash mqbroker -c ../conf/2m-2s-sync/broker-b-s.properties -n 192.168.0.2:9876;192.168.0.3:9876
 How to verify
 Execute the following command to verify according to the CLI section:
 > bash mqadmin clusterlist

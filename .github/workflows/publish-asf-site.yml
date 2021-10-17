@@ -1,0 +1,41 @@
+name: publish-asf-site
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: rocketmq-site
+
+      - run: |
+          cd $GITHUB_WORKSPACE/rocketmq-site/
+          sudo gem install jekyll bundler
+          bundle install
+          bundle exec jekyll build
+          rm .git/ -rf
+
+      - uses: actions/checkout@v2
+        with:
+          ref: asf-site
+          path: asf-site
+
+      - run: |
+          cd $GITHUB_WORKSPACE/asf-site/
+          git rm -rf .
+          cp -Rf $GITHUB_WORKSPACE/rocketmq-site/. .
+          ls
+          git config --global user.email "action@github.com"
+          git config --global user.name "github-action"
+          sed -i "/content/d" .gitignore
+          sed -i "/vendor/d" .gitignore
+          git add .
+          git status
+          git commit -m "Latest site on successful build auto-pushed to asf-site"
+          git push
