@@ -121,7 +121,7 @@ gpg --print-md SHA512 rocketmq-all-x1.x2.x3-source-release.zip >  rocketmq-all-x
 - self-verify sign and hash  
 goto 4, after self-verify, continue 2.4
 
-#### 2.4 Rollback and Retry
+#### 2.4 Rollback and Retry (visit github using github token)
 If the staging process encounter problem, you may need to rollback:
 - 1. Delete the tag created in 2.2
   - list all tags and find latest tag created by you
