@@ -22,10 +22,10 @@ Create a code signing gpg key for release signing, use **\<your Apache ID\>@apac
 
 * Create new pgp key. Please refer to [here](http://www.apache.org/dev/openpgp.html) on how to use gpg key.
 * Generate a new key via `gpg --full-generate-key`, and answer 4096 bits with no expiration time.
-* Upload your key to a public key server by `gpg --keyserver pgpkeys.mit.edu --send-key <your key id>`.
+* Upload your key to a public key server by `gpg --keyserver keys.openpgp.org --send-key <your key id>`. you can search your key after uploaded. (`your key id`'s string length is 8).
 * Export your public key to a file by `gpg --armor --export <your key id> >> gpgapachekey.txt`.
 * Get the key signed by other committers(Optional).
-* Add the key to the RocketMQ [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS).
+* Add the key to the RocketMQ [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS). ([KEYS file] managed by svn)
 
 **Tips:** If you have more than one key in your gpg, set the code signing key to `~/.gnupg/gpg.conf` as default key is recommended.
  
@@ -80,10 +80,10 @@ Generate the release notes via [RocketMQ JIRA](https://issues.apache.org/jira/br
 In this process, you need to use maven release plugin to release the artifact to maven repository. And also, copy them to the svn repository.
 
 #### 2.1 Check the MQVersion
-Remember to check the current version of MQVersion again, which should be equal to this released version like `release-4.5.0`.
- ```java
+Remember to check the current version of MQVersion again, which should be equal to this released version like `release-4.5.0`. change it and push to branch `develop` if not right.
+```java
   public static final int CURRENT_VERSION = Version.V4_5_0.ordinal();
- ```
+```
 #### 2.2 Release to the maven repository
 
 Make sure that you are in the develop branch, and Github PRs related to this release version are merged.
@@ -97,12 +97,66 @@ Now, the candidate release artifacts can be found in the [Nexus staging repo](ht
 
 **Tips:** If you are performing a source-only release, please remove all artifacts from the staging repo besides the .zip file containing the source and the javadocs jar file. In the Nexus GUI, you can right click on each artifact to be deleted and then select `Delete`.
 
-#### 2.3 Checkout release branch
-Checkout a new branch from the target branch(master or develop) according to the release tag with its name equal to the release version, like `release-4.5.0`.
+#### 2.3 Checkout release branch, build rc files and self-verify them
+- build rc files
+Checkout a new branch from the target branch(master or develop) according to the release tag with its name equal to the release version, like `release-4.5.0`.  
+build source and binary file by <a href="https://rocketmq.apache.org/docs/quick-start/" target="_blank">quick-start</a> and sign&hash them, at last you would get files like:  
+> rocketmq-all-x1.x2.x3-bin-release.zip
+> rocketmq-all-x1.x2.x3-bin-release.zip.asc
+> rocketmq-all-x1.x2.x3-bin-release.zip.sha512
+> rocketmq-all-x1.x2.x3-source-release.zip
+> rocketmq-all-x1.x2.x3-source-release.zip.asc
+> rocketmq-all-x1.x2.x3-source-release.zip.sha512
+
+- sign files(generate `asc` file)
+```
+gpg --clearsign rocketmq-all-x1.x2.x3-bin-release.zip
+gpg --clearsign rocketmq-all-x1.x2.x3-source-release.zip
+```
+- generate hash(generate `sha512` file)
+```
+gpg --print-md SHA512 rocketmq-all-x1.x2.x3-bin-release.zip > rocketmq-all-x1.x2.x3-bin-release.zip.sha512
+gpg --print-md SHA512 rocketmq-all-x1.x2.x3-source-release.zip >  rocketmq-all-x1.x2.x3-source-release.zip.sha512
+```
+- self-verify sign and hash  
+goto 4, after self-verify, continue 2.4
 
 #### 2.4 Rollback and Retry
 If the staging process encounter problem, you may need to rollback:
-Delete the branch and tag created in 2.1 and then redo it.
+- 1. Delete the tag created in 2.2
+  - list all tags and find latest tag created by you
+  ```
+  git tag -ln
+  ```
+  
+  - delete the tag locally
+  ```
+  git tag -d rocketmq-all-x1.x2.x3
+  ```
+
+  - push update to github
+  ```
+  git push origin :refs/tags/rocketmq-all-x1.x2.x3
+  ```
+
+- 2. Delete 2 commits in branch develop created in 2.2
+  - list all git logs
+  ```
+  git log
+  ```
+  
+  - find 2 lastest commits who's comments as bellow
+  > des1: [maven-release-plugin] prepare release rocketmq-all-4.9.2]  
+  > des2: [maven-release-plugin] prepare for next development iteration]
+  - delete the 2 commits. (`143ac3185b84aed5bc714b353af340aa1e3df0e6` would be kept)
+  ```
+  git reset --hard 143ac3185b84aed5bc714b353af340aa1e3df0e6
+  git push origin HEAD --force
+  ```
+- 3. drop staged-repos created by you in maven repo
+repo url : <a href="https://repository.apache.org/#stagingRepositories">https://repository.apache.org/#stagingRepositories</a>
+
+- 4. redo from 2.1
 
 ## 3.Build the Binary Release Candidate
 Checkout the code to be released(must be the same as the source branch), and build the binary artifact.
