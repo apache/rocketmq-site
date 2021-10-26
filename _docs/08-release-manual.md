@@ -101,12 +101,12 @@ Now, the candidate release artifacts can be found in the [Nexus staging repo](ht
 - build rc files
 Checkout a new branch from the target branch(master or develop) according to the release tag with its name equal to the release version, like `release-4.5.0`.  
 build source and binary file by <a href="https://rocketmq.apache.org/docs/quick-start/" target="_blank">quick-start</a> and sign&hash them, at last you would get files like:  
-> rocketmq-all-x1.x2.x3-bin-release.zip
-> rocketmq-all-x1.x2.x3-bin-release.zip.asc
-> rocketmq-all-x1.x2.x3-bin-release.zip.sha512
-> rocketmq-all-x1.x2.x3-source-release.zip
-> rocketmq-all-x1.x2.x3-source-release.zip.asc
-> rocketmq-all-x1.x2.x3-source-release.zip.sha512
+> rocketmq-all-x1.x2.x3-bin-release.zip  
+> rocketmq-all-x1.x2.x3-bin-release.zip.asc  
+> rocketmq-all-x1.x2.x3-bin-release.zip.sha512  
+> rocketmq-all-x1.x2.x3-source-release.zip  
+> rocketmq-all-x1.x2.x3-source-release.zip.asc  
+> rocketmq-all-x1.x2.x3-source-release.zip.sha512  
 
 - sign files(generate `asc` file)
 ```
