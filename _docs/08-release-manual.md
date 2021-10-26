@@ -148,9 +148,9 @@ If the staging process encounter problem, you may need to rollback:
   - find 2 lastest commits who's comments as bellow
   > des1: [maven-release-plugin] prepare release rocketmq-all-4.9.2]  
   > des2: [maven-release-plugin] prepare for next development iteration]
-  - delete the 2 commits. (`143ac3185b84aed5bc714b353af340aa1e3df0e6` would be kept)
+  - delete the 2 commits. (`143a34185b84aed5bc1224b353af340aa1e3df0fg` would be kept)
   ```
-  git reset --hard 143ac3185b84aed5bc714b353af340aa1e3df0e6
+  git reset --hard 143a34185b84aed5bc1224b353af340aa1e3df0fg
   git push origin HEAD --force
   ```
 - 3. drop staged-repos created by you in maven repo
@@ -305,6 +305,8 @@ Once the Apache RocketMQ PPMC votes pass, publish the release artifacts to the N
 
 1. Publish the Maven Artifacts, release the Maven artifacts in Nexus by selecting the staging repository **orgapacherocketmq-XXX** and clicking on the `Release` icon.
 2. Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release-version}
+3. Merge branch `develop` to branch `master` on https://github.com/apache/rocketmq
+4. Publish release package on github on https://github.com/apache/rocketmq/releases
 
 ## 8. Announce the Release
 Send an email to **announce@apache.org**, **users@rocketmq.apache.org**, **private@rocketmq.apache.org**, and **dev@rocketmq.apache.org** with the subject **[ANNOUNCE] Release Apache RocketMQ \<release-version\>** and a body along the lines of:
