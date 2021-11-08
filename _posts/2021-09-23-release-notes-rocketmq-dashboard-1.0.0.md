@@ -13,7 +13,7 @@ Apache RocketMQ Dashboard comes from [apache/rocketmq-externals](https://github.
 Below is a summary of the issues addressed in the version 1.0.0 release of RocketMQ Dashboard. For full documentation of the release, a guide to get started, please refer to [Quick Start](https://github.com/apache/rocketmq-dashboard).
 <h2> Download the 1.0.0 release</h2>
 
-* Source: [rocketmq-dashboard-1.0.0-source-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-dashboard/1.0.0-rc1/rocketmq-dashboard-1.0.0-source-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-dashboard/1.0.0-rc1/rocketmq-dashboard-1.0.0-source-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-dashboard/1.0.0-rc1/rocketmq-dashboard-1.0.0-source-release.zip.sha512)]
+* Source: [rocketmq-dashboard-1.0.0-source-release.zip](https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/1.0.0/rocketmq-dashboard-1.0.0-source-release.zip) [[PGP](https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/1.0.0/rocketmq-dashboard-1.0.0-source-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/1.0.0/rocketmq-dashboard-1.0.0-source-release.zip.sha512)]
 
 ## Improvement
 <ul>
