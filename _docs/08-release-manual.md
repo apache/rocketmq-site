@@ -121,6 +121,8 @@ gpg --print-md SHA512 rocketmq-all-x1.x2.x3-source-release.zip >  rocketmq-all-x
 - self-verify sign and hash  
 goto 4, after self-verify, continue 2.4
 
+**Tips:** Source file folder and binary folder names should start with `rocketmq-all` for be nice to <a target="_blank" href="https://github.com/apache/rocketmq-docker/blob/a2672f62cc5171263ffc856ab5657291efba1912/image-build/Dockerfile-centos#L58-L59">RocketMQ Docker Build</a>
+
 #### 2.4 Rollback and Retry (visit github using github token)
 If the staging process encounter problem, you may need to rollback:
 - 1. Delete the tag created in 2.2
