@@ -74,7 +74,7 @@ As you see, the most commonly used commands are listed with a brief description.
      -h,--help                Print help
      -i,--interval <arg>      specify intervals numbers, it is in seconds
      -m,--moreStats           Print more stats
-     -n,--namesrvAddr <arg>   Name server address list, eg: 192.168.0.1:9876;192.168.0.2:9876
+     -n,--namesrvAddr <arg>   Name server address list, eg: '192.168.0.1:9876;192.168.0.2:9876'
 
 
 The help text lists possible options and interpretation of each option. 
