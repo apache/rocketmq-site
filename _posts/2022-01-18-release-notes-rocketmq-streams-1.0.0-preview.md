@@ -8,7 +8,7 @@ tags:
     - Version
 ---
 
-Below is a summary of the issues addressed in the 1.0.0-preview release of RocketMQ Streams. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
+Below is a summary of the issues addressed in the 1.0.0-preview release of RocketMQ Streams. For full documentation of the release, a guide to get started, please refer to <a href='https://github.com/apache/rocketmq-streams'>Quick Start</a>.
 
 <h2> Download the rocketmq-streams-1.0.0-preview release</h2>
 
