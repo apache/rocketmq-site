@@ -108,7 +108,7 @@ Below is a summary of the issues addressed in the 4.9.3 release of RocketMQ. For
 <li>[<a href='https://github.com/apache/rocketmq/issues/3394'>ISSUE-3394</a>] - [ISSUE-3394] - fix duplicate keys in trace message</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3476'>ISSUE-3476</a>] - [ISSUE-3476] - Fix last separator of properties string is missing when using batch send</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3430'>ISSUE-3430</a>] - [ISSUE-3430] - fix the problem that setting parameter mqClientApiTimeout doesn't take effect</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/951'>ISSUE-951</a>] - [ISSUE-951] - Fixed an incorrect offset problem in the ResetOffsetByTimeCommand</li>\
+<li>[<a href='https://github.com/apache/rocketmq/issues/951'>ISSUE-951</a>] - [ISSUE-951] - Fixed an incorrect offset problem in the ResetOffsetByTimeCommand</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3603'>ISSUE-3603</a>] - [ISSUE-3603] - Fix(client): fetch and commit offset need to use master broker firstly</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3613'>ISSUE-3613</a>] - [ISSUE-3613] - bug fix, solve message hash conflict in index file</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3786'>ISSUE-3786</a>] - [ISSUE-3786] - fix: The length of properties value should be checked before converting them to short.</li>
