@@ -10,7 +10,6 @@ tags:
 
 Below is a summary of the issues addressed in the 4.9.3 release of RocketMQ. For full documentation of the release, a guide to get started, please refer to <a href='/docs/quick-start/'>Quick Start</a>.
 
-
 <h2> Download the 4.9.3 release</h2>
     
 * Source: [rocketmq-all-4.9.3-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.3/rocketmq-all-4.9.3-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.9.3/rocketmq-all-4.9.3-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.9.3/rocketmq-all-4.9.3-source-release.zip.sha512)]
@@ -88,7 +87,6 @@ Below is a summary of the issues addressed in the 4.9.3 release of RocketMQ. For
 <li>[<a href='https://github.com/apache/rocketmq/issues/3015'>ISSUE-3015</a>] - [ISSUE-3015] - when slaveAckOffset greater than local commitLog offset, break …</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2969'>ISSUE-2969</a>] - [ISSUE-2969] - Add a skip accumulation message command in mqadmin.</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/2580'>ISSUE-2580</a>] - [ISSUE-2580] - Check producerTable or consumerTable is empty when updateTopicRouteInfoFromNameServer</li>
-
 
 </ul>
 
