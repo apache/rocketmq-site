@@ -23,13 +23,13 @@ From birth to maturity, and finally being an Apache TLP, the success of RocketMQ
 |:---|:---|:---|:---|:---|
 |![vintagewang](/assets/images/about/vintagewang.jpeg)| Xiaorui Wang | vintagewang | [@vintagewang](https://github.com/vintagewang)| Create RocketMQ in 2012 |
 |![linhill](/assets/images/about/linqingshan.png)| Qingshan Lin| linhill | [@hill007299](https://github.com/hill007299) | Since @2013|
-| | Qiudi Yang|   | [@jodie.yang](https://github.com/YangJodie) | Since @2013|
-| | Yubao Fu|  | [@fuyou001](https://github.com/fuyou001) | Since @2013|
+| ![manhong](/assets/images/about/manhong.png)| Qiudi Yang|   | [@jodie.yang](https://github.com/YangJodie) | Since @2013|
+| ![fuchong](/assets/images/about/fuchong.png)| Yubao Fu|  | [@fuyou001](https://github.com/fuyou001) | Since @2013|
 |![lollipop](/assets/images/about/lollipop.jpeg)| Jixiang Jin| lollipop | [@lollipopjin](https://github.com/lollipopjin) | Since @2014|
-| | Li Zhou| | [@zhouli11](https://github.com/zhouli11) | Since @2014|
-| | Zhongliang Chen|  | [@chenzlalvin](https://github.com/chenzlalvin) | Since @2015|
+| ![buming](/assets/images/about/buming.png)| Li Zhou| | [@zhouli11](https://github.com/zhouli11) | Since @2014|
+| ![mingduan](/assets/images/about/mingduan.png)| Zhongliang Chen|  | [@chenzlalvin](https://github.com/chenzlalvin) | Since @2015|
 |![zhouxinyu](/assets/images/about/zhouxinyu.png)| Xinyu Zhou| yukon | [@zhouxinyu](https://github.com/zhouxinyu) | Since @2016|
-| | Meiping Zhang|  | [@gongyi-zmp](https://github.com/gongyi-zmp) | Since @2016|
+|![fuchong](/assets/images/about/gongyi.png) | Meiping Zhang|  | [@gongyi-zmp](https://github.com/gongyi-zmp) | Since @2016|
 |![dongeforever](/assets/images/about/dongeforever.jpeg)| ZhenDong Liu| dongeforever | [@dongeforever](https://github.com/dongeforever) | Since @2016|
 |![vongosling](/assets/images/about/vongosling.jpeg)| Jia Feng| vongosling |[@vongosling](https://github.com/vongosling) | Since @2016|
 
