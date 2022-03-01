@@ -22,7 +22,7 @@ From birth to maturity, and finally being an Apache TLP, the success of RocketMQ
 | Image | Name | Apache Id | Github Id | When |
 |:---|:---|:---|:---|:---|
 |![vintagewang](/assets/images/about/vintagewang.jpeg)| Xiaorui Wang | vintagewang | [@vintagewang](https://github.com/vintagewang)| Create RocketMQ in 2012 |
-|![linhill](/assets/images/about/linqingshan.jpeg)| Qingshan Lin| linhill | [@hill007299](https://github.com/hill007299) | Since @2013|
+|![linhill](/assets/images/about/linqingshan.png)| Qingshan Lin| linhill | [@hill007299](https://github.com/hill007299) | Since @2013|
 | | Qiudi Yang|   | [@jodie.yang](https://github.com/YangJodie) | Since @2013|
 | | Yubao Fu|  | [@fuyou001](https://github.com/fuyou001) | Since @2013|
 |![lollipop](/assets/images/about/lollipop.jpeg)| Jixiang Jin| lollipop | [@lollipopjin](https://github.com/lollipopjin) | Since @2014|
