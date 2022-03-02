@@ -32,4 +32,3 @@ From birth to maturity, and finally being an Apache TLP, the success of RocketMQ
 |![zhouxinyu](/assets/images/about/zhouxinyu.png)| Xinyu Zhou| yukon | [@zhouxinyu](https://github.com/zhouxinyu) | Since @2016|
 |![fuchong](/assets/images/about/gongyi.png) | Meiping Zhang|  | [@gongyi-zmp](https://github.com/gongyi-zmp) | Since @2016|
 |![dongeforever](/assets/images/about/dongeforever.jpeg)| ZhenDong Liu| dongeforever | [@dongeforever](https://github.com/dongeforever) | Since @2016|
-|![vongosling](/assets/images/about/vongosling.jpeg)| Jia Feng| vongosling |[@vongosling](https://github.com/vongosling) | Since @2016|
