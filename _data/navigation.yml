@@ -9,7 +9,7 @@ main:
   - title: "Users"
     url: /users/
   - title: "About"
-    url: /about/team/
+    url: /about/origin/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
@@ -88,11 +88,11 @@ docs:
 
 
 about:
+  - title: Origin
+    url: /about/origin/
   - title: Team
     url: /about/team/
   - title: Contact
     url: /about/contact/
   - title: Rewards
     url: /about/rewards/
-  - title: Origin
-    url: /about/origin/
