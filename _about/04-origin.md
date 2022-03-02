@@ -5,8 +5,6 @@ excerpt: "RocketMQ history."
 modified: 2019-06-13T17:55:43+08:00
 ---
 
-The RocketMQ team is comprised of Members and Contributors. Members have direct access to the source of RocketMQ project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to RocketMQ are greatly appreciated, whether for trivial cleanups, big new features or other material rewards. More details see [here](https://github.com/apache/rocketmq/blob/master/CONTRIBUTING.md).
-
 ### Origin
 
 RocketMQ, a distributed messaging middleware developed by Alibaba in 2012,  was designed for message handling on a trillion scale, featuring high throughput, low latency, massive accumulation, and ordered message. It is a readily accessible tool for Double Eleven shopping spree in Alibaba and numerous large-scale Internet business scenarios alike. Thanks to these advantages, it has attracted more and more applications for access. Also in the same year, Alibaba officially open sourced the first version of RocketMQ.
