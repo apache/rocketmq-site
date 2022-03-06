@@ -42,8 +42,8 @@ Use the links below to download the Apache RocketMQ Releases, the latest release
 
 * Released Oct 26, 2021
 * [Release Notes](/release_notes/release-notes-4.9.2)
-* Source: [rocketmq-all-4.9.2-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.2/rocketmq-all-4.9.2-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-source-release.zip.sha512)]
-* Binary: [rocketmq-all-4.9.2-bin-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip.sha512)]
+* Source: [rocketmq-all-4.9.2-source-release.zip](https://archive.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-source-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-source-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-source-release.zip.sha512)]
+* Binary: [rocketmq-all-4.9.2-bin-release.zip](https://archive.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip) [[PGP](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip.asc)] [[SHA512](https://www.apache.org/dist/rocketmq/4.9.2/rocketmq-all-4.9.2-bin-release.zip.sha512)]
 
 ## 4.9.1 release
 
