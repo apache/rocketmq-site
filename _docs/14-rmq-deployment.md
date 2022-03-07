@@ -107,7 +107,7 @@ usage: mqadmin clusterList [-h] [-i <arg>] [-m] [-n <arg>]
  -h,--help                Print help
  -i,--interval <arg>      specify intervals numbers, it is in seconds
  -m,--moreStats           Print more stats
- -n,--namesrvAddr <arg>   Name server address list, eg: 192.168.0.1:9876;192.168.0.2:9876
+ -n,--namesrvAddr <arg>   Name server address list, eg: '192.168.0.1:9876;192.168.0.2:9876'
 ```
 
 ### Replication mode

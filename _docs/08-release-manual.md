@@ -166,7 +166,7 @@ Be aware of the os version, for some dependency is os sensitive, such as netty t
 
 * Make sure that your are in the candidate release branch.
 * Make sure that all the unit tests can pass via `mvn clean install`.
-* Make sure that all the integration tests can pass via `mvn clean test -Pit-test`.
+* Make sure that all the integration tests can pass via `mvn clean install -Pit-test`.
 
 After the successful building, remember to sign the artifact(PGP and SHA512 signatures are required), and copy them to the svn repository, you could refer to [svn repository](https://dist.apache.org/repos/dist/release/rocketmq/) .
 
