@@ -279,6 +279,9 @@ To vote on a candidate release, send an email to the [dev list](mailto:dev@rocke
 > Thanks,  
 > The Apache RocketMQ Team  
 
+**Tips:** Hash for the release tag: you could use commit id which comment like `[maven-release-plugin] prepare release rocketmq-all-x.x.x`
+
+
 Once 72 hours has passed (which is generally preferred) and/or at least three +1 (binding) votes have been cast with no -1 (binding) votes, send an email closing the vote and congratulate the release candidate. Please use the subject: **[RESULT][VOTE]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>** :
 
 > Hello RocketMQ Community,  
@@ -302,13 +305,21 @@ Once 72 hours has passed (which is generally preferred) and/or at least three +1
 
 If we do not pass the VOTE, fix the related issues, go back, restart the release process and increase RC number. When we call a new vote, we must use the updated mail subject: **[RESTART][VOTE][#\<Attempt Number\>]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>**
 
+**Tips:** Binding votes is vote with Apache ID, Non-binding votes is vote without Apache ID.
+
+
 ## 7. Publish the Release
 Once the Apache RocketMQ PPMC votes pass, publish the release artifacts to the Nexus Maven repository and to the Apache release repository.
 
 1. Publish the Maven Artifacts, release the Maven artifacts in Nexus by selecting the staging repository **orgapacherocketmq-XXX** and clicking on the `Release` icon.
-2. Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release-version}
-3. Merge branch `develop` to branch `master` on https://github.com/apache/rocketmq
-4. Publish release package on github on https://github.com/apache/rocketmq/releases
+2. Publish the Artifacts to the Apache Release Repository, use svn copy candidate release artifacts to https://dist.apache.org/repos/dist/release/rocketmq/${release-version}.
+3. Merge branch `develop` to branch `master` on https://github.com/apache/rocketmq.
+4. Publish release package on github on https://github.com/apache/rocketmq/releases.
+5. Make a new branch named like `release-x.x.x`.
+6. Update release notes.
+  - Add new release note page for new released-version in [docs](https://github.com/apache/rocketmq-site). you can reffer [4.9.3 release notes](https://github.com/apache/rocketmq-site/commit/4b662a197a0a77fd460614df9e231e6ffdd7c622).
+  - Update latest version in home page of [docs](https://github.com/apache/rocketmq-site). you can reffer [docs updates for 4.9.3](https://github.com/apache/rocketmq-site/commit/0fd4d231c06f1d641a0cc30f8ffe22775043e89d).
+
 
 ## 8. Announce the Release
 Send an email to **announce@apache.org**, **users@rocketmq.apache.org**, **private@rocketmq.apache.org**, and **dev@rocketmq.apache.org** with the subject **[ANNOUNCE] Release Apache RocketMQ \<release-version\>** and a body along the lines of:
