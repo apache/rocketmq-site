@@ -27,7 +27,7 @@ Below is a summary of the issues addressed in the 5.0.0-ALPHA release of RocketM
 ## Improvement
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3521'>ISSUE-3521</a>] - Fix the risk of memory overflow caused by excessive popShareQueueNum</li>
-<li>[<a href='https://github.com/apache/rocketmq/issues/3755'>ISSUE-3755</a>] - Change the level to warn when ack failed</li>
+<li>[<a href='https://github.com/apache/rocketmq/issues/3755'>ISSUE-3755</a>] - Change the log level to warn when ack failed</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3498'>ISSUE-3498</a>] - Make messages in reviveTopic more evenly written to different queues</li>
 <li>[<a href='https://github.com/apache/rocketmq/issues/3708'>ISSUE-3708</a>] - Add CorrectLogicOffsetService to periodically correct min logic offset</li>
 </ul>
