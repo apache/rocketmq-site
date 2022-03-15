@@ -13,8 +13,8 @@ Below is a summary of the issues addressed in the 5.0.0-ALPHA release of RocketM
 
 <h2> Download the 5.0.0-ALPHA release</h2>
 
-* Source: [rocketmq-all-5.0.0-ALPHA-source-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-bin-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-bin-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-bin-release.zip.sha512)]
-* Binary: [rocketmq-all-5.0.0-ALPHA-bin-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-source-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-source-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-source-release.zip.sha512)]
+* Binary: [rocketmq-all-5.0.0-ALPHA-bin-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-bin-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-bin-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-bin-release.zip.sha512)]
+* Source: [rocketmq-all-5.0.0-ALPHA-source-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-source-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-source-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/5.0.0-ALPHA-rc2/rocketmq-all-5.0.0-ALPHA-source-release.zip.sha512)]
 
 ## Feature
 <ul>
