@@ -2,7 +2,7 @@
 title: "Release Notes - Apache RocketMQ Spring - Version 2.2.2"
 categories:
 - Release_Notes
-  tags:
+tags:
 - Release_Notes
 - RocketMQ
 - Version
