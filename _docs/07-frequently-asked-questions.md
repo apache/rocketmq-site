@@ -90,6 +90,6 @@ This happens when you are trying to send messages to a topic whose routing info 
 1. Make sure that the producer can connect to a name server and is capable of fetching routing meta info from it.
 2. Make sure that name servers do contain routing meta info of the topic. You may query the routing meta info from name server through topicRoute using admin tools or web console.
 3. Make sure that your brokers are sending heartbeats to the same list of name servers your producer is connecting to.
-4. Make sure that the topic's permssion is 6(rw-), or at least 2(-w-).
+4. Make sure that the topic's permission is 6(rw-), or at least 2(-w-).
 
 If you can't find this topic, create it on a broker via admin tools command updateTopic or web console.
