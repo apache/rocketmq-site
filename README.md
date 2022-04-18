@@ -36,4 +36,4 @@ Create a .md file in rocketmq-sites/_posts/, Jekyll will finish the rest of the 
 Please refer to **2016-12-23-mastering-component-compatible-dependency.md** for more details.
 
 ### How to modify the navigation?
-Please refer to **_data/navigation.yml** for more details.
+Please refer to **_data/navigation.yml** for more details. 
