@@ -18,7 +18,7 @@ Below is a summary of the issues addressed in the 1.0.1-preview release of Rocke
 ## Improvement
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq-streams/issues/129'>ISSUE-129</a>] - [ISSUE-129] - add design documentation</li>
-<li>[<a href='https://github.com/apache/rocketmq-streams/issues/133'>ISSUE-133</a>] - [ISSUE-3585] - Add design doc into README-chinese.md</li>
+<li>[<a href='https://github.com/apache/rocketmq-streams/issues/133'>ISSUE-133</a>] - [ISSUE-133] - Add design doc into README-chinese.md</li>
 <li>[<a href='https://github.com/apache/rocketmq-streams/pull/138'>PR-138</a>] - [PR-138] - add the RocketMQ word Hyperlink in readme file</li>
 
 </ul>
