@@ -12,7 +12,7 @@ Below is a summary of the issues addressed in the 1.0.0-preview release of Rocke
 
 <h2> Download the rocketmq-streams-1.0.0-preview release</h2>
 
-* Source: [rocketmq-streams-1.0.0-preview.zip](https://archive.apache.org/dist/rocketmq/rocketmq-streams/rocketmq-streams-1.0.0-preview.zip) [[PGP](https://archive.apache.org/dist/rocketmq/rocketmq-streams/rocketmq-streams-1.0.0-preview.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/rocketmq-streams/rocketmq-streams-1.0.0-preview.zip.sha512)]
+* Source: [rocketmq-streams-1.0.0-preview.zip](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.0-preview/rocketmq-streams-1.0.0-preview.zip) [[PGP](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.0-preview/rocketmq-streams-1.0.0-preview.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.0-preview/rocketmq-streams-1.0.0-preview.zip.sha512)]
 
 
 ## Apache RocketMQ Streams
