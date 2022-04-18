@@ -27,4 +27,4 @@ Below is a summary of the issues addressed in the 1.0.1-preview release of Rocke
 <ul>
 <li>[<a href='https://github.com/apache/rocketmq-streams/issues/127'>ISSUE-127</a>] - [ISSUE-127] - fromFile not exist cause queue NPE</li>
 <li>[<a href='https://github.com/apache/rocketmq-streams/issues/135'>ISSUE-135</a>] - [ISSUE-135] - App can not start up with RocketMQ-streams</li>
-</u
+</ul>
