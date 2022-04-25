@@ -10,7 +10,7 @@ modified: 2017-04-24T15:01:43-04:00
 This section introduces production-ready deployment solution. Generally speaking, we are deploying a resilient RocketMQ cluster having no single point of failure.
 
 ### Prerequisite
-Before starting this section, make sure you have read Quick Start section, and are farmiliar with the core concepts and components of RocketMQ.
+Before starting this section, make sure you have read Quick Start section, and are familiar with the core concepts and components of RocketMQ.
 
 #### Production-ready Deployment
 ##### Name Server
@@ -21,7 +21,7 @@ Name server follows the share-nothing design paradigm. Brokers send heartbeat da
 #### Broker
 Brokers can be divided into two categories according to their roles: master and slave. Master brokers provide RW access while slave brokers only accept read access.
 
-To deploy a high-availability RocketMQ cluster with no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All of the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.
+To deploy a high-availability RocketMQ cluster with no single point of failure, a series of broker sets should be deployed. A broker set contains one master with brokerId set to 0 and several slaves with non-zero brokerIDs. All the brokers in one set have the same brokerName. In serious scenarios, we should have at least two brokers in one broker set. Each topic resides in two or more brokers.
 
 ### Configuration
 When deploying a RocketMQ cluster, recommended configuration is listed below:
@@ -38,9 +38,9 @@ When deploying a RocketMQ cluster, recommended configuration is listed below:
 | brokerId | 0 |broker id, 0 means master, positive integers mean slave |
 | storePathCommitLog | $HOME/store/commitlog/ |file path for commit log |
 | storePathConsumerQueue |  $HOME/store/consumequeue/ | file path for consume queue |
-| mapedFileSizeCommitLog | 1024 * 1024 * 1024(1G) | mapped file size for commit log |
+| mappedFileSizeCommitLog | 1024 * 1024 * 1024(1G) | mapped file size for commit log |
 | deleteWhen | 04 |When to delete the commitlog which is out of the reserve time |
-| fileReserverdTime | 72 |The number of hours to keep a commitlog before deleting it |
+| fileReservedTime | 72 |The number of hours to keep a commitlog before deleting it |
 | brokerRole | ASYNC_MASTER |SYNC_MASTER/ASYNC_MASTER/SLAVE |
 | flushDiskType | ASYNC_FLUSH |{SYNC_FLUSH/ASYNC_FLUSH}. Broker of SYNC_FLUSH mode flushes each message onto disk before acknowledging producer. Broker of ASYNC_FLUSH mode, on the other hand, takes advantage of group-committing, achieving better performance.|
 
