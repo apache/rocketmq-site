@@ -55,7 +55,7 @@ The following is a list of developers with commit privileges that have directly 
 |![jianghaiting](/assets/images/about/jianghaiting.jpeg)|Haiting Jiang| [@Jason918](https://github.com/Jason918)|jianghaiting@apache.org|Committer| +8 |
 |![zhangyang](/assets/images/about/zhangyang.jpg)|zhangyang| [@Git-Yang](https://github.com/Git-Yang)|zhangyang@apache.org|Committer| +8 |
 |![panzhi33](/assets/images/about/panzhi.jpg)|Pan Zhi| [@panzhi33](https://github.com/panzhi33)|panzhi33@apache.org|Committer| +8 |
-|![tianliuliu](/assets/images/about/tianliuhe.jpeg)|Liuhe Tian| [@tianliuliu](https://github.com/tianliuliu)|tianliuliu@apache.org|Committer| +8 |
+|![tianliuliu](/assets/images/about/tianliuhe.png)|Liuhe Tian| [@tianliuliu](https://github.com/tianliuliu)|tianliuliu@apache.org|Committer| +8 |
 |![WangPing](/assets/images/about/pingww.jpg)|WangPing| [@pingww](https://github.com/pingww)|pingww@apache.org|Committer| +8 |
 
 ### Top Contributors
