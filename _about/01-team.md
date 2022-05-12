@@ -60,6 +60,7 @@ The following is a list of developers with commit privileges that have directly 
 |![write2me](/assets/images/about/write2me.jpeg)|Arthur Liang| [@speak2me](https://github.com/speak2me)|write2me@apache.org|Committer| +8 |
 |![caigy](/assets/images/about/caigy.jpg)|caigy| [@caigy](https://github.com/caigy)|caigy@apache.org|Committer| +8 |
 |![cserwen](/assets/images/about/cserwen.jpeg)|cserwen| [@cserwen](https://github.com/cserwen)|cserwen@apache.org|Committer| +8 |
+|![sunhangda](/assets/images/about/sunhangda.jpg)|lwclover| [@lwclover](https://github.com/lwclover)|lwclover@apache.org|Committer| +8 |
 
 ### Top Contributors
 
