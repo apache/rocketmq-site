@@ -70,5 +70,5 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |:---|:---|:---|:---|:---|:---|
 |![siyue](/assets/images/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/assets/images/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
-
+|![hzh0425](/assets/images/about/hzh0425.jpg)|Zhangheng huang| [@hzh0425](https://github.com/hzh0425) |642256541@qq.com|Contributor| +8 |
 
