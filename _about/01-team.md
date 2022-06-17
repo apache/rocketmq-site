@@ -61,7 +61,7 @@ The following is a list of developers with commit privileges that have directly 
 |![caigy](/assets/images/about/caigy.jpg)|caigy| [@caigy](https://github.com/caigy)|caigy@apache.org|Committer| +8 |
 |![cserwen](/assets/images/about/cserwen.jpeg)|cserwen| [@cserwen](https://github.com/cserwen)|cserwen@apache.org|Committer| +8 |
 |![sunhangda](/assets/images/about/sunhangda.jpg)|lwclover| [@lwclover](https://github.com/lwclover)|lwclover@apache.org|Committer| +8 |
-
+|![karp](/assets/images/about/karp.jpg)|karp| [@Ni Ze](https://github.com/ni-ze)|karp@apache.org|Committer| +8 |
 ### Top Contributors
 
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
