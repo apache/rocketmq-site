@@ -62,6 +62,7 @@ The following is a list of developers with commit privileges that have directly 
 |![cserwen](/assets/images/about/cserwen.jpeg)|cserwen| [@cserwen](https://github.com/cserwen)|cserwen@apache.org|Committer| +8 |
 |![sunhangda](/assets/images/about/sunhangda.jpg)|lwclover| [@lwclover](https://github.com/lwclover)|lwclover@apache.org|Committer| +8 |
 |![karp](/assets/images/about/karp.jpg)|karp| [@Ni Ze](https://github.com/ni-ze)|karp@apache.org|Committer| +8 |
+|![Aaron Ai](/assets/images/about/aaronai.png)|Aaron Ai| [@aaron-ai](https://github.com/aaron-ai)|aaronai@apache.org|Committer| +8 |
 
 ### Top Contributors
 
