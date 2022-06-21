@@ -1,39 +1,48 @@
-# Apache RocketMQ website
-[![Build Status](https://travis-ci.com/apache/rocketmq-site.svg?branch=master)](https://travis-ci.com/apache/rocketmq-site)
+# Website
 
-This is the website for [Apache RocketMQ](	http://rocketmq.apache.org/).
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## About
-This website is based on Jekyll and a Jekyll theme named Minimal Mistakes.
+### Installation
 
-## Prerequisite
-1. Ruby
-2. Gem
+```
+$ yarn
+```
 
-## Install & Run
-1. gem install jekyll bundler
-2. git clone this repo
-3. cd rocketmq-site
-4. bundle install
-5. bundle exec jekyll serve
+### Local Development
 
-## Deploy to asf-site
-1. Checkout branch asf-site and merge the changes:`git merge origin/master`
-2. Generate the site to content directory: `bundle exec jekyll build`
-3. Check the changes and commit.
-4. Push asf-site to remote branch.
+```
+$ yarn start
+```
 
-## Questions
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+```
+$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+
+
+## Q&A
 
 ### How to post articles to **Documentation**?
-Create a .md file in rocketmq-sites/_docs/, Jekyll will finish the rest of the work.
 
-Please refer to **01-quick-start-guide.md** for more details.
+Create a .md file in rocketmq-docs/docs/, alter the siderbar.js file about your new post and its corresponding category
 
 ### How to post articles to **Blog**?
-Create a .md file in rocketmq-sites/_posts/, Jekyll will finish the rest of the work.
 
-Please refer to **2016-12-23-mastering-component-compatible-dependency.md** for more details.
+Create a .md file in rocketmq-docs/posts/
 
 ### How to modify the navigation?
-Please refer to **_data/navigation.yml** for more details. 
+
