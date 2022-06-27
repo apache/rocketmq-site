@@ -30,7 +30,7 @@ Now execute the following commands to unpack 4.9.4 source release and build the 
 
 ```shell
   > unzip rocketmq-all-4.9.4-source-release.zip
-  > cd rocketmq-all-4.9.4/
+  > cd rocketmq-all-4.9.4-source-release/
   > mvn -Prelease-all -DskipTests clean install -U
   > cd distribution/target/rocketmq-4.9.4/rocketmq-4.9.4
 ```
