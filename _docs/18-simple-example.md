@@ -20,14 +20,14 @@ maven:
     <dependency>
         <groupId>org.apache.rocketmq</groupId>
         <artifactId>rocketmq-client</artifactId>
-        <version>4.9.3</version>
+        <version>4.9.4</version>
     </dependency>
 ```
 
 gradle:
 
 ```java
-compile 'org.apache.rocketmq:rocketmq-client:4.9.3'
+compile 'org.apache.rocketmq:rocketmq-client:4.9.4'
 ```
 
 #### 2.1 Send Messages Synchronously
