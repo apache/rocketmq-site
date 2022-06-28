@@ -1,10 +1,6 @@
----
-title: "贡献指南"
-permalink: /docs/how-to-contribute/
-modified: 2022-6-28T21:15:00-20:00
----
+# how-to-contribute
 
-Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入。
+Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入
 
 社区交流和贡献方式：
 
@@ -14,12 +10,12 @@ Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入。
 - 参与邮件列表上的讨论
 - 贡献代码或文档
 - 优化网站
-- 或测试候选版本
+- 或测试预发布版本
 
 
 ## 提出问题！
 
-Apache RocketMQ 随时待命，致力于解决您的问题。 您可以通过 [user mailing list](https://rocketmq.apache.org/about/contact/) 和 [apache-rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) 进行提问。
+Apache RocketMQ 社区提供完备的处理流程帮您解答问题。 您可以通过 [user mailing list](https://rocketmq.apache.org/about/contact/) 和 [apache-rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) 进行提问
 
 ## 提交错误报告
 
@@ -33,30 +29,30 @@ Apache RocketMQ 随时待命，致力于解决您的问题。 您可以通过 [u
 * 根据您的需求评估投入成本和设计解决方案
 * 便于社区围绕该提案展开建设性的讨论
 
-若您计划实现自己的提案以贡献社区，同样需要提供详细描述信息，并遵循 [code-guidelines](/docs/30code-guidelines)  中的编码规范
+若您计划实现自己的提案以贡献社区，同样需要提供详细描述信息，并遵循 [code-guidelines](/docs/30code-guidelines) 中的编码规范
 
-我们推荐先在社区达成共识而后再着手实现功能。通过讨论新特性的必要性及实现方案等问题，可以早发现超出项目范围的提案。
+我们推荐先在社区达成共识而后着手实现功能。通过讨论新特性的必要性及实现方案等问题，可以早发现超出项目范围的提案。
 
 ## 参与讨论并帮助他人
 
-Apache RocketMQ 社区成员主要通过以下两种邮件沟通和交流:
+Apache RocketMQ 社区成员主要通过以下两种邮件沟通和交流：
 
 *  [user mailing lists](mailto:users@rocketmq.apache.org) ：Apache RocketMQ 用户 通过该邮件列表提问以寻求帮助或建议。您可以通过订阅该邮件系统以帮助他人解决问题来贡献社区。此外, 您还可以在 Stack Overflow 上检索 [rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) tag 回答用户的问题并获取更多见解。
-*  [development mailing list](mailto:dev@rocketmq.apache.org) : Apache RocketMQ 开发者 通过该邮件列表交流新特性，即将发布的版本，一般的开发流程等。若您热衷于为 RocketMQ 社区贡献代码，可以加入该邮件列表。
+*  [development mailing list](mailto:dev@rocketmq.apache.org) : Apache RocketMQ 开发者 通过该邮件列表交流新特性，预发布版本，一般的开发流程等。若您热衷于为 RocketMQ 社区贡献代码，可以加入该邮件列表。
 
 
 您也可以通过订阅 [mailing lists](/about/contact)，获取更多的社区信息。
 
 
-## 测试候选版本
+## 测试预发布版本
 
 Apache RocketMQ 在其活跃社区的推动下持续发展着。每隔几周我们会发布 RocketMQ 的新版本，以修复漏洞，提升性能，新增特性等。发布新版本的流程如下：
 
-1. 推出新的候选版本并启动投票流程（时效 72 小时）
-2. 测试候选版本并评分 (+1 未发现问题, -1 测试出问题)
-3. 若候选版本未测试出问题则发布，否则回到步骤 1
+1. 推出新的预发布版本并启动投票流程（时效 72 小时）
+2. 测试预发布版本并评分 (+1 未发现问题, -1 测试出问题)
+3. 若预发布版本未测试出问题则发布，否则回到步骤 1
 
-我们在网站上整理了 [release-manual](/docs/32release-manual)版本发布指针。测试发行版是项大工程，我们需要吸纳更多人的参与。 RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试候选版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
+我们在网站上整理了 [release-manual](/docs/32release-manual) 版本发布指南。测试预发行版是项大工程，我们需要吸纳更多人的参与。 RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发布版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
 
 ## 贡献代码
 
@@ -76,7 +72,7 @@ Apache RocketMQ 已然并将持续进行维护，优化，和扩展。因此 Apa
 优秀的说明文档对任何一种软件都是至关重要的。 Apache RocketMQ 社区致力于提供简明，精准，完备的技术文档。社区诚挚邀请所有贡献参与完善和改进 RocketMQ 文档。
 
 * 请在 [Github issue](https://github.com/apache/rocketmq/issues)上报告文档缺失，错误，过期等相关情况
-* RocketMQ 技术文档以 Markdown 形式书写并放在 RocketMQ [site source code repository](https://github.com/apache/rocketmq-site/tree/new-official-website/)仓库 ```/docs``` 目录下。
+* RocketMQ 技术文档以 Markdown 形式书写，并存放在 RocketMQ [site source code repository](https://github.com/apache/rocketmq-site/tree/new-official-website/)仓库 ```/docs``` 目录下。
 
 阅读 [Q&A](https://github.com/apache/rocketmq-site/tree/new-official-website)了解如何通过更新和完善等方式贡献文档。
 
@@ -109,16 +105,12 @@ Committers 是社区中修改项目仓库的成员，可修改代码，文档和
 
 成为 commiter 并没有严格的协议，候选人通常是社区中活跃的贡献者
 
-活跃的贡献者意味着：参加邮箱列表中的讨论，帮助他人解决问题，验证候选版本，礼贤下士并精英化社区管理，这部分关乎社区在 Apache 中的发展。
+活跃的贡献者意味着：参加邮箱列表中的讨论，帮助他人解决问题，验证预发布版本，礼贤下士并持续优化社区管理，这部分关乎社区在 Apache 中的发展。
 
-无疑，为项目贡献代码和文档同样至关重要。好的开端可以是优化性能，开发新特性，修复漏洞。无论哪种方式您需要为所贡献的代码负责，提供测试用例和说明文档并持续维护。
+无疑，为项目贡献代码和文档同样至关重要。好的开端可以是优化性能，开发新特性，修复漏洞。无论哪种方式，您需要为所贡献的代码负责，提供测试用例和说明文档并持续维护。
 
 候选人可以被社区内的 committer 或 PMC 成员举荐，并最终由 PMC 投票表决。
 
-如您有意成为 RocketMQ 社区的 committer ，请积极融入社区并以上述任意方式贡献 Apache RocketMQ ，社区的 committer 成员会非常热衷与您分享交流并给予您适时的建议和指导。
+如您有意成为 RocketMQ 社区的 committer ，请积极融入社区并以上述任意方式贡献 Apache RocketMQ  
 
-## 参考
-
-本文参考自 Apcahe Flink 贡献指南[1].
-
-[1]. [Apache Flink: How To Contribute](https://flink.apache.org/contributing/how-to-contribute.html)
+社区内 committer 成员会非常热衷与您分享交流，并给予您适时的建议和指导。
