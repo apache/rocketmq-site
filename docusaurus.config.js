@@ -56,19 +56,27 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: 'R2IYF7ETH7',
+        apiKey: '599cec31baffa4868cae4e79f180729b',
+        indexName: 'docsearch',
+      },
       navbar: {
+        title: 'RocketMQ',
+        hideOnScroll: true,
         logo: {
           alt: 'My Site Logo',
           src: 'img/Apache_RocketMQ_logo.svg.png',
+
         },
         items: [
           {to: '/docs', label: '文档', position: 'right'},
           {to: '/blog', label: '博客', position: 'right'},
-          {
-            href: 'https://github.com/apache/rocketmq',
-            label: 'GitHub',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://github.com/apache/rocketmq',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
           {to: '/download', label: '下载', position: 'right'},
           {to: '/download', label: '社区', position: 'right'},
           //  {
@@ -120,6 +128,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               {
                 label: '博客',
                 to: '/blog',
+              },
+              {
+                label: 'Changelog',
+                href: 'https://github.com/apache/rocketmq',
               },
               {
                 label: 'GitHub',

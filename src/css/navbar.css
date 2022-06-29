@@ -10,9 +10,10 @@ html[data-theme=dark] {
 .navbar {
     background-color: #0c0c2c;
     text-align: left;
-    padding: 0 0;
-    height: 60px;
+    padding: auto 0px auto 0px!important;
+    height: var(--ifm-navbar-height);
     font-size: medium;
+    display: flex;
 }
 
 .navbar__items--right {
@@ -83,4 +84,9 @@ body .react-toggle-track-x {
 body .react-toggle-thumb {
     top: 4px;
     left: 3px;
+}
+
+.navbar__logo{
+    width: 35px!important;
+    height: 40px!important;
 }

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "21subscribe",
+  "id": "21subscribe",
+  "isDocsHomePage": false,
+  "title": "订阅关系一致",
+  "description": "",
+  "source": "@site/docs/21subscribe.md",
+  "sourceDirName": ".",
+  "slug": "/21subscribe",
+  "permalink": "/docs/21subscribe",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/21subscribe.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "日志配置",
+    "permalink": "/docs/20log"
+  },
+  "next": {
+    "title": "常见问题解答",
+    "permalink": "/docs/22FAQ"
+  }
+}

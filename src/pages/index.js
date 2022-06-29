@@ -8,6 +8,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Link from "@docusaurus/Link";
 import LogoCarousel from "./components/LogoCarousel";
 import Feature from "./components/Feature";
+import Community from "./components/Community";
 import Section from "./components/Section";
 import Highlight from "./components/Highlight";
 
@@ -34,6 +35,24 @@ function Home() {
           <p className="hero__subtitle">
             致力打造金融级高可靠、高性能、低延迟的消息中间件服务，伴随云原生时代的到来，新一代5.0版本应运而生。
           </p>
+          <div className={styles.social}>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=star&count=true&size=large"
+              width="170"
+              height="30"
+              frameBorder="0"
+              scrolling="0"
+            ></iframe>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=fork&count=true&size=large"
+              frameBorder="0"
+              scrolling="0"
+              width="170"
+              height="30"
+              title="GitHub"
+            ></iframe>
+          </div>
+
           <div className={styles.buttons}>
             <Link
               className={clsx(
@@ -53,8 +72,8 @@ function Home() {
             >
               RocketMQ 5.0 速览
             </Link>
-          
-            <Link
+
+            {/* <Link
               to="/blog/tags/用户案例"
               className={clsx(
                 "button button--outline button--secondary button--lg",
@@ -62,7 +81,7 @@ function Home() {
               )}
             >
               用户案例
-            </Link>
+            </Link> */}
           </div>
         </div>
       </header>
@@ -84,7 +103,7 @@ function Home() {
               </>
             }
             link="了解更多"
-            url = "/docs/03whatis"
+            url="/docs/03whatis"
           />
           <Highlight
             img={
@@ -104,7 +123,7 @@ function Home() {
             link="用户案例"
             url="/blog/tags/用户案例"
           />
-         
+
           <Highlight
             img={
               <iframe
@@ -112,10 +131,11 @@ function Home() {
                 height="315"
                 src="https://player.bilibili.com/player.html?aid=547473448&bvid=BV1bq4y1M71y&cid=393522883&page=1"
                 scrolling="no"
-                border="0" frameborder="no" framespacing="0"
-                allowfullscreen="true"
+                border="0"
+                frameBorder="no"
+                framespacing="0"
+                // allowFullScreen="true"
               />
-              
             }
             reversed
             title="RocketMQ发布5.0版本包括：全新的消费模型，服务端负载均衡，无损弹性扩缩，可分可合的存储计算分离等"
@@ -127,32 +147,25 @@ function Home() {
                 </p>
               </>
             }
-            link="Rocket 5.0 速览"
+            link="RocketMQ 5.0 速览"
             url="/docs/32release-manual"
           />
-          
 
           <Section>
-          
             <LogoCarousel logos={logos}></LogoCarousel>
-          
           </Section>
         </Section>
 
-
-{/* 
-        {features && features.length > 0 && (
-          <Section isDark>
-            {features.map((props, idx) => (
-              <Feature key={idx} {...props} />
-            ))}
-          </Section>
-        )} */}
-
-
-
-
-
+        <Community />
+        <div className="layer1">
+        <div className="layer2">
+        <iframe
+          src="https://rili.wps.cn/c/g_FXdo85IT?f=01"
+          width="1000"
+        height="600"
+        ></iframe>
+         </div> 
+         </div>
       </main>
     </Layout>
   );

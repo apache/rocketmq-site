@@ -50,15 +50,23 @@
     margin-top: 20px;
 }
 
+
 @media (max-width: 650px) {
     .buttons > a {
-        margin: 10px 5px;
+        margin: 10px 10px;
     }
 
     .frameworkLogos img {
         height: 45px;
     }
 }
+@media (max-width: 800px) {
+
+    .frameworkLogos img {
+        height: 45px;
+    }
+}
+
 
 .tweetBtn {
     position: relative;

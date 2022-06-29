@@ -1,0 +1,24 @@
+{
+  "unversionedId": "20log",
+  "id": "20log",
+  "isDocsHomePage": false,
+  "title": "日志配置",
+  "description": "",
+  "source": "@site/docs/20log.md",
+  "sourceDirName": ".",
+  "slug": "/20log",
+  "permalink": "/docs/20log",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/20log.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "JVM/OS配置",
+    "permalink": "/docs/19JVMOS"
+  },
+  "next": {
+    "title": "订阅关系一致",
+    "permalink": "/docs/21subscribe"
+  }
+}

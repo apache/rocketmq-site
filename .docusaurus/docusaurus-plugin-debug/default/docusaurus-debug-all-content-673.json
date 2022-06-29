@@ -1,0 +1,1099 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/docs",
+          "tagsPath": "/docs/tags",
+          "versionEditUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs",
+          "versionEditUrlLocalized": "https://github.com/facebook/docusaurus/edit/main/website/i18n/en/docusaurus-plugin-content-docs/current",
+          "versionBanner": null,
+          "versionBadge": false,
+          "versionClassName": "docs-version-current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/rhuen/Documents/Documents - Rhuen’s MacBook Pro/04 github/rocketmq-docs/rocketmq-site/sidebars.js",
+          "contentPath": "/Users/rhuen/Documents/Documents - Rhuen’s MacBook Pro/04 github/rocketmq-docs/rocketmq-site/docs",
+          "contentPathLocalized": "/Users/rhuen/Documents/Documents - Rhuen’s MacBook Pro/04 github/rocketmq-docs/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current",
+          "mainDocId": "01whychoose",
+          "sidebars": {
+            "docs": [
+              {
+                "type": "category",
+                "label": "介绍",
+                "collapsible": true,
+                "collapsed": false,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "01whychoose"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "02quickstart"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "03whatis"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "生产者",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "04concept1"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "05message1"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "06message2"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "07message3"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "08message4"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "09message5"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "10message6"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "消费者",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "11concept2"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "12push"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "13pull"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "14pop"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "部署与运维",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "15deploy"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "16admintool"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "16admintool"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "17Dashboard"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "18Exporter"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "最佳实践",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "19JVMOS"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "20log"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "21subscribe"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "22FAQ"
+                  }
+                ]
+              },
+              {
+                "type": "category",
+                "label": "参数配置",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "23local"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "24server"
+                  }
+                ]
+              },
+              {
+                "type": "doc",
+                "id": "25streams"
+              },
+              {
+                "type": "doc",
+                "id": "26Connnect"
+              },
+              {
+                "type": "doc",
+                "id": "27EventBridge"
+              },
+              {
+                "type": "doc",
+                "id": "28MQTT"
+              },
+              {
+                "type": "category",
+                "label": "贡献指南",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "29how-to-contribute"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "30code-guidelines"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "31pull-request"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "32release-manual"
+                  }
+                ]
+              }
+            ]
+          },
+          "docs": [
+            {
+              "unversionedId": "01whychoose",
+              "id": "01whychoose",
+              "isDocsHomePage": false,
+              "title": "为什么选择RocketMQ",
+              "description": "动机",
+              "source": "@site/docs/01whychoose.md",
+              "sourceDirName": ".",
+              "slug": "/",
+              "permalink": "/docs/",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/01whychoose.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "slug": "/"
+              },
+              "sidebar": "docs",
+              "next": {
+                "title": "快速开始",
+                "permalink": "/docs/02quickstart"
+              }
+            },
+            {
+              "unversionedId": "02quickstart",
+              "id": "02quickstart",
+              "isDocsHomePage": false,
+              "title": "快速开始",
+              "description": "",
+              "source": "@site/docs/02quickstart.md",
+              "sourceDirName": ".",
+              "slug": "/02quickstart",
+              "permalink": "/docs/02quickstart",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/02quickstart.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "为什么选择RocketMQ",
+                "permalink": "/docs/"
+              },
+              "next": {
+                "title": "初识RocketMQ",
+                "permalink": "/docs/03whatis"
+              }
+            },
+            {
+              "unversionedId": "03whatis",
+              "id": "03whatis",
+              "isDocsHomePage": false,
+              "title": "初识RocketMQ",
+              "description": "",
+              "source": "@site/docs/03whatis.md",
+              "sourceDirName": ".",
+              "slug": "/03whatis",
+              "permalink": "/docs/03whatis",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/03whatis.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "快速开始",
+                "permalink": "/docs/02quickstart"
+              },
+              "next": {
+                "title": "基本概念",
+                "permalink": "/docs/04concept1"
+              }
+            },
+            {
+              "unversionedId": "04concept1",
+              "id": "04concept1",
+              "isDocsHomePage": false,
+              "title": "基本概念",
+              "description": "",
+              "source": "@site/docs/04concept1.md",
+              "sourceDirName": ".",
+              "slug": "/04concept1",
+              "permalink": "/docs/04concept1",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/04concept1.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "初识RocketMQ",
+                "permalink": "/docs/03whatis"
+              },
+              "next": {
+                "title": "普通消息发送",
+                "permalink": "/docs/05message1"
+              }
+            },
+            {
+              "unversionedId": "05message1",
+              "id": "05message1",
+              "isDocsHomePage": false,
+              "title": "普通消息发送",
+              "description": "",
+              "source": "@site/docs/05message1.md",
+              "sourceDirName": ".",
+              "slug": "/05message1",
+              "permalink": "/docs/05message1",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/05message1.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "基本概念",
+                "permalink": "/docs/04concept1"
+              },
+              "next": {
+                "title": "顺序消息发送",
+                "permalink": "/docs/06message2"
+              }
+            },
+            {
+              "unversionedId": "06message2",
+              "id": "06message2",
+              "isDocsHomePage": false,
+              "title": "顺序消息发送",
+              "description": "",
+              "source": "@site/docs/06message2.md",
+              "sourceDirName": ".",
+              "slug": "/06message2",
+              "permalink": "/docs/06message2",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/06message2.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "普通消息发送",
+                "permalink": "/docs/05message1"
+              },
+              "next": {
+                "title": "定时消息发送",
+                "permalink": "/docs/07message3"
+              }
+            },
+            {
+              "unversionedId": "07message3",
+              "id": "07message3",
+              "isDocsHomePage": false,
+              "title": "定时消息发送",
+              "description": "",
+              "source": "@site/docs/07message3.md",
+              "sourceDirName": ".",
+              "slug": "/07message3",
+              "permalink": "/docs/07message3",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/07message3.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "顺序消息发送",
+                "permalink": "/docs/06message2"
+              },
+              "next": {
+                "title": "批量消息发送",
+                "permalink": "/docs/08message4"
+              }
+            },
+            {
+              "unversionedId": "08message4",
+              "id": "08message4",
+              "isDocsHomePage": false,
+              "title": "批量消息发送",
+              "description": "",
+              "source": "@site/docs/08message4.md",
+              "sourceDirName": ".",
+              "slug": "/08message4",
+              "permalink": "/docs/08message4",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/08message4.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "定时消息发送",
+                "permalink": "/docs/07message3"
+              },
+              "next": {
+                "title": "事务消息发送",
+                "permalink": "/docs/09message5"
+              }
+            },
+            {
+              "unversionedId": "09message5",
+              "id": "09message5",
+              "isDocsHomePage": false,
+              "title": "事务消息发送",
+              "description": "",
+              "source": "@site/docs/09message5.md",
+              "sourceDirName": ".",
+              "slug": "/09message5",
+              "permalink": "/docs/09message5",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/09message5.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "批量消息发送",
+                "permalink": "/docs/08message4"
+              },
+              "next": {
+                "title": "Topic手动创建和恣纵创建",
+                "permalink": "/docs/10message6"
+              }
+            },
+            {
+              "unversionedId": "10message6",
+              "id": "10message6",
+              "isDocsHomePage": false,
+              "title": "Topic手动创建和恣纵创建",
+              "description": "",
+              "source": "@site/docs/10message6.md",
+              "sourceDirName": ".",
+              "slug": "/10message6",
+              "permalink": "/docs/10message6",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/10message6.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "事务消息发送",
+                "permalink": "/docs/09message5"
+              },
+              "next": {
+                "title": "基础概念",
+                "permalink": "/docs/11concept2"
+              }
+            },
+            {
+              "unversionedId": "11concept2",
+              "id": "11concept2",
+              "isDocsHomePage": false,
+              "title": "基础概念",
+              "description": "",
+              "source": "@site/docs/11concept2.md",
+              "sourceDirName": ".",
+              "slug": "/11concept2",
+              "permalink": "/docs/11concept2",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/11concept2.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "Topic手动创建和恣纵创建",
+                "permalink": "/docs/10message6"
+              },
+              "next": {
+                "title": "Push消费",
+                "permalink": "/docs/12push"
+              }
+            },
+            {
+              "unversionedId": "12push",
+              "id": "12push",
+              "isDocsHomePage": false,
+              "title": "Push消费",
+              "description": "",
+              "source": "@site/docs/12push.md",
+              "sourceDirName": ".",
+              "slug": "/12push",
+              "permalink": "/docs/12push",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/12push.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "基础概念",
+                "permalink": "/docs/11concept2"
+              },
+              "next": {
+                "title": "Pull消费",
+                "permalink": "/docs/13pull"
+              }
+            },
+            {
+              "unversionedId": "13pull",
+              "id": "13pull",
+              "isDocsHomePage": false,
+              "title": "Pull消费",
+              "description": "",
+              "source": "@site/docs/13pull.md",
+              "sourceDirName": ".",
+              "slug": "/13pull",
+              "permalink": "/docs/13pull",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/13pull.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "Push消费",
+                "permalink": "/docs/12push"
+              },
+              "next": {
+                "title": "Pop消费",
+                "permalink": "/docs/14pop"
+              }
+            },
+            {
+              "unversionedId": "14pop",
+              "id": "14pop",
+              "isDocsHomePage": false,
+              "title": "Pop消费",
+              "description": "",
+              "source": "@site/docs/14pop.md",
+              "sourceDirName": ".",
+              "slug": "/14pop",
+              "permalink": "/docs/14pop",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/14pop.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "Pull消费",
+                "permalink": "/docs/13pull"
+              },
+              "next": {
+                "title": "部署方式",
+                "permalink": "/docs/15deploy"
+              }
+            },
+            {
+              "unversionedId": "15deploy",
+              "id": "15deploy",
+              "isDocsHomePage": false,
+              "title": "部署方式",
+              "description": "",
+              "source": "@site/docs/15deploy.md",
+              "sourceDirName": ".",
+              "slug": "/15deploy",
+              "permalink": "/docs/15deploy",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/15deploy.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "Pop消费",
+                "permalink": "/docs/14pop"
+              },
+              "next": {
+                "title": "Admin tool工具",
+                "permalink": "/docs/16admintool"
+              }
+            },
+            {
+              "unversionedId": "16admintool",
+              "id": "16admintool",
+              "isDocsHomePage": false,
+              "title": "Admin tool工具",
+              "description": "",
+              "source": "@site/docs/16admintool.md",
+              "sourceDirName": ".",
+              "slug": "/16admintool",
+              "permalink": "/docs/16admintool",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/16admintool.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "部署方式",
+                "permalink": "/docs/15deploy"
+              },
+              "next": {
+                "title": "Admin tool工具",
+                "permalink": "/docs/16admintool"
+              }
+            },
+            {
+              "unversionedId": "17Dashboard",
+              "id": "17Dashboard",
+              "isDocsHomePage": false,
+              "title": "RocketMQ Dashboard",
+              "description": "",
+              "source": "@site/docs/17Dashboard.md",
+              "sourceDirName": ".",
+              "slug": "/17Dashboard",
+              "permalink": "/docs/17Dashboard",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/17Dashboard.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "Admin tool工具",
+                "permalink": "/docs/16admintool"
+              },
+              "next": {
+                "title": "RocketMQ Promethus Exporter",
+                "permalink": "/docs/18Exporter"
+              }
+            },
+            {
+              "unversionedId": "18Exporter",
+              "id": "18Exporter",
+              "isDocsHomePage": false,
+              "title": "RocketMQ Promethus Exporter",
+              "description": "",
+              "source": "@site/docs/18Exporter.md",
+              "sourceDirName": ".",
+              "slug": "/18Exporter",
+              "permalink": "/docs/18Exporter",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/18Exporter.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "RocketMQ Dashboard",
+                "permalink": "/docs/17Dashboard"
+              },
+              "next": {
+                "title": "JVM/OS配置",
+                "permalink": "/docs/19JVMOS"
+              }
+            },
+            {
+              "unversionedId": "19JVMOS",
+              "id": "19JVMOS",
+              "isDocsHomePage": false,
+              "title": "JVM/OS配置",
+              "description": "",
+              "source": "@site/docs/19JVMOS.md",
+              "sourceDirName": ".",
+              "slug": "/19JVMOS",
+              "permalink": "/docs/19JVMOS",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/19JVMOS.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "RocketMQ Promethus Exporter",
+                "permalink": "/docs/18Exporter"
+              },
+              "next": {
+                "title": "日志配置",
+                "permalink": "/docs/20log"
+              }
+            },
+            {
+              "unversionedId": "20log",
+              "id": "20log",
+              "isDocsHomePage": false,
+              "title": "日志配置",
+              "description": "",
+              "source": "@site/docs/20log.md",
+              "sourceDirName": ".",
+              "slug": "/20log",
+              "permalink": "/docs/20log",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/20log.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "JVM/OS配置",
+                "permalink": "/docs/19JVMOS"
+              },
+              "next": {
+                "title": "订阅关系一致",
+                "permalink": "/docs/21subscribe"
+              }
+            },
+            {
+              "unversionedId": "21subscribe",
+              "id": "21subscribe",
+              "isDocsHomePage": false,
+              "title": "订阅关系一致",
+              "description": "",
+              "source": "@site/docs/21subscribe.md",
+              "sourceDirName": ".",
+              "slug": "/21subscribe",
+              "permalink": "/docs/21subscribe",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/21subscribe.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "日志配置",
+                "permalink": "/docs/20log"
+              },
+              "next": {
+                "title": "常见问题解答",
+                "permalink": "/docs/22FAQ"
+              }
+            },
+            {
+              "unversionedId": "22FAQ",
+              "id": "22FAQ",
+              "isDocsHomePage": false,
+              "title": "常见问题解答",
+              "description": "",
+              "source": "@site/docs/22FAQ.md",
+              "sourceDirName": ".",
+              "slug": "/22FAQ",
+              "permalink": "/docs/22FAQ",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/22FAQ.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "订阅关系一致",
+                "permalink": "/docs/21subscribe"
+              },
+              "next": {
+                "title": "23local",
+                "permalink": "/docs/23local"
+              }
+            },
+            {
+              "unversionedId": "23local",
+              "id": "23local",
+              "isDocsHomePage": false,
+              "title": "23local",
+              "description": "",
+              "source": "@site/docs/23local.md",
+              "sourceDirName": ".",
+              "slug": "/23local",
+              "permalink": "/docs/23local",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/23local.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "常见问题解答",
+                "permalink": "/docs/22FAQ"
+              },
+              "next": {
+                "title": "服务端配置",
+                "permalink": "/docs/24server"
+              }
+            },
+            {
+              "unversionedId": "24server",
+              "id": "24server",
+              "isDocsHomePage": false,
+              "title": "服务端配置",
+              "description": "",
+              "source": "@site/docs/24server.md",
+              "sourceDirName": ".",
+              "slug": "/24server",
+              "permalink": "/docs/24server",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/24server.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "23local",
+                "permalink": "/docs/23local"
+              },
+              "next": {
+                "title": "RocketMQ Streams",
+                "permalink": "/docs/25streams"
+              }
+            },
+            {
+              "unversionedId": "25streams",
+              "id": "25streams",
+              "isDocsHomePage": false,
+              "title": "RocketMQ Streams",
+              "description": "",
+              "source": "@site/docs/25streams.md",
+              "sourceDirName": ".",
+              "slug": "/25streams",
+              "permalink": "/docs/25streams",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/25streams.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "服务端配置",
+                "permalink": "/docs/24server"
+              },
+              "next": {
+                "title": "RocketMQ Connnect",
+                "permalink": "/docs/26Connnect"
+              }
+            },
+            {
+              "unversionedId": "26Connnect",
+              "id": "26Connnect",
+              "isDocsHomePage": false,
+              "title": "RocketMQ Connnect",
+              "description": "",
+              "source": "@site/docs/26Connnect.md",
+              "sourceDirName": ".",
+              "slug": "/26Connnect",
+              "permalink": "/docs/26Connnect",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/26Connnect.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "RocketMQ Streams",
+                "permalink": "/docs/25streams"
+              },
+              "next": {
+                "title": "EventBridge",
+                "permalink": "/docs/27EventBridge"
+              }
+            },
+            {
+              "unversionedId": "27EventBridge",
+              "id": "27EventBridge",
+              "isDocsHomePage": false,
+              "title": "EventBridge",
+              "description": "",
+              "source": "@site/docs/27EventBridge.md",
+              "sourceDirName": ".",
+              "slug": "/27EventBridge",
+              "permalink": "/docs/27EventBridge",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/27EventBridge.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "RocketMQ Connnect",
+                "permalink": "/docs/26Connnect"
+              },
+              "next": {
+                "title": "RocketMQ MQTT",
+                "permalink": "/docs/28MQTT"
+              }
+            },
+            {
+              "unversionedId": "28MQTT",
+              "id": "28MQTT",
+              "isDocsHomePage": false,
+              "title": "RocketMQ MQTT",
+              "description": "",
+              "source": "@site/docs/28MQTT.md",
+              "sourceDirName": ".",
+              "slug": "/28MQTT",
+              "permalink": "/docs/28MQTT",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/28MQTT.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "EventBridge",
+                "permalink": "/docs/27EventBridge"
+              },
+              "next": {
+                "title": "how-to-contribute",
+                "permalink": "/docs/29how-to-contribute"
+              }
+            },
+            {
+              "unversionedId": "29how-to-contribute",
+              "id": "29how-to-contribute",
+              "isDocsHomePage": false,
+              "title": "how-to-contribute",
+              "description": "",
+              "source": "@site/docs/29how-to-contribute.md",
+              "sourceDirName": ".",
+              "slug": "/29how-to-contribute",
+              "permalink": "/docs/29how-to-contribute",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/29how-to-contribute.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "RocketMQ MQTT",
+                "permalink": "/docs/28MQTT"
+              },
+              "next": {
+                "title": "code-guidelines",
+                "permalink": "/docs/30code-guidelines"
+              }
+            },
+            {
+              "unversionedId": "30code-guidelines",
+              "id": "30code-guidelines",
+              "isDocsHomePage": false,
+              "title": "code-guidelines",
+              "description": "",
+              "source": "@site/docs/30code-guidelines.md",
+              "sourceDirName": ".",
+              "slug": "/30code-guidelines",
+              "permalink": "/docs/30code-guidelines",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/30code-guidelines.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "how-to-contribute",
+                "permalink": "/docs/29how-to-contribute"
+              },
+              "next": {
+                "title": "pull-request",
+                "permalink": "/docs/31pull-request"
+              }
+            },
+            {
+              "unversionedId": "31pull-request",
+              "id": "31pull-request",
+              "isDocsHomePage": false,
+              "title": "pull-request",
+              "description": "",
+              "source": "@site/docs/31pull-request.md",
+              "sourceDirName": ".",
+              "slug": "/31pull-request",
+              "permalink": "/docs/31pull-request",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/31pull-request.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "code-guidelines",
+                "permalink": "/docs/30code-guidelines"
+              },
+              "next": {
+                "title": "release-manual",
+                "permalink": "/docs/32release-manual"
+              }
+            },
+            {
+              "unversionedId": "32release-manual",
+              "id": "32release-manual",
+              "isDocsHomePage": false,
+              "title": "release-manual",
+              "description": "",
+              "source": "@site/docs/32release-manual.md",
+              "sourceDirName": ".",
+              "slug": "/32release-manual",
+              "permalink": "/docs/32release-manual",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/32release-manual.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "docs",
+              "previous": {
+                "title": "pull-request",
+                "permalink": "/docs/31pull-request"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogSidebarTitle": "All posts",
+      "blogPosts": [
+        {
+          "id": "xiaohongshu",
+          "metadata": {
+            "permalink": "/blog/xiaohongshu",
+            "source": "@site/blog/01xiaohongshu.md",
+            "title": "小红书消息中间件的运维实践与治理之路",
+            "description": "小红书消息中间件的运维实践与治理之路",
+            "date": "2022-06-21T15:45:26.155Z",
+            "formattedDate": "June 21, 2022",
+            "tags": [
+              {
+                "label": "用户案例",
+                "permalink": "/blog/tags/用户案例"
+              }
+            ],
+            "readingTime": 2.57,
+            "truncated": true,
+            "authors": []
+          }
+        }
+      ],
+      "blogListPaginated": [
+        {
+          "metadata": {
+            "permalink": "/blog",
+            "page": 1,
+            "postsPerPage": 1,
+            "totalPages": 1,
+            "totalCount": 1,
+            "previousPage": null,
+            "nextPage": null,
+            "blogDescription": "技术更新·线上下活动·用户案例",
+            "blogTitle": "RocketMQ 博客"
+          },
+          "items": [
+            "xiaohongshu"
+          ]
+        }
+      ],
+      "blogTags": {
+        "/blog/tags/用户案例": {
+          "name": "用户案例",
+          "items": [
+            "xiaohongshu"
+          ],
+          "permalink": "/blog/tags/用户案例"
+        }
+      },
+      "blogTagsListPath": "/blog/tags"
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "mdx",
+        "permalink": "/download",
+        "source": "@site/src/pages/download.md"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/versions",
+        "source": "@site/src/pages/versions.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/Community",
+        "source": "@site/src/pages/components/Community.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/Feature",
+        "source": "@site/src/pages/components/Feature.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/Highlight",
+        "source": "@site/src/pages/components/Highlight.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/Highlight2",
+        "source": "@site/src/pages/components/Highlight2.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/LogoCarousel",
+        "source": "@site/src/pages/components/LogoCarousel.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/Robot",
+        "source": "@site/src/pages/components/Robot.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/components/Section",
+        "source": "@site/src/pages/components/Section.js"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  },
+  "docusaurus-theme-search-algolia": {
+    "default": null
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "07message3",
+  "id": "07message3",
+  "isDocsHomePage": false,
+  "title": "定时消息发送",
+  "description": "",
+  "source": "@site/docs/07message3.md",
+  "sourceDirName": ".",
+  "slug": "/07message3",
+  "permalink": "/docs/07message3",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/07message3.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "顺序消息发送",
+    "permalink": "/docs/06message2"
+  },
+  "next": {
+    "title": "批量消息发送",
+    "permalink": "/docs/08message4"
+  }
+}
