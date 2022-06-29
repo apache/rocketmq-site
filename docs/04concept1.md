@@ -2,7 +2,7 @@
 
 ## 消息
 
-先介绍一下RocketMQ一些基本概念，首先是消息。如下图所示，RocketMQ消息构成非常简单。首先是topic，表示要发送的消息的主题，body表示消息的存储内容，properties表示消息属性，不管是RocketMQ的Tag过滤还是延迟消息等都会利用消息属性的能力，transactionId会在事务消息中使用。
+RocketMQ消息构成非常简单。如下图所示，首先是topic，表示要发送的消息的主题，body表示消息的存储内容，properties表示消息属性，不管是RocketMQ的Tag过滤还是延迟消息等都会利用消息属性的能力，transactionId会在事务消息中使用。
 
 ![Message](picture/Message.png)
 
