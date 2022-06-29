@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "./Highlight.module.css";
+// import styles from "./Highlight.module.css";
 
 export default function Community() {
   return (
