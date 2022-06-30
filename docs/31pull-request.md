@@ -80,7 +80,7 @@ git push origin new-official-website	# 推送 new-official-website 分支 至远
 
 base : apache/rocketmq，不能切换，除非你正在与列表中的 committers 协作？这里有点问题
 
-
+这里 head deatched 似乎不是哪个问题
 
 请先得到分支创建者的许可再提交PR，应该是合入的时候，或者说删掉这句话，因为 合并是 committer 做的
 
