@@ -13,3 +13,44 @@
     font-weight: 500;
     text-align: left;
 }
+@media screen and (max-width: 900px){
+    .webFeature{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        
+        
+    }
+    .mobileFeature h3{
+        font-weight: 600!important;
+        text-align: center!important;
+    }
+    .mobileFeature p{
+        text-align: center!important;
+        padding-bottom: 40px;
+        
+    }
+}
+
+@media screen and (max-width: 500px){
+    .mobileFeature{
+        line-height: 100%;
+    }
+    .mobileFeature h3{
+        font-size: 1.5rem!important;
+        max-width: 400px!important
+        
+    }
+    .mobileFeature p{
+       visibility: hidden;
+        
+    }
+}
+
+@media screen and (min-width: 900px){
+    .mobileFeature{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}

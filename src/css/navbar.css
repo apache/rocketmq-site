@@ -10,10 +10,9 @@ html[data-theme=dark] {
 .navbar {
     background-color: #0c0c2c;
     text-align: left;
-    padding: auto 0px auto 0px!important;
     height: var(--ifm-navbar-height);
     font-size: medium;
-    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .navbar__items--right {
@@ -21,8 +20,7 @@ html[data-theme=dark] {
 }
 
 .navbar .navbar__items > .navbar__brand {
-    height: 55px;
-    margin: 10px 10px 10px 25px;
+    height: 50px;
 }
 
 .navbar .navbar-sidebar .navbar__brand {

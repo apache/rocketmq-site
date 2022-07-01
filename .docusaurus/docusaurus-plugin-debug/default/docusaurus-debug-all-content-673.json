@@ -1062,13 +1062,13 @@
       },
       {
         "type": "jsx",
-        "permalink": "/components/Highlight",
-        "source": "@site/src/pages/components/Highlight.js"
+        "permalink": "/components/Hero",
+        "source": "@site/src/pages/components/Hero.js"
       },
       {
         "type": "jsx",
-        "permalink": "/components/Highlight2",
-        "source": "@site/src/pages/components/Highlight2.js"
+        "permalink": "/components/Highlight",
+        "source": "@site/src/pages/components/Highlight.js"
       },
       {
         "type": "jsx",

@@ -118,8 +118,7 @@ export default {
             }
           ]
         }
-      ],
-      "copyright": "Copyright © 2022 My Project, Inc. Built with Docusaurus."
+      ]
     },
     "prism": {
       "theme": {

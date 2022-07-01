@@ -1,88 +1,204 @@
 .companyUsage {
-    width: 100%;
+  width: 100%;
 }
 
 body .companyUsage h3 {
-    font-size: 1.1em;
-    font-weight: 900;
+  font-size: 1.1em;
+  font-weight: 900;
 }
 
 .logos {
-    overflow: hidden;
-    margin: 0 25px;
+  overflow: hidden;
+  margin: 12.5px 12.5px;
+  text-align: center;
 }
 
 .logos ul {
-    display: flex;
-    justify-content: space-around;
-    width: 3200px;
-    margin: 0;
-    transition: transform 1000ms ease;
+  display: flex;
+  justify-content: space-around;
+  width: 3200px;
+  margin: 0;
+  transition: transform 1000ms ease;
+}
+@media screen and (max-width: 1439px) {
+  .logo1 {
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
+  }
+
+  .logo2 {
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
+  }
+  .logo3 {
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
+  }
 }
 
 @media screen and (max-width: 1100px) {
-    .logos {
-        margin: 0;
-    }
-    .logos ul {
-        padding: 0;
-        width: 3000px;
-    }
-    .logos ul li {
-        min-width: 125px;
-    }
+  .logos {
+    margin: 0;
+  }
+  .logos ul {
+    /* padding: 0; */
+    width: 3000px;
+  }
+  .logos ul li {
+    min-width: 125px;
+  }
 }
-h3{
-    font-size: 2em !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    text-align: left !important;
-    
+@media screen and (max-width: 1290px) {
+  .logo4 {
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
+  }
+
+  .logo5 {
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
+  }
+  .logo6 {
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
+  }
+}
+@media screen and (max-width: 1167px) {
+    .logo7 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+  
+    .logo8 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+    .logo9 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  @media screen and (max-width: 1044px) {
+    .logo10 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+  
+    .logo11 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+    .logo12 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .logo13 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+  
+    .logo14 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+    .logo15 {
+      visibility: hidden !important;
+      width: 0;
+      height: 0;
+    }
+  }
+
+h3 {
+  font-size: 2em !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  text-align: left !important;
 }
 
 .logos ul li {
-    display: flex;
-    min-width: 150px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  min-width: 150px;
+  justify-content: center;
+  align-items: center;
 }
 .logos ul img {
-    transition: filter 200ms;
-    width: 100px;
+  transition: filter 200ms;
+  width: 100px;
 }
 
 .logos ul a {
-    background: none;
-    border: 0;
+  background: none;
+  border: 0;
 }
 
 .logoNavigation {
-    text-align: center;
+  text-align: center;
 }
 
 .button:focus {
-    outline: none;
+  outline: none;
 }
 
 .button::before {
-    content: "\2022";
-    color: var(--wdio-link-color);
-    font-size: 50px;
-    opacity: .25;
+  content: "\2022";
+  color: var(--wdio-link-color);
+  font-size: 50px;
+  opacity: 0.25;
 }
 
 .button.buttonActive::before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .button {
-    transition: opacity 200ms ease;
-    color: transparent;
-    border: 0;
-    background: 0;
-    cursor: pointer;
-    padding: 10px 10px 0 10px;
-    width: 30px;
-    line-height: 10px;
-    margin: 0 5px;
-    transform: translateY(20px);
+  transition: opacity 200ms ease;
+  color: transparent;
+  border: 0;
+  background: 0;
+  cursor: pointer;
+  padding: 10px 10px 0 10px;
+  width: 30px;
+  line-height: 10px;
+  margin: 0 5px;
+  transform: translateY(20px);
+}
+
+.logocontainer {
+  text-align: center;
+}
+.title {
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 0 auto 60px auto;
+  color: darkgrey;
+  font-size: large;
+}
+
+.buttondiv {
+  text-align: center !important;
+  margin-top: 60px;
+}
+.buttonlogo {
+  font-size: large;
 }
