@@ -72,19 +72,6 @@ export default {
       "style": "dark",
       "links": [
         {
-          "title": "资料",
-          "items": [
-            {
-              "label": "文档",
-              "to": "/docs"
-            },
-            {
-              "label": "视频",
-              "to": "/docs"
-            }
-          ]
-        },
-        {
           "title": "社区",
           "items": [
             {

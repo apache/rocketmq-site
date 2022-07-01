@@ -11,6 +11,9 @@
     .heroBanner {
         padding: 2rem;
     }
+    .heroBanner {
+        height: 130vh;
+    }
 }
 @media screen and (max-width: 680px) {
     .heroBanner {
@@ -59,9 +62,15 @@
 
 @media (max-width: 500px) {
 
+    .heroBanner{
+        height: 100vh;
+    }
+
+}
+@media (max-width: 400px) {
     .herotitle{
         font-size: 3.5rem;
-    } 
+    }
     .heroBanner{
         height: 100vh;
     }

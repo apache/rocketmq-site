@@ -25,6 +25,7 @@ function Home() {
       <main>
         <Section isDark>
          <Feature/>
+
          <div className="logosection">
           <Section>
             <LogoCarousel logos={logos}></LogoCarousel>

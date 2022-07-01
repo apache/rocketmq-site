@@ -91,20 +91,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       },
       footer: {
         style: 'dark',
+        // logo: {
+        //   alt: 'My Site Logo',
+        //   src: 'img/Apache_RocketMQ_logo.svg.png',
+
+        // },
         links: [
-          {
-            title: '资料',
-            items: [
-              {
-                label: '文档',
-                to: '/docs',
-              },
-              {
-                label: '视频',
-                to: '/docs',
-              },
-            ],
-          },
+          
           {
             title: '社区',
             items: [

@@ -11,7 +11,7 @@
   --ifm-color-primary-light: #3c5da3;
   --ifm-color-primary-lighter: #8aa4d2;
   --ifm-color-primary-lightest: #a3bbdc;
-  --ifm-navbar-link-hover-color: var(--ifm-color-primary);
+  --ifm-navbar-link-hover-color: #a3bbdc;
   --ifm-background-color: #ffffff;
   --ifm-code-font-size: 95%;
   --ifm-navbar-link-color: #ffffff;
@@ -35,6 +35,9 @@
   --wdio-dark-section-background-color: #efefef;
 }
 
+:root[data-theme="dark"]{
+  --ifm-color-primary: #939ae1;
+}
 html[data-theme="dark"] {
   --wdio-link-background-color: #201c1c;
   --wdio-link-color: #fff;
@@ -113,7 +116,7 @@ html[data-theme="dark"] {
 }
 .footer--dark {
   --ifm-footer-background-color: #0c0c2c;
-  --ifm-footer-padding-vertical: 85px;
+  --ifm-footer-padding-vertical: 100px;
 }
 .footer__copyright {
   font-size: 0.8em;
@@ -487,7 +490,7 @@ h1 {
   font-size: 1.5em !important;
 }
 .navbar__title:hover {
-    color: #53599a;
+    color: #a3bbdc;
   }
 
 .button {
@@ -508,9 +511,6 @@ h1 {
 
 }
 
-.col {
-  padding: 40px 40px !important;
-}
 
 [data-theme="light"] .DocSearch {
   /* --docsearch-primary-color: var(--ifm-color-primary); */
@@ -626,4 +626,7 @@ tbody td:hover:before {
 }
 
 
-  
+.col{
+  padding-left: 40px!important;
+  padding-top: 40px!important;
+}
