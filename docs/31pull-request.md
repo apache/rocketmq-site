@@ -103,7 +103,7 @@ git push origin new-official-website	# push to https://github.com/cuser/rocketmq
 
 ② 创建合并请求，点击 Contribute 下的 Open pull request
 
-![1656576385381](picture/31pull-request/3_open pull request.png)
+![1656576385381](picture/31pull-request/3_OpenPR.png)
 
 ③ compare across forks 选择请求分支和开发分支
 
@@ -130,11 +130,11 @@ head repository / compare : 开发仓库及开发分支
 
 ⑤ 点击 "Create pull request" ，请求合并该分支
 
-![1656589565022](picture/31pull-request/6_Create pull request.png)
+![1656589565022](picture/31pull-request/6_CreatePR.png)
 
 ⑥ 至此，PR 已经在 apache/rocketmq-site 远程仓库上可见，所有协作者都可以 Review 该PR 并提供建议
 
-![1656601854040](picture/31pull-request/7_mail list.png)
+![1656601854040](picture/31pull-request/7_mailList.png)
 
 您可以根据评论在本地完成修改并进行多次提交。请求合并和提交修改的相关信息会同步展示在 PR 页面、	    
 
