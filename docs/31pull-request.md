@@ -81,10 +81,10 @@ git commit -a -m "pom"	# git commit [-all] [-msg] [message]
 ⑦ 推送更改到远程仓库
 
 ```shell
-git push apache RocketMQ-Vxx.0	# push RocketMQ-Vxx.0 to https://github.com/cuser/rocketmq-site.git
+git push --set-upstream apache RocketMQ-Vxx.0	# push branch to https://github.com/cuser/rocketmq-site.git
 ```
 
-说明：若未创建远程仓库，替换 ```apache``` 为 ``` origin```，或直接 git push
+说明：若未创建远程仓库，替换 ```apache``` 为 ``` origin```
 
 # Github 提交 PR
 
