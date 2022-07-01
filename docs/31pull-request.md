@@ -1,207 +1,207 @@
 # pull-request
 
-本文将引导您通过 Git 管理仓库和处理开发流程
+本文将引导您通过 Git 贡献 RocketMQ
 
-# Git 基础
+# Github 远程仓库
 
-① 复刻 [apache/rocketmq](https://github.com/apache/rocketmq) 仓库到 Github 远程仓库
+本小节作为前置知识，简要说明使用 Git 贡献 RocketMQ 原因，有相关基础的同学可以自行跳过
 
-![1656576515110](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656576515110.png)
+首先您需要自行了解 Git 和 Github 相关概念
+
+思考：从开发者角度，如何与他人协作完成项目？
+
+如果您想到通过打包压缩然后复制粘贴的方式，那么请再试想一下扩大参与者的范围至 10k+ 级别
+
+这就是远程仓库的意义：开发者可以很方便地从 Github 上获取仓库代码，并提交开发分支到远程仓库与他人交流和共享
+
+![1656601484232](picture/31pull-request/1_Github.png)
+
+那么，有了这个公共仓库，然后呢？
+
+如何下载远程仓库的代码？
+
+如何提交开发分支到远程仓库？
+
+如何使开发分支相互可见？
+
+薅头发的请先住手，Linus 大神已经提供了解决方案 Git
+
+# Git 贡献指南
+
+① 复刻 [apache/rocketmq](https://github.com/apache/rocketmq) 仓库至个人 Github 远程仓库
+
+```shell
+https://github.com/cuser/rocketmq.git # cuser's rocketmq repo[repository] url
+```
+
+说明：```cuser``` GitHub用户名，```Fork``` 后可通过个人主页 Repositories ，找到复刻仓库并查看地址
 
 ② 自行安装 Git 并克隆到本地仓库
 
 ```shell
-git clone https://github.com/apache/rocketmq.git
+git clone https://github.com/cuser/rocketmq.git # git clone [repo url]
 ```
 
-克隆到本地仓库会默认以```origin```命名远程仓库，并以GitHub仓库作为默认远程仓库
+说明：克隆到的本地仓库会以 GitHub 仓库作为远程仓库，并以```origin```命名远程仓库
 
-③ 在本地仓库执行更改
+③ 添加并命名远程仓库
 
 ```shell
-git checkout -b ROCKETMQ-xxxx	# 创建新分支并切换到该分支下
-git add /dir/fileName.xxx	# 添加dir目录下 fileName.xxx 文件到暂存区
-git commit -a -m "fileName"	# 添加暂存区 fileName 到仓库中
-git push origin ROCKETMQ-xxxx	# 推送本地仓库ROCKETMQ-xxxx至 fork 的远程仓库
+git remote add apache https://github.com/cuser/rocketmq.git	# git remote add [repo name] [repo url]
 ```
 
-④ 添加远程仓库
+说明：可以使用 git remote add 指定远程仓库并命名，若跳过该步，后续流程请使用```origin```作为仓库名
+
+④ 拉取远程仓库开发分支
 
 ```shell
-git remote add apache https://github.com/apache/rocketmq.git	# git remote add [远程仓库名] [远程仓库地址]
+git fetch apache develop # git fetch [repo name] [repo branch]
 ```
 
-⑤ 获取远程仓库代码
+说明：develop 为默认开发分支，可在 GitHub 仓库主页 ```branches``` 标签处了解详情
+
+⑤ 获取开发分支最新代码
 
 ```shell
-git fetch apache master
+git rebase apache/develop # git rebase [branch]
 ```
 
-⑥ 变基至远程仓库
+说明： [rebase <branch>](https://git-scm.com/docs/git-rebase) 基本说法是换基，可通过链接示例了解该步的必要性
+
+⑥ 在本地仓库执行更改
 
 ```shell
-git rebase apache/master
+git checkout -b RocketMQ-Vxx.0 # git checkout [-b] [new-branch]
+git add /rocketmq/pom.xml # git add [dir/file]
+git commit -a -m "pom"	# git commit [-all] [-msg] [message]
 ```
 
-# 创建 PR
+说明： 参考[Git](https://git-scm.com/docs/git-add)了解详情，使用相对路径请切换至 ```.git``` 同级目录
 
-创建 PR 前，请先做如下确认：
-
-1. 已经创建与此对应的 Github issue，并附有清晰的问题描述
-2. 修改内容符合 Coding Guidelines 编程规范【此处附链接】
-3. 提交内容具备完整的测试用例，以便通过 [apache/rocketmq - Travis CI](https://travis-ci.org/github/apache/rocketmq) 等工具在 ARM64 架构下完成自动集成
-
-如下：以提交PR 至 new-official-website 为例说明 PR 流程
-
-在本地仓库修改完毕后，将该分支推送到 Github 远程仓库
+⑦ 推送更改到远程仓库
 
 ```shell
-git checkout new-official-website	# 切换至 new-official-website 分支
-git push origin new-official-website	# 推送 new-official-website 分支 至远程仓库
+git push apache RocketMQ-Vxx.0	# push RocketMQ-Vxx.0 to https://github.com/cuser/rocketmq-site.git
 ```
 
-① 在 Github 远程仓库上切换至本地修改的分支 new-official-website
+说明：若未创建远程仓库，替换 ```apache``` 为 ``` origin```，或直接 git push
 
-![1656576449012](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656576449012.png)
+# Github 提交 PR
 
-② 创建合并请求，切换到执行更改的分支后，点击 Contribute 下的 Open pull request
+如下：以提交 PR 至 ```new-official-website``` 分支为例说明 PR 流程
 
-![1656576385381](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656576385381.png)
+参照```Git 贡献指南```在本地仓库修改完毕，并将该分支推送到 Github 远程仓库
 
-③ 选择 compare across forks选择待合入仓库的 base, 和更改仓库待比较分支 compare
+```shell
+git checkout new-official-website	# git checkout -b new-official-website
+git push origin new-official-website	# push to https://github.com/cuser/rocketmq-site.git
+```
 
-![1656580236831](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656580236831.png)
+① Github 远程仓库切换至开发分支 new-official-website
 
+![1656576449012](picture/31pull-request/2_switch branch.png)
 
+② 创建合并请求，点击 Contribute 下的 Open pull request
 
-下面这个是 
+![1656576385381](picture/31pull-request/3_open pull request.png)
 
-两者其他地方均没有什么区别，区别可能在于  forks
+③ compare across forks 选择请求分支和开发分支
 
-base : apache/rocketmq，不能切换，除非你正在与列表中的 committers 协作？这里有点问题
+![1656580236831](picture/31pull-request/4_compare.png)
 
-这里 head deatched 似乎不是哪个问题
+base repository / base : 请求仓库及请求分支
 
-请先得到分支创建者的许可再提交PR，应该是合入的时候，或者说删掉这句话，因为 合并是 committer 做的
+head repository / compare : 开发仓库及开发分支
 
-后面这句说的意识是，通过 compare across fork 的方式
+注意请务必正确选择请求分支与开发分支，并请在得到分支所有者许可后再请求合入
 
-head repository ：通过 fork 复刻的 github 远程仓库
+④ 填写首字母大写的 PR 摘要，并在 Write 标签下简要描述 PR 内容
 
-compare : xxx拉取的分支
+![1656589498318](picture/31pull-request/5_Write.png)
 
-【这部分：先上图片，然后介绍这四个关键字】好好阅读下 GitHub Docs
+​	提交 PR 前，请先做如下确认：
 
-这部分主要是把上面两幅图里面的四个关键词说明白，另外简单提及一下 compare across forks
-
-base repository :
-
-head repository :
-
-base :
-
-compare : 
-
-为啥会提交失败呢？
-
-④ 填写首字母大写的摘要，并在 Write 标签下简要描述 PR 内容
-
-![1656589498318](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656589498318.png)
+1. 已创建与 PR 对应的 [Github issue]( [apache/rocketmq: Mirror of Apache RocketMQ (github.com)](https://github.com/apache/rocketmq/issues) )
+2. 修改内容符合 [Coding Guidelines](/docs/30code-guidelines) 编程规范
+3. pull request 摘要以 [ISSUE #XXX] 开始并简要描述变更需求
+4. 概述 PR 变更需求，变更日志，验证信息，可参考 [demo pull request](https://github.com/apache/rocketmq/pull/152) 
+5. 提交内容具备完整的测试用例，并确保基本检查，单元测试，集成测试通过
+6. 若贡献值较高，请提交 [Apache个人贡献者许可协议](http://www.apache.org/licenses/#clas) 
 
 ⑤ 点击 "Create pull request" ，请求合并该分支
 
-![1656589565022](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656589565022.png)
+![1656589565022](picture/31pull-request/6_Create pull request.png)
 
-⑥ 至此，PR 已经在 apache/rocketmq 远程仓库上可见，所有协作者都可以 Review 该PR 并提供建议
+⑥ 至此，PR 已经在 apache/rocketmq-site 远程仓库上可见，所有协作者都可以 Review 该PR 并提供建议
 
-![1656589670761](C:\Users\tp\AppData\Roaming\Typora\typora-user-images\1656589670761.png)
+![1656601854040](picture/31pull-request/7_mail list.png)
 
-​	你可以根据评论在本地完成修改并进行多次提交。拉取分支和提交修改的相关信息会同步展示在 PR 页面、	    
+您可以根据评论在本地完成修改并进行多次提交。请求合并和提交修改的相关信息会同步展示在 PR 页面、	    
 
-​	RocketMQ 的邮件列表中，仓库维护者会及时发现 PR 的变更信息
-
-6. 若确定修改完毕，可以将该 PR 合并到 apache/rocketmq
-
-拉取的请求会被放到 apache/rocketmq 的 Github 镜像上，你需要为此 PR 选择目标分支
-
-拉取的请求和提交的问题会经 ccommitters 进行 review，审查通过会合并此 PR 到目标分支
-
-
-
-# 列出 PR 提交信息
-
-这部分其实就是上面的清单描述
-
-详细列出 PR 的变更日志，可以让社区成员更方便快捷地与您协作【这部分再修改一下】
-
-使用```-[x]```标记已完成的清单项目，你可以参考 [demo pull request](https://github.com/apache/rocketmq/pull/152) 
-
-
+issue 列表、RocketMQ 的邮件列表中，以便提醒 committer 及时审核 PR
 
 # 合并 PR
 
-开源项目的分支合并工作由仓库维护者完成，你可以继续了解下面的流程以备后续使用。
+开源项目开发分支合并由 committer 完成，所以，向上吧，少年！
 
-请先阅读  [GitHub PR merging locally](https://docs.github.com/cn/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) ，你可能需要将待合并分支 fetch 到本地，在此基础上拉取新分支并修改，以解决合并冲突或在此基础上进行完善。
-
-拉取的待合并分支可能包含多次提交，建议使用 ```--squash``` 指令压缩为一次 commit
+① 合并 contributor PR
 
 ```shell
-git checkout master      # switch to local master branch
-git pull apache master   # fast-forward to current remote HEAD
-git pull --squash https://github.com/cuser/rocketmq.git ROCKETMQ-xxxx  # merge to master
+git checkout develop	# switch to local develop branch
+git pull apache develop	# fast-forward to current remote HEAD
+git pull --squash https://github.com/cuser/rocketmq.git RocketMQ-Vxx.0  # merge to branch
 ```
 
-合并前务必要解决合并冲突，并确保提交到基线分支
+拉取的请求合并分支可能包含多次提交，建议使用 ```--squash``` 指令压缩为一次 commit
 
-若已完成对预合并分支的所有处理工作，再次切换到基线分支完成合并
+合并前务必要解决合并冲突，并确保当前分支同步于远程分支
+
+请阅读 [Git pull]( [Git - git-pull Documentation (git-scm.com)](https://git-scm.com/docs/git-pull) ) 了解 fast-forward 等相关详情
+
+② 合并 committer PR
+
+若 committer 合并自己的 PR , 使用 [Git merge]( [Git - git-merge Documentation (git-scm.com)](https://git-scm.com/docs/git-merge) ) 即可
 
 ```shell
-git checkout master      # switch to local master branch
-git pull apache master   # fast-forward to current remote HEAD
-git merge --squash ROCKETMQ-xxxx
+git checkout develop      # switch to local develop branch
+git pull apache develop   # fast-forward to current remote HEAD
+git merge --squash RocketMQ-Vxx.0	# merge to branch
 ```
 
-进行常规的补丁检查，使用内置的测试用例构建项目，并请务必修改 changelog 
+③ 进行常规的补丁检查，使用内置的测试用例构建项目，并请务必修改 changelog 
 
-若上述工作均已完成，可以执行下面的指令提交合并，回馈开发者分支状态，并关闭 PR
+④ 若上述工作均已完成，可以执行下面的指令提交合并，回馈开发者分支状态，并关闭 PR
 
 ```shell
-git commit --author="contributor_name <contributor_email>" -a -m "ROCKETMQ-XXXX description closes apache/rocketmq#ZZ"
+git commit --author="contributor_name <contributor_email>" -a -m "RocketMQ-Vxx.0 description closes apache/rocketmq#ZZ"
 ```
 
-ROCKETMQ-XXXX ：是什么？需要全部大写
+关闭 PR 的详情，请参考 [Close PR](https://docs.github.com/cn/issues/tracking-your-work-with-issues/closing-an-issue) 
 
-#ZZ ：Github 上的 PR 编号
-
-关闭 PR 的详情，请参考 [关闭议题 - GitHub Docs](https://docs.github.com/cn/issues/tracking-your-work-with-issues/closing-an-issue) 
-
-将合并后的分支推送到 apache 远程镜像
+⑤ 将合并后的分支推送到 apache/rocketmq 远程仓库
 
 ```shell
-git push apache master
+git push apache develop
 ```
 
-执行上述指令，需要先得到 Apache 的授权，PR 被提交后，会保留到 GitHub 远程仓库，你可以推到自己的远程仓库上
+⑥ PR 被提交后，会保留到 GitHub 远程仓库，也可以同步更新个人 GitHub 仓库
 
 ```shell
-git push origin master
+git push origin develop
 ```
 
-关于合并修改的建议：squash 会导致远程分支的信息丢失，这段应该在说合并冲突，即针对同一分支多次提交相同的 PR
+关于合并修改的建议：squash 会丢弃开发分支的 commit 信息
 
+# 拒绝 PR
 
-
-# 拒绝合并
-
-拒绝 PR ：仅发布空提交到 master's HEAD
+拒绝 PR ：意味着并不执行 pull 或 merge，而仅仅提交拒绝 PR 信息
 
 ```SHELL
-git commit --allow-empty -m "ROCKETMQ-XXXX closes apache/rocketmq#ZZ *Won't fix*"
-git push apache master
+git commit --allow-empty -m "RocketMQ-Vxx.0 closes apache/rocketmq#ZZ *Won't fix*"
+git push apache develop
 ```
 
-仅关闭 Github 上编号 #ZZ 的 PR，且不合并到主仓库
+关闭 Github 上编号 #ZZ 的 PR
 
 
 
