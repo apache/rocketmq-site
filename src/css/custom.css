@@ -48,13 +48,13 @@
     --ifm-navbar-link-color: #fafafa;
     --ifm-font-family-base: 'IBM Plex Sans', PT Sans, Montserrat, Lato;
     --ifm-font-family-monospace: 'IBM Plex Mono', PT Sans, Open Sans, Roboto Slab, Roboto Condensed;
-    --ifm-button-padding-horizontal: 0.55rem;
-    --ifm-button-padding-vertical: .7rem;
-    --ifm-menu-color: #fafafa;
+    --ifm-button-padding-horizontal: 5rem;
+    --ifm-button-padding-vertical: .9rem;
+    --ifm-menu-color: #000;
     --ifm-menu-color-background-active: transparent;
     --ifm-toc-link-color: #000;
     --ifm-table-border-color: #efefef;
-    --ifm-navbar-height: 85px;
+    --ifm-navbar-height: 60px;
     --ifm-button-border-width: 0;
     --docusaurus-announcement-bar-height: auto!important;
 
