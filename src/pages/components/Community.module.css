@@ -38,3 +38,13 @@
   .logocommunity{
     background-color:transparent!important;
   }
+
+@media (max-width: 500px) {
+  .buttoncommunity2{
+    padding: 18px;
+  }
+  .buttoncommunity{
+    padding: 18px;
+  }
+  
+}

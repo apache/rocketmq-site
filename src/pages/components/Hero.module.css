@@ -40,10 +40,13 @@
     }
     .buttons{
         text-align: center;
+       
     }
     .button{
         width: 200px!important;
         min-width: none;
+        padding:18px;
+       
     }
     .button2{
         display: none!important;
