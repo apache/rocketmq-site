@@ -31,11 +31,6 @@ html[data-theme=dark] {
     font-size: medium;
 }
 
-@media (max-width: 996px) {
-    .navbar__toggle {
-        margin-left: 1rem;
-    }
-}
 
 .header-github-link:hover {
     opacity: 0.6;
