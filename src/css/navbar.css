@@ -85,8 +85,8 @@ body .react-toggle-thumb {
 }
 
 .navbar__logo{
-    width: 35px!important;
-    height: 40px!important;
+    width: 30px!important;
+    height: 35px!important;
 }
 [data-theme=light] .navbar-sidebar .navbar__brand{
     color: #0c0c2c;

@@ -621,4 +621,6 @@ tbody td:hover:before {
   color: #ffffff;
 }
 
-
+.margin-bottom--xl h2{
+  font-size: 2rem!important;
+}

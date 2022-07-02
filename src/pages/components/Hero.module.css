@@ -41,6 +41,13 @@
     .buttons{
         text-align: center;
     }
+    .button{
+        width: 200px!important;
+        min-width: none;
+    }
+    .button2{
+        display: none!important;
+    }
     .herotitle{
         font-size: 4rem;
     }
@@ -69,7 +76,7 @@
 }
 @media (max-width: 400px) {
     .herotitle{
-        font-size: 3.5rem;
+        font-size: 5rem;
     }
     .heroBanner{
         height: 100vh;

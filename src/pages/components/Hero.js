@@ -33,7 +33,7 @@ export default function Hero(){
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                "button button--outline button--secondary button--lg",
+                "button button--outline button--secondary button--lg",styles.button
               )}
               to={"/docs"}
             >
@@ -42,7 +42,7 @@ export default function Hero(){
             <Link
               to="/docs"
               className={clsx(
-                "button button--outline button--secondary button--lg",styles.buttons
+                "button button--outline button--secondary button--lg",styles.button2
               )}
             >
               RocketMQ 5.0 速览
