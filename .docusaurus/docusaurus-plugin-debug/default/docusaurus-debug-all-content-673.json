@@ -421,7 +421,7 @@
                 "permalink": "/docs/08message4"
               },
               "next": {
-                "title": "Topic手动创建和恣纵创建",
+                "title": "Topic手动创建和自动创建",
                 "permalink": "/docs/10message6"
               }
             },
@@ -429,7 +429,7 @@
               "unversionedId": "10message6",
               "id": "10message6",
               "isDocsHomePage": false,
-              "title": "Topic手动创建和恣纵创建",
+              "title": "Topic手动创建和自动创建",
               "description": "",
               "source": "@site/docs/10message6.md",
               "sourceDirName": ".",
@@ -465,7 +465,7 @@
               "frontMatter": {},
               "sidebar": "docs",
               "previous": {
-                "title": "Topic手动创建和恣纵创建",
+                "title": "Topic手动创建和自动创建",
                 "permalink": "/docs/10message6"
               },
               "next": {
