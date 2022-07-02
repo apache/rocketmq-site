@@ -4,36 +4,6 @@
 @import url(buttons.css);
 
 :root {
-  /* --ifm-color-primary: #53599a;
-  --ifm-color-primary-dark: #6d9dc5;
-  --ifm-color-primary-darker: #3c5da3;
-  --ifm-color-primary-darkest: #3c5da3;
-  --ifm-color-primary-light: #3c5da3;
-  --ifm-color-primary-lighter: #8aa4d2;
-  --ifm-color-primary-lightest: #a3bbdc;
-  --ifm-navbar-link-hover-color: #a3bbdc;
-  --ifm-background-color: #ffffff;
-  --ifm-code-font-size: 95%;
-  --ifm-navbar-link-color: #ffffff;
-  --ifm-font-family-base: "IBM Plex Sans", PT Sans, Montserrat, Lato;
-  --ifm-font-family-monospace: "IBM Plex Mono", PT Sans, Open Sans, Roboto Slab,
-    Roboto Condensed;
-  --ifm-button-padding-horizontal: 5rem;
-  --ifm-button-padding-vertical: 0.9rem;
-  --ifm-menu-color: #000;
-  --ifm-menu-color-background-active: transparent;
-  --ifm-toc-link-color: #000;
-  --ifm-table-border-color: #efefef;
-  --ifm-navbar-height: 60px;
-  --ifm-button-border-width: 0;
-  --docusaurus-announcement-bar-height: auto !important;
-
-  --wdio-spacing-vertical: 80px;
-  --wdio-link-background-color: #eee0d7;
-  --wdio-link-color: #000;
-  --wdio-section-background-color: #fff;
-  --wdio-dark-section-background-color: #efefef; */
-
   --ifm-color-primary: #53599a;
   --ifm-color-primary-dark: #6d9dc5;
   --ifm-color-primary-darker: #3c5da3;
@@ -42,53 +12,45 @@
   --ifm-color-primary-lighter: #8aa4d2;
   --ifm-color-primary-lightest: #a3bbdc;
   --ifm-navbar-link-hover-color: #a3bbdc;
-    --ifm-background-color: #fafafa;
-    --ifm-code-font-size: 95%;
-    
-    --ifm-navbar-link-color: #fafafa;
-    --ifm-font-family-base: 'IBM Plex Sans', PT Sans, Montserrat, Lato;
-    --ifm-font-family-monospace: 'IBM Plex Mono', PT Sans, Open Sans, Roboto Slab, Roboto Condensed;
-    --ifm-button-padding-horizontal: 5rem;
-    --ifm-button-padding-vertical: .9rem;
-    --ifm-menu-color: #000;
-    --ifm-menu-color-background-active: transparent;
-    --ifm-toc-link-color: #000;
-    --ifm-table-border-color: #efefef;
-    --ifm-navbar-height: 60px;
-    --ifm-button-border-width: 0;
-    --docusaurus-announcement-bar-height: auto!important;
-
-    --wdio-spacing-vertical: 60px;
-    --wdio-link-background-color: #eee0d7;
-    --wdio-link-color: #000;
-    --wdio-section-background-color: #fff;
-    --wdio-dark-section-background-color: #efefef;
+  --ifm-background-color: #fafafa;
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-link-color: #fafafa;
+  --ifm-font-family-base: "IBM Plex Sans", PT Sans, Montserrat, Lato;
+  --ifm-font-family-monospace: "IBM Plex Mono", PT Sans, Open Sans, Roboto Slab,
+    Roboto Condensed;
+  --ifm-button-padding-horizontal: 0.55rem;
+  --ifm-button-padding-vertical: 0.7rem;
+  --ifm-menu-color: #000;
+  --ifm-menu-color-background-active: transparent;
+  --ifm-toc-link-color: #000;
+  --ifm-table-border-color: #efefef;
+  --ifm-navbar-height: 60px;
+  --ifm-button-border-width: 0;
+  --docusaurus-announcement-bar-height: auto !important;
+  --ifm-navbar-background-color: #fff;
+  --wdio-spacing-vertical: 60px;
+  --wdio-link-background-color: #fff;
+  --wdio-link-color: #000;
+  --wdio-section-background-color: #fff;
+  --wdio-dark-section-background-color: #efefef;
 }
 
-:root[data-theme="dark"]{
+:root[data-theme="dark"] {
   --ifm-color-primary: #8b93eb;
-  --ifm-code-background:#aeecef;
 }
 html[data-theme="dark"] {
-  --wdio-link-background-color: #201c1c;
+  --wdio-link-background-color: #8b93eb;
   --wdio-link-color: #fff;
   --ifm-menu-color: #fff;
- 
   --ifm-table-border-color: var(--ifm-color-emphasis-300);
+  --ifm-navbar-background-color: #000;
   --ifm-toc-link-color: #fff;
-}
-
-@media (max-width: 996px) {
-  :root {
-    --wdio-spacing-vertical: 20px;
-    --ifm-navbar-background-color: #000!important;
-  }
 }
 
 @media (max-width: 500px) {
   :root {
     --wdio-spacing-vertical: 10px;
-    --ifm-navbar-background-color: #000!important;
+    /* --ifm-navbar-background-color: #000!important; */
   }
 }
 
@@ -168,7 +130,7 @@ html[data-theme="dark"] {
 }
 
 .docusaurus-highlight-code-line {
-  background-color: #484d5b;
+  background-color: #53599a;
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
@@ -344,7 +306,6 @@ div[role="tabpanel"] .margin-vert--md {
 
 h1 {
   font-family: "Poppins", sans-serif;
-  transition-delay: 3s;
 }
 
 .gradient-text {
@@ -367,7 +328,7 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   animation: expand-rev 0.5s ease forwards;
-  
+
   cursor: pointer;
 }
 
@@ -465,7 +426,7 @@ h1 {
   .logocontainer {
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 50px 0 50px!important;
+    padding: 0 50px 0 50px !important;
   }
 }
 @media (max-width: 850px) {
@@ -475,11 +436,6 @@ h1 {
     height: 0;
   }
 }
-
-
-/* @media (min-width: 1200px) {
-    .logocontainer { grid-template-columns: repeat(6, 1fr); }
-  } */
 
 .avatar {
   position: relative;
@@ -524,27 +480,25 @@ h1 {
   font-size: 1.5em !important;
 }
 .navbar__title:hover {
-    color: #a3bbdc;
-  }
+  color: #a3bbdc;
+}
 
 .button {
   margin: 20px 20px 20px 20px !important;
   min-width: 440px;
-  color: #fff!important;
+  color: #fff !important;
 }
 @media (max-width: 500px) {
-  .button{
+  .button {
     min-width: 130px;
-    margin: 10px  10px !important;
-    font-size: medium!important;
+    margin: 10px 10px !important;
+    font-size: medium !important;
     height: 60px;
   }
   .DocSearch-Button {
-    width: 30px!important;
+    width: 30px !important;
   }
-
 }
-
 
 [data-theme="light"] .DocSearch {
   /* --docsearch-primary-color: var(--ifm-color-primary); */
@@ -562,7 +516,6 @@ h1 {
   --docsearch-hit-background: var(--ifm-color-white);
   /* Footer */
   --docsearch-footer-background: var(--ifm-color-white);
-  
 }
 
 [data-theme="dark"] .DocSearch {
@@ -587,15 +540,13 @@ h1 {
   );
 }
 
-
-.DocSearch-Button{
-    width: 200px;
-    height: 35px!important;
-    border-radius: 2px!important;
-    
+.DocSearch-Button {
+  width: 200px;
+  height: 35px !important;
+  border-radius: 2px !important;
 }
-.DocSearch-Button-Placeholder{
-    font-family:"IBM Plex Mono", PT Sans, Open Sans, Roboto Slab!important ;
+.DocSearch-Button-Placeholder {
+  font-family: "IBM Plex Mono", PT Sans, Open Sans, Roboto Slab !important ;
 }
 table {
   width: 450px;
@@ -645,34 +596,29 @@ tbody td:hover:before {
   margin: -88px 30px 0px -3px;
 }
 
-
-
 .animation {
   width: 400px;
   height: 400px;
 }
 
 .heroBanner {
-    padding: 1rem 0 5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  padding: 1rem 0 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-
-.col{
-  padding-left: 40px!important;
-  padding-top: 40px!important;
+.col {
+  padding-left: 40px !important;
+  padding-top: 40px !important;
 }
 
-.navbar-sidebar[data-theme="dark"]{
-  background-color: #000!important;
+.navbar-sidebar[data-theme="dark"] {
+  background-color: #000 !important;
 }
 
-.navbar-sidebar__back{
+.navbar-sidebar__back {
   color: #ffffff;
 }
 
-.admonition[data-theme="dark"]{
-  color:  #aeecef;
-}
+

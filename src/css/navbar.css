@@ -2,7 +2,10 @@
     --ifm-navbar-background-color: #efefef;
 }
 
-
+html[data-theme=dark] {
+    --ifm-navbar-link-color: #ffffff;
+    --ifm-navbar-background-color: #ffffff ;
+}
 
 .navbar {
     background-color: #0c0c2c;
@@ -84,4 +87,16 @@ body .react-toggle-thumb {
 .navbar__logo{
     width: 35px!important;
     height: 40px!important;
+}
+[data-theme=light] .navbar-sidebar .navbar__brand{
+    color: #0c0c2c;
+}
+
+[data-theme=light] .navbar-sidebar .navbar__brand img{
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+}
+
+[data-theme=light] .navbar-sidebar__back{
+    color: black;
 }
