@@ -4,7 +4,7 @@
 @import url(buttons.css);
 
 :root {
-  --ifm-color-primary: #53599a;
+  /* --ifm-color-primary: #53599a;
   --ifm-color-primary-dark: #6d9dc5;
   --ifm-color-primary-darker: #3c5da3;
   --ifm-color-primary-darkest: #3c5da3;
@@ -32,16 +32,48 @@
   --wdio-link-background-color: #eee0d7;
   --wdio-link-color: #000;
   --wdio-section-background-color: #fff;
-  --wdio-dark-section-background-color: #efefef;
+  --wdio-dark-section-background-color: #efefef; */
+
+  --ifm-color-primary: #53599a;
+  --ifm-color-primary-dark: #6d9dc5;
+  --ifm-color-primary-darker: #3c5da3;
+  --ifm-color-primary-darkest: #3c5da3;
+  --ifm-color-primary-light: #3c5da3;
+  --ifm-color-primary-lighter: #8aa4d2;
+  --ifm-color-primary-lightest: #a3bbdc;
+  --ifm-navbar-link-hover-color: #a3bbdc;
+    --ifm-background-color: #fafafa;
+    --ifm-code-font-size: 95%;
+    
+    --ifm-navbar-link-color: #fafafa;
+    --ifm-font-family-base: 'IBM Plex Sans', PT Sans, Montserrat, Lato;
+    --ifm-font-family-monospace: 'IBM Plex Mono', PT Sans, Open Sans, Roboto Slab, Roboto Condensed;
+    --ifm-button-padding-horizontal: 0.55rem;
+    --ifm-button-padding-vertical: .7rem;
+    --ifm-menu-color: #fafafa;
+    --ifm-menu-color-background-active: transparent;
+    --ifm-toc-link-color: #000;
+    --ifm-table-border-color: #efefef;
+    --ifm-navbar-height: 85px;
+    --ifm-button-border-width: 0;
+    --docusaurus-announcement-bar-height: auto!important;
+
+    --wdio-spacing-vertical: 60px;
+    --wdio-link-background-color: #eee0d7;
+    --wdio-link-color: #000;
+    --wdio-section-background-color: #fff;
+    --wdio-dark-section-background-color: #efefef;
 }
 
 :root[data-theme="dark"]{
-  --ifm-color-primary: #939ae1;
+  --ifm-color-primary: #8b93eb;
+  --ifm-code-background:#aeecef;
 }
 html[data-theme="dark"] {
   --wdio-link-background-color: #201c1c;
   --wdio-link-color: #fff;
   --ifm-menu-color: #fff;
+ 
   --ifm-table-border-color: var(--ifm-color-emphasis-300);
   --ifm-toc-link-color: #fff;
 }
@@ -49,12 +81,14 @@ html[data-theme="dark"] {
 @media (max-width: 996px) {
   :root {
     --wdio-spacing-vertical: 20px;
+    --ifm-navbar-background-color: #000!important;
   }
 }
 
 @media (max-width: 500px) {
   :root {
     --wdio-spacing-vertical: 10px;
+    --ifm-navbar-background-color: #000!important;
   }
 }
 
@@ -629,4 +663,16 @@ tbody td:hover:before {
 .col{
   padding-left: 40px!important;
   padding-top: 40px!important;
+}
+
+.navbar-sidebar[data-theme="dark"]{
+  background-color: #000!important;
+}
+
+.navbar-sidebar__back{
+  color: #ffffff;
+}
+
+.admonition[data-theme="dark"]{
+  color:  #aeecef;
 }

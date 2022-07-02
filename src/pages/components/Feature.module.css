@@ -23,6 +23,9 @@
         color: #0c0c2c;
         
     }
+    [data-theme="dark"] .mobileFeature h3{
+        color: white!important;
+    }
     .mobileFeature p{
        color: darkgray;
         

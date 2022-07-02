@@ -2,10 +2,7 @@
     --ifm-navbar-background-color: #efefef;
 }
 
-html[data-theme=dark] {
-    --ifm-navbar-link-color: #ffffff;
-    --ifm-navbar-background-color: #ffffff ;
-}
+
 
 .navbar {
     background-color: #0c0c2c;
