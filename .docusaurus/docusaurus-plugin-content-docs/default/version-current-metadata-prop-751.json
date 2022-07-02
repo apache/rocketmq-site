@@ -120,11 +120,6 @@
           },
           {
             "type": "link",
-            "label": "Admin tool工具",
-            "href": "/docs/16admintool"
-          },
-          {
-            "type": "link",
             "label": "RocketMQ Dashboard",
             "href": "/docs/17Dashboard"
           },

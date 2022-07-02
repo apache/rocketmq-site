@@ -53,7 +53,6 @@ module.exports = {
       items: [
         '15deploy',
         '16admintool',
-        '16admintool',
         '17Dashboard',
         '18Exporter',
         
