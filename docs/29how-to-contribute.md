@@ -43,8 +43,8 @@ Apache RocketMQ 社区成员主要通过以下两种邮件沟通和交流：
 *  [development mailing list](mailto:dev@rocketmq.apache.org) : Apache RocketMQ 开发者 通过该邮件列表交流新特性，预发布版本，一般的开发流程等。若您热衷于为 RocketMQ 社区贡献代码，可以加入该邮件列表。
 
 
-您也可以通过订阅 [mailing lists](/about/contact)，获取更多的社区信息。
-
+<!-- 您也可以通过订阅 [mailing lists](/about/contact)，获取更多的社区信息。 -->
+您也可以通过订阅 mailing lists，获取更多的社区信息。
 
 ## 测试预发布版本
 
