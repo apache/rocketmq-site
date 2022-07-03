@@ -18,4 +18,3 @@ slug: /
 下表显示了RocketMQ、ActiveMQ和Kafka之间的比较 
 
 :::
-

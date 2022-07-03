@@ -3,7 +3,7 @@
   "id": "03whatis",
   "isDocsHomePage": false,
   "title": "初识RocketMQ",
-  "description": "",
+  "description": "RocketMQ概念模型",
   "source": "@site/docs/03whatis.md",
   "sourceDirName": ".",
   "slug": "/03whatis",

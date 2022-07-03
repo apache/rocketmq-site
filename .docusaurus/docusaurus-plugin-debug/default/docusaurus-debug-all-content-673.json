@@ -234,7 +234,7 @@
               "id": "02quickstart",
               "isDocsHomePage": false,
               "title": "快速开始",
-              "description": "",
+              "description": "这一节介绍如何快速部署一个单Master RocketMQ集群，并完成简单的消息收发。",
               "source": "@site/docs/02quickstart.md",
               "sourceDirName": ".",
               "slug": "/02quickstart",
@@ -258,7 +258,7 @@
               "id": "03whatis",
               "isDocsHomePage": false,
               "title": "初识RocketMQ",
-              "description": "",
+              "description": "RocketMQ概念模型",
               "source": "@site/docs/03whatis.md",
               "sourceDirName": ".",
               "slug": "/03whatis",
@@ -282,7 +282,7 @@
               "id": "04concept1",
               "isDocsHomePage": false,
               "title": "基本概念",
-              "description": "",
+              "description": "消息",
               "source": "@site/docs/04concept1.md",
               "sourceDirName": ".",
               "slug": "/04concept1",
@@ -306,7 +306,7 @@
               "id": "05message1",
               "isDocsHomePage": false,
               "title": "普通消息发送",
-              "description": "",
+              "description": "1.向集群中创建Topic",
               "source": "@site/docs/05message1.md",
               "sourceDirName": ".",
               "slug": "/05message1",
@@ -873,7 +873,7 @@
                 "permalink": "/docs/27EventBridge"
               },
               "next": {
-                "title": "贡献指南",
+                "title": "how-to-contribute",
                 "permalink": "/docs/29how-to-contribute"
               }
             },
@@ -881,8 +881,8 @@
               "unversionedId": "29how-to-contribute",
               "id": "29how-to-contribute",
               "isDocsHomePage": false,
-              "title": "贡献指南",
-              "description": "Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入。",
+              "title": "how-to-contribute",
+              "description": "Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入",
               "source": "@site/docs/29how-to-contribute.md",
               "sourceDirName": ".",
               "slug": "/29how-to-contribute",
@@ -890,11 +890,7 @@
               "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/29how-to-contribute.md",
               "tags": [],
               "version": "current",
-              "frontMatter": {
-                "title": "贡献指南",
-                "permalink": "/docs/how-to-contribute/",
-                "modified": "2022-06-29T17:15:00.000Z"
-              },
+              "frontMatter": {},
               "sidebar": "docs",
               "previous": {
                 "title": "RocketMQ MQTT",
@@ -921,7 +917,7 @@
               "frontMatter": {},
               "sidebar": "docs",
               "previous": {
-                "title": "贡献指南",
+                "title": "how-to-contribute",
                 "permalink": "/docs/29how-to-contribute"
               },
               "next": {

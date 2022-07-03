@@ -3,7 +3,7 @@
   "id": "05message1",
   "isDocsHomePage": false,
   "title": "普通消息发送",
-  "description": "",
+  "description": "1.向集群中创建Topic",
   "source": "@site/docs/05message1.md",
   "sourceDirName": ".",
   "slug": "/05message1",
