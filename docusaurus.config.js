@@ -56,6 +56,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+
       algolia: {
         appId: 'R2IYF7ETH7',
         apiKey: '599cec31baffa4868cae4e79f180729b',
@@ -67,6 +68,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         logo: {
           alt: 'My Site Logo',
           src: 'img/Apache_RocketMQ_logo.svg.png',
+
 
         },
         items: [
