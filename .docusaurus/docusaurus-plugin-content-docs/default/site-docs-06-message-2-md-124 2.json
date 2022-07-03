@@ -1,0 +1,24 @@
+{
+  "unversionedId": "06message2",
+  "id": "06message2",
+  "isDocsHomePage": false,
+  "title": "顺序消息发送",
+  "description": "",
+  "source": "@site/docs/06message2.md",
+  "sourceDirName": ".",
+  "slug": "/06message2",
+  "permalink": "/docs/06message2",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/06message2.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "普通消息发送",
+    "permalink": "/docs/05message1"
+  },
+  "next": {
+    "title": "定时消息发送",
+    "permalink": "/docs/07message3"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unversionedId": "31pull-request",
+  "id": "31pull-request",
+  "isDocsHomePage": false,
+  "title": "pull-request",
+  "description": "",
+  "source": "@site/docs/31pull-request.md",
+  "sourceDirName": ".",
+  "slug": "/31pull-request",
+  "permalink": "/docs/31pull-request",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/31pull-request.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "code-guidelines",
+    "permalink": "/docs/30code-guidelines"
+  },
+  "next": {
+    "title": "release-manual",
+    "permalink": "/docs/32release-manual"
+  }
+}

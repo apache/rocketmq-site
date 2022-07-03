@@ -1,0 +1,24 @@
+{
+  "unversionedId": "18Exporter",
+  "id": "18Exporter",
+  "isDocsHomePage": false,
+  "title": "RocketMQ Promethus Exporter",
+  "description": "",
+  "source": "@site/docs/18Exporter.md",
+  "sourceDirName": ".",
+  "slug": "/18Exporter",
+  "permalink": "/docs/18Exporter",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/18Exporter.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "RocketMQ Dashboard",
+    "permalink": "/docs/17Dashboard"
+  },
+  "next": {
+    "title": "JVM/OS配置",
+    "permalink": "/docs/19JVMOS"
+  }
+}

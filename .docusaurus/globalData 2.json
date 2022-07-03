@@ -1,0 +1,178 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "01whychoose",
+          "docs": [
+            {
+              "id": "01whychoose",
+              "path": "/docs/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "02quickstart",
+              "path": "/docs/02quickstart",
+              "sidebar": "docs"
+            },
+            {
+              "id": "03whatis",
+              "path": "/docs/03whatis",
+              "sidebar": "docs"
+            },
+            {
+              "id": "04concept1",
+              "path": "/docs/04concept1",
+              "sidebar": "docs"
+            },
+            {
+              "id": "05message1",
+              "path": "/docs/05message1",
+              "sidebar": "docs"
+            },
+            {
+              "id": "06message2",
+              "path": "/docs/06message2",
+              "sidebar": "docs"
+            },
+            {
+              "id": "07message3",
+              "path": "/docs/07message3",
+              "sidebar": "docs"
+            },
+            {
+              "id": "08message4",
+              "path": "/docs/08message4",
+              "sidebar": "docs"
+            },
+            {
+              "id": "09message5",
+              "path": "/docs/09message5",
+              "sidebar": "docs"
+            },
+            {
+              "id": "10message6",
+              "path": "/docs/10message6",
+              "sidebar": "docs"
+            },
+            {
+              "id": "11concept2",
+              "path": "/docs/11concept2",
+              "sidebar": "docs"
+            },
+            {
+              "id": "12push",
+              "path": "/docs/12push",
+              "sidebar": "docs"
+            },
+            {
+              "id": "13pull",
+              "path": "/docs/13pull",
+              "sidebar": "docs"
+            },
+            {
+              "id": "14pop",
+              "path": "/docs/14pop",
+              "sidebar": "docs"
+            },
+            {
+              "id": "15deploy",
+              "path": "/docs/15deploy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "16admintool",
+              "path": "/docs/16admintool",
+              "sidebar": "docs"
+            },
+            {
+              "id": "17Dashboard",
+              "path": "/docs/17Dashboard",
+              "sidebar": "docs"
+            },
+            {
+              "id": "18Exporter",
+              "path": "/docs/18Exporter",
+              "sidebar": "docs"
+            },
+            {
+              "id": "19JVMOS",
+              "path": "/docs/19JVMOS",
+              "sidebar": "docs"
+            },
+            {
+              "id": "20log",
+              "path": "/docs/20log",
+              "sidebar": "docs"
+            },
+            {
+              "id": "21subscribe",
+              "path": "/docs/21subscribe",
+              "sidebar": "docs"
+            },
+            {
+              "id": "22FAQ",
+              "path": "/docs/22FAQ",
+              "sidebar": "docs"
+            },
+            {
+              "id": "23local",
+              "path": "/docs/23local",
+              "sidebar": "docs"
+            },
+            {
+              "id": "24server",
+              "path": "/docs/24server",
+              "sidebar": "docs"
+            },
+            {
+              "id": "25streams",
+              "path": "/docs/25streams",
+              "sidebar": "docs"
+            },
+            {
+              "id": "26Connnect",
+              "path": "/docs/26Connnect",
+              "sidebar": "docs"
+            },
+            {
+              "id": "27EventBridge",
+              "path": "/docs/27EventBridge",
+              "sidebar": "docs"
+            },
+            {
+              "id": "28MQTT",
+              "path": "/docs/28MQTT",
+              "sidebar": "docs"
+            },
+            {
+              "id": "29how-to-contribute",
+              "path": "/docs/29how-to-contribute",
+              "sidebar": "docs"
+            },
+            {
+              "id": "30code-guidelines",
+              "path": "/docs/30code-guidelines",
+              "sidebar": "docs"
+            },
+            {
+              "id": "31pull-request",
+              "path": "/docs/31pull-request",
+              "sidebar": "docs"
+            },
+            {
+              "id": "32release-manual",
+              "path": "/docs/32release-manual",
+              "sidebar": "docs"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
