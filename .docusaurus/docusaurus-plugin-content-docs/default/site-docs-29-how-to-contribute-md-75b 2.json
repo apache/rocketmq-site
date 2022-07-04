@@ -1,0 +1,24 @@
+{
+  "unversionedId": "29how-to-contribute",
+  "id": "29how-to-contribute",
+  "isDocsHomePage": false,
+  "title": "how-to-contribute",
+  "description": "Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入",
+  "source": "@site/docs/29how-to-contribute.md",
+  "sourceDirName": ".",
+  "slug": "/29how-to-contribute",
+  "permalink": "/docs/29how-to-contribute",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/29how-to-contribute.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "RocketMQ MQTT",
+    "permalink": "/docs/28MQTT"
+  },
+  "next": {
+    "title": "code-guidelines",
+    "permalink": "/docs/30code-guidelines"
+  }
+}

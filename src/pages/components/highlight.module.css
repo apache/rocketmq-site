@@ -26,36 +26,47 @@
 
 @media (max-width: 996px) {
     .featureContent {
-        padding: var(--wdio-spacing-vertical) 0 calc(var(--wdio-spacing-vertical) * 4) calc(var(--ifm-spacing-horizontal) + 20px)!important;
+        /* padding: var(--wdio-spacing-vertical) 0 calc(var(--wdio-spacing-vertical) * 4) calc(var(--ifm-spacing-horizontal) + 20px)!important; */
+        text-align: center!important;
+        padding: 0 50px 0 50px!important;
+    }
+    .highlighttitle{
+        text-align: center!important;
     }
 
     .featureImage {
-        padding: calc(var(--wdio-spacing-vertical) * 4) var(--ifm-spacing-horizontal) var(--wdio-spacing-vertical)!important;
+        visibility: hidden;
+        width: 0;
+        height: 0;
     }
-
+    .getStarted{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
     .featureContentReversed {
-        padding: calc(var(--wdio-spacing-vertical) * 4+3000) calc(var(--ifm-spacing-horizontal) + 20px) var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important;
+        /* padding: calc(var(--wdio-spacing-vertical) * 4+3000) calc(var(--ifm-spacing-horizontal) + 20px) var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important; */
+        text-align: center!important;
+    
     }
 
     .featureImageReversed {
-        padding: var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal) calc(var(--wdio-spacing-vertical) * 4)!important;
+        visibility: hidden;
+        width: 0;
+        height: 0;
     }
 }
 
-@media (max-width: 500px) {
-    .featureContent {
-        padding: var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal) calc(var(--wdio-spacing-vertical) * 4) var(--ifm-spacing-horizontal)!important;
-    }
 
-    .featureImage {
-        padding: calc(var(--wdio-spacing-vertical) * 4) var(--ifm-spacing-horizontal) var(--wdio-spacing-vertical)!important;
-    }
 
-    .featureContentReversed {
-        padding: calc(var(--wdio-spacing-vertical) * 4) var(--ifm-spacing-horizontal) var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important;
-    }
-
-    .featureImageReversed {
-        padding: var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal) calc(var(--wdio-spacing-vertical) * 4)!important;
-    }
+.highlighttitle {
+    font-weight: 600 !important;
+  }
+  
+.row{
+    text-align: center;
 }
+.container{
+    text-align: center;
+}
+

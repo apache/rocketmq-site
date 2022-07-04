@@ -1,0 +1,24 @@
+{
+  "unversionedId": "03whatis",
+  "id": "03whatis",
+  "isDocsHomePage": false,
+  "title": "初识RocketMQ",
+  "description": "RocketMQ概念模型",
+  "source": "@site/docs/03whatis.md",
+  "sourceDirName": ".",
+  "slug": "/03whatis",
+  "permalink": "/docs/03whatis",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/03whatis.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "快速开始",
+    "permalink": "/docs/02quickstart"
+  },
+  "next": {
+    "title": "基本概念",
+    "permalink": "/docs/04concept1"
+  }
+}

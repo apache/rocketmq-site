@@ -39,40 +39,7 @@ html[data-theme=dark] .hero--primary {
   
     cursor: pointer;
   }
-  
-  .gradient-text:hover {
-    animation: expand 0.5s ease forwards;
-  }
-  
-  @keyframes expand {
-    0% {
-      background-size: 50%;
-      background-position: 0 0;
-    }
-    20% {
-      background-size: 55%;
-      background-position: 0 1em;
-    }
-    100% {
-      background-size: 325%;
-      background-position: -10em -4em;
-    }
-  }
-  
-  @keyframes expand-rev {
-    0% {
-      background-size: 325%;
-      background-position: -10em -4em;
-    }
-    20% {
-      background-size: 55%;
-      background-position: 0 1em;
-    }
-    100% {
-      background-size: 50%;
-      background-position: 0 0;
-    }
-  } 
+
 .hero__subtitle {
     font-size: 1.5em;
     max-width: 600px;

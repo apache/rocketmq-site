@@ -1,0 +1,24 @@
+{
+  "unversionedId": "05message1",
+  "id": "05message1",
+  "isDocsHomePage": false,
+  "title": "普通消息发送",
+  "description": "1.向集群中创建Topic",
+  "source": "@site/docs/05message1.md",
+  "sourceDirName": ".",
+  "slug": "/05message1",
+  "permalink": "/docs/05message1",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/05message1.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "基本概念",
+    "permalink": "/docs/04concept1"
+  },
+  "next": {
+    "title": "顺序消息发送",
+    "permalink": "/docs/06message2"
+  }
+}

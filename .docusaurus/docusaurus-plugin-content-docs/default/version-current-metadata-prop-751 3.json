@@ -1,0 +1,234 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "docs": [
+      {
+        "type": "category",
+        "label": "介绍",
+        "collapsible": true,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "link",
+            "label": "为什么选择RocketMQ",
+            "href": "/docs/"
+          },
+          {
+            "type": "link",
+            "label": "快速开始",
+            "href": "/docs/02quickstart"
+          },
+          {
+            "type": "link",
+            "label": "初识RocketMQ",
+            "href": "/docs/03whatis"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "生产者",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "基本概念",
+            "href": "/docs/04concept1"
+          },
+          {
+            "type": "link",
+            "label": "普通消息发送",
+            "href": "/docs/05message1"
+          },
+          {
+            "type": "link",
+            "label": "顺序消息发送",
+            "href": "/docs/06message2"
+          },
+          {
+            "type": "link",
+            "label": "定时消息发送",
+            "href": "/docs/07message3"
+          },
+          {
+            "type": "link",
+            "label": "批量消息发送",
+            "href": "/docs/08message4"
+          },
+          {
+            "type": "link",
+            "label": "事务消息发送",
+            "href": "/docs/09message5"
+          },
+          {
+            "type": "link",
+            "label": "Topic手动创建和恣纵创建",
+            "href": "/docs/10message6"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "消费者",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "基础概念",
+            "href": "/docs/11concept2"
+          },
+          {
+            "type": "link",
+            "label": "Push消费",
+            "href": "/docs/12push"
+          },
+          {
+            "type": "link",
+            "label": "Pull消费",
+            "href": "/docs/13pull"
+          },
+          {
+            "type": "link",
+            "label": "Pop消费",
+            "href": "/docs/14pop"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "部署与运维",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "部署方式",
+            "href": "/docs/15deploy"
+          },
+          {
+            "type": "link",
+            "label": "Admin tool工具",
+            "href": "/docs/16admintool"
+          },
+          {
+            "type": "link",
+            "label": "Admin tool工具",
+            "href": "/docs/16admintool"
+          },
+          {
+            "type": "link",
+            "label": "RocketMQ Dashboard",
+            "href": "/docs/17Dashboard"
+          },
+          {
+            "type": "link",
+            "label": "RocketMQ Promethus Exporter",
+            "href": "/docs/18Exporter"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "最佳实践",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "JVM/OS配置",
+            "href": "/docs/19JVMOS"
+          },
+          {
+            "type": "link",
+            "label": "日志配置",
+            "href": "/docs/20log"
+          },
+          {
+            "type": "link",
+            "label": "订阅关系一致",
+            "href": "/docs/21subscribe"
+          },
+          {
+            "type": "link",
+            "label": "常见问题解答",
+            "href": "/docs/22FAQ"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "参数配置",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "23local",
+            "href": "/docs/23local"
+          },
+          {
+            "type": "link",
+            "label": "服务端配置",
+            "href": "/docs/24server"
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "label": "RocketMQ Streams",
+        "href": "/docs/25streams"
+      },
+      {
+        "type": "link",
+        "label": "RocketMQ Connnect",
+        "href": "/docs/26Connnect"
+      },
+      {
+        "type": "link",
+        "label": "EventBridge",
+        "href": "/docs/27EventBridge"
+      },
+      {
+        "type": "link",
+        "label": "RocketMQ MQTT",
+        "href": "/docs/28MQTT"
+      },
+      {
+        "type": "category",
+        "label": "贡献指南",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "how-to-contribute",
+            "href": "/docs/29how-to-contribute"
+          },
+          {
+            "type": "link",
+            "label": "code-guidelines",
+            "href": "/docs/30code-guidelines"
+          },
+          {
+            "type": "link",
+            "label": "pull-request",
+            "href": "/docs/31pull-request"
+          },
+          {
+            "type": "link",
+            "label": "release-manual",
+            "href": "/docs/32release-manual"
+          }
+        ]
+      }
+    ]
+  }
+}

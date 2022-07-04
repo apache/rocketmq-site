@@ -10,9 +10,9 @@ html[data-theme=dark] {
 .navbar {
     background-color: #0c0c2c;
     text-align: left;
-    padding: 0 0;
-    height: 60px;
+    height: var(--ifm-navbar-height);
     font-size: medium;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .navbar__items--right {
@@ -20,8 +20,7 @@ html[data-theme=dark] {
 }
 
 .navbar .navbar__items > .navbar__brand {
-    height: 55px;
-    margin: 10px 10px 10px 25px;
+    height: 50px;
 }
 
 .navbar .navbar-sidebar .navbar__brand {
@@ -32,10 +31,8 @@ html[data-theme=dark] {
     font-size: medium;
 }
 
-@media (max-width: 996px) {
-    .navbar__toggle {
-        margin-left: 1rem;
-    }
+.navbar__toggle {
+    color: #ffffff;
 }
 
 .header-github-link:hover {
@@ -83,4 +80,21 @@ body .react-toggle-track-x {
 body .react-toggle-thumb {
     top: 4px;
     left: 3px;
+}
+
+.navbar__logo{
+    width: 30px!important;
+    height: 35px!important;
+}
+[data-theme=light] .navbar-sidebar .navbar__brand{
+    color: #0c0c2c;
+}
+
+[data-theme=light] .navbar-sidebar .navbar__brand img{
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+}
+
+[data-theme=light] .navbar-sidebar__back{
+    color: black;
 }

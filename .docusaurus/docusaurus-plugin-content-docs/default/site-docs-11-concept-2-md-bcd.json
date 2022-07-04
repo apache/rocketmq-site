@@ -1,0 +1,24 @@
+{
+  "unversionedId": "11concept2",
+  "id": "11concept2",
+  "isDocsHomePage": false,
+  "title": "基础概念",
+  "description": "",
+  "source": "@site/docs/11concept2.md",
+  "sourceDirName": ".",
+  "slug": "/11concept2",
+  "permalink": "/docs/11concept2",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/11concept2.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Topic手动创建和自动创建",
+    "permalink": "/docs/10message6"
+  },
+  "next": {
+    "title": "Push消费",
+    "permalink": "/docs/12push"
+  }
+}

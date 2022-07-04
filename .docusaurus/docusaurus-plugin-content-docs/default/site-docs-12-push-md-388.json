@@ -1,0 +1,24 @@
+{
+  "unversionedId": "12push",
+  "id": "12push",
+  "isDocsHomePage": false,
+  "title": "Push消费",
+  "description": "",
+  "source": "@site/docs/12push.md",
+  "sourceDirName": ".",
+  "slug": "/12push",
+  "permalink": "/docs/12push",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/12push.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "基础概念",
+    "permalink": "/docs/11concept2"
+  },
+  "next": {
+    "title": "Pull消费",
+    "permalink": "/docs/13pull"
+  }
+}

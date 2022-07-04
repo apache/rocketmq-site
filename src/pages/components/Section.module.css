@@ -1,5 +1,5 @@
 .section {
-    padding: 10rem 0rem 2rem 2rem;
+    padding: 7rem  7rem ;
     width: 100%;
     background-color: var(--wdio-section-background-color);
 }
@@ -16,4 +16,8 @@
 
 html[data-theme=dark] {
     background-color: var(--wdio-section-background-color);
+}
+
+@media (max-width: 500px){
+    .section{padding: 0;}
 }

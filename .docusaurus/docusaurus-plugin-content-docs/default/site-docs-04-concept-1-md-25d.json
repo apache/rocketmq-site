@@ -1,0 +1,24 @@
+{
+  "unversionedId": "04concept1",
+  "id": "04concept1",
+  "isDocsHomePage": false,
+  "title": "基本概念",
+  "description": "消息",
+  "source": "@site/docs/04concept1.md",
+  "sourceDirName": ".",
+  "slug": "/04concept1",
+  "permalink": "/docs/04concept1",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/04concept1.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "初识RocketMQ",
+    "permalink": "/docs/03whatis"
+  },
+  "next": {
+    "title": "普通消息发送",
+    "permalink": "/docs/05message1"
+  }
+}
