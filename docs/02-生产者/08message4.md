@@ -2,7 +2,7 @@
 
 在对吞吐率有一定要求的情况下，Apache RocketMQ可以将一些消息聚成一批以后进行发送，可以增加吞吐率，并减少API和网络调用次数。
 
-![batch](picture/batch.png)
+![batch](../picture/batch.png)
 
 ```java
 public class SimpleBatchProducer {
