@@ -1,18 +1,18 @@
 # 初识RocketMQ
 
-![RocketMQ概念模型](picture/RocketMQ概念模型.png)
+![RocketMQ概念模型](../picture/RocketMQ概念模型.png)
 
 就像我们平时使用一些体育新闻软件，会订阅自己喜欢的一些球队板块，当有作者发表文章到相关的板块，我们就能收到相关的新闻推送。RocketMQ的基础消息模型就是一个简单的Pub/Sub模型。
 
 上图就是是一个基本的消息系统模型，一个生产者Producer，一个消费者Consumer，中间是Topic，Topic是消息主题，通过Topic我们对不同的业务消息进行分类，Producer把消息发送到某一个Topic，Consumer订阅Topic来接收消息。这是一个基础的概念模型，在实际的生产中，结构会更复杂，例如为了支持高并发和水平扩展，我们需要对中间的Topic进行分区，比如我们对于同一个Topic会有多个发送者，同一个信息的发送方会有多个订阅者，订阅者之间要进行负载均衡等。
 
-![RocketMQ基本模型](picture/RocketMQ基本模型.png)
+![RocketMQ基本模型](../picture/RocketMQ基本模型.png)
 
 上图是Topic、Producer、Consumer扩展后的模型。左边有2个Producer，中间就是2个Topic，右边是2个ConsumerGroup，Topic存储在Broker中，Broker是实际部署过程的对应的代理服务器。这边有两个点需要注意，一个是为了水平扩展，RocketMQ对Topic进行了分区，在RocketMQ里称为队列（MessageQueue），另一点是为了Consumer能并发消费，有了Consumer Group的概念，Consumer主要有两种消费方式，一个是广播模式，一个是集群模式，图中是最常用的集群模式，同一个Consumer Group中的Consumer实例是负载均衡消费，比如图中ConsumerGroupA它订阅TopicA，TopicA有3个队列，那GroupA中的consumer1消费的是MessageQueue0和MessageQueue1的消息，Consumer2是消费的是MessageQueue2的消息。
 
 Producer、Consumer又是如何找到Topic和Broker的地址呢？消息的具体发送和接收又是怎么进行的呢？RocketMQ的部署模型如下图所示
 
-![RocketMQ部署架构](picture/RocketMQ部署架构.png)
+![RocketMQ部署架构](../picture/RocketMQ部署架构.png)
 
 Apache RocketMQ部署架构上主要分为四部分:
 
