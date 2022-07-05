@@ -4,7 +4,7 @@
 
 RocketMQ消息构成非常简单。如下图所示，首先是topic，表示要发送的消息的主题，body表示消息的存储内容，properties表示消息属性，不管是RocketMQ的Tag过滤还是延迟消息等都会利用消息属性的能力，transactionId会在事务消息中使用。
 
-![Message](picture/Message.png)
+![Message](../picture/Message.png)
 
 Message可以设置的属性值包括：
 
@@ -27,7 +27,7 @@ Message可以设置的属性值包括：
 
 Topic和Tag的关系如下图所示。
 
-![Tag](picture/Tag.png)
+![Tag](../picture/Tag.png)
 
 到底什么时候该用Topic，什么时候该用Tag？
 
@@ -57,7 +57,7 @@ Apache RocketMQ每个消息可以在业务层面的设置唯一标识码keys字�
 
 为了支持高并发和水平扩展，需要对Topic进行分区，在RocketMQ中这被称为队列，一个Topic可能有多个队列，并且可能分布在不同的Broker上。
 
-![MessageQueue](picture/MessageQueue.png)
+![MessageQueue](../picture/MessageQueue.png)
 
 一般来说一条消息，如果没有重复发送（比如因为服务端没有响应而进行重试），则只会存在在Topic的其中一个队列中，消息在队列中按照先进先出的原则存储，每条消息会有自己的位点，每个队列会统计当前消息的总条数，这个称为最大位点MaxOffset；队列的起始位置对应的位置叫做起始位点MinOffset。队列可以提升消息发送和消费的并发度。
 
