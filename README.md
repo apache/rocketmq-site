@@ -1,48 +1,22 @@
-# Website
-
+# Introduction
+This project is the new official documentation site for rocketmq.
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+For all of you who contribute documents, here are a few things to keep in mind：
 
-```
-$ yarn
-```
+1. For the person responsible for writing the documentation, the only thing you need to modify is the content under ‘/docs’. Find the document you are responsible for under ‘/docs’ and write it in markdown. The rest of the site is automatic, so please do not modify it.
 
+2. For those who do translations, we are currently placing English documents at ‘/docs/09-English’ for the time being due to the error-prone nature of the multilingual version of the site.
+
+3. The framework we currently use supports some nice markdown features, please refer to it and try to speak about the beautiful writing of the document.[Markdown Features](https://docusaurus.io/docs/markdown-features)
+
+
+For those of you who have contributed documentation and wish to see the results after writing, please refer to the following command.
 ### Local Development
 
 ```
-$ yarn start
+$ npm start
 ```
-
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-
-
-## Q&A
-
-### How to post articles to **Documentation**?
-
-Create a .md file in rocketmq-docs/docs/, alter the siderbar.js file about your new post and its corresponding category
-
-### How to post articles to **Blog**?
-
-Create a .md file in rocketmq-docs/posts/
-
-### How to modify the navigation?
 
