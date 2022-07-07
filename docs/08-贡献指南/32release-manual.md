@@ -14,7 +14,7 @@
 
 遵循 Apache 版本发布指南，对发布版本签名，用户也可据此判断下载的版本是否被篡改。
 
-创建 ```pgp``` 密钥用于版本签名，使用 **\<your Apache ID\>@apache.org** 作为密钥 USER-ID 
+创建 ```pgp``` 密钥用于版本签名，使用 **\<your Apache ID\>@apache.org** 作为密钥 USER-ID
 
 详情可参考  [Apache Releases Signing documentation](https://infra.apache.org/release-signing)，[Cryptography with OpenPGP](http://www.apache.org/dev/openpgp.html)
 
@@ -118,7 +118,7 @@ gpg: sending key 7DE280AF to hkp server keys.openpgp.org
 
 #### 1.3 POM 配置
 
-配置 POM 文件，以便将版本部署到 ASF Nexus 仓库
+配置 POM 文件，以便将版本部署到 ASF Nexus 仓库。
 
 ① 添加 Apache POM 继承默认设置
 
@@ -178,11 +178,11 @@ mvn clean install -Papache-release
 
 解决与该发布版本相关的 JIRA issues 和 GitHub issues
 
-检查 MQVsersion 是否与发布版本一致
+检查 MQVsersion 是否与发布版本一致。
 
 #### 1.5 发布 Release Notes
 
-通过 [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) 生成 Release Notes，推送到 [rocketmq-site](https://github.com/apache/rocketmq-site), 并添加链接至版本选举邮件
+通过 [RocketMQ JIRA](https://issues.apache.org/jira/browse/ROCKETMQ/) 生成 Release Notes，推送到 [rocketmq-site](https://github.com/apache/rocketmq-site), 并添加链接至版本选举邮件。
 
 ## 2.构建 Source Release
 
@@ -190,7 +190,7 @@ mvn clean install -Papache-release
 
 #### 2.1 检查 RocketMQ  版本
 
-确认 MQVersion 版本，若与 `release-4.5.0` 形式不符或版本不一致，修改至正确并推送到 ```develop  ```分支
+确认 MQVersion 版本，若与 `release-4.5.0` 形式不符或版本不一致，修改至正确并推送到 ```develop  ```分支。
 
 ```java
 public static final int CURRENT_VERSION = Version.V4_5_0.ordinal();
@@ -198,7 +198,7 @@ public static final int CURRENT_VERSION = Version.V4_5_0.ordinal();
 
 #### 2.2 暂存至 ASF Nexus 仓库
 
-切换至 ```develop``` 分支，确认与该版本相关的 GitHub PRs 均已合并
+切换至 ```develop``` 分支，确认与该版本相关的 GitHub PRs 均已合并。
 
 ① 配置 pom.xml 文件
 
@@ -219,7 +219,7 @@ mvn release:prepare
 mvn release:perform
 ```
 
-执行以下流程将生成的 Artifacts 放入暂存库
+执行以下流程将生成的 Artifacts 放入暂存库：
 
 1. `mvn clean release:clean`：清除构建失败及丢弃的版本
 2. `mvn release:prepare -Psigned_release -Darguments="-DskipTests"`：根据 ```SCM``` 属性更新 tag

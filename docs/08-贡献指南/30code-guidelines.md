@@ -24,7 +24,7 @@
 
 ③ Windows OS 导入：```IntelliJ IDEA > Settings > Code Style > Import Scheme```
 
-![1656682140788](/picture/30code-guidelines/1_codestyle.png)
+![1656682140788](../picture/30code-guidelines/1_codestyle.png)
 
 导入的 ```rmq_codeStyle.xml``` 指定了代码的缩进格式，命名规范，标准 Java 约定等
 
@@ -34,13 +34,13 @@
 
 ① 文件位置：源码 ```rocketmq/style/copyright``` 目录 ```Apache.xml```
 
-![1656683960857](/picture/30code-guidelines/2_ApacheV2.png)
+![1656683960857](../picture/30code-guidelines/2_ApacheV2.png)
 
 ② 许可说明： [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
 
 ## 选择 Apache 版权
 
-![1656684219109](/picture/30code-guidelines/3_ApacheCopyRight.png)
+![1656684219109](../picture/30code-guidelines/3_ApacheCopyRight.png)
 
 可参考  [五种开源协议(GPL,LGPL,BSD,MIT,Apache) - OSCHINA - 中文开源技术交流社区](https://www.oschina.net/question/54100_9455) 了解详情
 
@@ -50,6 +50,6 @@
 
 ② 进入 ```File Header``` 页签下，删除其中的 Javadoc 标签
 
-![1656684039505](/picture/30code-guidelines/4_FileHeader.png)
+![1656684039505](../picture/30code-guidelines/4_FileHeader.png)
 
 

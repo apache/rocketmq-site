@@ -6,15 +6,15 @@
 
 本小节作为前置知识，简要说明使用 Git 贡献 RocketMQ 原因，有相关基础的同学可以自行跳过
 
-首先您需要自行了解 Git 和 Github 相关概念
+首先您需要自行了解 Git 和 GitHub 相关概念
 
 思考：从开发者角度，如何与他人协作完成项目？
 
 如果您想到通过打包压缩然后复制粘贴的方式，那么请再试想一下扩大参与者的范围至 10k+ 级别
 
-这就是远程仓库的意义：开发者可以很方便地从 Github 上获取仓库代码，并提交开发分支到远程仓库与他人交流和共享
+这就是远程仓库的意义：开发者可以很方便地从 GitHub 上获取仓库代码，并提交开发分支到远程仓库与他人交流和共享
 
-![1656601484232](/picture/31pull-request/1_Github.png)
+![1656601484232](../picture/31pull-request/1_Github.png)
 
 那么，有了这个公共仓库，然后呢？
 
@@ -24,7 +24,7 @@
 
 # Git 贡献指南
 
-① fork [apache/rocketmq](https://github.com/apache/rocketmq) 仓库至个人 Github 远程仓库
+① fork [apache/rocketmq](https://github.com/apache/rocketmq) 仓库至个人 GitHub 远程仓库
 
 ```shell
 https://github.com/cuser/rocketmq.git # cuser's rocketmq repo[repository] url
@@ -81,7 +81,7 @@ git push origin new-official-website	# push to https://github.com/cuser/rocketmq
 
 ③ compare across forks 选择请求分支和开发分支
 
-![1656580236831](/picture/31pull-request/2_compare.png)
+![1656580236831](../picture/31pull-request/2_compare.png)
 
 base repository / base : 请求仓库及请求分支
 
@@ -91,14 +91,14 @@ head repository / compare : 开发仓库及开发分支
 
 ④ 填写首字母大写的 PR 摘要，并在 Write 标签下简要描述 PR 内容
 
-![1656589498318](/picture/31pull-request/3_Write.png)
+![1656589498318](../picture/31pull-request/3_Write.png)
 
 ​	提交 PR 前，请先做如下确认：
 
-1. 已创建与 PR 对应的 [Github issue]( [apache/rocketmq: Mirror of Apache RocketMQ (github.com)](https://github.com/apache/rocketmq/issues) )
-2. 修改内容符合 [Coding Guidelines](/docs/30code-guidelines) 编程规范
+1. 已创建与 PR 对应的 [GitHub Issue]( [apache/rocketmq: Mirror of Apache RocketMQ (github.com)](https://github.com/apache/rocketmq/issues) )
+2. 修改内容符合 [Coding Guidelines](/docs/08-贡献指南/30code-guidelines) 编程规范
 3. PR 摘要以 [ISSUE #XXX] 开始并简要描述变更需求
-4. 概述 PR 变更需求，变更日志，验证信息，可参考 [demo pull request](https://github.com/apache/rocketmq/pull/152) 
+4. 概述 PR 变更需求，变更日志，验证信息，可参考 [PR Demo](https://github.com/apache/rocketmq/pull/152) 
 5. 提交内容具备完整的测试用例，并确保基本检查，单元测试，集成测试通过
 
 ⑤ 点击 "Create pull request" ，请求合并该分支
