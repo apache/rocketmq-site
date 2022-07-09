@@ -3,7 +3,7 @@
   "id": "介绍/03whatis",
   "isDocsHomePage": false,
   "title": "初识RocketMQ",
-  "description": "RocketMQ概念模型",
+  "description": "我们平时使用一些体育新闻软件，会订阅自己喜欢的一些球队板块，当有作者发表文章到相关的板块，我们就能收到相关的新闻推送。",
   "source": "@site/docs/01-介绍/03whatis.md",
   "sourceDirName": "01-介绍",
   "slug": "/介绍/03whatis",

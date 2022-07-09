@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://your-docusaurus-test-site.com/second-blog</id>
+    <title>RocketMQ Blog</title>
+    <updated>2022-07-08T13:42:20.719Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://your-docusaurus-test-site.com/second-blog"/>
+    <subtitle>RocketMQ Blog</subtitle>
+    <icon>https://your-docusaurus-test-site.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[精彩回顾|Apache RocketMQ Meetup 西安]]></title>
+        <id>精彩回顾|Apache RocketMQ Meetup 西安</id>
+        <link href="https://your-docusaurus-test-site.com/second-blog/meetup西安"/>
+        <updated>2022-07-08T13:42:20.719Z</updated>
+        <summary type="html"><![CDATA[精彩回顾|Apache RocketMQ Meetup 西安]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[精彩回顾 | Apache RocketMQ Meetup 苏州]]></title>
+        <id>精彩回顾 | Apache RocketMQ Meetup 苏州</id>
+        <link href="https://your-docusaurus-test-site.com/second-blog/苏州meetup"/>
+        <updated>2022-07-08T09:50:35.472Z</updated>
+        <summary type="html"><![CDATA[精彩回顾 | Apache RocketMQ Meetup 苏州]]></summary>
+    </entry>
+</feed>
