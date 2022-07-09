@@ -16,5 +16,9 @@
   "previous": {
     "title": "pull-request",
     "permalink": "/docs/贡献指南/31pull-request"
+  },
+  "next": {
+    "title": "为什么选择RocketMQ",
+    "permalink": "/docs/"
   }
 }

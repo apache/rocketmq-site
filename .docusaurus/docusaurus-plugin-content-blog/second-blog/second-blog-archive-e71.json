@@ -1,0 +1,42 @@
+{
+  "blogPosts": [
+    {
+      "id": "精彩回顾|Apache RocketMQ Meetup 西安",
+      "metadata": {
+        "permalink": "/second-blog/meetup西安",
+        "source": "@site/second-blog/meetup西安.md",
+        "title": "精彩回顾|Apache RocketMQ Meetup 西安",
+        "description": "精彩回顾|Apache RocketMQ Meetup 西安",
+        "date": "2022-07-08T13:42:20.719Z",
+        "formattedDate": "July 8, 2022",
+        "tags": [],
+        "readingTime": 0,
+        "truncated": false,
+        "authors": [],
+        "nextItem": {
+          "title": "精彩回顾 | Apache RocketMQ Meetup 苏州",
+          "permalink": "/second-blog/苏州meetup"
+        }
+      }
+    },
+    {
+      "id": "精彩回顾 | Apache RocketMQ Meetup 苏州",
+      "metadata": {
+        "permalink": "/second-blog/苏州meetup",
+        "source": "@site/second-blog/苏州meetup.md",
+        "title": "精彩回顾 | Apache RocketMQ Meetup 苏州",
+        "description": "精彩回顾 | Apache RocketMQ Meetup 苏州",
+        "date": "2022-07-08T09:50:35.472Z",
+        "formattedDate": "July 8, 2022",
+        "tags": [],
+        "readingTime": 0.005,
+        "truncated": true,
+        "authors": [],
+        "prevItem": {
+          "title": "精彩回顾|Apache RocketMQ Meetup 西安",
+          "permalink": "/second-blog/meetup西安"
+        }
+      }
+    }
+  ]
+}

@@ -30,6 +30,24 @@ export default {
       }
     ]
   ],
+  "plugins": [
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        "id": "second-blog",
+        "routeBasePath": "second-blog",
+        "path": "./second-blog"
+      }
+    ],
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        "id": "third-blog",
+        "routeBasePath": "third-blog",
+        "path": "./third-blog"
+      }
+    ]
+  ],
   "themeConfig": {
     "algolia": {
       "appId": "R2IYF7ETH7",
@@ -52,19 +70,51 @@ export default {
           "position": "right"
         },
         {
-          "to": "/blog",
-          "label": "博客",
-          "position": "right"
-        },
-        {
           "to": "/download",
           "label": "下载",
           "position": "right"
         },
         {
-          "to": "/download",
+          "type": "dropdown",
+          "label": "博客",
+          "position": "right",
+          "items": [
+            {
+              "to": "/blog",
+              "label": "用户案例"
+            },
+            {
+              "to": "/second-blog",
+              "label": "社区活动"
+            },
+            {
+              "to": "/third-blog",
+              "label": "版本变化"
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
           "label": "社区",
-          "position": "right"
+          "position": "right",
+          "items": [
+            {
+              "to": "/info",
+              "label": "项目信息"
+            },
+            {
+              "to": "/contact",
+              "label": "加入我们"
+            },
+            {
+              "to": "/team",
+              "label": "贡献团队"
+            },
+            {
+              "to": "/team",
+              "label": "贡献说明"
+            }
+          ]
         }
       ]
     },
@@ -328,7 +378,6 @@ export default {
   },
   "onDuplicateRoutes": "warn",
   "customFields": {},
-  "plugins": [],
   "themes": [],
   "titleDelimiter": "|",
   "noIndex": false

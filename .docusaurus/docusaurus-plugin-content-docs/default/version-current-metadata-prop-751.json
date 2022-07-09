@@ -226,6 +226,27 @@
         ],
         "collapsed": true,
         "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "英文",
+        "items": [
+          {
+            "type": "category",
+            "label": "Introduction",
+            "items": [
+              {
+                "type": "link",
+                "label": "为什么选择RocketMQ",
+                "href": "/docs/"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
       }
     ]
   }
