@@ -62,7 +62,7 @@ export default function Feature() {
           </>
         }
         link="了解更多"
-        url="/docs/03whatis"
+        url="/docs/介绍/03whatis"
       />
       <Highlight
         img={
@@ -106,7 +106,7 @@ export default function Feature() {
           </>
         }
         link="RocketMQ 5.0 速览"
-        url="/docs/32release-manual"
+        url=""
       />
     </div>
   </div>

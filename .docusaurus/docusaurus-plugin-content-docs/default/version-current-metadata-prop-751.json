@@ -52,7 +52,7 @@
           },
           {
             "type": "link",
-            "label": "定时消息发送",
+            "label": "延迟消息发送",
             "href": "/docs/生产者/07message3"
           },
           {
