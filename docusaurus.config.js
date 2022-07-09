@@ -26,6 +26,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   //     },
   //   }
   // },
+  
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -52,6 +54,44 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       }),
     ],
   ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        /**
+         * Required for any multi-instance plugin
+         */
+        id: 'second-blog',
+        /**
+         * URL route for the blog section of your site.
+         * *DO NOT* include a trailing slash.
+         */
+        routeBasePath: 'second-blog',
+        /**
+         * Path to data on filesystem relative to site dir.
+         */
+        path: './second-blog',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        /**
+         * Required for any multi-instance plugin
+         */
+        id: 'third-blog',
+        /**
+         * URL route for the blog section of your site.
+         * *DO NOT* include a trailing slash.
+         */
+        routeBasePath: 'third-blog',
+        /**
+         * Path to data on filesystem relative to site dir.
+         */
+        path: './third-blog',
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -73,14 +113,39 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         items: [
           {to: '/docs', label: '文档', position: 'right'},
-          {to: '/blog', label: '博客', position: 'right'},
+          {to: '/download', label: '下载', position: 'right'},
+          {
+            type: 'dropdown',
+            label: '博客',
+            position: 'right',
+            items: [
+              {to: '/blog', label: '用户案例'},
+              {to: '/second-blog', label: '社区活动'},
+              {to: '/third-blog', label: '版本变化'},
+              // ... more items
+            ],
+          },
           // {
           //   href: 'https://github.com/apache/rocketmq',
           //   label: 'GitHub',
           //   position: 'right',
           // },
-          {to: '/download', label: '下载', position: 'right'},
-          {to: '/download', label: '社区', position: 'right'},
+          
+          // {to: '/download', label: '社区', position: 'right'},
+          
+          {
+            type: 'dropdown',
+            label: '社区',
+            position: 'right',
+            items: [
+              {to: '/info', label: '项目信息'},
+              {to: '/contact', label: '加入我们'},
+              {to: '/team', label: '贡献团队'},
+              {to: '/team', label: '贡献说明'}
+              // ... more items
+            ],
+          },
+          
           //  {
           //   type: 'localeDropdown',
           //   position: 'right',

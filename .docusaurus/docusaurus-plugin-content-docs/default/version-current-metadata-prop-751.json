@@ -52,7 +52,7 @@
           },
           {
             "type": "link",
-            "label": "定时消息发送",
+            "label": "延迟消息发送",
             "href": "/docs/生产者/07message3"
           },
           {
@@ -222,6 +222,27 @@
             "type": "link",
             "label": "release-manual",
             "href": "/docs/贡献指南/32release-manual"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "英文",
+        "items": [
+          {
+            "type": "category",
+            "label": "Introduction",
+            "items": [
+              {
+                "type": "link",
+                "label": "为什么选择RocketMQ",
+                "href": "/docs/"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
           }
         ],
         "collapsed": true,

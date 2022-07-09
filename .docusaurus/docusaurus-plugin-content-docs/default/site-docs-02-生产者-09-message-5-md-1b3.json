@@ -3,7 +3,7 @@
   "id": "生产者/09message5",
   "isDocsHomePage": false,
   "title": "事务消息发送",
-  "description": "",
+  "description": "在一些对数据最终一致性有强需求的场景，可以用Apache RocketMQ 事务消息来解决，从而保证上下游数据的一致性。",
   "source": "@site/docs/02-生产者/09message5.md",
   "sourceDirName": "02-生产者",
   "slug": "/生产者/09message5",
