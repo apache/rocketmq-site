@@ -2,6 +2,13 @@
 
 这一节介绍如何快速部署一个单 Master RocketMQ 集群，并完成简单的消息收发。
 
+:::tip 系统要求
+
+1. 64位操作系统，推荐 Linux/Unix/macOS
+2. 64位 JDK 1.8+
+
+:::
+
 ## 1.下载安装Apache RocketMQ
 
 :::tip RocketMQ下载
