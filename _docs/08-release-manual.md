@@ -110,8 +110,8 @@ build source and binary file by <a href="https://rocketmq.apache.org/docs/quick-
 
 - sign files(generate `asc` file)
 ```
-gpg --clearsign rocketmq-all-x1.x2.x3-bin-release.zip
-gpg --clearsign rocketmq-all-x1.x2.x3-source-release.zip
+gpg -ab rocketmq-all-x1.x2.x3-bin-release.zip
+gpg -ab rocketmq-all-x1.x2.x3-source-release.zip
 ```
 - generate hash(generate `sha512` file)
 ```
