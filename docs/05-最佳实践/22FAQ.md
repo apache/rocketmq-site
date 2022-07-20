@@ -8,7 +8,7 @@
 
    请参考[为什么要选择RocketMQ](http://rocketmq.apache.org/docs/motivation/)
 
-2. **我是否需要安装其他的软件才能使用 RocketMQ ，例如 Zookeeper ？**
+2. **我是否需要安装其他的软件才能使用 RocketMQ ，例如 ZooKeeper ？**
 
    不需要，RocketMQ 能够独立的运行。
 
@@ -121,7 +121,7 @@
      
    - **原因**
    
-     1）相同名称的 Consumer Group已经启动，注册失败。
+     1）相同名称的 Consumer Group 已经启动，注册失败。
    
    - **解决方案**
    
@@ -165,7 +165,7 @@
 
    - **原因**
 
-     1）Consumer Group 或 DleayQueye 获取订阅信息异常。
+     1）Consumer Group 或 DleayQueue 获取订阅信息异常。
 
    - **解决方案**
 
@@ -209,7 +209,7 @@
 
      2）确保名称服务器确实包含主题的路由元信息。 您可以使用管理工具或 Web 控制台通过 TopicRoute 从名称服务器查询路由元信息；
 
-     3）确保您的Broker将心跳发送到您的生产者正在连接的同一 NameServer 列表；
+     3）确保您的 Broker 将心跳发送到您的生产者正在连接的同一 NameServer 列表；
 
      4）确保主题的权限为6(rw-)，或至少为2(-w-)；
 
@@ -249,9 +249,9 @@
 
    - **解决方案**
 
-     1）检查消费者所在的消费者组是否存在；
+     1）检查 Consumer 所在的 Consumer Group 是否存在；
 
-     2）检查消费者订阅 Topic 是否存在；
+     2）检查 Consumer 订阅 Topic 是否存在；
 
 10. **MQLIST_NOT_EXIST**
 
@@ -323,4 +323,4 @@
    
    3）所有 Slave 节点崩溃
    
-   向 Master 发送消息不会有任何影响，但是，如果 Master是 SYNC_MASTER，producer会得到一个 SLAVE_NOT_AVAILABLE ，表示消息没有发送给任何 Slave。 对消费消息也没有影响，除非消费者组设置为优先从 Slave 消费。 默认情况下，消费者组从 Master 消费。
+   向 Master 发送消息不会有任何影响，但是，如果 Master是 SYNC_MASTER，Producer会得到一个 SLAVE_NOT_AVAILABLE ，表示消息没有发送给任何 Slave。 对消费消息也没有影响，除非消费者组设置为优先从 Slave 消费。 默认情况下，消费者组从 Master 消费。
