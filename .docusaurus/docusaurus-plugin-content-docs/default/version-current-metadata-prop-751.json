@@ -201,34 +201,6 @@
       },
       {
         "type": "category",
-        "label": "贡献指南",
-        "items": [
-          {
-            "type": "link",
-            "label": "how-to-contribute",
-            "href": "/docs/贡献指南/29how-to-contribute"
-          },
-          {
-            "type": "link",
-            "label": "code-guidelines",
-            "href": "/docs/贡献指南/30code-guidelines"
-          },
-          {
-            "type": "link",
-            "label": "pull-request",
-            "href": "/docs/贡献指南/31pull-request"
-          },
-          {
-            "type": "link",
-            "label": "release-manual",
-            "href": "/docs/贡献指南/32release-manual"
-          }
-        ],
-        "collapsed": true,
-        "collapsible": true
-      },
-      {
-        "type": "category",
         "label": "英文",
         "items": [
           {
