@@ -13,7 +13,7 @@ export default {
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "routeBasePath": "/docs",
+          "routeBasePath": "/docs/",
           "sidebarPath": "/Users/rhuen/Documents/Documents - Rhuen’s MacBook Pro/04 github/rocketmq-docs/rocketmq-site/sidebars.js",
           "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/"
         },
@@ -55,107 +55,6 @@ export default {
       "indexName": "docsearch",
       "contextualSearch": false,
       "searchParameters": {}
-    },
-    "navbar": {
-      "title": "RocketMQ",
-      "hideOnScroll": true,
-      "logo": {
-        "alt": "My Site Logo",
-        "src": "img/Apache_RocketMQ_logo.svg.png"
-      },
-      "items": [
-        {
-          "to": "/docs",
-          "label": "文档",
-          "position": "right"
-        },
-        {
-          "to": "/download",
-          "label": "下载",
-          "position": "right"
-        },
-        {
-          "type": "dropdown",
-          "label": "博客",
-          "position": "right",
-          "items": [
-            {
-              "to": "/blog",
-              "label": "用户案例"
-            },
-            {
-              "to": "/second-blog",
-              "label": "社区活动"
-            },
-            {
-              "to": "/third-blog",
-              "label": "版本变化"
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "label": "社区",
-          "position": "right",
-          "items": [
-            {
-              "to": "/info",
-              "label": "项目信息"
-            },
-            {
-              "to": "/contact",
-              "label": "加入我们"
-            },
-            {
-              "to": "/team",
-              "label": "贡献团队"
-            },
-            {
-              "to": "/team",
-              "label": "贡献说明"
-            }
-          ]
-        }
-      ]
-    },
-    "footer": {
-      "style": "dark",
-      "links": [
-        {
-          "title": "社区",
-          "items": [
-            {
-              "label": "Github",
-              "href": "https://github.com/apache/rocketmq"
-            },
-            {
-              "label": "公众号",
-              "href": "https://discordapp.com/invite/docusaurus"
-            },
-            {
-              "label": "Meetup",
-              "href": "https://twitter.com/docusaurus"
-            }
-          ]
-        },
-        {
-          "title": "更多",
-          "items": [
-            {
-              "label": "博客",
-              "to": "/blog"
-            },
-            {
-              "label": "Changelog",
-              "href": "https://github.com/apache/rocketmq"
-            },
-            {
-              "label": "GitHub",
-              "href": "https://github.com/apache/rocketmq"
-            }
-          ]
-        }
-      ]
     },
     "prism": {
       "theme": {
@@ -350,6 +249,107 @@ export default {
         ]
       },
       "additionalLanguages": []
+    },
+    "navbar": {
+      "title": "RocketMQ",
+      "hideOnScroll": true,
+      "logo": {
+        "alt": "My Site Logo",
+        "src": "img/Apache_RocketMQ_logo.svg.png"
+      },
+      "items": [
+        {
+          "to": "/docs/",
+          "label": "文档",
+          "position": "right"
+        },
+        {
+          "to": "/download",
+          "label": "下载",
+          "position": "right"
+        },
+        {
+          "type": "dropdown",
+          "label": "博客",
+          "position": "right",
+          "items": [
+            {
+              "to": "/blog",
+              "label": "用户案例"
+            },
+            {
+              "to": "/second-blog",
+              "label": "社区活动"
+            },
+            {
+              "to": "/third-blog",
+              "label": "版本变化"
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "label": "社区",
+          "position": "right",
+          "items": [
+            {
+              "to": "/info",
+              "label": "项目信息"
+            },
+            {
+              "to": "/contact",
+              "label": "加入我们"
+            },
+            {
+              "to": "/team",
+              "label": "贡献团队"
+            },
+            {
+              "to": "/team",
+              "label": "贡献说明"
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "style": "dark",
+      "links": [
+        {
+          "title": "社区",
+          "items": [
+            {
+              "label": "Github",
+              "href": "https://github.com/apache/rocketmq"
+            },
+            {
+              "label": "公众号",
+              "href": "https://discordapp.com/invite/docusaurus"
+            },
+            {
+              "label": "Meetup",
+              "href": "https://twitter.com/docusaurus"
+            }
+          ]
+        },
+        {
+          "title": "更多",
+          "items": [
+            {
+              "label": "博客",
+              "to": "/blog"
+            },
+            {
+              "label": "Changelog",
+              "href": "https://github.com/apache/rocketmq"
+            },
+            {
+              "label": "GitHub",
+              "href": "https://github.com/apache/rocketmq"
+            }
+          ]
+        }
+      ]
     },
     "colorMode": {
       "defaultMode": "light",

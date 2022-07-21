@@ -3,7 +3,7 @@
   "id": "生产者/04concept1",
   "isDocsHomePage": false,
   "title": "基本概念",
-  "description": "消息",
+  "description": "在生产者一章的基本概念包括消息，Tag，Keys，队列和生产者的介绍。",
   "source": "@site/docs/02-生产者/04concept1.md",
   "sourceDirName": "02-生产者",
   "slug": "/生产者/04concept1",

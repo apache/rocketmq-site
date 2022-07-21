@@ -18,7 +18,7 @@ Apache RocketMQ 一共支持18个等级的延迟投递，具体时间如下：
 
 延迟消息的示例代码如下：
 
-```java
+```javascript {10,11}
 public class ScheduledMessageProducer {
     public static void main(String[] args) throws Exception {
         // Instantiate a producer to send scheduled messages
@@ -40,5 +40,6 @@ public class ScheduledMessageProducer {
     
 }
 ```
-
+:::tip
 这里最重要的是message中设置延迟等级，例子中设置的等级是3，也就是发送者发送后，10s后消费者才能收到消息。
+:::

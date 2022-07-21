@@ -3,7 +3,7 @@
   "id": "生产者/05message1",
   "isDocsHomePage": false,
   "title": "普通消息发送",
-  "description": "1.向集群中创建Topic",
+  "description": "1.向集群中创建 Topic",
   "source": "@site/docs/02-生产者/05message1.md",
   "sourceDirName": "02-生产者",
   "slug": "/生产者/05message1",
