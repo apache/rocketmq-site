@@ -4,7 +4,7 @@
 
 ![batch](../picture/batch.png)
 
-```java
+```javascript {10,11,12,13}
 public class SimpleBatchProducer {
 
     public static void main(String[] args) throws Exception {
@@ -24,4 +24,6 @@ public class SimpleBatchProducer {
 }
 ```
 
-<!-- 这里调用非常简单，将消息打包成"Collection\<Message> msgs"传入方法中即可，需要注意的是批量消息的大小不能超过1MiB（否则需要自行分割），其次同一批batch中topic必须相同。 -->
+:::note
+这里调用非常简单，将消息打包成 Collection`<Message>` msgs传入方法中即可，需要注意的是批量消息的大小不能超过 1MiB（否则需要自行分割），其次同一批 batch 中 topic 必须相同。 
+:::

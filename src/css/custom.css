@@ -207,10 +207,9 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
-h3 {
-  font-weight: 600;
-  font-size: 4em;
-}
+
+
+
 
 .prism-code > div {
   background-color: var(--ifm-table-border-color) !important;
@@ -597,4 +596,15 @@ h1 {
 } */
 .text--right{
   display: none;
+}
+
+.prism-code{
+  font-size: large!important;
+}
+
+[data-theme="light"] .docusaurus-highlight-code-line{
+  background-color: #d2d1fc;
+}
+.tabs__item{
+  padding: 15px!important;
 }
