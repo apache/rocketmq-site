@@ -1,6 +1,6 @@
 # 延迟消息发送
 
-延时消息是指消息发送到Apache RocketMQ后，并不期望立马投递这条消息，而是延迟一定时间后才投递到Consumer进行消费。
+延迟消息发送是指消息发送到Apache RocketMQ后，并不期望立马投递这条消息，而是延迟一定时间后才投递到Consumer进行消费。
 
 Apache RocketMQ 一共支持18个等级的延迟投递，具体时间如下：
 
