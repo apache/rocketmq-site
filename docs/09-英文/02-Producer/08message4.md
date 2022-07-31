@@ -1,6 +1,6 @@
 # Batch Message Sending
 
-In the case of certain requirements on throughput, Apache RocketMQ can group messages into batches and send them. The approach can increase throughput rate and decrease the times of calls of API and network calls.
+In the case of certain requirements on throughput, Apache RocketMQ can send messages after grouping them into batches. The approach is able to increase throughput and decrease the times of API and network calls.
 
 ![batch](../../picture/batch.png)
 
@@ -25,5 +25,5 @@ public class SimpleBatchProducer {
 ```
 
 :::note
-This call is very simple, packaging the message as `Collection<Message> msgs` and passing it into the method as a parameter. Here are two points to notice. At first, the size of the batch message cannot exceed 1 MiB, otherwise, it needs to be split. Secondly, the topic of the message in the same batch must be the same.
+The call here is simple, where it packages the message as Collection<Message> msgs and passes it into the method as a parameter. There are two things to note here. First of all, the size of the batch message cannot exceed 1 MiB, otherwise, it needs to be split. Secondly, the message topic within the same batch must be identical.
 :::
