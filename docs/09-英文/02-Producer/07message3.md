@@ -1,8 +1,8 @@
-# Delay Message Sending
+# Delayed Message Sending
 
-The delay message sending means that when a message is sent to Apache RocketMQ, instead of delivering the message immediately, it is delivered to the Consumer for consumption after delaying a certain period of time.
+The delayed message sending means that when a message is sent to Apache RocketMQ, instead of delivering the message immediately, it would be delivered to the Consumer for consumption after delaying a certain period of time.
 
-Apache RocketMQ supports a total of 18 levels of delayed delivery, the detail is as follows:
+Apache RocketMQ supports a total of 18 levels of delayed delivery, the details are as follows:
 
 | delay level | delay time | delay level | delay time |
 |-------------------|------|-------------------|-------|
@@ -16,7 +16,7 @@ Apache RocketMQ supports a total of 18 levels of delayed delivery, the detail is
 | 8                 | 4min | 17                | 1h    |
 | 9                 | 5min | 18                | 2h    |
 
-The sample code for the delay message sending is as follows:
+The sample code for the delayed message sending is as follows:
 
 ```javascript {10,11}
 public class ScheduledMessageProducer {
@@ -41,5 +41,5 @@ public class ScheduledMessageProducer {
 }
 ```
 :::tip
-The most important thing is to set the delay level for the message. In the above sample code, the delay level is set to 3, which means that after the sender sends the message, it takes 10s for the consumer to receive it
+The most important thing is to set the delay level for the message. In the sample code above, the delay level is set to 3, which means that after the sender sends the message, it would take 10s for the consumer to receive it.
 :::
