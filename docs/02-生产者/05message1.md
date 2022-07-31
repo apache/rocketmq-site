@@ -50,9 +50,7 @@ Apache RocketMQ可用于以三种方式发送消息：**同步、异步和单向
 同步发送是指消息发送方发出一条消息后，会在收到服务端同步响应之后才发下一条消息的通讯方式，可靠的同步传输被广泛应用于各种场景，如重要的通知消息、短消息通知等。
 
 
-<center>
-<img src="../picture/同步发送.png"  width="500"></img>
-</center>
+![同步发送](../picture/同步发送.png)
 
 同步发送的整个代码流程如下：
 1. **首先会创建一个producer**。普通消息可以创建 DefaultMQProducer，创建时需要填写生产组的名称，生产者组是指同一类Producer的集合，这类Producer发送同一类消息且发送逻辑一致。
@@ -88,9 +86,7 @@ public class SyncProducer {
 
 ### 3.2 异步发送
 
-<center>
-<img src="../picture/异步发送.png"  width="500"></img>
-</center>
+![同步发送](../picture/异步发送.png)
 
 
 异步发送是指发送方发出一条消息后，不等服务端返回响应，接着发送下一条消息的通讯方式。
@@ -143,10 +139,7 @@ public class AsyncProducer {
 
 ### 3.3 单向模式发送
 
-<center>
-<img src="../picture/Oneway发送.png"  width="500"></img>
-</center>
-
+![同步发送](../picture/Oneway发送.png)
 
 
 发送方只负责发送消息，不等待服务端返回响应且没有回调函数触发，即只发送请求不等待应答。此方式发送消息的过程耗时非常短，一般在微秒级别。适用于某些耗时非常短，但对可靠性要求并不高的场景，例如日志收集。
