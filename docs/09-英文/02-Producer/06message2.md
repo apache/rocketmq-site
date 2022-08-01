@@ -1,17 +1,17 @@
-# Sequential Message Sending
+# Ordered Message Sending
 
-## Sequential Message Introduction
-Sequential messages have strict requirements on the order in which they are sent and consumed. 
+## Ordered Message Introduction
+Ordered messages have strict requirements on the order in which they are sent and consumed. 
 
-For a given topic, messages are published and consumed strictly on a first-in-first-out (FIFO) basis, messages published first are consumed first and messages published later are consumed later. Partitioned sequential messages are supported in Apache RocketMQ, as shown in the following figure. We can partition messages according to a certain criterion (e.g., the ShardingKey in the figure). Messages with the same ShardingKey are assigned to the same queue and consumed in order.
+For a given topic, messages are published and consumed strictly on a first-in-first-out (FIFO) basis, messages published first are consumed first and messages published later are consumed later. Partitioned ordered messages are supported in Apache RocketMQ, as shown in the following figure. We can partition messages according to a certain criterion (e.g., the ShardingKey in the figure). Messages with the same ShardingKey are assigned to the same queue and consumed in order.
 
 ![顺序消息发送](../../picture/顺序消息发送.png)
 
-Sequential messages are also used in a wide range of application scenarios, such as in the example of creating an order, where you need to ensure that the same order is generated, paid and shipped, and these three operations are executed sequentially. In the case of normal messages, the messages of order A may be polled and sent to different queues, and the messages of different queues will not be able to maintain the order while sequential messages are sent by routing the sequence of messages with the same ShardingKey (same order number) to a logical queue.
+Ordered messages are also used in a wide range of application scenarios, such as in the example of creating an order, where you need to ensure that the same order is generated, paid and shipped, and these three operations are executed sequentially. In the case of normal messages, the messages of order A may be polled and sent to different queues, and the messages of different queues will not be able to maintain the order while ordered messages are sent by routing the sequence of messages with the same ShardingKey (same order number) to a logical queue.
 
-## Sequential Message Sample Code
+## Ordered Message Sample Code
 
-Sequential message sample code is as follows:
+The ordered message sample code is as follows:
 
 ```jsx {13}
 public class Producer {
@@ -61,11 +61,11 @@ In the interface, mqs is the queue, msg is the message, and arg is the object pa
 :::
 
 
-## Consistency of Sequential Messages
+## Consistency of Ordered Messages
 
 If a Broker drops out, does the total number of queues change at that point? 
 
-If a change occurs, messages with the same ShardingKey will be sent to a different queue causing disorder. If no change occurs, messages will be sent to the queue of the offline Broker, which is bound to fail. Therefore, Apache RocketMQ provides two modes, to guarantee strict order over availability, create Topic by specifying the ```-o``` parameter (--order) to be true, which represents sequential messages:
+If a change occurs, messages with the same ShardingKey will be sent to a different queue causing disorder. If no change occurs, messages will be sent to the queue of the offline Broker, which is bound to fail. Therefore, Apache RocketMQ provides two modes, to guarantee strict order over availability, create Topic by specifying the ```-o``` parameter (--order) to be true, which represents ordered messages:
 
 ```shell {1}
 > sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -o true -n 127.0.0.1:9876
