@@ -25,5 +25,5 @@ public class SimpleBatchProducer {
 ```
 
 :::note
-The call here is simple, where it packages the message as Collection<Message> msgs and passes it into the method as a parameter. There are two things to note here. First of all, the size of the batch message cannot exceed 1 MiB, otherwise, it needs to be split. Secondly, the message topic within the same batch must be identical.
+The call here is simple, where it packages the message as `Collection<Message> msgs` and passes it into the method as a parameter. There are two things to note here. First of all, the size of the batch message cannot exceed 1 MiB, otherwise, it needs to be split. Secondly, the message topic within the same batch must be identical.
 :::
