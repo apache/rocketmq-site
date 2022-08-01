@@ -1,4 +1,4 @@
-# Common Message Sending
+# Simple Message Sending
 
 ## 1.Creating Topic in Cluster
 
@@ -53,7 +53,7 @@ Synchronous Sending is a communication method in which the message sender sends 
 ![同步发送](../../picture/同步发送.png)
 
 The entire code for synchronous sending is as follows: 
-1. **Firstly a producer will be created**. Common messages create DefaultMQProducer. While creating producer, fill in the name of the production group which is the collection of the same class of Producer, such Producer sends same class of messages with same transmission logic.
+1. **Firstly a producer will be created**. Simple Messages create DefaultMQProducer. While creating producer, fill in the name of the production group which is the collection of the same class of Producer, such Producer sends same class of messages with same transmission logic.
 2. **Set the address of NameServer**. Apache Rocket has MQ many ways to set the address of the NameServer (described in the client configuration), this example is set by calling the producer's setNamesrvAddr() method in the code, if there are more than one NameServer, separated by a semicolon, such as "127.0.0.2:9876;127.0.0.3:9876".
 3. **The third step is to build the message**. Set the topic, tag, body and so on. The tag can be understood as a label to categorize the message, and RocketMQ can filter the tag on the consumer side.
 4. **Finally call the send() method to send the message out**. Ultimately, the send() method return a SendResult. The SendResut contains the actual send status including SEND_OK (send success), FLUSH_DISK_TIMEOUT (disk flush timeout), FLUSH_SLAVE_TIMEOUT (sync to slave timeout), SLAVE_NOT_AVAILABLE (slave can not be used), and an exception is thrown if send fails.
