@@ -1,0 +1,20 @@
+{
+  "permalink": "/blog/03ximalaya",
+  "source": "@site/blog/03ximalaya.md",
+  "title": "喜马拉雅 Apache RocketMQ 消息治理实践",
+  "description": "喜马拉雅 Apache RocketMQ 消息治理实践",
+  "date": "2022-07-27T06:03:42.471Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "prevItem": {
+    "title": "快手基于 RocketMQ 在线消息系统建设实践",
+    "permalink": "/blog/04kuaishou"
+  },
+  "nextItem": {
+    "title": "阿里的 RocketMQ 如何让双十一峰值之下0故障",
+    "permalink": "/blog/02ali"
+  }
+}

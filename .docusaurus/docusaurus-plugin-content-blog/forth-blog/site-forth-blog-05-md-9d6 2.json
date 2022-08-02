@@ -1,0 +1,20 @@
+{
+  "permalink": "/forth-blog/05",
+  "source": "@site/forth-blog/05.md",
+  "title": "RocketMQ在数据异构系统的应用",
+  "description": "",
+  "date": "2022-07-27T08:28:51.726Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "prevItem": {
+    "title": "当 RocketMQ 遇见 Elastic Stack ｜ RocketMQ 使实时日志分析更简单",
+    "permalink": "/forth-blog/06"
+  },
+  "nextItem": {
+    "title": "RocketMQ-Streams架构设计浅析",
+    "permalink": "/forth-blog/04"
+  }
+}

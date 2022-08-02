@@ -1,0 +1,20 @@
+{
+  "permalink": "/forth-blog/11",
+  "source": "@site/forth-blog/11.md",
+  "title": "OpenChaos，新的开始！新Streaming Data Platform值得期待",
+  "description": "",
+  "date": "2022-07-27T08:31:34.086Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "prevItem": {
+    "title": "混沌鸿蒙，新基建下的分布式消息Chaos框架",
+    "permalink": "/forth-blog/12"
+  },
+  "nextItem": {
+    "title": "Apache ShenYu集成Apache RocketMQ实现海量日志采集的原理与实践",
+    "permalink": "/forth-blog/10"
+  }
+}
