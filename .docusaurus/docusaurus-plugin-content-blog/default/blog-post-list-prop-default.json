@@ -2,8 +2,44 @@
   "title": "All posts",
   "items": [
     {
+      "title": "今日头条在消息服务平台和容灾体系建设方面的实践与思考",
+      "permalink": "/blog/10jinritoutiao"
+    },
+    {
+      "title": "哈啰在分布式消息治理和微服务治理中的实践",
+      "permalink": "/blog/09hallo"
+    },
+    {
+      "title": "同程旅行网基于 RocketMQ 高可用架构实践",
+      "permalink": "/blog/08tongcheng"
+    },
+    {
+      "title": "滴滴出行基于RocketMQ构建企业级消息队列服务的实践",
+      "permalink": "/blog/07didi"
+    },
+    {
+      "title": "基于 RocketMQ 的同城双活架构在美菜网的挑战与实践",
+      "permalink": "/blog/06cai"
+    },
+    {
+      "title": "基于开源RocketMQ构建网易云音乐消息队列",
+      "permalink": "/blog/05music"
+    },
+    {
+      "title": "快手基于 RocketMQ 在线消息系统建设实践",
+      "permalink": "/blog/04kuaishou"
+    },
+    {
+      "title": "喜马拉雅 Apache RocketMQ 消息治理实践",
+      "permalink": "/blog/03ximalaya"
+    },
+    {
+      "title": "阿里的 RocketMQ 如何让双十一峰值之下0故障",
+      "permalink": "/blog/02ali"
+    },
+    {
       "title": "小红书消息中间件的运维实践与治理之路",
-      "permalink": "/blog/xiaohongshu"
+      "permalink": "/blog/01xiaohongshu"
     }
   ]
 }

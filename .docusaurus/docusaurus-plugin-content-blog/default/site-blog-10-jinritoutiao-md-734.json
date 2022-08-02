@@ -1,0 +1,16 @@
+{
+  "permalink": "/blog/10jinritoutiao",
+  "source": "@site/blog/10jinritoutiao.md",
+  "title": "今日头条在消息服务平台和容灾体系建设方面的实践与思考",
+  "description": "今日头条在消息服务平台和容灾体系建设方面的实践与思考",
+  "date": "2022-07-27T06:10:55.302Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "nextItem": {
+    "title": "哈啰在分布式消息治理和微服务治理中的实践",
+    "permalink": "/blog/09hallo"
+  }
+}

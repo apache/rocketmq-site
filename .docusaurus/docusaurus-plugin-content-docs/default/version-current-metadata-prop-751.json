@@ -87,11 +87,6 @@
             "type": "link",
             "label": "Pull消费",
             "href": "/docs/消费者/13pull"
-          },
-          {
-            "type": "link",
-            "label": "Pop消费",
-            "href": "/docs/消费者/14pop"
           }
         ],
         "collapsed": true,
@@ -108,7 +103,7 @@
           },
           {
             "type": "link",
-            "label": "Admin tool工具",
+            "label": "Admin Tool",
             "href": "/docs/部署与运维/16admintool"
           },
           {
@@ -129,6 +124,21 @@
         "type": "category",
         "label": "最佳实践",
         "items": [
+          {
+            "type": "link",
+            "label": "基本最佳实践",
+            "href": "/docs/最佳实践/15bestpractice"
+          },
+          {
+            "type": "link",
+            "label": "消息轨迹",
+            "href": "/docs/最佳实践/17messagetra"
+          },
+          {
+            "type": "link",
+            "label": "权限控制",
+            "href": "/docs/最佳实践/18access"
+          },
           {
             "type": "link",
             "label": "JVM/OS配置",
@@ -173,34 +183,6 @@
       },
       {
         "type": "category",
-        "label": "其他",
-        "items": [
-          {
-            "type": "link",
-            "label": "RocketMQ Streams",
-            "href": "/docs/其他/25streams"
-          },
-          {
-            "type": "link",
-            "label": "RocketMQ Connnect",
-            "href": "/docs/其他/26Connnect"
-          },
-          {
-            "type": "link",
-            "label": "EventBridge",
-            "href": "/docs/其他/27EventBridge"
-          },
-          {
-            "type": "link",
-            "label": "RocketMQ MQTT",
-            "href": "/docs/其他/28MQTT"
-          }
-        ],
-        "collapsed": true,
-        "collapsible": true
-      },
-      {
-        "type": "category",
         "label": "贡献指南",
         "items": [
           {
@@ -222,27 +204,6 @@
             "type": "link",
             "label": "发布手册",
             "href": "/docs/贡献指南/32release-manual"
-          }
-        ],
-        "collapsed": true,
-        "collapsible": true
-      },
-      {
-        "type": "category",
-        "label": "英文",
-        "items": [
-          {
-            "type": "category",
-            "label": "Introduction",
-            "items": [
-              {
-                "type": "link",
-                "label": "为什么选择RocketMQ",
-                "href": "/docs/"
-              }
-            ],
-            "collapsed": true,
-            "collapsible": true
           }
         ],
         "collapsed": true,

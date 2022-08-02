@@ -1,9 +1,23 @@
 {
-  "/third-blog/tags/用户案例": {
+  "/third-blog/tags/release-notes": {
     "allTagsPath": "/third-blog/tags",
-    "slug": "/third-blog/tags/用户案例",
-    "name": "用户案例",
-    "count": 1,
-    "permalink": "/third-blog/tags/用户案例"
+    "slug": "/third-blog/tags/release-notes",
+    "name": "Release_Notes",
+    "count": 20,
+    "permalink": "/third-blog/tags/release-notes"
+  },
+  "/third-blog/tags/rocket-mq": {
+    "allTagsPath": "/third-blog/tags",
+    "slug": "/third-blog/tags/rocket-mq",
+    "name": "RocketMQ",
+    "count": 20,
+    "permalink": "/third-blog/tags/rocket-mq"
+  },
+  "/third-blog/tags/version": {
+    "allTagsPath": "/third-blog/tags",
+    "slug": "/third-blog/tags/version",
+    "name": "Version",
+    "count": 20,
+    "permalink": "/third-blog/tags/version"
   }
 }

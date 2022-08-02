@@ -39,7 +39,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             sidebarPath: require.resolve("./sidebars.js"),
             // Please change this to your repo.
             editUrl:
-              "https://github.com/facebook/docusaurus/edit/main/website/",
+              "https://github.com/apache/rocketmq-site/tree/new-official-website",
           },
           blog: {
             blogTitle: "RocketMQ 博客",
@@ -91,6 +91,24 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           path: "./third-blog",
         },
       ],
+      [
+        "@docusaurus/plugin-content-blog",
+        {
+          /**
+           * Required for any multi-instance plugin
+           */
+          id: "forth-blog",
+          /**
+           * URL route for the blog section of your site.
+           * *DO NOT* include a trailing slash.
+           */
+          routeBasePath: "forth-blog",
+          /**
+           * Path to data on filesystem relative to site dir.
+           */
+          path: "./forth-blog",
+        },
+      ],
     ],
 
     themeConfig:
@@ -125,6 +143,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 { to: "/blog", label: "用户案例" },
                 { to: "/second-blog", label: "社区活动" },
                 { to: "/third-blog", label: "版本变化" },
+                { to: "/forth-blog", label: "RocketMQ新闻" },
                 // ... more items
               ],
             },
@@ -176,11 +195,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 },
                 {
                   label: "公众号",
-                  href: "https://discordapp.com/invite/docusaurus",
+                  href: "/contact",
                 },
                 {
                   label: "Meetup",
-                  href: "https://twitter.com/docusaurus",
+                  href: "/contact",
                 },
               ],
             },
@@ -193,7 +212,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 },
                 {
                   label: "Changelog",
-                  href: "https://github.com/apache/rocketmq",
+                  href: "/third-blog",
                 },
                 {
                   label: "GitHub",

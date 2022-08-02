@@ -1,0 +1,16 @@
+{
+  "permalink": "/forth-blog/01",
+  "source": "@site/forth-blog/01.md",
+  "title": "RocketMQ OpenMLDB Connector，实时数据到特征工程的高速传输",
+  "description": "",
+  "date": "2022-07-27T08:26:44.571Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "prevItem": {
+    "title": "RocketMQ-Streams 首个版本发布，轻量级计算的新选择",
+    "permalink": "/forth-blog/02"
+  }
+}

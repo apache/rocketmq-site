@@ -25,7 +25,7 @@ export default function Community() {
               "button button--outline button--secondary button--lg ",
               styles.buttoncommunity2
             )}
-            to={"/docs"}
+            to={"/contact"}
           >
             加入社区
           </Link>
@@ -36,7 +36,7 @@ export default function Community() {
               "button button--outline button--secondary button--lg",
               styles.buttoncommunity
             )}
-            to={"/docs"}
+            to={"/docs/贡献指南/29how-to-contribute"}
           >
             贡献指南
           </Link>

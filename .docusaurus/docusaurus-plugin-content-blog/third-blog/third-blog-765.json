@@ -2,10 +2,10 @@
   "permalink": "/third-blog",
   "page": 1,
   "postsPerPage": 10,
-  "totalPages": 1,
-  "totalCount": 2,
+  "totalPages": 3,
+  "totalCount": 21,
   "previousPage": null,
-  "nextPage": null,
+  "nextPage": "/third-blog/page/2",
   "blogDescription": "Blog",
   "blogTitle": "Blog"
 }

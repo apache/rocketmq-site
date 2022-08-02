@@ -1,0 +1,20 @@
+{
+  "permalink": "/blog/04kuaishou",
+  "source": "@site/blog/04kuaishou.md",
+  "title": "快手基于 RocketMQ 在线消息系统建设实践",
+  "description": "快手基于 RocketMQ 在线消息系统建设实践",
+  "date": "2022-07-27T06:05:37.281Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "prevItem": {
+    "title": "基于开源RocketMQ构建网易云音乐消息队列",
+    "permalink": "/blog/05music"
+  },
+  "nextItem": {
+    "title": "喜马拉雅 Apache RocketMQ 消息治理实践",
+    "permalink": "/blog/03ximalaya"
+  }
+}

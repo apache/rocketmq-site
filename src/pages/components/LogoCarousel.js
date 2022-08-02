@@ -360,7 +360,7 @@ export default class LogoCarousel extends React.Component {
               "button button--outline button--secondary button--lg ",
               styles.buttonlogo
             )}
-            to={"/docs"}
+            to={"/blog"}
           >
             更多案例
           </Link>
