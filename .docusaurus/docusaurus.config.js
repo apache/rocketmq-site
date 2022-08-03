@@ -15,7 +15,7 @@ export default {
         "docs": {
           "routeBasePath": "/docs/",
           "sidebarPath": "/Users/rhuen/Documents/Documents - Rhuen’s MacBook Pro/04 github/rocketmq-docs/rocketmq-site/sidebars.js",
-          "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/"
+          "editUrl": "https://github.com/apache/rocketmq-site/tree/new-official-website"
         },
         "blog": {
           "blogTitle": "RocketMQ 博客",
@@ -45,6 +45,14 @@ export default {
         "id": "third-blog",
         "routeBasePath": "third-blog",
         "path": "./third-blog"
+      }
+    ],
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        "id": "forth-blog",
+        "routeBasePath": "forth-blog",
+        "path": "./forth-blog"
       }
     ]
   ],
@@ -284,6 +292,10 @@ export default {
             {
               "to": "/third-blog",
               "label": "版本变化"
+            },
+            {
+              "to": "/forth-blog",
+              "label": "RocketMQ新闻"
             }
           ]
         },
@@ -324,11 +336,11 @@ export default {
             },
             {
               "label": "公众号",
-              "href": "https://discordapp.com/invite/docusaurus"
+              "href": "/contact"
             },
             {
               "label": "Meetup",
-              "href": "https://twitter.com/docusaurus"
+              "href": "/contact"
             }
           ]
         },
@@ -341,7 +353,7 @@ export default {
             },
             {
               "label": "Changelog",
-              "href": "https://github.com/apache/rocketmq"
+              "href": "/third-blog"
             },
             {
               "label": "GitHub",

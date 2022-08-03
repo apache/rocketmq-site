@@ -608,3 +608,30 @@ h1 {
 .tabs__item{
   padding: 15px!important;
 }
+
+.markdown h3{
+  font-size: 1.5rem!important;
+}
+.markdown h4{
+  font-size: 1.2rem!important;
+}
+.markdown h5{
+  font-size: 1.1rem!important;
+}
+
+
+.markdown img{
+  border-radius: 2%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.markdown table{
+  
+}
+
+.markdown th{
+  min-width: 200px;
+  max-width: 300px!important;
+}
+footer .docusaurus-mt-lg{
+  margin-top: 0rem!important;
+}

@@ -1,0 +1,20 @@
+{
+  "permalink": "/forth-blog/09",
+  "source": "@site/forth-blog/09.md",
+  "title": "再下一城！两大社区携手打造 API 日志监控新利器",
+  "description": "",
+  "date": "2022-07-27T08:30:10.627Z",
+  "formattedDate": "July 27, 2022",
+  "tags": [],
+  "readingTime": 0,
+  "truncated": false,
+  "authors": [],
+  "prevItem": {
+    "title": "Apache ShenYu集成Apache RocketMQ实现海量日志采集的原理与实践",
+    "permalink": "/forth-blog/10"
+  },
+  "nextItem": {
+    "title": "Apache RocketMQ + Hudi 快速构建 Lakehouse",
+    "permalink": "/forth-blog/08"
+  }
+}

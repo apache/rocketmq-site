@@ -1,0 +1,33 @@
+{
+  "permalink": "/third-blog/2021/10/26/4.9.2",
+  "source": "@site/third-blog/2021-10-26-4.9.2.md",
+  "title": "Release Notes - Apache RocketMQ - Version 4.9.2",
+  "description": "* Source: rocketmq-all-4.9.2-source-release.zip [PGP] [SHA512]",
+  "date": "2021-10-26T00:00:00.000Z",
+  "formattedDate": "October 26, 2021",
+  "tags": [
+    {
+      "label": "Release_Notes",
+      "permalink": "/third-blog/tags/release-notes"
+    },
+    {
+      "label": "RocketMQ",
+      "permalink": "/third-blog/tags/rocket-mq"
+    },
+    {
+      "label": "Version",
+      "permalink": "/third-blog/tags/version"
+    }
+  ],
+  "readingTime": 1.83,
+  "truncated": true,
+  "authors": [],
+  "prevItem": {
+    "title": "Release Notes - Apache RocketMQ - Version 4.9.4",
+    "permalink": "/third-blog/2022/03/04/4.9.4"
+  },
+  "nextItem": {
+    "title": "Release Notes - Apache RocketMQ - Version 4.9.1",
+    "permalink": "/third-blog/2021/08/22/4.9.1"
+  }
+}

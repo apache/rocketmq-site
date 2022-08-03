@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[4906],{6245:function(e){e.exports=JSON.parse('{"allTagsPath":"/third-blog/tags","slug":"/third-blog/tags/release-notes","name":"Release_Notes","count":20,"permalink":"/third-blog/tags/release-notes"}')}}]);

@@ -9,63 +9,63 @@ export default [
     exact: true
   },
   {
-    path: '/__docusaurus/debug',
-    component: ComponentCreator('/__docusaurus/debug','3d6'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/config',
-    component: ComponentCreator('/__docusaurus/debug/config','914'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/content',
-    component: ComponentCreator('/__docusaurus/debug/content','c28'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/globalData',
-    component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/metadata',
-    component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/registry',
-    component: ComponentCreator('/__docusaurus/debug/registry','0da'),
-    exact: true
-  },
-  {
-    path: '/__docusaurus/debug/routes',
-    component: ComponentCreator('/__docusaurus/debug/routes','244'),
-    exact: true
-  },
-  {
     path: '/blog',
-    component: ComponentCreator('/blog','802'),
+    component: ComponentCreator('/blog','016'),
+    exact: true
+  },
+  {
+    path: '/blog/01xiaohongshu',
+    component: ComponentCreator('/blog/01xiaohongshu','156'),
+    exact: true
+  },
+  {
+    path: '/blog/02ali',
+    component: ComponentCreator('/blog/02ali','984'),
+    exact: true
+  },
+  {
+    path: '/blog/03ximalaya',
+    component: ComponentCreator('/blog/03ximalaya','fd7'),
+    exact: true
+  },
+  {
+    path: '/blog/04kuaishou',
+    component: ComponentCreator('/blog/04kuaishou','233'),
+    exact: true
+  },
+  {
+    path: '/blog/05music',
+    component: ComponentCreator('/blog/05music','a8e'),
+    exact: true
+  },
+  {
+    path: '/blog/06cai',
+    component: ComponentCreator('/blog/06cai','500'),
+    exact: true
+  },
+  {
+    path: '/blog/07didi',
+    component: ComponentCreator('/blog/07didi','a6a'),
+    exact: true
+  },
+  {
+    path: '/blog/08tongcheng',
+    component: ComponentCreator('/blog/08tongcheng','279'),
+    exact: true
+  },
+  {
+    path: '/blog/09hallo',
+    component: ComponentCreator('/blog/09hallo','870'),
+    exact: true
+  },
+  {
+    path: '/blog/10jinritoutiao',
+    component: ComponentCreator('/blog/10jinritoutiao','d4b'),
     exact: true
   },
   {
     path: '/blog/archive',
     component: ComponentCreator('/blog/archive','f4c'),
-    exact: true
-  },
-  {
-    path: '/blog/tags',
-    component: ComponentCreator('/blog/tags','e13'),
-    exact: true
-  },
-  {
-    path: '/blog/tags/用户案例',
-    component: ComponentCreator('/blog/tags/用户案例','744'),
-    exact: true
-  },
-  {
-    path: '/blog/xiaohongshu',
-    component: ComponentCreator('/blog/xiaohongshu','ab0'),
     exact: true
   },
   {
@@ -119,6 +119,111 @@ export default [
     exact: true
   },
   {
+    path: '/forth-blog',
+    component: ComponentCreator('/forth-blog','555'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/01',
+    component: ComponentCreator('/forth-blog/01','0aa'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/02',
+    component: ComponentCreator('/forth-blog/02','039'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/03',
+    component: ComponentCreator('/forth-blog/03','71c'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/04',
+    component: ComponentCreator('/forth-blog/04','18b'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/05',
+    component: ComponentCreator('/forth-blog/05','60c'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/06',
+    component: ComponentCreator('/forth-blog/06','455'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/07',
+    component: ComponentCreator('/forth-blog/07','bee'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/08',
+    component: ComponentCreator('/forth-blog/08','42e'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/09',
+    component: ComponentCreator('/forth-blog/09','f3b'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/10',
+    component: ComponentCreator('/forth-blog/10','59b'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/11',
+    component: ComponentCreator('/forth-blog/11','4bc'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/12',
+    component: ComponentCreator('/forth-blog/12','48e'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/13',
+    component: ComponentCreator('/forth-blog/13','7a6'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/14',
+    component: ComponentCreator('/forth-blog/14','7d8'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/15',
+    component: ComponentCreator('/forth-blog/15','bce'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/16',
+    component: ComponentCreator('/forth-blog/16','ba0'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/17',
+    component: ComponentCreator('/forth-blog/17','d4b'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/18',
+    component: ComponentCreator('/forth-blog/18','4d2'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/archive',
+    component: ComponentCreator('/forth-blog/archive','d20'),
+    exact: true
+  },
+  {
+    path: '/forth-blog/page/2',
+    component: ComponentCreator('/forth-blog/page/2','705'),
+    exact: true
+  },
+  {
     path: '/info',
     component: ComponentCreator('/info','0d2'),
     exact: true
@@ -155,7 +260,112 @@ export default [
   },
   {
     path: '/third-blog',
-    component: ComponentCreator('/third-blog','6ac'),
+    component: ComponentCreator('/third-blog','b32'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2017/01/24/4.0.0',
+    component: ComponentCreator('/third-blog/2017/01/24/4.0.0','b67'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2017/06/02/4.1.0',
+    component: ComponentCreator('/third-blog/2017/06/02/4.1.0','fdf'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2017/12/13/4.2.0',
+    component: ComponentCreator('/third-blog/2017/12/13/4.2.0','fc5'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2018/07/24/4.3.0',
+    component: ComponentCreator('/third-blog/2018/07/24/4.3.0','b21'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2018/08/29/4.3.1',
+    component: ComponentCreator('/third-blog/2018/08/29/4.3.1','6bc'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2018/11/02/4.3.2',
+    component: ComponentCreator('/third-blog/2018/11/02/4.3.2','0da'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2019/01/17/4.4.0',
+    component: ComponentCreator('/third-blog/2019/01/17/4.4.0','184'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2019/03/29/4.5.0',
+    component: ComponentCreator('/third-blog/2019/03/29/4.5.0','3ff'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2019/05/13/4.5.1',
+    component: ComponentCreator('/third-blog/2019/05/13/4.5.1','b91'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2019/08/02/4.5.2',
+    component: ComponentCreator('/third-blog/2019/08/02/4.5.2','9fa'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2019/11/25/4.6.0',
+    component: ComponentCreator('/third-blog/2019/11/25/4.6.0','524'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2020/03/16/4.7.0',
+    component: ComponentCreator('/third-blog/2020/03/16/4.7.0','93b'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2020/06/29/4.7.1',
+    component: ComponentCreator('/third-blog/2020/06/29/4.7.1','7a2'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2020/12/21/4.8.0',
+    component: ComponentCreator('/third-blog/2020/12/21/4.8.0','86a'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2020/2/14/4.6.1',
+    component: ComponentCreator('/third-blog/2020/2/14/4.6.1','886'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2021/06/15/4.9.0',
+    component: ComponentCreator('/third-blog/2021/06/15/4.9.0','cdf'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2021/08/22/4.9.1',
+    component: ComponentCreator('/third-blog/2021/08/22/4.9.1','5f6'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2021/10/26/4.9.2',
+    component: ComponentCreator('/third-blog/2021/10/26/4.9.2','459'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2022/03/04/4.9.3',
+    component: ComponentCreator('/third-blog/2022/03/04/4.9.3','0f4'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2022/03/04/4.9.4',
+    component: ComponentCreator('/third-blog/2022/03/04/4.9.4','7b4'),
+    exact: true
+  },
+  {
+    path: '/third-blog/2022/03/15/5.0.0-ALPHA',
+    component: ComponentCreator('/third-blog/2022/03/15/5.0.0-ALPHA','7da'),
     exact: true
   },
   {
@@ -164,13 +374,38 @@ export default [
     exact: true
   },
   {
-    path: '/third-blog/Release Notes - Apache RocketMQ - Version 4.9.4',
-    component: ComponentCreator('/third-blog/Release Notes - Apache RocketMQ - Version 4.9.4','55b'),
+    path: '/third-blog/page/2',
+    component: ComponentCreator('/third-blog/page/2','4b3'),
     exact: true
   },
   {
-    path: '/third-blog/Release Notes - Apache RocketMQ Streams - Version 1.0.1-preview',
-    component: ComponentCreator('/third-blog/Release Notes - Apache RocketMQ Streams - Version 1.0.1-preview','572'),
+    path: '/third-blog/page/3',
+    component: ComponentCreator('/third-blog/page/3','dd8'),
+    exact: true
+  },
+  {
+    path: '/third-blog/tags',
+    component: ComponentCreator('/third-blog/tags','f3e'),
+    exact: true
+  },
+  {
+    path: '/third-blog/tags/release-notes',
+    component: ComponentCreator('/third-blog/tags/release-notes','c99'),
+    exact: true
+  },
+  {
+    path: '/third-blog/tags/rocket-mq',
+    component: ComponentCreator('/third-blog/tags/rocket-mq','4d3'),
+    exact: true
+  },
+  {
+    path: '/third-blog/tags/version',
+    component: ComponentCreator('/third-blog/tags/version','df9'),
+    exact: true
+  },
+  {
+    path: '/version',
+    component: ComponentCreator('/version','23a'),
     exact: true
   },
   {
@@ -180,17 +415,11 @@ export default [
   },
   {
     path: '/docs/',
-    component: ComponentCreator('/docs/','bf0'),
+    component: ComponentCreator('/docs/','d8f'),
     routes: [
       {
         path: '/docs/',
         component: ComponentCreator('/docs/','2e8'),
-        exact: true,
-        'sidebar': "myAutogeneratedSidebar"
-      },
-      {
-        path: '/docs/',
-        component: ComponentCreator('/docs/','aac'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
@@ -207,26 +436,20 @@ export default [
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/docs/其他/25streams',
-        component: ComponentCreator('/docs/其他/25streams','22f'),
+        path: '/docs/最佳实践/15bestpractice',
+        component: ComponentCreator('/docs/最佳实践/15bestpractice','5d5'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/docs/其他/26Connnect',
-        component: ComponentCreator('/docs/其他/26Connnect','7d5'),
+        path: '/docs/最佳实践/17messagetra',
+        component: ComponentCreator('/docs/最佳实践/17messagetra','ee8'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/docs/其他/27EventBridge',
-        component: ComponentCreator('/docs/其他/27EventBridge','50a'),
-        exact: true,
-        'sidebar': "myAutogeneratedSidebar"
-      },
-      {
-        path: '/docs/其他/28MQTT',
-        component: ComponentCreator('/docs/其他/28MQTT','647'),
+        path: '/docs/最佳实践/18access',
+        component: ComponentCreator('/docs/最佳实践/18access','c00'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
@@ -285,12 +508,6 @@ export default [
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/docs/消费者/14pop',
-        component: ComponentCreator('/docs/消费者/14pop','314'),
-        exact: true,
-        'sidebar': "myAutogeneratedSidebar"
-      },
-      {
         path: '/docs/生产者/04concept1',
         component: ComponentCreator('/docs/生产者/04concept1','e06'),
         exact: true,
@@ -323,6 +540,30 @@ export default [
       {
         path: '/docs/生产者/09message5',
         component: ComponentCreator('/docs/生产者/09message5','51c'),
+        exact: true,
+        'sidebar': "myAutogeneratedSidebar"
+      },
+      {
+        path: '/docs/贡献指南/29how-to-contribute',
+        component: ComponentCreator('/docs/贡献指南/29how-to-contribute','fc3'),
+        exact: true,
+        'sidebar': "myAutogeneratedSidebar"
+      },
+      {
+        path: '/docs/贡献指南/30code-guidelines',
+        component: ComponentCreator('/docs/贡献指南/30code-guidelines','b6b'),
+        exact: true,
+        'sidebar': "myAutogeneratedSidebar"
+      },
+      {
+        path: '/docs/贡献指南/31pull-request',
+        component: ComponentCreator('/docs/贡献指南/31pull-request','ed4'),
+        exact: true,
+        'sidebar': "myAutogeneratedSidebar"
+      },
+      {
+        path: '/docs/贡献指南/32release-manual',
+        component: ComponentCreator('/docs/贡献指南/32release-manual','037'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },

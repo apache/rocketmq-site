@@ -40,7 +40,7 @@ export default function Hero(){
               快速开始
             </Link>
             <Link
-              to="/docs"
+              to="/version"
               className={clsx(
                 "button button--outline button--secondary button--lg",styles.button2
               )}

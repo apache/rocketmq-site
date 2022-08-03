@@ -62,7 +62,7 @@ export default function Feature() {
           </>
         }
         link="了解更多"
-        url="/docs/介绍/03whatis"
+        url="/info"
       />
       <Highlight
         img={
@@ -72,6 +72,7 @@ export default function Feature() {
           play
           style={{ width: 400, height: 400, marginLeft:50,marginTop:-30 }}></Lottie>
         }
+        reversed
         title="大规模负载下低延迟，保证万亿级的信息容量,适用于电商领域，金融领域，大数据领域，物联网"
         text={
           <>
@@ -83,7 +84,7 @@ export default function Feature() {
           </>
         }
         link="用户案例"
-        url="/blog/tags/用户案例"
+        url="/blog"
       />
      
       <Highlight
@@ -106,7 +107,7 @@ export default function Feature() {
           </>
         }
         link="RocketMQ 5.0 速览"
-        url=""
+        url="/version"
       />
     </div>
   </div>

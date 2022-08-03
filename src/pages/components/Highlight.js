@@ -25,16 +25,16 @@ export default function Highlight({ reversed, title, img, text, link,url,isDark 
                 <div className={clsx('row',styles.row)}>
                     {reversed ? (
                         <>
+                          {left}
                             {right}
-                            {left}
                           
 
                         </>
                     ) : (
                         <>
+                        {right}
                             {left}
-                            {right}
-                      
+                           
                         </>
                     )}
                                                

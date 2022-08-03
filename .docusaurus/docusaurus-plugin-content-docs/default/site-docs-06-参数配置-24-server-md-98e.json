@@ -3,12 +3,12 @@
   "id": "参数配置/24server",
   "isDocsHomePage": false,
   "title": "服务端配置",
-  "description": "",
+  "description": "NameServer配置",
   "source": "@site/docs/06-参数配置/24server.md",
   "sourceDirName": "06-参数配置",
   "slug": "/参数配置/24server",
   "permalink": "/docs/参数配置/24server",
-  "editUrl": "https://github.com/facebook/docusaurus/edit/main/website/docs/06-参数配置/24server.md",
+  "editUrl": "https://github.com/apache/rocketmq-site/tree/new-official-website/docs/06-参数配置/24server.md",
   "tags": [],
   "version": "current",
   "frontMatter": {},
@@ -18,7 +18,7 @@
     "permalink": "/docs/参数配置/23local"
   },
   "next": {
-    "title": "RocketMQ Streams",
-    "permalink": "/docs/其他/25streams"
+    "title": "如何贡献",
+    "permalink": "/docs/贡献指南/29how-to-contribute"
   }
 }

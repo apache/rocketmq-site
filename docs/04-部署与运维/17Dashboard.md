@@ -1,10 +1,11 @@
+
 # RocketMQ Dashboard
 
-RocketMQ Dashboard 是 RocketMQ 的管控利器，为用户提供客户端和应用程序的各种事件、性能的统计信息，支持以可视化工具代替 Topic 配置、Broker 管理等命令行操作。
+`RocketMQ Dashboard` 是 RocketMQ 的管控利器，为用户提供客户端和应用程序的各种事件、性能的统计信息，支持以可视化工具代替 Topic 配置、Broker 管理等命令行操作。
 
-# introduce
+## 介绍
 
-功能概览：
+### 功能概览
 
 | 面板   | 功能                                                         |
 | ------ | ------------------------------------------------------------ |
@@ -19,9 +20,7 @@ RocketMQ Dashboard 是 RocketMQ 的管控利器，为用户提供客户端和应
 
 ![1657630174311](../picture/17Dashboard/1_dashboard.png)
 
-# quick start
-
-## 安装教程
+## 快速开始
 
 系统要求：
 
@@ -50,12 +49,16 @@ docker pull apacherocketmq/rocketmq-dashboard:latest
 docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
 ```
 
-**tips**：```namesrv.addr:port``` 替换为 ```rocketmq```  中配置的 nameserver 地址：端口号
+:::tip
+
+```namesrv.addr:port``` 替换为 ```rocketmq```  中配置的 nameserver 地址：端口号
 
 开放端口号：8080，9876，10911，11011 端口
 
 - 云服务器：设置安全组访问规则
 - 本地虚拟机：关闭防火墙，或 ```-add-port```
+
+:::
 
 ### 2. 源码安装
 

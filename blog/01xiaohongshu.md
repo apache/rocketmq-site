@@ -1,9 +1,6 @@
 ---
 title: 小红书消息中间件的运维实践与治理之路
 description: 小红书消息中间件的运维实践与治理之路
-slug: xiaohongshu
-tags: [用户案例]
-image: https://tva1.sinaimg.cn/large/e6c9d24egy1h3gas4ezy6j20sg0g0weu.jpg
 hide_table_of_contents: false
 ---
 
