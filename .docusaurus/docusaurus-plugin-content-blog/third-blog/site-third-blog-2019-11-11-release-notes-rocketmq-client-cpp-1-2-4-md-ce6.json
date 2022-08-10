@@ -1,0 +1,25 @@
+{
+  "permalink": "/en/third-blog/2019/11/11/release-notes-rocketmq-client-cpp-1.2.4",
+  "source": "@site/third-blog/2019-11-11-release-notes-rocketmq-client-cpp-1.2.4.md",
+  "title": "Release Notes - Apache RocketMQ Client CPP- Version 1.2.4",
+  "description": "* Source: rocketmq-client-cpp-1.2.4-source-release.tar.gz [PGP] [SHA512]",
+  "date": "2019-11-11T00:00:00.000Z",
+  "formattedDate": "November 11, 2019",
+  "tags": [
+    {
+      "label": "RocketMQ_Client_CPP",
+      "permalink": "/en/third-blog/tags/rocket-mq-client-cpp"
+    }
+  ],
+  "readingTime": 0.905,
+  "truncated": true,
+  "authors": [],
+  "prevItem": {
+    "title": "Release Notes - Apache RocketMQ Client Go- Version 1.2.4",
+    "permalink": "/en/third-blog/2019/11/20/release-notes-rocketmq-client-go-1.2.4"
+  },
+  "nextItem": {
+    "title": "Release Notes - Apache RocketMQ Spring - Version 2.0.4",
+    "permalink": "/en/third-blog/2019/11/01/release-notes-rocketmq-spring-2.0.4"
+  }
+}

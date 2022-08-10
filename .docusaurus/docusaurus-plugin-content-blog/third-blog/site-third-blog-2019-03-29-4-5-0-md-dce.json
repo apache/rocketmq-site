@@ -1,5 +1,5 @@
 {
-  "permalink": "/third-blog/2019/03/29/4.5.0",
+  "permalink": "/en/third-blog/2019/03/29/4.5.0",
   "source": "@site/third-blog/2019-03-29-4.5.0.md",
   "title": "Release Notes - Apache RocketMQ - Version 4.5.0",
   "description": "* Source: rocketmq-all-4.5.0-source-release.zip [PGP] [SHA512]",
@@ -8,15 +8,15 @@
   "tags": [
     {
       "label": "Release_Notes",
-      "permalink": "/third-blog/tags/release-notes"
+      "permalink": "/en/third-blog/tags/release-notes"
     },
     {
       "label": "RocketMQ",
-      "permalink": "/third-blog/tags/rocket-mq"
+      "permalink": "/en/third-blog/tags/rocket-mq"
     },
     {
       "label": "Version",
-      "permalink": "/third-blog/tags/version"
+      "permalink": "/en/third-blog/tags/version"
     }
   ],
   "readingTime": 0.72,
@@ -24,10 +24,10 @@
   "authors": [],
   "prevItem": {
     "title": "Release Notes - Apache RocketMQ - Version 4.5.1",
-    "permalink": "/third-blog/2019/05/13/4.5.1"
+    "permalink": "/en/third-blog/2019/05/13/4.5.1"
   },
   "nextItem": {
     "title": "Release Notes - Apache RocketMQ - Version 4.4.0",
-    "permalink": "/third-blog/2019/01/17/4.4.0"
+    "permalink": "/en/third-blog/2019/01/17/4.4.0"
   }
 }

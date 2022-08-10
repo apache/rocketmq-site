@@ -15,18 +15,18 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     organizationName: "facebook", // Usually your GitHub org/user name.
     projectName: "docusaurus", // Usually your repo name.
 
-    // i18n: {
-    //   defaultLocale: 'zh',
-    //   locales: ['zh','en'],
-    //   localeConfigs: {
-    //     zh: {
-    //       label: '简体中文',
-    //     },
-    //     en: {
-    //       label: 'English',
-    //     },
-    //   }
-    // },
+    i18n: {
+      defaultLocale: 'zh',
+      locales: ['zh','en'],
+      localeConfigs: {
+        zh: {
+          label: '简体中文',
+        },
+        en: {
+          label: 'English',
+        },
+      }
+    },
 
     presets: [
       [
@@ -40,6 +40,17 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             // Please change this to your repo.
             editUrl:
               "https://github.com/apache/rocketmq-site/tree/new-official-website",
+              lastVersion: 'current',
+              versions: {
+                current: {
+                  label: '4.x',
+                  path: '',
+                },
+                '5.0': {
+                  label: '5.0',
+                  banner: 'unreleased'
+                }
+},
           },
           blog: {
             blogTitle: "RocketMQ 博客",
@@ -126,13 +137,29 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         },
         navbar: {
           title: "RocketMQ",
-          hideOnScroll: true,
+          // hideOnScroll: true,
           logo: {
             alt: "My Site Logo",
             src: "img/Apache_RocketMQ_logo.svg.png",
           },
 
           items: [
+            {
+          type: 'localeDropdown',
+          position: 'right',
+        },
+        {
+          type: "docsVersionDropdown",
+          position: "right",
+          // label: "版本",
+          // position: "right",
+          // items: [
+          //   { to: "/docs/", label: "4.x" },
+          //   { to: "/docs/5.0/介绍/02quickstart", label: "5.0" },
+           
+          //   // ... more items
+          // ],
+        },
             { to: "/docs/", label: "文档", position: "right" },
             { to: "/download", label: "下载", position: "right" },
             {
@@ -147,6 +174,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 // ... more items
               ],
             },
+           
             // {
             //   href: 'https://github.com/apache/rocketmq',
             //   label: 'GitHub',
@@ -160,8 +188,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               label: "社区",
               position: "right",
               items: [
-                { to: "/info", label: "项目信息" },
-                { to: "/contact", label: "加入我们" },
+                // { to: "/info", label: "项目信息" },
+                { to: "/contact", label: "参与社区" },
                 { to: "/team", label: "贡献团队" },
                 { to: "/docs/贡献指南/29how-to-contribute", label: "贡献说明" },
                 // ... more items
@@ -180,6 +208,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         },
         footer: {
           style: "dark",
+          
           // logo: {
           //   alt: 'My Site Logo',
           //   src: 'img/Apache_RocketMQ_logo.svg.png',

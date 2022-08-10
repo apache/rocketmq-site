@@ -2,7 +2,7 @@ import React from 'react'
 import Link from "@docusaurus/Link";
 import clsx from "clsx";
 import styles from "./Hero.module.css";
-
+import Translate, {translate} from '@docusaurus/Translate';
 export default function Hero(){
     return(
 
@@ -10,7 +10,7 @@ export default function Hero(){
         <div className="container">
           <h1 className={clsx("gradient-text",styles.herotitle)}>RocketMQ</h1>
           <p className={clsx("hero__subtitle",styles.herosubtitle)}>
-            致力打造金融级高可靠、高性能、低延迟的消息中间件服务，伴随云原生时代的到来，新一代5.0版本应运而生。
+     A cloud native messaging and streaming platform, making it simple to build event-driven applications
           </p>
           <div className={clsx('container',styles.github)}>
             <iframe
@@ -35,9 +35,9 @@ export default function Hero(){
               className={clsx(
                 "button button--outline button--secondary button--lg",styles.button
               )}
-              to={"/docs"}
+              to={"/docs/介绍/02quickstart"}
             >
-              快速开始
+              <Translate id="快速开始">快速开始</Translate>
             </Link>
             <Link
               to="/version"
@@ -45,7 +45,7 @@ export default function Hero(){
                 "button button--outline button--secondary button--lg",styles.button2
               )}
             >
-              RocketMQ 5.0 速览
+              <Translate id="RocketMQ 5.0 速览"> RocketMQ 5.0 速览</Translate>
             </Link>
           </div>
         </div>

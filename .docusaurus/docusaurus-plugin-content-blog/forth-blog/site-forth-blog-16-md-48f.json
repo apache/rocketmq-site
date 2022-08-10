@@ -1,20 +1,20 @@
 {
-  "permalink": "/forth-blog/16",
+  "permalink": "/en/forth-blog/16",
   "source": "@site/forth-blog/16.md",
   "title": "基于 RocketMQ Prometheus Exporter 打造定制化 DevOps 平台",
   "description": "",
-  "date": "2022-07-27T08:33:12.207Z",
-  "formattedDate": "July 27, 2022",
+  "date": "2022-08-02T15:45:39.627Z",
+  "formattedDate": "August 2, 2022",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
-    "title": "新架构下的Apache RocketMQ，未来十年的数据基础设施",
-    "permalink": "/forth-blog/17"
+    "title": "从本地原生到云原生，Alibaba Dragonwell 静态编译的实践与挑战",
+    "permalink": "/en/forth-blog/15"
   },
   "nextItem": {
-    "title": "从本地原生到云原生，Alibaba Dragonwell 静态编译的实践与挑战",
-    "permalink": "/forth-blog/15"
+    "title": "新架构下的Apache RocketMQ，未来十年的数据基础设施",
+    "permalink": "/en/forth-blog/17"
   }
 }

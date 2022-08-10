@@ -1,0 +1,25 @@
+{
+  "permalink": "/en/third-blog/2021/09/06/release-notes-5.0.0-PREVIEW",
+  "source": "@site/third-blog/2021-09-06-release-notes-5.0.0-PREVIEW.md",
+  "title": "Release Notes - Apache RocketMQ - Version 5.0.0-PREVIEW",
+  "description": "* Source: rocketmq-all-5.0.0-PREVIEW-source-release.zip [PGP] [SHA512]",
+  "date": "2021-09-06T00:00:00.000Z",
+  "formattedDate": "September 6, 2021",
+  "tags": [
+    {
+      "label": "RocketMQ",
+      "permalink": "/en/third-blog/tags/rocket-mq"
+    }
+  ],
+  "readingTime": 0.175,
+  "truncated": true,
+  "authors": [],
+  "prevItem": {
+    "title": "Release Notes - Apache RocketMQ Dashboard - Version 1.0.0",
+    "permalink": "/en/third-blog/2021/09/23/release-notes-rocketmq-dashboard-1.0.0"
+  },
+  "nextItem": {
+    "title": "Release Notes - Apache RocketMQ Spring - Version 2.2.1",
+    "permalink": "/en/third-blog/2021/08/31/release-notes-rocketmq-spring-2.2.1"
+  }
+}

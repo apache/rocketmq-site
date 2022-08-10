@@ -1,5 +1,5 @@
 {
-  "permalink": "/third-blog/2019/08/02/4.5.2",
+  "permalink": "/en/third-blog/2019/08/02/4.5.2",
   "source": "@site/third-blog/2019-08-02-4.5.2.md",
   "title": "Release Notes - Apache RocketMQ - Version 4.5.2",
   "description": "* Source: rocketmq-all-4.5.2-source-release.zip [PGP] [SHA512]",
@@ -8,26 +8,26 @@
   "tags": [
     {
       "label": "Release_Notes",
-      "permalink": "/third-blog/tags/release-notes"
+      "permalink": "/en/third-blog/tags/release-notes"
     },
     {
       "label": "RocketMQ",
-      "permalink": "/third-blog/tags/rocket-mq"
+      "permalink": "/en/third-blog/tags/rocket-mq"
     },
     {
       "label": "Version",
-      "permalink": "/third-blog/tags/version"
+      "permalink": "/en/third-blog/tags/version"
     }
   ],
   "readingTime": 1.34,
   "truncated": true,
   "authors": [],
   "prevItem": {
-    "title": "Release Notes - Apache RocketMQ - Version 4.6.0",
-    "permalink": "/third-blog/2019/11/25/4.6.0"
+    "title": "Release Notes - Apache RocketMQ Client CPP- Version 1.2.3",
+    "permalink": "/en/third-blog/2019/08/20/release-notes-rocketmq-client-cpp-1.2.3"
   },
   "nextItem": {
     "title": "Release Notes - Apache RocketMQ - Version 4.5.1",
-    "permalink": "/third-blog/2019/05/13/4.5.1"
+    "permalink": "/en/third-blog/2019/05/13/4.5.1"
   }
 }

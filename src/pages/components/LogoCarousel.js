@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./LogoCarousel.module.css";
 import Link from '@docusaurus/Link'
-
+import Translate, {translate} from '@docusaurus/Translate';
 
 
 let ticks = 0;
@@ -11,8 +11,8 @@ export default class LogoCarousel extends React.Component {
   render() {
 
     return (
-<div className="logoall"><h1 className={styles.title}>用户案例</h1>
-<h2 className={styles.subtitle}>RocketMQ已帮助超过100家互联网，金融，制造业公司</h2>
+<div className="logoall"><h1 className={styles.title}><Translate id="用户案例">用户案例</Translate></h1>
+<h2 className={styles.subtitle}><Translate id="用户案例instruction">RocketMQ已帮助超过100家互联网，金融，制造业公司</Translate></h2>
       <div className = "logoutsider">
       <div className="logocontainer">
         
@@ -361,8 +361,9 @@ export default class LogoCarousel extends React.Component {
               styles.buttonlogo
             )}
             to={"/blog"}
-          >
+          ><Translate id="更多案例">
             更多案例
+            </Translate>
           </Link>
           </div>
           </div>

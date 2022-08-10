@@ -2,19 +2,19 @@ import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import styles from "./Community.module.css";
-import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
-const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
-const FadeUp = batch(Fade(), Move(), Sticky());
+
+import Translate, {translate} from '@docusaurus/Translate';
 export default function Community() {
   return (
     <section className={styles.community}>
   
       <div className={styles.communitycontainer}>
      
-        <h1 className={styles.communitytitle}>加入社区</h1>
+        <h1 className={styles.communitytitle}> <Translate id="加入社区">加入社区</Translate></h1>
         
         <p className={styles.community_subtitle}>
-          订阅邮件组，关注博客文章，参与线上下活动
+        <Translate id="订阅邮件组，关注博客文章，参与线上下活动">
+          订阅邮件组，关注博客文章，参与线上下活动</Translate>
         </p>
        
         
@@ -26,8 +26,8 @@ export default function Community() {
               styles.buttoncommunity2
             )}
             to={"/contact"}
-          >
-            加入社区
+          ><Translate id="加入社区button">
+            加入社区</Translate>
           </Link>
         </div>
         <div>
@@ -37,8 +37,9 @@ export default function Community() {
               styles.buttoncommunity
             )}
             to={"/docs/贡献指南/29how-to-contribute"}
-          >
+          ><Translate id="贡献指南">
             贡献指南
+            </Translate>
           </Link>
         </div>
         <div></div>

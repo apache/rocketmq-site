@@ -1,5 +1,5 @@
 {
-  "permalink": "/third-blog/2021/10/26/4.9.2",
+  "permalink": "/en/third-blog/2021/10/26/4.9.2",
   "source": "@site/third-blog/2021-10-26-4.9.2.md",
   "title": "Release Notes - Apache RocketMQ - Version 4.9.2",
   "description": "* Source: rocketmq-all-4.9.2-source-release.zip [PGP] [SHA512]",
@@ -8,26 +8,26 @@
   "tags": [
     {
       "label": "Release_Notes",
-      "permalink": "/third-blog/tags/release-notes"
+      "permalink": "/en/third-blog/tags/release-notes"
     },
     {
       "label": "RocketMQ",
-      "permalink": "/third-blog/tags/rocket-mq"
+      "permalink": "/en/third-blog/tags/rocket-mq"
     },
     {
       "label": "Version",
-      "permalink": "/third-blog/tags/version"
+      "permalink": "/en/third-blog/tags/version"
     }
   ],
   "readingTime": 1.83,
   "truncated": true,
   "authors": [],
   "prevItem": {
-    "title": "Release Notes - Apache RocketMQ - Version 4.9.4",
-    "permalink": "/third-blog/2022/03/04/4.9.4"
+    "title": "Release Notes - Apache RocketMQ Streams - Version 1.0.0-preview",
+    "permalink": "/en/third-blog/2022/01/18/release-notes-rocketmq-streams-1.0.0-preview"
   },
   "nextItem": {
-    "title": "Release Notes - Apache RocketMQ - Version 4.9.1",
-    "permalink": "/third-blog/2021/08/22/4.9.1"
+    "title": "Release Notes - Apache RocketMQ Dashboard - Version 1.0.0",
+    "permalink": "/en/third-blog/2021/09/23/release-notes-rocketmq-dashboard-1.0.0"
   }
 }

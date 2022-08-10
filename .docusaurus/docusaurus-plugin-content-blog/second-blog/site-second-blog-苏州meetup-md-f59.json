@@ -1,5 +1,5 @@
 {
-  "permalink": "/second-blog/苏州meetup",
+  "permalink": "/en/second-blog/苏州meetup",
   "source": "@site/second-blog/苏州meetup.md",
   "title": "精彩回顾 | Apache RocketMQ Meetup 苏州",
   "description": "精彩回顾 | Apache RocketMQ Meetup 苏州",
@@ -11,6 +11,6 @@
   "authors": [],
   "prevItem": {
     "title": "精彩回顾|Apache RocketMQ Meetup 西安",
-    "permalink": "/second-blog/meetup西安"
+    "permalink": "/en/second-blog/meetup西安"
   }
 }
