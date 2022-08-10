@@ -206,51 +206,151 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             // },
           ],
         },
-        footer: {
-          style: "dark",
+        // footer: {
+        //   style: "dark",
           
-          // logo: {
-          //   alt: 'My Site Logo',
-          //   src: 'img/Apache_RocketMQ_logo.svg.png',
+        //   // logo: {
+        //   //   alt: 'My Site Logo',
+        //   //   src: 'img/Apache_RocketMQ_logo.svg.png',
 
-          // },
+        //   // },
+        //   links: [
+        //     {
+        //       title: "社区",
+        //       items: [
+        //         {
+        //           label: "Github",
+        //           href: "https://github.com/apache/rocketmq",
+        //         },
+        //         {
+        //           label: "公众号",
+        //           href: "/contact",
+        //         },
+        //         {
+        //           label: "Meetup",
+        //           href: "/contact",
+        //         },
+        //       ],
+        //     },
+        //     {
+        //       title: "更多",
+        //       items: [
+        //         {
+        //           label: "博客",
+        //           to: "/blog",
+        //         },
+        //         {
+        //           label: "Changelog",
+        //           href: "/third-blog",
+        //         },
+        //         {
+        //           label: "GitHub",
+        //           href: "https://github.com/apache/rocketmq",
+        //         },
+        //       ],
+        //     },
+        //   ],
+        //   // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // },
+        footer: {
+          style: 'dark',
           links: [
             {
-              title: "社区",
+              title: 'Learn',
               items: [
                 {
-                  label: "Github",
-                  href: "https://github.com/apache/rocketmq",
+                  label: 'Introduction',
+                  to: 'docs',
                 },
                 {
-                  label: "公众号",
-                  href: "/contact",
+                  label: 'Installation',
+                  to: 'docs/installation',
                 },
                 {
-                  label: "Meetup",
-                  href: "/contact",
+                  label: 'Migration from v1 to v2',
+                  to: 'docs/migration',
                 },
               ],
             },
             {
-              title: "更多",
+              title: 'Community',
               items: [
                 {
-                  label: "博客",
-                  to: "/blog",
+                  label: 'Stack Overflow',
+                  href: 'https://stackoverflow.com/questions/tagged/docusaurus',
                 },
                 {
-                  label: "Changelog",
-                  href: "/third-blog",
+                  label: 'Feature Requests',
+                  to: '/feature-requests',
                 },
                 {
-                  label: "GitHub",
-                  href: "https://github.com/apache/rocketmq",
+                  label: 'Discord',
+                  href: 'https://discordapp.com/invite/docusaurus',
+                },
+                {
+                  label: 'Help',
+                  to: '/community/support',
+                },
+              ],
+            },
+            {
+              title: 'More',
+              items: [
+                {
+                  label: 'Blog',
+                  to: 'blog',
+                },
+                {
+                  label: 'Changelog',
+                  to: '/changelog',
+                },
+                {
+                  label: 'GitHub',
+                  href: 'https://github.com/facebook/docusaurus',
+                },
+                {
+                  label: 'Twitter',
+                  href: 'https://twitter.com/docusaurus',
+                },
+                {
+                  html: `
+                  <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
+                    <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" width="114" height="51" />
+                  </a>
+                `,
+                },
+              ],
+            },
+            {
+              title: 'Legal',
+              // Please don't remove the privacy and terms, it's a legal
+              // requirement.
+              items: [
+                {
+                  label: 'Privacy',
+                  href: 'https://opensource.facebook.com/legal/privacy/',
+                },
+                {
+                  label: 'Terms',
+                  href: 'https://opensource.facebook.com/legal/terms/',
+                },
+                {
+                  label: 'Data Policy',
+                  href: 'https://opensource.facebook.com/legal/data-policy/',
+                },
+                {
+                  label: 'Cookie Policy',
+                  href: 'https://opensource.facebook.com/legal/cookie-policy/',
                 },
               ],
             },
           ],
-          // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+          logo: {
+            alt: 'Meta Open Source Logo',
+            src: 'img/Apache_RocketMQ_logo.svg.png',
+            href: 'https://opensource.fb.com',
+          },
+          copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc. Built with Docusaurus.`,
         },
         prism: {
           theme: lightCodeTheme,

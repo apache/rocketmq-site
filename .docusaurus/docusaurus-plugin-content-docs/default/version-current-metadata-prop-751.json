@@ -1,7 +1,7 @@
 {
   "pluginId": "default",
   "version": "current",
-  "label": "Next",
+  "label": "4.x",
   "banner": null,
   "badge": true,
   "className": "docs-version-current",
@@ -33,7 +33,7 @@
       },
       {
         "type": "category",
-        "label": "Consumer",
+        "label": "Producer",
         "items": [
           {
             "type": "link",
@@ -71,7 +71,7 @@
       },
       {
         "type": "category",
-        "label": "Producer",
+        "label": "Consumer",
         "items": [
           {
             "type": "link",

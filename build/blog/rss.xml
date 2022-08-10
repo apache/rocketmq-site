@@ -4,78 +4,78 @@
         <title>RocketMQ Blog</title>
         <link>https://your-docusaurus-test-site.com/blog</link>
         <description>RocketMQ Blog</description>
-        <lastBuildDate>Wed, 27 Jul 2022 06:10:55 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Aug 2022 15:45:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[今日头条在消息服务平台和容灾体系建设方面的实践与思考]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/10jinritoutiao</link>
-            <guid>今日头条在消息服务平台和容灾体系建设方面的实践与思考</guid>
-            <pubDate>Wed, 27 Jul 2022 06:10:55 GMT</pubDate>
-            <description><![CDATA[今日头条在消息服务平台和容灾体系建设方面的实践与思考]]></description>
-        </item>
-        <item>
-            <title><![CDATA[哈啰在分布式消息治理和微服务治理中的实践]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/09hallo</link>
-            <guid>哈啰在分布式消息治理和微服务治理中的实践</guid>
-            <pubDate>Wed, 27 Jul 2022 06:10:17 GMT</pubDate>
-            <description><![CDATA[哈啰在分布式消息治理和微服务治理中的实践]]></description>
+            <title><![CDATA[滴滴出行基于RocketMQ构建企业级消息队列服务的实践]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/07didi</link>
+            <guid>滴滴出行基于RocketMQ构建企业级消息队列服务的实践</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[滴滴出行基于RocketMQ构建企业级消息队列服务的实践]]></description>
         </item>
         <item>
             <title><![CDATA[同程旅行网基于 RocketMQ 高可用架构实践]]></title>
             <link>https://your-docusaurus-test-site.com/blog/08tongcheng</link>
             <guid>同程旅行网基于 RocketMQ 高可用架构实践</guid>
-            <pubDate>Wed, 27 Jul 2022 06:08:43 GMT</pubDate>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
             <description><![CDATA[同程旅行网基于 RocketMQ 高可用架构实践]]></description>
         </item>
         <item>
-            <title><![CDATA[滴滴出行基于RocketMQ构建企业级消息队列服务的实践]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/07didi</link>
-            <guid>滴滴出行基于RocketMQ构建企业级消息队列服务的实践</guid>
-            <pubDate>Wed, 27 Jul 2022 06:08:19 GMT</pubDate>
-            <description><![CDATA[滴滴出行基于RocketMQ构建企业级消息队列服务的实践]]></description>
+            <title><![CDATA[哈啰在分布式消息治理和微服务治理中的实践]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/09hallo</link>
+            <guid>哈啰在分布式消息治理和微服务治理中的实践</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[哈啰在分布式消息治理和微服务治理中的实践]]></description>
         </item>
         <item>
-            <title><![CDATA[基于 RocketMQ 的同城双活架构在美菜网的挑战与实践]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/06cai</link>
-            <guid>基于 RocketMQ 的同城双活架构在美菜网的挑战与实践</guid>
-            <pubDate>Wed, 27 Jul 2022 06:07:20 GMT</pubDate>
-            <description><![CDATA[基于 RocketMQ 的同城双活架构在美菜网的挑战与实践]]></description>
-        </item>
-        <item>
-            <title><![CDATA[基于开源RocketMQ构建网易云音乐消息队列]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/05music</link>
-            <guid>基于开源RocketMQ构建网易云音乐消息队列</guid>
-            <pubDate>Wed, 27 Jul 2022 06:06:26 GMT</pubDate>
-            <description><![CDATA[基于开源RocketMQ构建网易云音乐消息队列]]></description>
-        </item>
-        <item>
-            <title><![CDATA[快手基于 RocketMQ 在线消息系统建设实践]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/04kuaishou</link>
-            <guid>快手基于 RocketMQ 在线消息系统建设实践</guid>
-            <pubDate>Wed, 27 Jul 2022 06:05:37 GMT</pubDate>
-            <description><![CDATA[快手基于 RocketMQ 在线消息系统建设实践]]></description>
-        </item>
-        <item>
-            <title><![CDATA[喜马拉雅 Apache RocketMQ 消息治理实践]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/03ximalaya</link>
-            <guid>喜马拉雅 Apache RocketMQ 消息治理实践</guid>
-            <pubDate>Wed, 27 Jul 2022 06:03:42 GMT</pubDate>
-            <description><![CDATA[喜马拉雅 Apache RocketMQ 消息治理实践]]></description>
-        </item>
-        <item>
-            <title><![CDATA[阿里的 RocketMQ 如何让双十一峰值之下0故障]]></title>
-            <link>https://your-docusaurus-test-site.com/blog/02ali</link>
-            <guid>阿里的 RocketMQ 如何让双十一峰值之下0故障</guid>
-            <pubDate>Tue, 26 Jul 2022 08:18:26 GMT</pubDate>
-            <description><![CDATA[阿里的 RocketMQ 如何让双十一峰值之下0故障]]></description>
+            <title><![CDATA[今日头条在消息服务平台和容灾体系建设方面的实践与思考]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/10jinritoutiao</link>
+            <guid>今日头条在消息服务平台和容灾体系建设方面的实践与思考</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[今日头条在消息服务平台和容灾体系建设方面的实践与思考]]></description>
         </item>
         <item>
             <title><![CDATA[小红书消息中间件的运维实践与治理之路]]></title>
             <link>https://your-docusaurus-test-site.com/blog/01xiaohongshu</link>
             <guid>小红书消息中间件的运维实践与治理之路</guid>
-            <pubDate>Tue, 21 Jun 2022 15:45:26 GMT</pubDate>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
             <description><![CDATA[小红书消息中间件的运维实践与治理之路]]></description>
+        </item>
+        <item>
+            <title><![CDATA[阿里的 RocketMQ 如何让双十一峰值之下0故障]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/02ali</link>
+            <guid>阿里的 RocketMQ 如何让双十一峰值之下0故障</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[阿里的 RocketMQ 如何让双十一峰值之下0故障]]></description>
+        </item>
+        <item>
+            <title><![CDATA[喜马拉雅 Apache RocketMQ 消息治理实践]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/03ximalaya</link>
+            <guid>喜马拉雅 Apache RocketMQ 消息治理实践</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[喜马拉雅 Apache RocketMQ 消息治理实践]]></description>
+        </item>
+        <item>
+            <title><![CDATA[快手基于 RocketMQ 在线消息系统建设实践]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/04kuaishou</link>
+            <guid>快手基于 RocketMQ 在线消息系统建设实践</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[快手基于 RocketMQ 在线消息系统建设实践]]></description>
+        </item>
+        <item>
+            <title><![CDATA[基于开源RocketMQ构建网易云音乐消息队列]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/05music</link>
+            <guid>基于开源RocketMQ构建网易云音乐消息队列</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[基于开源RocketMQ构建网易云音乐消息队列]]></description>
+        </item>
+        <item>
+            <title><![CDATA[基于 RocketMQ 的同城双活架构在美菜网的挑战与实践]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/06cai</link>
+            <guid>基于 RocketMQ 的同城双活架构在美菜网的挑战与实践</guid>
+            <pubDate>Tue, 02 Aug 2022 15:45:39 GMT</pubDate>
+            <description><![CDATA[基于 RocketMQ 的同城双活架构在美菜网的挑战与实践]]></description>
         </item>
     </channel>
 </rss>

@@ -364,19 +364,40 @@ export default {
       "style": "dark",
       "links": [
         {
+          "title": "Learn",
+          "items": [
+            {
+              "label": "Introduction",
+              "to": "docs"
+            },
+            {
+              "label": "Installation",
+              "to": "docs/installation"
+            },
+            {
+              "label": "Migration from v1 to v2",
+              "to": "docs/migration"
+            }
+          ]
+        },
+        {
           "title": "Community",
           "items": [
             {
-              "label": "Github",
-              "href": "https://github.com/apache/rocketmq"
+              "label": "Stack Overflow",
+              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
             },
             {
-              "label": "Wechat",
-              "href": "/contact"
+              "label": "Feature Requests",
+              "to": "/feature-requests"
             },
             {
-              "label": "Meetup",
-              "href": "/contact"
+              "label": "Discord",
+              "href": "https://discordapp.com/invite/docusaurus"
+            },
+            {
+              "label": "Help",
+              "to": "/community/support"
             }
           ]
         },
@@ -385,19 +406,53 @@ export default {
           "items": [
             {
               "label": "Blog",
-              "to": "/blog"
+              "to": "blog"
             },
             {
               "label": "Changelog",
-              "href": "/third-blog"
+              "to": "/changelog"
             },
             {
               "label": "GitHub",
-              "href": "https://github.com/apache/rocketmq"
+              "href": "https://github.com/facebook/docusaurus"
+            },
+            {
+              "label": "Twitter",
+              "href": "https://twitter.com/docusaurus"
+            },
+            {
+              "html": "\n                  <a href=\"https://www.netlify.com\" target=\"_blank\" rel=\"noreferrer noopener\" aria-label=\"Deploys by Netlify\">\n                    <img src=\"https://www.netlify.com/img/global/badges/netlify-color-accent.svg\" alt=\"Deploys by Netlify\" width=\"114\" height=\"51\" />\n                  </a>\n                "
+            }
+          ]
+        },
+        {
+          "title": "Legal",
+          "items": [
+            {
+              "label": "Privacy",
+              "href": "https://opensource.facebook.com/legal/privacy/"
+            },
+            {
+              "label": "Terms",
+              "href": "https://opensource.facebook.com/legal/terms/"
+            },
+            {
+              "label": "Data Policy",
+              "href": "https://opensource.facebook.com/legal/data-policy/"
+            },
+            {
+              "label": "Cookie Policy",
+              "href": "https://opensource.facebook.com/legal/cookie-policy/"
             }
           ]
         }
-      ]
+      ],
+      "logo": {
+        "alt": "Meta Open Source Logo",
+        "src": "img/Apache_RocketMQ_logo.svg.png",
+        "href": "https://opensource.fb.com"
+      },
+      "copyright": "Copyright © 2022 Meta Platforms, Inc. Built with Docusaurus."
     },
     "colorMode": {
       "defaultMode": "light",

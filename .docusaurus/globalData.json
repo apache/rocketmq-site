@@ -5,7 +5,7 @@
       "versions": [
         {
           "name": "current",
-          "label": "Next",
+          "label": "4.x",
           "isLast": true,
           "path": "/en/docs/",
           "mainDocId": "介绍/01whychoose",
