@@ -3,11 +3,10 @@
 ## Ordered Message Introduction
 Ordered messages have strict requirements on the order in which they are sent and consumed. 
 
-For a given topic, messages are published and consumed strictly on a first-in-first-out (FIFO) basis, messages published first are consumed first and messages published later are consumed later. Partitioned ordered messages are supported in Apache RocketMQ, as shown in the following figure. We can partition messages according to a certain criterion (e.g., the ShardingKey in the figure). Messages with the same ShardingKey are assigned to the same queue and consumed in order.
-
+For a given Topic, messages are published and consumed strictly on a first-in-first-out (FIFO) basis, i.e., messages published first will be consumed first. Furthermore, as shown in the following figure, partitioned ordered messages are supported in Apache RocketMQ. The messages can be partitioned according to a certain criterion (e.g., ShardingKey). Messages with the same ShardingKey are assigned to the identical queue and consumed in order.
 ![顺序消息发送](../../picture/顺序消息发送.png)
 
-Ordered messages are also used in a wide range of application scenarios, such as in the example of creating an order, where you need to ensure that the same order is generated, paid and shipped, and these three operations are executed sequentially. In the case of normal messages, the messages of order A may be polled and sent to different queues, and the messages of different queues will not be able to maintain the order while ordered messages are sent by routing the sequence of messages with the same ShardingKey (same order number) to a logical queue.
+Ordered messages are also used in a wide range of application scenarios, such as the example of creating orders, the same order generation, payment, and shipment should be executed sequentially. In the case of simple messages, the messages of Order A may be polled and sent to different queues. The messages of different queues will not be able to maintain order. In contrast, ordered messages are sent by routing the sequence of messages with the same ShardingKey (same order number) to a logical queue.
 
 ## Ordered Message Sample Code
 
