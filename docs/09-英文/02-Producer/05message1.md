@@ -2,7 +2,7 @@
 
 ## 1.Creating Topic in Cluster
 
-RocketMQ cluster is enabled by default **autoCreateTopicEnable** configuration. It will automatically create Topic for messages, if autoCreateTopicEnable is not enabled, you can also use RocketMQ Admin tool to create the target Topic.
+RocketMQ cluster is enabled by default with **autoCreateTopicEnable** configuration, which will automatically create Topics for the sent messages. If autoCreateTopicEnable is not enabled, you can also use the RocketMQ Admin tool to create the target Topic.
 
 ```shell
 > sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -n 127.0.0.1:9876
@@ -10,7 +10,7 @@ create topic to 127.0.0.1:10911 success.
 TopicConfig [topicName=TopicTest, readQueueNums=8, writeQueueNums=8, perm=RW-, topicFilterType=SINGLE_TAG, topicSysFlag=0, order=false, attributes=null]
 ```
 
-After the command is executed, 8 queues are created on that Broker machine, named Topic of TopicTest.
+After executing the command above, 8 queues are created on the Broker machine with the Topic named TopicTest.
 
 ## 2.Adding Client-Side Dependency
 
@@ -43,7 +43,7 @@ compile 'org.apache.rocketmq:rocketmq-client:4.9.4'
 
 ## 3.Message Sending
 
-Apache RocketMQ send messages in three ways: **synchronous, asynchronous, and one-way transmission**. The first two message types are reliable because they have responses regardless of whether they are successfully sent or not.
+Apache RocketMQ sends messages in three ways: **synchronous, asynchronous, and one-way**. The first two message types are reliable since the response will be returned from the server regardless of whether their messages are successfully sent or not.
 
 ### 3.1 Synchronous Sending
 
@@ -53,10 +53,11 @@ Synchronous Sending is a communication method in which the message sender sends 
 ![同步发送](../../picture/同步发送.png)
 
 The entire code for synchronous sending is as follows: 
-1. **Firstly a producer will be created**. Simple Messages create DefaultMQProducer. While creating producer, fill in the name of the production group which is the collection of the same class of Producer, such Producer sends same class of messages with same transmission logic.
-2. **Set the address of NameServer**. Apache Rocket has MQ many ways to set the address of the NameServer (described in the client configuration), this example is set by calling the producer's setNamesrvAddr() method in the code, if there are more than one NameServer, separated by a semicolon, such as "127.0.0.2:9876;127.0.0.3:9876".
-3. **The third step is to build the message**. Set the topic, tag, body and so on. The tag can be understood as a label to categorize the message, and RocketMQ can filter the tag on the consumer side.
-4. **Finally call the send() method to send the message out**. Ultimately, the send() method return a SendResult. The SendResut contains the actual send status including SEND_OK (send success), FLUSH_DISK_TIMEOUT (disk flush timeout), FLUSH_SLAVE_TIMEOUT (sync to slave timeout), SLAVE_NOT_AVAILABLE (slave can not be used), and an exception is thrown if send fails.
+1. **Create a Producer**. Create a DefaultMQProducer in advance. The Producer should contain the name of the Producer group, which is a collection of Producer, they would send the same type of messages with identical logic.
+2. **Set the address of NameServer**. Apache RocketMQ is able to set the address of the NameServer (described in the client configuration) in many ways. The following example is set by calling the producer's setNamesrvAddr() method in the code, separated by a semicolon if there is more than one NameServer, such as "127.0.0.2:9876;127.0.0.3:9876".
+3. **Build the message**. Set the topic, tag, body, and so on. The tag can be understood as a label to categorize the message, and RocketMQ can filter the tag on the Consumer side.
+4. **Call the send() method to send the message**. Ultimately, the send() method will return a SendResult. The SendResut contains the actual send status including SEND_OK (send success), FLUSH_DISK_TIMEOUT (disk flush timeout), FLUSH_SLAVE_TIMEOUT (sync to slave timeout), SLAVE_NOT_AVAILABLE (slave can not be used), and an exception is thrown if it fails.
+
 ``` javascript {16,15}
 public class SyncProducer {
   public static void main(String[] args) throws Exception {
@@ -86,10 +87,10 @@ public class SyncProducer {
 
 ### 3.2 Asynchronous Sending
 
-![同步发送](../../picture/异步发送.png)
+![异步发送](../../picture/异步发送.png)
 
 
-Asynchronous sending is a communication method in which the sender sends a message and then sends the next message without waiting for the server to return a response.
+Asynchronous sending is a sending method in which the sender sends messages continuously without waiting for the server to return a response.
 Asynchronous sending requires the implementation of the **Asynchronous Send Callback Interface** (SendCallback).
 :::note
 Asynchronous sending requires the implementation of the **Asynchronous SendCallback Interface**.
@@ -135,16 +136,16 @@ public class AsyncProducer {
 ```
 
 :::note
-The only difference between asynchronous and synchronous sending code is the parameters for calling the sending interface. Asynchronous sending does not wait for the return of the send, instead, the send method needs to be passed into the SendCallback implementation. The SendCallback interface mainly has onSuccess and onException two methods, indicating that the message is sent successfully or failed.
+The only difference between asynchronous and synchronous sending methods is the parameters for calling the sending interface. Asynchronous sending does not wait for the return of send() method, instead, it will carry the SendCallback implementation. The SendCallback interface has two methods (onSuccess and onException), indicating that the message is sent successfully or failed.
 :::
 
-### 3.3 One Way Sending
+### 3.3 One-Way Sending
 
-![同步发送](../../picture/Oneway发送.png)
+![单项模式发送](../../picture/Oneway发送.png)
 
 
 
-The sender is only responsible for sending the message and does not wait for the server to return a response and no callback function is triggered, in other word, it only sends the request and does not wait for the answer. The process of sending messages in this way is very short, usually in the microsecond level. It is suitable for some scenarios where the time consumption is very short, but the reliability requirement is not high, such as log collection.
+The sender is only responsible for sending the message and does not wait for the server to return a response and no callback function is triggered, in other words, it only sends the request and does not wait for the answer. The process of sending messages in this way is very short, usually in the microsecond level. It is suitable for some scenarios where the time consumption is very short, but the reliability requirement is not high, such as log collection.
 
 ``` javascript {16}
 public class OnewayProducer {
@@ -170,4 +171,4 @@ public class OnewayProducer {
 }
 ```
 
-One-way mode calls to the sendOneway() method do not have any waiting or processing for the returned results.
+One-way mode will call the sendOneway() method, which does not wait or process the returned result.
