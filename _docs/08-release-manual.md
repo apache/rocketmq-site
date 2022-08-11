@@ -25,7 +25,7 @@ Create a code signing gpg key for release signing, use **\<your Apache ID\>@apac
 * Upload your key to a public key server by `gpg --keyserver keys.openpgp.org --send-key <your key id>`. you can search your key after uploaded. (`your key id`'s string length is 8).
 * Export your public key to a file by `gpg --armor --export <your key id> >> gpgapachekey.txt`.
 * Get the key signed by other committers(Optional).
-* Add the key to the RocketMQ [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS). ([KEYS file] managed by svn)
+* Add the key to the RocketMQ dev [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) and release [KEYS file](https://dist.apache.org/repos/dist/release/rocketmq/KEYS). ([KEYS file] managed by svn, if you do not have permission, you can request help from any PMC member)
 
 **Tips:** If you have more than one key in your gpg, set the code signing key to `~/.gnupg/gpg.conf` as default key is recommended.
  
