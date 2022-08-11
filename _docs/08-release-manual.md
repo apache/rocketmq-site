@@ -25,7 +25,7 @@ Create a code signing gpg key for release signing, use **\<your Apache ID\>@apac
 * Upload your key to a public key server by `gpg --keyserver keys.openpgp.org --send-key <your key id>`. you can search your key after uploaded. (`your key id`'s string length is 8).
 * Export your public key to a file by `gpg --armor --export <your key id> >> gpgapachekey.txt`.
 * Get the key signed by other committers(Optional).
-* Add the key to the RocketMQ [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS). ([KEYS file] managed by svn)
+* Append the key to both RocketMQ [dev KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) and [release KEYS file](https://dist.apache.org/repos/dist/release/rocketmq/KEYS) using your preferred subversion clients.
 
 **Tips:** If you have more than one key in your gpg, set the code signing key to `~/.gnupg/gpg.conf` as default key is recommended.
  
@@ -90,7 +90,7 @@ Make sure that you are in the develop branch, and Github PRs related to this rel
 Perform the following to generate and stage the artifacts:
 
 1. `mvn clean release:clean`
-2. `mvn release:prepare -Psigned_release -Darguments="-DskipTests"`, answer the correct release version(use the default, the version in pom, just enter), SCM release tag(use the default, the branch name, just enter), and the new development version(increate the version by 1.0, if you release 4.2.0, then the next version should be 4.3.0).
+2. `mvn release:prepare -Psigned_release -Darguments="-DskipTests"`, answer the correct release version(use the default, the version in pom, just enter), SCM release tag(use the default, the branch name, just enter), and the new development version(increase the version accordingly, following [Semantics Versioning](https://semver.org/)).
 3. `mvn -Psigned_release release:perform -Darguments="-DskipTests"`, generate the artifacts and push them to the [Nexus repo](https://repository.apache.org/#stagingRepositories). If you would like to perform a dry run first (without pushing the artifacts to the repo), add the arg -DdryRun=true.
 
 Now, the candidate release artifacts can be found in the [Nexus staging repo](https://repository.apache.org/#stagingRepositories) and in the `target` folder of your local branch.
@@ -147,7 +147,7 @@ If the staging process encounter problem, you may need to rollback:
   git log
   ```
   
-  - find 2 lastest commits who's comments as bellow
+  - find the last two commits, commit messages of which match the following pattern:
   > des1: [maven-release-plugin] prepare release rocketmq-all-4.9.2]  
   > des2: [maven-release-plugin] prepare for next development iteration]
   - delete the 2 commits. (`143a34185b84aed5bc1224b353af340aa1e3df0fg` would be kept)
@@ -180,9 +180,9 @@ After the successful building, remember to sign the artifact(PGP and SHA512 sign
  *   check NOTICE, should have a notice for third-party dependency if necessary
  *   extract the zip and check if the binary version is correct
  *   verify the asc(PGP sign), SHA512
- *   start nameserver and broker according to the quick-start 
+ *   start name-server and broker according to the quick-start 
  *   run clusterList command to see if the version is correct
- *   make sure there is no nohup.out in the binary files
+ *   make sure there is no nohup.out and other irrelevant files in the binary artifact
 
 #### 4.2 check list for source release:
  
@@ -190,7 +190,7 @@ After the successful building, remember to sign the artifact(PGP and SHA512 sign
  * check NOTICE, should have a notice for third-party dependency if necessary
  * extract the zip and check if the source version is correct
  * verify the asc(PGP sign),SHA512
- * build the source, start nameserver and broker according to the quick-start
+ * build the source, start name-server and broker according to the quick-start
  * run clusterList command to see if the version is correct
 
 
