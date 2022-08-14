@@ -20,13 +20,13 @@ import TabItem from '@theme/TabItem';
 learn more  ➡️ [Producer](/docs/生产者/04concept1)
   </TabItem>
   <TabItem value="Consumer" label="消费者">
-  The consumer is responsible for consuming messages, and generally the backend system is responsible for asynchronous consumption. A message consumer pulls messages from the Broker server and serves them to the application. From the perspective of user applications, two consumption forms are provided: pull consumption and push consumption.
+   Aims to consume messages, which are generally responsible by the backend system (asynchronous consumption). A message consumer pulls messages from the Broker server and serves them to the application. From the perspective of user applications, two consumption methods are provided: pull consumption and push consumption.
 
 learn more  ➡️ [Consumer](/docs/消费者/11concept2)
 
   </TabItem>
   <TabItem value="Topic" label="主题">
-  RocketMQ's fundamental unit of event organization is called topic.Each topic contains several messages, and each message can only belong to one topic.
+  RocketMQ's fundamental unit of event organization is called Topic. Each Topic contains several messages, and each message can only belong to one topic.
 
 learn more  ➡️ [basic concept](/docs/生产者/04concept1)
 
@@ -46,7 +46,7 @@ learn more  ➡️ [basic concept](/docs/生产者/04concept1)
 
 :::note Basic Messaging System Model
 
-The above picture is a basic message system model，including**Producer**，**Consumer**，and message transmission based on**Topic**.
+ The figure above is an extended message model, including **two Producers**, **two Topics**, and **two sets of Consumers**.
 
 :::
 
@@ -67,8 +67,7 @@ In a **topic-based** system, messages are published on topics or channels.Consum
 
 The above picture is an extended message model, including **two producers**, **two topics**, and **two sets of consumers Comsumer**.
 
-The **Broker** that stores messages on topic is the proxy server for the actual deployment process.
-
+The **Broker** that stores message topics is the proxy server for the actual deployment process.
 :::
 
 - for**Horizontal scaling**, RocketMQ partitions Topic through **MessageQueue**
@@ -137,24 +136,22 @@ The correspondence between Master and Slave is defined by specifying the same Br
 
 ### 1. Start the RocketMQ NameServer
 
-It listens to the port and waits for the connection of the Broker, Producer, and Consumer ater
-the NameServer starts.
+The NameServer listens to the port and waits for the connection of the Broker, Producer, and Consumer after startup.
 
 ### 2. Start the RocketMQ Broker
 
-It maintains long connections with all NameServers, gets current Broker information and store all Topic information when a broker start.After successful registration, there is a mapping relationship between Topic and Broker in the NameServer cluster.
+The Broker maintains long connections with all NameServers, gets current Broker information, and stores all Topic information after startup. After successful registration, a mapping relationship will be built between Topic and Broker in the NameServer cluster.
 
 ### 3. Create a topic
 
-Broker should be set up before creating a topic.And topic can be automatically created when sending a message.
+The Broker should be specified before creating a Topic, or automatically create one while sending messages.
 
 ### 4. Write messages to the topic
 
-The producer starts to establish a long connection with one of the groups in the NameServer, and obtains which Brokers the currently sent topic exists on from the NameServer, selects a queue from the queue list using polling, and then establishes a long connection with the first Broker to connect to. Broker message.
+The Producer starts by establishing a long-term connection with one device of the NameServer clusters, obtains the Broker information where the current topic exists from the NameServer, polls to select a queue from the queue list, and establishes a long-term connection where the queue is located. This enables the Producer to send messages to the Broker.
 
 ### 5. Read messages from the topic
 
-The consumer establishes a long connection with one of the NameServers, obtains which brokers the current subscription topic exists on, and then directly establishes a connection channel with the broker, and then starts to consume messages.
-
+The Consumer establishes a long-term connection with one of the NameServers, obtains which brokers the current subscription topic exists on, and then directly establishes a connection channel with the Broker, and then starts to consume messages.
 
 
