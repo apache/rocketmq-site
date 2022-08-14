@@ -3,17 +3,13 @@
   "source": "@site/blog/06cai.md",
   "title": "基于 RocketMQ 的同城双活架构在美菜网的挑战与实践",
   "description": "基于 RocketMQ 的同城双活架构在美菜网的挑战与实践",
-  "date": "2022-07-27T06:07:20.239Z",
-  "formattedDate": "July 27, 2022",
+  "date": "2022-08-02T15:45:39.484Z",
+  "formattedDate": "2022年8月2日",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
-    "title": "滴滴出行基于RocketMQ构建企业级消息队列服务的实践",
-    "permalink": "/blog/07didi"
-  },
-  "nextItem": {
     "title": "基于开源RocketMQ构建网易云音乐消息队列",
     "permalink": "/blog/05music"
   }

@@ -1,20 +1,16 @@
 {
-  "permalink": "/blog/05music",
+  "permalink": "/en/blog/05music",
   "source": "@site/blog/05music.md",
   "title": "基于开源RocketMQ构建网易云音乐消息队列",
   "description": "基于开源RocketMQ构建网易云音乐消息队列",
-  "date": "2022-07-27T06:06:26.894Z",
-  "formattedDate": "July 27, 2022",
+  "date": "2022-08-02T15:45:39.484Z",
+  "formattedDate": "August 2, 2022",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
-    "title": "基于 RocketMQ 的同城双活架构在美菜网的挑战与实践",
-    "permalink": "/blog/06cai"
-  },
-  "nextItem": {
-    "title": "快手基于 RocketMQ 在线消息系统建设实践",
-    "permalink": "/blog/04kuaishou"
+    "title": "小红书消息中间件的运维实践与治理之路",
+    "permalink": "/en/blog/01xiaohongshu"
   }
 }

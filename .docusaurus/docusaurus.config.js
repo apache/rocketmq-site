@@ -2,12 +2,29 @@ export default {
   "title": "RocketMQ",
   "tagline": "官方网站",
   "url": "https://your-docusaurus-test-site.com",
-  "baseUrl": "/",
+  "baseUrl": "/en/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "favicon": "img/favicon.ico",
   "organizationName": "facebook",
   "projectName": "docusaurus",
+  "i18n": {
+    "defaultLocale": "zh",
+    "locales": [
+      "zh",
+      "en"
+    ],
+    "localeConfigs": {
+      "zh": {
+        "label": "简体中文",
+        "direction": "ltr"
+      },
+      "en": {
+        "label": "English",
+        "direction": "ltr"
+      }
+    }
+  },
   "presets": [
     [
       "@docusaurus/preset-classic",
@@ -15,7 +32,18 @@ export default {
         "docs": {
           "routeBasePath": "/docs/",
           "sidebarPath": "/Users/rhuen/Documents/Documents - Rhuen’s MacBook Pro/04 github/rocketmq-docs/rocketmq-site/sidebars.js",
-          "editUrl": "https://github.com/apache/rocketmq-site/tree/new-official-website"
+          "editUrl": "https://github.com/apache/rocketmq-site/tree/new-official-website",
+          "lastVersion": "current",
+          "versions": {
+            "current": {
+              "label": "4.x",
+              "path": ""
+            },
+            "5.0": {
+              "label": "5.0",
+              "banner": "unreleased"
+            }
+          }
         },
         "blog": {
           "blogTitle": "RocketMQ 博客",
@@ -260,108 +288,164 @@ export default {
     },
     "navbar": {
       "title": "RocketMQ",
-      "hideOnScroll": true,
       "logo": {
         "alt": "My Site Logo",
         "src": "img/Apache_RocketMQ_logo.svg.png"
       },
       "items": [
         {
+          "type": "localeDropdown",
+          "position": "right",
+          "dropdownItemsBefore": [],
+          "dropdownItemsAfter": []
+        },
+        {
+          "type": "docsVersionDropdown",
+          "position": "right",
+          "dropdownItemsBefore": [],
+          "dropdownItemsAfter": []
+        },
+        {
           "to": "/docs/",
-          "label": "文档",
+          "label": "Docs",
           "position": "right"
         },
         {
           "to": "/download",
-          "label": "下载",
+          "label": "Download",
           "position": "right"
         },
         {
           "type": "dropdown",
-          "label": "博客",
+          "label": "Blog",
           "position": "right",
           "items": [
             {
               "to": "/blog",
-              "label": "用户案例"
+              "label": "User Cases"
             },
             {
               "to": "/second-blog",
-              "label": "社区活动"
+              "label": "Activity"
             },
             {
               "to": "/third-blog",
-              "label": "版本变化"
+              "label": "Change Log"
             },
             {
               "to": "/forth-blog",
-              "label": "RocketMQ新闻"
+              "label": "RocketMQ News"
             }
           ]
         },
         {
           "type": "dropdown",
-          "label": "社区",
+          "label": "Community",
           "position": "right",
           "items": [
             {
-              "to": "/info",
-              "label": "项目信息"
-            },
-            {
               "to": "/contact",
-              "label": "加入我们"
+              "label": "Join Community"
             },
             {
               "to": "/team",
-              "label": "贡献团队"
+              "label": "Contribute"
             },
             {
-              "to": "/team",
-              "label": "贡献说明"
+              "to": "/docs/贡献指南/29how-to-contribute",
+              "label": "Contribute Instructions"
             }
           ]
         }
-      ]
+      ],
+      "hideOnScroll": false
     },
     "footer": {
       "style": "dark",
       "links": [
         {
-          "title": "社区",
+          "title": "Learn",
           "items": [
             {
-              "label": "Github",
-              "href": "https://github.com/apache/rocketmq"
+              "label": "Introduction",
+              "to": "/docs/介绍/03whatis"
             },
             {
-              "label": "公众号",
-              "href": "/contact"
+              "label": "Installation",
+              "to": "/docs/介绍/02quickstart"
             },
             {
-              "label": "Meetup",
-              "href": "/contact"
+              "label": "Migration from 4.x to 5.0",
+              "to": "/version"
             }
           ]
         },
         {
-          "title": "更多",
+          "title": "Community",
           "items": [
             {
-              "label": "博客",
+              "label": "Twitter",
+              "href": "https://twitter.com/ApacheRocketMQ"
+            },
+            {
+              "label": "Github",
+              "to": "https://github.com/apache/rocketmq"
+            },
+            {
+              "label": "Help",
+              "to": "https://github.com/apache/rocketmq"
+            }
+          ]
+        },
+        {
+          "title": "More",
+          "items": [
+            {
+              "label": "Blog",
               "to": "/blog"
             },
             {
               "label": "Changelog",
-              "href": "/third-blog"
+              "to": "/changelog"
             },
             {
               "label": "GitHub",
               "href": "https://github.com/apache/rocketmq"
+            },
+            {
+              "label": "Twitter",
+              "href": "https://twitter.com/docusaurus"
+            }
+          ]
+        },
+        {
+          "title": "Legal",
+          "items": [
+            {
+              "label": "Licenses",
+              "href": "https://www.apache.org/licenses/"
+            },
+            {
+              "label": "Security",
+              "href": "https://www.apache.org/security/"
+            },
+            {
+              "label": "Thanks",
+              "href": "https://www.apache.org/foundation/thanks.html"
+            },
+            {
+              "label": "Sponsorship",
+              "href": "https://www.apache.org/foundation/sponsorship.html"
             }
           ]
         }
-      ]
+      ],
+      "logo": {
+        "alt": "Meta Open Source Logo",
+        "src": "img/Apache_RocketMQ_logo.svg.png",
+        "href": "https://opensource.fb.com"
+      },
+      "copyright": "Copyright © 2022 The Apache Software Foundation. Licensed under the Apache License, Version 2.0."
     },
     "colorMode": {
       "defaultMode": "light",
@@ -381,13 +465,6 @@ export default {
     "hideableSidebar": false
   },
   "baseUrlIssueBanner": true,
-  "i18n": {
-    "defaultLocale": "en",
-    "locales": [
-      "en"
-    ],
-    "localeConfigs": {}
-  },
   "onDuplicateRoutes": "warn",
   "customFields": {},
   "themes": [],

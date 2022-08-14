@@ -3,18 +3,18 @@
   "source": "@site/blog/08tongcheng.md",
   "title": "同程旅行网基于 RocketMQ 高可用架构实践",
   "description": "同程旅行网基于 RocketMQ 高可用架构实践",
-  "date": "2022-07-27T06:08:43.720Z",
-  "formattedDate": "July 27, 2022",
+  "date": "2022-08-02T15:45:39.485Z",
+  "formattedDate": "2022年8月2日",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
-    "title": "哈啰在分布式消息治理和微服务治理中的实践",
-    "permalink": "/blog/09hallo"
-  },
-  "nextItem": {
     "title": "滴滴出行基于RocketMQ构建企业级消息队列服务的实践",
     "permalink": "/blog/07didi"
+  },
+  "nextItem": {
+    "title": "小红书消息中间件的运维实践与治理之路",
+    "permalink": "/blog/01xiaohongshu"
   }
 }

@@ -2,24 +2,24 @@
   "title": "Recent posts",
   "items": [
     {
-      "title": "从0到1 | 分布式消息规范 OpenMessaging 重要事件回顾",
-      "permalink": "/forth-blog/18"
+      "title": "Apache ShenYu集成Apache RocketMQ实现海量日志采集的原理与实践",
+      "permalink": "/en/forth-blog/10"
     },
     {
-      "title": "新架构下的Apache RocketMQ，未来十年的数据基础设施",
-      "permalink": "/forth-blog/17"
+      "title": "OpenChaos，新的开始！新Streaming Data Platform值得期待",
+      "permalink": "/en/forth-blog/11"
     },
     {
-      "title": "基于 RocketMQ Prometheus Exporter 打造定制化 DevOps 平台",
-      "permalink": "/forth-blog/16"
+      "title": "混沌鸿蒙，新基建下的分布式消息Chaos框架",
+      "permalink": "/en/forth-blog/12"
     },
     {
-      "title": "从本地原生到云原生，Alibaba Dragonwell 静态编译的实践与挑战",
-      "permalink": "/forth-blog/15"
+      "title": "云原生时代 RocketMQ 运维管控的利器 - RocketMQ Operator",
+      "permalink": "/en/forth-blog/13"
     },
     {
       "title": "RocketMQ 端云一体化设计与实践",
-      "permalink": "/forth-blog/14"
+      "permalink": "/en/forth-blog/14"
     }
   ]
 }

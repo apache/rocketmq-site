@@ -1,22 +1,22 @@
-# 加入我们
+# Join Community
 
 
-## 1. 关注Apache RocketMQ官方公众号
+## 1. Follow Apache RocketMQ Wechat Account
 
 ![Screen Shot 2022-07-08 at 5.33.07 PM](https://tva1.sinaimg.cn/large/e6c9d24ely1h3znj1j4lvj21ni0io0un.jpg)
 
 
 
 
-## 2. 关注Apache RocketMQ官方博客
-- 关注版本动态 [➡️](/third-blog)
-- 关注社区活动 [➡️](/second-blog)
-- 关注用户案例 [➡️](/blog)
+## 2. Read Apache RocketMQ Blog
+- Changelog [➡️](/third-blog)
+- Community Activity [➡️](/second-blog)
+- User Cases [➡️](/blog)
 
 
 
 
-## 3. 关注Apache RocketMQ邮件订阅组 📮
+## 3. Subscribe Apache RocketMQ Newsletter 📮
 
 | Name        | Description                             | Subscribe                                                 | Unsubscribe                                                  | Archive                                                      |
 | :---------- | :-------------------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
