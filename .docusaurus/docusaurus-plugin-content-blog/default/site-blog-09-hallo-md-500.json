@@ -1,20 +1,20 @@
 {
-  "permalink": "/en/blog/09hallo",
+  "permalink": "/blog/09hallo",
   "source": "@site/blog/09hallo.md",
   "title": "哈啰在分布式消息治理和微服务治理中的实践",
   "description": "哈啰在分布式消息治理和微服务治理中的实践",
   "date": "2022-08-02T15:45:39.485Z",
-  "formattedDate": "August 2, 2022",
+  "formattedDate": "2022年8月2日",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
     "title": "同程旅行网基于 RocketMQ 高可用架构实践",
-    "permalink": "/en/blog/08tongcheng"
+    "permalink": "/blog/08tongcheng"
   },
   "nextItem": {
-    "title": "今日头条在消息服务平台和容灾体系建设方面的实践与思考",
-    "permalink": "/en/blog/10jinritoutiao"
+    "title": "小红书消息中间件的运维实践与治理之路",
+    "permalink": "/blog/01xiaohongshu"
   }
 }

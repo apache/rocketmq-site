@@ -45,57 +45,12 @@ export default [
   },
   {
     path: '/en/blog',
-    component: ComponentCreator('/en/blog','609'),
+    component: ComponentCreator('/en/blog','742'),
     exact: true
   },
   {
     path: '/en/blog/01xiaohongshu',
     component: ComponentCreator('/en/blog/01xiaohongshu','fbd'),
-    exact: true
-  },
-  {
-    path: '/en/blog/02ali',
-    component: ComponentCreator('/en/blog/02ali','2ec'),
-    exact: true
-  },
-  {
-    path: '/en/blog/03ximalaya',
-    component: ComponentCreator('/en/blog/03ximalaya','17e'),
-    exact: true
-  },
-  {
-    path: '/en/blog/04kuaishou',
-    component: ComponentCreator('/en/blog/04kuaishou','6ea'),
-    exact: true
-  },
-  {
-    path: '/en/blog/05music',
-    component: ComponentCreator('/en/blog/05music','f42'),
-    exact: true
-  },
-  {
-    path: '/en/blog/06cai',
-    component: ComponentCreator('/en/blog/06cai','60a'),
-    exact: true
-  },
-  {
-    path: '/en/blog/07didi',
-    component: ComponentCreator('/en/blog/07didi','5c7'),
-    exact: true
-  },
-  {
-    path: '/en/blog/08tongcheng',
-    component: ComponentCreator('/en/blog/08tongcheng','816'),
-    exact: true
-  },
-  {
-    path: '/en/blog/09hallo',
-    component: ComponentCreator('/en/blog/09hallo','3a6'),
-    exact: true
-  },
-  {
-    path: '/en/blog/10jinritoutiao',
-    component: ComponentCreator('/en/blog/10jinritoutiao','c26'),
     exact: true
   },
   {
@@ -160,7 +115,7 @@ export default [
   },
   {
     path: '/en/forth-blog',
-    component: ComponentCreator('/en/forth-blog','34e'),
+    component: ComponentCreator('/en/forth-blog','405'),
     exact: true
   },
   {
@@ -260,7 +215,7 @@ export default [
   },
   {
     path: '/en/forth-blog/page/2',
-    component: ComponentCreator('/en/forth-blog/page/2','a09'),
+    component: ComponentCreator('/en/forth-blog/page/2','cfd'),
     exact: true
   },
   {

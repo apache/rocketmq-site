@@ -25,39 +25,12 @@
   "/en/__docusaurus/debug/routes-127": {
     "component": "component---theme-debug-routes-946-699"
   },
-  "/en/blog-609": {
+  "/en/blog-742": {
     "component": "component---theme-blog-list-pagea-6-a-7ba",
     "sidebar": "sidebar---en-blog-814-6c1",
     "items": [
       {
-        "content": "content---en-blog-8-a-3-d2f"
-      },
-      {
-        "content": "content---en-blog-800-ac7"
-      },
-      {
-        "content": "content---en-blogc-14-776"
-      },
-      {
-        "content": "content---en-blog-572-4e3"
-      },
-      {
         "content": "content---en-blog-8-eb-a9f"
-      },
-      {
-        "content": "content---en-blog-3-a-9-aa9"
-      },
-      {
-        "content": "content---en-blogf-4-d-769"
-      },
-      {
-        "content": "content---en-blog-008-c59"
-      },
-      {
-        "content": "content---en-blog-105-8f2"
-      },
-      {
-        "content": "content---en-blog-70-e-ac7"
       }
     ],
     "metadata": "metadata---en-blogfba-0e1"
@@ -66,51 +39,6 @@
     "component": "component---theme-blog-post-pageccc-cab",
     "sidebar": "sidebar---en-blog-814-6c1",
     "content": "content---en-blog-01-xiaohongshuc-2-a-98a"
-  },
-  "/en/blog/02ali-2ec": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-02-ali-50-b-2fc"
-  },
-  "/en/blog/03ximalaya-17e": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-03-ximalaya-2-be-034"
-  },
-  "/en/blog/04kuaishou-6ea": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-04-kuaishou-138-1f7"
-  },
-  "/en/blog/05music-f42": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-05-musicb-46-e49"
-  },
-  "/en/blog/06cai-60a": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-06-cai-2-fe-0a5"
-  },
-  "/en/blog/07didi-5c7": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-07-didi-7-e-6-1fa"
-  },
-  "/en/blog/08tongcheng-816": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-08-tongcheng-9-fc-981"
-  },
-  "/en/blog/09hallo-3a6": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-09-hallo-500-bff"
-  },
-  "/en/blog/10jinritoutiao-c26": {
-    "component": "component---theme-blog-post-pageccc-cab",
-    "sidebar": "sidebar---en-blog-814-6c1",
-    "content": "content---en-blog-10-jinritoutiao-734-21b"
   },
   "/en/blog/archive-133": {
     "component": "component---theme-blog-archive-page-9-e-4-1d8",
@@ -160,7 +88,7 @@
     "component": "component---theme-mdx-page-1-f-3-b90",
     "content": "content---en-download-209-fd4"
   },
-  "/en/forth-blog-34e": {
+  "/en/forth-blog-405": {
     "component": "component---theme-blog-list-pagea-6-a-7ba",
     "sidebar": "sidebar---en-forth-bloge-10-213",
     "items": [
@@ -183,7 +111,7 @@
         "content": "content---en-forth-blog-3-c-6-f15"
       },
       {
-        "content": "content---en-forth-blog-1-e-8-6f0"
+        "content": "content---en-forth-blogd-32-6ad"
       },
       {
         "content": "content---en-forth-blog-09-b-fda"
@@ -291,7 +219,7 @@
     "component": "component---theme-blog-archive-page-9-e-4-1d8",
     "archive": "archive---en-forth-blog-archiveee-0-452"
   },
-  "/en/forth-blog/page/2-a09": {
+  "/en/forth-blog/page/2-cfd": {
     "component": "component---theme-blog-list-pagea-6-a-7ba",
     "sidebar": "sidebar---en-forth-bloge-10-213",
     "items": [
@@ -302,7 +230,7 @@
         "content": "content---en-forth-blog-page-20-a-6-63a"
       },
       {
-        "content": "content---en-forth-blog-1-e-8-6f0"
+        "content": "content---en-forth-blogd-32-6ad"
       },
       {
         "content": "content---en-forth-blog-page-2054-8a6"

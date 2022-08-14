@@ -14,7 +14,7 @@
         "items": [
           {
             "type": "link",
-            "label": "为什么选择RocketMQ",
+            "label": "Why choose RocketMQ",
             "href": "/en/docs/"
           },
           {
@@ -24,7 +24,7 @@
           },
           {
             "type": "link",
-            "label": "初识RocketMQ",
+            "label": "What is RocketMQ",
             "href": "/en/docs/介绍/03whatis"
           }
         ],

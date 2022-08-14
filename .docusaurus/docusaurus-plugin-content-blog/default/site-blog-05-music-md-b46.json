@@ -10,11 +10,7 @@
   "truncated": false,
   "authors": [],
   "prevItem": {
-    "title": "快手基于 RocketMQ 在线消息系统建设实践",
-    "permalink": "/en/blog/04kuaishou"
-  },
-  "nextItem": {
-    "title": "基于 RocketMQ 的同城双活架构在美菜网的挑战与实践",
-    "permalink": "/en/blog/06cai"
+    "title": "小红书消息中间件的运维实践与治理之路",
+    "permalink": "/en/blog/01xiaohongshu"
   }
 }

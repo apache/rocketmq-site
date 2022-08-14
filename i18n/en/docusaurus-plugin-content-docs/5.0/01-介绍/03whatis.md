@@ -1,8 +1,10 @@
-# 初识RocketMQ
+# What is RocketMQ
 
-我们平时使用一些体育新闻软件，会订阅自己喜欢的一些球队板块，当有作者发表文章到相关的板块，我们就能收到相关的新闻推送。
+People subscribe to some of their favorites by applications.
+When an author publishes an article to the relevant section, we can receive relevant news feeds.
 
-发布-订阅（Pub/Sub）是一种消息范式，消息的发送者（称为发布者、生产者、Producer）会将消息直接发送给特定的接收者（称为订阅者、消费者、Comsumer）。而RocketMQ的基础消息模型就是一个简单的Pub/Sub模型。
+
+Pub/Sub is a messaging paradigm where message senders(called publishers, producers) send messages directly to specific recipients (called subscribers, consumers). The basic message model of RocketMQ is a simple Pub/Sub model.
 
 import Tabs from '@theme/Tabs';
 

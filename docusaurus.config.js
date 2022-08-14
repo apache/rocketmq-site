@@ -260,15 +260,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               items: [
                 {
                   label: 'Introduction',
-                  to: 'docs',
+                  to: '/docs/介绍/03whatis',
                 },
                 {
                   label: 'Installation',
-                  to: 'docs/installation',
+                  to: '/docs/介绍/02quickstart',
                 },
                 {
-                  label: 'Migration from v1 to v2',
-                  to: 'docs/migration',
+                  label: 'Migration from 4.x to 5.0',
+                  to: '/version',
                 },
               ],
             },
@@ -276,20 +276,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               title: 'Community',
               items: [
                 {
-                  label: 'Stack Overflow',
-                  href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                  label: 'Twitter',
+                  href: 'https://twitter.com/ApacheRocketMQ',
                 },
                 {
-                  label: 'Feature Requests',
-                  to: '/feature-requests',
-                },
-                {
-                  label: 'Discord',
-                  href: 'https://discordapp.com/invite/docusaurus',
+                  label: 'Github',
+                  to: 'https://github.com/apache/rocketmq',
                 },
                 {
                   label: 'Help',
-                  to: '/community/support',
+                  to: 'https://github.com/apache/rocketmq',
                 },
               ],
             },
@@ -298,7 +294,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               items: [
                 {
                   label: 'Blog',
-                  to: 'blog',
+                  to: '/blog',
                 },
                 {
                   label: 'Changelog',
@@ -306,19 +302,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 },
                 {
                   label: 'GitHub',
-                  href: 'https://github.com/facebook/docusaurus',
+                  href: 'https://github.com/apache/rocketmq',
                 },
                 {
                   label: 'Twitter',
                   href: 'https://twitter.com/docusaurus',
                 },
-                {
-                  html: `
-                  <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
-                    <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" width="114" height="51" />
-                  </a>
-                `,
-                },
+                
               ],
             },
             {
@@ -327,20 +317,20 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               // requirement.
               items: [
                 {
-                  label: 'Privacy',
-                  href: 'https://opensource.facebook.com/legal/privacy/',
+                  label: 'Licenses',
+                  href: 'https://www.apache.org/licenses/',
                 },
                 {
-                  label: 'Terms',
-                  href: 'https://opensource.facebook.com/legal/terms/',
+                  label: 'Security',
+                  href: 'https://www.apache.org/security/',
                 },
                 {
-                  label: 'Data Policy',
-                  href: 'https://opensource.facebook.com/legal/data-policy/',
+                  label: 'Thanks',
+                  href: 'https://www.apache.org/foundation/thanks.html',
                 },
                 {
-                  label: 'Cookie Policy',
-                  href: 'https://opensource.facebook.com/legal/cookie-policy/',
+                  label: 'Sponsorship',
+                  href: 'https://www.apache.org/foundation/sponsorship.html',
                 },
               ],
             },
@@ -350,7 +340,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             src: 'img/Apache_RocketMQ_logo.svg.png',
             href: 'https://opensource.fb.com',
           },
-          copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc. Built with Docusaurus.`,
+          copyright: `Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0.`,
         },
         prism: {
           theme: lightCodeTheme,
