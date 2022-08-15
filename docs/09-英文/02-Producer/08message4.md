@@ -1,8 +1,8 @@
-# 批量消息发送
+# Batch Message Sending
 
-在对吞吐率有一定要求的情况下，Apache RocketMQ可以将一些消息聚成一批以后进行发送，可以增加吞吐率，并减少API和网络调用次数。
+In the case of certain requirements on throughput, Apache RocketMQ can send messages after grouping them into batches. The approach is able to increase throughput and decrease the times of API and network calls.
 
-![batch](../picture/batch.png)
+![batch](../../picture/batch.png)
 
 ```javascript {10,11,12,13}
 public class SimpleBatchProducer {
@@ -25,5 +25,5 @@ public class SimpleBatchProducer {
 ```
 
 :::note
-这里调用非常简单，将消息打包成 `Collection<Message> msgs` 传入方法中即可，需要注意的是批量消息的大小不能超过 1MiB（否则需要自行分割），其次同一批 batch 中 topic 必须相同。 
+The call here is simple, where it packages the message as `Collection<Message> msgs` and passes it into the method as a parameter. There are two things to note here. First of all, the size of the batch message cannot exceed 1 MiB, otherwise, it needs to be split. Secondly, the message topic within the same batch must be identical.
 :::
