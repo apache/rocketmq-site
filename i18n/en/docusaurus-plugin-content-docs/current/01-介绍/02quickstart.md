@@ -1,25 +1,25 @@
-# 快速开始
+# Quickstart
 
-这一节介绍如何快速部署一个单 Master RocketMQ 集群，并完成简单的消息收发。
+This section will introduce the method of quickly building and deploying a single-Master RocketMQ cluster to complete simple message sending and receiving.
 
-:::tip 系统要求
+:::tip System Requirement
 
-1. 64位操作系统，推荐 Linux/Unix/macOS
-2. 64位 JDK 1.8+
-
-:::
-
-## 1.下载安装Apache RocketMQ
-
-:::tip RocketMQ下载
-
-RocketMQ 的安装包分为两种，二进制包和源码包。点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) 下载 Apache RocketMQ 4.9.4的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的，
+1. 64-bit OS，Linux/Unix/macOS is recommended
+2. 64-bit JDK 1.8+
 
 :::
 
-这里以在Linux环境下利用社区4.9.4的源码包为例，介绍RocketMQ安装过程。
+## 1. Get Apache RocketMQ
 
-解压4.9.4的源码包并编译构建二进制可执行文件
+:::tip Download RocketMQ
+
+RocketMQ's installation is divided into two types: binary and source. Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) to download Apache RocketMQ 4.9.4 source package, or download the binary package from [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip). The binary package can be run directly since it has been compiled, and the source package needs to be compiled and run.
+
+:::
+
+The following instruction takes the application of RocketMQ 4.9.4 source package in Linux environment as an example in order to introduce the installation process of RocketMQ.
+
+Extract the source package of RocketMQ 4.9.4, then compile and build the binary executables:
 
 ```shell
   > unzip rocketmq-all-4.9.4-source-release.zip
@@ -27,55 +27,54 @@ RocketMQ 的安装包分为两种，二进制包和源码包。点击[这里](ht
   > mvn -Prelease-all -DskipTests clean install -U
   > cd distribution/target/rocketmq-4.9.4/rocketmq-4.9.4
 ```
-## 2. 启动NameServer
 
-安装完RocketMQ包后，我们启动NameServer
+## 2. Start the NameServer
+
+After the installation of RocketMQ, start the NameServer:
 
 ```shell
-### 启动namesrv
+### Start the namesrv service
 $ nohup sh bin/mqnamesrv &
  
-### 验证namesrv是否启动成功
+### Verify that the namesrv service is started successfully
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
 :::info
 
-我们可以在namesrv.log 中看到 **'The Name Server boot success..'，** 表示NameServer 已成功启动。
+Once we see **'The Name Server boot success..'** from namesrv.log, it means the NameServer has been started successfully.
 
 :::
 
+## 3. Start the Broker
 
-
-## 3. 启动Broker
-
-NameServer成功启动后，我们启动Broker
+Start the Broker after the NameServer has been launched:
 
 ```shell
-### 先启动broker
+### Start the broker service
 $ nohup sh bin/mqbroker -n localhost:9876 &
 
-### 验证broker是否启动成功, 比如, broker的ip是192.168.1.2 然后名字是broker-a
-$ tail -f ~/logs/rocketmqlogs/Broker.log 
+### Verify that the broker service is started successfully, for example, the broker's ip is 192.168.1.2 and the name is broker-a
+$ tail -f ~/logs/rocketmqlogs/broker.log 
 The broker[broker-a,192.169.1.2:10911] boot success...
 ```
 
 :::info
 
-我们可以在 Broker.log 中看到“The broker[brokerName,ip:port] boot success..”，这表明 broker 已成功启动。
+Once we see “The broker[brokerName,ip:port] boot success..” from broker.log, it means the Broker has been started successfully.
 
 :::
 
 :::note
 
-至此，一个单Master的RocketMQ集群已经部署起来了，我们可以利用脚本进行简单的消息收发。
+Thus far, a single-Master RocketMQ cluster has been deployed, and we are able to send and receive simple messages by scripts.
 
 :::
 
-## 4. 消息收发 
+## 4. Send and Receive Messages
 
-在进行消息收发之前，我们需要告诉客户端NameServer的地址，RocketMQ有多种方式在客户端中设置NameServer地址，这里我们利用环境变量`NAMESRV_ADDR`
+Before sending and receiving messages, the clients need to identify the address of the NameServer. RocketMQ has multiple ways to set the NameServer address on the client side. One of them is to modify the environment variable `NAMESRV_ADDR` :
 
 ``` shell
  > export NAMESRV_ADDR=localhost:9876
@@ -86,11 +85,9 @@ The broker[broker-a,192.169.1.2:10911] boot success...
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
+## 5. Shutdown Servers
 
-
-## 5. 关闭服务器
-
-完成实验后，我们可以通过以下方式关闭服务
+After finishing the practice, we could shut down the service by the following commands:
 
 ```shell
 > sh bin/mqshutdown broker
@@ -101,4 +98,3 @@ Send shutdown request to mqbroker(36695) OK
 The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK
 ```
-

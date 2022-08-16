@@ -1,17 +1,16 @@
-# 顺序消息发送
+# Ordered Message Sending
 
-## 顺序消息介绍
-顺序消息是一种对消息发送和消费顺序有严格要求的消息。
+## Ordered Message Introduction
+Ordered messages have strict requirements on the order in which they are sent and consumed. 
 
-对于一个指定的Topic，消息严格按照先进先出（FIFO）的原则进行消息发布和消费，即先发布的消息先消费，后发布的消息后消费。在 Apache RocketMQ 中支持分区顺序消息，如下图所示。我们可以按照某一个标准对消息进行分区（比如图中的ShardingKey），同一个ShardingKey的消息会被分配到同一个队列中，并按照顺序被消费。
+For a given Topic, messages are published and consumed strictly on a first-in-first-out (FIFO) basis, i.e., messages published first will be consumed first. Furthermore, as shown in the following figure, partitioned ordered messages are supported in Apache RocketMQ. The messages can be partitioned according to a certain criterion (e.g., ShardingKey). Messages with the same ShardingKey are assigned to the identical queue and consumed in order.
+![顺序消息发送](docs/picture/顺序消息发送.png)
 
-![顺序消息发送](../picture/顺序消息发送.png)
+Ordered messages are also used in a wide range of application scenarios, such as the example of creating orders, the same order generation, payment, and shipment should be executed sequentially. In the case of simple messages, the messages of Order A may be polled and sent to different queues. The messages of different queues will not be able to maintain order. In contrast, ordered messages are sent by routing the sequence of messages with the same ShardingKey (same order number) to a logical queue.
 
-顺序消息的应用场景也非常广泛，比如在创建订单的例子中，需要保证同一个订单的生成、付款和发货，这三个操作被顺序执行。如果是普通消息，订单A的消息可能会被轮询发送到不同的队列中，不同队列的消息将无法保持顺序，而顺序消息发送时将ShardingKey相同（同一订单号）的消息序路由到一个逻辑队列中。
+## Ordered Message Sample Code
 
-## 顺序消息示例代码
-
-顺序消息的代码如下所示：
+The ordered message sample code is as follows:
 
 ```jsx {13}
 public class Producer {
@@ -46,10 +45,10 @@ public class Producer {
 }
 ```
 
-这里的区别主要是调用了```SendResult send(Message msg, MessageQueueSelector selector, Object arg)```方法，MessageQueueSelector 是队列选择器，arg 是一个 Java Object 对象，可以传入作为消息发送分区的分类标准。
+The difference here is mainly the call to the ```SendResult send(Message msg, MessageQueueSelector selector, Object arg)``` method, where MessageQueueSelector is the queue selector and arg is a Object in Java that can be passed in as a sorting criterion for sending partitioned messages.
 
 :::tip
-MessageQueueSelector的接口如下：
+MessageQueueSelector interface is as follows:
 
 ```jsx
 public interface MessageQueueSelector {
@@ -57,15 +56,15 @@ public interface MessageQueueSelector {
 }
 ```
 
-其中 mqs 是可以发送的队列，msg是消息，arg是上述send接口中传入的Object对象，返回的是该消息需要发送到的队列。上述例子里，是以orderId作为分区分类标准，对所有队列个数取余，来对将相同orderId的消息发送到同一个队列中。
+In the interface, mqs is the queue, msg is the message, and arg is the object passed in, the queue that message are sent to will be returned. In the above example, the orderId is used as the partitioning criterion, and the remainder of all queues is used to send messages with the same orderId to the same queue.
 :::
 
 
-## 顺序消息的一致性
+## Consistency of Ordered Messages
 
-如果一个Broker掉线，那么此时队列总数是否会发化？
+If a Broker drops out, does the total number of queues change at that point? 
 
-如果发生变化，那么同一个 ShardingKey 的消息就会发送到不同的队列上，造成乱序。如果不发生变化，那消息将会发送到掉线Broker的队列上，必然是失败的。因此 Apache RocketMQ 提供了两种模式，如果要保证严格顺序而不是可用性，创建 Topic 是要指定 ```-o``` 参数（--order）为true，表示顺序消息:
+If a change occurs, messages with the same ShardingKey will be sent to a different queue causing disorder. If no change occurs, messages will be sent to the queue of the offline Broker, which is bound to fail. Therefore, Apache RocketMQ provides two modes, to guarantee strict order over availability, create Topic by specifying the ```-o``` parameter (--order) to be true, which represents ordered messages:
 
 ```shell {1}
 > sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -o true -n 127.0.0.1:9876
@@ -73,4 +72,4 @@ create topic to 127.0.0.1:10911 success.
 TopicConfig [topicName=TopicTest, readQueueNums=8, writeQueueNums=8, perm=RW-, topicFilterType=SINGLE_TAG, topicSysFlag=0, order=true, attributes=null]
 ```
 
-其次要保证NameServer中的配置 ```orderMessageEnable``` 和 ```returnOrderTopicConfigToBroker``` 必须是 true。如果上述任意一个条件不满足，则是保证可用性而不是严格顺序。
+Secondly, make sure that the configuration ```orderMessageEnable``` and ```returnOrderTopicConfigToBroker``` in the NameServer must be true. If either of the above conditions is not met, availability is guaranteed rather than strict order.

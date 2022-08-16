@@ -1,87 +1,97 @@
-# 基本概念
+# Core Concept
 
-在生产者一章的基本概念包括**消息，Tag，Keys，队列和生产者**的介绍。
+Introduction to the basic concepts of the Producer section, including **Message, Tag, Keys, Message Queue and Producer**.
 
-## 消息
+## Message
 
-RocketMQ 消息构成非常简单，如下图所示。
+The composition of RocketMQ messages is simple, as shown in the following figure.
 
-- **topic**，表示要发送的消息的主题。
-- **body** 表示消息的存储内容
-- **properties** 表示消息属性
-- **transactionId** 会在事务消息中使用。
+- **topic**: the topic of the message to be sent.
+- **body**: the storage content of the message.
+- **properties**: the message properties.
+- **transactionId**: the id of the transaction message.
 
 :::tip
-- Tag: 不管是 RocketMQ 的 Tag 过滤还是延迟消息等都会利用 Properties 消息属性的能力
+- Tag: Whether it is RocketMQ Tag filtering or delayed message feature, etc., the capabilities of Properties will be used.
 
-- Keys: 服务器会根据 keys 创建哈希索引，设置后，可以在 Console 系统根据 Topic、Keys 来查询消息，由于是哈希索引，请尽可能保证 key 唯一，例如订单号，商品 Id 等。
-:::
+- Keys: The server will create a hash index based on Keys. You are able to query messages based on Topic and Keys in the Console after setting. Please ensure that the keys (e.g. order number, product ID, etc) are unique since it is a hash index.
+  :::
 
 <center>
 <img src="../picture/Message.png"  width="500"></img>
 </center>
 
-Message 可以设置的属性值包括：
+The properties that could be set in the Message include:
 
 
-|     字段名     | 默认值 | 必要性 | 说明                                                                                                                                                                              |
-| :------------: | -------- | ------------- | ------------- |
-|     Topic      | null   | 必填   | 消息所属 topic 的名称                                                                                                                                                             |
-|      Body      | null   | 必填   | 消息体                                                                                                                                                                            |
-|      Tags      | null   | 选填   | 消息标签，方便服务器过滤使用。目前只支持每个消息设置一个                                                                                                                  |
-|      Keys      | null   | 选填   | 代表这条消息的业务关键词 |
-|      Flag      | 0      | 选填   | 完全由应用来设置，RocketMQ 不做干预                                                                                                                                               |
-| DelayTimeLevel | 0      | 选填   | 消息延时级别，0 表示不延时，大于 0 会延时特定的时间才会被消费                                                                                                                     |
-| WaitStoreMsgOK | true   | 选填   | 表示消息是否在服务器落盘后才返回应答。                                                                                                                                            |
+|     Field      | Default | Required | Description                                                                                                  |
+| :------------: | ------- | -------- |--------------------------------------------------------------------------------------------------------------|
+|     Topic      | null    | Required | Topic name to which the message belongs.                                                                     |
+|      Body      | null    | Required | Message body.                                                                                                |
+|      Tags      | null    | Optional | Message tag, which is for filtering in server. Currently only one per message is supported.                  |
+|      Keys      | null    | Optional | Keywords representing the message.                                                                           |
+|      Flag      | 0       | Optional | Completely set by the client, RocketMQ does not intervene.                                                   |
+| DelayTimeLevel | 0       | Optional | Message delay level, 0 means no delay, greater than 0 will delay a specific time before it will be consumed. |
+| WaitStoreMsgOK | true    | Optional | Indicates whether the response is returned after the server is flushed.                                      |
 
 ## Tag
 
-Topic 与 Tag 都是业务上用来归类的标识，区别在于 Topic 是一级分类，而 Tag 可以理解为是二级分类。使用 Tag 可以实现对 Topic 中的消息进行过滤。
+Topic and Tag are both business identifiers for classification. The difference is that Topic is a first-level classification, and Tag can be regarded as a second-level classification. Tag can be used to achieve message filtering in Topic.
 
 :::tip
-- Topic：消息主题，通过 Topic 对不同的业务消息进行分类。
-- Tag：消息标签，用来进一步区分某个 Topic 下的消息分类，消息从生产者发出即带上的属性。
-:::
+- Topic：Message topic, which categorizes different business messages through Topic.
+- Tag：Message tag, which is used to further distinguish the message under a topic. This is the property that the message carries when it is sent from the producer.
+  :::
 
 
 
 
-Topic 和 Tag 的关系如下图所示。
+The relationship between Topic and Tag is shown in the following figure.
 
 ![Tag](../picture/Tag.png)
 
-### 什么时候该用 Topic，什么时候该用 Tag？
+### When to use Topic/Tag?
 
-可以从以下几个方面进行判断：
+It can be determined from the following aspects:
 
-- 消息类型是否一致：如普通消息、事务消息、定时（延时）消息、顺序消息，不同的消息类型使用不同的 Topic，无法通过 Tag 进行区分。
+- Whether the message types are consistent: Such as simple messages, transaction messages, timed (delayed) messages, and ordered messages. Different message types use different Topics, which cannot be distinguished by Tags.
 
-- 业务是否相关联：没有直接关联的消息，如淘宝交易消息，京东物流消息使用不同的 Topic 进行区分；而同样是天猫交易消息，电器类订单、女装类订单、化妆品类订单的消息可以用 Tag 进行区分。
+- Whether the business is related: The messages that are not directly related, such as Taobao messages and  JD Logistics messages, are distinguished by different Topics. In contrast, the messages belonging to Tmall transaction, including electrical order, women's clothing order, cosmetics order messages could be distinguished by Tags.
 
-- 消息优先级是否一致：如同样是物流消息，盒马必须小时内送达，天猫超市 24 小时内送达，淘宝物流则相对会慢一些，不同优先级的消息用不同的 Topic 进行区分。
+- Whether the message priority is identical：For example, as logistics message, Hema must be delivered within an hour, Tmall supermarket must be delivered within 24 hours, and Taobao logistics is relatively slower. Messages with different priorities could be distinguished by different topics.
 
-- 消息量级是否相当：有些业务消息虽然量小但是实时性要求高，如果跟某些万亿量级的消息使用同一个 Topic，则有可能会因为过长的等待时间而“饿死”，此时需要将不同量级的消息进行拆分，使用不同的 Topic。
+- Whether the message volume is equivalent: Some business messages are small in volume but require high real-time performance. If they stay under the same Topic with trillion-level messages, it may be "starve" due to the long waiting time. Therefore, it is necessary to split messages of different volumes into different Topics.
 
-总的来说，针对消息分类，您可以选择创建多个 Topic，或者在同一个 Topic 下创建多个 Tag。但通常情况下，不同的 Topic 之间的消息没有必然的联系，而 Tag 则用来区分同一个 Topic 下相互关联的消息，例如全集和子集的关系、流程先后的关系。
+In general, you can choose to create multiple Topics, or create multiple Tags under a single Topic for message classification. There is no necessary connection between messages under different Topics, and Tags are used to distinguish interrelated messages under the same topic, such as the complete sets and subsets, or the sequence of processes.
 
 ## Keys
 
-Apache RocketMQ 每个消息可以在业务层面的设置唯一标识码 keys 字段，方便将来定位消息丢失问题。 Broker 端会为每个消息创建索引（哈希索引），应用可以通过 topic、key 来查询这条消息内容，以及消息被谁消费。由于是哈希索引，请务必保证 key 尽可能唯一，这样可以避免潜在的哈希冲突。
+Each message of Apache RocketMQ can place a unique identification —— Keys field at the business level, which is convenient for locating the problem of message loss in the future. The broker side will create an index (hash index) for each message so that the client can query the content of the message through Topic and Key, as well as who consumes the message. Since it is a hash index, please make sure that the key is as unique as possible to avoid potential hash collisions.
 
 ```java
-   // 订单Id
+   // Order Id
    String orderId = "20034568923546";
    message.setKeys(orderId);
 ```
 
-## 队列
+## Message Queue
 
-为了支持高并发和水平扩展，需要对 Topic 进行分区，在 RocketMQ 中这被称为队列，一个 Topic 可能有多个队列，并且可能分布在不同的 Broker 上。
+To support high concurrency and horizontal expansion, Topic needs to be partitioned, which is called Message Queue in RocketMQ. A Topic may have multiple queues and may be distributed on different Brokers.
 
 ![MessageQueue](../picture/MessageQueue.png)
 
-一般来说一条消息，如果没有重复发送（比如因为服务端没有响应而进行重试），则只会存在在 Topic 的其中一个队列中，消息在队列中按照先进先出的原则存储，每条消息会有自己的位点，每个队列会统计当前消息的总条数，这个称为最大位点 MaxOffset；队列的起始位置对应的位置叫做起始位点 MinOffset。队列可以提升消息发送和消费的并发度。
+In general, a message will only exist in one of the queues under a Topic if it is not sent repeatedly (e.g., a client resents messages since the server does not respond). The message will be stored in a queue according to the principle of FIFO (First In, First Out). Each message will have its own position, and each queue will calculate the total number of the messages, which is called MaxOffset; the position corresponding to the starting point of the queue is called MinOffset. Message Queue can improve the concurrency of message production and consumption.
 
-## 生产者
+## Producer
 
-生产者（Producer）就是消息的发送者，Apache RocketMQ 拥有丰富的消息类型，可以支持不用的应用场景，在不同的场景中，需要使用不同的消息进行发送。比如在电商交易中超时未支付关闭订单的场景，在订单创建时会发送一条延时消息。这条消息将会在 30 分钟以后投递给消费者，消费者收到此消息后需要判断对应的订单是否已完成支付。如支付未完成，则关闭订单。如已完成支付则忽略，此时就需要用到延迟消息；电商场景中，业务上要求同一订单的消息保持严格顺序，此时就要用到顺序消息。在日志处理场景中，可以接受的比较大的发送延迟，但对吞吐量的要求很高，希望每秒能处理百万条日志，此时可以使用批量消息。在银行扣款的场景中，要保持上游的扣款操作和下游的短信通知保持一致，此时就要使用事务消息，下一节将会介绍各种类型消息的发送。
+The Producer is the sender of the message. Apache RocketMQ owns rich message types and is able to support various scenarios.
+
+For instance, an order will be closed due to the payment timeout in an e-commerce transaction, so a delayed message should be sent when the order is created. This message will be delivered to the Consumer after 30 minutes. After receiving the message, the Consumer needs to determine whether the corresponding order has been paid. If the payment is not completed, the order will be closed. If the payment has been completed, then ignore it.
+
+In the e-commerce scenario, the business requires the messages of the same order to be kept in strict sequence, the ordered messages could therefore be applied.
+
+In the log processing scenario, a relatively large sending delay is acceptable, but it has a high throughput requirement. It is expected that millions of logs need to be processed within a second. In this case, the batch messages could be sent.
+
+In the bank deduction scenarios, in order to keep the upstream deduction operation consistent with the downstream SMS notification, transaction messages could be utilized.
+
+The next section will introduce the sending of various types of messages.
