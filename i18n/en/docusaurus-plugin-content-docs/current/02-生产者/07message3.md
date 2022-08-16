@@ -1,10 +1,10 @@
-# 延迟消息发送
+# Delayed Message Sending
 
-延时消息是指消息发送到Apache RocketMQ后，并不期望立马投递这条消息，而是延迟一定时间后才投递到Consumer进行消费。
+The delayed message sending means that when a message is sent to Apache RocketMQ, instead of delivering the message immediately, it would be delivered to the Consumer for consumption after delaying a certain period of time.
 
-Apache RocketMQ 一共支持18个等级的延迟投递，具体时间如下：
+Apache RocketMQ supports a total of 18 levels of delayed delivery, the details are as follows:
 
-| 投递等级（delay level） | 延迟时间 | 投递等级（delay level） | 延迟时间  |
+| delay level | delay time | delay level | delay time |
 |-------------------|------|-------------------|-------|
 | 1                 | 1s   | 10                | 6min  |
 | 2                 | 5s   | 11                | 7min  |
@@ -16,7 +16,7 @@ Apache RocketMQ 一共支持18个等级的延迟投递，具体时间如下：
 | 8                 | 4min | 17                | 1h    |
 | 9                 | 5min | 18                | 2h    |
 
-延迟消息的示例代码如下：
+The sample code for the delayed message sending is as follows:
 
 ```javascript {10,11}
 public class ScheduledMessageProducer {
@@ -41,5 +41,5 @@ public class ScheduledMessageProducer {
 }
 ```
 :::tip
-这里最重要的是message中设置延迟等级，例子中设置的等级是3，也就是发送者发送后，10s后消费者才能收到消息。
+The most important thing is to set the delay level for the message. In the sample code above, the delay level is set to 3, which means that after the sender sends the message, it would take 10s for the consumer to receive it.
 :::
