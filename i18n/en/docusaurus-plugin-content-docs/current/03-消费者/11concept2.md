@@ -1,60 +1,59 @@
-# 基础概念
+# Core Concept
 
-消息通过生产者发送到某一个Topic，如果需要订阅该Topic并消费里面的消息的话，就要创建对应的消费者进行消费。在介绍消费者的使用方法之前，我们先介绍**消费组**、**消费位点**、**推和拉**等概念。
+RocketMQ's messages will be sent to a Topic by a Producer, and a corresponding Consumer should be created to subscribe to the Topic and consume the messages within it. Before introducing the usage of Consumers, we will first clarify the concepts of Consumer Group, Consumer Offset, Push and Pull mode, etc.
 
-## 消费者与消费组
+## Consumer and Consumer Group
 
-消息系统的重要作用之一是削峰填谷，但比如在电商大促的场景中，如果下游的消费者消费能力不足的话，大量的瞬时流量进入会后堆积在服务端。此时，消息的端到端延迟（从发送到被消费的时间）就会增加，对服务端而言，一直消费历史数据也会产生冷读。因此需要增加消费能力来解决这个问题，除了去优化消息消费的时间，最简单的方式就是扩容消费者。
+One of the essential roles of the messaging system is to shave peaks and fill valleys. However, take the e-commerce scenario as an example, if the downstream Consumers do not have enough ability to consume messages, a large amount of transient traffic entering will pile the messages up on the server side. At this point, the end-to-end delay of the message (the time from a message being sent until being consumed) will increase. In addition, for the server side, continuing consuming historical data might generate cold reads. Therefore, the consumption ability needs to be improved to solve this problem, besides optimizing the time of message consumption, the simplest way is to expand the capacity of the Consumer.
 
-但是否随意增加消费者就能提升消费能力？ 首先需要了解消费组的概念。在消费者中消费组的有非常重要的作用，如果多个消费者设置了相同的Consumer Group，我们认为这些消费者在同一个消费组内。
+However, is it possible to increase the consumption ability by adding a random number of Consumers? First of all, the Consumer Group plays an essential role on the Consumer side. Multiple Consumers will be regarded as being in the same Consumer Group if they have the same Consumer Group set up.
 
-在 Apache RocketMQ 有两种消费模式，分别是：
+There are two consumption modes in Apache RocketMQ, which are:
 
-- 集群消费模式：当使用集群消费模式时，RocketMQ 认为任意一条消息只需要被消费组内的任意一个消费者处理即可。
-- 广播消费模式：当使用广播消费模式时，RocketMQ 会将每条消息推送给消费组所有的消费者，保证消息至少被每个消费者消费一次。
+- Clustering: While applying the Clustering mode, each message requires to be processed by one consumer within the Consumer Group.
+- Broadcasting: While applying the Broadcasting mode, RocketMQ broadcasts each message to all Consumers within the Consumer Group, ensuring that the message is consumed at least once by each consumer.
 
-集群消费模式适用于每条消息只需要被处理一次的场景，也就是说整个消费组会Topic收到全量的消息，而消费组内的消费分担消费这些消息，因此可以通过扩缩消费者数量，来提升或降低消费能力，具体示例如下图所示，是最常见的消费方式。
+The Clustering mode is suitable for scenarios where each message only needs to be processed once, which means the entire Consumer Group will receive the full amount of messages from Topic, and the Consumers within the Consumer Group share the consumption of these messages. Thus, the consumption ability can be increased or decreased by expanding or shrinking the number of consumers, as shown in the following figure, which is the most common consumption method.
 
 ![集群消费模式](../picture/集群消费模式.png)
 
-广播消费模式适用于每条消息需要被消费组的每个消费者处理的场景，也就是说消费组内的每个消费者都会收到订阅Topic的全量消息，因此即使扩缩消费者数量也无法提升或降低消费能力，具体示例如下图所示。
+The Broadcasting mode is suitable for scenarios where each message needs to be processed by every consumer in the Consumer Group, which means that each consumer in the Consumer Group receives the full amount of messages from the subscribed Topic. Thus, even if the number of consumers is expanded, the consumption ability cannot be enhanced or reduced, as shown in the following example.
 
 ![广播消费模式](../picture/广播消费模式.png)
 
-## 负载均衡
+## Load Balancing
 
-集群模式下，同一个消费组内的消费者会分担收到的全量消息，这里的分配策略是怎样的？如果扩容消费者是否一定能提升消费能力？
+What is the allocation strategy under the Clustering mode where Consumers within the same Consumer Group share the full volume of messages received? Does it necessarily improve consumption ability if the number of consumers expands?
 
-Apache RocketMQ 提供了多种集群模式下的分配策略，包括平均分配策略、机房优先分配策略、一致性hash分配策略等，可以通过如下代码进行设置相应负载均衡策略
+Apache RocketMQ provides various allocation policies in the Clustering mode, including average allocation strategy, machine room priority allocation strategy, consistent hash allocation strategy, etc. You can set the corresponding load balancing strategy by the following code:
 
 ```java
- consumer.setAllocateMessageQueueStrategy(new AllocateMessageQueueAveragely());
+consumer.setAllocateMessageQueueStrategy(new AllocateMessageQueueAveragely());
 ```
 
-默认的分配策略是平均分配，这也是最常见的策略。平均分配策略下消费组内的消费者会按照类似分页的策略均摊消费。
+The default allocation policy is the average allocation strategy, which is the most common strategy. Consumers within a Consumer Group under the average allocation strategy will consume equally according to a paging-like strategy.
 
-在平均分配的算法下，可以通过增加消费者的数量来提高消费的并行度。比如下图中，通过增加消费者来提高消费能力。
+With the average allocation strategy, the parallelism of consumption can be increased by expanding the number of consumers.
 
 ![消费者扩容1](../picture/消费者扩容1.jpeg)
 
 ![消费者扩容2](../picture/消费者扩容2.jpeg)
 
-但也不是一味地增加消费者就能提升消费能力的，比如下图中Topic的总队列数小于消费者的数量时，消费者将分配不到队列，即使消费者再多也无法提升消费能力。
+However, it may not possible to increase the consumption ability by simply expanding the number of Consumers. For example, in the figure below, if the total queue number of Topic is less than the number of Consumers, the extra Consumers will not be assigned to the queue, and it will not be able to improve the consumption capacity even if there are more Consumers.
 
 ![消费者扩容3](../picture/消费者扩容3.jpeg)
 
-## 消费位点
+## Consumer Offset
 
 ![消费位点](../picture/消费位点.png)
 
-如上图所示，在Apache RocketMQ中每个队列都会记录自己的最小位点、最大位点。针对于消费组，还有消费位点的概念，在集群模式下，消费位点是由客户端提给交服务端保存的，在广播模式下，消费位点是由客户端自己保存的。一般情况下消费位点正常更新，不会出现消息重复，但如果消费者发生崩溃或有新的消费者加入群组，就会触发重平衡，重平衡完成后，每个消费者可能会分配到新的队列，而不是之前处理的队列。为了能继续之前的工作，消费者需要读取每个队列最后一次的提交的消费位点，然后从消费位点处继续拉取消息。但在实际执行过程中，由于客户端提交给服务端的消费位点并不是实时的，所以重平衡就可能会导致消息少量重复。
+As shown in the figure above, each queue in Apache RocketMQ records its own minimum and maximum offset. For Consumer Groups, there is also the concept of Consumer offsets. In Clustering mode, Consumer offsets are committed by the client and saved by the server. In contrast, Consumer offsets are saved by the client itself in Broadcasting mode. Normally the Consumer offsets are updated without message duplication, but if a Consumer crashes or a new Consumer joins the cluster, the load rebalancing will be triggered. After the rebalance is completed, each consumer may be assigned to a new queue instead of the previously processed queue. In order to be able to continue the previous work, the consumer needs to read the last submitted Consumer offset of each queue and then continue pulling messages from it. However, during the actual process, since the Consumer offsets submitted by the client to the server are not real-time, load rebalancing may result in a small number of duplicate messages.
 
-## 推、拉和长轮询
+## Push, Pull, and Long Polling
 
-MQ的消费模式可以大致分为两种，一种是推Push，一种是拉Pull。
+The consumption mode of Message Queue can be roughly divided into two kinds, which are Push and Pull.
 
-- Push是服务端主动推送消息给客户端，优点是及时性较好，但如果客户端没有做好流控，一旦服务端推送大量消息到客户端时，就会导致客户端消息堆积甚至崩溃。
+- Push mode is the server actively pushing messages to the client. The advantage is that the efficiency is better, but if the client does not run good flow control, once the server pushes a large number of messages to the client, it will cause the client messages to pile up or even crash.
+- Pull mode is the client needs to take the initiative to fetch data from the server. The advantage is that the client can consume according to its own consumption ability, but the frequency of pulling messages also needs to be controlled by the user. The frequent pull is possible to put pressure on the server and the client, and a long pull interval is easy to cause untimely consumption.
 
-- Pull是客户端需要主动到服务端取数据，优点是客户端可以依据自己的消费能力进行消费，但拉取的频率也需要用户自己控制，拉取频繁容易造成服务端和客户端的压力，拉取间隔长又容易造成消费不及时。
-
-Apache RocketMQ既提供了Push模式也提供了Pull模式。
+Apache RocketMQ provides both Push mode and Pull mode.
