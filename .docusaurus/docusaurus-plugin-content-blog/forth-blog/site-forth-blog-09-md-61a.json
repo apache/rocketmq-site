@@ -1,20 +1,20 @@
 {
-  "permalink": "/en/forth-blog/09",
+  "permalink": "/forth-blog/09",
   "source": "@site/forth-blog/09.md",
   "title": "再下一城！两大社区携手打造 API 日志监控新利器",
   "description": "",
   "date": "2022-08-02T15:45:39.626Z",
-  "formattedDate": "August 2, 2022",
+  "formattedDate": "2022年8月2日",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
     "title": "Apache RocketMQ + Hudi 快速构建 Lakehouse",
-    "permalink": "/en/forth-blog/08"
+    "permalink": "/forth-blog/08"
   },
   "nextItem": {
     "title": "RocketMQ OpenMLDB Connector，实时数据到特征工程的高速传输",
-    "permalink": "/en/forth-blog/01"
+    "permalink": "/forth-blog/01"
   }
 }

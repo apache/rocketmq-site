@@ -16,3 +16,5 @@ node_modules
 vendor
 npm-debug.log*
 *.iml
+.docusaurus/
+build/

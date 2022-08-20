@@ -1,14 +1,14 @@
 {
-  "permalink": "/en/third-blog/2022/04/05/release-notes-rocketmq-spring-2.2.2",
+  "permalink": "/third-blog/2022/04/05/release-notes-rocketmq-spring-2.2.2",
   "source": "@site/third-blog/2022-04-05-release-notes-rocketmq-spring-2.2.2.md",
   "title": "Release Notes - Apache RocketMQ Spring - Version 2.2.2",
   "description": "* Source: rocketmq-spring-all-2.2.2-source-release.zip [PGP] [SHA512]",
   "date": "2022-04-05T00:00:00.000Z",
-  "formattedDate": "April 5, 2022",
+  "formattedDate": "2022年4月5日",
   "tags": [
     {
       "label": "RocketMQ_Spring",
-      "permalink": "/en/third-blog/tags/rocket-mq-spring"
+      "permalink": "/third-blog/tags/rocket-mq-spring"
     }
   ],
   "readingTime": 1.285,
@@ -16,10 +16,10 @@
   "authors": [],
   "prevItem": {
     "title": "Release Notes - Apache RocketMQ Streams - Version 1.0.1-preview",
-    "permalink": "/en/third-blog/2022/04/18/release-notes-rocketmq-streams-1.0.1-preview"
+    "permalink": "/third-blog/2022/04/18/release-notes-rocketmq-streams-1.0.1-preview"
   },
   "nextItem": {
     "title": "Release Notes - Apache RocketMQ - Version 5.0.0-ALPHA",
-    "permalink": "/en/third-blog/2022/03/15/5.0.0-ALPHA"
+    "permalink": "/third-blog/2022/03/15/5.0.0-ALPHA"
   }
 }

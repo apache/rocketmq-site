@@ -2,7 +2,7 @@ export default {
   "title": "RocketMQ",
   "tagline": "官方网站",
   "url": "https://your-docusaurus-test-site.com",
-  "baseUrl": "/en/",
+  "baseUrl": "/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "favicon": "img/favicon.ico",
@@ -300,60 +300,64 @@ export default {
           "dropdownItemsAfter": []
         },
         {
-          "type": "docsVersionDropdown",
+          "type": "dropdown",
+          "label": "文档",
           "position": "right",
-          "dropdownItemsBefore": [],
-          "dropdownItemsAfter": []
-        },
-        {
-          "to": "/docs/",
-          "label": "Docs",
-          "position": "right"
+          "items": [
+            {
+              "to": "/docs/",
+              "label": "4.x"
+            },
+            {
+              "to": "/docs/5.0/",
+              "label": "5.0"
+            }
+          ]
         },
         {
           "to": "/download",
-          "label": "Download",
+          "label": "下载",
           "position": "right"
         },
         {
           "type": "dropdown",
-          "label": "Blog",
+          "label": "博客",
           "position": "right",
           "items": [
             {
               "to": "/blog",
-              "label": "User Cases"
+              "label": "用户案例"
             },
             {
               "to": "/second-blog",
-              "label": "Activity"
+              "label": "社区活动"
             },
             {
               "to": "/third-blog",
-              "label": "Change Log"
+              "label": "版本变化"
             },
             {
               "to": "/forth-blog",
-              "label": "RocketMQ News"
+              "label": "RocketMQ新闻"
             }
           ]
         },
         {
           "type": "dropdown",
-          "label": "Community",
+          "label": "社区",
           "position": "right",
           "items": [
             {
               "to": "/contact",
-              "label": "Join Community"
+              "label": "参与社区"
             },
             {
               "to": "/team",
-              "label": "Contribute"
+              "label": "贡献团队"
             },
             {
               "to": "/docs/贡献指南/29how-to-contribute",
-              "label": "Contribute Instructions"
+              "label": "贡献说明"
             }
           ]
         }
@@ -406,7 +410,7 @@ export default {
             },
             {
               "label": "Changelog",
-              "to": "/changelog"
+              "to": "/third-blog"
             },
             {
               "label": "GitHub",
@@ -443,7 +447,7 @@ export default {
       "logo": {
         "alt": "Meta Open Source Logo",
         "src": "img/Apache_RocketMQ_logo.svg.png",
-        "href": "https://opensource.fb.com"
+        "href": "https://rocketmq.apache.org/"
       },
       "copyright": "Copyright © 2022 The Apache Software Foundation. Licensed under the Apache License, Version 2.0."
     },

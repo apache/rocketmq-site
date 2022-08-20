@@ -1,10 +1,10 @@
 {
-  "permalink": "/en/blog/01xiaohongshu",
+  "permalink": "/blog/01xiaohongshu",
   "source": "@site/blog/01xiaohongshu.md",
   "title": "小红书消息中间件的运维实践与治理之路",
   "description": "小红书消息中间件的运维实践与治理之路",
   "date": "2022-08-02T15:45:39.484Z",
-  "formattedDate": "August 2, 2022",
+  "formattedDate": "2022年8月2日",
   "tags": [],
   "readingTime": 5.52,
   "truncated": true,

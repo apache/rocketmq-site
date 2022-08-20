@@ -1,20 +1,20 @@
 {
-  "permalink": "/en/forth-blog/02",
+  "permalink": "/forth-blog/02",
   "source": "@site/forth-blog/02.md",
   "title": "RocketMQ-Streams 首个版本发布，轻量级计算的新选择",
   "description": "",
   "date": "2022-08-02T15:45:39.625Z",
-  "formattedDate": "August 2, 2022",
+  "formattedDate": "2022年8月2日",
   "tags": [],
   "readingTime": 0,
   "truncated": false,
   "authors": [],
   "prevItem": {
     "title": "RocketMQ OpenMLDB Connector，实时数据到特征工程的高速传输",
-    "permalink": "/en/forth-blog/01"
+    "permalink": "/forth-blog/01"
   },
   "nextItem": {
     "title": "RocketMQ-Streams架构设计浅析",
-    "permalink": "/en/forth-blog/03"
+    "permalink": "/forth-blog/03"
   }
 }

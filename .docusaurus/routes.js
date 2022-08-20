@@ -4,912 +4,912 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/en/',
-    component: ComponentCreator('/en/','b38'),
+    path: '/',
+    component: ComponentCreator('/','deb'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug',
-    component: ComponentCreator('/en/__docusaurus/debug','53a'),
+    path: '/__docusaurus/debug',
+    component: ComponentCreator('/__docusaurus/debug','3d6'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug/config',
-    component: ComponentCreator('/en/__docusaurus/debug/config','271'),
+    path: '/__docusaurus/debug/config',
+    component: ComponentCreator('/__docusaurus/debug/config','914'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug/content',
-    component: ComponentCreator('/en/__docusaurus/debug/content','be0'),
+    path: '/__docusaurus/debug/content',
+    component: ComponentCreator('/__docusaurus/debug/content','c28'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug/globalData',
-    component: ComponentCreator('/en/__docusaurus/debug/globalData','63e'),
+    path: '/__docusaurus/debug/globalData',
+    component: ComponentCreator('/__docusaurus/debug/globalData','3cf'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug/metadata',
-    component: ComponentCreator('/en/__docusaurus/debug/metadata','0e8'),
+    path: '/__docusaurus/debug/metadata',
+    component: ComponentCreator('/__docusaurus/debug/metadata','31b'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug/registry',
-    component: ComponentCreator('/en/__docusaurus/debug/registry','d80'),
+    path: '/__docusaurus/debug/registry',
+    component: ComponentCreator('/__docusaurus/debug/registry','0da'),
     exact: true
   },
   {
-    path: '/en/__docusaurus/debug/routes',
-    component: ComponentCreator('/en/__docusaurus/debug/routes','127'),
+    path: '/__docusaurus/debug/routes',
+    component: ComponentCreator('/__docusaurus/debug/routes','244'),
     exact: true
   },
   {
-    path: '/en/blog',
-    component: ComponentCreator('/en/blog','742'),
+    path: '/blog',
+    component: ComponentCreator('/blog','802'),
     exact: true
   },
   {
-    path: '/en/blog/01xiaohongshu',
-    component: ComponentCreator('/en/blog/01xiaohongshu','fbd'),
+    path: '/blog/01xiaohongshu',
+    component: ComponentCreator('/blog/01xiaohongshu','156'),
     exact: true
   },
   {
-    path: '/en/blog/archive',
-    component: ComponentCreator('/en/blog/archive','133'),
+    path: '/blog/archive',
+    component: ComponentCreator('/blog/archive','f4c'),
     exact: true
   },
   {
-    path: '/en/components/Community',
-    component: ComponentCreator('/en/components/Community','0ed'),
+    path: '/components/Community',
+    component: ComponentCreator('/components/Community','c05'),
     exact: true
   },
   {
-    path: '/en/components/Feature',
-    component: ComponentCreator('/en/components/Feature','9ea'),
+    path: '/components/Feature',
+    component: ComponentCreator('/components/Feature','e99'),
     exact: true
   },
   {
-    path: '/en/components/Hero',
-    component: ComponentCreator('/en/components/Hero','773'),
+    path: '/components/Hero',
+    component: ComponentCreator('/components/Hero','c5f'),
     exact: true
   },
   {
-    path: '/en/components/Highlight',
-    component: ComponentCreator('/en/components/Highlight','bbf'),
+    path: '/components/Highlight',
+    component: ComponentCreator('/components/Highlight','6f5'),
     exact: true
   },
   {
-    path: '/en/components/LogoCarousel',
-    component: ComponentCreator('/en/components/LogoCarousel','9b5'),
+    path: '/components/LogoCarousel',
+    component: ComponentCreator('/components/LogoCarousel','45e'),
     exact: true
   },
   {
-    path: '/en/components/Robot',
-    component: ComponentCreator('/en/components/Robot','d40'),
+    path: '/components/Robot',
+    component: ComponentCreator('/components/Robot','7cc'),
     exact: true
   },
   {
-    path: '/en/components/Section',
-    component: ComponentCreator('/en/components/Section','acb'),
+    path: '/components/Section',
+    component: ComponentCreator('/components/Section','4e6'),
     exact: true
   },
   {
-    path: '/en/contact',
-    component: ComponentCreator('/en/contact','869'),
+    path: '/contact',
+    component: ComponentCreator('/contact','b92'),
     exact: true
   },
   {
-    path: '/en/docs/5.0/tags',
-    component: ComponentCreator('/en/docs/5.0/tags','1e6'),
+    path: '/docs/5.0/tags',
+    component: ComponentCreator('/docs/5.0/tags','a0b'),
     exact: true
   },
   {
-    path: '/en/docs/tags',
-    component: ComponentCreator('/en/docs/tags','0af'),
+    path: '/docs/tags',
+    component: ComponentCreator('/docs/tags','0cc'),
     exact: true
   },
   {
-    path: '/en/download',
-    component: ComponentCreator('/en/download','f91'),
+    path: '/download',
+    component: ComponentCreator('/download','e90'),
     exact: true
   },
   {
-    path: '/en/forth-blog',
-    component: ComponentCreator('/en/forth-blog','405'),
+    path: '/forth-blog',
+    component: ComponentCreator('/forth-blog','409'),
     exact: true
   },
   {
-    path: '/en/forth-blog/01',
-    component: ComponentCreator('/en/forth-blog/01','46b'),
+    path: '/forth-blog/01',
+    component: ComponentCreator('/forth-blog/01','0aa'),
     exact: true
   },
   {
-    path: '/en/forth-blog/02',
-    component: ComponentCreator('/en/forth-blog/02','4a0'),
+    path: '/forth-blog/02',
+    component: ComponentCreator('/forth-blog/02','039'),
     exact: true
   },
   {
-    path: '/en/forth-blog/03',
-    component: ComponentCreator('/en/forth-blog/03','f8c'),
+    path: '/forth-blog/03',
+    component: ComponentCreator('/forth-blog/03','71c'),
     exact: true
   },
   {
-    path: '/en/forth-blog/04',
-    component: ComponentCreator('/en/forth-blog/04','88a'),
+    path: '/forth-blog/04',
+    component: ComponentCreator('/forth-blog/04','18b'),
     exact: true
   },
   {
-    path: '/en/forth-blog/05',
-    component: ComponentCreator('/en/forth-blog/05','a10'),
+    path: '/forth-blog/05',
+    component: ComponentCreator('/forth-blog/05','60c'),
     exact: true
   },
   {
-    path: '/en/forth-blog/06',
-    component: ComponentCreator('/en/forth-blog/06','6a6'),
+    path: '/forth-blog/06',
+    component: ComponentCreator('/forth-blog/06','455'),
     exact: true
   },
   {
-    path: '/en/forth-blog/07',
-    component: ComponentCreator('/en/forth-blog/07','2ce'),
+    path: '/forth-blog/07',
+    component: ComponentCreator('/forth-blog/07','bee'),
     exact: true
   },
   {
-    path: '/en/forth-blog/08',
-    component: ComponentCreator('/en/forth-blog/08','a69'),
+    path: '/forth-blog/08',
+    component: ComponentCreator('/forth-blog/08','42e'),
     exact: true
   },
   {
-    path: '/en/forth-blog/09',
-    component: ComponentCreator('/en/forth-blog/09','b56'),
+    path: '/forth-blog/09',
+    component: ComponentCreator('/forth-blog/09','f3b'),
     exact: true
   },
   {
-    path: '/en/forth-blog/10',
-    component: ComponentCreator('/en/forth-blog/10','fd0'),
+    path: '/forth-blog/10',
+    component: ComponentCreator('/forth-blog/10','59b'),
     exact: true
   },
   {
-    path: '/en/forth-blog/11',
-    component: ComponentCreator('/en/forth-blog/11','171'),
+    path: '/forth-blog/11',
+    component: ComponentCreator('/forth-blog/11','4bc'),
     exact: true
   },
   {
-    path: '/en/forth-blog/12',
-    component: ComponentCreator('/en/forth-blog/12','cea'),
+    path: '/forth-blog/12',
+    component: ComponentCreator('/forth-blog/12','48e'),
     exact: true
   },
   {
-    path: '/en/forth-blog/13',
-    component: ComponentCreator('/en/forth-blog/13','440'),
+    path: '/forth-blog/13',
+    component: ComponentCreator('/forth-blog/13','7a6'),
     exact: true
   },
   {
-    path: '/en/forth-blog/14',
-    component: ComponentCreator('/en/forth-blog/14','760'),
+    path: '/forth-blog/14',
+    component: ComponentCreator('/forth-blog/14','7d8'),
     exact: true
   },
   {
-    path: '/en/forth-blog/15',
-    component: ComponentCreator('/en/forth-blog/15','70d'),
+    path: '/forth-blog/15',
+    component: ComponentCreator('/forth-blog/15','bce'),
     exact: true
   },
   {
-    path: '/en/forth-blog/16',
-    component: ComponentCreator('/en/forth-blog/16','d52'),
+    path: '/forth-blog/16',
+    component: ComponentCreator('/forth-blog/16','ba0'),
     exact: true
   },
   {
-    path: '/en/forth-blog/17',
-    component: ComponentCreator('/en/forth-blog/17','300'),
+    path: '/forth-blog/17',
+    component: ComponentCreator('/forth-blog/17','d4b'),
     exact: true
   },
   {
-    path: '/en/forth-blog/18',
-    component: ComponentCreator('/en/forth-blog/18','e5a'),
+    path: '/forth-blog/18',
+    component: ComponentCreator('/forth-blog/18','4d2'),
     exact: true
   },
   {
-    path: '/en/forth-blog/archive',
-    component: ComponentCreator('/en/forth-blog/archive','7a5'),
+    path: '/forth-blog/archive',
+    component: ComponentCreator('/forth-blog/archive','d20'),
     exact: true
   },
   {
-    path: '/en/forth-blog/page/2',
-    component: ComponentCreator('/en/forth-blog/page/2','cfd'),
+    path: '/forth-blog/page/2',
+    component: ComponentCreator('/forth-blog/page/2','f16'),
     exact: true
   },
   {
-    path: '/en/info',
-    component: ComponentCreator('/en/info','338'),
+    path: '/info',
+    component: ComponentCreator('/info','0d2'),
     exact: true
   },
   {
-    path: '/en/search',
-    component: ComponentCreator('/en/search','8c4'),
+    path: '/search',
+    component: ComponentCreator('/search','251'),
     exact: true
   },
   {
-    path: '/en/second-blog',
-    component: ComponentCreator('/en/second-blog','38e'),
+    path: '/second-blog',
+    component: ComponentCreator('/second-blog','0bc'),
     exact: true
   },
   {
-    path: '/en/second-blog/archive',
-    component: ComponentCreator('/en/second-blog/archive','aa0'),
+    path: '/second-blog/archive',
+    component: ComponentCreator('/second-blog/archive','150'),
     exact: true
   },
   {
-    path: '/en/second-blog/meetup西安',
-    component: ComponentCreator('/en/second-blog/meetup西安','9b4'),
+    path: '/second-blog/meetup西安',
+    component: ComponentCreator('/second-blog/meetup西安','e56'),
     exact: true
   },
   {
-    path: '/en/second-blog/苏州meetup',
-    component: ComponentCreator('/en/second-blog/苏州meetup','e44'),
+    path: '/second-blog/苏州meetup',
+    component: ComponentCreator('/second-blog/苏州meetup','5c1'),
     exact: true
   },
   {
-    path: '/en/team',
-    component: ComponentCreator('/en/team','cd5'),
+    path: '/team',
+    component: ComponentCreator('/team','a19'),
     exact: true
   },
   {
-    path: '/en/third-blog',
-    component: ComponentCreator('/en/third-blog','32e'),
+    path: '/third-blog',
+    component: ComponentCreator('/third-blog','3b9'),
     exact: true
   },
   {
-    path: '/en/third-blog/2017/01/24/4.0.0',
-    component: ComponentCreator('/en/third-blog/2017/01/24/4.0.0','bc6'),
+    path: '/third-blog/2017/01/24/4.0.0',
+    component: ComponentCreator('/third-blog/2017/01/24/4.0.0','b67'),
     exact: true
   },
   {
-    path: '/en/third-blog/2017/06/02/4.1.0',
-    component: ComponentCreator('/en/third-blog/2017/06/02/4.1.0','8ab'),
+    path: '/third-blog/2017/06/02/4.1.0',
+    component: ComponentCreator('/third-blog/2017/06/02/4.1.0','fdf'),
     exact: true
   },
   {
-    path: '/en/third-blog/2017/12/13/4.2.0',
-    component: ComponentCreator('/en/third-blog/2017/12/13/4.2.0','29d'),
+    path: '/third-blog/2017/12/13/4.2.0',
+    component: ComponentCreator('/third-blog/2017/12/13/4.2.0','fc5'),
     exact: true
   },
   {
-    path: '/en/third-blog/2018/07/24/4.3.0',
-    component: ComponentCreator('/en/third-blog/2018/07/24/4.3.0','1e7'),
+    path: '/third-blog/2018/07/24/4.3.0',
+    component: ComponentCreator('/third-blog/2018/07/24/4.3.0','b21'),
     exact: true
   },
   {
-    path: '/en/third-blog/2018/08/29/4.3.1',
-    component: ComponentCreator('/en/third-blog/2018/08/29/4.3.1','4e3'),
+    path: '/third-blog/2018/08/29/4.3.1',
+    component: ComponentCreator('/third-blog/2018/08/29/4.3.1','6bc'),
     exact: true
   },
   {
-    path: '/en/third-blog/2018/11/02/4.3.2',
-    component: ComponentCreator('/en/third-blog/2018/11/02/4.3.2','ec4'),
+    path: '/third-blog/2018/11/02/4.3.2',
+    component: ComponentCreator('/third-blog/2018/11/02/4.3.2','0da'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/01/17/4.4.0',
-    component: ComponentCreator('/en/third-blog/2019/01/17/4.4.0','ede'),
+    path: '/third-blog/2019/01/17/4.4.0',
+    component: ComponentCreator('/third-blog/2019/01/17/4.4.0','184'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/03/29/4.5.0',
-    component: ComponentCreator('/en/third-blog/2019/03/29/4.5.0','31a'),
+    path: '/third-blog/2019/03/29/4.5.0',
+    component: ComponentCreator('/third-blog/2019/03/29/4.5.0','3ff'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/05/13/4.5.1',
-    component: ComponentCreator('/en/third-blog/2019/05/13/4.5.1','0c2'),
+    path: '/third-blog/2019/05/13/4.5.1',
+    component: ComponentCreator('/third-blog/2019/05/13/4.5.1','b91'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/08/02/4.5.2',
-    component: ComponentCreator('/en/third-blog/2019/08/02/4.5.2','ad2'),
+    path: '/third-blog/2019/08/02/4.5.2',
+    component: ComponentCreator('/third-blog/2019/08/02/4.5.2','9fa'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/08/20/release-notes-rocketmq-client-cpp-1.2.3',
-    component: ComponentCreator('/en/third-blog/2019/08/20/release-notes-rocketmq-client-cpp-1.2.3','3d6'),
+    path: '/third-blog/2019/08/20/release-notes-rocketmq-client-cpp-1.2.3',
+    component: ComponentCreator('/third-blog/2019/08/20/release-notes-rocketmq-client-cpp-1.2.3','143'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/11/01/release-notes-rocketmq-spring-2.0.4',
-    component: ComponentCreator('/en/third-blog/2019/11/01/release-notes-rocketmq-spring-2.0.4','79f'),
+    path: '/third-blog/2019/11/01/release-notes-rocketmq-spring-2.0.4',
+    component: ComponentCreator('/third-blog/2019/11/01/release-notes-rocketmq-spring-2.0.4','96a'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/11/11/release-notes-rocketmq-client-cpp-1.2.4',
-    component: ComponentCreator('/en/third-blog/2019/11/11/release-notes-rocketmq-client-cpp-1.2.4','642'),
+    path: '/third-blog/2019/11/11/release-notes-rocketmq-client-cpp-1.2.4',
+    component: ComponentCreator('/third-blog/2019/11/11/release-notes-rocketmq-client-cpp-1.2.4','1bb'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/11/20/release-notes-rocketmq-client-go-1.2.4',
-    component: ComponentCreator('/en/third-blog/2019/11/20/release-notes-rocketmq-client-go-1.2.4','2a8'),
+    path: '/third-blog/2019/11/20/release-notes-rocketmq-client-go-1.2.4',
+    component: ComponentCreator('/third-blog/2019/11/20/release-notes-rocketmq-client-go-1.2.4','839'),
     exact: true
   },
   {
-    path: '/en/third-blog/2019/11/25/4.6.0',
-    component: ComponentCreator('/en/third-blog/2019/11/25/4.6.0','ba6'),
+    path: '/third-blog/2019/11/25/4.6.0',
+    component: ComponentCreator('/third-blog/2019/11/25/4.6.0','524'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/02/10/release-notes-rocketmq-spring-2.1.0',
-    component: ComponentCreator('/en/third-blog/2020/02/10/release-notes-rocketmq-spring-2.1.0','70d'),
+    path: '/third-blog/2020/02/10/release-notes-rocketmq-spring-2.1.0',
+    component: ComponentCreator('/third-blog/2020/02/10/release-notes-rocketmq-spring-2.1.0','5c9'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/02/14/release-notes-rocketmq-client-cpp-2.0.0',
-    component: ComponentCreator('/en/third-blog/2020/02/14/release-notes-rocketmq-client-cpp-2.0.0','413'),
+    path: '/third-blog/2020/02/14/release-notes-rocketmq-client-cpp-2.0.0',
+    component: ComponentCreator('/third-blog/2020/02/14/release-notes-rocketmq-client-cpp-2.0.0','66f'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/03/16/4.7.0',
-    component: ComponentCreator('/en/third-blog/2020/03/16/4.7.0','783'),
+    path: '/third-blog/2020/03/16/4.7.0',
+    component: ComponentCreator('/third-blog/2020/03/16/4.7.0','93b'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/03/23/release-notes-rocketmq-client-cpp-2.1.0',
-    component: ComponentCreator('/en/third-blog/2020/03/23/release-notes-rocketmq-client-cpp-2.1.0','c84'),
+    path: '/third-blog/2020/03/23/release-notes-rocketmq-client-cpp-2.1.0',
+    component: ComponentCreator('/third-blog/2020/03/23/release-notes-rocketmq-client-cpp-2.1.0','b8d'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/03/31/release-notes-rocketmq-client-go-2.0.0',
-    component: ComponentCreator('/en/third-blog/2020/03/31/release-notes-rocketmq-client-go-2.0.0','0b9'),
+    path: '/third-blog/2020/03/31/release-notes-rocketmq-client-go-2.0.0',
+    component: ComponentCreator('/third-blog/2020/03/31/release-notes-rocketmq-client-go-2.0.0','eb6'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/04/02/release-notes-rocketmq-client-cpp-2.2.0',
-    component: ComponentCreator('/en/third-blog/2020/04/02/release-notes-rocketmq-client-cpp-2.2.0','349'),
+    path: '/third-blog/2020/04/02/release-notes-rocketmq-client-cpp-2.2.0',
+    component: ComponentCreator('/third-blog/2020/04/02/release-notes-rocketmq-client-cpp-2.2.0','f4d'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/06/29/4.7.1',
-    component: ComponentCreator('/en/third-blog/2020/06/29/4.7.1','92b'),
+    path: '/third-blog/2020/06/29/4.7.1',
+    component: ComponentCreator('/third-blog/2020/06/29/4.7.1','7a2'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/07/20/release-notes-rocketmq-spring-2.1.1',
-    component: ComponentCreator('/en/third-blog/2020/07/20/release-notes-rocketmq-spring-2.1.1','d01'),
+    path: '/third-blog/2020/07/20/release-notes-rocketmq-spring-2.1.1',
+    component: ComponentCreator('/third-blog/2020/07/20/release-notes-rocketmq-spring-2.1.1','1c5'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/12/21/4.8.0',
-    component: ComponentCreator('/en/third-blog/2020/12/21/4.8.0','6d6'),
+    path: '/third-blog/2020/12/21/4.8.0',
+    component: ComponentCreator('/third-blog/2020/12/21/4.8.0','86a'),
     exact: true
   },
   {
-    path: '/en/third-blog/2020/2/14/4.6.1',
-    component: ComponentCreator('/en/third-blog/2020/2/14/4.6.1','1ae'),
+    path: '/third-blog/2020/2/14/4.6.1',
+    component: ComponentCreator('/third-blog/2020/2/14/4.6.1','886'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/01/08/release-notes-rocketmq-spring-2.2.0',
-    component: ComponentCreator('/en/third-blog/2021/01/08/release-notes-rocketmq-spring-2.2.0','28d'),
+    path: '/third-blog/2021/01/08/release-notes-rocketmq-spring-2.2.0',
+    component: ComponentCreator('/third-blog/2021/01/08/release-notes-rocketmq-spring-2.2.0','df7'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/03/17/release-notes-rocketmq-client-go-2.1.0',
-    component: ComponentCreator('/en/third-blog/2021/03/17/release-notes-rocketmq-client-go-2.1.0','b42'),
+    path: '/third-blog/2021/03/17/release-notes-rocketmq-client-go-2.1.0',
+    component: ComponentCreator('/third-blog/2021/03/17/release-notes-rocketmq-client-go-2.1.0','cba'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/06/15/4.9.0',
-    component: ComponentCreator('/en/third-blog/2021/06/15/4.9.0','69d'),
+    path: '/third-blog/2021/06/15/4.9.0',
+    component: ComponentCreator('/third-blog/2021/06/15/4.9.0','cdf'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/08/22/4.9.1',
-    component: ComponentCreator('/en/third-blog/2021/08/22/4.9.1','2ad'),
+    path: '/third-blog/2021/08/22/4.9.1',
+    component: ComponentCreator('/third-blog/2021/08/22/4.9.1','5f6'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/08/31/release-notes-rocketmq-spring-2.2.1',
-    component: ComponentCreator('/en/third-blog/2021/08/31/release-notes-rocketmq-spring-2.2.1','0aa'),
+    path: '/third-blog/2021/08/31/release-notes-rocketmq-spring-2.2.1',
+    component: ComponentCreator('/third-blog/2021/08/31/release-notes-rocketmq-spring-2.2.1','770'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/09/06/release-notes-5.0.0-PREVIEW',
-    component: ComponentCreator('/en/third-blog/2021/09/06/release-notes-5.0.0-PREVIEW','ea0'),
+    path: '/third-blog/2021/09/06/release-notes-5.0.0-PREVIEW',
+    component: ComponentCreator('/third-blog/2021/09/06/release-notes-5.0.0-PREVIEW','ddd'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/09/23/release-notes-rocketmq-dashboard-1.0.0',
-    component: ComponentCreator('/en/third-blog/2021/09/23/release-notes-rocketmq-dashboard-1.0.0','049'),
+    path: '/third-blog/2021/09/23/release-notes-rocketmq-dashboard-1.0.0',
+    component: ComponentCreator('/third-blog/2021/09/23/release-notes-rocketmq-dashboard-1.0.0','da3'),
     exact: true
   },
   {
-    path: '/en/third-blog/2021/10/26/4.9.2',
-    component: ComponentCreator('/en/third-blog/2021/10/26/4.9.2','855'),
+    path: '/third-blog/2021/10/26/4.9.2',
+    component: ComponentCreator('/third-blog/2021/10/26/4.9.2','459'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/01/18/release-notes-rocketmq-streams-1.0.0-preview',
-    component: ComponentCreator('/en/third-blog/2022/01/18/release-notes-rocketmq-streams-1.0.0-preview','a23'),
+    path: '/third-blog/2022/01/18/release-notes-rocketmq-streams-1.0.0-preview',
+    component: ComponentCreator('/third-blog/2022/01/18/release-notes-rocketmq-streams-1.0.0-preview','f09'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/03/04/4.9.3',
-    component: ComponentCreator('/en/third-blog/2022/03/04/4.9.3','e3d'),
+    path: '/third-blog/2022/03/04/4.9.3',
+    component: ComponentCreator('/third-blog/2022/03/04/4.9.3','0f4'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/03/04/4.9.4',
-    component: ComponentCreator('/en/third-blog/2022/03/04/4.9.4','d06'),
+    path: '/third-blog/2022/03/04/4.9.4',
+    component: ComponentCreator('/third-blog/2022/03/04/4.9.4','7b4'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/03/15/5.0.0-ALPHA',
-    component: ComponentCreator('/en/third-blog/2022/03/15/5.0.0-ALPHA','17d'),
+    path: '/third-blog/2022/03/15/5.0.0-ALPHA',
+    component: ComponentCreator('/third-blog/2022/03/15/5.0.0-ALPHA','7da'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/04/05/release-notes-rocketmq-spring-2.2.2',
-    component: ComponentCreator('/en/third-blog/2022/04/05/release-notes-rocketmq-spring-2.2.2','8f2'),
+    path: '/third-blog/2022/04/05/release-notes-rocketmq-spring-2.2.2',
+    component: ComponentCreator('/third-blog/2022/04/05/release-notes-rocketmq-spring-2.2.2','49c'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/04/18/release-notes-rocketmq-streams-1.0.1-preview',
-    component: ComponentCreator('/en/third-blog/2022/04/18/release-notes-rocketmq-streams-1.0.1-preview','c47'),
+    path: '/third-blog/2022/04/18/release-notes-rocketmq-streams-1.0.1-preview',
+    component: ComponentCreator('/third-blog/2022/04/18/release-notes-rocketmq-streams-1.0.1-preview','121'),
     exact: true
   },
   {
-    path: '/en/third-blog/2022/07/25/release-notes-rocketmq-client-go-2.1.1',
-    component: ComponentCreator('/en/third-blog/2022/07/25/release-notes-rocketmq-client-go-2.1.1','e93'),
+    path: '/third-blog/2022/07/25/release-notes-rocketmq-client-go-2.1.1',
+    component: ComponentCreator('/third-blog/2022/07/25/release-notes-rocketmq-client-go-2.1.1','856'),
     exact: true
   },
   {
-    path: '/en/third-blog/archive',
-    component: ComponentCreator('/en/third-blog/archive','13e'),
+    path: '/third-blog/archive',
+    component: ComponentCreator('/third-blog/archive','f40'),
     exact: true
   },
   {
-    path: '/en/third-blog/page/2',
-    component: ComponentCreator('/en/third-blog/page/2','9a8'),
+    path: '/third-blog/page/2',
+    component: ComponentCreator('/third-blog/page/2','e95'),
     exact: true
   },
   {
-    path: '/en/third-blog/page/3',
-    component: ComponentCreator('/en/third-blog/page/3','216'),
+    path: '/third-blog/page/3',
+    component: ComponentCreator('/third-blog/page/3','aa5'),
     exact: true
   },
   {
-    path: '/en/third-blog/page/4',
-    component: ComponentCreator('/en/third-blog/page/4','9ce'),
+    path: '/third-blog/page/4',
+    component: ComponentCreator('/third-blog/page/4','653'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags',
-    component: ComponentCreator('/en/third-blog/tags','173'),
+    path: '/third-blog/tags',
+    component: ComponentCreator('/third-blog/tags','f3e'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/release-notes',
-    component: ComponentCreator('/en/third-blog/tags/release-notes','d7d'),
+    path: '/third-blog/tags/release-notes',
+    component: ComponentCreator('/third-blog/tags/release-notes','8f1'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq','3f4'),
+    path: '/third-blog/tags/rocket-mq',
+    component: ComponentCreator('/third-blog/tags/rocket-mq','4ff'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq-client-cpp',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq-client-cpp','68e'),
+    path: '/third-blog/tags/rocket-mq-client-cpp',
+    component: ComponentCreator('/third-blog/tags/rocket-mq-client-cpp','764'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq-client-go',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq-client-go','69d'),
+    path: '/third-blog/tags/rocket-mq-client-go',
+    component: ComponentCreator('/third-blog/tags/rocket-mq-client-go','431'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq-dashboard',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq-dashboard','583'),
+    path: '/third-blog/tags/rocket-mq-dashboard',
+    component: ComponentCreator('/third-blog/tags/rocket-mq-dashboard','f9f'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq-spring',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq-spring','098'),
+    path: '/third-blog/tags/rocket-mq-spring',
+    component: ComponentCreator('/third-blog/tags/rocket-mq-spring','6a1'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq-sprint',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq-sprint','b7c'),
+    path: '/third-blog/tags/rocket-mq-sprint',
+    component: ComponentCreator('/third-blog/tags/rocket-mq-sprint','9bf'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/rocket-mq-streams',
-    component: ComponentCreator('/en/third-blog/tags/rocket-mq-streams','e48'),
+    path: '/third-blog/tags/rocket-mq-streams',
+    component: ComponentCreator('/third-blog/tags/rocket-mq-streams','119'),
     exact: true
   },
   {
-    path: '/en/third-blog/tags/version',
-    component: ComponentCreator('/en/third-blog/tags/version','464'),
+    path: '/third-blog/tags/version',
+    component: ComponentCreator('/third-blog/tags/version','d99'),
     exact: true
   },
   {
-    path: '/en/version',
-    component: ComponentCreator('/en/version','a92'),
+    path: '/version',
+    component: ComponentCreator('/version','23a'),
     exact: true
   },
   {
-    path: '/en/version%202',
-    component: ComponentCreator('/en/version%202','35e'),
+    path: '/version%202',
+    component: ComponentCreator('/version%202','ee9'),
     exact: true
   },
   {
-    path: '/en/versions',
-    component: ComponentCreator('/en/versions','4a2'),
+    path: '/versions',
+    component: ComponentCreator('/versions','b27'),
     exact: true
   },
   {
-    path: '/en/docs/5.0',
-    component: ComponentCreator('/en/docs/5.0','423'),
+    path: '/docs/5.0',
+    component: ComponentCreator('/docs/5.0','1b3'),
     routes: [
       {
-        path: '/en/docs/5.0/',
-        component: ComponentCreator('/en/docs/5.0/','1c7'),
+        path: '/docs/5.0/',
+        component: ComponentCreator('/docs/5.0/','cc8'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/介绍/02quickstart',
-        component: ComponentCreator('/en/docs/5.0/介绍/02quickstart','733'),
+        path: '/docs/5.0/介绍/02quickstart',
+        component: ComponentCreator('/docs/5.0/介绍/02quickstart','1d4'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/介绍/03whatis',
-        component: ComponentCreator('/en/docs/5.0/介绍/03whatis','7a4'),
+        path: '/docs/5.0/介绍/03whatis',
+        component: ComponentCreator('/docs/5.0/介绍/03whatis','2d4'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/15bestpractice',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/15bestpractice','226'),
+        path: '/docs/5.0/最佳实践/15bestpractice',
+        component: ComponentCreator('/docs/5.0/最佳实践/15bestpractice','29d'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/16dledger',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/16dledger','c71'),
+        path: '/docs/5.0/最佳实践/16dledger',
+        component: ComponentCreator('/docs/5.0/最佳实践/16dledger','925'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/17messagetra',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/17messagetra','33f'),
+        path: '/docs/5.0/最佳实践/17messagetra',
+        component: ComponentCreator('/docs/5.0/最佳实践/17messagetra','d6c'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/18access',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/18access','138'),
+        path: '/docs/5.0/最佳实践/18access',
+        component: ComponentCreator('/docs/5.0/最佳实践/18access','6f8'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/19JVMOS',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/19JVMOS','aff'),
+        path: '/docs/5.0/最佳实践/19JVMOS',
+        component: ComponentCreator('/docs/5.0/最佳实践/19JVMOS','176'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/20log',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/20log','54c'),
+        path: '/docs/5.0/最佳实践/20log',
+        component: ComponentCreator('/docs/5.0/最佳实践/20log','b83'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/21subscribe',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/21subscribe','e42'),
+        path: '/docs/5.0/最佳实践/21subscribe',
+        component: ComponentCreator('/docs/5.0/最佳实践/21subscribe','dd3'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/最佳实践/22FAQ',
-        component: ComponentCreator('/en/docs/5.0/最佳实践/22FAQ','4f5'),
+        path: '/docs/5.0/最佳实践/22FAQ',
+        component: ComponentCreator('/docs/5.0/最佳实践/22FAQ','458'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/参数配置/23local',
-        component: ComponentCreator('/en/docs/5.0/参数配置/23local','713'),
+        path: '/docs/5.0/参数配置/23local',
+        component: ComponentCreator('/docs/5.0/参数配置/23local','813'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/参数配置/24server',
-        component: ComponentCreator('/en/docs/5.0/参数配置/24server','895'),
+        path: '/docs/5.0/参数配置/24server',
+        component: ComponentCreator('/docs/5.0/参数配置/24server','56c'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/消费者/11concept2',
-        component: ComponentCreator('/en/docs/5.0/消费者/11concept2','ed8'),
+        path: '/docs/5.0/消费者/11concept2',
+        component: ComponentCreator('/docs/5.0/消费者/11concept2','cbf'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/消费者/12push',
-        component: ComponentCreator('/en/docs/5.0/消费者/12push','266'),
+        path: '/docs/5.0/消费者/12push',
+        component: ComponentCreator('/docs/5.0/消费者/12push','a1d'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/消费者/13pull',
-        component: ComponentCreator('/en/docs/5.0/消费者/13pull','8c4'),
+        path: '/docs/5.0/消费者/13pull',
+        component: ComponentCreator('/docs/5.0/消费者/13pull','369'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/生产者/04concept1',
-        component: ComponentCreator('/en/docs/5.0/生产者/04concept1','41a'),
+        path: '/docs/5.0/生产者/04concept1',
+        component: ComponentCreator('/docs/5.0/生产者/04concept1','5cd'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/生产者/05message1',
-        component: ComponentCreator('/en/docs/5.0/生产者/05message1','3e6'),
+        path: '/docs/5.0/生产者/05message1',
+        component: ComponentCreator('/docs/5.0/生产者/05message1','94f'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/生产者/06message2',
-        component: ComponentCreator('/en/docs/5.0/生产者/06message2','baa'),
+        path: '/docs/5.0/生产者/06message2',
+        component: ComponentCreator('/docs/5.0/生产者/06message2','c80'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/生产者/07message3',
-        component: ComponentCreator('/en/docs/5.0/生产者/07message3','bd0'),
+        path: '/docs/5.0/生产者/07message3',
+        component: ComponentCreator('/docs/5.0/生产者/07message3','9c5'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/生产者/08message4',
-        component: ComponentCreator('/en/docs/5.0/生产者/08message4','894'),
+        path: '/docs/5.0/生产者/08message4',
+        component: ComponentCreator('/docs/5.0/生产者/08message4','661'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/生产者/09message5',
-        component: ComponentCreator('/en/docs/5.0/生产者/09message5','082'),
+        path: '/docs/5.0/生产者/09message5',
+        component: ComponentCreator('/docs/5.0/生产者/09message5','831'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/贡献指南/29how-to-contribute',
-        component: ComponentCreator('/en/docs/5.0/贡献指南/29how-to-contribute','62f'),
+        path: '/docs/5.0/贡献指南/29how-to-contribute',
+        component: ComponentCreator('/docs/5.0/贡献指南/29how-to-contribute','dc7'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/贡献指南/30code-guidelines',
-        component: ComponentCreator('/en/docs/5.0/贡献指南/30code-guidelines','c06'),
+        path: '/docs/5.0/贡献指南/30code-guidelines',
+        component: ComponentCreator('/docs/5.0/贡献指南/30code-guidelines','d32'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/贡献指南/31pull-request',
-        component: ComponentCreator('/en/docs/5.0/贡献指南/31pull-request','759'),
+        path: '/docs/5.0/贡献指南/31pull-request',
+        component: ComponentCreator('/docs/5.0/贡献指南/31pull-request','e13'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/贡献指南/32release-manual',
-        component: ComponentCreator('/en/docs/5.0/贡献指南/32release-manual','cbe'),
+        path: '/docs/5.0/贡献指南/32release-manual',
+        component: ComponentCreator('/docs/5.0/贡献指南/32release-manual','58f'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/部署与运维/15deploy',
-        component: ComponentCreator('/en/docs/5.0/部署与运维/15deploy','321'),
+        path: '/docs/5.0/部署与运维/15deploy',
+        component: ComponentCreator('/docs/5.0/部署与运维/15deploy','d28'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/部署与运维/16admintool',
-        component: ComponentCreator('/en/docs/5.0/部署与运维/16admintool','255'),
+        path: '/docs/5.0/部署与运维/16admintool',
+        component: ComponentCreator('/docs/5.0/部署与运维/16admintool','107'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/部署与运维/17Dashboard',
-        component: ComponentCreator('/en/docs/5.0/部署与运维/17Dashboard','cf9'),
+        path: '/docs/5.0/部署与运维/17Dashboard',
+        component: ComponentCreator('/docs/5.0/部署与运维/17Dashboard','0e5'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/5.0/部署与运维/18Exporter',
-        component: ComponentCreator('/en/docs/5.0/部署与运维/18Exporter','270'),
+        path: '/docs/5.0/部署与运维/18Exporter',
+        component: ComponentCreator('/docs/5.0/部署与运维/18Exporter','2ac'),
         exact: true,
         'sidebar': "version-5.0/myAutogeneratedSidebar"
       }
     ]
   },
   {
-    path: '/en/docs/',
-    component: ComponentCreator('/en/docs/','068'),
+    path: '/docs/',
+    component: ComponentCreator('/docs/','f21'),
     routes: [
       {
-        path: '/en/docs/',
-        component: ComponentCreator('/en/docs/','232'),
+        path: '/docs/',
+        component: ComponentCreator('/docs/','2e8'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/介绍/02quickstart',
-        component: ComponentCreator('/en/docs/介绍/02quickstart','3af'),
+        path: '/docs/介绍/02quickstart',
+        component: ComponentCreator('/docs/介绍/02quickstart','16d'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/介绍/03whatis',
-        component: ComponentCreator('/en/docs/介绍/03whatis','92f'),
+        path: '/docs/介绍/03whatis',
+        component: ComponentCreator('/docs/介绍/03whatis','7de'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/15bestpractice',
-        component: ComponentCreator('/en/docs/最佳实践/15bestpractice','b35'),
+        path: '/docs/最佳实践/15bestpractice',
+        component: ComponentCreator('/docs/最佳实践/15bestpractice','5d5'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/16dledger',
-        component: ComponentCreator('/en/docs/最佳实践/16dledger','3e7'),
+        path: '/docs/最佳实践/16dledger',
+        component: ComponentCreator('/docs/最佳实践/16dledger','5c0'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/17messagetra',
-        component: ComponentCreator('/en/docs/最佳实践/17messagetra','5b7'),
+        path: '/docs/最佳实践/17messagetra',
+        component: ComponentCreator('/docs/最佳实践/17messagetra','ee8'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/18access',
-        component: ComponentCreator('/en/docs/最佳实践/18access','d6f'),
+        path: '/docs/最佳实践/18access',
+        component: ComponentCreator('/docs/最佳实践/18access','c00'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/19JVMOS',
-        component: ComponentCreator('/en/docs/最佳实践/19JVMOS','8af'),
+        path: '/docs/最佳实践/19JVMOS',
+        component: ComponentCreator('/docs/最佳实践/19JVMOS','ef7'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/20log',
-        component: ComponentCreator('/en/docs/最佳实践/20log','eb1'),
+        path: '/docs/最佳实践/20log',
+        component: ComponentCreator('/docs/最佳实践/20log','258'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/21subscribe',
-        component: ComponentCreator('/en/docs/最佳实践/21subscribe','ada'),
+        path: '/docs/最佳实践/21subscribe',
+        component: ComponentCreator('/docs/最佳实践/21subscribe','0fc'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/最佳实践/22FAQ',
-        component: ComponentCreator('/en/docs/最佳实践/22FAQ','5a3'),
+        path: '/docs/最佳实践/22FAQ',
+        component: ComponentCreator('/docs/最佳实践/22FAQ','b96'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/参数配置/23local',
-        component: ComponentCreator('/en/docs/参数配置/23local','a4f'),
+        path: '/docs/参数配置/23local',
+        component: ComponentCreator('/docs/参数配置/23local','deb'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/参数配置/24server',
-        component: ComponentCreator('/en/docs/参数配置/24server','2f3'),
+        path: '/docs/参数配置/24server',
+        component: ComponentCreator('/docs/参数配置/24server','312'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/消费者/11concept2',
-        component: ComponentCreator('/en/docs/消费者/11concept2','07d'),
+        path: '/docs/消费者/11concept2',
+        component: ComponentCreator('/docs/消费者/11concept2','bcf'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/消费者/12push',
-        component: ComponentCreator('/en/docs/消费者/12push','300'),
+        path: '/docs/消费者/12push',
+        component: ComponentCreator('/docs/消费者/12push','27d'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/消费者/13pull',
-        component: ComponentCreator('/en/docs/消费者/13pull','60a'),
+        path: '/docs/消费者/13pull',
+        component: ComponentCreator('/docs/消费者/13pull','fd7'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/生产者/04concept1',
-        component: ComponentCreator('/en/docs/生产者/04concept1','d90'),
+        path: '/docs/生产者/04concept1',
+        component: ComponentCreator('/docs/生产者/04concept1','e06'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/生产者/05message1',
-        component: ComponentCreator('/en/docs/生产者/05message1','856'),
+        path: '/docs/生产者/05message1',
+        component: ComponentCreator('/docs/生产者/05message1','f5b'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/生产者/06message2',
-        component: ComponentCreator('/en/docs/生产者/06message2','591'),
+        path: '/docs/生产者/06message2',
+        component: ComponentCreator('/docs/生产者/06message2','18a'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/生产者/07message3',
-        component: ComponentCreator('/en/docs/生产者/07message3','53e'),
+        path: '/docs/生产者/07message3',
+        component: ComponentCreator('/docs/生产者/07message3','25a'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/生产者/08message4',
-        component: ComponentCreator('/en/docs/生产者/08message4','fba'),
+        path: '/docs/生产者/08message4',
+        component: ComponentCreator('/docs/生产者/08message4','3e6'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/生产者/09message5',
-        component: ComponentCreator('/en/docs/生产者/09message5','e00'),
+        path: '/docs/生产者/09message5',
+        component: ComponentCreator('/docs/生产者/09message5','51c'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/贡献指南/29how-to-contribute',
-        component: ComponentCreator('/en/docs/贡献指南/29how-to-contribute','8b9'),
+        path: '/docs/贡献指南/29how-to-contribute',
+        component: ComponentCreator('/docs/贡献指南/29how-to-contribute','fc3'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/贡献指南/30code-guidelines',
-        component: ComponentCreator('/en/docs/贡献指南/30code-guidelines','33a'),
+        path: '/docs/贡献指南/30code-guidelines',
+        component: ComponentCreator('/docs/贡献指南/30code-guidelines','b6b'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/贡献指南/31pull-request',
-        component: ComponentCreator('/en/docs/贡献指南/31pull-request','ed6'),
+        path: '/docs/贡献指南/31pull-request',
+        component: ComponentCreator('/docs/贡献指南/31pull-request','ed4'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/贡献指南/32release-manual',
-        component: ComponentCreator('/en/docs/贡献指南/32release-manual','a5d'),
+        path: '/docs/贡献指南/32release-manual',
+        component: ComponentCreator('/docs/贡献指南/32release-manual','037'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/部署与运维/15deploy',
-        component: ComponentCreator('/en/docs/部署与运维/15deploy','730'),
+        path: '/docs/部署与运维/15deploy',
+        component: ComponentCreator('/docs/部署与运维/15deploy','627'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/部署与运维/16admintool',
-        component: ComponentCreator('/en/docs/部署与运维/16admintool','a00'),
+        path: '/docs/部署与运维/16admintool',
+        component: ComponentCreator('/docs/部署与运维/16admintool','9cf'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/部署与运维/17Dashboard',
-        component: ComponentCreator('/en/docs/部署与运维/17Dashboard','d6b'),
+        path: '/docs/部署与运维/17Dashboard',
+        component: ComponentCreator('/docs/部署与运维/17Dashboard','6ae'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       },
       {
-        path: '/en/docs/部署与运维/18Exporter',
-        component: ComponentCreator('/en/docs/部署与运维/18Exporter','a89'),
+        path: '/docs/部署与运维/18Exporter',
+        component: ComponentCreator('/docs/部署与运维/18Exporter','70e'),
         exact: true,
         'sidebar': "myAutogeneratedSidebar"
       }
