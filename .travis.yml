@@ -1,4 +1,4 @@
 language: nodejs
-node_js: 10
+node_js: 18
 script:
-  - npm test
+  - npm run build
