@@ -8,7 +8,6 @@
 _asset_bundler_cache
 _site
 .idea/
-content
 codekit-config.json
 example/_site
 Gemfile.lock
