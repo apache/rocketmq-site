@@ -1,12 +1,5 @@
+dist: xenial
 language: nodejs
+node_js: 14
 script:
-  - npm run build
-
-matrix:
-  include:
-    - os: linux
-      dist: bionic
-      node_js: 16
-    - os: linux
-      dist: xenial
-      node_js: 14
+  - npm install --legacy-peer-deps && npm run build
