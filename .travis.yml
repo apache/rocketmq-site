@@ -1,4 +1,12 @@
 language: nodejs
-node_js: 18
 script:
   - npm run build
+
+matrix:
+  include:
+    - os: linux
+      dist: bionic
+      node_js: 18
+    - os: linux
+      dist: xenial
+      node_js: 14
