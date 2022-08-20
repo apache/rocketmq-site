@@ -6,7 +6,7 @@ matrix:
   include:
     - os: linux
       dist: bionic
-      node_js: 18
+      node_js: 16
     - os: linux
       dist: xenial
       node_js: 14
