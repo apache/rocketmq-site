@@ -50,7 +50,7 @@ Apache RocketMQ sends messages in three ways: **synchronous, asynchronous, and o
 Synchronous Sending is a communication method in which the message sender sends a message and will send the next message only after receiving a synchronous response from the server. Reliable synchronous transmission is widely used in various scenarios, such as important notification messages, short message notifications, etc.
 
 
-![同步发送](docs/picture/同步发送.png)
+![同步发送](../picture/同步发送.png)
 
 The entire code for synchronous sending is as follows: 
 1. **Create a Producer**. Create a DefaultMQProducer in advance. The Producer should contain the name of the Producer group, which is a collection of Producer, they would send the same type of messages with identical logic.
@@ -87,7 +87,7 @@ public class SyncProducer {
 
 ### 3.2 Asynchronous Sending
 
-![异步发送](docs/picture/异步发送.png)
+![异步发送](../picture/异步发送.png)
 
 
 Asynchronous sending is a sending method in which the sender sends messages continuously without waiting for the server to return a response.
@@ -141,7 +141,7 @@ The only difference between asynchronous and synchronous sending methods is the 
 
 ### 3.3 One-Way Sending
 
-![单项模式发送](docs/picture/Oneway发送.png)
+![单项模式发送](../picture/Oneway发送.png)
 
 
 
