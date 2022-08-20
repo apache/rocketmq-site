@@ -1,4 +1,4 @@
-name: publish-asf-site
+name: pre-release-new-site
 
 on:
   push:
@@ -16,6 +16,7 @@ jobs:
 
       - run: |
           cd $GITHUB_WORKSPACE/rocketmq-site/
+          npm install --legacy-peer-deps
           npm run build
           mv build content
           rm .git/ -rf
