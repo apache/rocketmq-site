@@ -4,7 +4,7 @@
 
 In some scenarios where there is a strong need for data consistency, Apache RocketMQ transactional messages can be used to ensure consistency of upstream and downstream data.
 
-![事务消息1](docs/picture/事务消息1.png)
+![事务消息1](../picture/事务消息1.png)
 
 Transactional messages are send in two phases. At first, a half message will be delivered, which refers to a message is successfully sent to the MQ server, but the server did not receive the second acknowledgement of the message from the Producer, then the message will be marked as “temporarily undeliverable” state.
 
@@ -14,7 +14,7 @@ If the second acknowledgement of a transactional message is lost due to network 
 
 The detailed execute flow of the transactional message is shown in the following diagram:
 
-![事务消息2](docs/picture/事务消息2.png)
+![事务消息2](../picture/事务消息2.png)
 
 ## Transactional Message Sending Procedure
 

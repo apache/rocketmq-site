@@ -38,7 +38,7 @@ learn more  ➡️ [basic concept](/docs/生产者/04concept1)
 
 ## RocketMQ's message model, a simple Pub/Sub model
 
-![RocketMQ model](docs/picture/RocketMQ概念模型.png)
+![RocketMQ model](../picture/RocketMQ概念模型.png)
 
 
 
@@ -59,7 +59,7 @@ In a **topic-based** system, messages are published on topics or channels.Consum
 
 
 
-![RocketMQ basic model](docs/picture/RocketMQ基本模型.png)
+![RocketMQ basic model](../picture/RocketMQ基本模型.png)
 
 
 
@@ -85,7 +85,7 @@ The **Broker** that stores message topics is the proxy server for the actual dep
 
 How do Producer and Consumer find the addresses of Topic and Broker? How are messages sent and received?
 
-![RocketMQ Architecture](docs/picture/RocketMQ部署架构.png)
+![RocketMQ Architecture](../picture/RocketMQ部署架构.png)
 
 The main Apache RocketMQ components are Producers, Consumers, NameServers, and Brokers:
 

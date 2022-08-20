@@ -2,7 +2,7 @@
 
 In the case of certain requirements on throughput, Apache RocketMQ can send messages after grouping them into batches. The approach is able to increase throughput and decrease the times of API and network calls.
 
-![batch](docs/picture/batch.png)
+![batch](../picture/batch.png)
 
 ```javascript {10,11,12,13}
 public class SimpleBatchProducer {
