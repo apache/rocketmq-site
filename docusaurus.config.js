@@ -148,19 +148,31 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           type: 'localeDropdown',
           position: 'right',
         },
-        {
-          type: "docsVersionDropdown",
-          position: "right",
-          // label: "版本",
-          // position: "right",
-          // items: [
-          //   { to: "/docs/", label: "4.x" },
-          //   { to: "/docs/5.0/介绍/02quickstart", label: "5.0" },
+        // {
+        //   type: "docsVersionDropdown",
+        //   position: "right",
+        //   // label: "版本",
+        //   // position: "right",
+        //   // items: [
+        //   //   { to: "/docs/", label: "4.x" },
+        //   //   { to: "/docs/5.0/介绍/02quickstart", label: "5.0" },
            
-          //   // ... more items
-          // ],
-        },
-            { to: "/docs/", label: "文档", position: "right" },
+        //   //   // ... more items
+        //   // ],
+        // },
+            // { to: "/docs/", label: "文档", position: "right" },
+            {
+              type: "dropdown",
+              label: "文档",
+              position: "right",
+              items: [
+                // { to: "/info", label: "项目信息" },
+                { to: "/docs/", label: "4.x" },
+                { to: "/docs/5.0/", label: "5.0" },
+                
+                // ... more items
+              ],
+            },
             { to: "/download", label: "下载", position: "right" },
             {
               type: "dropdown",
@@ -338,7 +350,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           logo: {
             alt: 'Meta Open Source Logo',
             src: 'img/Apache_RocketMQ_logo.svg.png',
-            href: 'https://opensource.fb.com',
+            href: 'https://rocketmq.apache.org/',
           },
           copyright: `Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0.`,
         },
