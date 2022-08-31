@@ -125,7 +125,7 @@ Tag在生产者章节已经介绍过，用于对某个Topic下的消息进行分
 
 ![Tag过滤](../picture/Tag过滤.png)
 
-对于物流系统和支付系统来说，它们都只订阅但个Tag，此时只需要在调用subcribe接口时明确标明Tag即可。
+对于物流系统和支付系统来说，它们都只订阅单个Tag，此时只需要在调用subcribe接口时明确标明Tag即可。
 
 ```java
 consumer.subscribe("TagFilterTest", "TagA");
@@ -195,7 +195,7 @@ consumer.subscribe("SqlFilterTest",
 
 ### 消息重试
 
-若Consumer消费某条消息失败，则RockettMQ会在重试间隔时间后，将消息重新投递给Consumer消费，若达到最大重试次数后消息还没有成功被消费，则消息将被投递至死信队列
+若Consumer消费某条消息失败，则RocketMQ会在重试间隔时间后，将消息重新投递给Consumer消费，若达到最大重试次数后消息还没有成功被消费，则消息将被投递至死信队列
 >消息重试只针对集群消费模式生效；广播消费模式不提供失败重试特性，即消费失败后，失败消息不再重试，继续消费新的消息
 - 最大重试次数：消息消费失败后，可被重复投递的最大次数。
 ```java
@@ -230,4 +230,4 @@ consumer.setSuspendCurrentQueueTimeMillis(5000);
 
 ###  死信队列
 
-当一条消息初次消费失败，RocketMQ会自动进行消息重试，达到最大重试次数后，若消费依然失败，则表明消费者在正常情况下无法正确地消费该消息。此时，该消息不会立刻被丢弃，而是将其发送到该消费者对应的特殊队列中，这类消息称为死信消息（Dead-Letter Message），存储死信消息的特殊队列称为死信队列（Dead-Letter Queue），死信队列是死信Topic下分区数为一的单独队列。如果产生了死信消息，那对应的ConsumerGroup的死信Topic名称为%DLQ%ConsumerGroupName，死信队列的消息将不会再被消费。可以利用RocketMQ Admin工具或者RocketMQ Dashboard上查询到对应死信消息的信息。
+当一条消息初次消费失败，RocketMQ会自动进行消息重试，达到最大重试次数后，若消费依然失败，则表明消费者在正常情况下无法正确地消费该消息。此时，该消息不会立刻被丢弃，而是将其发送到该消费者对应的特殊队列中，这类消息称为死信消息（Dead-Letter Message），存储死信消息的特殊队列称为死信队列（Dead-Letter Queue），死信队列是死信Topic下分区数唯一的单独队列。如果产生了死信消息，那对应的ConsumerGroup的死信Topic名称为%DLQ%ConsumerGroupName，死信队列的消息将不会再被消费。可以利用RocketMQ Admin工具或者RocketMQ Dashboard上查询到对应死信消息的信息。
