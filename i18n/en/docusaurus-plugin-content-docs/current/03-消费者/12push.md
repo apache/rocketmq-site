@@ -206,7 +206,7 @@ Retry interval: the interval after the message consumption fails to be cast to t
 consumer.setSuspendCurrentQueueTimeMillis(5000);
 ```
 
-顺序消费和并发消费的重试机制并不相同，顺序消费消费失败后是先在客户端本地重试，并且为了保证顺序性消费失败的消息不会被跳过先去消费下一条而是一直重试到最大重试次数，而并发消费消费失败后会将消费失败的消息重新投递回服务端，再等待服务端重新投递回来，在这期间会正常消费队列后面的消息。
+The retry mechanism of order consumption and concurrent consumption is not the same. After the order consumption fails to consume, it will first retry locally on the client side until the maximum number of retries, so as to avoid the failed messages being skipped and consuming the next message and disrupting the order of order consumption, while the concurrent consumption will re-cast the failed messages back to the server after the failed consumption, and then wait for the server to re-cast them back, during which it will normally consume the messages behind the queue.
 >When concurrent consumption fails, it is not cast back to the original Topic, but to a special Topic named %RETRY%ConsumerGroupName, and each ConsumerGroup in cluster mode will correspond to a special Topic and will subscribe to that Topic.
 The difference between the two parameters is as follows
 
