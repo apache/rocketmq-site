@@ -1,4 +1,4 @@
-# Push Consumer
+# Push Consume
 
 The simple code of RocketMQ Push Consumer is as follows:
 
