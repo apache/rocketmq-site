@@ -1,6 +1,6 @@
 # Pull Consume
 
-There are two kinds of Pull methods in RocketMQ. One is the more primitive `Pull Consumer`, which does not provide related subscription methods, but specifies the queue to pull when calling the pull method, and needs to update the loci itself. The other is the `Lite Pull Consumer`, which provides two ways to Subscribe and Assign, and is more convenient to use.
+There are two kinds of Pull methods in RocketMQ. One is the more primitive `Pull Consumer`, which does not provide related subscription methods, but specifies the queue to pull when calling the pull method, and needs to update the offset itself. The other is the `Lite Pull Consumer`, which provides two ways to Subscribe and Assign, and is more convenient to use.
 
 ## Pull Consumer
 
