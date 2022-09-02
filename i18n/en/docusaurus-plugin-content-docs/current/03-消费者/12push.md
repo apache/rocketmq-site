@@ -1,36 +1,36 @@
-# Push消费
+# Push Consume
 
-RocketMQ Push消费的示例代码如下
+The simple code of RocketMQ Push Consumer is as follows:
 
 ```javascript
 public class Consumer {
   public static void main(String[] args) throws InterruptedException, MQClientException {
-    // 初始化consumer，并设置consumer group name
+    // Initialize Consumer and set Consumer Goup Name
     DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
    
-    // 设置NameServer地址 
+    // Set the address of NameServer 
     consumer.setNamesrvAddr("localhost:9876");
-    //订阅一个或多个topic，并指定tag过滤条件，这里指定*表示接收所有tag的消息
+    // Subscribe One or more of topics，and specify the tag filtering conditions, here specify * means receive all tag messages
     consumer.subscribe("TopicTest", "*");
-    //注册回调接口来处理从Broker中收到的消息
+    // Register a callback interface to handle messages received from the Broker
     consumer.registerMessageListener(new MessageListenerConcurrently() {
       @Override
       public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
         System.out.printf("%s Receive New Messages: %s %n", Thread.currentThread().getName(), msgs);
-        // 返回消息消费状态，ConsumeConcurrentlyStatus.CONSUME_SUCCESS为消费成功
+        // Return to the message consumption status, ConsumeConcurrentlyStatus.CONSUME_SUCCESS for successful consumption
         return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
       }
     });
-    // 启动Consumer
+    // Start Consumer
     consumer.start();
     System.out.printf("Consumer Started.%n");
   }
 }
 ```
 
-首先需要初始化消费者，初始化消费者时，必须填写ConsumerGroupName，同一个消费组的ConsumerGroupName是相同的，这是判断消费者是否属于同一个消费组的重要属性。然后是设置NameServer地址，这里与Producer一样不再介绍。然后是调用subscribe方法订阅Topic，subscribe方法需要指定需要订阅的Topic名，也可以增加消息过滤的条件，比如TagA等，上述代码中指定*表示接收所有tag的消息。除了订阅之外，还需要注册回调接口编写消费逻辑来处理从Broker中收到的消息，调用registerMessageListener方法，需要传入MessageListener的实现，上述代码中是并发消费，因此是MessageListenerConcurrently的实现，其接口如下
+First, initialize the consumer.  When initializing the consumer, the consumer must with the ConsumerGroupName, the ConsumerGroupName of the same consumer group is the same, which is an important attribute to determine whether the consumer belongs to the same consumer group. Then, set the NameServer address, which is not introduced here as like Producer. Then, call the subscribe method to subscribe to Topic. The subscribe method needs to specify the Topic name needed to subscribe to, it can also add the message filtering conditions, such as TagA, etc. The above code to specify * means to receive all tag messages. In addition to subscribing, it also needs to register the callback interface to write the consumption logic to handle the messages received from the Broker. If call the registerMessageListener method, it needs to pass in the MessageListener implementation. The above code is concurrent consumption, so it is MessageListenerConcurrently implementation, its interface is as follows:
 
-:::note  MessageListenerConcurrently 接口
+:::note  MessageListenerConcurrently Interface
 ```javascript 
 /**
  * A MessageListenerConcurrently object is used to receive asynchronously delivered messages concurrently
@@ -49,29 +49,29 @@ public interface MessageListenerConcurrently extends MessageListener {
 ```
 :::
 
-其中，msgs是从Broker端获取的需要被消费消息列表，用户实现该接口，并把自己对消息的消费逻辑写在consumeMessage方法中，然后返回消费状态，ConsumeConcurrentlyStatus.CONSUME_SUCCESS表示消费成功，或者表示RECONSUME_LATER表示消费失败，一段时间后再重新消费。
+where msgs is the list of messages to be consumed obtained from the Broker, and the user implements the interface and writes the consumption logic for the messages in the consumeMessage method, and then returns the consumption status, ConsumeConcurrentlyStatus.CONSUME_SUCCESS indicates successful consumption, or CONSUME_LATER means that the consumption has failed and will be re-consumed after a period of time.
 
-可以看到RocketMQ提供的消费者API却非常简单，用户并不需要关注重平衡或者拉取的逻辑，只需要写好自己的消费逻辑即可。
+The RocketMQ provides a very simple consumer API, users don't need to focus on rebalancing or pulling logic, they just need to write their own consumption logic.
 
-## 集群模式和广播模式
+## Cluster and Broadcast Mode
 
-我们可以通过以下代码来设置采用集群模式，RocketMQ Push Consumer默认为集群模式，同一个消费组内的消费者分担消费。
+We can set it to use cluster mode by the following code. RocketMQ Push Consumer uses cluster mode by default, where consumers in the same consumer group consume together.
 
 ```java
 consumer.setMessageModel(MessageModel.CLUSTERING);
 ```
 
-通过以下代码来设置采用广播模式，广播模式下，消费组内的每一个消费者都会消费全量消息。
+Set up the use of broadcast mode with the following code. In broadcast mode, each consumer within the consumer group consumes the full messages.
 
 ```java
 consumer.setMessageModel(MessageModel.BROADCASTING);
 ```
 
-## 并发消费和顺序消费
+## Concurrent Consumption and Order Consumption
 
-上面已经介绍设置Push Consumer并发消费的方法，通过在注册消费回调接口时传入MessageListenerConcurrently接口的实现来完成。在并发消费中，可能会有多个线程同时消费一个队列的消息，因此即使发送端通过发送顺序消息保证消息在同一个队列中按照FIFO的顺序，也无法保证消息实际被顺序消费。
+Setting up Push Consumer concurrent consumption has been described above and is accomplished by passing in the implementation of the MessageListenerConcurrently interface when registering the consumption callback interface. In concurrent consumption, there may be multiple threads consuming messages from a queue at the same time, so even if the sender ensures that messages are in the same queue in FIFO order by sending order messages, there is no guarantee that the messages are actually consumed orderly.
 
-因此RocketMQ提供了顺序消费的方式， 顺序消费设置与并发消费API层面只有一处不同，在注册消费回调接口时传入MessageListenerOrderly接口的实现。
+RocketMQ therefore provides a order consumption approach. The only difference between order consumption setup and concurrent consumption at the API level is that the implementation of the MessageListenerOrderly interface is passed in when registering the consumption callback interface.
 
 ```javascript
 consumer.registerMessageListener(new MessageListenerOrderly() {
@@ -91,133 +91,133 @@ consumer.registerMessageListener(new MessageListenerOrderly() {
         });
 ```
 
-顺序消费也有两种返回结果，ConsumeOrderlyStatus.SUCCESS表示消费成功，ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT表示消费失败。
+There are also two return results for order consumption, ConsumeOrderlyStatus.SUCCESS for successful consumption and ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT for failed consumption.
 
-## 消息过滤
+## Message Filtering
 
-消息过滤是指消息生产者向Topic中发送消息时，设置消息属性对消息进行分类，消费者订阅Topic时，根据消息属性设置过滤条件对消息进行过滤，只有符合过滤条件的消息才会被投递到消费端进行消费。
+Message filtering means that message producers set message attributes to classify messages when sending messages to a Topic, and consumers set filtering conditions according to the message attributes when subscribing to a Topic, so that only messages that meet the filtering conditions are delivered to the consumer side for consumption.
 
-消费者订阅Topic时若未设置过滤条件，无论消息发送时是否有设置过滤属性，Topic中的所有消息都将被投递到消费端进行消费。
+If the consumer subscribes to a Topic without setting filter conditions, all messages in the Topic will be delivered to the consumer for consumption, regardless of whether the filter attributes are set when the message is sent.
 
-RocketMQ支持的消息过滤方式有两种，Tag过滤和SQL92过滤。
+There are two types of message filtering supported by RocketMQ, Tag filtering and SQL92 filtering.
 
-| 过滤方式    | 说明                                             | 场景                  |
+| Message Filtering    | Instruct                                             | Scenario                   |
 |---------|------------------------------------------------|---------------------|
-| Tag过滤   | 消费者订阅的Tag和发送者设置的消息Tag相互匹配，则消息被投递给消费端进行消费。      | 简单过滤场景。一条消息支持设置一个Tag，仅需要对Topic中的消息进行一级分类并过滤时可以使用此方式。      |
-| SQL92过滤 | 发送者设置Tag或消息属性，消费者订阅满足SQL92过滤表达式的消息被投递给消费端进行消费。 | 复杂过滤场景。一条消息支持设置多个属性，可根据SQL语法自定义组合多种类型的表达式对消息进行多级分类并实现多维度的过滤。 |
+| Tag filtering   | If the Tag subscribed by the consumer and the message Tag set by the sender match each other, the message is cast to the consumer for consumption. | Simple filtering Scenario: a message supports setting one Tag, which can be used when only one level of classification and filtering of messages in Topic is required.|
+| SQL92 filtering | The sender sets the Tag or message attribute, and the consumer subscribes to the message that satisfies the SQL92 filter expression is cast to the consumer for consumption. | Complex filtering Scenarios: a message supports setting multiple attributes and can be customized to combine multiple types of expressions according to SQL syntax to classify messages at multiple levels and achieve multi-dimensional filtering. |
 
-### Tag过滤
+### Tag Filtering
 
-Tag在生产者章节已经介绍过，用于对某个Topic下的消息进行分类。生产者在发送消息时，指定消息的Tag，消费者需根据已经指定的Tag来进行订阅。
+Tag has been introduced in the Producers chapter and is used to classify messages under a certain Topic. When sending a message, the producer specifies the Tag of the message, and the consumer has to subscribe according to the Tag already specified.
 
-以下图电商交易场景为例，从客户下单到收到商品这一过程会生产一系列消息，以如下消息为例：
-- 订单消息
-- 支付消息
-- 物流消息
+Take the following e-commerce transaction scenario as an example, the process from the customer's order to the receipt of goods will produce a series of messages, as follows:
+- Order News
+- Payment News
+- Logistics News
 
-这些消息会发送到名称为Trade_Topic的Topic中，被各个不同的系统所订阅，以如下系统为例：
-- 支付系统：只需订阅支付消息。
-- 物流系统：只需订阅物流消息。
-- 实时计算系统：需要订阅所有和交易相关的消息。
-- 交易成功率分析系统：需订阅订单和支付消息。
+These messages are sent to a Topic with the name Trade_Topic and are subscribed to by various systems, as exemplified by the following:
+- Payment system: subscribe to payment messages only.
+- Logistics system: subscribe to logistics messages only.
+- Real-time calculation system: subscribe to all transaction-related messages.
+- Transaction success rate analysis system: subscribe to order and payment messages.
 
-过滤示意图如下所示
+The filtering schematic is shown below
 
 ![Tag过滤](../picture/Tag过滤.png)
 
-对于物流系统和支付系统来说，它们都只订阅但个Tag，此时只需要在调用subcribe接口时明确标明Tag即可。
+For logistics systems and payment systems, they both subscribe to a single Tag, at which point it is sufficient to mark the Tag when calling the subcribe interface.
 
 ```java
 consumer.subscribe("TagFilterTest", "TagA");
 ```
 
-对于实时计算系统来说，它订阅交易Topic下所有的消息，Tag用星号（*）表示即可。
+For a real-time computing system, it subscribes to all messages under the transaction Topic, and the Tag is simply indicated by an asterisk (*).
 
 ```java
 consumer.subscribe("TagFilterTest", "*");
 ```
 
-对于交易成功率分析系统来说，它订阅了订单和支付两个Tag的消息，在多个Tag之间用两个竖线（||）分隔即可。
-
+For the transaction success rate analysis system, it subscribes to messages for both Order and Payment Tags, and it is fine to separate multiple Tags with two vertical lines (||).
 ```java
 consumer.subscribe("TagFilterTest", "TagA||TagB");
 ```
 
-这里需要注意的是，如果同一个消费者多次订阅某个Topic下的Tag，以最后一次订阅为准。
+It should be noted here that if the same consumer subscribes to a Tag under a Topic multiple times, the last subscription will prevail.
 
 ```java
-//如下错误代码中，Consumer只能订阅到TagFilterTest下TagB的消息，而不能订阅TagA的消息。
+//In the following error code, the Consumer can only subscribe to the message of TagB under TagFilterTest, but not the message of TagA.
 consumer.subscribe("TagFilterTest", "TagA");
 consumer.subscribe("TagFilterTest", "TagB");
 ```
 
-### SQL92过滤
+### SQL92 Filtering
 
-SQL92过滤是在消息发送时设置消息的Tag或自定义属性，消费者订阅时使用SQL语法设置过滤表达式，根据自定义属性或Tag过滤消息。
->Tag属于一种特殊的消息属性，在SQL语法中，Tag的属性值为TAGS。
-开启属性过滤首先要在Broker端设置配置enablePropertyFilter=true，该值默认为false。
+SQL92 filtering is to set the Tag or custom attribute of the message when the message is sent, and the consumer subscribes to set the filter expression using SQL syntax to filter the message based on the custom attribute or Tag.
+>Tag belongs to a special kind of message property, and the property value of Tag is TAGS in the SQL syntax.
+Enable property filtering first set the configuration enablePropertyFilter=true on the Broker side, the value is false by default.
 
-以下图电商交易场景为例，从客户下单到收到商品这一过程会生产一系列消息，按照类型将消息分为订单消息和物流消息，其中给物流消息定义地域属性，按照地域分为杭州和上海：
-- 订单消息
-- 物流消息
-    - 物流消息且地域为杭州
-    - 物流消息且地域为上海
+Take the following e-commerce transaction scenario as an example, the process from the customer's order to the receipt of goods will produce a series of messages, according to the type of messages into order messages and logistics messages, which define the geographical attributes of logistics messages, according to the region into Hangzhou and Shanghai:
+- Order News
+- Logistics News
+  - Logistics information and the region is Hangzhou
+  - Logistics information and the region is Shanghai
 
-这些消息会发送到名称为Trade_Topic的Topic中，被各个不同的系统所订阅，以如下系统为例：
-- 物流系统1：只需订阅物流消息且消息地域为杭州。
-- 物流系统2：只需订阅物流消息且消息地域为杭州或上海。
-- 订单跟踪系统：只需订阅订单消息。
+These messages are sent to the Topic with the name Trade_Topic and are subscribed by various systems, as an example, the following system:
+- Logistics system 1: only need to subscribe to the logistics message and the message area is Hangzhou.
+- Logistics system 2: only need to subscribe to the logistics news and the news area is Hangzhou or Shanghai.
+- Order tracking system: only need to subscribe to order information.
 
-SQL92过滤示意图如下所示：
+The SQL92 filtering schematic is shown below:
 
 ![SQL92过滤](../picture/SQL92过滤.png)
 
-地域将作为自定义属性设置在消息中。
+The locale will be set as a custom property in the message.
 
-- 消息发送端：
-  设置消息的自定义属性。
+- Message sender.
+  Set the custom properties of the message.
 
 ```java
 Message msg = new Message("topic", "tagA", "Hello MQ".getBytes());
-// 设置自定义属性A，属性值为1。
+// Set custom property A with property value 1.
 msg.putUserProperties("a", "1");
 ```
 
-- 消息消费端：
-  使用SQL语法设置过滤表达式，并根据自定义属性过滤消息。
+- Message consumer.
+  Set filter expressions using SQL syntax and filter messages based on custom properties.
 ```java
 consumer.subscribe("SqlFilterTest",
     MessageSelector.bySql("(TAGS is not null and TAGS in ('TagA', 'TagB'))" +
         "and (a is not null and a between 0 and 3)"));
 ```
 
-## 消息重试和死信队列
+## Message Retry and Dead-Letter Queue
 
-### 消息重试
+### Message Retry
 
-若Consumer消费某条消息失败，则RockettMQ会在重试间隔时间后，将消息重新投递给Consumer消费，若达到最大重试次数后消息还没有成功被消费，则消息将被投递至死信队列
->消息重试只针对集群消费模式生效；广播消费模式不提供失败重试特性，即消费失败后，失败消息不再重试，继续消费新的消息
-- 最大重试次数：消息消费失败后，可被重复投递的最大次数。
+If the Consumer fails to consume a message, RocketMQ will re-pitch the message to the Consumer after the retry interval, and if the message is not successfully consumed after the maximum number of retries, the message will be pitched to the dead message queue.
+>Message retry is only effective for cluster mode; broadcast  mode does not provide the message retry feature. In the broadcast  mode, after a failed consumption, the failed message will not be retry and continue to consume new messages.
+
+- Maximum number of retries: the maximum number of times a message can be repeatedly delivered after a failed consumption.
 ```java
 consumer.setMaxReconsumeTimes(10);
 ```
-- 重试间隔：消息消费失败后再次被投递给Consumer消费的间隔时间，只在顺序消费中起作用。
+Retry interval: the interval after the message consumption fails to be cast to the Consumer again for consumption, which only works in sequential consumption.
 ```java
 consumer.setSuspendCurrentQueueTimeMillis(5000);
 ```
 
-顺序消费和并发消费的重试机制并不相同，顺序消费消费失败后是先在客户端本地重试，并且为了保证顺序性消费失败的消息不会被跳过先去消费下一条而是一直重试到最大重试次数，而并发消费消费失败后会将消费失败的消息重新投递回服务端，再等待服务端重新投递回来，在这期间会正常消费队列后面的消息。
->并发消费失败后并不是投递回原Topic，而是投递到一个特殊Topic，其命名为%RETRY%ConsumerGroupName，集群模式下并发消费每一个ConsumerGroup会对应一个特殊Topic，并会订阅该Topic。
-两者参数差别如下
+The retry mechanism of order consumption and concurrent consumption is not the same. After the order consumption fails to consume, it will first retry locally on the client side until the maximum number of retries, so as to avoid the failed messages being skipped and consuming the next message and disrupting the order of order consumption, while the concurrent consumption will re-cast the failed messages back to the server after the failed consumption, and then wait for the server to re-cast them back, during which it will normally consume the messages behind the queue.
+>When concurrent consumption fails, it is not cast back to the original Topic, but to a special Topic named %RETRY%ConsumerGroupName, and each ConsumerGroup in cluster mode will correspond to a special Topic and will subscribe to that Topic.
+The difference between the two parameters is as follows
 
-| 消费类型 | 重试间隔                                       | 最大重试次数                                                       |
+| Consumption type | Retry interval | Maximum number of retries                                                       |
 |------|--------------------------------------------|--------------------------------------------------------------|
-| 顺序消费 | 间隔时间可通过自定义设置，SuspendCurrentQueueTimeMillis | 最大重试次数可通过自定义参数MaxReconsumeTimes取值进行配置。该参数取值无最大限制。若未设置参数值，默认最大重试次数为Integer.MAX |
-| 并发消费 | 间隔时间根据重试次数阶梯变化，取值范围：1秒～2小时。不支持自定义配置  | 最大重试次数可通过自定义参数MaxReconsumeTimes取值进行配置。默认值为16次，该参数取值无最大限制，建议使用默认值 |
+| Order consumption | The retry interval time is configured with the custom parameter SuspendCurrentQueueTimeMillis | The maximum number of retries can be configured with the custom parameter MaxReconsumeTimes. There is no maximum limit to the value of this parameter. If the parameter is not set, the default maximum number of retries is Integer.MAX . |
+| Concurrent consumption | The retry interval time changes in steps according to the number of retries, the value range: 1 second ~ 2 hours. Custom configuration is not supported | The maximum number of retries can be configured by the custom parameter MaxReconsumeTimes. The default value is 16 times. There is no maximum limit for this parameter, and it is recommended to use the default value. |
 
-并发消费重试间隔如下，可以看到与延迟消息第三个等级开始的时间完全一致。
+The retry interval for concurrent consumption is as follows, which can be seen to be exactly the same as the time when the third level of delayed messages starts.
 
-| 第几次重试 | 与上次重试的间隔时间 | 第几次重试 | 与上次重试的间隔时间 |
+| Retry number of times | The time between the last retry | Retry number of times | The time between the last retry |
 |-------|------------|-------|------------|
 | 1     | 10s        | 9     | 7min       |
 | 2     | 30s        | 10    | 8min       |
@@ -228,6 +228,6 @@ consumer.setSuspendCurrentQueueTimeMillis(5000);
 | 7     | 5min       | 15    | 1h         |
 | 8     | 6min       | 16    | 2h         |
 
-###  死信队列
+###  Dead-Letter Queue
 
-当一条消息初次消费失败，RocketMQ会自动进行消息重试，达到最大重试次数后，若消费依然失败，则表明消费者在正常情况下无法正确地消费该消息。此时，该消息不会立刻被丢弃，而是将其发送到该消费者对应的特殊队列中，这类消息称为死信消息（Dead-Letter Message），存储死信消息的特殊队列称为死信队列（Dead-Letter Queue），死信队列是死信Topic下分区数为一的单独队列。如果产生了死信消息，那对应的ConsumerGroup的死信Topic名称为%DLQ%ConsumerGroupName，死信队列的消息将不会再被消费。可以利用RocketMQ Admin工具或者RocketMQ Dashboard上查询到对应死信消息的信息。
+When a message fails to be consumed for the first time, RocketMQ will automatically retry the message. After reaching the maximum number of retries, if the consumption still fails, it means that the consumer cannot consume the message correctly under normal circumstances. At this point, the message is not immediately discarded, but sent to a special queue corresponding to that consumer, which is called a Dead-Letter Message, and the special queue storing the dead message is called a Dead-Letter Queue, which is a separate queue with a unique number of partitions under the Dead-Letter Topic. If a Dead-Letter Message is generated, the corresponding ConsumerGroup's Dead-Letter Topic name is %DLQ%ConsumerGroupName, and the messages in the Dead-Letter Queue will not be consumed again. You can use RocketMQ Admin tool or RocketMQ Dashboard to find out the information of the corresponding dead message.
