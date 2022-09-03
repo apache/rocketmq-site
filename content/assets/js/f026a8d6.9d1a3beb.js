@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[564],{56216:s=>{s.exports=JSON.parse('{"allTagsPath":"/third-blog/tags","slug":"/third-blog/tags/rocket-mq-streams","name":"RocketMQ_Streams","count":2,"permalink":"/third-blog/tags/rocket-mq-streams"}')}}]);
