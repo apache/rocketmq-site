@@ -136,7 +136,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           theme: require('prism-react-renderer/themes/dracula'),
         },
         navbar: {
-          title: "RocketMQ",
+          title: "Apache RocketMQ",
           // hideOnScroll: true,
           logo: {
             alt: "My Site Logo",

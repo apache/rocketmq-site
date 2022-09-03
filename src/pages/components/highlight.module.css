@@ -4,7 +4,8 @@
 }
 
 .featureContent {
-    padding: var(--wdio-spacing-vertical) 0 var(--wdio-spacing-vertical) calc(var(--ifm-spacing-horizontal) + 20px)!important;
+    /* padding: var(--wdio-spacing-vertical) 1.535rem var(--wdio-spacing-vertical) calc(var(--ifm-spacing-horizontal) + 1.535rem)!important; */
+    /* margin: -2rem 0 -5rem 0; */
 }
 
 .featureContentReversed {
@@ -22,6 +23,15 @@
 
 .darkSection {
     background-color: var(--wdio-dark-section-background-color);
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.sectionSpace {
+    margin: 5rem;
 }
 
 @media (max-width: 996px) {
@@ -47,7 +57,6 @@
     .featureContentReversed {
         /* padding: calc(var(--wdio-spacing-vertical) * 4+3000) calc(var(--ifm-spacing-horizontal) + 20px) var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important; */
         text-align: center!important;
-    
     }
 
     .featureImageReversed {
@@ -57,17 +66,47 @@
     }
 }
 
-
+@media (min-width: 1441px) {
+    .featureContent {
+        /* padding: var(--wdio-spacing-vertical) 0 var(--wdio-spacing-vertical) calc(var(--ifm-spacing-horizontal) + 10rem)!important; */
+    }
+    /* .highlighttitle {
+        font-weight: 600 !important;
+        text-align:center!important;
+        margin: 0rem 0rem 0rem 0rem !important;
+    }
+    
+    .introimg {
+        text-align:center;
+        margin: 0rem 0rem 2rem 0rem !important;
+    }
+    .sectionTitle {
+        font-size: 3rem;
+        text-align: center;
+        margin: 0 0 0 12rem;
+    } */
+}
 
 .highlighttitle {
     font-weight: 600 !important;
     text-align:center!important;
-  }
+}
+
+.highlightsubtitle {
+    text-align: center;
+    margin: 1vw 0 1rem 0;
+}
+
+.introimg {
+    text-align:center;
+    margin: 0 0 2vw 0;
+}
   
 .row{
     text-align: center;
 }
 .container{
     text-align: center;
+    width: 120%;
+    /* margin: var(--wdio-spacing-vertical) 0 15rem calc(var(--ifm-spacing-horizontal) + 1rem)!important; */
 }
-
