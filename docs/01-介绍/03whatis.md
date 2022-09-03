@@ -69,14 +69,15 @@ import TabItem from '@theme/TabItem';
 
 :::
 
-- 为了**水平扩展**，RocketMQ 对 Topic进行了分区，这种操作被称为**队列**（MessageQueue）。
+- 为了消息写入能力的**水平扩展**，RocketMQ 对 Topic进行了分区，这种操作被称为**队列**（MessageQueue）。
 
-- 为了**并发消费**，Consumer Group的概念应运而生。
+- 为了消费能力的**水平扩展**，ConsumerGroup的概念应运而生。
 
 :::info
 
-- Consumer主要有两种消费方式，即**广播模式**，和**集群模式**（图中是最常用的集群模式）。
-- 同一个 Consumer Group 中的 Consumer 实例是负载均衡消费，如图中 ConsumerGroupA 订阅 TopicA，TopicA 对应 3个队列，则 GroupA 中的 Consumer1 消费的是 MessageQueue 0和 MessageQueue 1的消息，Consumer2是消费的是MessageQueue2的消息。
+- 相同的ConsumerGroup下的消费者主要有两种负载均衡模式，即**广播模式**，和**集群模式**（图中是最常用的集群模式）。
+- 在集群模式下，同一个 ConsumerGroup 中的 Consumer 实例是负载均衡消费，如图中 ConsumerGroupA 订阅 TopicA，TopicA 对应 3个队列，则 GroupA 中的 Consumer1 消费的是 MessageQueue 0和 MessageQueue 1的消息，Consumer2是消费的是MessageQueue2的消息。
+- 在广播模式下，同一个 ConsumerGroup 中的每个 Consumer 实例都处理全部的队列。需要注意的是，广播模式下因为每个 Consumer 实例都需要处理全部的消息，因此这种模式仅推荐在通知推送、配置同步类小流量场景使用。
 
 :::
 
@@ -102,7 +103,7 @@ Apache RocketMQ 部署架构上主要分为四部分:
 
 ## 名字服务器 **NameServer**
 
-NameServer是 一个简单的 Topic 路由注册中心，支持 Topic、Broker 的动态注册与发现。
+NameServer是一个简单的 Topic 路由注册中心，支持 Topic、Broker 的动态注册与发现。
 
 主要包括两个功能：
 

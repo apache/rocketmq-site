@@ -12,7 +12,7 @@ RocketMQ 消息构成非常简单，如下图所示。
 - **transactionId** 会在事务消息中使用。
 
 :::tip
-- Tag: 不管是 RocketMQ 的 Tag 过滤还是延迟消息等都会利用 Properties 消息属性的能力
+- Tag: 不管是 RocketMQ 的 Tag 过滤还是延迟消息等都会利用 Properties 消息属性机制，这些特殊信息使用了系统保留的属性Key，设置自定义属性时需要避免和系统属性Key冲突。
 
 - Keys: 服务器会根据 keys 创建哈希索引，设置后，可以在 Console 系统根据 Topic、Keys 来查询消息，由于是哈希索引，请尽可能保证 key 唯一，例如订单号，商品 Id 等。
 :::
@@ -32,7 +32,12 @@ Message 可以设置的属性值包括：
 |      Keys      | null   | 选填   | 代表这条消息的业务关键词 |
 |      Flag      | 0      | 选填   | 完全由应用来设置，RocketMQ 不做干预                                                                                                                                               |
 | DelayTimeLevel | 0      | 选填   | 消息延时级别，0 表示不延时，大于 0 会延时特定的时间才会被消费                                                                                                                     |
-| WaitStoreMsgOK | true   | 选填   | 表示消息是否在服务器落盘后才返回应答。                                                                                                                                            |
+| WaitStoreMsgOK | true   | 选填   | 表示消息是否在服务器落盘后才返回应答。|
+
+:::tip
+RocketMQ系统保留的属性Key集合有如下，需要在使用过程中避免：
+TRACE_ON、MSG_REGION、KEYS、TAGS、DELAY、RETRY_TOPIC、REAL_TOPIC、REAL_QID、TRAN_MSG、PGROUP、MIN_OFFSET、MAX_OFFSET、BUYER_ID、ORIGIN_MESSAGE_ID、TRANSFER_FLAG、CORRECTION_FLAG、MQ2_FLAG、RECONSUME_TIME、UNIQ_KEY、MAX_RECONSUME_TIMES、CONSUME_START_TIME、POP_CK、POP_CK_OFFSET、1ST_POP_TIME、TRAN_PREPARED_QUEUE_OFFSET、DUP_INFO、EXTEND_UNIQ_INFO、INSTANCE_ID、CORRELATION_ID、REPLY_TO_CLIENT、TTL、ARRIVE_TIME、PUSH_REPLY_TIME、CLUSTER、MSG_TYPE、INNER_MULTI_QUEUE_OFFSET、_BORNHOST
+:::
 
 ## Tag
 
@@ -85,3 +90,5 @@ Apache RocketMQ 每个消息可以在业务层面的设置唯一标识码 keys �
 ## 生产者
 
 生产者（Producer）就是消息的发送者，Apache RocketMQ 拥有丰富的消息类型，可以支持不用的应用场景，在不同的场景中，需要使用不同的消息进行发送。比如在电商交易中超时未支付关闭订单的场景，在订单创建时会发送一条延时消息。这条消息将会在 30 分钟以后投递给消费者，消费者收到此消息后需要判断对应的订单是否已完成支付。如支付未完成，则关闭订单。如已完成支付则忽略，此时就需要用到延迟消息；电商场景中，业务上要求同一订单的消息保持严格顺序，此时就要用到顺序消息。在日志处理场景中，可以接受的比较大的发送延迟，但对吞吐量的要求很高，希望每秒能处理百万条日志，此时可以使用批量消息。在银行扣款的场景中，要保持上游的扣款操作和下游的短信通知保持一致，此时就要使用事务消息，下一节将会介绍各种类型消息的发送。
+
+:::note 需要注意的是，生产环境中不同消息类型需要使用不同的主题，不要在同一个主题内使用多种消息类型，这样可以避免运维过程中的风险和错误。 :::
