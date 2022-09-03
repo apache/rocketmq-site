@@ -21,7 +21,7 @@ RocketMQ 5.0 引入了全新的弹性无状态代理模式，将当前的Broker�
 ### 轻量API和多语言SDK
 除了架构改变，RocketMQ 5.0 重新思考了面向开发者的集成界面，即API和SDK的设计。RocketMQ 4.x SDK 是比较重量级的富客户端模式，提供了诸如顺序消费、广播消费、消费者负载均衡、消息缓存、消息重试、位点管理、推拉结合、流控、诊断、故障转移、异常节点隔离等一系列能力。这些复杂能力虽然可以帮助业务集成解决实际问题，但其自身的演进和迭代却存在比较大的负担，客户端的升级和多语言普及难度较大。从API的简洁性和友好性方面，RocketMQ 5.0正在做轻量化设计。
 
-![img](https://tva1.sinaimg.cn/large/e6c9d24egy1h4se7qqaksj20gy0g4myb.jpg)
+![img](https://tva1.sinaimg.cn/large/008cV9t2gy1h5r32l4rctj30di0auq4p.jpg)
 
 RocketMQ 5.0 推出了基于 gRPC 全新的多语言 SDK，这套 SDK 有几个重要特点：
 采用全新极简的 API，拥有不可变 API 的设计，完善的错误处理，各语言 SDK API 在本地语言层面对齐，新的API 化繁为简，更易被使用和集成。
