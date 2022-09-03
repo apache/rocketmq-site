@@ -241,6 +241,20 @@ a code {
   background-color: transparent;
 }
 
+/* .highlightSection {
+  width: 65rem;
+} */
+
+.featureAndEco {
+  text-align: center;
+}
+
+@media (min-width: 1441px) {
+  .highlightSection {
+    width: 69rem;
+  }
+}
+
 .highlightSection .token-line {
   font-size: 90% !important;
 }
@@ -309,7 +323,7 @@ h1 {
 
 .gradient-text {
   color: transparent;
-  font-size: 25vmin;
+  font-size: 17vmin;
   text-align: center !important;
   background: conic-gradient(
     #068d9d 12%,
@@ -623,9 +637,6 @@ h1 {
 .markdown img{
   border-radius: 2%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.markdown table{
-  
 }
 
 .markdown th{

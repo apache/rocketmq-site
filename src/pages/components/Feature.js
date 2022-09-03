@@ -8,7 +8,8 @@ import styles from "./Feature.module.css";
 import Translate, {translate} from '@docusaurus/Translate';
 export default function Feature() {
   return (
-    <div> 
+    <div>
+      <Highlight/>
     {/* <div className={styles.mobileFeature}>
       <div> */}
       {/* <h3>
@@ -52,19 +53,14 @@ export default function Feature() {
       </p>
     </div>
   </div> */}
-    <div className={styles.webFeature}>
+    {/* <div className={styles.webFeature}>
       
       <Highlight
         img={
-          <Lottie
-          loop
-          animationData={lottieJson1}
-          play
-          style={{ width: 400, height: 400, marginTop: -100, marginLeft:30 }}></Lottie>
         }
         reversed
         title=  {translate({
-          message: "RocketMQ 作为主流的分布式消息中间件，于 2012 年开源，并在 2017 年成为 Apache 顶级项目",
+          message: "云原生",
           description: 'The homepage icon alt message',
         })}
         
@@ -83,15 +79,10 @@ export default function Feature() {
       />
       <Highlight
         img={
-          <Lottie
-          loop
-          animationData={lottieJson2}
-          play
-          style={{ width: 400, height: 400, marginLeft:50,marginTop:-30 }}></Lottie>
         }
         reversed
         title= {translate({
-              message: "大规模负载下低延迟，保证万亿级的信息容量,适用于电商领域，金融领域，大数据领域，物联网",
+              message: "高吞吐",
               description: 'The homepage icon alt message',
             })}
         
@@ -110,16 +101,10 @@ export default function Feature() {
      
       <Highlight
         img={
-          <Lottie
-      loop
-      animationData={lottieJson3}
-      play
-      style={{ width: 700, height: 700, marginTop:-230, marginLeft:-70, }}
-    />
         }
         reversed
         title={translate({
-          message: "RocketMQ发布5.0版本包括：全新的消费模型，服务端负载均衡，无损弹性扩缩，可分可合的存储计算分离等",
+          message: "低时延",
           description: 'The homepage icon alt message',
         })}
         
@@ -137,7 +122,79 @@ export default function Feature() {
         link={translate({ message:"RocketMQ 5.0 速览" })}
         url="/version"
       />
-    </div>
+
+      <Highlight
+        img={
+        }
+        reversed
+        title={translate({
+          message: "金融级",
+          description: 'The homepage icon alt message',
+        })}
+        
+        text={
+          <>
+          
+            <p>
+              RocketMQ Release 5.0: Major Architecture Refactoring, Storage
+              Compute Separation, Event Streaming
+            </p>
+            
+          </>
+          
+        }
+        link={translate({ message:"RocketMQ 5.0 速览" })}
+        url="/version"
+      />
+
+      <Highlight
+        img={
+        }
+        reversed
+        title={translate({
+          message: "架构极简",
+          description: 'The homepage icon alt message',
+        })}
+        
+        text={
+          <>
+          
+            <p>
+              RocketMQ Release 5.0: Major Architecture Refactoring, Storage
+              Compute Separation, Event Streaming
+            </p>
+            
+          </>
+          
+        }
+        link={translate({ message:"RocketMQ 5.0 速览" })}
+        url="/version"
+      />
+
+      <Highlight
+        img={
+        }
+        reversed
+        title={translate({
+          message: "生态友好",
+          description: 'The homepage icon alt message',
+        })}
+        
+        text={
+          <>
+          
+            <p>
+              RocketMQ Release 5.0: Major Architecture Refactoring, Storage
+              Compute Separation, Event Streaming
+            </p>
+            
+          </>
+          
+        }
+        link={translate({ message:"RocketMQ 5.0 速览" })}
+        url="/version"
+      />
+    </div> */}
   </div>
   
   );

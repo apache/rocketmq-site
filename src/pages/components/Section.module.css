@@ -1,7 +1,6 @@
 .section {
     padding: 7rem  7rem ;
     width: 100%;
-    background-color: var(--wdio-section-background-color);
 }
 
 .section h3 {

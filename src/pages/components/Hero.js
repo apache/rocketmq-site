@@ -8,9 +8,9 @@ export default function Hero(){
 
      <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
-          <h1 className={clsx("gradient-text",styles.herotitle)}>RocketMQ</h1>
+          <h1 className={clsx("gradient-text",styles.herotitle)}>Apache RocketMQ</h1>
           <p className={clsx("hero__subtitle",styles.herosubtitle)}>
-     A cloud native messaging and streaming platform, making it simple to build event-driven applications
+            <Translate id="rmq_intro">云原生消息事件流融合处理平台，帮助用户轻松构建事件驱动程序</Translate>
           </p>
           <div className={clsx('container',styles.github)}>
             <iframe
