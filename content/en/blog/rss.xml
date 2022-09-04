@@ -4,14 +4,14 @@
         <title>RocketMQ Blog</title>
         <link>https://your-docusaurus-test-site.com/en/blog</link>
         <description>RocketMQ Blog</description>
-        <lastBuildDate>Sat, 03 Sep 2022 09:43:02 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 04 Sep 2022 03:33:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[小红书消息中间件的运维实践与治理之路]]></title>
             <link>https://your-docusaurus-test-site.com/en/blog/01xiaohongshu</link>
             <guid>小红书消息中间件的运维实践与治理之路</guid>
-            <pubDate>Sat, 03 Sep 2022 09:43:02 GMT</pubDate>
+            <pubDate>Sun, 04 Sep 2022 03:33:15 GMT</pubDate>
             <description><![CDATA[小红书消息中间件的运维实践与治理之路]]></description>
         </item>
     </channel>

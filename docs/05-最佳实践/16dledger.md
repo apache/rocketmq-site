@@ -9,30 +9,31 @@
 #### 1.1 构建 DLedger
 
 ```shell
-git clone https://github.com/openmessaging/openmessaging-storage-dledger.git
-cd openmessaging-storage-dledger
-mvn clean install -DskipTests
+$ git clone https://github.com/openmessaging/dledger.git
+$ cd dledger
+$ mvn clean install -DskipTests
 ```
 
 #### 1.2 构建 RocketMQ
 ```shell
-git clone https://github.com/apache/rocketmq.git
-cd rocketmq
-git checkout -b store_with_dledger origin/store_with_dledger
-mvn -Prelease-all -DskipTests clean install -U
+$ git clone https://github.com/apache/rocketmq.git
+$ cd rocketmq
+$ git checkout -b develop origin/develop
+$ mvn -Prelease-all -DskipTests clean install -U
 ```
 ### 2. 快速部署
 
 在构建成功后
 ```shell
-cd distribution/target/apache-rocketmq
+#{rocketmq-version} replace with rocketmq actual version. example: 5.0.0-SNAPSHOT
+$ cd distribution/target/rocketmq-{rocketmq-version}/rocketmq-{rocketmq-version}
 
-sh bin/dledger/fast-try.sh start
+$ sh bin/dledger/fast-try.sh start
 ```
 
 如果上面的步骤执行成功，可以通过 mqadmin 运维命令查看集群状态。
 ```shell
-sh bin/mqadmin clusterList -n 127.0.0.1:9876
+$ sh bin/mqadmin clusterList -n 127.0.0.1:9876
 ```
 顺利的话，会看到如下内容：
 
@@ -44,7 +45,7 @@ sh bin/mqadmin clusterList -n 127.0.0.1:9876
 
 关闭快速集群，可以执行：
 ```shell
-sh bin/dledger/fast-try.sh stop
+$ sh bin/dledger/fast-try.sh stop
 ```
 快速部署，默认配置在 conf/dledger 里面，默认的存储路径在 /tmp/rmqstore。
 
@@ -57,16 +58,16 @@ sh bin/dledger/fast-try.sh stop
 ## Dledger集群搭建
 本部分主要介绍如何部署自动容灾切换的 RocketMQ-on-DLedger Group。
 
-RocketMQ-on-DLedger Group 是指一组**相同名称**的 Broker，至少需要 3 个节点，通过 Raft 自动选举出一个 Leader，其余节点 作为 Follower，并在 Leader 和 Follower 之间复制数据以保证高可用。  
-RocketMQ-on-DLedger Group 能自动容灾切换，并保证数据一致。  
+RocketMQ-on-DLedger Group 是指一组**相同名称**的 Broker，至少需要 3 个节点，通过 Raft 自动选举出一个 Leader，其余节点 作为 Follower，并在 Leader 和 Follower 之间复制数据以保证高可用。
+RocketMQ-on-DLedger Group 能自动容灾切换，并保证数据一致。
 RocketMQ-on-DLedger Group 是可以水平扩展的，也即可以部署任意多个 RocketMQ-on-DLedger Group 同时对外提供服务。
 
 ### 1. 新集群部署
 
 #### 1.1 编写配置
 
-每个 RocketMQ-on-DLedger Group 至少准备三台机器（本文假设为 3）。  
-编写 3 个配置文件，建议参考 conf/dledger 目录下的配置文件样例。  
+每个 RocketMQ-on-DLedger Group 至少准备三台机器（本文假设为 3）。 
+编写 3 个配置文件，建议参考 conf/dledger 目录下的配置文件样例。 
 关键配置介绍：  
 
 | name                      | 含义                                                         | 举例                                                     |
@@ -98,14 +99,16 @@ sendMessageThreadPoolNums=16
 
 与老版本的启动方式一致。
 
-`nohup sh bin/mqbroker -c conf/dledger/xxx-n0.conf & `  
-`nohup sh bin/mqbroker -c conf/dledger/xxx-n1.conf & `  
-`nohup sh bin/mqbroker -c conf/dledger/xxx-n2.conf & `  
+```shell
+$ nohup sh bin/mqbroker -c conf/dledger/xxx-n0.conf & 
+$ nohup sh bin/mqbroker -c conf/dledger/xxx-n1.conf & 
+$ nohup sh bin/mqbroker -c conf/dledger/xxx-n2.conf & 
+```
 
 
 ### 2. 旧集群升级
 
-如果旧集群采用 Master 方式部署，则每个 Master 都需要转换成一个 RocketMQ-on-DLedger Group。  
+如果旧集群采用 Master 方式部署，则每个 Master 都需要转换成一个 RocketMQ-on-DLedger Group。 
 如果旧集群采用 Master-Slave 方式部署，则每个 Master-Slave 组都需要转换成一个 RocketMQ-on-DLedger Group。
 
 #### 2.1 杀掉旧的 Broker
@@ -114,10 +117,10 @@ sendMessageThreadPoolNums=16
 
 #### 2.2 检查旧的 Commitlog
 
-RocketMQ-on-DLedger 组中的每个节点，可以兼容旧的 Commitlog ，但其 Raft 复制过程，只能针对新增加的消息。因此，为了避免出现异常，需要保证 旧的 Commitlog 是一致的。  
+RocketMQ-on-DLedger 组中的每个节点，可以兼容旧的 Commitlog ，但其 Raft 复制过程，只能针对新增加的消息。因此，为了避免出现异常，需要保证 旧的 Commitlog 是一致的。 
 如果旧的集群是采用 Master-Slave 方式部署，有可能在shutdown时，其数据并不是一致的，建议通过md5sum 的方式，检查最近的最少 2 个 Commmitlog 文件，如果发现不一致，则通过拷贝的方式进行对齐。  
 
-虽然 RocketMQ-on-DLedger Group 也可以以 2 节点方式部署，但其会丧失容灾切换能力（2n + 1 原则，至少需要3个节点才能容忍其中 1 个宕机）。  
+虽然 RocketMQ-on-DLedger Group 也可以以 2 节点方式部署，但其会丧失容灾切换能力（2n + 1 原则，至少需要3个节点才能容忍其中 1 个宕机）。 
 所以在对齐了 Master 和 Slave 的 Commitlog 之后，还需要准备第 3 台机器，并把旧的 Commitlog 从 Master 拷贝到 第 3 台机器（记得同时拷贝一下 config 文件夹）。  
 
 在 3 台机器准备好了之后，旧 Commitlog 文件也保证一致之后，就可以开始走下一步修改配置了。
