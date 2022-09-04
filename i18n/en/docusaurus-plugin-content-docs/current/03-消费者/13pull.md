@@ -37,7 +37,7 @@ First, it needs to be initialized `DefaultMQPullConsumer` and started, then it c
 Set<MessageQueue> queueSet =  consumer.fetchSubscribeMessageQueues("TopicTest");
 ```
 
-After finding or constructing the queue, call the pull method to perform the pull, and pass in the parameters such as the queue to be pulled, the filter expression, the loci to be pulled, and the maximum number of messages to be pulled. The `PullResult` will be returned after the pull is completed, and the PullStatus in the PullResult indicates the result status, as shown below:
+After finding or constructing the queue, call the pull method to perform the pull, and pass in the parameters such as the queue to be pulled, the filter expression, the offset to be pulled, and the maximum number of messages to be pulled. The `PullResult` will be returned after the pull is completed, and the PullStatus in the PullResult indicates the result status, as shown below:
 
 ```javascript
 public enum PullStatus {
@@ -60,7 +60,7 @@ public enum PullStatus {
 }
 ```
 
-FOUND means the message was pulled, NO_NEW_MSG means no new message was found, NO_MATCHED_MSG means no matching message, OFFSET_ILLEGAL means the incoming pull loci are illegal and may be large or small. If the pull status is FOUND, we can get the list of pulled messages via the `getMsgFoundList` method of `PullResult`. Finally, if the consumption is complete, the consumption loci are updated via the `updateConsumeOffset` method.
+FOUND means the message was pulled, NO_NEW_MSG means no new message was found, NO_MATCHED_MSG means no matching message, OFFSET_ILLEGAL means the incoming pull offset are illegal and may be large or small. If the pull status is FOUND, we can get the list of pulled messages via the `getMsgFoundList` method of `PullResult`. Finally, if the consumption is complete, the consumption offset are updated via the `updateConsumeOffset` method.
 
 ## Lite Pull Consumer
 
@@ -118,4 +118,4 @@ public class LitePullConsumerAssign {
 }
 ```
 
-Assign mode still initializes `DefaultLitePullConsumer` at the beginning, here we use manual submission of loci, so set AutoCommit to false and then start the consumer. Unlike Subscribe mode, Assign mode does not have an automatic load balancing mechanism and requires the user to specify the queue to be pulled. Therefore, in the example, the queue under Topic is first fetched with fetchMessageQueues, and then half of the previous queue is fetched. The example also calls the seek method, which sets the loci in the first queue to be fetched from 10. Immediately after entering the loop keep calling the poll method to pull messages, and after pulling the messages call the commitSync method to manually submit the loci.
+Assign mode still initializes `DefaultLitePullConsumer` at the beginning, here we use manual submission of offset, so set AutoCommit to false and then start the consumer. Unlike Subscribe mode, Assign mode does not have an automatic load balancing mechanism and requires the user to specify the queue to be pulled. Therefore, in the example, the queue under Topic is first fetched with fetchMessageQueues, and then half of the previous queue is fetched. The example also calls the seek method, which sets the offset in the first queue to be fetched from 10. Immediately after entering the loop keep calling the poll method to pull messages, and after pulling the messages call the commitSync method to manually submit the offset.
