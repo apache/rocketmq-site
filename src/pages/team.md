@@ -18,6 +18,7 @@ The following is a list of developers with commit privileges that have directly 
 |![dinglei](/about/dinglei.jpg)|dinglei|[@ShannonDing](https://github.com/ShannonDing)|dinglei@apache.org |PMC Member| +8 |
 |![wlliqipeng](/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |PMC Member| +8 |
 |![jinrongtong](/about/jinrongtong.jpg)|jinrongtong| [@RongtongJin](https://github.com/RongtongJin)|jinrongtong@apache.org|PMC Member| +8 |
+|![Aaron Ai](/about/aaronai.png)|Aaron Ai| [@aaron-ai](https://github.com/aaron-ai)|aaronai@apache.org|PMC Member| +8 |
 |![stevensche](/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
@@ -53,7 +54,6 @@ The following is a list of developers with commit privileges that have directly 
 |![cserwen](/about/cserwen.jpeg)|cserwen| [@cserwen](https://github.com/cserwen)|cserwen@apache.org|Committer| +8 |
 |![sunhangda](/about/sunhangda.jpg)|lwclover| [@lwclover](https://github.com/lwclover)|lwclover@apache.org|Committer| +8 |
 |![karp](/about/karp.jpg)|karp| [@Ni Ze](https://github.com/ni-ze)|karp@apache.org|Committer| +8 |
-|![Aaron Ai](/about/aaronai.png)|Aaron Ai| [@aaron-ai](https://github.com/aaron-ai)|aaronai@apache.org|Committer| +8 |
 |![scarb](/about/scarb.jpg)|Jin Jiahao| [@HScarb](https://github.com/HScarb)|scarb@apache.org|Committer| +8 |
 |![sunxiaojian](/about/sunxiaojian.jpg)|sunxiaojian| [@sunxiaojian](https://github.com/sunxiaojian)|sunxiaojian@apache.org|Committer| +8 |
 
