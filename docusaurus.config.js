@@ -137,13 +137,18 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         },
         navbar: {
           title: "Apache RocketMQ",
-          // hideOnScroll: true,
+        // hideOnScroll: true,
           logo: {
             alt: "My Site Logo",
             src: "img/Apache_RocketMQ_logo.svg.png",
           },
 
           items: [
+            {
+              href: 'https://github.com/apache/rocketmq',
+              label: 'GitHub',
+              position: 'right',
+            },
             {
           type: 'localeDropdown',
           position: 'right',
@@ -186,12 +191,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 // ... more items
               ],
             },
-           
-            // {
-            //   href: 'https://github.com/apache/rocketmq',
-            //   label: 'GitHub',
-            //   position: 'right',
-            // },
 
             // {to: '/download', label: '社区', position: 'right'},
 
