@@ -266,19 +266,19 @@
   "云原生": {
     "message": "Cloud Native"
   },
-  "可分可合的存储计算架构": {
-    "message": "Dividable and composable storage computing architecture"
+  "生与云，长与云，无限弹性扩缩，K8s 友好": {
+    "message": "Born with the cloud, grow with the cloud, infinitely elastic expansion and contraction, K8s friendly"
   },
   "高吞吐": {
     "message": "High Throughput"
   },
-  "保证万亿级的信息容量": {
-    "message": "Trillion-level message capacity guaranteed"
+  "万亿级吞吐保证，同时满足微服务与大数据场景": {
+    "message": "Trillion-level throughput guarantee to meet both microservice and big data scenarios"
   },
   "低时延": {
     "message": "Low Latency"
   },
-  "大规模负载下低延迟": {
+  "高负载下依然保持较低时延": {
     "message": "With low latency under massive loads"
   },
   "金融级": {
@@ -290,14 +290,14 @@
   "架构极简": {
     "message": "Lightweight Model"
   },
-  "灵活的分布式横向扩展部署架构": {
-    "message": "Flexible distributed scale-out deployment architecture"
+  "零外部依赖，Shared-nothing 架构": {
+    "message": "Zero external dependencies, Shared-nothing architecture"
   },
   "生态友好": {
     "message": "Eco Friendly"
   },
-  "涵盖电商、金融、物联网、大数据领域": {
-    "message": "Covering the fields of e-commerce, finance, Internet of Things, and big data"
+  "无缝对接微服务、实时计算、数据湖等周边生态": {
+    "message": "Seamlessly connects to microservices, real-time computing, data lake and other surrounding ecologies"
   },
   "生态系统": {
     "message": "Ecosystem"

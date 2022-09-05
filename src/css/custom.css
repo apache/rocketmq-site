@@ -323,7 +323,7 @@ h1 {
 
 .gradient-text {
   color: transparent;
-  font-size: 17vmin;
+  font-size: 13vmin;
   text-align: center !important;
   background: conic-gradient(
     #068d9d 12%,
