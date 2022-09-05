@@ -23,11 +23,11 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-          ref: new-website-pre
-          path: new-website-pre
+          ref: asf-site
+          path: asf-site
 
       - run: |
-          cd $GITHUB_WORKSPACE/new-website-pre/
+          cd $GITHUB_WORKSPACE/asf-site/
           git rm -rf .
           cp -Rf $GITHUB_WORKSPACE/rocketmq-site/. .
           ls
