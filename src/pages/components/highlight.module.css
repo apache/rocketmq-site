@@ -6,6 +6,7 @@
 .featureContent {
     /* padding: var(--wdio-spacing-vertical) 1.535rem var(--wdio-spacing-vertical) calc(var(--ifm-spacing-horizontal) + 1.535rem)!important; */
     /* margin: -2rem 0 -5rem 0; */
+    text-align: center;
 }
 
 .featureContentReversed {
@@ -14,7 +15,6 @@
 
 .featureImage {
     height: 100%;
-    padding: var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important;
 }
 
 .featureImage iframe {
@@ -73,7 +73,7 @@
 
 .highlightsubtitle {
     text-align: center;
-    margin: 1vw 0 1rem 0;
+    /* margin: 1vw 0 1rem 0; */
 }
 
 .introimg {
@@ -83,9 +83,10 @@
   
 .row{
     text-align: center;
+    margin: 0 1.5em 0 0;
 }
 .container{
     text-align: center;
-    width: 120%;
+    /* width: 120%; */
     /* margin: var(--wdio-spacing-vertical) 0 15rem calc(var(--ifm-spacing-horizontal) + 1rem)!important; */
 }

@@ -284,8 +284,8 @@
   "金融级": {
     "message": "Finance Oriented"
   },
-  "支持金融级别的事务消息": {
-    "message": "Financial grade transactional message"
+  "金融级的稳定性，广泛用于交易核心链路": {
+    "message": "Financial-grade stability, widely used in transaction core links"
   },
   "架构极简": {
     "message": "Lightweight Model"
