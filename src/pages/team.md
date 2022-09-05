@@ -19,6 +19,7 @@ The following is a list of developers with commit privileges that have directly 
 |![wlliqipeng](/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |PMC Member| +8 |
 |![jinrongtong](/about/jinrongtong.jpg)|jinrongtong| [@RongtongJin](https://github.com/RongtongJin)|jinrongtong@apache.org|PMC Member| +8 |
 |![Aaron Ai](/about/aaronai.png)|Aaron Ai| [@aaron-ai](https://github.com/aaron-ai)|aaronai@apache.org|PMC Member| +8 |
+|![WangPing](/about/pingww.jpg)|WangPing| [@pingww](https://github.com/pingww)|pingww@apache.org|PMC Member| +8 |
 |![stevensche](/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
 |![shroman](/about/rshtykh.png)|shroman|[@shroman](https://github.com/shroman)|shroman@apache.org |Committer| +9 |
@@ -48,7 +49,6 @@ The following is a list of developers with commit privileges that have directly 
 |![zhangyang](/about/zhangyang.jpg)|zhangyang| [@Git-Yang](https://github.com/Git-Yang)|zhangyang@apache.org|Committer| +8 |
 |![panzhi33](/about/panzhi.jpg)|Pan Zhi| [@panzhi33](https://github.com/panzhi33)|panzhi33@apache.org|Committer| +8 |
 |![tianliuliu](/about/tianliuhe.png)|Liuhe Tian| [@tianliuliu](https://github.com/tianliuliu)|tianliuliu@apache.org|Committer| +8 |
-|![WangPing](/about/pingww.jpg)|WangPing| [@pingww](https://github.com/pingww)|pingww@apache.org|Committer| +8 |
 |![write2me](/about/write2me.jpeg)|Arthur Liang| [@speak2me](https://github.com/speak2me)|write2me@apache.org|Committer| +8 |
 |![caigy](/about/caigy.jpg)|caigy| [@caigy](https://github.com/caigy)|caigy@apache.org|Committer| +8 |
 |![cserwen](/about/cserwen.jpeg)|cserwen| [@cserwen](https://github.com/cserwen)|cserwen@apache.org|Committer| +8 |
