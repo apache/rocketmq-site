@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://your-docusaurus-test-site.com/blog</id>
     <title>RocketMQ Blog</title>
-    <updated>2022-09-05T14:42:43.119Z</updated>
+    <updated>2022-09-06T03:11:33.422Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://your-docusaurus-test-site.com/blog"/>
     <subtitle>RocketMQ Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[小红书消息中间件的运维实践与治理之路]]></title>
         <id>小红书消息中间件的运维实践与治理之路</id>
         <link href="https://your-docusaurus-test-site.com/blog/01xiaohongshu"/>
-        <updated>2022-09-05T14:42:43.119Z</updated>
+        <updated>2022-09-06T03:11:33.422Z</updated>
         <summary type="html"><![CDATA[小红书消息中间件的运维实践与治理之路]]></summary>
     </entry>
 </feed>
