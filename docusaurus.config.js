@@ -124,7 +124,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         '@docusaurus/plugin-client-redirects', {
           redirects: [
             {
-              from: '/downloading/releases',
+              from: '/dowloading/releases/',
               to: '/download'
             },
             {
