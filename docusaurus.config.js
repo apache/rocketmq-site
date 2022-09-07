@@ -120,6 +120,32 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           path: "./forth-blog",
         },
       ],
+      [
+        '@docusaurus/plugin-client-redirects', {
+          redirects: [
+            {
+              from: '/downloading/release',
+              to: '/download'
+            },
+            {
+              from: '/about/contact/',
+              to: '/contact'
+            },
+            {
+              from: '/docs/rmq-arc',
+              to: '/docs/介绍/03whatis'
+            },
+            {
+              from: '/docs/motivation/',
+              to: `/docs/`
+            },
+            {
+              from: '/docs/quickstart/',
+              to: `/docs/介绍/02quickstart`
+            }
+          ]
+        }
+      ]
     ],
 
     themeConfig:
