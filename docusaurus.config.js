@@ -124,24 +124,76 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         '@docusaurus/plugin-client-redirects', {
           redirects: [
             {
-              from: '/downloading/release',
+              from: '/downloading/releases',
               to: '/download'
+            },
+            {
+              from: '/year-archive/',
+              to: '/third-blog'
+            },
+            {
+              from: '/users/',
+              to: '/blog'
             },
             {
               from: '/about/contact/',
               to: '/contact'
             },
             {
+              from: '/about/origin/',
+              to: '/origin'
+            },
+            {
+              from: '/about/team/',
+              to: '/team'
+            },
+            {
+              from: '/about/rewards/',
+              to: '/forth-blog'
+            },
+            {
               from: '/docs/rmq-arc',
               to: '/docs/介绍/03whatis'
             },
             {
-              from: '/docs/motivation/',
-              to: `/docs/`
+              from: '/docs/rmq-deployment/',
+              to: '/docs/部署与运维/15deploy'
             },
             {
-              from: '/docs/quickstart/',
-              to: `/docs/介绍/02quickstart`
+              from: '/docs/motivation/',
+              to: '/docs/'
+            },
+            {
+              from: ['/docs/quickstart/', '/docs/quick-start'],
+              to: '/docs/介绍/02quickstart'
+            },
+            {
+              from: '/docs/how-to-contribute/',
+              to: '/docs/贡献指南/29how-to-contribute'
+            },
+            {
+              from: '/docs/code-guidelines/',
+              to: '/docs/贡献指南/30code-guidelines'
+            },
+            {
+              from: '/docs/pull-request/',
+              to: '/docs/贡献指南/31pull-request'
+            },
+            {
+              from: '/docs/release-manual',
+              to: '/docs/贡献指南/32release-manual'
+            },
+            {
+              from: '/docs/cli-admin-tool/',
+              to: '/docs/部署与运维/16admintool'
+            },
+            {
+              from: '/docs/faq/',
+              to: '/docs/最佳实践/22FAQ'
+            },
+            {
+              from: '/docs/system-config/',
+              to: '/docs/最佳实践/19JVMOS'
             }
           ]
         }
