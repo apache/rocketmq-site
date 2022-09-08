@@ -33,7 +33,7 @@ ACL客户端可以参考：**org.apache.rocketmq.example.simple**包下面的**A
 
 ## 3. 支持权限控制的集群部署
 在**distribution/conf/plain_acl.yml**配置文件中按照上述说明定义好权限属性后，打开**aclEnable**开关变量即可开启RocketMQ集群的ACL特性。这里贴出Broker端开启ACL特性的properties配置文件内容：
-```
+```properties
 brokerClusterName=DefaultCluster
 brokerName=broker-a
 brokerId=0
@@ -86,8 +86,9 @@ RocketMQ的权限控制存储的默认实现是基于yml配置文件。用户可
 
 该命令的示例如下：
 
-sh mqadmin updateAclConfig -n 192.168.1.2:9876 -b 192.168.12.134:10911 -a RocketMQ -s 1234567809123 
--t topicA=DENY,topicD=SUB -g groupD=DENY,groupB=SUB
+```shell
+$ sh mqadmin updateAclConfig -n 192.168.1.2:9876 -b 192.168.12.134:10911 -a RocketMQ -s 1234567809123 -t topicA=DENY,topicD=SUB -g groupD=DENY,groupB=SUB
+```
 
 说明：如果不存在则会在ACL Config YAML配置文件中创建；若存在，则会更新对应的“accounts”的属性值;
 如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
@@ -109,7 +110,9 @@ sh mqadmin updateAclConfig -n 192.168.1.2:9876 -b 192.168.12.134:10911 -a Rocket
 ### 7.2 删除ACL配置文件里面的对应“account”
 该命令的示例如下：
 
-sh mqadmin deleteAccessConfig -n 192.168.1.2:9876 -c DefaultCluster -a RocketMQ
+```shell
+$ sh mqadmin deleteAccessConfig -n 192.168.1.2:9876 -c DefaultCluster -a RocketMQ
+```
 
 说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
 其中，参数"a"为Access Key的值，用以标识唯一账户id，因此该命令的参数中指定账户id即可。
@@ -125,7 +128,9 @@ sh mqadmin deleteAccessConfig -n 192.168.1.2:9876 -c DefaultCluster -a RocketMQ
 ### 7.3 更新ACL配置文件里面中的全局白名单
 该命令的示例如下：
 
-sh mqadmin updateGlobalWhiteAddr -n 192.168.1.2:9876 -b 192.168.12.134:10911 -g 10.10.154.1,10.10.154.2
+```shell
+$ sh mqadmin updateGlobalWhiteAddr -n 192.168.1.2:9876 -b 192.168.12.134:10911 -g 10.10.154.1,10.10.154.2
+```
 
 说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
 其中，参数"g"为全局IP白名的值，用以更新ACL配置文件中的“globalWhiteRemoteAddresses”字段的属性值。
@@ -140,7 +145,9 @@ sh mqadmin updateGlobalWhiteAddr -n 192.168.1.2:9876 -b 192.168.12.134:10911 -g 
 ### 7.4 查询集群/Broker的ACL配置文件版本信息
 该命令的示例如下：
 
-sh mqadmin clusterAclConfigVersion -n 192.168.1.2:9876 -c DefaultCluster
+```shell
+$ sh mqadmin clusterAclConfigVersion -n 192.168.1.2:9876 -c DefaultCluster
+```
 
 说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
 
@@ -153,7 +160,9 @@ sh mqadmin clusterAclConfigVersion -n 192.168.1.2:9876 -c DefaultCluster
 ### 7.5 查询集群/Broker的ACL配置文件全部内容
 该命令的示例如下：
 
-sh mqadmin getAccessConfigSubCommand -n 192.168.1.2:9876 -c DefaultCluster
+```shell
+$ sh mqadmin getAccessConfigSubCommand -n 192.168.1.2:9876 -c DefaultCluster
+```
 
 说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
 
