@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[4861],{65815:e=>{e.exports=JSON.parse('{"permalink":"/en/third-blog/tags/rocket-mq","page":1,"postsPerPage":10,"totalPages":3,"totalCount":22,"nextPage":"/en/third-blog/tags/rocket-mq/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);
