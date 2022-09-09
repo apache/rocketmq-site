@@ -43,8 +43,24 @@
     "message": "Contribute",
     "description": "Navbar item with label 贡献团队"
   },
+  "item.label.项目起源": {
+    "message": "Origin",
+    "description": "Navbar item with label 项目起源"
+  },
   "item.label.贡献说明": {
     "message": "Contribute Instructions",
     "description": "Navbar item with label 贡献说明"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.4.x": {
+    "message": "4.x",
+    "description": "Navbar item with label 4.x"
+  },
+  "item.label.5.0": {
+    "message": "5.0",
+    "description": "Navbar item with label 5.0"
   }
 }
