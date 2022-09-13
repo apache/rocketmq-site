@@ -40,13 +40,13 @@
 ① 安装docker，拉取 ```rocketmq-dashboard``` 镜像
 
 ```shell
-docker pull apacherocketmq/rocketmq-dashboard:latest
+$ docker pull apacherocketmq/rocketmq-dashboard:latest
 ```
 
 ② docker 容器中运行 ```rocketmq-dashboard```
 
 ```shell
-docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
+$ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
 ```
 
 :::tip
@@ -69,13 +69,13 @@ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=12
 ① 编译 ```rocketmq-dashboard``` 
 
 ```shell
-mvn clean package -Dmaven.test.skip=true
+$ mvn clean package -Dmaven.test.skip=true
 ```
 
 ② 运行 ```rocketmq-dashboard```
 
 ```shell
-java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
+$ java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 ```
 
 提示：**Started App in x.xxx seconds (JVM running for x.xxx)** 启动成功
