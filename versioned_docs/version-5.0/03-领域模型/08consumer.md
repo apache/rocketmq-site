@@ -56,10 +56,8 @@
 
 * 接入点信息 **（必选）** ：连接服务端的接入地址，用于识别服务端集群。 接入点必须按格式配置，建议使用域名，避免使用IP地址，防止节点变更无法进行热点迁移。
   
-
 * 身份认证信息 **（可选）** ：客户端用于身份验证的凭证信息。 仅在服务端开启身份识别和认证时需要传输。
   
-
 * 请求超时时间 **（可选）** ：客户端网络请求调用的超时时间。取值范围和默认值，请参见[参数限制](../01-基础介绍/03limits.md)。
 
 
@@ -126,29 +124,27 @@ Apache RocketMQ 的消费者是可以重复利用的底层资源，类似数据�
 
   ```java
   Consumer c = ConsumerBuilder.build();
-    for (int i =0;i<n;i++)
-      {
+  for (int i =0;i<n;i++){
         Message m= c.receive();
         //process message
       }
   c.shutdown();
   ```
-
   
-
+  
+  
 * 典型错误示例
 
   ```java
-  for (int i =0;i<n;i++)
-    {
+  for (int i =0;i<n;i++){
       Consumer c = ConsumerBuilder.build();
       Message m= c.receive();
       //process message
       c.shutdown();
     }
   ```
-
   
+
 
 
 
