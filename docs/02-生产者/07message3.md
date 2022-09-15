@@ -25,7 +25,7 @@ Apache RocketMQ 一共支持18个等级的延迟投递，具体时间如下：
 ## 延时消息示例代码
 延迟消息的示例代码如下：
 
-```javascript {10,11}
+```java
 public class ScheduledMessageProducer {
     public static void main(String[] args) throws Exception {
         // Instantiate a producer to send scheduled messages

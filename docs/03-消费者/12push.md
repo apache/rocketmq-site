@@ -2,7 +2,7 @@
 
 RocketMQ Push消费的示例代码如下
 
-```javascript
+```java
 public class Consumer {
   public static void main(String[] args) throws InterruptedException, MQClientException {
     // 初始化consumer，并设置consumer group name
@@ -31,7 +31,7 @@ public class Consumer {
 首先需要初始化消费者，初始化消费者时，必须填写ConsumerGroupName，同一个消费组的ConsumerGroupName是相同的，这是判断消费者是否属于同一个消费组的重要属性。然后是设置NameServer地址，这里与Producer一样不再介绍。然后是调用subscribe方法订阅Topic，subscribe方法需要指定需要订阅的Topic名，也可以增加消息过滤的条件，比如TagA等，上述代码中指定*表示接收所有tag的消息。除了订阅之外，还需要注册回调接口编写消费逻辑来处理从Broker中收到的消息，调用registerMessageListener方法，需要传入MessageListener的实现，上述代码中是并发消费，因此是MessageListenerConcurrently的实现，其接口如下
 
 :::note  MessageListenerConcurrently 接口
-```javascript 
+```java
 /**
  * A MessageListenerConcurrently object is used to receive asynchronously delivered messages concurrently
  */
@@ -73,7 +73,7 @@ consumer.setMessageModel(MessageModel.BROADCASTING);
 
 因此RocketMQ提供了顺序消费的方式， 顺序消费设置与并发消费API层面只有一处不同，在注册消费回调接口时传入MessageListenerOrderly接口的实现。
 
-```javascript
+```java
 consumer.registerMessageListener(new MessageListenerOrderly() {
             AtomicLong consumeTimes = new AtomicLong(0);
             @Override

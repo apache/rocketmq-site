@@ -34,8 +34,8 @@ rocketmq-expoter 项目启动后，会获取 rocketmq 的各项 metrics 收集�
 
 浏览器通过访问 ip:5557/metrics，会调用 RMQMetricsController 类下的 metrics 方法，其中 ip 为 rocketmq-expoter 项目运行的主机 ip
 
-```javascript
-    private void metrics(HttpServletResponse response) throws IOException {
+```java
+private void metrics(HttpServletResponse response) throws IOException {
     StringWriter writer = new StringWriter();
     metricsService.metrics(writer);
     response.setHeader("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
@@ -64,7 +64,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 1. 首先初始化TopicList对象，通过mqAdminExt.fetchAllTopicList()方法获取到集群的所有topic信息。
 
 
-```javascript
+```java
     TopicList topicList = null;
     try {  topicList = mqAdminExt.fetchAllTopicList();
 } catch (Exception ex) {
@@ -76,7 +76,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 2. 将 topic 加入到 topicSet 中，循环遍历每一个 topic，通过 mqAdminExt.examineTopicStats(topic)函数来检查 topic 状态。
 
-```javascript
+```java
     Set < String > topicSet = topicList != null ? topicList.getTopicList() : null;
  for (String topic: topicSet) {
      TopicStatsTable topicStats = null;
@@ -91,7 +91,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 3. 初始化 topic 状态 set，用于用于按 broker 划分的 topic 信息位点的 hash 表 brokerOffsetMap，以及一个用于按 broker 名字为 key 的用于存储更新时间戳的 hash 表 brokerUpdateTimestampMap。
 
-```javascript
+```java
         Set<Map.Entry<MessageQueue, TopicOffset>> topicStatusEntries = topicStats.getOffsetTable().entrySet();
         HashMap<String, Long> brokerOffsetMap = new HashMap<>();
         HashMap<String, Long> brokerUpdateTimestampMap = new HashMap<>();
@@ -117,7 +117,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 4. 最后通过遍历 brokerOffsetMap 中的每一项，通过调用 metricsService 获取到 metricCollector 对象，调用 RMQMetricsCollector 类中的 addTopicOffsetMetric 方法，将相应的值添加到 RMQMetricsCollector 类中 87 个指标对应的其中一个指标的 cache 中。
 
-```javascript
+```java
  Set<Map.Entry<String, Long>> brokerOffsetEntries = brokerOffsetMap.entrySet();
         for (Map.Entry<String, Long> brokerOffsetEntry : brokerOffsetEntries) {
             metricsService.getCollector().addTopicOffsetMetric(clusterName, brokerOffsetEntry.getKey(), topic,

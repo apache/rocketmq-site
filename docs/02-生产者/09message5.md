@@ -46,7 +46,7 @@
 
 示例代码如下：
 
-```javascript {39}
+```java
 public class TransactionProducer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
         TransactionListener transactionListener = new TransactionListenerImpl();
@@ -125,7 +125,7 @@ public class TransactionProducer {
 
 TransactionListener接口的定义如下：
 
-````javascript {9,18}
+````java
 public interface TransactionListener {
     /**
      * When send transactional prepare(half) message succeed, this method will be invoked to execute local transaction.
