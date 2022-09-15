@@ -1,6 +1,6 @@
 # Pull Consume
 
-There are two kinds of Pull methods in RocketMQ. One is the more primitive `Pull Consumer`, which does not provide related subscription methods, but specifies the queue to pull when calling the pull method, and needs to update the offset itself. The other is the `Lite Pull Consumer`, which provides two ways to Subscribe and Assign, and is more convenient to use.
+There are two kinds of Pull methods in RocketMQ. `Pull Consumer` is the more primitive one, which does not provide related subscription methods, The queue should be specified to pull while calling the pull method, and it needs to update the offset itself. The other one is the `Lite Pull Consumer`, which provides Subscribe and Assign mode, making it more convenient to use.
 
 ## Pull Consumer
 
@@ -31,13 +31,13 @@ public class PullConsumerTest {
 }
 ```
 
-First, it needs to be initialized `DefaultMQPullConsumer` and started, then it constructs the queue to be pulled `MessageQueue`, besides constructing it, it can also call the `fetchSubscribeMessageQueues` method as shown below to get all the queues of a certain Topic and then pick the queue to be pulled.
+First, the `DefaultMQPullConsumer` should be initialized and started, then constructs the queue `MessageQueue` to be pulled. Besides constructing it, `fetchSubscribeMessageQueues` method can also be called as shown below to get all the queues of a certain Topic and pull from the selected queue.
 
 ```java
 Set<MessageQueue> queueSet =  consumer.fetchSubscribeMessageQueues("TopicTest");
 ```
 
-After finding or constructing the queue, call the pull method to perform the pull, and pass in the parameters such as the queue to be pulled, the filter expression, the offset to be pulled, and the maximum number of messages to be pulled. The `PullResult` will be returned after the pull is completed, and the PullStatus in the PullResult indicates the result status, as shown below:
+After finding or constructing the queue, call the pull method to start pulling. The parameters such as the queue to be pulled, the filter expression, the offset to be pulled, and the maximum number of messages to be pulled should be passed in it. The `PullResult` will be returned after the operation is completed, and the PullStatus in the PullResult indicates the result status, as shown below:
 
 ```javascript
 public enum PullStatus {
@@ -64,7 +64,7 @@ FOUND means the message was pulled, NO_NEW_MSG means no new message was found, N
 
 ## Lite Pull Consumer
 
-Lite Pull Consumer is a Pull Consumer introduced in RocketMQ 4.6.0, which is simpler to use than the original Pull Consumer and provides two modes, Subscribe and Assign. The Subscribe pattern example is as follows:
+Lite Pull Consumer is a Pull Consumer introduced in RocketMQ 4.6.0, which is simpler to use than the original Pull Consumer and provides two modes, Subscribe and Assign. The Subscribe mode example is as follows:
 
 ```javascript
 public class LitePullConsumerSubscribe {
@@ -86,9 +86,9 @@ public class LitePullConsumerSubscribe {
 }
 ```
 
-First of all, initialize `DefaultLitePullConsumer` and set `ConsumerGroupName`, call subscribe method to subscribe to the topic and start it. Unlike Push Consumer, `LitePullConsumer` pulls messages by polling the poll interface and returns the corresponding message list if it can pull the message, otherwise it returns null. The maximum number of messages per pull can be set with `setPullBatchSize`, and `LitePullConsumer` automatically commits the bit by default if not set additionally. In subscribe mode, multiple ` LitePullConsumer` under the same consumer group are load-balanced for consumption, consistent with PushConsumer.
+First of all, initialize `DefaultLitePullConsumer` and set `ConsumerGroupName`. Call the subscribe method afterward to subscribe to a topic and start it. Unlike the Push Consumer, `LitePullConsumer` pulls messages by the poll interface and returns the corresponding message list if it can pull the message, otherwise, it returns null. The maximum number of messages per pull can be set with `setPullBatchSize`, and the `LitePullConsumer` will automatically commits the offset by default. In the Subscribe mode, multiple `LitePullConsumer` under the same consumer group are load-balanced for consumption, consistent with the PushConsumer.
 
-The following is an example of the Assign pattern:
+The following is an example of the Assign mode:
 
 ```javascript
 public class LitePullConsumerAssign {
