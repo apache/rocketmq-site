@@ -26,7 +26,7 @@
 * 获得其他 committer 签名的密钥 ( 可选 )
 * 将生成的密钥添加到[DEV KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) 和 [RELEASE KEYS file](https://dist.apache.org/repos/dist/release/rocketmq/KEYS)
 
-:::tips 注意
+:::tip 注意
 DEV SVN 仓库可以由 Release Manager 自行添加，Release SVN 仓库需要 PMC 权限，可以由 PMC 协助将 KEY 进行上传。
 :::
 
@@ -491,7 +491,7 @@ RocketMQ 社区通过 **dev@rocketmq.apache.org** 邮件列表进行版本选举
 
 若投票未通过, 修复 issues, 回滚, 增加 RC 的编号，重新启动版本发布流程，重新发起版本投票流程
 
-更新邮件主题：**[RESTART][VOTE][#\]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>**
+更新邮件主题：**[RESTART][VOTE] Release Apache RocketMQ <release-version> RC<RC Number>**
 
 
 ## 7. 版本发布
@@ -500,7 +500,7 @@ RocketMQ 社区通过 **dev@rocketmq.apache.org** 邮件列表进行版本选举
 
 1. 发布到 Nexus 仓库, 选择暂存区的  **orgapacherocketmq-XXX** 点击 `Release` 图标发布
 2. 发布到 Apache 版本仓库, 使用 SVN 拷贝版本至 [/release/rocketmq](https://dist.apache.org/repos/dist/release/rocketmq/)
-:::tips 注意
+:::tip 注意
 Release SVN 仓库需要 PMC 权限，若没有权限，可以由 PMC 协助将 KEY 进行上传。
 :::
 3. 合并 [Apache RocketMQ](https://github.com/apache/rocketmq) ```develop``` 分支至 ```master``` 分支
