@@ -158,6 +158,6 @@ public interface TransactionListener {
 
 :::caution
 
-此外，需要注意的是事务消息的生产组名称 ProducerGroupName不能随意设置。事务消息有回查机制，回查时Broker端如果发现原始生产者已经崩溃崩溃，则会联系同一生产者组的其他生产者实例回查本地事务执行情况以Commit或Rollback半事务消息。
+此外，需要注意的是事务消息的生产组名称 ProducerGroupName不能随意设置。事务消息有回查机制，回查时Broker端如果发现原始生产者已经崩溃，则会联系同一生产者组的其他生产者实例回查本地事务执行情况以Commit或Rollback半事务消息。
 
 :::
