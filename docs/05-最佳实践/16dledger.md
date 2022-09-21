@@ -80,7 +80,7 @@ RocketMQ-on-DLedger Group 是可以水平扩展的，也即可以部署任意多
 
 这里贴出 conf/dledger/broker-n0.conf 的配置举例。  
 
-```
+```properties
 brokerClusterName = RaftCluster
 brokerName=RaftNode00
 listenPort=30911

@@ -9,7 +9,7 @@ RocketMQ 部署安装包默认开启了 **autoCreateTopicEnable** 配置，会�
 **生产环境强烈建议管理所有主题的生命周期，关闭自动创建参数**，以避免生产集群出现大量无效主题，无法管理和回收，造成集群注册压力增大，影响生产集群的稳定性。
 
 ```shell
-> sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -n 127.0.0.1:9876
+$ sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -n 127.0.0.1:9876
 create topic to 127.0.0.1:10911 success.
 TopicConfig [topicName=TopicTest, readQueueNums=8, writeQueueNums=8, perm=RW-, topicFilterType=SINGLE_TAG, topicSysFlag=0, order=false, attributes=null]
 ```
@@ -61,7 +61,7 @@ Apache RocketMQ可用于以三种方式发送消息：**同步、异步和单向
 2. **设置 NameServer 的地址**。Apache RocketMQ很多方式设置NameServer地址(客户端配置中有介绍)，这里是在代码中调用producer的API setNamesrvAddr进行设置，如果有多个NameServer，中间以分号隔开，比如"127.0.0.2:9876;127.0.0.3:9876"。 
 3. **第三步是构建消息**。指定topic、tag、body等信息，tag可以理解成标签，对消息进行再归类，RocketMQ可以在消费端对tag进行过滤。
 4. **最后调用send接口将消息发送出去**。同步发送等待结果最后返回SendResult，SendResut包含实际发送状态还包括SEND_OK（发送成功）, FLUSH_DISK_TIMEOUT（刷盘超时）, FLUSH_SLAVE_TIMEOUT（同步到备超时）, SLAVE_NOT_AVAILABLE（备不可用），如果发送失败会抛出异常。
-``` javascript {16,15}
+``` java
 public class SyncProducer {
   public static void main(String[] args) throws Exception {
     // 初始化一个producer并设置Producer group name
@@ -104,7 +104,7 @@ public class SyncProducer {
 
 如下是示例代码。
 
-``` javascript {16,17}
+``` java
 public class AsyncProducer {
   public static void main(String[] args) throws Exception {
     // 初始化一个producer并设置Producer group name
@@ -151,7 +151,7 @@ public class AsyncProducer {
 
 发送方只负责发送消息，不等待服务端返回响应且没有回调函数触发，即只发送请求不等待应答。此方式发送消息的过程耗时非常短，一般在微秒级别。适用于某些耗时非常短，但对可靠性要求并不高的场景，例如日志收集。
 
-``` javascript {16}
+``` java
 public class OnewayProducer {
   public static void main(String[] args) throws Exception{
     // 初始化一个producer并设置Producer group name
