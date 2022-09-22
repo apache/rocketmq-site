@@ -17,18 +17,18 @@ import TabItem from '@theme/TabItem';
   <TabItem value="Producer" label="生产者" default>
    The producer is responsible for producing messages, and the business system is generally responsible for producing messages. A producer sends messages generated in the business application system to the broker server.RocketMQ provides a variety of sending methods, synchronous sending, asynchronous sending, sequential sending, and one-way sending.
 
-learn more  ➡️ [Producer](/docs/生产者/04concept1)
+learn more  ➡️ [Producer](../02-生产者/04concept1.md)
   </TabItem>
   <TabItem value="Consumer" label="消费者">
    Aims to consume messages, which are generally responsible by the backend system (asynchronous consumption). A message consumer pulls messages from the Broker server and serves them to the application. From the perspective of user applications, two consumption methods are provided: pull consumption and push consumption.
 
-learn more  ➡️ [Consumer](/docs/消费者/11concept2)
+learn more  ➡️ [Consumer](../03-消费者/11concept2.md)
 
   </TabItem>
   <TabItem value="Topic" label="主题">
   RocketMQ's fundamental unit of event organization is called Topic. Each Topic contains several messages, and each message can only belong to one topic.
 
-learn more  ➡️ [basic concept](/docs/生产者/04concept1)
+learn more  ➡️ [basic concept](../02-生产者/04concept1.md)
 
   </TabItem>
 </Tabs>
