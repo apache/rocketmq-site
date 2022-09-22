@@ -122,7 +122,7 @@ If the number of retries exceeds 16, the interval of each subsequent retry is 2 
 For push consumers, a message retry is triggered only by the status code of consumption failure. Unexpected exceptions are also captured by the SDK.
 
 ```java
-SimpleConsumer simpleConsumer = null;
+        SimpleConsumer simpleConsumer = null;
         // Consumption example: Consume normal messages as a push consumer and trigger a message retry by using a consumption failure. 
         MessageListener messageListener = new MessageListener() {
             @Override

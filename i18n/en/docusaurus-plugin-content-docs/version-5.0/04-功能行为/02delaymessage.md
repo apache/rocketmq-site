@@ -99,9 +99,9 @@ The following code provides Java examples of delivery and consumption of delay m
 ```java
         // Send delay messages.
         MessageBuilder messageBuilder = null;
-                // Specify a millisecond-level Unix timestamp. In this example, the specified timestamp indicates that the message will be delivered in 10 minutes from the current time. 
-                Long deliverTimeStamp = System.currentTimeMillis() + 10L * 60 * 1000;
-                Message message = messageBuilder.setTopic("topic")
+        // Specify a millisecond-level Unix timestamp. In this example, the specified timestamp indicates that the message will be delivered in 10 minutes from the current time. 
+        Long deliverTimeStamp = System.currentTimeMillis() + 10L * 60 * 1000;
+        Message message = messageBuilder.setTopic("topic")
                 // Specify the message index key. The system uses the key to locate the message. 
                 .setKeys("messageKey")
                 // Specify the message tag. The consumer can use the tag to filter messages. 
@@ -110,39 +110,40 @@ The following code provides Java examples of delivery and consumption of delay m
                 // Configure the message body.
                 .setBody("messageBody".getBytes())
                 .build();
-                try {
-                // Send the messages. Focus on the result of message sending and exceptions such as failures. 
-                SendReceipt sendReceipt = producer.send(message);
-                System.out.println(sendReceipt.getMessageId());
-                } catch (ClientException e) {
-                e.printStackTrace();
-                }
-                // Consumption example 1: If a scheduled message is consumed by a push consumer, the consumer needs to process the message only in the message listener. 
-                MessageListener messageListener = new MessageListener() {
-@Override
-public ConsumeResult consume(MessageView messageView) {
-        System.out.println(messageView.getDeliveryTimestamp());
-        // Return the status based on the consumption result. 
-        return ConsumeResult.SUCCESS;
+        try {
+            // Send the messages. Focus on the result of message sending and exceptions such as failures. 
+            SendReceipt sendReceipt = producer.send(message);
+            System.out.println(sendReceipt.getMessageId());
+        } catch (ClientException e) {
+            e.printStackTrace();
         }
+        // Consumption example 1: If a scheduled message is consumed by a push consumer, the consumer needs to process the message only in the message listener. 
+        MessageListener messageListener = new MessageListener() {
+            @Override
+            public ConsumeResult consume(MessageView messageView) {
+                System.out.println(messageView.getDeliveryTimestamp());
+                // Return the status based on the consumption result. 
+                return ConsumeResult.SUCCESS;
+            }
         };
         // Consumption example 2: If a scheduled message is consumed by a simple consumer, the consumer must obtain the message for consumption and submit the consumption result. 
         List<MessageView> messageViewList = null;
         try {
-        messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
-        messageViewList.forEach(messageView -> {
-        System.out.println(messageView);
-        // After consumption is complete, the consumer must invoke ACK to submit the consumption result. 
-        try {
-        simpleConsumer.ack(messageView);
+            messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
+            messageViewList.forEach(messageView -> {
+                System.out.println(messageView);
+                // After consumption is complete, the consumer must invoke ACK to submit the consumption result. 
+                try {
+                    simpleConsumer.ack(messageView);
+                } catch (ClientException e) {
+                    e.printStackTrace();
+                }
+            });
         } catch (ClientException e) {
-        e.printStackTrace();
+            // If the pull fails due to system traffic throttling or other reasons, you must re-initiate the request to obtain the message. 
+            e.printStackTrace();
         }
-        });
-        } catch (ClientException e) {
-        // If the pull fails due to system traffic throttling or other reasons, you must re-initiate the request to obtain the message. 
-        e.printStackTrace();
-        }
+    }
 ```
 
 

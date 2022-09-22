@@ -92,7 +92,7 @@ Since messages in a queue are discretely allocated to consumers, message-based l
 Consumers do not need to perform extra configurations for message-based load balancing. By default, this policy is enabled for push consumers and simple consumers.
 
 ```java
-SimpleConsumer simpleConsumer = null;
+        SimpleConsumer simpleConsumer = null;
         // Consumption example 1: When push consumers consume normal messages, they need only to process messages on a message listener and do not need to consider load balancing. 
         MessageListener messageListener = new MessageListener() {
             @Override
@@ -119,7 +119,6 @@ SimpleConsumer simpleConsumer = null;
             // If the pull fails due to system traffic throttling or other reasons, consumers must re-initiate the request to obtain the message. 
             e.printStackTrace();
         }
-            
 ```
 
 

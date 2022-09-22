@@ -101,13 +101,13 @@ The producers of Apache RocketMQ are underlying resources that can be reused, li
 * Example of correct usage
 
   ```java
-  Producer p = ProducerBuilder.build();
+    Producer p = ProducerBuilder.build();
     for (int i =0;i<n;i++)
-      {
-        Message m= MessageBuilder.build();
-        p.send(m);
-      }
-  p.shutdown();
+    {
+      Message m= MessageBuilder.build();
+      p.send(m);
+    }
+    p.shutdown();
   ```
 
   
@@ -115,7 +115,7 @@ The producers of Apache RocketMQ are underlying resources that can be reused, li
 * Example of incorrect usage
 
   ```java
-  for (int i =0;i<n;i++)
+    for (int i =0;i<n;i++)
     {
       Producer p = ProducerBuilder.build();
       Message m= MessageBuilder.build();

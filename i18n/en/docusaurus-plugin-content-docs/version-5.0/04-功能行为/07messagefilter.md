@@ -43,7 +43,7 @@ For more information about how to use the filtering methods, see [Tag-based filt
 
 ## Subscription consistency
 
-Filter expressions are part of a subscription. According to the publish-subscribe pattern of Apache RocketMQ, the subscription of one consumer must be consistent with that of another within a consumer group, including their filter expressions, to avoid situations where some messages cannot be consumed. For more information, see [Subscriptions](t2217225.md#concept-2217225).
+Filter expressions are part of a subscription. According to the publish-subscribe pattern of Apache RocketMQ, the subscription of one consumer must be consistent with that of another within a consumer group, including their filter expressions, to avoid situations where some messages cannot be consumed. For more information, see [Subscriptions](../03-领域模型/09subscription.md).
 
 ## Tag-based filtering
 

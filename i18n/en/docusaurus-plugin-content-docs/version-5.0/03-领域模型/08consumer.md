@@ -116,11 +116,11 @@ The consumers of Apache RocketMQ are underlying resources that can be reused, li
 
   ```java
   Consumer c = ConsumerBuilder.build();
-    for (int i =0;i<n;i++)
-      {
-        Message m= c.receive();
-        //process message
-      }
+  for (int i =0;i<n;i++)
+  {
+    Message m= c.receive();
+    //process message
+  }
   c.shutdown();
   ```
 
@@ -130,12 +130,12 @@ The consumers of Apache RocketMQ are underlying resources that can be reused, li
 
   ```java
   for (int i =0;i<n;i++)
-    {
-      Consumer c = ConsumerBuilder.build();
-      Message m= c.receive();
-      //process message
-      c.shutdown();
-    }
+  {
+    Consumer c = ConsumerBuilder.build();
+    Message m= c.receive();
+    //process message
+    c.shutdown();
+  }
   ```
 
   

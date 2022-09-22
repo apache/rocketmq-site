@@ -48,48 +48,48 @@ Normal messages support only topics whose MessageType is Normal.
 You can set index keys and filter tags to filter or search for normal messages. The following sample code shows how to send and receive normal messages in Java:
 ```java
 // Send a normal message. 
-MessageBuilder messageBuilder = new MessageBuilder();
-Message message = messageBuilder.setTopic("topic")
-    // Specify the message index key so that you can accurately search for the message by using a keyword. 
-    .setKeys("messageKey")
-    // Specify the message tag so that the consumer can filter the message based on the specified tag. 
-    .setTag("messageTag")
-    // Message body. 
-    .setBody("messageBody".getBytes())
-    .build();
-try {
+  MessageBuilder messageBuilder = new MessageBuilder();
+  Message message = messageBuilder.setTopic("topic")
+  // Specify the message index key so that you can accurately search for the message by using a keyword.
+  .setKeys("messageKey")
+  // Specify the message tag so that the consumer can filter the message based on the specified tag.
+  .setTag("messageTag")
+  // Message body. 
+  .setBody("messageBody".getBytes())
+  .build();
+  try {
     // Send the message. You need to pay attention to the sending result and capture exceptions such as failures. 
     SendReceipt sendReceipt = producer.send(message);
     System.out.println(sendReceipt.getMessageId());
-} catch (ClientException e) {
-    e.printStackTrace();
-}
-// Consumption example 1: When you consume a normal message as a push consumer, you need only to process the message in the message listener. 
-MessageListener messageListener = new MessageListener() {
-    @Override
-    public ConsumeResult consume(MessageView messageView) {
-        System.out.println(messageView);
-        // Return the status based on the consumption result. 
-        return ConsumeResult.SUCCESS;
-    }
-};
-// Consumption example 2: When you consume a normal message as a simple consumer, you must obtain and consume the message, and submit the consumption result. 
-List<MessageView> messageViewList = null;
-try {
-    messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
-    messageViewList.forEach(messageView -> {
-        System.out.println(messageView);
-        // After consumption is complete, you must invoke ACK to submit the consumption result. 
-        try {
-            simpleConsumer.ack(messageView);
-        } catch (ClientException e) {
-            e.printStackTrace();
-        }
-    });
-} catch (ClientException e) {
-    // If the pull fails due to system traffic throttling or other reasons, you must re-initiate the request to obtain the message. 
-    e.printStackTrace();
-}
+  } catch (ClientException e) {
+      e.printStackTrace();
+  }
+  // Consumption example 1: When you consume a normal message as a push consumer, you need only to process the message in the message listener. 
+  MessageListener messageListener = new MessageListener() {
+      @Override
+      public ConsumeResult consume(MessageView messageView) {
+          System.out.println(messageView);
+          // Return the status based on the consumption result. 
+          return ConsumeResult.SUCCESS;
+      }
+  };
+  // Consumption example 2: When you consume a normal message as a simple consumer, you must obtain and consume the message, and submit the consumption result. 
+  List<MessageView> messageViewList = null;
+  try {
+      messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
+      messageViewList.forEach(messageView -> {
+          System.out.println(messageView);
+          // After consumption is complete, you must invoke ACK to submit the consumption result. 
+          try {
+              simpleConsumer.ack(messageView);
+          } catch (ClientException e) {
+              e.printStackTrace();
+          }
+      });
+      } catch (ClientException e) {
+      // If the pull fails due to system traffic throttling or other reasons, you must re-initiate the request to obtain the message. 
+      e.printStackTrace();
+  }
 ```
 
 
