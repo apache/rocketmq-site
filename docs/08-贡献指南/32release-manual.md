@@ -496,7 +496,7 @@ RocketMQ 社区通过 **dev@rocketmq.apache.org** 邮件列表进行版本选举
 
 若投票未通过, 修复 issues, 回滚, 增加 RC 的编号，重新启动版本发布流程，重新发起版本投票流程
 
-更新邮件主题：**[RESTART][VOTE] Release Apache RocketMQ <release-version> RC<RC Number>**
+更新邮件主题：**[RESTART][VOTE][#\]: Release Apache RocketMQ \<release-version\> RC\<RC Number\>**
 
 
 ## 7. 版本发布
