@@ -143,5 +143,3 @@ $ java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 
 ![1657550592049](../picture/17Dashboard/9_sendResult.png)
 
-更多操作详情： [阿里云知行动手实验室-在浏览器沉浸式学习最新云原生技术 (aliyun.com)](https://start.aliyun.com/?accounttraceid=8fda44777a19460a925d871eb408e704qoln) 
-

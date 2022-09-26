@@ -40,15 +40,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             // Please change this to your repo.
             editUrl:
               "https://github.com/apache/rocketmq-site/tree/new-official-website",
-              lastVersion: 'current',
+              lastVersion: '5.0',
               versions: {
                 current: {
                   label: '4.x',
-                  path: '',
+                  path: '/4.x',
+                  banner: 'none'
                 },
                 '5.0': {
-                  label: '5.0',
-                  banner: 'unreleased'
+                  label: '5.0'
                 }
 },
           },
@@ -124,24 +124,80 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         '@docusaurus/plugin-client-redirects', {
           redirects: [
             {
-              from: '/downloading/release',
+              from: '/dowloading/releases/',
               to: '/download'
+            },
+            {
+              from: '/year-archive/',
+              to: '/third-blog'
+            },
+            {
+              from: '/users/',
+              to: '/blog'
             },
             {
               from: '/about/contact/',
               to: '/contact'
             },
             {
+              from: '/about/origin/',
+              to: '/origin'
+            },
+            {
+              from: '/about/team/',
+              to: '/team'
+            },
+            {
+              from: '/about/rewards/',
+              to: '/forth-blog'
+            },
+            {
               from: '/docs/rmq-arc',
-              to: '/docs/介绍/03whatis'
+              to: '/docs/领域模型/01main'
+            },
+            {
+              from: '/docs/rmq-deployment/',
+              to: '/docs/部署与运维/15deploy'
             },
             {
               from: '/docs/motivation/',
-              to: `/docs/`
+              to: '/docs/'
+            },
+            {
+              from: ['/docs/quickstart/', '/docs/quick-start'],
+              to: '/docs/介绍/02quickstart'
+            },
+            {
+              from: '/docs/how-to-contribute/',
+              to: '/docs/贡献指南/29how-to-contribute'
+            },
+            {
+              from: '/docs/code-guidelines/',
+              to: '/docs/贡献指南/30code-guidelines'
+            },
+            {
+              from: '/docs/pull-request/',
+              to: '/docs/贡献指南/31pull-request'
+            },
+            {
+              from: '/docs/release-manual',
+              to: '/docs/贡献指南/32release-manual'
+            },
+            {
+              from: '/docs/cli-admin-tool/',
+              to: '/docs/部署与运维/16admintool'
+            },
+            {
+              from: '/docs/system-config',
+              to: '/docs/最佳实践/19JVMOS'
+            },
+            {
+              from: '/docs/faq/',
+              to: '/docs/最佳实践/22FAQ'
             },
             {
               from: '/docs/quickstart/',
-              to: `/docs/介绍/02quickstart`
+              to: `/docs/快速入门/02quickstart`
             }
           ]
         }
@@ -198,8 +254,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               position: "right",
               items: [
                 // { to: "/info", label: "项目信息" },
-                { to: "/docs/", label: "4.x" },
-                { to: "/docs/5.0/", label: "5.0" },
+                { to: "/docs/", label: "5.0" },
+                { to: "/docs/4.x/", label: "4.x" },
                 
                 // ... more items
               ],
@@ -298,11 +354,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               items: [
                 {
                   label: 'Introduction',
-                  to: '/docs/介绍/03whatis',
+                  to: '/docs/领域模型/01main',
                 },
                 {
                   label: 'Installation',
-                  to: '/docs/介绍/02quickstart',
+                  to: '/docs/快速入门/02quickstart',
                 },
                 {
                   label: 'Migration from 4.x to 5.0',

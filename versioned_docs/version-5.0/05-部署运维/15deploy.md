@@ -274,3 +274,4 @@ $ nohup sh bin/mqproxy -n 192.168.1.1:9876 &
 ### 自定义配置文件
 $ nohup sh bin/mqproxy -n 192.168.1.1:9876 -pc /path/to/proxyConfig.json &
 ```
+

@@ -6,7 +6,7 @@
 
 Pull Consumer示例如下
 
-```javascript
+```java
 public class PullConsumerTest {
   public static void main(String[] args) throws MQClientException {
     DefaultMQPullConsumer consumer = new DefaultMQPullConsumer("please_rename_unique_group_name_5");
@@ -39,7 +39,7 @@ Set<MessageQueue> queueSet =  consumer.fetchSubscribeMessageQueues("TopicTest");
 
 找到或者构造完队列之后，调用pull方法就可以进行拉取，需要传入拉取的队列，过滤表达式，拉取的位点，最大拉取消息条数等参数。拉取完成后会返回拉取结果`PullResult`，PullResult中的PullStatus表示结果状态，如下所示
 
-```javascript
+```java
 public enum PullStatus {
     /**
      * Founded
@@ -66,7 +66,7 @@ FOUND表示拉取到消息，NO_NEW_MSG表示没有发现新消息，NO_MATCHED_
 
 Lite Pull Consumer是RocketMQ 4.6.0推出的Pull Consumer，相比于原始的Pull Consumer更加简单易用，它提供了Subscribe和Assign两种模式，Subscribe模式示例如下
 
-```javascript
+```java
 public class LitePullConsumerSubscribe {
     public static volatile boolean running = true;
     public static void main(String[] args) throws Exception {
@@ -89,7 +89,7 @@ public class LitePullConsumerSubscribe {
 首先还是初始化`DefaultLitePullConsumer`并设置`ConsumerGroupName`，调用subscribe方法订阅topic并启动。与Push Consumer不同的是，`LitePullConsumer`拉取消息调用的是轮询poll接口，如果能拉取到消息则返回对应的消息列表，否则返回null。通过`setPullBatchSize`可以设置每一次拉取的最大消息数量，此外如果不额外设置，`LitePullConsumer`默认是自动提交位点。在subscribe模式下，同一个消费组下的多个`LitePullConsumer`会负载均衡消费，与PushConsumer一致。
 
 如下是Assign模式的示例
-```javascript
+```java
 public class LitePullConsumerAssign {
     public static volatile boolean running = true;
     public static void main(String[] args) throws Exception {

@@ -4,7 +4,7 @@
 
 ![batch](../picture/batch.png)
 
-```javascript {10,11,12,13}
+```java
 public class SimpleBatchProducer {
 
     public static void main(String[] args) throws Exception {

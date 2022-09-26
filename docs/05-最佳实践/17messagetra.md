@@ -12,7 +12,7 @@
 
 ### 2.1 Broker端配置文件
 这里贴出Broker端开启消息轨迹特性的properties配置文件内容：
-```
+```properties
 brokerClusterName=DefaultCluster
 brokerName=broker-a
 brokerId=0
@@ -52,7 +52,7 @@ RocketMQ的消息轨迹特性支持两种存储轨迹数据的方式：
 为了尽可能地减少用户业务系统使用RocketMQ消息轨迹特性的改造工作量，作者在设计时候采用对原来接口增加一个开关参数(**enableMsgTrace**)来实现消息轨迹是否开启；并新增一个自定义参数(**customizedTraceTopic**)来实现用户存储消息轨迹数据至自己创建的用户级Topic。
 
 ### 4.1 发送消息时开启消息轨迹
-```
+```java
         DefaultMQProducer producer = new DefaultMQProducer("ProducerGroupName",true);
         producer.setNamesrvAddr("XX.XX.XX.XX1");
         producer.start();
@@ -72,7 +72,7 @@ RocketMQ的消息轨迹特性支持两种存储轨迹数据的方式：
 ```
 
 ### 4.2 订阅消息时开启消息轨迹
-```
+```java
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("CID_JODIE_1",true);
         consumer.subscribe("TopicTest", "*");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
@@ -90,28 +90,31 @@ RocketMQ的消息轨迹特性支持两种存储轨迹数据的方式：
 
 ### 4.3 支持自定义存储消息轨迹Topic
 在上面的发送和订阅消息时候分别将DefaultMQProducer和DefaultMQPushConsumer实例的初始化修改为如下即可支持自定义存储消息轨迹Topic。
-```
-        ##其中Topic_test11111需要用户自己预先创建，来保存消息轨迹；
+```java
+        //其中Topic_test11111需要用户自己预先创建，来保存消息轨迹；
         DefaultMQProducer producer = new DefaultMQProducer("ProducerGroupName",true,"Topic_test11111");
-        ......
+        //......
 
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("CID_JODIE_1",true,"Topic_test11111");
-        ......
+        //......
 ```
 
 ### 4.4 使用mqadmin命令发送和查看轨迹
 - 发送消息
-```shell
-./mqadmin sendMessage -m true --topic some-topic-name -n 127.0.0.1:9876 -p "your meesgae content"
-```
+
+  ```shell
+  $ ./mqadmin sendMessage -m true --topic some-topic-name -n 127.0.0.1:9876 -p "your meesgae content"
+  ```
 - 查询轨迹
-```shell
-./mqadmin QueryMsgTraceById -n 127.0.0.1:9876 -i "some-message-id"
-```
+
+  ```shell
+  $ ./mqadmin QueryMsgTraceById -n 127.0.0.1:9876 -i "some-message-id"
+  ```
 - 查询轨迹结果
-```
-RocketMQLog:WARN No appenders could be found for logger (io.netty.util.internal.PlatformDependent0).
-RocketMQLog:WARN Please initialize the logger system properly.
-#Type      #ProducerGroup       #ClientHost          #SendTime            #CostTimes #Status
-Pub        1623305799667        xxx.xxx.xxx.xxx       2021-06-10 14:16:40  131ms      success
-```
+
+  ```shell
+  RocketMQLog:WARN No appenders could be found for logger (io.netty.util.internal.PlatformDependent0).
+  RocketMQLog:WARN Please initialize the logger system properly.
+  #Type      #ProducerGroup       #ClientHost          #SendTime            #CostTimes #Status
+  Pub        1623305799667        xxx.xxx.xxx.xxx       2021-06-10 14:16:40  131ms      success
+  ```
