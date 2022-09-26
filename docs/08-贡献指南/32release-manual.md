@@ -24,7 +24,11 @@
 * 通过 `gpg --keyserver keys.openpgp.org --send-key <your key id>` 上传密钥到公钥服务器
 * 通过 `gpg --armor --export <your key id> >> gpgapachekey.txt` 导出公钥到文本文件
 * 获得其他 committer 签名的密钥 ( 可选 )
-* 将生成的密钥添加到 [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) (由 release manager 上传至 svn 仓库)
+* 将生成的密钥添加到[DEV KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) 和 [RELEASE KEYS file](https://dist.apache.org/repos/dist/release/rocketmq/KEYS)
+
+:::tips 注意
+DEV SVN 仓库可以由 Release Manager 自行添加，Release SVN 仓库需要 PMC 权限，可以由 PMC 协助将 KEY 进行上传。
+:::
 
 **Tips:** 需要设置默认公钥, 若有多个公钥，请修改 `~/.gnupg/gpg.conf` 
 
@@ -492,10 +496,13 @@ RocketMQ 社区通过 **dev@rocketmq.apache.org** 邮件列表进行版本选举
 
 ## 7. 版本发布
 
-Apache RocketMQ PPMC 投票通过后, 发布版本到 Maven Nexus 仓库和 Apache 版本仓库
+投票通过后, 发布版本到 Maven Nexus 仓库和 Apache 版本仓库
 
 1. 发布到 Nexus 仓库, 选择暂存区的  **orgapacherocketmq-XXX** 点击 `Release` 图标发布
-2. 发布到 Apache 版本仓库, 使用 SVN 拷贝版本至 [/release/rocketmq](https://dist.apache.org/repos/dist/release/rocketmq/) 
+2. 发布到 Apache 版本仓库, 使用 SVN 拷贝版本至 [/release/rocketmq](https://dist.apache.org/repos/dist/release/rocketmq/)
+:::tips 注意
+Release SVN 仓库需要 PMC 权限，若没有权限，可以由 PMC 协助将 KEY 进行上传。
+:::
 3. 合并 [Apache RocketMQ](https://github.com/apache/rocketmq) ```develop``` 分支至 ```master``` 分支
 4. 添加 release notes 到 [Releases · apache/rocketmq](https://github.com/apache/rocketmq/releases) 
 5. 创建新分支，并命名为 `release-x.x.x` 

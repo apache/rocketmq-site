@@ -222,6 +222,7 @@ $ sh bin/mqshutdown broker
 The mqbroker(36695) is running...
 Send shutdown request to mqbroker with proxy enable OK(36695)
 
+
 $ sh bin/mqshutdown namesrv
 The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK

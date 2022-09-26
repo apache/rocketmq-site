@@ -13,19 +13,19 @@
 
 :::tip RocketMQ下载
 
-RocketMQ 的安装包分为两种，二进制包和源码包。当前 5.0 版本即将Release，可以先使用Develop分支下载源码编译。
+RocketMQ 的安装包分为两种，二进制包和源码包。
 
-点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) 下载 Apache RocketMQ 4.9.4的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的，
+点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip) 下载 Apache RocketMQ 5.0.0的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的，
 
 :::
 
-这里以在Linux环境下利用 develop 分支源码包为例，介绍RocketMQ安装过程。
+这里以在Linux环境为例，介绍RocketMQ安装过程。
 
-解压 develop 分支的源码包并编译构建二进制可执行文件
+解压下载的源码包并编译构建二进制可执行文件
 
 ```shell
 $ mvn -Prelease-all -DskipTests clean install -U
-$ cd distribution/target/rocketmq-5.0.0-SNAPSHOT/rocketmq-5.0.0-SNAPSHOT
+$ cd distribution/target/rocketmq-5.0.0/rocketmq-5.0.0
 ```
 ## 2. 启动NameServer
 
