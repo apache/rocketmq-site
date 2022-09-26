@@ -24,7 +24,11 @@
 * 通过 `gpg --keyserver keys.openpgp.org --send-key <your key id>` 上传密钥到公钥服务器
 * 通过 `gpg --armor --export <your key id> >> gpgapachekey.txt` 导出公钥到文本文件
 * 获得其他 committer 签名的密钥 ( 可选 )
-* 将生成的密钥添加到 [KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) (由 release manager 上传至 svn 仓库)
+* 将生成的密钥添加到[DEV KEYS file](https://dist.apache.org/repos/dist/dev/rocketmq/KEYS) 和 [RELEASE KEYS file](https://dist.apache.org/repos/dist/release/rocketmq/KEYS)
+
+:::tip 注意
+DEV SVN 仓库可以由 Release Manager 自行添加，Release SVN 仓库需要 PMC 权限，可以由 PMC 协助将 KEY 进行上传。
+:::
 
 **Tips:** 需要设置默认公钥, 若有多个公钥，请修改 `~/.gnupg/gpg.conf` 
 
@@ -188,6 +192,10 @@ mvn clean install -Papache-release
 
 使用 [Maven Release plugin](https://maven.apache.org/maven-release/maven-release-plugin/) 版本发布插件，发布 Artifact 至 ASF Nexus 暂存库，完成版本验证和版本投票后，拷贝至 Apache SVN 版本库。
 
+:::tip 注意
+由于当前 develop 为保护分支，因此需要拉出一个新的预发版分支 `prepare-release-x.x.x` 进行操作，并在 2.2 步结束后通过提交 PR 的方式合入到 develop 分支。
+:::
+
 #### 2.1 检查 RocketMQ  版本
 
 确认 MQVersion 版本，若与 `release-4.5.0` 形式不符或版本不一致，修改至正确并推送到 ```develop  ```分支。
@@ -227,7 +235,9 @@ mvn release:perform
 
 执行完上述流程可在 [Nexus staging repo](https://repository.apache.org/#stagingRepositories) 或本地分支的 ```target``` 目录下找到预发布版本的 Artifacts 
 
-**Tips:** 只发布源码版本，仅需要保留源码和相关 jar 文件，Nexus GUI 中右键 ```delete``` 其余 artifact
+:::tip 注意
+该步结束后，需要将预发版分支 `prepare-release-x.x.x` 内容通过提交PR的方式合入到 develop 分支，并以 develop 被合入的 commit `[maven-release-plugin] prepare release rocketmq-all-4.9.2` 为基准重新打 release Tag。
+:::
 
 #### 2.3 rc 版本文件
 
@@ -297,15 +307,14 @@ gpg --print-md SHA512 rocketmq-all-x1.x2.x3-source-release.zip >  rocketmq-all-x
 
   - 找到最新的提交记录，标注类似如下：
 
-  > des1: [maven-release-plugin] prepare release rocketmq-all-4.9.2]  
+  > des1: [maven-release-plugin] prepare release rocketmq-all-4.9.2 
   >
-  > des2: [maven-release-plugin] prepare for next development iteration]
+  > des2: [maven-release-plugin] prepare for next development iteration
 
-  - 删除 commits
+  - revert commits
 
   ```
-  git reset --hard commit-id
-  git push origin HEAD --force
+  git revert -n commit-idA..commit-idB
   ```
   
 - 删除 [Nexus](https://repository.apache.org/#welcome) 中待回退版本
@@ -492,13 +501,19 @@ RocketMQ 社区通过 **dev@rocketmq.apache.org** 邮件列表进行版本选举
 
 ## 7. 版本发布
 
-Apache RocketMQ PPMC 投票通过后, 发布版本到 Maven Nexus 仓库和 Apache 版本仓库
+投票通过后, 发布版本到 Maven Nexus 仓库和 Apache 版本仓库
 
 1. 发布到 Nexus 仓库, 选择暂存区的  **orgapacherocketmq-XXX** 点击 `Release` 图标发布
-2. 发布到 Apache 版本仓库, 使用 SVN 拷贝版本至 [/release/rocketmq](https://dist.apache.org/repos/dist/release/rocketmq/) 
+2. 发布到 Apache 版本仓库, 使用 SVN 拷贝版本至 [/release/rocketmq](https://dist.apache.org/repos/dist/release/rocketmq/)
+:::tip 注意
+Release SVN 仓库需要 PMC 权限，若没有权限，可以由 PMC 协助将 KEY 进行上传。
+:::
 3. 合并 [Apache RocketMQ](https://github.com/apache/rocketmq) ```develop``` 分支至 ```master``` 分支
 4. 添加 release notes 到 [Releases · apache/rocketmq](https://github.com/apache/rocketmq/releases) 
-5. 创建新分支，并命名为 `release-x.x.x` 
+5. 创建新分支，并命名为 `release-x.x.x`
+:::tip 注意
+请将该分支的 commit 重置回`[maven-release-plugin] prepare release rocketmq-all-x.x.x`处。
+:::
 6. 更新 [apache/rocketmq-site](https://github.com/apache/rocketmq-site) 官网主页
    - 添加 release note，参考 [4.9.3 release notes](https://github.com/apache/rocketmq-site/commit/4b662a197a0a77fd460614df9e231e6ffdd7c622) 
    - 更新 release note，参考 [docs updates for 4.9.3](https://github.com/apache/rocketmq-site/commit/0fd4d231c06f1d641a0cc30f8ffe22775043e89d)
