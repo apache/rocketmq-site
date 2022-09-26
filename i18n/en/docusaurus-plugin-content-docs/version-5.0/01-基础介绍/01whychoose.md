@@ -7,10 +7,9 @@ slug: /
 ## Why RocketMQ
 During Ali's nascent days of RocketMQ, we used it for asynchronous communications, search, social networking activity flows, data pipelines, and trade processes. As our trade business throughput rose, the pressure originating from our messaging cluster became urgent.
 
-According to our research, the ActiveMQ IO module reached a bottleneck as queue and virtual topic usage increased. We tried our best to solve this problem by throttling, circuit breaker or downgrading, but the results were not satisfactory. So we tried the popular messaging solution Kafka. unfortunately, Kafka could not meet our requirements, especially in terms of low latency and high reliability, as detailed here. In this case, we decided to invent a new messaging engine to handle a wider range of messaging use cases, covering from traditional pub/sub scenarios to high-volume, real-time, zero-error transaction systems.
+According to our observation and analysis, the ActiveMQ IO module reaches a bottleneck as the number of queues and virtual topics increases. We tried our best to mitigate this problem by way of throttling, circuit breaker, or service downgrading, but none of them was satisfying. Alternatively, we tried the popular messaging solution: Kafka. Unfortunately, Kafka could not meet our requirements, especially in terms of low latency and high reliability, as detailed below. In this case, we decided to develop a new messaging engine to handle a wider range of use cases, ranging from traditional pub/sub to high-volume, real-time, zero-error transaction systems.
 
 Since its inception, Apache RocketMQ has been widely adopted by many enterprise developers and cloud vendors for its simple architecture, rich business functionality, and extreme scalability. After more than ten years of large-scale scenario polishing, RocketMQ has become the industry consensus as the preferred solution for financial-grade reliable business messages, and is widely used in business scenarios in Internet, big data, mobile Internet, IoT and other fields.
-
 
 :::tip
 

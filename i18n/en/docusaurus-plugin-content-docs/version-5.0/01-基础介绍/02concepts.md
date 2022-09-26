@@ -1,6 +1,6 @@
 # Concepts
 
-This topic describes the basic concepts of Apache RocketMQ.
+This section describes the core concepts of Apache RocketMQ.
 
 ## Topic
 

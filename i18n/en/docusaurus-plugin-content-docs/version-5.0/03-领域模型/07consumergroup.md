@@ -1,6 +1,6 @@
 # ConsumerGroup
 
-This topic describes the definition, model relationship, internal attributes, and behavior constraints of consumer groups in Apache RocketMQ. This topic also provides version compatibility information and usage notes for consumer groups.
+This section describes the definition, model relationship, internal attributes, and behavior constraints of consumer groups in Apache RocketMQ. This topic also provides version compatibility information and usage notes for consumer groups.
 ## Definition
 
 A consumer group is a load balancing group that contains consumers that use the same consumption behaviors in Apache RocketMQ.

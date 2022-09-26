@@ -157,7 +157,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/rmq-deployment/',
-              to: '/docs/部署与运维/15deploy'
+              to: '/docs/部署运维/15deploy'
             },
             {
               from: '/docs/motivation/',
@@ -165,7 +165,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: ['/docs/quickstart/', '/docs/quick-start'],
-              to: '/docs/介绍/02quickstart'
+              to: '/docs/快速入门/02quickstart'
             },
             {
               from: '/docs/how-to-contribute/',
@@ -185,7 +185,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/cli-admin-tool/',
-              to: '/docs/部署与运维/16admintool'
+              to: '/docs/部署运维/16admintool'
             },
             {
               from: '/docs/system-config',

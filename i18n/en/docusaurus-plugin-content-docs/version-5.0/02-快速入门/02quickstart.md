@@ -1,6 +1,6 @@
 # Quick Start
 
-This section will introduce the method of quickly building and deploying a single-Master RocketMQ cluster to complete simple message sending and receiving.
+This section will describe steps to quickly deploy a RocketMQ cluster with a single node; Commands to send and receive messages to/from it are also included as proof of work.
 
 :::tip SYSTEM REQUIREMENT
 
@@ -13,13 +13,13 @@ This section will introduce the method of quickly building and deploying a singl
 
 :::tip Download RocketMQ
 
-RocketMQ's installation is divided into two types: binary and source.  Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) to download Apache RocketMQ 4.9.4 source package. You can also get from [here.](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip) The binary package can be run directly since it has been compiled, and the source package needs to be compiled and run.
+Apache RocketMQ is distributed both in binary and source packages.  Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip) to download Apache RocketMQ 5.0.0 source package. You may prefer [prebuilt binary package](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip), which can be run directly since it has been compiled.
 
 :::
 
-The following instruction takes the application of RocketMQ 4.9.4 source package in Linux environment as an example in order to introduce the installation process of RocketMQ.
+The following instruction takes the application of RocketMQ 5.0.0 source package in Linux environment as an example in order to introduce the installation process of RocketMQ.
 
-Extract the source package of RocketMQ 4.9.4, then compile and build the binary executables:
+Extract the source package of RocketMQ 5.0.0, then compile and build the binary executables:
 
 ```shell
   > unzip rocketmq-all-5.0.0-source-release.zip
@@ -53,10 +53,10 @@ After nameserver startup, we need start the broker and proxy. We recommend Local
 
 ```shell
 ### start broker
-$ nohup sh bin/mqbroker -n localhost:9876 &
+$ nohup sh bin/mqbroker -n localhost:9876 --enable-proxy &
 
 ### verify broker
-$ tail -f ~/logs/rocketmqlogs/Broker.log 
+$ tail -f ~/logs/rocketmqlogs/broker_default.log 
 The broker[broker-a,192.169.1.2:10911] boot success...
 ```
 
@@ -99,8 +99,13 @@ We can also try to use the client sdk to send and receive messages.
        <version>5.0.0</version>
    </dependency> 
    ```
+3. Create topic by mqadmin cli tools.
 
-3. In the Java project you have created, create a program that sends messages and run it with the following code:
+```shell
+$ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic
+```
+
+4. In the Java project you have created, create a program that sends messages and run it with the following code:
 
 ```java
 import org.apache.rocketmq.client.apis.*;
@@ -142,7 +147,7 @@ public class ProducerExample {
 ```
 
 
-4. In the Java project you have created, create a consumer demo program and run it. Apache RocketMQ support [SimpleConsumer](../04-功能行为/06consumertype.md) and [PushConsumer](../04-功能行为/06consumertype.md).
+5. In the Java project you have created, create a consumer demo program and run it. Apache RocketMQ support [SimpleConsumer](../04-功能行为/06consumertype.md) and [PushConsumer](../04-功能行为/06consumertype.md).
 
 ```java
 import org.apache.rocketmq.client.apis.*;

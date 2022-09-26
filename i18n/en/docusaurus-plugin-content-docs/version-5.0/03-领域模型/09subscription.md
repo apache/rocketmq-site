@@ -1,6 +1,6 @@
 # Subscription
 
-This topic describes the definition, model relationship, internal attributes, and usage notes for subscriptions in Apache RocketMQ.
+This section describes the definition, model relationship, internal attributes, and usage notes for subscriptions in Apache RocketMQ.
 
 ## Definition
 

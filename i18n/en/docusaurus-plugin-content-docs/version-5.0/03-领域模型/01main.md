@@ -1,6 +1,6 @@
 # Domain model
 
-This topic describes the domain model of Apache RocketMQ.
+This section describes the domain model of Apache RocketMQ.
 
 Apache RocketMQ is a distributed middleware service that adopts an asynchronous communication model and a publish/subscribe message transmission model.
 

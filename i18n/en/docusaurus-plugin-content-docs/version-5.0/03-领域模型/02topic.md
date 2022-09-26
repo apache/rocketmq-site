@@ -1,10 +1,10 @@
 # Topic
 
-This topic describes the definition, model relationship, internal attributes, and behavior constraints of topics in Apache RocketMQ. This topic also provides version compatibility information and usage notes for topics.
+This section describes the definition, model relationship, internal attributes, and behavior constraints of topics in Apache RocketMQ. This topic also provides version compatibility information and usage notes for topics.
 
 ## Definition
 
-A topic is a top-level container that is used in Apache RocketMQ to transfer and store messages that belong to the same business logic.
+A topic is logically a collection of queues; we may publish messages to or receive from it.
 
 Topics provide the following benefits:
 
