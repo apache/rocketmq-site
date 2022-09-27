@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[6432],{90007:s=>{s.exports=JSON.parse('{"label":"Version","permalink":"/third-blog/tags/version","allTagsPath":"/third-blog/tags","count":22}')}}]);
