@@ -8,31 +8,31 @@ RocketMQ可以令客户端找到Name Server, 然后通过Name Server再找到Bro
 
 - 代码中指定Name Server地址，多个namesrv地址之间用分号分割   
 
-```java
-producer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");  
-
-consumer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");
-```
+  ```java
+  producer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");  
+  
+  consumer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");
+  ```
 
 - Java启动参数中指定Name Server地址
 
-```text
--Drocketmq.namesrv.addr=192.168.0.1:9876;192.168.0.2:9876  
-```
+  ```text
+  -Drocketmq.namesrv.addr=192.168.0.1:9876;192.168.0.2:9876  
+  ```
 
 - 环境变量指定Name Server地址
 
-```text
-export   NAMESRV_ADDR=192.168.0.1:9876;192.168.0.2:9876   
-```
+  ```text
+  export   NAMESRV_ADDR=192.168.0.1:9876;192.168.0.2:9876 
+  ```
 
 - HTTP静态服务器寻址（默认）
 
-客户端启动后，会定时访问一个静态HTTP服务器，地址如下：<http://jmenv.tbsite.net:8080/rocketmq/nsaddr>，这个URL的返回内容如下：
+  客户端启动后，会定时访问一个静态HTTP服务器，地址如下：<http://jmenv.tbsite.net:8080/rocketmq/nsaddr>，这个URL的返回内容如下：
 
-```text
-192.168.0.1:9876;192.168.0.2:9876   
-```
+  ```text
+  192.168.0.1:9876;192.168.0.2:9876   
+  ```
 
 客户端默认每隔2分钟访问一次这个HTTP服务器，并更新本地的Name Server地址。URL已经在代码中硬编码，可通过修改/etc/hosts文件来改变要访问的服务器，例如在/etc/hosts增加如下配置：
 

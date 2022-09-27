@@ -35,7 +35,7 @@ https://github.com/cuser/rocketmq.git # cuser's rocketmq repo[repository] url
 ② 自行安装 Git 并克隆到本地仓库
 
 ```shell
-git clone https://github.com/cuser/rocketmq.git # git clone [repo url]
+$ git clone https://github.com/cuser/rocketmq.git # git clone [repo url]
 ```
 
 说明：克隆到的本地仓库会以 GitHub 仓库作为远程仓库，并以```origin```命名远程仓库
@@ -43,7 +43,7 @@ git clone https://github.com/cuser/rocketmq.git # git clone [repo url]
 ③ 获取开发分支最新代码
 
 ```shell
-git rebase origin/develop # git rebase [branch]
+$ git rebase origin/develop # git rebase [branch]
 ```
 
 说明： [rebase` <branch>`](https://git-scm.com/docs/git-rebase) 基本说法是换基，可通过链接示例了解该步的必要性
@@ -51,9 +51,9 @@ git rebase origin/develop # git rebase [branch]
 ④ 在本地仓库执行更改
 
 ```shell
-git checkout -b RocketMQ-Vxx.0 # git checkout [-b] [new-branch]
-git add /rocketmq/pom.xml # git add [dir/file]
-git commit -a -m "pom"	# git commit [-all] [-msg] [message]
+$ git checkout -b RocketMQ-Vxx.0 # git checkout [-b] [new-branch]
+$ git add /rocketmq/pom.xml # git add [dir/file]
+$ git commit -a -m "pom"	# git commit [-all] [-msg] [message]
 ```
 
 说明： 参考[Git](https://git-scm.com/docs/git-add)了解详情，使用相对路径请切换至 ```.git``` 同级目录
@@ -61,7 +61,7 @@ git commit -a -m "pom"	# git commit [-all] [-msg] [message]
 ⑤ 推送更改到远程仓库
 
 ```shell
-git push --set-upstream apache RocketMQ-Vxx.0	# push branch to https://github.com/cuser/rocketmq-site.git
+$ git push --set-upstream apache RocketMQ-Vxx.0	# push branch to https://github.com/cuser/rocketmq-site.git
 ```
 
 ## Github 提交 PR
@@ -71,8 +71,8 @@ git push --set-upstream apache RocketMQ-Vxx.0	# push branch to https://github.co
 参照```Git 贡献指南```在本地仓库修改完毕，并将该分支推送到 Github 远程仓库
 
 ```shell
-git checkout new-official-website	# git checkout -b new-official-website
-git push origin new-official-website	# push to https://github.com/cuser/rocketmq-site.git
+$ git checkout new-official-website	# git checkout -b new-official-website
+$ git push origin new-official-website	# push to https://github.com/cuser/rocketmq-site.git
 ```
 
 ① Github 远程仓库切换至开发分支 new-official-website
@@ -114,9 +114,9 @@ head repository / compare : 开发仓库及开发分支
 ① 合并 contributor PR
 
 ```shell
-git checkout develop	# switch to local develop branch
-git pull apache develop	# fast-forward to current remote HEAD
-git pull --squash https://github.com/cuser/rocketmq.git RocketMQ-Vxx.0  # merge to branch
+$ git checkout develop	# switch to local develop branch
+$ git pull apache develop	# fast-forward to current remote HEAD
+$ git pull --squash https://github.com/cuser/rocketmq.git RocketMQ-Vxx.0  # merge to branch
 ```
 
 拉取的请求合并分支可能包含多次提交，建议使用 ```--squash``` 指令压缩为一次 commit
@@ -130,9 +130,9 @@ git pull --squash https://github.com/cuser/rocketmq.git RocketMQ-Vxx.0  # merge 
 若 committer 合并自己的 PR , 使用 [Git merge]( [Git - git-merge Documentation (git-scm.com)](https://git-scm.com/docs/git-merge) ) 即可
 
 ```shell
-git checkout develop      # switch to local develop branch
-git pull apache develop   # fast-forward to current remote HEAD
-git merge --squash RocketMQ-Vxx.0	# merge to branch
+$ git checkout develop      # switch to local develop branch
+$ git pull apache develop   # fast-forward to current remote HEAD
+$ git merge --squash RocketMQ-Vxx.0	# merge to branch
 ```
 
 ③ 进行常规的补丁检查，使用内置的测试用例构建项目，并请务必修改 changelog 
@@ -140,7 +140,7 @@ git merge --squash RocketMQ-Vxx.0	# merge to branch
 ④ 若上述工作均已完成，可以执行下面的指令提交合并，回馈开发者分支状态，并关闭 PR
 
 ```shell
-git commit --author="contributor_name <contributor_email>" -a -m "RocketMQ-Vxx.0 description closes apache/rocketmq#ZZ"
+$ git commit --author="contributor_name <contributor_email>" -a -m "RocketMQ-Vxx.0 description closes apache/rocketmq#ZZ"
 ```
 
 关闭 PR 的详情，请参考 [Close PR](https://docs.github.com/cn/issues/tracking-your-work-with-issues/closing-an-issue) 
@@ -148,13 +148,13 @@ git commit --author="contributor_name <contributor_email>" -a -m "RocketMQ-Vxx.0
 ⑤ 将合并后的分支推送到 apache/rocketmq 远程仓库
 
 ```shell
-git push apache develop
+$ git push apache develop
 ```
 
 ⑥ PR 被提交后，会保留到 GitHub 远程仓库，也可以同步更新个人 GitHub 仓库
 
 ```shell
-git push origin develop
+$ git push origin develop
 ```
 
 关于合并修改的建议：squash 会丢弃开发分支的 commit 信息
@@ -164,12 +164,11 @@ git push origin develop
 拒绝 PR ：意味着并不执行 pull 或 merge，而仅仅提交拒绝 PR 信息
 
 ```SHELL
-git commit --allow-empty -m "RocketMQ-Vxx.0 closes apache/rocketmq#ZZ *Won't fix*"
-git push apache develop
+$ git commit --allow-empty -m "RocketMQ-Vxx.0 closes apache/rocketmq#ZZ *Won't fix*"
+$ git push apache develop
 ```
 
 关闭 Github 上编号 #ZZ 的 PR
-
 
 
 

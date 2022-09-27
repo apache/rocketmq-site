@@ -24,7 +24,7 @@
 
 顺序消息的代码如下所示：
 
-```jsx {13}
+```java
 public class Producer {
     public static void main(String[] args) throws UnsupportedEncodingException {
         try {
@@ -62,7 +62,7 @@ public class Producer {
 :::tip
 MessageQueueSelector的接口如下：
 
-```jsx
+```java
 public interface MessageQueueSelector {
     MessageQueue select(final List<MessageQueue> mqs, final Message msg, final Object arg);
 }
@@ -80,8 +80,8 @@ public interface MessageQueueSelector {
 
 如果发生变化，那么同一个 ShardingKey 的消息就会发送到不同的队列上，造成乱序。如果不发生变化，那消息将会发送到掉线Broker的队列上，必然是失败的。因此 Apache RocketMQ 提供了两种模式，如果要保证严格顺序而不是可用性，创建 Topic 是要指定 ```-o``` 参数（--order）为true，表示顺序消息:
 
-```shell {1}
-> sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -o true -n 127.0.0.1:9876
+```shell
+$ sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -o true -n 127.0.0.1:9876
 create topic to 127.0.0.1:10911 success.
 TopicConfig [topicName=TopicTest, readQueueNums=8, writeQueueNums=8, perm=RW-, topicFilterType=SINGLE_TAG, topicSysFlag=0, order=true, attributes=null]
 ```
