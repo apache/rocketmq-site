@@ -40,15 +40,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             // Please change this to your repo.
             editUrl:
               "https://github.com/apache/rocketmq-site/tree/new-official-website",
-              lastVersion: 'current',
+              lastVersion: '5.0',
               versions: {
                 current: {
                   label: '4.x',
-                  path: '',
+                  path: '/4.x',
+                  banner: 'none'
                 },
                 '5.0': {
-                  label: '5.0',
-                  banner: 'unreleased'
+                  label: '5.0'
                 }
 },
           },
@@ -72,16 +72,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           /**
            * Required for any multi-instance plugin
            */
-          id: "second-blog",
+          id: "events",
           /**
            * URL route for the blog section of your site.
            * *DO NOT* include a trailing slash.
            */
-          routeBasePath: "second-blog",
+          routeBasePath: "events",
           /**
            * Path to data on filesystem relative to site dir.
            */
-          path: "./second-blog",
+          path: "./events",
         },
       ],
       [
@@ -90,16 +90,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           /**
            * Required for any multi-instance plugin
            */
-          id: "third-blog",
+          id: "release-notes",
           /**
            * URL route for the blog section of your site.
            * *DO NOT* include a trailing slash.
            */
-          routeBasePath: "third-blog",
+          routeBasePath: "release-notes",
           /**
            * Path to data on filesystem relative to site dir.
            */
-          path: "./third-blog",
+          path: "./release-notes",
         },
       ],
       [
@@ -108,16 +108,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           /**
            * Required for any multi-instance plugin
            */
-          id: "forth-blog",
+          id: "news",
           /**
            * URL route for the blog section of your site.
            * *DO NOT* include a trailing slash.
            */
-          routeBasePath: "forth-blog",
+          routeBasePath: "news",
           /**
            * Path to data on filesystem relative to site dir.
            */
-          path: "./forth-blog",
+          path: "./news",
         },
       ],
       [
@@ -129,7 +129,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/year-archive/',
-              to: '/third-blog'
+              to: '/release-notes'
             },
             {
               from: '/users/',
@@ -149,15 +149,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/about/rewards/',
-              to: '/forth-blog'
+              to: '/news'
             },
             {
               from: '/docs/rmq-arc',
-              to: '/docs/介绍/03whatis'
+              to: '/docs/领域模型/01main'
             },
             {
               from: '/docs/rmq-deployment/',
-              to: '/docs/部署与运维/15deploy'
+              to: '/docs/部署运维/15deploy'
             },
             {
               from: '/docs/motivation/',
@@ -165,7 +165,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: ['/docs/quickstart/', '/docs/quick-start'],
-              to: '/docs/介绍/02quickstart'
+              to: '/docs/快速入门/02quickstart'
             },
             {
               from: '/docs/how-to-contribute/',
@@ -185,16 +185,52 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/cli-admin-tool/',
-              to: '/docs/部署与运维/16admintool'
+              to: '/docs/部署运维/16admintool'
+            },
+            {
+              from: '/docs/system-config',
+              to: '/docs/最佳实践/19JVMOS'
             },
             {
               from: '/docs/faq/',
               to: '/docs/最佳实践/22FAQ'
             },
             {
-              from: '/docs/system-config/',
-              to: '/docs/最佳实践/19JVMOS'
-            }
+              from: '/docs/logappender-example/',
+              to: '/docs/4.x/最佳实践/20log'
+            },
+            {
+              from: '/docs/order-example/',
+              to: '/docs/4.x/生产者/06message2'
+            },
+            {
+              from: '/docs/schedule-example/',
+              to: '/docs/4.x/生产者/07message3'
+            },
+            {
+              from: '/docs/batch-example/',
+              to: '/docs/4.x/生产者/08message4'
+            },
+            {
+              from: '/docs/transaction-example/',
+              to: '/docs/4.x/生产者/09message5'
+            },
+            {
+              from: '/docs/cluster-deployment/',
+              to: '/docs/4.x/参数配置/24server'
+            },
+            {
+              from: '/docs/documentation/',
+              to: '/docs/'
+            },
+            {
+              from: '/docs/best-practice-consumer/',
+              to: '/docs/4.x/最佳实践/15bestpractice'
+            },
+            {
+              from: '/release_notes/',
+              to: '/release-notes'
+            },
           ]
         }
       ]
@@ -239,7 +275,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         //   // items: [
         //   //   { to: "/docs/", label: "4.x" },
         //   //   { to: "/docs/5.0/介绍/02quickstart", label: "5.0" },
-           
+
         //   //   // ... more items
         //   // ],
         // },
@@ -250,8 +286,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               position: "right",
               items: [
                 // { to: "/info", label: "项目信息" },
-                { to: "/docs/", label: "4.x" },
-                { to: "/docs/5.0/", label: "5.0" },
+                { to: "/docs/", label: "5.0" },
+                { to: "/docs/4.x/", label: "4.x" },
                 
                 // ... more items
               ],
@@ -263,9 +299,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               position: "right",
               items: [
                 { to: "/blog", label: "用户案例" },
-                { to: "/second-blog", label: "社区活动" },
-                { to: "/third-blog", label: "版本变化" },
-                { to: "/forth-blog", label: "RocketMQ新闻" },
+                { to: "/events", label: "社区活动" },
+                { to: "/release-notes", label: "版本变化" },
+                { to: "/news", label: "RocketMQ新闻" },
                 // ... more items
               ],
             },
@@ -298,7 +334,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         },
         // footer: {
         //   style: "dark",
-          
+
         //   // logo: {
         //   //   alt: 'My Site Logo',
         //   //   src: 'img/Apache_RocketMQ_logo.svg.png',
@@ -331,7 +367,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         //         },
         //         {
         //           label: "Changelog",
-        //           href: "/third-blog",
+        //           href: "/release-notes",
         //         },
         //         {
         //           label: "GitHub",
@@ -350,11 +386,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               items: [
                 {
                   label: 'Introduction',
-                  to: '/docs/介绍/03whatis',
+                  to: '/docs/领域模型/01main',
                 },
                 {
                   label: 'Installation',
-                  to: '/docs/介绍/02quickstart',
+                  to: '/docs/快速入门/02quickstart',
                 },
                 {
                   label: 'Migration from 4.x to 5.0',
@@ -388,7 +424,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 },
                 {
                   label: 'Changelog',
-                  to: '/third-blog',
+                  to: '/release-notes',
                 },
                 {
                   label: 'GitHub',
@@ -398,7 +434,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                   label: 'Twitter',
                   href: 'https://twitter.com/docusaurus',
                 },
-                
+
               ],
             },
             {

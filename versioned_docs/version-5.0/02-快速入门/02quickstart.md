@@ -13,13 +13,13 @@
 
 :::tip RocketMQ下载
 
-RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) 下载 Apache RocketMQ 4.9.4的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的，
+RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip) 下载 Apache RocketMQ 5.0.0的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的，
 
 :::
 
 这里以在Linux环境下利用社区5.0.0的源码包为例，介绍RocketMQ安装过程。
 
-解压4.9.4的源码包并编译构建二进制可执行文件
+解压5.0.0的源码包并编译构建二进制可执行文件
 
 ```shell
 $ unzip rocketmq-all-5.0.0-source-release.zip
@@ -54,16 +54,16 @@ NameServer成功启动后，我们启动Broker和Proxy，5.x 版本下我们建�
 
 ```shell
 ### 先启动broker
-$ nohup sh bin/mqbroker -n localhost:9876 &
+$ nohup sh bin/mqbroker -n localhost:9876 --enable-proxy &
 
 ### 验证broker是否启动成功, 比如, broker的ip是192.168.1.2 然后名字是broker-a
-$ tail -f ~/logs/rocketmqlogs/Broker.log 
+$ tail -f ~/logs/rocketmqlogs/broker_default.log 
 The broker[broker-a,192.169.1.2:10911] boot success...
 ```
 
 :::info
 
-我们可以在 Broker.log 中看到“The broker[brokerName,ip:port] boot success..”，这表明 broker 已成功启动。
+我们可以在 broker_default.log 中看到“The broker[brokerName,ip:port] boot success..”，这表明 broker 已成功启动。
 
 :::
 
@@ -77,7 +77,7 @@ The broker[broker-a,192.169.1.2:10911] boot success...
 
 在进行工具测试消息收发之前，我们需要告诉客户端NameServer的地址，RocketMQ有多种方式在客户端中设置NameServer地址，这里我们利用环境变量`NAMESRV_ADDR`
 
-``` shell
+```shell
 $ export NAMESRV_ADDR=localhost:9876
 $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
  SendResult [sendStatus=SEND_OK, msgId= ...
@@ -101,8 +101,13 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
        <version>5.0.0</version>
    </dependency> 
    ```
+3. 通过mqadmin创建 Topic。
 
-3. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：
+```shell
+$ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic
+```
+
+4. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：
 
    ```java
    import org.apache.rocketmq.client.apis.*;
@@ -121,7 +126,7 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
            //接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8081;xxx:8081。
            String endpoint = "localhost:8081";
            //消息发送的目标Topic名称，需要提前创建。
-           String topic = "Your Topic";
+           String topic = "TestTopic";
            ClientServiceProvider provider = ClientServiceProvider.loadService();
            ClientConfigurationBuilder builder = ClientConfiguration.newBuilder().setEndpoints(endpoint);
            ClientConfiguration configuration = builder.build();
@@ -185,7 +190,7 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
            //为消费者指定所属的消费者分组，Group需要提前创建。
    	    String consumerGroup = "Your ConsumerGroup";
            //指定需要订阅哪个目标Topic，Topic需要提前创建。
-           String topic = "Your Topic";
+           String topic = "TestTopic";
    	    //初始化PushConsumer，需要绑定消费者分组ConsumerGroup、通信参数以及订阅关系。
            PushConsumer pushConsumer = provider.newPushConsumerBuilder()
                    .setClientConfiguration(clientConfiguration)
@@ -215,7 +220,8 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
 ```shell
 $ sh bin/mqshutdown broker
 The mqbroker(36695) is running...
-Send shutdown request to mqbroker(36695) OK
+Send shutdown request to mqbroker with proxy enable OK(36695)
+
 
 $ sh bin/mqshutdown namesrv
 The mqnamesrv(36664) is running...
