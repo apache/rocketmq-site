@@ -9,8 +9,8 @@
 
 
 ## 2. Read Apache RocketMQ Blog
-- Changelog [➡️](/third-blog)
-- Community Activity [➡️](/second-blog)
+- Changelog [➡️](/release-notes)
+- Community Activity [➡️](/events)
 - User Cases [➡️](/blog)
 
 
