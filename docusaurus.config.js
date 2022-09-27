@@ -50,7 +50,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 '5.0': {
                   label: '5.0'
                 }
-},
+              },
           },
           blog: {
             blogTitle: "RocketMQ 博客",
