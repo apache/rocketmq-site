@@ -15,7 +15,7 @@ RocketMQ 的Java SDK 1.7.8.Final 以下的旧版本不支持 log4j2，只支持 
 ### 方式一: 依赖 log4j 作为日志实现 
 依赖log4j或logback作为日志实现的示例代码如下所示。
 
-```javascript
+```xml
 <dependency> 
   <groupId>org.slf4j</groupId> 
   <artifactId>jcl-over-slf4j</artifactId> 
@@ -35,7 +35,7 @@ RocketMQ 的Java SDK 1.7.8.Final 以下的旧版本不支持 log4j2，只支持 
 
 使用 log4j 属性配置文件时，配置如下。
 
-```
+```properties
 log4j.appender.mq=org.apache.rocketmq.logappender.log4j.RocketmqLog4jAppender 
 log4j.appender.mq.Tag=yourTag 
 log4j.appender.mq.Topic=yourLogTopic 
@@ -46,7 +46,7 @@ log4j.appender.mq.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-4r [%t] (%F
 ```
 
 使用 log4j xml 配置文件时，将其配置为这样并添加一个异步附加程序：
-```
+```xml
 <appender name="mqAppender1" class="org.apache.rocketmq.logappender.log4j.RocketmqLog4jAppender">
     <param name="Tag" value="yourTag" />
     <param name="Topic" value="yourLogTopic" />
@@ -65,7 +65,7 @@ log4j.appender.mq.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-4r [%t] (%F
 ```
 使用 log4j2 时，配置为 this。如果你想要 noneblock，只需为 ref 配置一个 asyncAppender。
 
-```
+```xml
 <RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
      topic="yourLogTopic" tag="yourTag">
     <PatternLayout pattern="%d [%p] hahahah %c %m%n"/>
@@ -74,7 +74,7 @@ log4j.appender.mq.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-4r [%t] (%F
 
 ### 方式二: 依赖 logback 作为日志实现 
 
-```
+```xml
 <dependency> 
   <groupId>ch.qos.logback</groupId> 
   <artifactId>logback-core</artifactId> 
@@ -87,7 +87,7 @@ log4j.appender.mq.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-4r [%t] (%F
 </dependency>
 ```
 
-```
+```xml
 <dependency> 
   <groupId>ch.qos.logback</groupId> 
   <artifactId>logback-core</artifactId> 
@@ -132,7 +132,7 @@ RocketMQ 客户端启动后，会按照如下的默认配置生成日志文件 :
 
 如果需要进行自定义配置 参考 ClientLogger的静态变量定义, 参数意义对齐上文客户端配置。
 
-```javascript
+```java
     public static final String CLIENT_LOG_USESLF4J = "rocketmq.client.logUseSlf4j";
     public static final String CLIENT_LOG_ROOT = "rocketmq.client.logRoot";
     public static final String CLIENT_LOG_MAXINDEX = "rocketmq.client.logFileMaxIndex";
