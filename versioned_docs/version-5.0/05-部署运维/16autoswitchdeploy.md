@@ -20,9 +20,11 @@ Controller 部署有两种方式。一种是嵌入于 NameServer 进行部署，
 
 ### Controller 嵌入 NameServer 部署
 
+![内嵌部署图](../picture/Controller-as-plugin.png)
+
 嵌入 NameServer 部署时只需要在 NameServer 的配置文件中设置 enableControllerInNamesrv=true，并填上 Controller 的配置即可。
 
-```
+```properties
 enableControllerInNamesrv = true
 controllerDLegerGroup = group1
 controllerDLegerPeers = n0-127.0.0.1:9877;n1-127.0.0.1:9878;n2-127.0.0.1:9879
@@ -44,16 +46,18 @@ notifyBrokerRoleChanged = true
 
 参数设置完成后，指定配置文件启动 Nameserver 即可。
 
-```bash
-nohup sh bin/mqnamesrv -c namesrv.conf &
+```shell
+$ nohup sh bin/mqnamesrv -c namesrv.conf &
 ```
 
 ### Controller 独立部署
 
+![架构图](../picture/Controller-deploy-indepdent.png)
+
 独立部署执行以下脚本即可
 
 ```shell
-nohup sh bin/mqcontroller -c controller.conf &
+$ nohup sh bin/mqcontroller -c controller.conf &
 ```
 mqcontroller 脚本在源码包 distribution/bin/mqcontroller，配置参数与内嵌模式相同。
 
@@ -81,7 +85,7 @@ Broker 启动方法与之前相同，增加以下参数
 在Controller模式下，Broker配置必须设置 enableControllerMode=true，并填写 controllerAddr，并以下面命令启动：
 
 ```shell
-nohup sh bin/mqbroker -c broker.conf &
+$ nohup sh bin/mqbroker -c broker.conf &
 ```
 
 :::caution 注意
