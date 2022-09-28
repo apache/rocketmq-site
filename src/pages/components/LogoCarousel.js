@@ -12,7 +12,7 @@ export default class LogoCarousel extends React.Component {
 
     return (
 <div className="logoall"><h1 className={styles.title}><Translate id="用户案例">用户案例</Translate></h1>
-<h2 className={styles.subtitle}><Translate id="用户案例instruction">RocketMQ已帮助超过100家互联网，金融，制造业公司</Translate></h2>
+<h2 className={styles.subtitle}><Translate id="用户案例instruction">RocketMQ已帮助数万家互联网、金融、制造业等公司</Translate></h2>
       <div className = "logoutsider">
       <div className="logocontainer">
         
