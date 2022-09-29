@@ -216,7 +216,7 @@
     "description": "The title of the tag list page"
   },
   "rmq_intro": {
-    "message": "RocketMQ 5.0: A cloud-native \"messages, events, streams\" real-time data processing platform, covering cloud-edge-device collaboration scenarios"
+    "message": "RocketMQ 5.0: A cloud-native \"messaging, eventing, streaming\" real-time data processing platform, covering cloud-edge-device collaboration scenarios"
   },
   "快速开始": {
     "message": "Quick Start"
@@ -243,7 +243,7 @@
     "message": "More Cases"
   },
   "用户案例instruction": {
-    "message": "RocketMQ has helped over 100 Internet, financial, and manufacturing companies"
+    "message": "RocketMQ has helped over tens of thousands Internet, financial, and manufacturing companies"
   },
   "大规模负载下低延迟，保证万亿级的信息容量,适用于电商领域，金融领域，大数据领域，物联网": {
     "message": "With low latency under massive loads, trillions of information capacity is guaranteed",
