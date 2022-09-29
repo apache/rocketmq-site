@@ -45,7 +45,7 @@ export default function Hero(){
                 "button button--outline button--secondary button--lg",styles.button2
               )}
             >
-              <Translate id="RocketMQ 5.0 速览"> RocketMQ 5.0 速览</Translate>
+              <Translate id="RocketMQ 5.0 速览">RocketMQ 5.0 速览</Translate>
             </Link>
           </div>
         </div>
