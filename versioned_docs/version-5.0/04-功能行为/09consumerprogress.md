@@ -44,7 +44,7 @@ Apache RocketMQ 领域模型为发布订阅模式，每个主题的队列都可�
 * ConsumerOffset≤MaxOffset：
   * 当消费速度和生产速度一致，且全部消息都处理完成时，最大消息位点和消费位点相同，即ConsumerOffset=MaxOffset。
   
-  * 当消费速度较慢小于生产速度时，队列中会有部分消息未消费，此时消费位点小于最大消息位点，即ConsumerOffset\<MaxOffset，两者之差就是该队列中堆积的消息量。
+  * 当消费速度较慢小于生产速度时，队列中会有部分消息未消费，此时消费位点小于最大消息位点，即ConsumerOffset<MaxOffset，两者之差就是该队列中堆积的消息量。
 
 * ConsumerOffset≥MinOffset：正常情况下有效的消费位点ConsumerOffset必然大于等于最小消息位点MinOffset。消费位点小于最小消息位点时是无效的，相当于消费者要消费的消息已经从队列中删除了，是无法消费到的，此时服务端会将消费位点强制纠正到合法的消息位点。
 
