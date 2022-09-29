@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[823],{73836:e=>{e.exports=JSON.parse('{"label":"RocketMQ","permalink":"/en/release-notes/tags/rocket-mq","allTagsPath":"/en/release-notes/tags","count":23}')}}]);
