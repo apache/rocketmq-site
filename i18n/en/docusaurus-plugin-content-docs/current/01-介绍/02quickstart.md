@@ -22,10 +22,10 @@ The following instruction takes the application of RocketMQ 4.9.4 source package
 Extract the source package of RocketMQ 4.9.4, then compile and build the binary executables:
 
 ```shell
-  > unzip rocketmq-all-4.9.4-source-release.zip
-  > cd rocketmq-all-4.9.4-source-release/
-  > mvn -Prelease-all -DskipTests clean install -U
-  > cd distribution/target/rocketmq-4.9.4/rocketmq-4.9.4
+$ unzip rocketmq-all-4.9.4-source-release.zip
+$ cd rocketmq-all-4.9.4-source-release/
+$ mvn -Prelease-all -DskipTests clean install -U
+$ cd distribution/target/rocketmq-4.9.4/rocketmq-4.9.4
 ```
 
 ## 2. Start the NameServer
@@ -77,11 +77,11 @@ Thus far, a single-Master RocketMQ cluster has been deployed, and we are able to
 Before sending and receiving messages, the clients need to identify the address of the NameServer. RocketMQ has multiple ways to set the NameServer address on the client side. One of them is to modify the environment variable `NAMESRV_ADDR` :
 
 ``` shell
- > export NAMESRV_ADDR=localhost:9876
- > sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
+$ export NAMESRV_ADDR=localhost:9876
+$ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
  SendResult [sendStatus=SEND_OK, msgId= ...
 
- > sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
+$ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
@@ -90,11 +90,11 @@ Before sending and receiving messages, the clients need to identify the address 
 After finishing the practice, we could shut down the service by the following commands:
 
 ```shell
-> sh bin/mqshutdown broker
+$ sh bin/mqshutdown broker
 The mqbroker(36695) is running...
 Send shutdown request to mqbroker(36695) OK
 
-> sh bin/mqshutdown namesrv
+$ sh bin/mqshutdown namesrv
 The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK
 ```

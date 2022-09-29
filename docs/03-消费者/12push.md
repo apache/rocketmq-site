@@ -198,13 +198,15 @@ consumer.subscribe("SqlFilterTest",
 若Consumer消费某条消息失败，则RocketMQ会在重试间隔时间后，将消息重新投递给Consumer消费，若达到最大重试次数后消息还没有成功被消费，则消息将被投递至死信队列
 >消息重试只针对集群消费模式生效；广播消费模式不提供失败重试特性，即消费失败后，失败消息不再重试，继续消费新的消息
 - 最大重试次数：消息消费失败后，可被重复投递的最大次数。
-```java
-consumer.setMaxReconsumeTimes(10);
-```
+
+  ```java
+  consumer.setMaxReconsumeTimes(10);
+  ```
 - 重试间隔：消息消费失败后再次被投递给Consumer消费的间隔时间，只在顺序消费中起作用。
-```java
-consumer.setSuspendCurrentQueueTimeMillis(5000);
-```
+
+  ```java
+  consumer.setSuspendCurrentQueueTimeMillis(5000);
+  ```
 
 顺序消费和并发消费的重试机制并不相同，顺序消费消费失败后会先在客户端本地重试直到最大重试次数，这样可以避免消费失败的消息被跳过，消费下一条消息而打乱顺序消费的顺序，而并发消费消费失败后会将消费失败的消息重新投递回服务端，再等待服务端重新投递回来，在这期间会正常消费队列后面的消息。
 >并发消费失败后并不是投递回原Topic，而是投递到一个特殊Topic，其命名为%RETRY%ConsumerGroupName，集群模式下并发消费每一个ConsumerGroup会对应一个特殊Topic，并会订阅该Topic。

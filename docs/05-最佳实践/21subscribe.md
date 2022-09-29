@@ -131,31 +131,31 @@ C1、C2、C3的订阅关系一致，即C1、C2、C3订阅消息的代码必须�
 
 + Consumer实例1-2：
 
-```java
-    Properties properties = new Properties();
-    properties.put(PropertyKeyConst.GROUP_ID, "GID_test_1");
-    Consumer consumer = ONSFactory.createConsumer(properties);
-    consumer.subscribe("TopicB", "*", new MessageListener() {
-        public Action consume(Message message, ConsumeContext context) {
-            System.out.println(message.getMsgID());
-            return Action.CommitMessage;
-        }
-    });
-```
+  ```java
+      Properties properties = new Properties();
+      properties.put(PropertyKeyConst.GROUP_ID, "GID_test_1");
+      Consumer consumer = ONSFactory.createConsumer(properties);
+      consumer.subscribe("TopicB", "*", new MessageListener() {
+          public Action consume(Message message, ConsumeContext context) {
+              System.out.println(message.getMsgID());
+              return Action.CommitMessage;
+          }
+      });
+  ```
 
 + Consumer实例1-3：
 
-```java
-    Properties properties = new Properties();
-    properties.put(PropertyKeyConst.GROUP_ID, "GID_test_1");
-    Consumer consumer = ONSFactory.createConsumer(properties);
-    consumer.subscribe("TopicC", "*", new MessageListener() {
-        public Action consume(Message message, ConsumeContext context) {
-            System.out.println(message.getMsgID());
-            return Action.CommitMessage;
-        }
-    });
-```
+  ```java
+      Properties properties = new Properties();
+      properties.put(PropertyKeyConst.GROUP_ID, "GID_test_1");
+      Consumer consumer = ONSFactory.createConsumer(properties);
+      consumer.subscribe("TopicC", "*", new MessageListener() {
+          public Action consume(Message message, ConsumeContext context) {
+              System.out.println(message.getMsgID());
+              return Action.CommitMessage;
+          }
+      });
+  ```
 
 ### 3.2 同一Group ID下的Consumer实例订阅的Topic相同，但订阅的Tag不一致
 
