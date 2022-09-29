@@ -216,7 +216,7 @@
     "description": "The title of the tag list page"
   },
   "rmq_intro": {
-    "message": "A cloud native messaging and streaming platform, making it simple to build event-driven applications"
+    "message": "RocketMQ 5.0: A cloud-native \"messages, events, streams\" real-time data processing platform, covering cloud-edge-device collaboration scenarios"
   },
   "快速开始": {
     "message": "Quick Start"
@@ -311,7 +311,7 @@
   "连接器": {
     "message": "Connect"
   },
-  "配置化、低代码的方式进行数据集成，可与任意系统建立连接，可用于构建流式ETL，数据管道，数据湖等": {
+  "配置化、低代码的方式进行数据集成，可与任意系统建立连接，可用于构建流式 ETL，数据管道，数据湖等": {
     "message": "Configurable and low-code way to integrate data, connect with any system, and build streaming ETL, data pipeline, data lake, etc."
   },
   "微服务": {
@@ -319,5 +319,11 @@
   },
   "丰富的消息类型支持和消息治理方式，以消息粒度负载均衡满足 Serverless 应用场景": {
     "message": "Rich message type support and management to meet Serverless scenarios with message granularity load balancing"
+  },
+  "物联网": {
+    "message": "IoT"
+  },
+  "支持海量 Topic 需求，覆盖云边端一体化处理场景": {
+    "message": "Supports massive Topic requirements, covering cloud-edge-device collaboration scenarios"
   }
 }

@@ -16,7 +16,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     projectName: "docusaurus", // Usually your repo name.
 
     i18n: {
-      defaultLocale: 'zh',
+      defaultLocale: 'en',
       locales: ['zh','en'],
       localeConfigs: {
         zh: {
