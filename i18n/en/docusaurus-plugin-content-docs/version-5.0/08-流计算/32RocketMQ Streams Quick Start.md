@@ -14,7 +14,7 @@ rocketmq-streams-examples模块下程序可以直接运行（某些例子需要�
 - Maven 3.2及以上
 - 本地启动RocketMQ，[启动文档](https://rocketmq.apache.org/docs/quick-start/)
 
-### 构建Rocketmq-streams
+### 构建RocketMQ Streams
 
 ```shell
 git clone https://github.com/apache/rocketmq-streams.git
