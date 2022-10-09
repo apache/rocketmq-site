@@ -39,6 +39,7 @@
 
 | 版本      | 文档                                                         | 发布日期   | Source 下载                                                   | End of Support |
 | --------- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | -------------- |
+| **5.0.2** | [Release Notes](https://github.com/apache/rocketmq-clients/releases/tag/java-5.0.2) | 2022.10.09  | [download .zip](https://github.com/apache/rocketmq-clients/archive/refs/tags/java-5.0.2.zip) |  |
 | **5.0.1** | [Release Notes](https://github.com/apache/rocketmq-clients/releases/tag/rocketmq-client-java-5.0.1) | 2022.8.29  | [download .zip](https://github.com/apache/rocketmq-clients/archive/refs/tags/rocketmq-client-java-5.0.1.zip) |  |
 | **5.0.0** | [Release Notes](https://github.com/apache/rocketmq-clients/releases/tag/rocketmq-client-java-5.0.0) | 2022.8.01  | [download .zip](https://github.com/apache/rocketmq-clients/archive/refs/tags/rocketmq-client-java-5.0.0.zip) |  |
 
