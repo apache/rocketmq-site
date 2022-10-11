@@ -1,3 +1,15 @@
 publish:
   whoami: asf-site
+  
+github:
+  description: "Apache RocketMQ is a cloud native messaging and streaming platform, making it simple to build event-driven applications."
+  homepage: https://rocketmq.apache.org/
+  labels:
+    - messaging
+    - streaming
+    - eventing
+    - cloud-native
+    - rocketmq
+    - java
+    - hacktoberfest
 
