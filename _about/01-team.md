@@ -66,6 +66,7 @@ The following is a list of developers with commit privileges that have directly 
 |![scarb](/assets/images/about/scarb.jpg)|Jin Jiahao| [@HScarb](https://github.com/HScarb)|scarb@apache.org|Committer| +8 |
 |![sunxiaojian](/assets/images/about/sunxiaojian.jpg)|sunxiaojian| [@sunxiaojian](https://github.com/sunxiaojian)|sunxiaojian@apache.org|Committer| +8 |
 |![hzh0425](/assets/images/about/hzh0425.jpg)|Zhangheng huang| [@hzh0425](https://github.com/hzh0425) | hzh0425@apache.org           |Committer| +8 |
+|![ayanamist](/assets/images/about/ayanamist.jpg)|Yang Tianyang| [@ayanamist](https://github.com/ayanamist) | ayanamist@apache.org           |Committer| +8 |
 
 ### Top Contributors
 
