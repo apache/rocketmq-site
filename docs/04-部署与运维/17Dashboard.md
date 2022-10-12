@@ -53,7 +53,7 @@ $ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=
 
 ```namesrv.addr:port``` 替换为 ```rocketmq```  中配置的 nameserver 地址：端口号
 
-开放端口号：8080，9876，10911，11011 端口
+默认端口配置下，需开放端口号：控制台：8080；namesrv：9876；broker：10909、10911。
 
 - 云服务器：设置安全组访问规则
 - 本地虚拟机：关闭防火墙，或 ```-add-port```
