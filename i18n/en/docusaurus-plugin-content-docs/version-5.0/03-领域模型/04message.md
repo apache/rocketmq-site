@@ -155,8 +155,6 @@ The following figure shows the position of messages in the domain model of Apach
 
 **Message load**
 
-**Message load**
-
 * Definition: the actual message data of the service message.
 
 * Values: serialized by the producer and transmitted in binary bytes.
