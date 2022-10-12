@@ -96,7 +96,7 @@ head repository / compare : 开发仓库及开发分支
 ​	提交 PR 前，请先做如下确认：
 
 1. 已创建与 PR 对应的 [GitHub Issue]( [apache/rocketmq: Mirror of Apache RocketMQ (github.com)](https://github.com/apache/rocketmq/issues) )
-2. 修改内容符合 [Coding Guidelines](/docs/贡献指南/30code-guidelines) 编程规范
+2. 修改内容符合 [Coding Guidelines](/docs/contributionGuide/30code-guidelines) 编程规范
 3. PR 摘要以 [ISSUE #XXX] 开始并简要描述变更需求
 4. 概述 PR 变更需求，变更日志，验证信息，可参考 [PR Demo](https://github.com/apache/rocketmq/pull/152) 
 5. 提交内容具备完整的测试用例，并确保基本检查，单元测试，集成测试通过

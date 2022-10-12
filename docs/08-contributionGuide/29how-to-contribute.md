@@ -33,7 +33,7 @@ Apache RocketMQ 社区提供完备的处理流程帮您解答问题。
 * 根据您的需求评估投入成本和设计解决方案
 * 便于社区围绕该提案展开建设性的讨论
 
-若您计划实现自己的提案以贡献社区，同样需要提供详细描述信息，并遵循 [code-guidelines](/docs/贡献指南/30code-guidelines) 中的编码规范
+若您计划实现自己的提案以贡献社区，同样需要提供详细描述信息，并遵循 [code-guidelines](/docs/contributionGuide/30code-guidelines) 中的编码规范
 
 我们推荐先在社区达成共识再着手实现功能。通过讨论新特性的必要性及实现方案等问题，可以早发现超出项目范围的提案。
 
@@ -63,7 +63,7 @@ Apache RocketMQ 在其活跃社区的推动下持续发展着。每隔几周我�
 2. 测试预发布版本并评分 (+1 未发现问题, -1 测试出问题)
 3. 若预发布版本未测试出问题则发布，否则回到步骤 1
 
-我们在网站上整理了 [release-manual](/docs/贡献指南/32release-manual) 版本发布指南。测试预发行版是项大工程，我们需要吸纳更多人的参与。 RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发布版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
+我们在网站上整理了 [release-manual](/docs/contributionGuide/32release-manual) 版本发布指南。测试预发行版是项大工程，我们需要吸纳更多人的参与。 RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发布版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
 
 
 RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发布版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
@@ -71,10 +71,10 @@ RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发�
 
 ## 贡献代码
 
-Apache RocketMQ 已然并将持续进行维护，优化，和扩展。因此 Apache RocketMQ 鼓励所有人贡献源代码。为给予代码贡献者和审查者极佳的代码贡献体验，并提供高质量的代码仓库，社区遵循 [code-guidelines](/docs/贡献指南/30code-guidelines) 中的贡献流程。编码手册包含构建开发环境指南，社区编码指南和编码风格，并介绍了如何提交贡献的代码。
+Apache RocketMQ 已然并将持续进行维护，优化，和扩展。因此 Apache RocketMQ 鼓励所有人贡献源代码。为给予代码贡献者和审查者极佳的代码贡献体验，并提供高质量的代码仓库，社区遵循 [code-guidelines](/docs/contributionGuide/30code-guidelines) 中的贡献流程。编码手册包含构建开发环境指南，社区编码指南和编码风格，并介绍了如何提交贡献的代码。
 
 
-**请务必在编码之前仔细阅读 [code-guidelines](/docs/贡献指南/30code-guidelines)
+**请务必在编码之前仔细阅读 [code-guidelines](/docs/contributionGuide/30code-guidelines)
 
 并请阅读 [AFS Apache 软件基金会 贡献者协议](https://www.apache.org/licenses/contributor-agreements.html) 提交电子签名。
 
