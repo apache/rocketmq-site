@@ -18,9 +18,9 @@
 
 1.  文件位置：源码 ```rocketmq/style``` 目录下 ```rmq_codeStyle.xml```
 
-2.  Apple OS 导入：```IntelliJ IDEA > Settings > Code Style ``` 。进入 ```Code Style``` 标签页，依次选择 ```Manage > Import``` ，导入文件并命名 ```Scheme```
+2.  Apple OS 导入：```IntelliJ IDEA > Settings > Editor > Code Style ``` 。进入 ```Code Style``` 标签页，依次选择 ```Manage > Import``` ，导入文件并命名 ```Scheme```
 
-3. Windows OS 导入：```IntelliJ IDEA > Settings > Code Style > Import Scheme```
+3. Windows OS 导入：```IntelliJ IDEA > Settings > Editor > Code Style > Import Scheme```
 
 ![1656682140788](../picture/30code-guidelines/1_codestyle.png)
 
