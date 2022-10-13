@@ -1,131 +1,129 @@
-# 如何贡献
+# How to contribute
 
-Apache RocketMQ —— 开放共享的开源社区，诚挚邀请您的加入。
+Apache RocketMQ —— Open and sharing open source community, sincerely invite you to join.
 
-社区交流和贡献方式：
+Ways of community communication and contribution:
 
-- 提出问题
-- 提交错误报告
-- 提出新特性
-- 参与邮件列表上的讨论
-- 贡献代码或文档
-- 优化网站
-- 测试预发布版本
-
-
-## 请求答疑
-
-Apache RocketMQ 社区提供完备的处理流程帮您解答问题。
-
-您可以通过 [User mailing list](mailto:users@rocketmq.apache.org) 和 [Stack Overflow #rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) 进行提问。
-
-## 提交错误报告
-
-如您在使用 RocketMQ 过程中出现问题，可以在 [GitHub Issue](https://github.com/apache/rocketmq/issues) 上提交错误报告。
-
-## 提出改进或新功能
-
-社区在持续寻找反馈意见以改善 Apache RocketMQ ，您的改进方案或新特性的需求将惠及所有 RocketMQ 用户, 请在 GitHub 上创建 [GitHub Issue](https://github.com/apache/rocketmq/issues)。
-
-提案需要包含适当的细节描述和影响范围，请尽可能地详述其需求。我们希望得到较完备的信息，原因如下：
-
-* 实现的改进和新特性最终符合您的需求
-* 根据您的需求评估投入成本和设计解决方案
-* 便于社区围绕该提案展开建设性的讨论
-
-若您计划实现自己的提案以贡献社区，同样需要提供详细描述信息，并遵循 [code-guidelines](/docs/贡献指南/30code-guidelines) 中的编码规范
-
-我们推荐先在社区达成共识再着手实现功能。通过讨论新特性的必要性及实现方案等问题，可以早发现超出项目范围的提案。
-
-## 参与讨论并帮助他人
-
-Apache RocketMQ 社区成员主要通过以下两种邮件沟通和交流：
-
-* [User mailing list](mailto:users@rocketmq.apache.org) ：Apache RocketMQ 用户通过该邮件列表提问以寻求帮助或建议。
-
-  您可以通过订阅该邮件系统以帮助他人解决问题来贡献社区；
-
-  您还可以在 Stack Overflow 上检索 [rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) 标签 回答用户的问题并获取更多见解。
-
-* [Development mailing list](mailto:dev@rocketmq.apache.org) : Apache RocketMQ 开发者通过该邮件列表交流新特性，预发布版本，一般的开发流程等。
-
-  若您热衷于为 RocketMQ 社区贡献代码，可以加入该邮件列表。
+- Ask questions
+- Submitting an error report
+- Introduce new feature
+- Participate in discussions on mailing lists
+- Contribute code or documentation
+- Optimize the site
+- Test pre-release versions
 
 
-您也可以通过订阅 [mailing lists](/contact)，获取更多的社区信息。
+## Request to answer questions
+
+Apache RocketMQ community provides a complete process to help you answer your questions.
+
+You can ask questions through [User mailing list](mailto:users@rocketmq.apache.org) and [Stack Overflow #rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) .
+
+## Submitting an error report
+
+If you have problems using RocketMQ,You can file an error report on  [GitHub Issue](https://github.com/apache/rocketmq/issues).
+
+## Propose improvements or new features
+
+The community is constantly looking for feedback to improve Apache RocketMQ,Your need for improvements or new features will benefit all RocketMQ users, Please create an issue on [GitHub Issue](https://github.com/apache/rocketmq/issues)。
+
+Proposals need to include appropriate details and scope of impact. Please elaborate as much as possible on the requirements.We hope to get more complete information for the following reasons:
+
+* The improvements and new features implemented ultimately fit your needs
+* Evaluate input costs and design solutions based on your needs
+* To facilitate constructive community discussion around the proposal
+
+If you plan to implement your proposal to contribute to the community, you will also need to provide detailed description information,And follow [code-guidelines](/docs/贡献指南/30code-guidelines) Code specification
+
+We recommend building community consensus before implementing features. By discussing the need for new features and how to implement them, proposals that are outside the scope of the project can be spotted early.
+
+## Participate in discussions and help others
+
+Members of the Apache RocketMQ community communicate through the following two types of email:
+
+* [User mailing list](mailto:users@rocketmq.apache.org) ：Apache RocketMQ users use the mailing list to ask for help or advice.
+
+  You can contribute to the community by subscribing to the email system to help others solve problems;
+
+  You can also retrieve on Stackoverflow [rocketmq](https://stackoverflow.com/questions/tagged/rocketmq) tag answer user questions and get more insights.
+
+* [Development mailing list](mailto:dev@rocketmq.apache.org) : Apache RocketMQ developers use this mailing list to communicate new features, pre-releases, general development processes, etc.
+
+  If you are interested in contributing code to the RocketMQ community, you can join the mailing list.
 
 
-## 测试预发布版本
-
-Apache RocketMQ 在其活跃社区的推动下持续发展着。每隔几周我们会发布 RocketMQ 的新版本，以修复漏洞，提升性能，新增特性等。发布新版本的流程如下：
-
-1. 推出新的预发布版本并启动投票流程（时效 72 小时）
-2. 测试预发布版本并评分 (+1 未发现问题, -1 测试出问题)
-3. 若预发布版本未测试出问题则发布，否则回到步骤 1
-
-我们在网站上整理了 [release-manual](/docs/贡献指南/32release-manual) 版本发布指南。测试预发行版是项大工程，我们需要吸纳更多人的参与。 RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发布版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
+You can also by subscribing to  [mailing lists](/contact) get more info about the community.
 
 
-RocketMQ 社区鼓励每个人都参与新版本的测试。通过测试预发布版本, 您将确信新的 RocketMQ 版本仍将为您的程序提供正常服务，并确实在支持版本升级。
+## Test pre-release versions
+
+Apache RocketMQ continues to grow with the help of its active community. Every few weeks we release a new version of RocketMQ to fix bugs, improve performance, add features, etc. The process for releasing a new version is as follows:
+
+1. Launch a new pre-release version and start the voting process (72 hours)
+2. Test pre-release versions and score (+1 no problem found, -1 test problem)
+3. If the pre-release version is not tested, release it; otherwise, go back to Step 1
+
+We have compiled the [release-manual](/docs/贡献指南/32release-manual) release guide on the website.
+Testing a pre-release is a big job, and we need to get more people involved. The RocketMQ community encourages everyone to participate in testing the new version. By testing the pre-release version, you will be confident that the new RocketMQ version will still service your program properly and is indeed supporting version upgrades.
+
+## Contribute code
+
+Apache RocketMQ has been and will continue to be maintained, optimized, and extended.
+So Apache RocketMQ encourages everyone to contribute source code.To give code contributors and reviewers a great code contribution experience and provide a high quality code repository, the community follows the contribution process in [code-guidelines](/docs/贡献指南/30code-guidelines).The coding manual contains guidelines for building a development environment, community coding guidelines and coding styles, and describes how to submit contributed code.
 
 
-## 贡献代码
+**Be sure to read it carefully before coding [code-guidelines](/docs/贡献指南/30code-guidelines)
 
-Apache RocketMQ 已然并将持续进行维护，优化，和扩展。因此 Apache RocketMQ 鼓励所有人贡献源代码。为给予代码贡献者和审查者极佳的代码贡献体验，并提供高质量的代码仓库，社区遵循 [code-guidelines](/docs/贡献指南/30code-guidelines) 中的贡献流程。编码手册包含构建开发环境指南，社区编码指南和编码风格，并介绍了如何提交贡献的代码。
+And please read [Apache Software Foundation contributor license](https://www.apache.org/licenses/contributor-agreements.html) to submit electronic signature.
 
+How to find the right issue?
 
-**请务必在编码之前仔细阅读 [code-guidelines](/docs/贡献指南/30code-guidelines)
+ [GitHub Issue](https://github.com/apache/rocketmq/issues) lists the improvements and recommended features that have been proposed so far.
 
-并请阅读 [AFS Apache 软件基金会 贡献者协议](https://www.apache.org/licenses/contributor-agreements.html) 提交电子签名。
+## Contribution to the document
 
-如何寻找合适的 issue ？
+Good documentation is essential to any kind of software. The Apache RocketMQ community is committed to providing concise, accurate, and complete technical documentation. The community invites all contributions to help refine and improve the RocketMQ documentation.
 
-您可以在 [GitHub Issue](https://github.com/apache/rocketmq/issues) 列出了目前已提出的改进和推荐特性。
+* Please report missing, incorrect, expired documents on [GitHub Issue](https://github.com/apache/rocketmq/issues)
+* The RocketMQ technical documentation is written in Markdown form and stored in [RocketMQ Official Website Repository](https://github.com/apache/rocketmq-site/tree/new-official-website/) ```/docs``` 
 
-## 贡献文档
+Read [Q&A](https://github.com/apache/rocketmq-site/tree/new-official-website)to learn how to contribute by updating and refining documents.
 
-优秀的说明文档对任何一种软件都是至关重要的。 Apache RocketMQ 社区致力于提供简明，精准，完备的技术文档。社区诚挚邀请所有贡献参与完善和改进 RocketMQ 文档。
+## Optimize the website
 
-* 请在 [GitHub Issue](https://github.com/apache/rocketmq/issues)上报告文档缺失，错误，过期等相关情况。
-* RocketMQ 技术文档以 Markdown 形式书写，并存放在 [RocketMQ 官网仓库](https://github.com/apache/rocketmq-site/tree/new-official-website/) ```/docs``` 目录下。
+The Apache RocketMQ website represents Apache RocketMQ and the Apache RocketMQ community. Its main functions are as follows:
 
-阅读 [Q&A](https://github.com/apache/rocketmq-site/tree/new-official-website)了解如何通过更新和完善等方式贡献文档。
+* Become familiar with the visitor Apache RocketMQ and the features of Apache RocketMQ
+* Support visitors to download and use RocketMQ
+* Guide visitors to participate and contribute to the RocketMQ community
 
-## 优化官网
+The community accepts any contribution that will help improve the site.
 
-Apache RocketMQ 官网代表着 Apache RocketMQ 和 Apache RocketMQ 社区。其主要功能如下：
+Please provide your suggestions and ideas about the site by creating [Github Issue](https://github.com/apache/rocketmq-site/issues)
 
-* 通晓访问者 Apache RocketMQ 和 Apache RocketMQ 的功能特性
-* 支持访问者 下载并使用 RocketMQ
-* 引导访问者 参与并贡献 RocketMQ 社区
+If you would like to update or optimize the website, please visit [apache/rocketmq-site new-official-website](https://github.com/apache/rocketmq-site/tree/new-official-website#qa。) 
 
-社区接纳任何有助于优化网站的贡献。
+## More ways to contribute...
 
-请通过创建 [Github Issue](https://github.com/apache/rocketmq-site/issues) 提供您关于网站的建议和创意。
+There are many more ways to contribute to the RocketMQ community that you can choose from:
 
-如您想要更新或优化网站，请访问 [apache/rocketmq-site new-official-website](https://github.com/apache/rocketmq-site/tree/new-official-website#qa。) 
-
-## 更多贡献途径...
-
-还有更多贡献 RocketMQ 社区的方式等您选择，您可以：
-
-* 介绍 RocketMQ 给尽可能多的伙伴使用
-* 组织线下交流会或组建线上用户群
-* 化身 RocketMQ 的布道师
+* Introduce RocketMQ to as many partners as possible
+* Organize offline communication meetings or online user groups
+* Become the evangelist of RocketMQ
 * ...
 
-## 如何成为 committer
+## How do I become a committer
 
-Committers 是社区中修改项目仓库的成员，可修改代码，文档和网站或接纳其他成员的贡献。
+Committers are members of a community's project repository who can modify code, documents, and websites or accept contributions from other members.
 
-成为 commiter 并没有严格的协议，候选人通常是社区中活跃的贡献者。
+There is no strict protocol for becoming a commiter, and candidates are usually active contributors in the community.
 
-活跃的贡献者意味着：参加邮箱列表中的讨论，帮助他人解决问题，验证预发布版本，礼贤下士并持续优化社区管理，这部分关乎社区在 Apache 中的发展。
+Being an active contributor means: participating in discussions on email lists, helping others solve problems, verifying pre-release versions, honoring the good people and continuously optimizing community management, which is part of the community in Apache.
 
-无疑，为项目贡献代码和文档同样至关重要。好的开端可以是优化性能，开发新特性，修复漏洞。无论哪种方式，您需要为所贡献的代码负责，提供测试用例和说明文档并持续维护。
+Undoubtedly, contributing code and documentation to the project is equally important. A good place to start is by optimizing performance, developing new features, and fixing bugs. Either way, you are responsible for contributing code, providing test cases and documentation, and maintaining it continuously.
 
-候选人可以被社区内的 committer 或 PMC 成员举荐，并最终由 PMC 投票表决。
+Candidates can be recommended by committer or PMC members in the community, and ultimately voted on by the PMC.
 
-如您有意成为 RocketMQ 社区的 committer ，请积极融入社区并以上述任意方式贡献 Apache RocketMQ  
+If you are interested in becoming a committer in the RocketMQ community, please actively engage with the community and contribute to Apache RocketMQ in any of the above ways
 
-社区内 committer 成员会非常热衷与您分享交流，并给予您适时的建议和指导。
+committer members in the community will be eager to share with you and give you advice and guidance as appropriate.
