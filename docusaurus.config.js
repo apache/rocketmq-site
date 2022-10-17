@@ -153,11 +153,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/rmq-arc',
-              to: '/docs/领域模型/01main'
+              to: '/docs/domainModel/01main'
             },
             {
               from: '/docs/rmq-deployment/',
-              to: '/docs/部署运维/15deploy'
+              to: '/docs/deploymentOperations/15deploy'
             },
             {
               from: '/docs/motivation/',
@@ -165,59 +165,59 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: ['/docs/quickstart/', '/docs/quick-start'],
-              to: '/docs/快速入门/02quickstart'
+              to: '/docs/quickStart/02quickstart'
             },
             {
               from: '/docs/how-to-contribute/',
-              to: '/docs/贡献指南/29how-to-contribute'
+              to: '/docs/contributionGuide/29how-to-contribute'
             },
             {
               from: '/docs/code-guidelines/',
-              to: '/docs/贡献指南/30code-guidelines'
+              to: '/docs/contributionGuide/30code-guidelines'
             },
             {
               from: '/docs/pull-request/',
-              to: '/docs/贡献指南/31pull-request'
+              to: '/docs/contributionGuide/31pull-request'
             },
             {
               from: '/docs/release-manual',
-              to: '/docs/贡献指南/32release-manual'
+              to: '/docs/contributionGuide/32release-manual'
             },
             {
               from: '/docs/cli-admin-tool/',
-              to: '/docs/部署运维/16admintool'
+              to: '/docs/deploymentOperations/16admintool'
             },
             {
               from: '/docs/system-config',
-              to: '/docs/最佳实践/19JVMOS'
+              to: '/docs/bestPractice/19JVMOS'
             },
             {
               from: '/docs/faq/',
-              to: '/docs/最佳实践/22FAQ'
+              to: '/docs/bestPractice/22FAQ'
             },
             {
               from: '/docs/logappender-example/',
-              to: '/docs/4.x/最佳实践/20log'
+              to: '/docs/4.x/bestPractice/20log'
             },
             {
               from: '/docs/order-example/',
-              to: '/docs/4.x/生产者/06message2'
+              to: '/docs/4.x/producer/06message2'
             },
             {
               from: '/docs/schedule-example/',
-              to: '/docs/4.x/生产者/07message3'
+              to: '/docs/4.x/producer/07message3'
             },
             {
               from: '/docs/batch-example/',
-              to: '/docs/4.x/生产者/08message4'
+              to: '/docs/4.x/producer/08message4'
             },
             {
               from: '/docs/transaction-example/',
-              to: '/docs/4.x/生产者/09message5'
+              to: '/docs/4.x/producer/09message5'
             },
             {
               from: '/docs/cluster-deployment/',
-              to: '/docs/4.x/参数配置/24server'
+              to: '/docs/4.x/parameterConfiguration/24server'
             },
             {
               from: '/docs/documentation/',
@@ -225,7 +225,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/best-practice-consumer/',
-              to: '/docs/4.x/最佳实践/15bestpractice'
+              to: '/docs/4.x/bestPractice/15bestpractice'
             },
             {
               from: '/release_notes/',
@@ -317,7 +317,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 { to: "/contact", label: "参与社区" },
                 { to: "/origin", label: "项目起源" },
                 { to: "/team", label: "贡献团队" },
-                { to: "/docs/贡献指南/29how-to-contribute", label: "贡献说明" },
+                { to: "/docs/contributionGuide/29how-to-contribute", label: "贡献说明" },
                 // ... more items
               ],
             },
@@ -386,11 +386,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               items: [
                 {
                   label: 'Introduction',
-                  to: '/docs/领域模型/01main',
+                  to: '/docs/domainModel/01main',
                 },
                 {
                   label: 'Installation',
-                  to: '/docs/快速入门/02quickstart',
+                  to: '/docs/quickStart/02quickstart',
                 },
                 {
                   label: 'Migration from 4.x to 5.0',
