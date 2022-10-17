@@ -19,7 +19,7 @@ If the message is sent successfully or fails, you need to print message logs for
 
 ### Handling method for message sending failure
 
-The send method of the Producer itself supports internal retry,5.x Retry logic reference [Send retry policy](../04-功能行为/05sendretrypolicy.md)：
+The send method of the Producer itself supports internal retry,5.x Retry logic reference [Send retry policy](../04-featureBehavior/05sendretrypolicy.md)：
 
 The above strategies also guarantee the success of message sending to a certain extent. If the business requires that the message be sent without loss, you still need to cover for possible exceptions, such as when the send synchronization method is called and fails to send, then try to store the message to the db and retry periodically by the background thread to ensure that the message reaches the Broker.
 
