@@ -35,7 +35,7 @@ export default function Hero(){
               className={clsx(
                 "button button--outline button--secondary button--lg",styles.button
               )}
-              to={"/docs/快速入门/02quickstart"}
+              to={"/docs/quickStart/02quickstart"}
             >
               <Translate id="快速开始">快速开始</Translate>
             </Link>
