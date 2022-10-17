@@ -318,6 +318,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 { to: "/origin", label: "项目起源" },
                 { to: "/team", label: "贡献团队" },
                 { to: "/docs/contributionGuide/29how-to-contribute", label: "贡献说明" },
+                { to: "/enterprise", label: "企业用户" }
                 // ... more items
               ],
             },
