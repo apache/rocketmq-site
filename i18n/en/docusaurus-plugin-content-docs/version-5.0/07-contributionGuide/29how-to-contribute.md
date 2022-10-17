@@ -33,7 +33,7 @@ Proposals need to include appropriate details and scope of impact. Please elabor
 * Evaluate input costs and design solutions based on your needs
 * To facilitate constructive community discussion around the proposal
 
-If you plan to implement your proposal to contribute to the community, you will also need to provide detailed description information,And follow [code-guidelines](/docs/contributionGuide/30code-guidelines) Code specification
+If you plan to implement your proposal to contribute to the community, you will also need to provide detailed description information,And follow [code-guidelines](./30code-guidelines) Code specification
 
 We recommend building community consensus before implementing features. By discussing the need for new features and how to implement them, proposals that are outside the scope of the project can be spotted early.
 
@@ -63,16 +63,16 @@ Apache RocketMQ continues to grow with the help of its active community. Every f
 2. Test pre-release versions and score (+1 no problem found, -1 test problem)
 3. If the pre-release version is not tested, release it; otherwise, go back to Step 1
 
-We have compiled the [release-manual](/docs/contributionGuide/32release-manual) release guide on the website.
+We have compiled the [release-manual](./32release-manual) release guide on the website.
 Testing a pre-release is a big job, and we need to get more people involved. The RocketMQ community encourages everyone to participate in testing the new version. By testing the pre-release version, you will be confident that the new RocketMQ version will still service your program properly and is indeed supporting version upgrades.
 
 ## Contribute code
 
 Apache RocketMQ has been and will continue to be maintained, optimized, and extended.
-So Apache RocketMQ encourages everyone to contribute source code.To give code contributors and reviewers a great code contribution experience and provide a high quality code repository, the community follows the contribution process in [code-guidelines](/docs/贡献指南/30code-guidelines).The coding manual contains guidelines for building a development environment, community coding guidelines and coding styles, and describes how to submit contributed code.
+So Apache RocketMQ encourages everyone to contribute source code.To give code contributors and reviewers a great code contribution experience and provide a high quality code repository, the community follows the contribution process in [code-guidelines](./30code-guidelines).The coding manual contains guidelines for building a development environment, community coding guidelines and coding styles, and describes how to submit contributed code.
 
 
-**Be sure to read it carefully before coding [code-guidelines](/docs/contributionGuide/30code-guidelines)
+**Be sure to read it carefully before coding [code-guidelines](./30code-guidelines)
 
 And please read [Apache Software Foundation contributor license](https://www.apache.org/licenses/contributor-agreements.html) to submit electronic signature.
 
