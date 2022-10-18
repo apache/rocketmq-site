@@ -26,11 +26,6 @@ function Home() {
         <Section isDark>
          <Feature/>
 
-         <div className="logosection">
-          <Section>
-            <LogoCarousel logos={logos}></LogoCarousel>
-          </Section>
-          </div>
         </Section>
 
         <Community />
