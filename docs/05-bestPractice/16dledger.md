@@ -58,7 +58,7 @@ $ sh bin/dledger/fast-try.sh stop
 
 ## Dledger集群搭建
 本部分主要介绍如何部署自动容灾切换的 RocketMQ-on-DLedger Group。
-该小节的描述目的在于如何在生成环境中搭建Dledger集群，与第一小节的区别是不用构建DLedger，实际生成环境中可参考本章节部署方式。
+该小节的描述目的在于如何在生产环境中搭建Dledger集群，与第一小节的区别是不用构建DLedger，实际生成环境中可参考本章节部署方式。
 
 RocketMQ-on-DLedger Group 是指一组**相同名称**的 Broker，至少需要 3 个节点，通过 Raft 自动选举出一个 Leader，其余节点 作为 Follower，并在 Leader 和 Follower 之间复制数据以保证高可用。
 RocketMQ-on-DLedger Group 能自动容灾切换，并保证数据一致。
