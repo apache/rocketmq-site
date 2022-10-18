@@ -427,8 +427,8 @@ h1 {
   /* grid-gap: 28px; */
   text-align: center;
   place-items: center;
-  padding-bottom: 7em;
-  margin-left: 5rem;
+  padding-top: 3em;
+  padding: 3em 0 5em 0;
 }
 @media (max-width: 1200px) {
   .logocontainer {

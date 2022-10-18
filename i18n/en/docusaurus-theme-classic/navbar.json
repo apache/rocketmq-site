@@ -40,7 +40,7 @@
     "description": "Navbar item with label 参与社区"
   },
   "item.label.贡献团队": {
-    "message": "Contribute",
+    "message": "Teams",
     "description": "Navbar item with label 贡献团队"
   },
   "item.label.项目起源": {
@@ -48,8 +48,12 @@
     "description": "Navbar item with label 项目起源"
   },
   "item.label.贡献说明": {
-    "message": "Contribute Instructions",
+    "message": "Contributions",
     "description": "Navbar item with label 贡献说明"
+  },
+  "item.label.企业用户": {
+    "message": "Enterprises",
+    "description": "Navbar item with label 企业用户"
   },
   "item.label.GitHub": {
     "message": "GitHub",
