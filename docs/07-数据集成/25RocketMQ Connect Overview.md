@@ -1,7 +1,7 @@
 # RocketMQ Connect 概览
 
 RocketMQ Connect是RocketMQ数据集成重要组件，可将各种系统中的数据通过高效，可靠，流的方式，流入流出到RocketMQ，它是独立于RocketMQ的一个单独的分布式，可扩展，可容错系统，
-它具备低延时，高靠性，高性能，低代码，扩展性强等特点，可以实现各种异构数据系统的连接，构建数据管道，ETL，CDC，数据湖等能力。
+它具备低延时，高可靠性，高性能，低代码，扩展性强等特点，可以实现各种异构数据系统的连接，构建数据管道，ETL，CDC，数据湖等能力。
 
 
 ![RocketMQ Connect Overview](../picture/32rocketmq-connect/overview.png)
@@ -12,13 +12,13 @@ RocketMQ Connect是一个独立的的分布式，可伸缩，容错的系统，�
 
 ### Connector的使用场景
 
-#####构建流式数据管道
+##### 构建流式数据管道
 
 ![RocketMQ Connect使用场景](../picture/32rocketmq-connect/scene.png)
 
 在业务系统中，利用MySQL完善的事务支持，处理数据的增删改，使用ElasticSearch，Solr等实现强大的搜索能力,或者将产生的业务数据同步到数据分析系统，数据湖中（例如hudi），对数据进一步处理从而让数据产生更高的价值。使用RocketMQ Connect很容易实现这样的数据管道的能力，只需要配置3个任务，第一个从MySQL获取数据的任务，第二，三个是从RocketMQ消费数据到ElasticSearch，Hudi的任务，配置3个任务就实现了从MySQL到ElasticSearch，MySQL到hudi的两条数据管道，既可以满足业务中事务的需求，搜索的需求，又可以构建数据湖。
 
-#####CDC
+##### CDC
 
 CDC作为ETL模式之一，可以通过近乎实时的增量捕获数据库的 INSERT、UPDATE，DELETE变化，RocketMQ Connect流试数据传输，具备高可用，低延时等特性，通过Connector很容易实现CDC。
 
