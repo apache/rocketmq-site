@@ -20,8 +20,8 @@
 
 ## Worker
 
-worker 进程是Connector和Task运行环境，它提供RESTFull能力，接受HTTP请求，将获取到的配置传递给Connector和Task。
-除此之外它还负责启动Connector和Task，保存Connector配置信息，保存Task同步数据的位点信息，负载均衡能力，Connect集群高可用，扩缩容，故障处理主要依赖Worker的负责均衡能力实现的。
+worker 进程是Connector和Task运行环境，它提供RESTFul能力，接受HTTP请求，将获取到的配置传递给Connector和Task。
+除此之外它还负责启动Connector和Task，保存Connector配置信息，保存Task同步数据的位点信息，负载均衡能力，Connect集群高可用，扩缩容，故障处理主要依赖Worker的负载均衡能力实现的。
 
 ![RocketMQ基本模型](../picture/32rocketmq-connect/worker.png)
 
