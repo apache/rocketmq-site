@@ -95,7 +95,7 @@ sh bin/connect-standalone.sh -c conf/connect-standalone.conf &
 ### MySQL镜像
 使用debezium的MySQL docker搭建环境MySQL数据库
 ```
-docker run -it --rm --name MySQL -p 3306:3306 -e MySQL_ROOT_PASSWORD=debezium -e MySQL_USER=MySQLuser -e MySQL_PASSWORD=MySQLpw quay.io/debezium/example-MySQL:1.9
+docker run -it --rm --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=debezium -e MYSQL_USER=mysqluser -e MYSQL_PASSWORD=mysqlpw quay.io/debezium/example-mysql:1.9
 ```
 MySQL信息
 
@@ -142,9 +142,6 @@ INSERT INTO `employee` VALUES (14, 'name-08', 25, 15, 'company', 32255, '2022-02
 INSERT INTO `employee` VALUES (15, NULL, 0, 0, NULL, 0, NULL, '2022-06-14 20:13:29', NULL);
 
 
-
-
-use 
 ```
 
 目标库：inventory_2.employee
@@ -173,10 +170,10 @@ PRIMARY KEY (`id`)
 作用：通过解析MySQL binlog 封装成通用的ConnectRecord对象，发送的RocketMQ Topic当中
 
 ```
-curl-X POST-H"Content-Type: application/json"http: //127.0.0.1:8082/connectors/MySQLCDCSource'{
-"connector.class": "org.apache.rocketmq.connect.debezium.MySQL.DebeziumMySQLConnector",
+curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/MySQLCDCSource -d '{
+"connector.class": "org.apache.rocketmq.connect.debezium.MySQL.DebeziumMysqlConnector",
 "max.task": "1",
-"connect.topicname": "debezium-MySQL-source-topic",
+"connect.topicname": "debezium-mysql-source-topic",
 "kafka.transforms": "Unwrap",
 "kafka.transforms.Unwrap.delete.handling.mode": "none",
 "kafka.transforms.Unwrap.type": "io.debezium.transforms.ExtractNewRecordState",

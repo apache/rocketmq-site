@@ -1,6 +1,6 @@
-# RocketMQ Connect实战2
+# RocketMQ Connect实战3
 
-PostgreSQL Source(CDC)  -  >RocketMQ Connect  ->  MySQL Sink(JDBC)
+![RocketMQ Connect Overview](../picture/32rocketmq-connect/RocketMQ-Connect-Integration-Demo.jpg)
 
 ## 准备
 
@@ -31,10 +31,13 @@ $ cd rocketmq-connect/connectors/rocketmq-connect-debezium/
 $ mvn clean package -Dmaven.test.skip=true
 ```
 
-将 Debezium PostgreSQL RocketMQ Connector 编译好的包放入Runtime加载目录。命令如下：
+将 Debezium MySQL PostgreSQL RocketMQ Connector 编译好的包放入Runtime加载目录。命令如下：
 ```
 mkdir -p /usr/local/connector-plugins
 cp rocketmq-connect-debezium-postgresql/target/rocketmq-connect-debezium-postgresql-0.0.1-SNAPSHOT-jar-with-dependencies.jar /usr/local/connector-plugins
+
+cp rocketmq-connect-debezium-mysql/target/rocketmq-connect-debezium-mysql-0.0.1-SNAPSHOT-jar-with-dependencies.jar /usr/local/connector-plugins
+
 ```
 
 JDBC Connector
@@ -106,8 +109,8 @@ docker exec -ti postgres /bin/bash
 Postgres信息
 端口：5432
 账号：start_data_engineer/password
-同步的源数据库：bank.holding
-目标库：bank1.holding
+同步的源数据库：bank.user
+
 
 ### MySQL镜像
 
@@ -121,47 +124,79 @@ MySQL信息
 端口：3306
 
 账号：root/debezium
+同步的源数据库：bank.user
+
+目标库：bank1.user
 
 
 ### 测试数据
 
-通过start_data_engineer/password账号登录数据库
+通过root/debezium账号登录数据库
+源数据库表：bank.user
 
-源数据库表：bank.holding
+```
+create database bank;
+use bank;
+
+create table bank.user
+(
+    id       bigint NOT NULL AUTO_INCREMENT,
+    user_id          integer,
+    name    varchar(8),
+    age integer,
+    birthday date,
+    datetime_created timestamp(3),
+    datetime_updated timestamp(3),
+    height           decimal(11, 2) null,
+    PRIMARY KEY (`id`)
+);
+
+insert into bank.user values (1003, 1, 'lilei2', 10, now(), now(), now(), 1.72);
+update bank.user set user_id = 1003 where id = 1003;
+
+```
+
+
+通过start_data_engineer/password账号登录PostgreSQL数据库
+
+源数据库表：bank.user
 
 ```
 CREATE SCHEMA bank;
 SET search_path TO bank,public;
-CREATE TABLE bank.holding (
-                              holding_id int,
-                              user_id int,
-                              holding_stock varchar(8),
-                              holding_quantity int,
-                              datetime_created timestamp,
-                              datetime_updated timestamp,
-                              primary key(holding_id)
+create table bank.user
+(
+    id       integer not null
+        constraint user_pkey
+            primary key,
+    user_id          integer,
+    name    varchar(8),
+    age integer,
+    birthday date,
+    datetime_created timestamp(3),
+    datetime_updated timestamp(3),
+    height           numeric(11, 2)
 );
-ALTER TABLE bank.holding replica identity FULL;
-insert into bank.holding values (1000, 1, 'VFIAX', 10, now(), now());
-\q
-insert into bank.holding values (1000, 1, 'VFIAX', 10, now(), now());
-insert into bank.holding values (1001, 2, 'SP500', 1, now(), now());
-insert into bank.holding values (1003, 3, 'SP500', 1, now(), now());
-update bank.holding set holding_quantity = 300 where holding_id=1000;
+
+insert into bank.user values (1001, 1, 'lilei1', 10, now(), now(), now(), 1.72);
+update bank.user set user_id = 1001 where id = 1001;
 
 ```
 
-目标表：bank1.holding
+目标表：bank1.user
 ```
 create database bank1;
-CREATE TABLE holding (
-                          holding_id int,
-                          user_id int,
-                          holding_stock varchar(8),
-                          holding_quantity int,
-                          datetime_created bigint,
-                          datetime_updated bigint,
-                          primary key(holding_id)
+create table bank1.user
+(
+    id               bigint auto_increment
+        primary key,
+    user_id          int            null,
+    name             varchar(8)     null,
+    age              int            null,
+    birthday         date           null,
+    datetime_created timestamp(3)   null,
+    datetime_updated timestamp(3)   null,
+    height           decimal(11, 2) null
 );
 
 ```
@@ -170,14 +205,47 @@ CREATE TABLE holding (
 
 ### 启动Debezium source connector
 
-同步原表数据：bank.holding
+同步原表数据：bank.user
+作用：通过解析MySQL binlog 封装成通用的ConnectRecord对象，发送的RocketMQ Topic当中
+
+```
+curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/MySQLCDCSource1000 -d '{
+"connector.class": "org.apache.rocketmq.connect.debezium.MySQL.DebeziumMysqlConnector",
+"max.task": "1",
+"connect.topicname": "debezium-source-topic1000",
+"kafka.transforms": "Unwrap",
+"kafka.transforms.Unwrap.delete.handling.mode": "none",
+"kafka.transforms.Unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+"kafka.transforms.Unwrap.add.headers": "op,source.db,source.table",
+"database.history.skip.unparseable.ddl": true,
+"database.history.name.srv.addr": "localhost:9876",
+"database.history.rocketmq.topic": "db-history-debezium-topic1000",
+"database.history.store.only.monitored.tables.ddl": true,
+"include.schema.changes": false,
+"database.server.name": "dbserver1",
+"database.port": 3306,
+"database.hostname": "数据库ip",
+"database.connectionTimeZone": "UTC",
+"database.user": "debezium",
+"database.password": "dbz",
+"table.include.list": "bank.user",
+"max.batch.size": 50,
+"database.include.list": "bank",
+"snapshot.mode": "when_needed",
+"database.server.id": "184054",
+"key.converter": "org.apache.rocketmq.connect.runtime.converter.record.json.JsonConverter",
+"value.converter": "org.apache.rocketmq.connect.runtime.converter.record.json.JsonConverter"
+}'
+```
+
+同步原表数据：bank.user
 作用：通过解析Postgres binlog 封装成通用的ConnectRecord对象，发送的RocketMQ Topic当中
 
 ```
-curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/postgres-connector -d  '{
+curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/postgres-connector1000 -d  '{
   "connector.class": "org.apache.rocketmq.connect.debezium.postgres.DebeziumPostgresConnector",
   "max.task": "1",
-  "connect.topicname": "debezium-postgres-source-01",
+  "connect.topicname": "debezium-source-topic1000",
   "kafka.transforms": "Unwrap",
   "kafka.transforms.Unwrap.delete.handling.mode": "none",
   "kafka.transforms.Unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
@@ -190,7 +258,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
   "database.user": "start_data_engineer",
   "database.dbname": "start_data_engineer",
   "database.password": "password",
-  "table.whitelist": "bank.holding",
+  "table.whitelist": "bank.user",
   "key.converter": "org.apache.rocketmq.connect.runtime.converter.record.json.JsonConverter",
   "value.converter": "org.apache.rocketmq.connect.runtime.converter.record.json.JsonConverter"
 }'
@@ -201,14 +269,14 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 作用：通过消费Topic中的数据，通过JDBC协议写入到目标表当中
 
 ```
-curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/jdbcmysqlsinktest201 -d '{
+curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/jdbcmysqlsinktest1000 -d '{
   "connector.class": "org.apache.rocketmq.connect.jdbc.connector.JdbcSinkConnector",
   "max.task": "2",
-  "connect.topicnames": "debezium-postgres-source-01",
+  "connect.topicnames": "debezium-source-topic1000",
   "connection.url": "jdbc:mysql://数据库ip:3306/bank1",
   "connection.user": "root",
   "connection.password": "debezium",
-  "pk.fields": "holding_id",
+  "pk.fields": "id",
   "table.name.from.header": "true",
   "pk.mode": "record_key",
   "insert.mode": "UPSERT",
@@ -224,11 +292,12 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 
 ```
 
-以上两个Connector任务创建成功以后
-通过start_data_engineer/password账号登录数据库
+以上三个Connector任务创建成功以后
+通过start_data_engineer/password账号登录PostgreSQL数据库
 账号登录数据库
+或者通过root/debezium账号登录MySQL数据库
 
-对源数据库表：bankholding增删改
-即可同步到目标表bank1.holding
+对源数据库表：bank.user增删改
+都会同步到同步到目标表MySQL bank1.user
 
 

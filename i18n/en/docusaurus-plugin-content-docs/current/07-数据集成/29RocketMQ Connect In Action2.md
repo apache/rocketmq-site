@@ -1,4 +1,4 @@
-# RocketMQ Connect In Action2
+# RocketMQ Connect实战2
 
 PostgreSQL Source(CDC)  -  >RocketMQ Connect  ->  MySQL Sink(JDBC)
 
@@ -27,11 +27,11 @@ PostgreSQL Source(CDC)  -  >RocketMQ Connect  ->  MySQL Sink(JDBC)
 
 Debezium RocketMQ Connector
 ```
-$ cd rocketmq-connect/connectors/rocketmq-connect-debezium-postgresql/
+$ cd rocketmq-connect/connectors/rocketmq-connect-debezium/
 $ mvn clean package -Dmaven.test.skip=true
 ```
 
-将 Debezium MySQL RocketMQ Connector 编译好的包放入Runtime加载目录。命令如下：
+将 Debezium PostgreSQL RocketMQ Connector 编译好的包放入Runtime加载目录。命令如下：
 ```
 mkdir -p /usr/local/connector-plugins
 cp rocketmq-connect-debezium-postgresql/target/rocketmq-connect-debezium-postgresql-0.0.1-SNAPSHOT-jar-with-dependencies.jar /usr/local/connector-plugins
@@ -107,14 +107,15 @@ Postgres信息
 端口：5432
 账号：start_data_engineer/password
 同步的源数据库：bank.holding
-目标库：bank1.holding1
+目标库：bank1.holding
 
 ### MySQL镜像
 
 使用debezium的MySQL docker搭建环境MySQL数据库
 ```
-docker run -it --rm --name MySQL -p 3306:3306 -e MySQL_ROOT_PASSWORD=debezium -e MySQL_USER=MySQLuser -e MySQL_PASSWORD=MySQLpw quay.io/debezium/example-MySQL:1.9
+docker run -it --rm --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=debezium -e MYSQL_USER=mysqluser -e MYSQL_PASSWORD=mysqlpw quay.io/debezium/example-mysql:1.9
 ```
+
 MySQL信息
 
 端口：3306
