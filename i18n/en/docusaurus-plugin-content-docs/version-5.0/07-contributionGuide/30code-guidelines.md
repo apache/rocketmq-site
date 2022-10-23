@@ -1,52 +1,53 @@
-# 代码指南
+# Code Guidelines
 
-## 前言
+## Introduction
 
-本文向您介绍编码规范和编码指南。
+This article introduces you to coding specifications and coding guidelines.
 
-研究表明软件开发的 80% 时间用于软件维护，包括源码解读，源码重构，源码维护等。
+Research shows that 80% of software development time is spent on software maintenance, including source code interpretation, source code refactoring, source code maintenance, etc.
 
-约定并强制推行编码规范和编码指南，有助于提高代码的可读性，维护开发团队代码所有权，
+Agreeing on and enforcing code specifications and guidelines can help improve code readability, maintain code ownership by the development team,
 
-帮助工程师快速深入理解新增代码，并简化维护成本。
+help engineers understand new code quickly and deeply, and simplify maintenance costs.
 
-## IDEA 编程模板
+## IDEA Programming Template
 
-下面分别引导您在 IDEA 中导入 ```rmq_codeStyle.xml``` 编码规范文件， ```Apache.xml``` 贡献许可文件
+The following guides you to import the ```rmq_codeStyle.xml``` encoding specification file and ```Apache.xml``` contribution license file in IDEA.
 
-### 导入 Code Style
+### Import Code Style
 
-1.  文件位置：源码 ```rocketmq/style``` 目录下 ```rmq_codeStyle.xml```
+1.File Path: ```rocketmq/style/rmq_codestyle.xml```
 
-2.  Apple OS 导入：```IntelliJ IDEA > Settings > Code Style ``` 。进入 ```Code Style``` 标签页，依次选择 ```Manage > Import``` ，导入文件并命名 ```Scheme```
+2.Apple OS Import: ```IntelliJ IDEA > File > Settings > Editor > Code Style``` enter the ```Code Style```, select the ```Manage > Import``` to import the ```rmq_codestyle.xml``` and name it ```Scheme```
 
-3. Windows OS 导入：```IntelliJ IDEA > Settings > Code Style > Import Scheme```
+3.Windows OS Import: ```IntelliJ IDEA > File > Settings > Editor > Code Style``` enter the ```Code Style```, select the ```Show Scheme Actions > Import Scheme > Intellij IDEA code style XML``` to import the ```rmq_codestyle.xml```
 
 ![1656682140788](../picture/30code-guidelines/1_codestyle.png)
 
-4. 导入的 ```rmq_codeStyle.xml``` 指定了代码的缩进格式，命名规范，标准 Java 约定等
+4.The imported ```rmq_codeStyle.xml``` specifies the code's indentation format, naming conventions, standard Java conventions, and so on
 
-5. IDEA 设置完成后会自动 reformat 代码，以便通过 Travis CI 的代码风格校验
+5.After IDEA is set, the code is automatically reformat to pass the code style validate of Travis CI
 
-## 导入 Apache V2
+## Import Apache V2
 
-1. 文件位置：源码 ```rocketmq/style/copyright``` 目录 ```Apache.xml```
+1.File Path: ```rocketmq/style/copyright/Apache.xml```
+
+2.Import: ```IntelliJ IDEA > File > Settings > Editor > Copyright > Copyright Profiles``` enter the ```Copyright Profiles```, select the ```import``` to import the ```Apache.xml```
 
 ![1656683960857](../picture/30code-guidelines/2_ApacheV2.png)
 
-2. 许可说明： [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
+3.License: [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
-## 选择 Apache 版权
+## Select Apache Copyright
 
 ![1656684219109](../picture/30code-guidelines/3_ApacheCopyRight.png)
 
-可参考  [五种开源协议(GPL,LGPL,BSD,MIT,Apache) - OSCHINA - 中文开源技术交流社区](https://www.oschina.net/question/54100_9455) 了解详情
+Refer to  [Five open source protocols(GPL,LGPL,BSD,MIT,Apache) - OSCHINA - Chinese open source technology exchange community](https://www.oschina.net/question/54100_9455) For details
 
-## 移除 Javadoc 标签
+## Remove Javadoc Label
 
-1. 依次选择：```Settings > Editor > File and Code Templates > Includes```
+1. select the ```Settings > Editor > File and Code Templates > Includes```
 
-2. 进入 ```File Header``` 页签下，删除其中的 Javadoc 标签
+2. enter the ```File Header``` , remove the Javadoc label from it
 
 ![1656684039505](../picture/30code-guidelines/4_FileHeader.png)
-
