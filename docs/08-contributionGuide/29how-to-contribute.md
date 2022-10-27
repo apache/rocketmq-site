@@ -103,7 +103,7 @@ Apache RocketMQ 官网代表着 Apache RocketMQ 和 Apache RocketMQ 社区。其
 
 请通过创建 [Github Issue](https://github.com/apache/rocketmq-site/issues) 提供您关于网站的建议和创意。
 
-如您想要更新或优化网站，请访问 [apache/rocketmq-site new-official-website](https://github.com/apache/rocketmq-site/tree/new-official-website#qa。) 
+如您想要更新或优化网站，请访问 [apache/rocketmq-site new-official-website](https://github.com/apache/rocketmq-site/tree/new-official-website#qa。)
 
 ## 更多贡献途径...
 
@@ -126,6 +126,6 @@ Committers 是社区中修改项目仓库的成员，可修改代码，文档和
 
 候选人可以被社区内的 committer 或 PMC 成员举荐，并最终由 PMC 投票表决。
 
-如您有意成为 RocketMQ 社区的 committer ，请积极融入社区并以上述任意方式贡献 Apache RocketMQ  
+如您有意成为 RocketMQ 社区的 committer ，请积极融入社区并以上述任意方式贡献 Apache RocketMQ
 
 社区内 committer 成员会非常热衷与您分享交流，并给予您适时的建议和指导。
