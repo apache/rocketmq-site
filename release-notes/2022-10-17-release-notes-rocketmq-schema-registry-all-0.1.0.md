@@ -5,13 +5,13 @@ categories:
 tags:
 - RocketMQ_Schema_Registry
 ---
-
 :::tip Download
 * Source: [rocketmq-streams-1.0.1-preview.zip](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.1-preview/rocketmq-streams-1.0.1-preview.zip) [[PGP](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.1-preview/rocketmq-streams-1.0.1-preview.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.1-preview/rocketmq-streams-1.0.1-preview.zip.sha512)]
-  :::
+:::
 <!--truncate-->
 
 Below is a summary of the issues addressed in the 0.1.0 release of RocketMQ Schema Registry. For full documentation of the release, a guide to get started, please refer to <a href='https://github.com/apache/rocketmq-schema-registry/tree/rocketmq-schema-registry-all-0.1.0'>Quick Start</a>.
+
 
 ## Feature
 <ul>
