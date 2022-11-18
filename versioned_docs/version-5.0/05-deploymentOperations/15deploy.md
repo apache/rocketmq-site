@@ -47,7 +47,7 @@ The broker[xxx, 192.169.1.2:10911] boot success...
 
 - 缺点：单台机器宕机期间，这台机器上未被消费的消息在机器恢复之前不可订阅，消息实时性会受到影响。
 
-### 启动NameServer
+#### 启动NameServer
 
 NameServer需要先于Broker启动，且如果在生产环境使用，为了保证高可用，建议一般规模的集群启动3个NameServer，各节点的启动命令相同，如下：
 
@@ -78,7 +78,7 @@ $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/br
 
 :::
 
-## 多节点（集群）多副本模式-异步复制
+### 多节点（集群）多副本模式-异步复制
 
 每个Master配置一个Slave，有多组 Master-Slave，HA采用异步复制方式，主备有短暂消息延迟（毫秒级），这种模式的优缺点如下：
 
