@@ -210,7 +210,7 @@ create table bank1.user
 
 ```
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/MySQLCDCSource1000 -d '{
-"connector.class": "org.apache.rocketmq.connect.debezium.MySQL.DebeziumMysqlConnector",
+"connector.class": "org.apache.rocketmq.connect.debezium.mysql.DebeziumMysqlConnector",
 "max.task": "1",
 "connect.topicname": "debezium-source-topic1000",
 "kafka.transforms": "Unwrap",
