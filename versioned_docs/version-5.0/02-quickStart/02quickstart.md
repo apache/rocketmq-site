@@ -105,7 +105,7 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
 3. 通过mqadmin创建 Topic。
 
    ```shell
-   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic
+   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster
    ```
 
 4. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：

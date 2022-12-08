@@ -103,7 +103,7 @@ We can also try to use the client sdk to send and receive messages, you can see 
 3. Create topic by mqadmin cli tools.
 
    ```shell
-   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic
+   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster
    ```
 
 4. In the Java project you have created, create a program that sends messages and run it with the following code:
