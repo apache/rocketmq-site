@@ -88,17 +88,17 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
 
 ## 5. SDK测试消息收发
 
-工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程。
+工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 <a href='https://github.com/apache/rocketmq-clients'>rocketmq-clients</a> 中参阅更多细节。
 
 1. 在IDEA中创建一个Java工程。
 
-2. 在 *pom.xml* 文件中添加以下依赖引入Java依赖库。
+2. 在 *pom.xml* 文件中添加以下依赖引入Java依赖库，将 `rocketmq-client-java-version` 替换成 <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>最新的版本</a>.
 
    ```xml
    <dependency>
        <groupId>org.apache.rocketmq</groupId>
        <artifactId>rocketmq-client-java</artifactId>
-       <version>5.0.0</version>
+       <version>${rocketmq-client-java-version}</version>
    </dependency> 
    ```
 
