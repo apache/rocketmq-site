@@ -86,17 +86,17 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
 
 ## 5. Send and Receive Messages with SDK
 
-We can also try to use the client sdk to send and receive messages.
+We can also try to use the client sdk to send and receive messages, you can see more details from <a href='https://github.com/apache/rocketmq-clients'>rocketmq-clients</a>.
 
 1. Create a java project.
 
-2. Add sdk dependency to *pom.xml*.
+2. Add sdk dependency to *pom.xml*, remember to replace the `rocketmq-client-java-version` with the <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>latest release</a>.
 
    ```xml
    <dependency>
        <groupId>org.apache.rocketmq</groupId>
        <artifactId>rocketmq-client-java</artifactId>
-       <version>5.0.0</version>
+       <version>${rocketmq-client-java-version}</version>
    </dependency> 
    ```
 
