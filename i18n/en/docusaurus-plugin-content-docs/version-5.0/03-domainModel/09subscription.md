@@ -72,7 +72,7 @@ Apache RocketMQ manages subscriptions based on consumer groups. Therefore, consu
   c1.subscribe(topicA,"TagA");
   //Consumer c2
   Consumer c2 = ConsumerBuilder.build(groupA);
-  c1.subscribe(topicA,"TagA");
+  c2.subscribe(topicA,"TagA");
   ```
 
   
@@ -83,8 +83,8 @@ Apache RocketMQ manages subscriptions based on consumer groups. Therefore, consu
   //Consumer c1
   Consumer c1 = ConsumerBuilder.build(groupA);
   c1.subscribe(topicA,"TagA");
-  //Consumer c2Consumer 
-  c2 = ConsumerBuilder.build(groupA);
+  //Consumer c2
+  Consumer c2 = ConsumerBuilder.build(groupA);
   c1.subscribe(topicA,"TagB");
   ```
 
