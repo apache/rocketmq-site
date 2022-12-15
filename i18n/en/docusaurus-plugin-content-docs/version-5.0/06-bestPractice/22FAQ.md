@@ -1,291 +1,315 @@
-# 常见问题解答
+# FAQs
 
-以下是关于RocketMQ项目的常见问题
+Common questions about the RocketMQ project:
 
-## 1 基本
+## 1 Basic
 
-1. **为什么我们要使用 RocketMQ 而不是选择其他的产品？**
+1. **Why should we use RocketMQ instead of choosing other products?**
 
-   请参考[为什么要选择RocketMQ](http://rocketmq.apache.org/docs/motivation/)
+   Please refer to[ why choose RocketMQ](http://rocketmq.apache.org/docs/motivation/)
 
-2. **我是否需要安装其他的软件才能使用 RocketMQ ，例如 ZooKeeper ？**
+2. **Do I need to install any other software in order to use RocketMQ, such as ZooKeeper?**
 
-   不需要，RocketMQ 能够独立的运行。
+   No，RocketMQ can run on independent。
 
-## 2 使用
+## 2 Use
 
-1. **新创建的 ConsumerGroup 从哪里开始消费消息？**
+1. **Where does the newly created ConsumerGroup start consuming messages?**
 
-   1）5.x SDK，在首次上线时会从服务器中的最新消息开始消费，也就是从队列的尾部开始消费；再次重新启动后，会从最后一次的消费位置继续消费。 
+   1）When the 5.x SDK is first online, it will consume from the latest message on the server, starting from the tail of the queue. After restarting again, it    will continue to consume from the last consumption position.
 
-   2）3.x/4.x SDK 则比较复杂，如果首次启动是在发送的消息在三天之内，那么消费者会从服务器中保存的第一条消息开始消费；如果发送的消息已经超过三天，则消费者会从服务器中的最新消息开始消费，也就是从队列的尾部开始消费。再次重新启动后，会从最后一次的消费位置继续消费。
+   2）The 3.x/4.x SDK is more complicated. If the first start is within three days of the sent message, the consumer will start consuming from the first saved message on the server. If the sent message is more than three days, the consumer will start consuming from the latest message on the server, starting from the tail of the queue. After restarting again, it will continue to consume from the last consumption position.
 
-3. **当消费失败的时候如何重新消费消息？**
+2. **When consumption fails, how can the message be consumed again?**
 
-   1）在集群模式下，消费的业务逻辑代码会返回消费失败状态，或者抛出异常，如果一条消息消费失败，则会按照设置的最大重试次数重试，之后该消息会被丢弃。
+   1）In cluster mode, the consumption business logic code will return a consumption failure status, or throw an exception. If a message consumption fails, it will be retried according to the maximum retry count set, and then the message will be discarded.
 
-   2）在广播消费模式下，广播消费仍然保证消息至少被消费一次，但不提供重发的选项。
+   2）In broadcast consumption mode, broadcast consumption still guarantees that the message is consumed at least once, but does not provide resend options.
 
-4. **当消费失败的时候如何找到失败的消息？**
+3. **When consumption fails, how can the failed message be found?**
 
-   1）使用按时间的主题查询，可以查询到一段时间内的消息。
+   1）Using a time-based topic query can query messages within a period of time.
 
-   2）使用主题和消息 ID 来准确查询消息。
+   2）Use the topic and message ID to accurately query the message.
 
-   3）使用主题和消息的 Key 来准确查询所有消息 Key 相同的消息。
+   3）Use the topic and message Key to accurately query all messages with the same message Key.
 
-5. **消息只会被传递一次吗？**
+4. **Is the message only delivered once?**
 
-   RocketMQ 确保所有消息至少传递一次。 在大多数情况下，消息不会重复。
+   RocketMQ ensures that all messages are delivered at least once. In most cases, messages are not repeated.
 
-6. **如何增加一个新的 Broker ？**
+5. **How can a new Broker be added?**
 
-   1）启动一个新的 Broker 并将其注册到NameServer 中的 Broker 列表里。
+   1）Start a new Broker and register it in the Broker list of the NameServer.
 
-   2）默认只自动创建内部系统 Topic 和 Consumer Group。 如果您希望在新节点上拥有您的业务主题和消费者组，请从现有的 Broker 中复制它们。 我们提供了管理工具和命令行来处理此问题。
+   2）By default, only internal system Topics and Consumer Groups are automatically created. If you want to have your business topic and consumer group on the new node, copy them from the existing Broker. We provide management tools and command line to handle this.
 
-## 3 配置相关
+## 3 Configuration dependent
 
-以下回答均为默认值，可通过配置修改。
+The following answers are default values, which can be modified through configuration.
 
-1. **消息在服务器上可以保存多长时间？**
+1. **How long can messages be saved on the server?**
 
-   存储的消息将最多保存 3 天，超过 3 天未使用的消息将被删除。
+   Messages will be stored for a maximum of 3 days. Messages that have not been used for more than 3 days will be deleted.
 
-2. **消息体的大小限制是多少？**
+2. **What is the size limit for message bodies?**
 
-   通常是256KB
+   Typically, it is 256KB.
 
-3. **怎么设置消费者线程数？**
+3. **How do you set the number of consumer threads?**
 
-   当你启动消费者的时候，可以设置属性。不同版本的参数名不一样。
+   When you start the consumer, you can set the property. The parameter name varies by version.
 
-## 4 错误
+## 4 Error
 
 1. **APPLY_TOPIC_URL**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      topic[xxx] not exist, apply first please!
      ```
 
-   - **原因**
+   - **reason**
 
-     1）Producer 发送消息或 Consumer 消费消息时，根据 Topic 获取路由信息失败，会出现这个异常。
+     1）When a Producer sends a message or a Consumer consumes a message, this exception will occur if the routing information for the Topic cannot be obtained.
 
-   - **解决方案**
+   - **solution**
 
-     1）确保 NameServer 确实包含 Topic 的路由信息。 您可以使用管理工具或 Web 控制台通过 TopicRoute 从 NameServer 查询路由信息；
+     1）Make sure that the NameServer indeed contains the routing information for the Topic. You can use the management tool or the Web console to query the routing information from the NameServer through the TopicRoute;
 
-     2）确保 Broker 和 Consumer 连接的是同一 NameServer 集群；
+     2）Make sure that the Broker and Consumer are connected to the same NameServer cluster;
 
-     3）确保主题的队列权限，对 Producer 是6(rw-)，或对 Consumer 至少是2(-w-)；
+     3）Make sure that the queue permissions for the topic are 6 (rw-) for the Producer or at least 2 (-w-) for the Consumer;
 
-     如果找不到此主题，请通过管理工具命令 updateTopic 或 Web 控制台在 Broker 上创建它。
+     If the topic cannot be found, create it on the Broker through the management tool command updateTopic or the Web console.
 
 2. **NAME_SERVER_ADDR_NOT_EXIST_URL**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      No name server address, please set it
      ```
-      或
+
+      or
+
      ```java
      connect to xxx failed, maybe the domain name xxx not bind in /etc/hosts
      ```
 
-   - **原因**
+   - **reason**
 
-     1）Producer 或 Consumer，获取 NameServer 地址信息异常。
+     1）Producer or Consumer, there is an error in obtaining the NameServer address information.
 
-   - **解决方案**
+   - **solution**
 
-     1）请参考：[5.1 客户端寻址方式](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
+     1）Please refer to：[5.1 Client addressing](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
 
 3. **GROUP_NAME_DUPLICATE_URL**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      The producer group[xxx] has been created before, specify another name please.
      ```
 
-   - **原因**
+   - **reason**
 
-     1）相同名称的 Consumer Group 已经启动，注册失败。
+     1）A Consumer Group with the same name has already been started and registration failed.
 
-   - **解决方案**
+   - **solution**
 
-     1）新 Consumer Group 重命名；
+     1）Rename a new Consumer Group.
 
-     2）相同名称的 Consumer Group 正常关闭后，再启动；
+     2）A Consumer Group with the same name was normally closed and then started again.
 
 4. **CLIENT_PARAMETER_CHECK_URL**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      consumerGroup can not equal ...
      ```
-     或
+
+     or
+
      ```java
      allocateMessageQueueStrategy is null ...
      ```
-     或
+
+     or
+
      ```java
      Long polling mode, the consumer consumerTimeoutMillisWhenSuspend must greater than brokerSuspendMaxTimeMillis ...
      ```
 
-     除此之外，还有其他异常，不再一一列举。
+     In addition to the above exceptions, there may be other exceptions that are not listed here.
 
-   - **原因**
+   - **reason**
 
-     1）Consumer 参数校验失败。
+     1）Consumer parameter verification failed.
 
-   - **解决方案**
+   - **solution**
 
-     1）请参考： [5.2 客户端配置](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
+     1）Please refer to： [5.2  Client configuration](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
 
 5. **SUBSCRIPTION_GROUP_NOT_EXIST**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      subscription group not exist
      ```
 
-   - **原因**
+   - **reason**
 
-     1）Consumer Group 或 DleayQueue 获取订阅信息异常。
+     1）If the Consumer Group or DleayQueue encounters an error while getting subscription information.
 
-   - **解决方案**
+   - **solution**
 
-     1）确保 Consumer 订阅 Topic 信息与 NameServer 中存在的 Topic 信息一致；
+     1）Ensure the Consumer's subscription to the Topic information is consistent with the Topic information in the NameServer.
 
-     2）确保 Broker 和 Consumer 连接的是同一 NameServer 集群；
+     2）Make sure the Broker and Consumer are connected to the same NameServer cluster.
 
-     3）确保 Topic 的队列权限，对 Producer 是 6(rw-)，或对 Consumer 至少是 2(-w-)；
+     3）Ensure the queue permissions for the Topic are 6 (rw-) for the Producer, or at least 2 (-w-) for the Consumer
 
 6. **CLIENT_SERVICE_NOT_OK**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      The xxx service state not OK, maybe started once
      ```
 
-   - **原因**
+   - **reason**
 
-     1）使用同一个 Producer/Consumer Group 在同一个JVM中启动多个 Producer/Consumer 实例可能会导致客户端无法启动。
+     1）Starting multiple Producer/Consumer instances in the same JVM using the same Producer/Consumer Group may cause the client to fail to start.
 
-   - **解决方案**
+   - **solution**
 
-     1）确保一个 Producer/Consumer Group 对应的 JVM 只启动一个 Producer/Consumer 实例。
+     1）Make sure only one Producer/Consumer instance is started for a given Producer/Consumer Group JVM.
 
 7. **NO_TOPIC_ROUTE_INFO**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      No route info of this topic:
      ```
 
-   - **原因**
+   - **reason**
 
-     1）将消息发送到一个路由信息对生产者不可用的主题时，就会发生这种情况。
+     1）If a message is sent to a topic that is not available to the producer，that's what happens.
 
-   - **解决方案**
+   - **solution**
 
-     1）确保生产者可以连接到名称服务器并且能够从中获取路由元信息；
+     1）Ensure the producer is able to connect to the name server and retrieve routing metadata from it.
 
-     2）确保名称服务器确实包含主题的路由元信息。 您可以使用管理工具或 Web 控制台通过 TopicRoute 从名称服务器查询路由元信息；
+     2）Ensure the name server contains routing metadata for the topic. You can use a management tool or the Web console to query the routing metadata from the name server using TopicRoute.
 
-     3）确保您的 Broker 将心跳发送到您的生产者正在连接的同一 NameServer 列表；
+     3）Make sure your Broker is sending heartbeats to the same NameServer list that your producer is connected to.
 
-     4）确保主题的权限为6(rw-)，或至少为2(-w-)；
+     4）Ensure the topic has permission 6 (rw-), or at least 2 (-w-).
 
-     如果找不到此主题，请通过管理工具命令updateTopic或Web控制台在Broker上创建它。
+     If the topic is not found, create it on the Broker via the management tool command updateTopic or the Web console.
 
 8. **LOAD_JSON_EXCEPTION**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      readLocalOffset Exception
      ```
 
-   - **原因**
+   - **reason**
 
-     1）消费者在广播模式下，加载本地 offsets.json 文件异常；
+     1）In broadcast mode, consumers have an error when loading the local offsets.json file.
 
-     2）损坏的 fastjson 文件也会导致同样的问题；
+     2）A damaged fastjson file can also cause the same problem.
 
-   - **解决方案**
+   - **solution**
 
-     1）检查 fastjson 版本和 RocketMQ 使用版本是否一致；
+     1）Check if the fastjson version and RocketMQ version in use are consistent.
 
-     2）升级 fastjson 版本；
+     2）Upgrade fastjson version.
 
 9. **SAME_GROUP_DIFFERENT_TOPIC**
 
-   - **异常信息**
+   - **exception information**
 
      ```java
      the consumer's group info/subscription not exist
      ```
-   - **原因**
-     1）Consumer 订阅 Topic 信息不存在.
-   - **解决方案**
-     1）检查 Consumer 所在的 Consumer Group 是否存在；
-     2）检查 Consumer 订阅 Topic 是否存在；
+
+   - **reason**
+     1）Consumer subscription to Topic information does not exist.
+
+   - **solution**
+     1）Check if the Consumer Group where the Consumer belongs exists.
+     2）Check if the Topic subscribed to by the Consumer exists.
+
 10. **MQLIST_NOT_EXIST**
-    - **异常信息**
+
+    - **exception information**
+
       ```java
       Can not find Message Queue for this topic
       ```
-    - **原因**
-      1）对于Producer，根据 Topic 未能获取对应的 Queue 信息。
-    - **解决方案**
-      1）确保 Topic 已经正确配置 Queue 信息；
-      2）确保 Topic 对应的 Queue 至少有2(-w-)权限；
+
+    - **reason**
+      1）For the Producer, the corresponding Queue information could not be obtained based on the Topic.
+
+    - **solution**
+      1）Ensure that the Queue information has been correctly configured for the Topic.
+      2）Ensure that the Queue corresponding to the Topic has at least 2 (-w-) permissions.
+
 11. **SEND_MSG_FAILED**
-    - **异常信息**
+
+    - **exception information**
+
       ```java
       Send [xxx] times, still failed, cost [xxx]ms, Topic: xxx, BrokersSent ...
       ```
-    - **原因**
-      1）Producer 消息发送异常。同步（SYNC）方式共发送3次，异步（ASYNC）和单向（ ONEWAY）发送1次。
-    - **解决方案**
-      1）Producer 发送消息，超时参数是否过小；
-      2）确保 Broker 正常；
-      3）确保 Producer 和 Broker 连接是否正常
+
+    - **reason**
+      1）The Producer message sending is abnormal. A total of 3 times are sent in SYNC mode, and 1 time is sent in ASYNC and ONEWAY.
+
+    - **solution**
+      1）Whether the timeout parameter of the Producer sending message is too small.
+      2）Ensure that the Broker is normal.
+      3）Ensure that the connection between the Producer and Broker is normal.
+
 12. **UNKNOWN_HOST_EXCEPTION**
-    - **异常信息**
+
+    - **exception information**
+
       ```java
       InetAddress java.net.InetAddress.getLocalHost() throws UnknownHostException
       ```
-    - **原因**
-    
-      1）主机可能有很多网络接口，并且一个接口可能绑定到多个IP地址。
-    
-    - **解决方案**
-    
-      1）确保 host 对应的 IP 能够正常访问，使用 Ping 等网络命令检查网络情况；
+
+    - **reason**
+
+      1）There may be many network interfaces on the host, and one interface may be bound to multiple IP addresses.
+
+    - **solution**
+
+      1）Ensure that the IP corresponding to the host can be accessed normally, and use network commands such as Ping to check the network situation.
+
       
-      
-## 5 其他  
-1. Broker崩溃以后有什么影响？
-   
-   1）Master节点崩溃
-   
-   消息不能再发送到该 Broker 集群，但是如果您有另一个可用的 Broker 集群，那么在主题存在的条件下仍然可以发送消息。消息仍然可以从 Slave 节点消费。
-   
-   2）一些Slave节点崩溃
-   
-   只要有另一个工作的 Slave，就不会影响发送消息。 对消费消息也不会产生影响，除非消费者组设置为优先从该Slave消费。 默认情况下，消费者组从 Master 消费。
-   
-   3）所有 Slave 节点崩溃
-   
-   向 Master 发送消息不会有任何影响，但是，如果 Master是 SYNC_MASTER，Producer会得到一个 SLAVE_NOT_AVAILABLE ，表示消息没有发送给任何 Slave。 对消费消息也没有影响，除非消费者组设置为优先从 Slave 消费。 默认情况下，消费者组从 Master 消费。
+
+## 5 Others  
+
+1. What is the impact of the Broker crashing？
+
+   1）Master node crashes
+
+   Messages can no longer be sent to the Broker cluster, but if you have another available Broker cluster, messages can still be sent as long as the topic exists. Messages can still be consumed from the Slave node.
+
+   2）Some Slave nodes crash
+
+   Sending messages will not be affected as long as there is another working Slave. Consuming messages will not be affected unless the consumer group is set to consume from the Slave first. By default, the consumer group consumes from the Master.
+
+   3）All Slave nodes crash
+
+   Sending messages to the Master will not be affected, but if the Master is SYNC_MASTER, the Producer will get a SLAVE_NOT_AVAILABLE indicating that the message was not sent to any Slave. Consuming messages will not be affected unless the consumer group is set to consume from the Slave first. By default, the consumer group consumes from the Master.
