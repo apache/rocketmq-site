@@ -149,6 +149,8 @@ SimpleConsumer 的使用涉及多个接口调用，由业务逻辑按需调用�
                 .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("Your Endpoint").build())
                 //设置预绑定的订阅关系。
                 .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+                //设置从服务端接受消息的最大等待时间
+                .setAwaitDuration(Duration.ofSeconds(1))
                 .build();
         List<MessageView> messageViewList = null;
         try {
