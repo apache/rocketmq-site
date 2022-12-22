@@ -8,7 +8,7 @@
 | Success of message sending | Success of message consumption | Message key value |
 | Time taken to send | Time taken to consume | Message tag value |
 
-## 2. Support for message trace cluster deployment
+## 2. Cluster Deployment for Supporting Message Trace
 
 ### 2.1 Broker configuration file
 Here is the content of the properties configuration file for enabling the message trace feature on the Broker ：
@@ -48,7 +48,7 @@ By default, the message trace data is stored in the system-level TraceTopic (who
 ### 3.2 User-defined TraceTopic
 If the user does not want to store the message trace data in the default system-level TraceTopic, they can also define and create a user-level Topic to save the trace (that is, create a regular Topic to store the message trace data). The next section will introduce how the Client interface supports user-defined TraceTopic.
 
-## 4. Supporting message trace Client practice
+## 4. The Client with Message Trace Practice
 In order to minimize the transformation work of the user's business system using the RocketMQ message trace feature, the author designed to add a switch parameter (**enableMsgTrace**) to the original interface to enable or disable message trace, and added a custom parameter (**customizedTraceTopic**) to allow the user to store the message trace data in their own user-level Topic created.
 
 ### 4.1 Enable message trace when sending messages
@@ -106,12 +106,12 @@ To support custom storage message trace Topic, modify the initialization of the 
   ```shell
   ./mqadmin sendMessage -m true --topic some-topic-name -n 127.0.0.1:9876 -p "your meesgae content"
   ```
-- Search trace
+- Query trace
 
   ```shell
   ./mqadmin QueryMsgTraceById -n 127.0.0.1:9876 -i "some-message-id"
   ```
-- Search trace result
+- Query trace result
 
   ```
   RocketMQLog:WARN No appenders could be found for logger (io.netty.util.internal.PlatformDependent0).
