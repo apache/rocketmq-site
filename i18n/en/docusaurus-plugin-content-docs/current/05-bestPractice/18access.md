@@ -1,8 +1,8 @@
-# Permission control
+# Access control
 
-## 1. Introduction to permission control features
+## 1. Introduction to access control features
 
-Permission control (ACL) mainly provides advanced access control functions at the Topic resource level for RocketMQ. When using RocketMQ permission control, users can inject user name and password parameters into the Client client to achieve signature, and the server can implement permission management and verification of various resources through permission control parameters.
+access control (ACL) mainly provides advanced access control functions at the Topic resource level for RocketMQ. When using RocketMQ access control, users can inject user name and password parameters into the  client to achieve signature, and the server can implement permission management and verification of various resources through access control parameters.
 
 :::info
 
@@ -10,11 +10,11 @@ ACL control will increase the complexity of deployment process and operation and
 
 :::
 
-## 2. Definition and attribute values of permission control
+## 2. Definition and attribute values of access control
 
 ### 2.1 Permission definition
 
-The definition of access permission control for RocketMQ Topic resources is mainly as shown in the following table, divided into the following four categories:
+The definition of access access control for RocketMQ Topic resources is mainly as shown in the following table, divided into the following four categories:
 
 | Permission | Definition            |
 | ---------- | --------------------- |
@@ -39,7 +39,7 @@ The definition of access permission control for RocketMQ Topic resources is main
 
 Refer to the **distribution/conf/plain_acl.yml** configuration file for specific information.
 
-## 3. Deployment of clusters supporting permission control
+## 3. Deployment of clusters supporting access control
 
 After defining the permission attributes in the **distribution/conf/plain_acl.yml** configuration file as described above, you can turn on the ACL feature of the RocketMQ cluster by turning on the **aclEnable** switch variable. Here is the properties configuration file content for enabling the ACL feature on the Broker：
 
@@ -61,7 +61,7 @@ brokerIP1=XX.XX.XX.XX1
 namesrvAddr=XX.XX.XX.XX:9876
 ```
 
-## 4. Main process of permission control
+## 4. Main process of access control
 
 The main process of ACL is divided into two parts, mainly including permission parsing and permission verification.
 
@@ -86,11 +86,11 @@ The verification of the required permissions for the user needs to pay attention
 1.  Special requests such as UPDATE_AND_CREATE_TOPIC can only be operated by the admin account.
 2.  For a certain resource, if there is an explicit configuration permission, the configured permission is used; if there is no explicit configuration    permission, the default permission is used.
 
-## 5. Hot reload modified permission control definitions
+## 5. Hot reload modified access control definitions
 
-The default implementation of RocketMQ's permission control storage is based on the yml configuration file. Users can dynamically modify the properties of the permission control definition without restarting the Broker service node.
+The default implementation of RocketMQ's access control storage is based on the yml configuration file. Users can dynamically modify the properties of the access control definition without restarting the Broker service node.
 
-## 6. Usage limits for permission control
+## 6. Usage limits for access control
 
 1. If ACL is enabled together with high availability deployment (Master/Slave architecture), you need to set the global whitelist information in the distribution/conf/plain_acl.yml configuration file on the Broker Master node, that is, set the IP address of the Slave node to the global whitelist in the plain_acl.yml configuration file on the Master node.
 2. If ACL is enabled together with high availability deployment (multi-replica Dledger architecture), because the primary node will be automatically selected in the Dledger Group when a node goes down, you need to set the whitelist in the plain_acl.yml configuration file of all Broker nodes in the Dledger Group to the IP address of all Broker nodes.
