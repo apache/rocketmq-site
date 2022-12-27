@@ -63,7 +63,7 @@ The following is a list of developers with commit privileges that have directly 
 |![mingduan](/about/mingduan.png)|Zhongliang Chen| [@chenzlalvin](https://github.com/chenzlalvin) |chenzlalvin@apache.org|Committer| +8 |
 |![fuchong](/about/fuchong.png)|Yubao Fu| [@fuyou001](https://github.com/fuyou001) |fuyou@apache.org|Committer| +8 |
 |![ayanamist](/about/ayanamist.jpg)|Yang Tianyang| [@ayanamist](https://github.com/ayanamist) |ayanamist@apache.org|Committer| +8 |
-
+|![oliverwqcwrw](/about/oliverwqcwrw.png)|Qiang Wang| [@Oliverwqcwrw](https://github.com/Oliverwqcwrw) |oliverwqcwrw@apache.org|Committer| +8 |
 ### Top Contributors
 
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
