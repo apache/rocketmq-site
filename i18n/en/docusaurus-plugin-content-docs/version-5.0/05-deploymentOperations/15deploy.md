@@ -1,72 +1,71 @@
-# 部署方式
+# Deployment method
 
-Apache RocketMQ 5.0 版本完成基本消息收发，包括 NameServer、Broker、Proxy 组件。 在 5.0 版本中 Proxy 和 Broker 根据实际诉求可以分为 Local 模式和 Cluster 模式，一般情况下如果没有特殊需求，或者遵循从早期版本平滑升级的思路，可以选用Local模式。
+In the Apache RocketMQ 5.0 version, basic message sending and receiving is completed, including the NameServer, Broker, and Proxy components. In the 5.0 version, the Proxy and Broker can be divided into Local mode and Cluster mode according to actual requirements. Generally, if there are no special requirements or if you follow the approach of smoothly upgrading from earlier versions, you can use Local mode.
 
-- 在 Local 模式下，Broker 和 Proxy 是同进程部署，只是在原有 Broker 的配置基础上新增 Proxy 的简易配置就可以运行。
-- 在 Cluster 模式下，Broker 和 Proxy 分别部署，即在原有的集群基础上，额外再部署 Proxy 即可。
+- In Local mode, the Broker and Proxy are deployed in the same process, and you can run it by simply adding a Proxy configuration based on the original Broker configuration.
+- In Cluster mode, the Broker and Proxy are deployed separately, that is, in addition to the existing cluster, you can deploy the Proxy separately.
 
-## 部署方案和使用约束
+## Deployment Scenarios and Use Constraints
 
-## Local模式部署
+## Deployment in Local Mode
 
-由于 Local 模式下 Proxy 和 Broker 是同进程部署，Proxy本身无状态，因此主要的集群配置仍然以 Broker 为基础进行即可。
+Since the Proxy and Broker are deployed in the same process in Local mode, the Proxy is stateless, so the main cluster configuration can still be based on the Broker.
 
-### 单组节点单副本模式
+### Single Node Single Replica Mode
 
 :::caution
-这种方式风险较大，因为 Broker 只有一个节点，一旦Broker重启或者宕机时，会导致整个服务不可用。不建议线上环境使用, 可以用于本地测试。
+This method carries a high risk, as there is only one node for the Broker, and if the Broker restarts or goes down, the entire service will be unavailable. It is not recommended in online environments, but can be used for local testing.
 :::
 
-#### 启动 NameServer
+#### Start NameServer
 
 ```bash
-### 首先启动Name Server
+### Start Name Server first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify that the Name Server has started successfully.
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-#### 启动 Broker+Proxy
+#### Start Broker+Proxy
 
 ```bash
 
 $ nohup sh bin/mqbroker -n localhost:9876 --enable-proxy &
 
-### 验证Broker 是否启动成功，例如Broker的IP为：192.168.1.2，且名称为broker-a
+### Verify that the Broker has started successfully, for example, the broker IP is 192.168.1.2, and the name is broker-A
 $ tail -f ~/logs/rocketmqlogs/broker_default.log 
 The broker[xxx, 192.169.1.2:10911] boot success...
 ```
 
-### 多组节点（集群）单副本模式
+### Multiple Node (Cluster) Single Replica Mode
 
-一个集群内全部部署 Master 角色，不部署Slave 副本，例如2个Master或者3个Master，这种模式的优缺点如下：
+All nodes in a cluster are deployed with the Master role, and no Slave replicas are deployed, such as 2 Masters or 3 Masters. The advantages and disadvantages of this mode are as follows:
 
-- 优点：配置简单，单个Master宕机或重启维护对应用无影响，在磁盘配置为RAID10时，即使机器宕机不可恢复情况下，由于RAID10磁盘非常可靠，消息也不会丢（异步刷盘丢失少量消息，同步刷盘一条不丢），性能最高；
+- Advantages: Simple configuration, a single Master's downtime or restart has no effect on the application, and when the disk is configured as RAID10, even if the machine goes down irrecoverably, the message will not be lost due to the reliability of the RAID10 disk (asynchronous disk flush loses a small amount of messages, synchronous disk flush does not lose a single message), and has the highest performance;
+- Disadvantages: During a single machine's downtime, messages that have not been consumed on this machine cannot be subscribed before the machine recovers, and message timeliness will be affected.
 
-- 缺点：单台机器宕机期间，这台机器上未被消费的消息在机器恢复之前不可订阅，消息实时性会受到影响。
+### Start NameServer
 
-### 启动NameServer
-
-NameServer需要先于Broker启动，且如果在生产环境使用，为了保证高可用，建议一般规模的集群启动3个NameServer，各节点的启动命令相同，如下：
+The NameServer needs to start before the Broker, and if it is used in a production environment, it is recommended to start 3 NameServers for general-scale clusters to ensure high availability. The start commands for each node are the same, as follows:
 
 ```bash
-### 首先启动NameServer
+### Start NameServer first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify that the Name Server has started successfully.
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-#### 启动Broker+Proxy集群
+#### Start Broker+Proxy cluster
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-a.properties --enable-proxy &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-b.properties --enable-proxy &
 
 ...
@@ -74,127 +73,123 @@ $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/br
 
 :::note
 
-如上启动命令是在单个NameServer情况下使用的。对于多个NameServer的集群，Broker启动命令中`-n`后面的地址列表用分号隔开即可，例如 `192.168.1.1:9876;192.161.2:9876`。
+The above start command is used in the case of a single NameServer. For a cluster with multiple NameServers, the address list after `-n` in the Broker start command is separated by semicolons, such as `192.168.1.1:9876;192.161.2:9876`.
 
 :::
 
-## 多节点（集群）多副本模式-异步复制
+## Multiple Node (Cluster) Multiple Replica Mode - Asynchronous Replication
 
-每个Master配置一个Slave，有多组 Master-Slave，HA采用异步复制方式，主备有短暂消息延迟（毫秒级），这种模式的优缺点如下：
+Each Master is configured with a Slave, and there are multiple Master-Slave pairs. HA uses asynchronous replication, and there is a brief message delay (millisecond level) between the primary and secondary. The advantages and disadvantages of this mode are as follows:
 
-- 优点：即使磁盘损坏，消息丢失的非常少，且消息实时性不会受影响，同时Master宕机后，消费者仍然可以从Slave消费，而且此过程对应用透明，不需要人工干预，性能同多Master模式几乎一样；
+- Advantages: Even if the disk is damaged, very few messages are lost, and message timeliness is not affected. At the same time, after the Master goes down, consumers can still consume from the Slave, and this process is transparent to the application and does not require manual intervention, and the performance is almost the same as the multiple Master mode;
+- Disadvantages: A small number of messages will be lost in the event of a Master outage or disk damage.
 
-- 缺点：Master宕机，磁盘损坏情况下会丢失少量消息。
-
-#### 启动NameServer
+#### Start NameServer
 
 ```bash
-### 首先启动Name Server
+### Start NameServer first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify that the Name Server has started successfully.
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-#### 启动Broker+Proxy集群
+#### Start Broker+Proxy cluster
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a.properties --enable-proxy &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b.properties --enable-proxy &
  
-### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1
+### On machine C, start the first slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a-s.properties --enable-proxy &
  
-### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1
+### On machine D, start the second slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b-s.properties --enable-proxy &
 ```
 
-### 多节点（集群）多副本模式-同步双写
+### Multiple Node (Cluster) Multiple Replica Mode - Synchronous Dual Write
 
-每个Master配置一个Slave，有多对 Master-Slave，HA采用同步双写方式，即只有主备都写成功，才向应用返回成功，这种模式的优缺点如下：
+Each Master is configured with a Slave, and there are multiple Master-Slave pairs. HA uses synchronous dual write, which means that only if both primary and secondary write succeed, it returns success to the application. The advantages and disadvantages of this mode are as follows:
 
-- 优点：数据与服务都无单点故障，Master宕机情况下，消息无延迟，服务可用性与数据可用性都非常高；
+- Advantages: Both data and service have no single point of failure, and there is no delay in messages in the event of a Master outage, and both service availability and data availability are very high;
+- Disadvantages: Performance is slightly lower than asynchronous replication mode (about 10% lower), the RT for sending a single message is slightly higher, and in the current version, after the primary node goes down, the standby cannot automatically switch to the primary.
 
-- 缺点：性能比异步复制模式略低（大约低10%左右），发送单个消息的RT会略高，且目前版本在主节点宕机后，备机不能自动切换为主机。
-
-#### 启动NameServer
+#### Start NameServer
 
 ```bash
-### 首先启动Name Server
+###  Start NameServer first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify tha Name Server has started successfully
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-#### 启动 Broker+Proxy 集群
+#### Start Broker+Proxy cluster
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a.properties --enable-proxy &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b.properties --enable-proxy &
  
-### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1
+### On machine C, start the first slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a-s.properties --enable-proxy &
  
-### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1
+### On machine D, start the second slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b-s.properties --enable-proxy &
 ```
 :::tip
-以上 Broker 与 Slave 配对是通过指定相同的 BrokerName 参数来配对，Master 的 BrokerId 必须是 0，Slave 的 BrokerId 必须是大于 0 的数。另外一个 Master 下面可以挂载多个 Slave，同一 Master 下的多个 Slave 通过指定不同的 BrokerId 来区分。$ROCKETMQ_HOME指的RocketMQ安装目录，需要用户自己设置此环境变量。
+The pairing of the above Broker and Slave is done by specifying the same BrokerName parameter. The BrokerId of the Master must be 0, and the BrokerId of the Slave must be a number greater than 0. In addition, multiple Slaves can be mounted on another Master, and multiple Slaves under the same Master are distinguished by specifying different BrokerIds. $ROCKETMQ_HOME refers to the RocketMQ installation directory, and this environment variable needs to be set by the user.
 :::
 
+## Deployment in Cluster Mode
 
-## Cluster模式部署
+In Cluster mode, the Broker and Proxy are deployed separately, and I can deploy the Proxy after the NameServer and Broker have been started.
 
-在 Cluster 模式下，Broker 与 Proxy分别部署，我可以在 NameServer和 Broker都启动完成之后再部署 Proxy。
+In Cluster mode, a Proxy cluster and a Broker cluster have a one-to-one correspondence, and the `rocketMQClusterName` can be configured in the Proxy's configuration file `rmq-proxy.json`.
 
-在 Cluster模式下，一个 Proxy集群和 Broker集群为一一对应的关系，可以在 Proxy的配置文件 `rmq-proxy.json` 中使用 `rocketMQClusterName` 进行配置
-
-### 启动 NameServer
+### Start NameServer
 
 ```bash
-### 首先启动Name Server
+### Start NameServer first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify tha Name Server has started successfully
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-### 启动 Broker
+### Start Broker
 
-#### 单组节点单副本模式
+#### Single node single replica mode 
 
 :::caution
-这种方式风险较大，因为 Broker 只有一个节点，一旦Broker重启或者宕机时，会导致整个服务不可用。不建议线上环境使用, 可以用于本地测试。
+This method has a higher risk because the Broker has only one node. If the Broker restarts or goes down, the entire service will be unavailable. It is not recommended for use in a production environment, but can be used for local testing.
 :::
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 &
 ```
 
-#### 多组节点（集群）单副本模式
+#### Multiple node (cluster) single replica mode
 
-一个集群内全部部署 Master 角色，不部署Slave 副本，例如2个Master或者3个Master，这种模式的优缺点如下：
+In this mode, all nodes in a cluster are deployed as Master roles, without deploying any Slave replicas, such as 2 Masters or 3 Masters. The advantages and disadvantages of this mode are as follows:
 
-- 优点：配置简单，单个Master宕机或重启维护对应用无影响，在磁盘配置为RAID10时，即使机器宕机不可恢复情况下，由于RAID10磁盘非常可靠，消息也不会丢（异步刷盘丢失少量消息，同步刷盘一条不丢），性能最高；
-
-- 缺点：单台机器宕机期间，这台机器上未被消费的消息在机器恢复之前不可订阅，消息实时性会受到影响。
+- Advantages: Simple configuration, single Master downtime or restart has no impact on the application, and when the disk is configured as RAID10, even if the machine goes down and cannot be recovered, due to the reliability of RAID10 disks, messages will not be lost (asynchronous flush disk loses a small amount of messages, synchronous flush disk does not lose any messages), and the performance is the highest;
+- Disadvantages: During the downtime of a single machine, the messages on this machine that have not been consumed cannot be subscribed before the machine recovers, and the real-time nature of the messages will be affected.
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-a.properties &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-b.properties &
 
 ...
@@ -202,76 +197,74 @@ $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/br
 
 :::note
 
-如上启动命令是在单个NameServer情况下使用的。对于多个NameServer的集群，Broker启动命令中`-n`后面的地址列表用分号隔开即可，例如 `192.168.1.1:9876;192.161.2:9876`。
+The above startup command is used in the case of a single NameServer. For a cluster of multiple NameServers, the address list following the `-n` in the Broker startup command can be separated by semicolons, for example `192.168.1.1:9876;192.161.2:9876`.
 
 :::
 
-#### 多节点（集群）多副本模式-异步复制
+#### Multiple Node (Cluster) Multiple Replica Mode - Asynchronous Replication
 
-每个Master配置一个Slave，有多组 Master-Slave，HA采用异步复制方式，主备有短暂消息延迟（毫秒级），这种模式的优缺点如下：
+Each Master is configured with one Slave, and there are multiple Master-Slave pairs. HA uses asynchronous replication, with a brief delay (millisecond level) between the primary and the standby. The advantages and disadvantages of this mode are as follows:
 
-- 优点：即使磁盘损坏，消息丢失的非常少，且消息实时性不会受影响，同时Master宕机后，消费者仍然可以从Slave消费，而且此过程对应用透明，不需要人工干预，性能同多Master模式几乎一样；
-
-- 缺点：Master宕机，磁盘损坏情况下会丢失少量消息。
+- Advantages: Even if the disk is damaged, the loss of messages is very small, and the timeliness of messages is not affected. In addition, after the Master goes down, consumers can still consume from the Slave, and this process is transparent to the application and does not require manual intervention. The performance is almost the same as in the multiple Master mode.
+- Disadvantages: In the event of a Master crash or disk damage, a small number of messages will be lost.
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a.properties &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b.properties &
  
-### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1
+### On machine C, start the first Slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a-s.properties &
  
-### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b-s.properties &
 ```
 
-#### 多节点（集群）多副本模式-同步双写
+#### Multiple Node (Cluster) Multiple Replica Mode - Synchronous Dual Write
 
-每个Master配置一个Slave，有多对 Master-Slave，HA采用同步双写方式，即只有主备都写成功，才向应用返回成功，这种模式的优缺点如下：
+Each Master is configured with one Slave, and there are multiple Master-Slave pairs. HA uses synchronous dual write, which only returns success to the application if both the primary and the standby have written successfully. The advantages and disadvantages of this mode are as follows:
 
-- 优点：数据与服务都无单点故障，Master宕机情况下，消息无延迟，服务可用性与数据可用性都非常高；
-
-- 缺点：性能比异步复制模式略低（大约低10%左右），发送单个消息的RT会略高，且目前版本在主节点宕机后，备机不能自动切换为主机。
+- Advantages: Both data and service are free from single point failures. In the event of a Master crash, there is no delay in messages, and both the availability of the service and the availability of the data are very high.
+- Disadvantages: Performance is slightly lower than in the asynchronous replication mode (about 10% lower), RT for sending a single message is slightly higher, and in the current version, the standby cannot automatically switch to the primary after the primary node goes down.
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a.properties &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b.properties &
  
-### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1
+### On machine C, start the first Slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a-s.properties &
  
-### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b-s.properties &
 ```
 :::tip
-以上 Broker 与 Slave 配对是通过指定相同的 BrokerName 参数来配对，Master 的 BrokerId 必须是 0，Slave 的 BrokerId 必须是大于 0 的数。另外一个 Master 下面可以挂载多个 Slave，同一 Master 下的多个 Slave 通过指定不同的 BrokerId 来区分。$ROCKETMQ_HOME指的RocketMQ安装目录，需要用户自己设置此环境变量。
+The pairing of Broker and Slave is done by specifying the same BrokerName parameter. The BrokerId of the Master must be 0, and the BrokerId of the Slave must be a number greater than 0. In addition, multiple Slaves can be mounted under one Master, and multiple Slaves under the same Master are distinguished by specifying different BrokerIds. $ROCKETMQ_HOME refers to the RocketMQ installation directory, which needs to be set by the user as an environment variable.
 :::
 
-### 启动 Proxy
+### Start Proxy
 
-可以在多台机器启动多个Proxy
+Multiple Proxies can be started on multiple machines. 
 
 ```shell
-### 在机器A，启动第一个Proxy，例如NameServer的IP为：192.168.1.1
+### On machine A start the first Proxy, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqproxy -n 192.168.1.1:9876 &
 
-### 在机器B，启动第二个Proxy，例如NameServer的IP为：192.168.1.1
+### On machine B start the second Proxy, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqproxy -n 192.168.1.1:9876 &
 
-### 在机器C，启动第三个Proxy，例如NameServer的IP为：192.168.1.1
+### On machine C start the third Proxy, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh bin/mqproxy -n 192.168.1.1:9876 &
 ```
 
-若需要指定配置文件，可以使用 `-pc`或者 `--proxyConfigPath` 进行指定
+If you need to specify a configuration file, you can use `-pc` or `--proxyConfigPath` to specify it.
 
 ```shell
-### 自定义配置文件
+### custom config file
 $ nohup sh bin/mqproxy -n 192.168.1.1:9876 -pc /path/to/proxyConfig.json &
 ```
 

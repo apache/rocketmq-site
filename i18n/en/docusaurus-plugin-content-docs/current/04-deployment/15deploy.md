@@ -1,63 +1,60 @@
-# 部署方式
+# Deployment method
 
-<!-- ## 集群搭建 -->
-
-## 单Master模式
+## Single Master mode
 
 :::caution
-这种方式风险较大，一旦Broker重启或者宕机时，会导致整个服务不可用。不建议线上环境使用, 可以用于本地测试。
+This mode carries a higher risk, as a restart or failure of the Broker will result in the entire service being unavailable. It is not recommended in online environments, but can be used for local testing.
 :::
 
-### 启动 NameServer
+### Start NameServer
 
 ```bash
-### 首先启动Name Server
+### Start Name Server first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify if the Name Server has started successfully
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-### 启动 Broker
+### Start Broker
 
 ```bash
-### 启动Broker
+### Start Broker
 $ nohup sh bin/mqbroker -n localhost:9876 &
 
-### 验证Broker 是否启动成功，例如Broker的IP为：192.168.1.2，且名称为broker-a
+### Verify that the Broker has started successfully, for example, the broker IP is 192.168.1.2, and the name is broker-a
 $ tail -f ~/logs/rocketmqlogs/Broker.log 
 The broker[broker-a, 192.169.1.2:10911] boot success...
 ```
 
-## 多Master模式
+## Multiple master mode
 
-一个集群无Slave，全是Master，例如2个Master或者3个Master，这种模式的优缺点如下：
+The advantages and disadvantages of a cluster which is full of masters without slaves (e.g. 2 or 3 masters) is as follows:
 
-- 优点：配置简单，单个Master宕机或重启维护对应用无影响，在磁盘配置为RAID10时，即使机器宕机不可恢复情况下，由于RAID10磁盘非常可靠，消息也不会丢（异步刷盘丢失少量消息，同步刷盘一条不丢），性能最高；
+- Advantages: simple configuration, no impact on the application when a single master is restarted or down, when the disk is configured as RAID10, even if the machine is down and cannot be recovered, due to the reliability of RAID10 disks, messages will not be lost (asynchronous flush loses a small number of messages, synchronous flush does not lose a single message), and the performance is the highest;
+- Disadvantages: During the downtime of a single machine, the messages that have not been consumed on this machine are not available for subscription before the machine is recovered, and the real-time nature of the messages will be affected.
 
-- 缺点：单台机器宕机期间，这台机器上未被消费的消息在机器恢复之前不可订阅，消息实时性会受到影响。
+### Start NameServer
 
-### 启动NameServer
-
-NameServer需要先于Broker启动，且如果在生产环境使用，为了保证高可用，建议一般规模的集群启动3个NameServer，各节点的启动命令相同，如下：
+NameServer needs to start before Broker, and if used in a production environment, it is recommended to start 3 NameServers for general scale clusters, and the start commands for each node are the same, as follows:
 
 ```bash
-### 首先启动Name Server
+### Start Name Server first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify if the Name Server has started successfully
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-### 启动Broker集群
+### Start Broker cluster
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-a.properties &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker-b.properties &
 
 ...
@@ -65,79 +62,79 @@ $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-noslave/broker
 
 :::note
 
-如上启动命令是在单个NameServer情况下使用的。对于多个NameServer的集群，Broker启动命令中`-n`后面的地址列表用分号隔开即可，例如 `192.168.1.1:9876;192.161.2:9876`。
+The above startup command is used in the case of a single NameServer. For clusters with multiple NameServers, the address list after the `-n` in the Broker startup command can be separated by semicolons, for example `192.168.1.1:9876;192.161.2:9876`.
 
 :::
 
-## 多Master多Slave模式-异步复制
+## Multiple Master-Multiple Slave mode-asynchronous replication
 
-每个Master配置一个Slave，有多对Master-Slave，HA采用异步复制方式，主备有短暂消息延迟（毫秒级），这种模式的优缺点如下：
+Each Master is configured with one Slave, resulting in multiple Master-Slave pairs. In this High Availability (HA) setup, there is a brief message delay (in the milliseconds range) due to asynchronous replication. The advantages and disadvantages of this mode are as follows:
 
-- 优点：即使磁盘损坏，消息丢失的非常少，且消息实时性不会受影响，同时Master宕机后，消费者仍然可以从Slave消费，而且此过程对应用透明，不需要人工干预，性能同多Master模式几乎一样；
+- Advantages: In the event of disk damage, the number of lost messages is minimal and the real-time nature of messages is not affected. Additionally, even if the Master goes down, consumers can still consume from the Slave, and this process is transparent to the application and does not require manual intervention, with performance being almost the same as the Multiple Master mode.
 
-- 缺点：Master宕机，磁盘损坏情况下会丢失少量消息。
+- Disadvantages: In the event of a Master outage or disk damage, a small number of messages may be lost.
 
-### 启动NameServer
+### Start NameServer
 
 ```bash
-### 首先启动Name Server
+### Start NameServer first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify that the Name Server has started successfully.
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-### 启动Broker集群
+### Start Broker cluster
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a.properties &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine B, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b.properties &
  
-### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1
+### On machine C, start the first slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-a-s.properties &
  
-### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1
+### On machine D, start the second slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b-s.properties &
 ```
 
-## 多Master多Slave模式-同步双写
+## Multiple Master-Multiple Slave mode-synchronous dual writes
 
-每个Master配置一个Slave，有多对Master-Slave，HA采用同步双写方式，即只有主备都写成功，才向应用返回成功，这种模式的优缺点如下：
+Each Master is configured with one Slave, resulting in multiple Master-Slave pairs. In this High Availability (HA) setup, synchronous dual writes are used, meaning that success is only returned to the application if both the Master and the Slave write successfully. The advantages and disadvantages of this mode are as follows:
 
-- 优点：数据与服务都无单点故障，Master宕机情况下，消息无延迟，服务可用性与数据可用性都非常高；
+- Advantages: There are no single points of failure for either data or service, and in the event of a Master outage, there is no message delay and both service availability and data availability are very high.
 
-- 缺点：性能比异步复制模式略低（大约低10%左右），发送单个消息的RT会略高，且目前版本在主节点宕机后，备机不能自动切换为主机。
+- Disadvantages: Performance is slightly lower than the asynchronous replication mode (about 10% lower), the round-trip time for sending a single message is slightly higher, and in the current version, the standby cannot automatically switch to the primary after the primary node goes down.
 
-### 启动NameServer
+### Start NameServer
 
 ```bash
-### 首先启动Name Server
+### Start NameServer first
 $ nohup sh mqnamesrv &
  
-### 验证Name Server 是否启动成功
+### Verify that the Name Server has started successfully.
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
 
-### 启动Broker集群
+### Start Broker cluster
 
 ```bash
-### 在机器A，启动第一个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a.properties &
  
-### 在机器B，启动第二个Master，例如NameServer的IP为：192.168.1.1
+### On machine A, start the second Master, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b.properties &
  
-### 在机器C，启动第一个Slave，例如NameServer的IP为：192.168.1.1
+### On machine C, start the first slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-a-s.properties &
  
-### 在机器D，启动第二个Slave，例如NameServer的IP为：192.168.1.1
+### On machine D, start the second slave, for example, the IP of the NameServer is: 192.168.1.1
 $ nohup sh mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/broker-b-s.properties &
 ```
 :::tip
-以上 Broker 与 Slave 配对是通过指定相同的 BrokerName 参数来配对，Master 的 BrokerId 必须是 0，Slave 的 BrokerId 必须是大于 0 的数。另外一个 Master 下面可以挂载多个 Slave，同一 Master 下的多个 Slave 通过指定不同的 BrokerId 来区分。$ROCKETMQ_HOME指的RocketMQ安装目录，需要用户自己设置此环境变量。
+The pairing of the above Broker and Slave is done by specifying the same BrokerName parameter. The BrokerId of the Master must be 0, and the BrokerId of the Slave must be a number greater than 0. In addition, multiple Slaves can be mounted under one Master, and multiple Slaves under the same Master are distinguished by specifying different BrokerIds. $ROCKETMQ_HOME refers to the RocketMQ installation directory, which the user needs to set as an environment variable.
 :::
