@@ -231,6 +231,5 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 通过root/debezium账号登录数据库
 
 对源数据库表：inventory.employee增删改
-即可同步到目标办inventory_2.employee
-
+即可同步到目标表inventory_2.employee
 
