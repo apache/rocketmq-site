@@ -6,7 +6,7 @@ tags:
 - RocketMQ_Schema_Registry
 ---
 :::tip Download
-* Source: [rocketmq-streams-1.0.1-preview.zip](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.1-preview/rocketmq-streams-1.0.1-preview.zip) [[PGP](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.1-preview/rocketmq-streams-1.0.1-preview.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/rocketmq-streams/1.0.1-preview/rocketmq-streams-1.0.1-preview.zip.sha512)]
+* Source: [rocketmq-schema-registry-all-0.1.0-source-release.zip](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-schema-registry/0.1.0/rocketmq-schema-registry-all-0.1.0-source-release.zip) [[PGP](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-schema-registry/0.1.0/rocketmq-schema-registry-all-0.1.0-source-release.zip.asc)] [[SHA512](https://dist.apache.org/repos/dist/dev/rocketmq/rocketmq-schema-registry/0.1.0/rocketmq-schema-registry-all-0.1.0-source-release.zip.sha512)]
 :::
 <!--truncate-->
 
