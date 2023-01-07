@@ -1,100 +1,94 @@
-# 订阅关系一致
+# Consistent subscription relationship
 
-## 前言
+## Introduction
 
-订阅关系是 RocketMQ 领域模型中非常重要的环节，用于表达消费者消费消息的控制元数据，完整的概念请参考[订阅关系模型](../03-domainModel/09subscription.md)。
+Subscription relationships are a very important part of the RocketMQ domain model, used to express the control metadata for consumer consumption of messages. For a complete concept, please refer to [Subscription Relationship Model](../03-domainModel/09subscription.md).
 
-订阅关系一致是指，同一个消费者组下所有消费者实例所订阅的Topic、Tag必须完全一致。如果订阅关系（消费者分组名-Topic-Tag）不一致，会导致消费消息紊乱，甚至消息丢失。
+Subscription relationships are consistent when all Consumer instances in the same consumer group have exactly the same subscriptions to Topic and Tag. If the subscription relationships (consumer group name-Topic-Tag) are not consistent, it can lead to confusion in consuming messages and even loss of messages.
 
-## 1  正确订阅关系示例
+## 1  Examples of correct subscription relationships
 
-### 1.1 订阅的Topic一样，且过滤表达式一致
+### 1.1  Topics subscribed to are the same and the filter expressions are consistent
 
-如下图所示，同一 ConsumerGroup 下的三个Consumer实例C1、C2和C3分别都订阅了TopicA，且订阅TopicA的Tag也都是Tag1，符合订阅关系一致原则。
+As shown in the following figure, the three Consumer instances C1, C2, and C3 in the same ConsumerGroup have all subscribed to TopicA, and the subscriptions to TopicA's Tag are all Tag1, which meets the principle of subscription relationship consistency.
 
 ![1658453577894-0e64b114-cb4a-4220-a09a-62bc1f2943c6](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfsw9aaaj20ie0deq3i.jpg)
 
+**Correct example code   1:**
 
-**正确示例代码一**
-
-C1、C2、C3的订阅关系一致，即C1、C2、C3订阅消息的代码必须完全一致，代码示例如下：
+C1, C2, and C3's subscription relationships are consistent, meaning that C1, C2, and C3's code for subscribing to messages must be exactly the same, and the code example is as follows:
 
 ```java
-        PushConsumer consumer1 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
-        consumer1.subscribe("TopicA", new FilterExpression("TagA", FilterExpressionType.TAG));
-        
-        PushConsumer consumer2 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
-        consumer2.subscribe("TopicA", new FilterExpression("TagA", FilterExpressionType.TAG));
-        
-        PushConsumer consumer3 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
-        consumer3.subscribe("TopicA", new FilterExpression("TagA", FilterExpressionType.TAG));
+PushConsumer consumer1 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
+consumer1.subscribe("TopicA", new FilterExpression("TagA", FilterExpressionType.TAG));
+
+PushConsumer consumer2 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
+consumer2.subscribe("TopicA", new FilterExpression("TagA", FilterExpressionType.TAG));
+
+PushConsumer consumer3 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
+consumer3.subscribe("TopicA", new FilterExpression("TagA", FilterExpressionType.TAG));
 ```
 :::info
-RocketMQ 强调订阅关系一致，核心是指相同 ConsumerGroup 的每个 Consumer 之间一致，因为在服务端视角看来一个 Group 下的所有 Consumer 都应该是相同的副本逻辑。
+RocketMQ emphasizes consistency in subscription relationships, which means that every Consumer within the same ConsumerGroup should be consistent, because from the perspective of the server, all Consumers in a Group should be the same logical copy.
 
-强调订阅关系一致，并不是指一个 Consumer 不能订阅多个Topic，每个 Consumer 仍然可以按照需要订阅多个 Topic，但前提是相同消费者分组下的 Consumer 要一致。
+Emphasis on consistency in subscription relationships does not mean that a Consumer cannot subscribe to multiple Topics, and each Consumer can still subscribe to multiple Topics as needed, but the premise is that Consumers within the same consumer group must be consistent.
 :::
 
 
-## 2 订阅关系不一致的排查
+## 2 Troubleshooting inconsistent subscription relationships
 
-**问题描述**
+**Problem description**
 
-在使用 Apache RocketMQ 时，可能会出现订阅关系不一致的情况，具体的问题现象如下：
+When using the RocketMQ version of the message queue, it is possible to have inconsistent subscription relationships. The specific problems are as follows:
 
-- Apache RocketMQ 控制台中订阅关系是否一致显示为否。
-- 消费者（Consumer）实例未收到订阅的消息。
+- The consistency of subscription relationships in the RocketMQ version of the message queue console is displayed as no.
+- Consumer instances do not receive subscribed messages.
 
-**请参考以下步骤进行检查**
+**Please refer to the following steps for checking**
 
-您可在消息Apache RocketMQ的控制台或者CLi工具查看指定Group的订阅关系是否一致。若查询结果不一致，请参见本文(3 常见订阅关系不一致问题)排查Consumer实例的消费代码。
+You can check whether the subscription relationship of the specified Group is consistent in the Apache RocketMQ console or CLi tool. If the query result is inconsistent, please refer to the common subscription relationship inconsistency problems in this article to troubleshoot the consumption code of the Consumer instance.
 
-1. 检查您Consumer实例中与订阅相关的配置代码，确保配置同一个 ConsumerGroup 的所有Consumer实例均订阅相同的Topic及Tag。
-2. 使用控制台或者Cli命令ConsumerConnection 查看生效的订阅关系是否一致。
-3. 测试并确认消息能够被预期的Consumer实例所消费。
+1. Check the configuration code related to subscription in your Consumer instance to ensure that all Consumer instances in the same ConsumerGroup subscribe to the same Topic and Tag.
+2. Use the console or Cli command ConsumerConnection to check if the effective subscription relationship is consistent.
+3. Test and confirm that the message can be consumed by the expected Consumer instance.
 
-## 3 常见订阅关系不一致问题
+## 3 Common issues with inconsistent subscription relationships
 
-### 3.1 同一ConsumerGroup下的Consumer实例订阅的Topic不同（3.x、4.x SDK适用）
+### 3.1 In the same ConsumerGroup, the Consumer instances have different Topics subscribed to (applicable to 3.x, 4.x SDK)
 
-在早期3.x/4.x 版本的SDK中，如下图所示，同一 ConsumerGroup 下的三个Consumer实例C1、C2和C3分别订阅了TopicA、TopicB和TopicC，订阅的Topic不一致，不符合订阅关系一致性原则。
+In the early 3.x/4.x versions of the SDK, as shown in the following figure, three Consumer instances C1, C2, and C3 in the same ConsumerGroup have subscribed to TopicA, TopicB, and TopicC respectively, and their subscribed Topics are inconsistent, which does not conform to the principle of consistent subscription.
 :::note
-5.x版本SDK 已经支持同一个 ConsumerGroup 下的Consumer实例订阅不同的Topic。
+The 5.x version of the SDK now supports Consumer instances in the same ConsumerGroup subscribing to different topics.
 :::
 ![image-20220722102131073](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfvy56ufj20oh0h9wfg.jpg)
 
-### 3.2 同一 ConsumerGroup 下的 Consumer 实例订阅的Topic相同，但订阅的Tag不一致
+### 3.2 Consumer instances in the same ConsumerGroup subscribe to the same topic, but the subscribed tags are different.
 
-如下图所示，同一 ConsumerGroup 下的三个Consumer实例C1、C2和C3分别都订阅了TopicA，但是C1订阅TopicA的Tag为**Tag1**，C2和C3订阅的TopicA的Tag为**Tag2**，订阅同一Topic的Tag不一致，不符合订阅关系一致性原则。
+As shown in the following figure, the Consumer instances C1, C2, and C3 in the same ConsumerGroup all subscribe to TopicA, but C1 subscribes to Tag1 of TopicA, while C2 and C3 subscribe to Tag2 of TopicA. The subscribed tags of the same topic are inconsistent and do not conform to the consistency principle of subscription relationship.
 
 ![image-20220722102926055](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfw59vm9j20o30gwwfh.jpg)
 
-**错误示例代码二**
+**Error example code 2:**
 
-+ Consumer实例2-1：
++ Consumer example 2-1：
 
   ```java
-        PushConsumer consumer1 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
-        consumer1.subscribe("TopicA", new FilterExpression("Tag1", FilterExpressionType.TAG));
+  PushConsumer consumer1 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
+  consumer1.subscribe("TopicA", new FilterExpression("Tag1", FilterExpressionType.TAG));
   ```
 
   
 
-+ Consumer实例2-2：
++ Consumer example 2-2：
 
   ```java
-        PushConsumer consumer2 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
-        consumer2.subscribe("TopicA", new FilterExpression("Tag2", FilterExpressionType.TAG));
+  PushConsumer consumer2 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
+  consumer2.subscribe("TopicA", new FilterExpression("Tag2", FilterExpressionType.TAG));
   ```
 
-+ Consumer实例2-3：
++ Consumer example 2-3：
 
   ```java
-        PushConsumer consumer3 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
-        consumer3.subscribe("TopicA", new FilterExpression("Tag2", FilterExpressionType.TAG));
+  PushConsumer consumer3 = provider.newPushConsumerBuilder().setConsumerGroup("GroupA").build();
+  consumer3.subscribe("TopicA", new FilterExpression("Tag2", FilterExpressionType.TAG));
   ```
-
-
-
-
-
