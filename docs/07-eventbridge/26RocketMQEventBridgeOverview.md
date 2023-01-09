@@ -11,7 +11,7 @@ RocketMQ EventBridge 致力于帮助用户构建高可靠、低耦合、高性�
 ```
 事件与消息的关系如下：
 
-![image](https://user-images.githubusercontent.com/8605835/199152128-ef4b4ab5-b080-495c-ab40-637f85b11881.png)
+![image](../picture/07eventbridge/MessageWithEvent.png)
 
 消息包含Command消息和Event消息。Command消息是外部系统发送给本系统的一条操作命令（如上图左半部分）；Event消息则是本系统收到Command操作请求，系统内部发生改变之后而产生了事件（如上图右半部分）；
 
@@ -77,13 +77,12 @@ B：完全解耦方式
 这种方式下，消费者不需要引入SDK订阅Broker，只需要按照自己的业务领域模型设计API，消息服务会将上游的事件，过滤并转换成API需要的事件格式。既没有调用链路上的依赖，也没有业务上的依赖。当上游生产者的事件数据格式发生变化时，消息服务会做兼容性校验，可以拒绝生产者发送事件或则进行告警。
 
 
-![image](https://user-images.githubusercontent.com/8605835/199152441-d043fdea-f624-4147-8460-824e02f77ef3.png)
+![image](../picture/07eventbridge/ThreeStages.png)
 
 #### 场景2：系统间集成
 场景1主要面向一个产品内部，各个微服务之间的事件通信。场景2则是主要面向多个产品之间的事件通信。在一个企业中，我们常常会用到多款产品，而且很多产品可能并不是我们自己开发的，而是购买的外部SaaS服务。这个时候，如果我们希望事件在不同外部SaaS产品之间流转是比较困难的，因为这些外部SaaS产品不是我们自己开发的，无法轻易的修改其中的代码。EventBridge提供的事件中心能力，能够帮助收集各个产品产生的事件，并很好的组织管理起来，就像大卖场橱窗里的商品，精心摆放准备好，配备介绍说明书，供消费者挑选，同时提供送货上门服务。
 
-<img width="848" alt="image" src="https://user-images.githubusercontent.com/8605835/199171323-f93995c2-ee39-4584-b950-64547172d873.png">
-
+![image](../picture/07eventbridge/EventCenter.png)
 
 ### RocketMQ EventBridge 是如何工作的？
 为了解决上述两个应用场景中提到的问题，EventBridge从5个方便入手：
@@ -103,4 +102,4 @@ B：完全解耦方式
 **第5. 事件总线：**
 最后我们还得有一个存储事件的地方，就是最图中最中间的事件总线。
 
-<img width="919" alt="image" src="https://user-images.githubusercontent.com/8605835/199173456-5fc3b941-0ab9-4de8-ba0b-213bc4ded0d8.png">
+![image](../picture/07eventbridge/HowEventBridgeWork.png)
