@@ -3,11 +3,14 @@ RocketMQ Streams是基于RocketMQ的轻量级流计算引擎。能以SDK方式�
 因此具有资源消耗少、扩展性好、支持流计算算子丰富的特点。
 
 ## 整体架构
-![总体架构](../picture/33rocketmq-streams/总体架构图.png)
+![总体架构](../picture/33rocketmq-streams/总体-1.png)
 
 数据从RocketMQ中被RocketMQ-streams消费，经过处理最终被写回到RocketMQ。
-如果流处理任务中含有算子groupBy，则需要将数据按照Key进行分组，将分组数据写入shuffle topic。后续算子从
-shuffle topic消费。如果还涉及count之类有状态算子，那么计算时需要读写状态，在窗口触发之后将计算结果写出。
+
+![总体架构](../picture/33rocketmq-streams/总体-2.png)
+
+数据被RocketMQ Consumer消费，进入处理拓扑被算子处理，如果流处理任务中含有算子keyBy，则需要将数据按照Key进行分组，将分组数据写入shuffle topic。后续算子从
+shuffle topic消费。如果还涉及count之类有状态算子，那么计算时需要读写state topic，计算结束后，将结果写回到RocketMQ中。
 
 
 ## 消费模型
@@ -22,9 +25,8 @@ shuffle topic消费。如果还涉及count之类有状态算子，那么计算�
 ## 状态
 ![img_3.png](../picture/33rocketmq-streams/状态存储.png)
 
-对于有状态算子，比如count，需要先对count算子进行分组，然后才能求和。分组算子groupBy会将数据按照分组的key重新写回RocketMQ，并且使相同key写入同一分区（这一过程称作shuffle），
-保证这个含有相同key的数据被同一个消费者消费。 状态本地依赖RocksDB加速读取，远程依赖RocketMQ做持久化，在做checkpoint时将本地RocksDB中状态写入到RocketMQ中。
-允许流计算任务运行时，可以只依赖本地存储RocksDB, 只需要将setLocalStorageOnly设置成true即可。这种情况下可能存在状态丢失，不建议在生产环境使用。
+对于有状态算子，比如count，需要先对count算子进行分组，然后才能求和。分组算子keyBy会将数据按照分组的key重新写回RocketMQ，并且使相同key写入同一分区（这一过程称作shuffle），
+保证这个含有相同key的数据被同一个消费者消费。 状态本地依赖RocksDB加速读取，远程依赖RocketMQ做持久化。
 
 
 ## 扩缩容
