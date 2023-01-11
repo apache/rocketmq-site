@@ -1,38 +1,35 @@
-# RocketMQ Streams 概览
-RocketMQ Streams是基于RocketMQ的轻量级流计算引擎。能以SDK方式被应用依赖，无须部署复杂的流计算服务端即可获得流计算能力。
-因此具有资源消耗少、扩展性好、支持流计算算子丰富的特点。
+# RocketMQ Streams overview
 
-## 整体架构
-![总体架构](../picture/33rocketmq-streams/总体-1.png)
+RocketMQ Streams is a lightweight stream computing engine based on RocketMQ. It can be applied as an SDK dependency without the need for deploying complex stream computing servers, making it resource-efficient, easily extensible, and rich in stream computing operators.
 
-数据从RocketMQ中被RocketMQ-streams消费，经过处理最终被写回到RocketMQ。
+## Architecture
 
-![总体架构](../picture/33rocketmq-streams/总体-2.png)
+![总体架构](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\current\picture\33rocketmq-streams\总体-1.png)
 
-数据被RocketMQ Consumer消费，进入处理拓扑被算子处理，如果流处理任务中含有算子keyBy，则需要将数据按照Key进行分组，将分组数据写入shuffle topic。后续算子从
-shuffle topic消费。如果还涉及count之类有状态算子，那么计算时需要读写state topic，计算结束后，将结果写回到RocketMQ中。
+Data is consumed from RocketMQ by RocketMQ-streams, processed, and ultimately written back to RocketMQ.
 
+![总体架构](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\current\picture\33rocketmq-streams\总体-2.png)
 
-## 消费模型
-
-![img_2.png](../picture/33rocketmq-streams/消费模型.png)
-
-计算实例实质上是依赖了Rocket-streams SDK的client，因此，计算实例消费的MQ依赖RocketMQ rebalance分配，
-计算实例总个数也不能大于消费总MQ个数，否则将有部分计算实例处于等待状态，消费不到数据。
-
-一个计算实例可以消费多个MQ，一个实例内也只有一张计算拓扑图。
-
-## 状态
-![img_3.png](../picture/33rocketmq-streams/状态存储.png)
-
-对于有状态算子，比如count，需要先对count算子进行分组，然后才能求和。分组算子keyBy会将数据按照分组的key重新写回RocketMQ，并且使相同key写入同一分区（这一过程称作shuffle），
-保证这个含有相同key的数据被同一个消费者消费。 状态本地依赖RocksDB加速读取，远程依赖RocketMQ做持久化。
+Data is consumed by the RocketMQ Consumer, enters the processing topology to be processed by operators. If the stream processing task contains the keyBy operator, the data needs to be grouped by Key and written to a shuffle topic. Subsequent operators consume from the shuffle topic. If there are also stateful operators such as count, the calculation requires reading and writing to the state topic. After the calculation is finished, the result is written back to RocketMQ.
 
 
-## 扩缩容
+## Consume model
 
-![img.png](../picture/33rocketmq-streams/RocketMQ-streams扩缩容.png)
+![img_2.png](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\current\picture\33rocketmq-streams\消费模型.png)
 
-当计算实例从3个缩容到2个，借助于RocketMQ集群消费模式下的rebalance功能，被消费的分片MQ会在计算实例之间重新分配。Instance1上消费的MQ2和MQ3被分配到Instance2和Instance3上，
-这两个MQ的状态数据也需要迁移到Instance2和Instance3上，这也暗示，状态数据是根据源数据分片MQ保存的；扩容则是刚好相反的过程。
+The calculation instances actually depend on the client of the Rocket-streams SDK. Therefore, the calculation instances consume MQ, dependent on the RocketMQ rebalance allocation. The total number of calculation instances cannot be greater than the total number of consuming MQ, otherwise, some calculation instances will be in a waiting state, unable to consume data.
 
+One calculation instance can consume multiple MQs, and within one instance, there is only one calculation topology graph.
+
+## Status
+
+![img_3.png](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\current\picture\33rocketmq-streams\状态存储.png)
+
+For stateful operators, such as count, grouping must be done first before summing. The grouping operator keyBy will re-write the data to RocketMQ based on the grouping key, and ensures that data with the same key is written to the same partition (this process is called shuffle), to ensure that data with the same key is consumed by the same consumer. The state is locally accelerated by RocksDB, and remotely persisted by RocketMQ.
+
+
+## Expansion/shrinkage capacity
+
+![img.png](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\current\picture\33rocketmq-streams\RocketMQ-streams扩缩容.png)
+
+When the calculation instances are reduced from 3 to 2, with the help of the rebalance function under the RocketMQ cluster consumption mode, the consumed MQ will be re-allocated among the calculation instances. The MQ2 and MQ3 consumed by Instance1 are allocated to Instance2 and Instance3, and the state data of these two MQs also needs to be migrated to Instance2 and Instance3. This also implies that the state data is saved according to the original data partition MQ; expansion is just the opposite process.
