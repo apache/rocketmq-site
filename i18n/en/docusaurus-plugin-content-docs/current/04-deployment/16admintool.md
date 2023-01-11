@@ -3842,8 +3842,6 @@ Consumer group consumption status, including specific client IP's message accumu
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
         Not currently in use.
-
-
       </td>
     </tr>
 
