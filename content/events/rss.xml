@@ -4,7 +4,7 @@
         <title>RocketMQ Blog</title>
         <link>https://your-docusaurus-test-site.com/events</link>
         <description>RocketMQ Blog</description>
-        <lastBuildDate>Wed, 11 Jan 2023 02:12:09 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 11 Jan 2023 03:08:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,14 +12,14 @@
             <title><![CDATA[精彩回顾|Apache RocketMQ Meetup 西安]]></title>
             <link>https://your-docusaurus-test-site.com/events/meetup西安</link>
             <guid>/meetup西安</guid>
-            <pubDate>Wed, 11 Jan 2023 02:12:09 GMT</pubDate>
+            <pubDate>Wed, 11 Jan 2023 03:08:01 GMT</pubDate>
             <description><![CDATA[精彩回顾|Apache RocketMQ Meetup 西安]]></description>
         </item>
         <item>
             <title><![CDATA[精彩回顾 | Apache RocketMQ Meetup 苏州]]></title>
             <link>https://your-docusaurus-test-site.com/events/苏州meetup</link>
             <guid>/苏州meetup</guid>
-            <pubDate>Wed, 11 Jan 2023 02:12:09 GMT</pubDate>
+            <pubDate>Wed, 11 Jan 2023 03:08:01 GMT</pubDate>
             <description><![CDATA[精彩回顾 | Apache RocketMQ Meetup 苏州]]></description>
         </item>
     </channel>
