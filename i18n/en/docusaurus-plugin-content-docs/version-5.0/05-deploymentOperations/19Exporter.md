@@ -148,18 +148,18 @@ Important configurations in `application.yml` include:
 
 ### Start exporter application
 
-### Start prometheus according to the configuration on its official website
+### Start Prometheus according to the configuration on its official website
 
-Configure prometheus's static_config: -targets to the exporter's starting IP and port, such as: localhost:5557.
+Configure Prometheus's static_config: -targets to the exporter's starting IP and port, such as: localhost:5557.
 
-### Access the prometheus page
+### Access the Prometheus page
 
 If the localhost starts at the default localhost:9090, you can view the collected metric values, as shown in the following figure:
 
 <img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h4l66aaa7tj215y0bzwi0.jpg"></img>
 
 :::tip
-For better visualization effects and to observe the trend of metric value changes, prometheus is better used with grafana!
+For better visualization effects and to observe the trend of metric value changes, Prometheus is better used with Grafana!
 :::
 
 

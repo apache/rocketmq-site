@@ -147,18 +147,18 @@ Important configurations in `application.yml` include:
 
 ### Start exporter application
 
-### Start prometheus according to the configuration on its official website
+### Start Prometheus according to the configuration on its official website
 
-Configure prometheus's static_config: -targets to the exporter's starting IP and port, such as: localhost:5557.
+Configure Prometheus's static_config: -targets to the exporter's starting IP and port, such as: localhost:5557.
 
-### Access the prometheus page
+### Access the Prometheus page
 
 If the localhost starts at the default localhost:9090, you can view the collected metric values, as shown in the following figure:
 
 <img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h4l66aaa7tj215y0bzwi0.jpg"></img>
 
 :::tip
-For better visualization effects and to observe the trend of metric value changes, prometheus is better used with grafana!
+For better visualization effects and to observe the trend of metric value changes, Prometheus is better used with Grafana!
 :::
 
 
@@ -266,8 +266,8 @@ Observability metrics mainly include two categories: server-side metrics and cli
 | rocketmq_group_dlqdiff                  | Consumer group dead letter queue accumulation message count  |
 | rocketmq_group_count                    | Number of consumers in the consumer group                    |
 | rocketmq_client_consume_fail_msg_count  | Number of times consumers in the consumer group have failed to consume in the past 1 hour |
-| rocketmq_client_consume_fail_msg_tps    | Consumer group consumer failure TPS                          |
-| rocketmq_client_consume_ok_msg_tps      | Consumer group consumer success TPS                          |
+| rocketmq_client_consume_fail_msg_tps    | TPS of consumer consumption failure                          |
+| rocketmq_client_consume_ok_msg_tps      | TPS of consumer consumption success                          |
 | rocketmq_client_consume_rt              | Time taken for a message to be consumed after it has been pulled |
 | rocketmq_client_consumer_pull_rt        | Time taken for a client to pull a message                    |
 | rocketmq_client_consumer_pull_tps       | Client pull message TPS                                      |
