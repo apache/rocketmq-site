@@ -1,38 +1,41 @@
-# RocketMQ Streams 快速开始
-
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+# RocketMQ Streams Quick Start
 
 
-## RocketMQ Streams工程中运行
-参考RocketMQ Streams工程rocketmq-streams-examples模块下程序可以直接运行；运行example步骤：
-* 本地启动RocketMQ 5.0及以上版本;
-* 使用mqAdmin创建example中数据源topic；
-* 启动example中例子；
-* 向RocketMQ的源topic中写入合适数据（依据示例而定）；
+## Run in the RocketMQ Streams project
 
-## RocketMQ Streams以SDK方式被应用依赖
-### 环境准备
-- 64bit JDK 1.8及以上
-- Maven 3.2及以上
-- 本地启动RocketMQ，[启动文档](https://rocketmq.apache.org/docs/quick-start/)
+Refer to the RocketMQ Streams project rocketmq-streams-examples module for programs that can be run directly. Steps to run the example:
 
-### 构建RocketMQ Streams
+* Start RocketMQ 5.0 or above locally.
+* Use mqAdmin to create the data source topic in the example.
+* Start the example.
+* Write appropriate data to the source topic of RocketMQ (as determined by the example).
 
- 
-### 添加pom依赖
+## RocketMQ Streams is applied as a dependency in SDK form
+
+### Prepare the environment
+
+- 64bit JDK 1.8+
+- Maven 3.2+
+- Start RocketMQ locally，[Startup documentation](https://rocketmq.apache.org/docs/quick-start/)
+
+### Build RocketMQ Streams
+
+
+### Add pom dependency
 
 ```xml
  <dependencies>
     <dependency>
         <groupId>org.apache.rocketmq</groupId>
         <artifactId>rocketmq-streams</artifactId>
-            <!-- 根据需要修改 -->
+            <!-- Modify as needed -->
         <version>1.1.0</version>
     </dependency>
 </dependencies>
 ```
 
-### 编写流计算程序
+### Write stream computing program
+
 ```java
 public class WordCount {
     public static void main(String[] args) {
@@ -79,8 +82,10 @@ public class WordCount {
 }
 ```
 
-### 向RocketMQ sourceTopic中写入数据并观察结果
-如果向sourceTopic中写入的数据如下：每行数据作为一个消息发送；
+### Write data to the RocketMQ sourceTopic and observe the results
+
+If the data written to the sourceTopic is as follows: each line of data is sent as a message;
+
 ```xml
 "To be, or not to be,--that is the question:--",
 "Whether 'tis nobler in the mind to suffer",
@@ -91,7 +96,9 @@ public class WordCount {
 "The heartache, and the thousand natural shocks",
 "That flesh is heir to,--'tis a consummation",
 ```
-统计单词出现频率，计算结果如下：
+
+Count the frequency of words, and the calculation results are as follows:
+
 ```xml
 (key=to, value=1)
 (key=be, value=1)
@@ -162,4 +169,3 @@ public class WordCount {
 (key=thousand, value=1)
 (key=tis, value=2)
 ```
-
