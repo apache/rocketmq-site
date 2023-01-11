@@ -75,10 +75,10 @@
 
 | 版本      | 文档                                                         | 发布日期   | Source 下载                                                  | Binary 下载 | End of Support |
 | --------- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | ----------- | -------------- |
-| **2.1.1** | [Release Notes](/release-notes/2022/07/25/release-notes-rocketmq-client-go-2.1.1) | 2022.7.25  | [download .zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-go/2.1.1/rocketmq-client-go-2.1.1-source-release.tar.gz) |             |                |
-| **2.1.0** | [Release Notes](/release-notes/2021/03/17/release-notes-rocketmq-client-go-2.1.0) | 2021.3.17  | [download .zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-go/2.1.0/rocketmq-client-go-2.1.0-source-release.tar.gz) |             |                |
-| **2.0.0** | [Release Notes](/release-notes/2020/03/31/release-notes-rocketmq-client-go-2.0.0) | 2020.3.31  | [download .zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-go/2.0.0/rocketmq-client-go-2.0.0-source-release.tar.gz) |             |                |
-| **1.2.4** | [Release Notes](/release-notes/2019/11/20/release-notes-rocketmq-client-go-1.2.4) | 2019.11.20 | [download .zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-client-go/1.2.4/rocketmq-client-go-1.2.4-source-release.tar.gz) |             |                |
+| **2.1.1** | [Release Notes](/release-notes/2022/07/25/release-notes-rocketmq-client-go-2.1.1) | 2022.7.25  | [download .zip](https://dlcdn.apache.org/rocketmq/rocketmq-client-go/2.1.1/rocketmq-client-go-2.1.1-source-release.tar.gz) |             |                |
+| **2.1.0** | [Release Notes](/release-notes/2021/03/17/release-notes-rocketmq-client-go-2.1.0) | 2021.3.17  | [download .zip](https://archive.apache.org/dist/rocketmq/rocketmq-client-go/2.1.0/rocketmq-client-go-2.1.0-source-release.tar.gz) |             |                |
+| **2.0.0** | [Release Notes](/release-notes/2020/03/31/release-notes-rocketmq-client-go-2.0.0) | 2020.3.31  | [download .zip](https://archive.apache.org/dist/rocketmq/rocketmq-client-go/2.0.0/rocketmq-client-go-2.0.0-source-release.tar.gz) |             |                |
+| **1.2.4** | [Release Notes](/release-notes/2019/11/20/release-notes-rocketmq-client-go-1.2.4) | 2019.11.20 | [download .zip](https://archive.apache.org/dist/rocketmq/rocketmq-client-go/1.2.4/rocketmq-client-go-1.2.4-source-release.tar.gz) |             |                |
 |           |                                                              |            |                                                              |             |                |
 
 ---
