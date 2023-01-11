@@ -4,9 +4,11 @@
 
 
 ## RocketMQ Streams工程中运行
-参考RocketMQ Streams工程rocketmq-streams-examples中文档：[examples](https://github.com/apache/rocketmq-streams/tree/main/rocketmq-streams-examples)
-
-rocketmq-streams-examples模块下程序可以直接运行（某些例子需要启动RocketMQ）。
+参考RocketMQ Streams工程rocketmq-streams-examples模块下程序可以直接运行；运行example步骤：
+* 本地启动RocketMQ 5.0及以上版本;
+* 使用mqAdmin创建example中数据源topic；
+* 启动example中例子；
+* 向RocketMQ的源topic中写入合适数据（依据示例而定）；
 
 ## RocketMQ Streams以SDK方式被应用依赖
 ### 环境准备
@@ -16,104 +18,148 @@ rocketmq-streams-examples模块下程序可以直接运行（某些例子需要�
 
 ### 构建RocketMQ Streams
 
-```shell
-git clone https://github.com/apache/rocketmq-streams.git
-cd rocketmq-streams
-mvn clean -DskipTests install -U
-```
+ 
 ### 添加pom依赖
 
 ```xml
  <dependencies>
     <dependency>
         <groupId>org.apache.rocketmq</groupId>
-        <artifactId>rocketmq-streams-clients</artifactId>
-          <!--替换成最新版本-->
-        <version>${version}</version>
+        <artifactId>rocketmq-streams</artifactId>
+            <!-- 根据需要修改 -->
+        <version>1.1.0</version>
     </dependency>
 </dependencies>
-
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-shade-plugin</artifactId>
-            <version>3.2.1</version>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>shade</goal>
-                    </goals>
-                    <configuration>
-                        <minimizeJar>false</minimizeJar>
-                        <shadedArtifactAttached>true</shadedArtifactAttached>
-                        <artifactSet>
-                            <includes>
-                                <include>org.apache.rocketmq:rocketmq-streams-clients</include>
-                            </includes>
-                        </artifactSet>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
 ```
 
 ### 编写流计算程序
 ```java
-public class Demo{
-    private static String topicName = "topic-1";
-    private static String groupName = "groupName-1";
-
+public class WordCount {
     public static void main(String[] args) {
-        DataStreamSource source = StreamBuilder.dataStream("namespace", "pipeline");
-       
-        source.fromRocketmq(
-                        topicName,
-                        groupName,
-                        NAMESRV_ADDRESS
-                )
-                .map(message -> JSONObject.parseObject((String) message))
-                .filter(message -> ((JSONObject) message).getInteger("score") > 90)
-                .selectFields("name", "subject")
-                .toPrint()
-                .start();
+        StreamBuilder builder = new StreamBuilder("wordCount");
 
+        builder.source("sourceTopic", total -> {
+                    String value = new String(total, StandardCharsets.UTF_8);
+                    return new Pair<>(null, value);
+                })
+                .flatMap((ValueMapperAction<String, List<String>>) value -> {
+                    String[] splits = value.toLowerCase().split("\\W+");
+                    return Arrays.asList(splits);
+                })
+                .keyBy(value -> value)
+                .count()
+                .toRStream()
+                .print();
+
+        TopologyBuilder topologyBuilder = builder.build();
+
+        Properties properties = new Properties();
+        properties.put(MixAll.NAMESRV_ADDR_PROPERTY, "127.0.0.1:9876");
+
+        RocketMQStream rocketMQStream = new RocketMQStream(topologyBuilder, properties);
+
+        final CountDownLatch latch = new CountDownLatch(1);
+
+        Runtime.getRuntime().addShutdownHook(new Thread("wordcount-shutdown-hook") {
+            @Override
+            public void run() {
+                rocketMQStream.stop();
+                latch.countDown();
+            }
+        });
+
+        try {
+            rocketMQStream.start();
+            latch.await();
+        } catch (final Throwable e) {
+            System.exit(1);
+        }
+        System.exit(0);
     }
 }
 ```
 
-### 向RocketMQ topic-1中写入数据并观察结果
-如果向topic-1中写入的数据如下：
+### 向RocketMQ sourceTopic中写入数据并观察结果
+如果向sourceTopic中写入的数据如下：每行数据作为一个消息发送；
 ```xml
-{"name":"张三","class":"3","subject":"数学","score":90}
-{"name":"张三","class":"3","subject":"历史","score":81}
-{"name":"张三","class":"3","subject":"英语","score":91}
-{"name":"张三","class":"3","subject":"语文","score":70}
-{"name":"张三","class":"3","subject":"政治","score":84}
-{"name":"张三","class":"3","subject":"地理","score":99}
-{"name":"李四","class":"3","subject":"数学","score":76}
-{"name":"李四","class":"3","subject":"历史","score":83}
-{"name":"李四","class":"3","subject":"英语","score":82}
-{"name":"李四","class":"3","subject":"语文","score":92}
-{"name":"李四","class":"3","subject":"政治","score":97}
-{"name":"李四","class":"3","subject":"地理","score":89}
-{"name":"王五","class":"3","subject":"数学","score":86}
-{"name":"王五","class":"3","subject":"历史","score":88}
-{"name":"王五","class":"3","subject":"英语","score":86}
-{"name":"王五","class":"3","subject":"语文","score":93}
-{"name":"王五","class":"3","subject":"政治","score":99}
-{"name":"王五","class":"3","subject":"地理","score":88}
+"To be, or not to be,--that is the question:--",
+"Whether 'tis nobler in the mind to suffer",
+"The slings and arrows of outrageous fortune",
+"Or to take arms against a sea of troubles,",
+"And by opposing end them?--To die,--to sleep,--",
+"No more; and by a sleep to say we end",
+"The heartache, and the thousand natural shocks",
+"That flesh is heir to,--'tis a consummation",
 ```
-得到结果如下：
+统计单词出现频率，计算结果如下：
 ```xml
-{"subject":"政治","name":"王五"}
-{"subject":"地理","name":"张三"}
-{"subject":"语文","name":"李四"}
-{"subject":"语文","name":"王五"}
-{"subject":"英语","name":"张三"}
-{"subject":"政治","name":"李四"}
+(key=to, value=1)
+(key=be, value=1)
+(key=or, value=1)
+(key=not, value=1)
+(key=to, value=2)
+(key=be, value=2)
+(key=that, value=1)
+(key=is, value=1)
+(key=the, value=1)
+(key=whether, value=1)
+(key=tis, value=1)
+(key=nobler, value=1)
+(key=mind, value=1)
+(key=against, value=1)
+(key=troubles, value=1)
+(key=slings, value=1)
+(key=die, value=1)
+(key=natural, value=1)
+(key=flesh, value=1)
+(key=sea, value=1)
+(key=fortune, value=1)
+(key=shocks, value=1)
+(key=consummation, value=1)
+(key=to, value=3)
+(key=to, value=4)
+(key=to, value=5)
+(key=say, value=1)
+(key=end, value=1)
+(key=end, value=2)
+(key=to, value=6)
+(key=to, value=7)
+(key=to, value=8)
+(key=or, value=2)
+(key=them, value=1)
+(key=take, value=1)
+(key=arms, value=1)
+(key=of, value=1)
+(key=and, value=1)
+(key=of, value=2)
+(key=and, value=2)
+(key=by, value=1)
+(key=sleep, value=1)
+(key=and, value=3)
+(key=by, value=2)
+(key=sleep, value=2)
+(key=and, value=4)
+(key=that, value=2)
+(key=arrows, value=1)
+(key=heir, value=1)
+(key=question, value=1)
+(key=is, value=2)
+(key=the, value=2)
+(key=suffer, value=1)
+(key=a, value=1)
+(key=the, value=3)
+(key=no, value=1)
+(key=a, value=2)
+(key=opposing, value=1)
+(key=the, value=4)
+(key=the, value=5)
+(key=a, value=3)
+(key=in, value=1)
+(key=more, value=1)
+(key=heartache, value=1)
+(key=outrageous, value=1)
+(key=we, value=1)
+(key=thousand, value=1)
+(key=tis, value=2)
 ```
 
