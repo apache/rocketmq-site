@@ -24,7 +24,7 @@ RocketMQ 的安装包分为两种，二进制包和源码包。
 解压下载的源码包并编译构建二进制可执行文件
 
 ```shell
-$ mvn -Prelease-all -DskipTests clean install -U
+$ mvn -Prelease-all -DskipTests -Dspotbugs.skip=true clean install -U
 $ cd distribution/target/rocketmq-5.0.0/rocketmq-5.0.0
 ```
 ## 2. 启动NameServer
