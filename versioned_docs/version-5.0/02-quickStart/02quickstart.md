@@ -24,7 +24,7 @@ RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](h
 ```shell
 $ unzip rocketmq-all-5.0.0-source-release.zip
 $ cd rocketmq-all-5.0.0-source-release/
-$ mvn -Prelease-all -DskipTests clean install -U
+$ mvn -Prelease-all -DskipTests -Dspotbugs.skip=true clean install -U
 $ cd distribution/target/rocketmq-5.0.0/rocketmq-5.0.0
 ```
 ## 2. 启动NameServer
@@ -105,7 +105,7 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
 3. 通过mqadmin创建 Topic。
 
    ```shell
-   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic
+   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster
    ```
 
 4. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：
