@@ -112,7 +112,7 @@ The file contents may be in a different order, which is normal because the order
 | connect.topicnames | false    |         | The topics of the data messages that the sink needs to process. |
 
 ```  
-注：The configuration file instructions for the sample rocketmq-connect-sample are for reference only, different source/sink connectors have different configurations, please refer to the specific source/sink connector.
+Tips：The configuration file instructions for the sample rocketmq-connect-sample are for reference only, different source/sink connectors have different configurations, please refer to the specific source/sink connector.
 ```
 
 ## 6. Stop connector
