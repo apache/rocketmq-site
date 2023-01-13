@@ -1,4 +1,4 @@
-# RocketMQ Streams core concept
+# RocketMQ Streams Core Concept
 
 ## Domain model
 
