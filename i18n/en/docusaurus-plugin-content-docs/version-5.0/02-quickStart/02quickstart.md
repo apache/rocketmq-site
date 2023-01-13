@@ -24,7 +24,7 @@ Extract the source package of RocketMQ 5.0.0, then compile and build the binary 
 ```shell
 $ unzip rocketmq-all-5.0.0-source-release.zip
 $ cd rocketmq-all-5.0.0-source-release/
-$ mvn -Prelease-all -DskipTests clean install -U
+$ mvn -Prelease-all -DskipTests -Dspotbugs.skip=true clean install -U
 $ cd distribution/target/rocketmq-5.0.0/rocketmq-5.0.0
 ```
 ## 2. Start NameServer
@@ -103,7 +103,7 @@ We can also try to use the client sdk to send and receive messages, you can see 
 3. Create topic by mqadmin cli tools.
 
    ```shell
-   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic
+   $ sh bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster
    ```
 
 4. In the Java project you have created, create a program that sends messages and run it with the following code:
