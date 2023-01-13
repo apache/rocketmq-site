@@ -1,6 +1,6 @@
 # RocketMQ Connect overview
 
-RocketMQ Connect is an important component of RocketMQ data integration, which can efficiently, reliably, and flowingly flow data in and out of RocketMQ from various systems. It is a separate, distributed, scalable, and fault-tolerant system that has low latency, high reliability, high performance, low code, and strong scalability. It can achieve various heterogeneous data system connections, data pipeline building, ETL, CDC, and data lake capabilities.
+RocketMQ Connect is an important component of RocketMQ data integration, which can transfer data in and out of RocketMQ from various systems efficiently and reliably. It is a separate, distributed, scalable, and fault-tolerant system that has low latency, high reliability, high performance, low code, and strong scalability. It can achieve various heterogeneous data system connections, data pipeline building, ETL, CDC, and data lake capabilities.
 
 
 ![RocketMQ Connect Overview](../picture/32rocketmq-connect/overview.png)
@@ -35,6 +35,6 @@ RocketMQ Connect Worker supports two running modes, cluster and single-machine. 
 
 ![RocketMQ Connect部署模型集群](../picture/32rocketmq-connect/deploy3.png)
 
-In standalone mode, Connector tasks run on a single machine and Worker itself does not have high availability, task offset information is persisted locally. It is suitable for scenarios where there is no high availability requirement or does not require Worker to ensure high availability, such as deployment in k8s clusters, which are guaranteed by k8s clusters.
+In standalone mode, Connector tasks run on a single machine and Worker itself does not have high availability, task offset information is persisted locally. It is suitable for scenarios where there is no high availability requirement or does not require Worker to ensure high availability, such as deployment in K8s clusters, which are guaranteed by K8s clusters.
 
 ![RocketMQ Connect部署模型单机](../picture/32rocketmq-connect/deploy4.png)
