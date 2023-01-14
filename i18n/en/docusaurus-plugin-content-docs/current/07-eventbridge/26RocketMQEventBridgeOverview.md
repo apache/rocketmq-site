@@ -43,14 +43,14 @@ Compared to Command messages：
 * Events: are a bit like "market economy", goods are produced and placed in the large window of the shopping mall, consumers buy them back if they feel good, if no one buys them, the goods may expire and be wasted.
 * Command message: is a bit like "planned economy", production is based on demand, designated distribution objects, and there is little waste.
 
-### 3、Naturally ordered and unique
+### 3. Naturally ordered and unique
 ```text
 The same entity cannot have both A and B occur at the same time, there must be a temporal relationship; if so, these two events must belong to different event types.
 ```
 For example: for the same traffic light, it can't turn green and red at the same time, it can only turn into one state at a given moment. If we see two events with the same content, then it must have occurred twice and one happened before the other. This is valuable for processing data consistency and system behavior analysis (such as ABA scenarios): we not only see the final result of the system, but also the intermediate process that led to that result.
 
 
-### 4、Semblance
+### 4. Semblance
 Events try to record the "crime scene" as completely as possible, because events do not know how consumers will use them, so they will be as detailed as possible. Including:
 ```text
 When did the event occur?
