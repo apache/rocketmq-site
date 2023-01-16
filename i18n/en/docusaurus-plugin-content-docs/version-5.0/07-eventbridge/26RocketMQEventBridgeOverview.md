@@ -4,7 +4,7 @@ RocketMQ EventBridge is dedicated to helping users build high-reliability, low-c
 
 When do we use RocketMQ messages and when do we use EventBridge events? What is the meaning of events, and what is the difference with messages?
 
-## Message&Event
+## Message & Event
 We have defined events as follows:
 ```text
 Events refer to things that have already happened, especially important things.
@@ -33,7 +33,7 @@ An event is a clear occurrence that has already happened, such as
 * Account A receiving 100,000
 ```
 
-### 2. Without expectation
+### 2. No expectation
 ```text
 An event is an objective description of a change in the state or attribute value of a thing, but it does not make any expectations about how to handle the event itself. In contrast, both Command and Query have expectations, they hope the system will make changes or return results, but the Event is just an objective description of a change in the system.
 ```
@@ -50,7 +50,7 @@ The same entity cannot have both A and B occur at the same time, there must be a
 For example: for the same traffic light, it can't turn green and red at the same time, it can only turn into one state at a given moment. If we see two events with the same content, then it must have occurred twice and one happened before the other. This is valuable for processing data consistency and system behavior analysis (such as ABA scenarios): we not only see the final result of the system, but also the intermediate process that led to that result.
 
 
-### 4. Semblance
+### 4. Materialize
 Events try to record the "crime scene" as completely as possible, because events do not know how consumers will use them, so they will be as detailed as possible. Including:
 ```text
 When did the event occur?
@@ -86,7 +86,7 @@ Scenario 1 mainly focuses on the event communication between microservices withi
 
 ![image](../picture/07eventbridge/EventCenter.png)
 
-## RocketMQ EventBridge how to work？
+## How RocketMQ EventBridge works?
 In order to address the problems mentioned in the above two scenarios, EventBridge approaches from five aspects:
 
 **1. Determine event standards:**
