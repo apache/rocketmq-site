@@ -1,8 +1,8 @@
-# RocketMQ Connect actual combat 3
+# RocketMQ Connect in Action 3
 
 ![RocketMQ Connect Overview](../picture/32rocketmq-connect/RocketMQ-Connect-Integration-Demo.jpg)
 
-## Prepare
+## Preparation
 
 ### Start RocketMQ
 
@@ -44,7 +44,7 @@ cp rocketmq-connect-debezium-mysql/target/rocketmq-connect-debezium-mysql-0.0.1-
 
 JDBC Connector
 
-Put the compiled JDBC Connector package into the Runtime loading directory. The command is as follows：
+Move the compiled JDBC Connector package into the Runtime loading directory. The command is as follows：
 
 ```
 $ cd rocketmq-connect/connectors/rocketmq-connect-jdbc/
@@ -277,7 +277,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 }'
 ```
 
-### Start jdbc sink connector
+### Start JDBC sink connector
 
 Purpose: Consume the data in the Topic and write it to the target table through JDBC protocol.
 
