@@ -1,8 +1,8 @@
-# RocketMQ Connect actual combat 2
+# RocketMQ Connect in Action 2
 
 PostgreSQL Source(CDC)  -  >RocketMQ Connect  ->  MySQL Sink(JDBC)
 
-## Prepare
+## Preparation
 
 ### Start RocketMQ
 
@@ -32,7 +32,7 @@ $ cd rocketmq-connect/connectors/rocketmq-connect-debezium/
 $ mvn clean package -Dmaven.test.skip=true
 ```
 
-Put the compiled Debezium PostgreSQL RocketMQ Connector package into the Runtime loading directory. The command is as follows ：
+Move the compiled Debezium PostgreSQL RocketMQ Connector package into the Runtime loading directory. The command is as follows ：
 
 ```
 mkdir -p /usr/local/connector-plugins
@@ -41,7 +41,7 @@ cp rocketmq-connect-debezium-postgresql/target/rocketmq-connect-debezium-postgre
 
 JDBC Connector
 
-Put the compiled JDBC Connector package into the Runtime loading directory. The command is as follows：
+Move the compiled JDBC Connector package into the Runtime loading directory. The command is as follows：
 
 ```
 $ cd rocketmq-connect/connectors/rocketmq-connect-jdbc/
@@ -209,7 +209,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 }'
 ```
 
-### Start jdbc sink connector
+### Start JDBC sink connector
 
 Purpose: Consume data from the Topic and write it to the target table through JDBC protocol.
 
