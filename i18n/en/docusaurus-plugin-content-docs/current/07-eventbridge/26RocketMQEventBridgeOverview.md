@@ -1,105 +1,111 @@
-# RocketMQ EventBridge 概览
+# RocketMQ EventBridge Overview
 
-RocketMQ EventBridge 致力于帮助用户构建高可靠、低耦合、高性能的事件驱动架构。在事件驱动架构中，微服务不需要主动订阅外部消息，而是可以把所有触发微服务系统发生改变的入口统一到API，并只需要关注当前微服务自己的业务领域模型定义和设计API，无需通过大量的胶水代码去适配解析外部服务的消息。EventBridge 则会负责将外部服务产生的事件安全的、可靠的适配并投递到当前微服务设计的API。
+RocketMQ EventBridge is dedicated to helping users build high-reliability, low-coupling, and high-performance event-driven architectures. In event-driven architecture, microservices do not need to actively subscribe to external messages, but can instead centralize all entries that trigger changes in the microservice system to the API, and only need to focus on the current microservice's own business domain model definition and design of the API, without having to adapt and parse external service messages through a lot of glue code. EventBridge is responsible for safely and reliably adapting and delivering external service-generated events to the API designed by the current microservice.
 
-那什么时候我们使用RocketMQ消息，什么时候使用EventBridge事件？ 事件的含义是什么，和消息有什么区别？
+When do we use RocketMQ messages and when do we use EventBridge events? What is the meaning of events, and what is the difference with messages?
 
-## 消息与事件
-我们给事件做了如下定义：
+## Message & Event
+We have defined events as follows:
 ```text
-事件是指过去已经发生的事，尤其是比较重要的事。
+Events refer to things that have already happened, especially important things.
 ```
-事件与消息的关系如下：
+The relationship between events and messages is as follows：
 
 ![image](../picture/07eventbridge/MessageWithEvent.png)
 
-消息包含Command消息和Event消息。Command消息是外部系统发送给本系统的一条操作命令（如上图左半部分）；Event消息则是本系统收到Command操作请求，系统内部发生改变之后而产生了事件（如上图右半部分）；
+Messages include Command messages and Event messages. Command messages are operation commands sent by external systems to this system (as shown in the left part of the figure); Event messages are events that occur after the system receives a Command operation request and internal changes (as shown in the right part of the figure);
 
-## 事件的四个特性
-### 1、已发生
-事件，一定是“已发生”的。 “已发生”同时意味着是不可变的。这个特性非常重要，在我们处理事件、分析事件的时候，这就意味着，我们绝对可以相信这些事件，只要是收到的事件，一定是系统真实发生过的行为。
+## Four characteristics of an event
+### 1. Happened
+Events are always "already happened." "Already happened" also means they are immutable. This feature is very important, when we process events and analyze events, it means that we can absolutely trust these events, as long as we receive the events, they must be true behaviors of the system.
 
-Command，则代表一种操作请求，是否真的发生不可得知，比如：
+Command represents an operation request, whether it truly happens or not cannot be known. For example：
 ```text
-* 把厨房的灯打开
-* 去按下门铃
-* 转给A账户10w
+* Turning on the kitchen lights
+* Someone pressed the doorbell
+* Account A received 100,000.
 ```
 
-Event，则是明确已经发生的事情。比如
+An event is a clear occurrence that has already happened, such as
 ```text
-* 厨房灯被打开了
-* 有人按了门铃
-* A账户收到了10w
+* The kitchen light being turned on
+* Someone pressing the doorbell
+* Account A receiving 100,000
 ```
 
-### 2、无期望
+### 2. No expectation
 ```text
-事件是客观的描述一个事物的状态或属性值的变化，但对于如何处理事件本身并没有做任何期望。 相比之下，Command和Query则都是有期望的，他们希望系统做出改变或则返回结果，但是Event只是客观描述系统的一个变化。
+An event is an objective description of a change in the state or attribute value of a thing, but it does not make any expectations about how to handle the event itself. In contrast, both Command and Query have expectations, they hope the system will make changes or return results, but the Event is just an objective description of a change in the system.
 ```
-举个例子： 交通信号灯，从绿灯变成黄灯，只是描述了一个客观事实，本身并没有客观期望。在不同国家地区，对这个事件赋予了不同的期望。 比如，在日本黄灯等于红灯，而在俄罗斯闯黄灯是被默许的。
+For example: the traffic signal, from green to yellow, just describes an objective fact, and there is no objective expectation in itself. In different countries and regions, different expectations are given to this event. For example, in Japan, yellow is equivalent to red, while in Russia, running a yellow light is tolerated.
 
-与Command消息对比：
-* 事件：有点像"市场经济"，商品被生产出来，摆放在商场的大橱窗里，消费者谁看着觉得好就买回去，如果一直没人买，商品可能就过期浪费了。
-* Command消息：则有点像"计划经济"，按需生产，指定分配对象，也很少产生浪费。
+Compared to Command messages：
+* Events: are a bit like "market economy", goods are produced and placed in the large window of the shopping mall, consumers buy them back if they feel good, if no one buys them, the goods may expire and be wasted.
+* Command message: is a bit like "planned economy", production is based on demand, designated distribution objects, and there is little waste.
 
-### 3、天然有序且唯一
+### 3. Naturally ordered and unique
 ```text
-同一个实体，不能同时发生A又发生B，必有先后关系；如果是，则这两个事件必属于不同的事件类型。
+The same entity cannot have both A and B occur at the same time, there must be a temporal relationship; if so, these two events must belong to different event types.
 ```
-比如：针对同一个交通信号灯，不能既变成绿灯，又变成红灯，同一时刻，只能变成一种状态。 如果我们看到了两个内容一样的事件，那么一定是发生了两次，而且一次在前，一次在后。这对于我们处理数据最终一致性、以及系统行为分析（比如ABA场景）都很有价值：我们看到的，不光光是系统的一个最终结果，而是看到变成这个结果之前的，一系列中间过程。
+For example: for the same traffic light, it can't turn green and red at the same time, it can only turn into one state at a given moment. If we see two events with the same content, then it must have occurred twice and one happened before the other. This is valuable for processing data consistency and system behavior analysis (such as ABA scenarios): we not only see the final result of the system, but also the intermediate process that led to that result.
 
 
-### 4、具像化
-事件会尽可能的把“案发现场”完整的记录下来，因为事件不知道消费者会如何使用它，所以会做到尽量的详尽。包括：
+### 4. Materialize
+Events try to record the "crime scene" as completely as possible, because events do not know how consumers will use them, so they will be as detailed as possible. Including:
 ```text
-什么时候发生的事件？
-谁产生的？
-是什么类型的事件？
-事件的内容是什么？内容的结构是什么？
+When did the event occur?
+Who generated it?
+What type of event is it?
+What is the content of the event? What is the structure of the content?
 ... ...
 ```
-对比我们常见的消息，因为上下游一般是确定的，常常为了性能和传输效率，则会做到尽可能的精简，只要满足“计划经济”指定安排的消费者需求即可。
-## RocketMQ EventBridge 的典型应用场景
-### 场景1：事件通知
-微服务中，我们常常会遇到需要把一个微服务中生产的消息，通知给其他消费者。这里我们对比三种方式：
+Compared to common messages we see, as the upstream and downstream are generally determined, often in order to improve performance and transmission efficiency, messages will be as concise as possible, as long as it meets the consumer's needs specified by the "planned economy".
+## RocketMQ EventBridge's typical application scenarios
+### Scenario 1: Event Notification
 
-A：强依赖方式
+In microservices, we often encounter situations where messages produced in one microservice need to be notified to other consumers. Here we compare three ways:
 
-生产者主动调用消费者的微服务，并适配消费者的API。这种设计无疑是非常糟糕的，生产者强依赖消费者，深度耦合。万一调用某个消费者出现异常且未做有效隔离，极容易导致整个微服务Hang起。有新的消费者进来，扩展性也极差。
+**A: Strong dependency method**
 
-B：半解耦方式
+The producer actively calls the consumer's microservice and adapts the consumer's API. This design is undoubtedly very bad, the producer is strongly dependent on the consumer, deeply coupled. If a call to a consumer has an exception and no effective isolation is done, it is very likely to cause the entire microservice to hang. It is very poor when new consumers come in.
 
-生产者将消息发送到消息服务，消费者订阅消息服务获取消息，并将消息解析成自己业务领域模型中需要的数据格式。这种方式做到了调用链路上的解耦，极大的降低了系统风险，但是对于消费者来说，依旧需要去理解和解析生产者的业务语义，将消息转换成自己业务领域内需要的格式。这种方式下，当消费者需要订阅多个生产者的数据的时候，需要用大量的胶水代码，为每一个生产者产生的消息做适配。另外，当上游生产者的消息格式发生变化时，也会存在风险和运维成本。
+**B: Semi-decoupling method**
 
-B：完全解耦方式
+The producer sends the message to the message service, and the consumer subscribes to the message service to get the message and converts the message into the data format required by its own business domain model. This method achieved decoupling on the call chain, greatly reducing system risks, but for consumers, they still need to understand and parse the producer's business semantics and convert the message into the format needed for their own business domain. Under this method, when the consumer needs to subscribe to data from multiple producers, a large amount of glue code is needed to adapt to each message produced by the producer. In addition, when the upstream producer's message format changes, there is also a risk and operational cost.
 
-这种方式下，消费者不需要引入SDK订阅Broker，只需要按照自己的业务领域模型设计API，消息服务会将上游的事件，过滤并转换成API需要的事件格式。既没有调用链路上的依赖，也没有业务上的依赖。当上游生产者的事件数据格式发生变化时，消息服务会做兼容性校验，可以拒绝生产者发送事件或则进行告警。
+**C: Complete decoupling method**
+
+Under this method, consumers do not need to introduce SDK to subscribe to Broker, they only need to design API according to their own business domain model, and the message service will filter and convert upstream
 
 
 ![image](../picture/07eventbridge/ThreeStages.png)
 
-### 场景2：系统间集成
-场景1主要面向一个产品内部，各个微服务之间的事件通信。场景2则是主要面向多个产品之间的事件通信。在一个企业中，我们常常会用到多款产品，而且很多产品可能并不是我们自己开发的，而是购买的外部SaaS服务。这个时候，如果我们希望事件在不同外部SaaS产品之间流转是比较困难的，因为这些外部SaaS产品不是我们自己开发的，无法轻易的修改其中的代码。EventBridge提供的事件中心能力，能够帮助收集各个产品产生的事件，并很好的组织管理起来，就像大卖场橱窗里的商品，精心摆放准备好，配备介绍说明书，供消费者挑选，同时提供送货上门服务。
+### Scenario 2: Inter-system integration
+
+Scenario 1 mainly focuses on the event communication between microservices within a single product. Scenario 2 mainly focuses on event communication between multiple products. In an enterprise, we often use multiple products, and many of these products may not be developed by ourselves, but are purchased as external SaaS services. In this case, it is difficult to make events flow between different external SaaS products, because these external SaaS products are not developed by ourselves and it is not easy to modify their code. The event center capability provided by EventBridge can help collect events generated by various products and organize and manage them well, just like the goods in a department store window, carefully arranged and equipped with instructions, for consumers to choose from, and also providing home delivery service.
 
 ![image](../picture/07eventbridge/EventCenter.png)
 
-## RocketMQ EventBridge 是如何工作的？
-为了解决上述两个应用场景中提到的问题，EventBridge从5个方便入手：
+## How RocketMQ EventBridge works?
+In order to address the problems mentioned in the above two scenarios, EventBridge approaches from five aspects:
 
-**第1. 确定事件标准：**
-因为事件不是给自己看的，而是给所有人看的。它没有明确的消费者，所有都是潜在的消费者。所以，我们需要规范化事件的定义，让所有人都能看得懂，一目了然。目前CNCF旗下的CloudEvent,以逐渐成为广泛的事实标准，因此，我们选取了CloudEvent 作为我们的EventBridge的事件标准。
+**1. Determine event standards:**
 
-**第2. 建立事件中心：**
-事件中心里面有所有系统，注册上来的各种事件，这个就像我们上面说的市场经济大卖场，里面玲琅满目分类摆放了各种各样的事件，所有人即使不买，也都可以进来瞧一瞧，看一看，有哪些事件可能是我需要的，那就可以买回去。
+ Because events are not for oneself, but for everyone. It has no clear consumer, and all are potential consumers. Therefore, we need to standardize the definition of events, so that everyone can understand, and be easy to understand. Currently, CloudEvent under CNCF has gradually become a widely recognized factual standard, so we choose CloudEvent as our EventBridge event standard.
 
-**第3. 定义事件格式：**
-事件格式用来描述事件的具体内容。这相当于市场经济的一个买卖契约。生产者发送的事件格式是什么，得确定下来，不能总是变；消费者以什么格式接收事件也得确定下来，不然整个市场就乱套了。
+**2. Establish event center:** 
 
-**第4. 订阅"规则"：**
-我们得给消费者一个，把投递事件到目标端的能力，并且投递前可以对事件进行过滤和转换，让它可以适配目标端API接收参数的格式，我们把这个过程叫做创建订阅规则。
+The event center contains all the events registered by various systems. This is like the market economy department store we mentioned above, which has a variety of events classified and arranged, and everyone can come in to see which events may be needed, and then buy them back.
 
-**第5. 事件总线：**
-最后我们还得有一个存储事件的地方，就是最图中最中间的事件总线。
+**3. Define event format:**
+
+ Event format is used to describe the specific contents of events. This is equivalent to a sales contract in a market economy. The event format sent by the producer must be determined and cannot always change; the format in which the consumer receives events must also be determined, otherwise the entire market will be in chaos.
+
+**4. Subscription "rules":** 
+
+We need to give consumers the ability to deliver events to the target end, and filter and transform events before delivery so that it can adapt to the format of the target end API receiving parameters. We call this process creating a subscription rule.
+
+**5. Event Bus:**
+Finally, we also need a place to store events, that is the event bus in the middle of the diagram.
 
 ![image](../picture/07eventbridge/HowEventBridgeWork.png)
