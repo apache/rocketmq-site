@@ -1,4 +1,4 @@
-# RocketMQ Connect in action 4
+# RocketMQ Connect in Action 4
 
 SFTP Server(file data) -> RocketMQ Connect
 
