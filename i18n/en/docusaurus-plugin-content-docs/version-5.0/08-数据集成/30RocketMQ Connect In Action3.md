@@ -1,37 +1,39 @@
-# RocketMQ Connect实战3
+# RocketMQ Connect in Action 3
 
 ![RocketMQ Connect Overview](../picture/32rocketmq-connect/RocketMQ-Connect-Integration-Demo.jpg)
 
-## 准备
+## Preparation
 
-### 启动RocketMQ
+### Start RocketMQ
 
 1. Linux/Unix/Mac
 2. 64bit JDK 1.8+;
-3. Maven 3.2.x或以上版本;
-4. 启动 [RocketMQ](https://rocketmq.apache.org/docs/quick-start/);
+3. Maven 3.2.x+;
+4. Start [RocketMQ](https://rocketmq.apache.org/docs/quick-start/);
 
 
 
-**tips** : ${ROCKETMQ_HOME} 位置说明
+**tips** : ${ROCKETMQ_HOME}  locational instructions
 
->bin-release.zip 版本：/rocketmq-all-4.9.4-bin-release
+>bin-release.zip version：/rocketmq-all-4.9.4-bin-release
 >
->source-release.zip 版本：/rocketmq-all-4.9.4-source-release/distribution
+>source-release.zip version：/rocketmq-all-4.9.4-source-release/distribution
 
 
-### 启动Connect
+### Start Connect
 
 
-#### Connector插件编译
+#### Compiling Connector Plugin
 
 Debezium RocketMQ Connector
+
 ```
 $ cd rocketmq-connect/connectors/rocketmq-connect-debezium/
 $ mvn clean package -Dmaven.test.skip=true
 ```
 
-将 Debezium MySQL PostgreSQL RocketMQ Connector 编译好的包放入Runtime加载目录。命令如下：
+Compile the Debezium MySQL, PostgreSQL, and RocketMQ Connector packages and place them in the Runtime loading directory. The command is as follows：
+
 ```
 mkdir -p /usr/local/connector-plugins
 cp rocketmq-connect-debezium-postgresql/target/rocketmq-connect-debezium-postgresql-0.0.1-SNAPSHOT-jar-with-dependencies.jar /usr/local/connector-plugins
@@ -42,7 +44,8 @@ cp rocketmq-connect-debezium-mysql/target/rocketmq-connect-debezium-mysql-0.0.1-
 
 JDBC Connector
 
-将 JDBC Connector 编译好的包放入Runtime加载目录。命令如下：
+Move the compiled JDBC Connector package into the Runtime loading directory. The command is as follows：
+
 ```
 $ cd rocketmq-connect/connectors/rocketmq-connect-jdbc/
 $ mvn clean package -Dmaven.test.skip=true
@@ -50,7 +53,7 @@ cp rocketmq-connect-jdbc/target/rocketmq-connect-jdbc-0.0.1-SNAPSHOT-jar-with-de
 
 ```
 
-#### 启动Connect Runtime
+#### Start Connect Runtime
 
 ```
 cd  rocketmq-connect
@@ -59,7 +62,8 @@ mvn -Prelease-connect -DskipTests clean install -U
 
 ```
 
-修改配置`connect-standalone.conf` ，重点配置如下
+Modify the configuration `connect-standalone.conf`, the main configuration is as follows
+
 ```
 $ cd distribution/target/rocketmq-connect-0.0.1-SNAPSHOT/rocketmq-connect-0.0.1-SNAPSHOT
 $ vim conf/connect-standalone.conf
@@ -83,7 +87,7 @@ secretKey=12345678
 autoCreateGroupEnable=false
 clusterName="DefaultCluster"
 
-# 核心配置，将之前编译好debezium包的插件目录配置在此；
+#  Core configuration, configure the plugin directory of the previously compiled debezium package here
 # Source or sink connector jar file dir,The default value is rocketmq-connect-sample
 pluginPaths=/usr/local/connector-plugins
 ```
@@ -96,9 +100,10 @@ sh bin/connect-standalone.sh -c conf/connect-standalone.conf &
 
 ```
 
-### Postgres镜像
+### Postgres image
 
-使用debezium的Postgres docker搭建环境MySQL数据库
+Use debezium's Postgres docker environment to set up the Postgres database
+
 ```
 # starting a pg instance
 docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=start_data_engineer -e POSTGRES_PASSWORD=password debezium/postgres:14
@@ -106,33 +111,40 @@ docker run -d --name postgres -p 5432:5432 -e POSTGRES_USER=start_data_engineer 
 # bash into postgres instance
 docker exec -ti postgres /bin/bash
 ```
-Postgres信息
-端口：5432
-账号：start_data_engineer/password
-同步的源数据库：bank.user
+
+Postgres information
+Port：5432
+Account：start_data_engineer/password
+Synchronize the source database：bank.user
 
 
-### MySQL镜像
+### MySQL image
 
-使用debezium的MySQL docker搭建环境MySQL数据库
+Use debezium's MySQL docker environment to set up the MySQL database
+
 ```
 docker run -it --rm --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=debezium -e MYSQL_USER=mysqluser -e MYSQL_PASSWORD=mysqlpw quay.io/debezium/example-mysql:1.9
 ```
 
-MySQL信息
+```
+docker run -it --rm --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=debezium -e MYSQL_USER=mysqluser -e MYSQL_PASSWORD=mysqlpw quay.io/debezium/example-mysql:1.9
+```
 
-端口：3306
+MySQL information
 
-账号：root/debezium
-同步的源数据库：bank.user
+Port：3306
 
-目标库：bank1.user
+Account：root/debezium
+Synchronize the source database：bank.user
+
+Target database：bank1.user
 
 
-### 测试数据
+### Test data
 
-通过root/debezium账号登录数据库
-源数据库表：bank.user
+Login to the database using the root/debezium account
+
+ Source database table：bank.user
 
 ```
 create database bank;
@@ -157,9 +169,9 @@ update bank.user set user_id = 1003 where id = 1003;
 ```
 
 
-通过start_data_engineer/password账号登录PostgreSQL数据库
+Login to the PostgreSQL database using the start_data_engineer/password account.
 
-源数据库表：bank.user
+Source database table: bank.user
 
 ```
 CREATE SCHEMA bank;
@@ -183,7 +195,8 @@ update bank.user set user_id = 1001 where id = 1001;
 
 ```
 
-目标表：bank1.user
+Target database table: bank1.user
+
 ```
 create database bank1;
 create table bank1.user
@@ -201,12 +214,12 @@ create table bank1.user
 
 ```
 
-## 启动Connector
+## Start Connector
 
-### 启动Debezium source connector
+### Start Debezium source connector
 
-同步原表数据：bank.user
-作用：通过解析MySQL binlog 封装成通用的ConnectRecord对象，发送的RocketMQ Topic当中
+Synchronize the original table：bank.user
+Purpose：Parse the MySQL binlog and encapsulate it into a common ConnectRecord object, sent to the RocketMQ Topic.
 
 ```
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/MySQLCDCSource1000 -d '{
@@ -224,7 +237,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 "include.schema.changes": false,
 "database.server.name": "dbserver1",
 "database.port": 3306,
-"database.hostname": "数据库ip",
+"database.hostname": "database ip",
 "database.connectionTimeZone": "UTC",
 "database.user": "debezium",
 "database.password": "dbz",
@@ -238,8 +251,8 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 }'
 ```
 
-同步原表数据：bank.user
-作用：通过解析Postgres binlog 封装成通用的ConnectRecord对象，发送的RocketMQ Topic当中
+Synchronize the original table：bank.user
+Purpose: Parse the Postgres binlog and encapsulate it into a common ConnectRecord object, sent to the RocketMQ Topic.
 
 ```
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/postgres-connector1000 -d  '{
@@ -253,7 +266,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
   "database.history.skip.unparseable.ddl": true,
   "database.server.name": "bankserver1",
   "database.port": 5432,
-  "database.hostname": "数据库ip",
+  "database.hostname": "database ip",
   "database.connectionTimeZone": "UTC",
   "database.user": "start_data_engineer",
   "database.dbname": "start_data_engineer",
@@ -264,16 +277,16 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 }'
 ```
 
-### 启动 jdbc sink connector
+### Start JDBC sink connector
 
-作用：通过消费Topic中的数据，通过JDBC协议写入到目标表当中
+Purpose: Consume the data in the Topic and write it to the target table through JDBC protocol.
 
 ```
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/jdbcmysqlsinktest1000 -d '{
   "connector.class": "org.apache.rocketmq.connect.jdbc.connector.JdbcSinkConnector",
   "max.task": "2",
   "connect.topicnames": "debezium-source-topic1000",
-  "connection.url": "jdbc:mysql://数据库ip:3306/bank1",
+  "connection.url": "jdbc:mysql://database ip:3306/bank1",
   "connection.user": "root",
   "connection.password": "debezium",
   "pk.fields": "id",
@@ -292,12 +305,6 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 
 ```
 
-以上三个Connector任务创建成功以后
-通过start_data_engineer/password账号登录PostgreSQL数据库
-账号登录数据库
-或者通过root/debezium账号登录MySQL数据库
+After the above three Connector tasks are created successfully, login to the PostgreSQL database using the start_data_engineer/password account or login to the MySQL database using the root/debezium account.
 
-对源数据库表：bank.user增删改
-都会同步到同步到目标表MySQL bank1.user
-
-
+Modifying, deleting, or adding to the source database table bank.user will synchronize to the target MySQL table bank1.user.
