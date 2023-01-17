@@ -1,45 +1,46 @@
-# RocketMQ Connect实战1
+# RocketMQ Connect in Action 1
 
 MySQL Source(CDC)  -  >RocketMQ Connect  ->  MySQL Sink(JDBC)
 
-## 准备
+## Preparation
 
-### 启动RocketMQ
+### Start RocketMQ
 
 1. Linux/Unix/Mac
 2. 64bit JDK 1.8+;
-3. Maven 3.2.x或以上版本;
-4. 启动 [RocketMQ](https://rocketmq.apache.org/docs/quick-start/);
+3. Maven 3.2.x+;
+4. Start [RocketMQ](https://rocketmq.apache.org/docs/quick-start/);
 
+**tips** : ${ROCKETMQ_HOME} locational instructions
 
-
-**tips** : ${ROCKETMQ_HOME} 位置说明
-
->bin-release.zip 版本：/rocketmq-all-4.9.4-bin-release
+>bin-release.zip version：/rocketmq-all-4.9.4-bin-release
 >
->source-release.zip 版本：/rocketmq-all-4.9.4-source-release/distribution
+>source-release.zip version：/rocketmq-all-4.9.4-source-release/distribution
 
 
-### 启动Connect
+### Start Connect
 
 
-#### Connector插件编译
+#### Compiling Connector Plugin
 
 Debezium RocketMQ Connector
+
 ```
 $ cd rocketmq-connect/connectors/rocketmq-connect-debezium/
 $ mvn clean package -Dmaven.test.skip=true
 ```
 
-将 Debezium MySQL RocketMQ Connector 编译好的包放入Runtime加载目录。命令如下：
-```
+Move the compiled Debezium MySQL RocketMQ Connector package into the Runtime loading directory. The command is as follows：
+
+```shell
 mkdir -p /usr/local/connector-plugins
 cp rocketmq-connect-debezium-mysql/target/rocketmq-connect-debezium-mysql-0.0.1-SNAPSHOT-jar-with-dependencies.jar /usr/local/connector-plugins
 ```
 
 JDBC Connector
 
-将 JDBC Connector 编译好的包放入Runtime加载目录。命令如下：
+Move the compiled JDBC Connector package into the Runtime loading directory. The command is as follows：
+
 ```
 $ cd rocketmq-connect/connectors/rocketmq-connect-jdbc/
 $ mvn clean package -Dmaven.test.skip=true
@@ -47,7 +48,8 @@ cp rocketmq-connect-jdbc/target/rocketmq-connect-jdbc-0.0.1-SNAPSHOT-jar-with-de
 
 ```
 
-#### 启动Connect Runtime
+#### Start Connect Runtime
+
 ```
 cd  rocketmq-connect
 
@@ -55,8 +57,9 @@ mvn -Prelease-connect -DskipTests clean install -U
 
 ```
 
-修改配置`connect-standalone.conf` ，重点配置如下
-```
+Modify the configuration `connect-standalone.conf`, the main configuration is as follows
+
+```shell
 $ cd distribution/target/rocketmq-connect-0.0.1-SNAPSHOT/rocketmq-connect-0.0.1-SNAPSHOT
 $ vim conf/connect-standalone.conf
 ```
@@ -79,7 +82,7 @@ secretKey=12345678
 autoCreateGroupEnable=false
 clusterName="DefaultCluster"
 
-# 核心配置，将之前编译好debezium包的插件目录配置在此；
+# Core configuration, configure the plugin directory of the previously compiled debezium package here
 # Source or sink connector jar file dir,The default value is rocketmq-connect-sample
 pluginPaths=/usr/local/connector-plugins
 ```
@@ -92,25 +95,28 @@ sh bin/connect-standalone.sh -c conf/connect-standalone.conf &
 
 ```
 
-### MySQL镜像
-使用debezium的MySQL docker搭建环境MySQL数据库
+### MySQL image
+
+Use debezium's MySQL docker environment to set up the MySQL database
+
 ```
 docker run -it --rm --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=debezium -e MYSQL_USER=mysqluser -e MYSQL_PASSWORD=mysqlpw quay.io/debezium/example-mysql:1.9
 ```
-MySQL信息
 
-端口：3306
+MySQL information
 
-账号：root/debezium
+Port：3306
+
+Account：root/debezium
 
 slave:debezium/dbz
 
 
-### 测试数据
+### Test data
 
-通过root/debezium账号登录数据库
+Log in to the database with the root/debezium account
 
-源数据库表：inventory.employee
+Source database table：inventory.employee
 
 ```
 CREATE database inventory;
@@ -124,7 +130,7 @@ CREATE TABLE `employee` (
 `company` varchar(128) DEFAULT NULL,
 `money` double DEFAULT NULL,
 `begin_time` datetime DEFAULT NULL,
-`modify_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+`modify_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'modify time',
 `decimal_test` decimal(11,2) DEFAULT NULL COMMENT 'test decimal type',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
@@ -144,7 +150,8 @@ INSERT INTO `employee` VALUES (15, NULL, 0, 0, NULL, 0, NULL, '2022-06-14 20:13:
 
 ```
 
-目标库：inventory_2.employee
+Target database：inventory_2.employee
+
 ```
 CREATE database inventory_2;
 use inventory_2;
@@ -162,14 +169,14 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 ```
 
-## 启动Connector
+## Start Connector
 
-### 启动Debezium source connector
+### Start Debezium source connector
 
-同步原表数据：inventory.employee
-作用：通过解析MySQL binlog 封装成通用的ConnectRecord对象，发送的RocketMQ Topic当中
+Synchronize original table data：inventory.employee
+Purpose: Parse MySQL binlog and encapsulate into a generic ConnectRecord object and send to RocketMQ Topic.
 
-```
+```shell
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/MySQLCDCSource -d '{
 "connector.class": "org.apache.rocketmq.connect.debezium.mysql.DebeziumMysqlConnector",
 "max.task": "1",
@@ -185,7 +192,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 "include.schema.changes": false,
 "database.server.name": "dbserver1",
 "database.port": 3306,
-"database.hostname": "数据库ip",
+"database.hostname": "database ip",
 "database.connectionTimeZone": "UTC",
 "database.user": "debezium",
 "database.password": "dbz",
@@ -199,16 +206,16 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 }'
 ```
 
-### 启动 jdbc sink connector
+### Start JDBC sink connector
 
-作用：通过消费Topic中的数据，通过JDBC协议写入到目标表当中
+Purpose: Consume data from the Topic and write to the destination table through the JDBC protocol.
 
-```
+```shell
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/jdbcmysqlsinktest -d '{
   "connector.class": "org.apache.rocketmq.connect.jdbc.connector.JdbcSinkConnector",
   "max.task": "2",
   "connect.topicnames": "debezium-mysql-source",
-  "connection.url": "jdbc:mysql://数据库ip:3306/inventory_2",
+  "connection.url": "jdbc:mysql://database ip:3306/inventory_2",
   "connection.user": "root",
   "connection.password": "debezium",
   "pk.fields": "id",
@@ -226,10 +233,6 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connector
 }'
 ```
 
+After the above two Connector tasks are successfully created, log in to the database with the root/debezium account.
 
-以上两个Connector任务创建成功以后
-通过root/debezium账号登录数据库
-
-对源数据库表：inventory.employee增删改
-即可同步到目标表inventory_2.employee
-
+Insert, delete or update data to the source database table: inventory.employee, then the data will be synchronized to the destination table inventory_2.employee.
