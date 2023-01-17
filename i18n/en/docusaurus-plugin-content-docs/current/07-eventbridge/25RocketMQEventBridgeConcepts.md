@@ -1,57 +1,59 @@
-# RocketMQ EventBridge 核心概念
+# RocketMQ EventBridge Core Concept
 
-理解EventBridge中的核心概念，能帮助我们更好的分析和使用EventBridge。本文重点介绍下EventBridge中包含的术语：
+Understanding the core concepts in EventBridge can help us better analyze and use EventBridge. This article focuses on introducing the terms included in EventBridge:
 
-* EventSource：事件源。用于管理发送到EventBridge的事件，所有发送到EventBridge中的事件都必须标注事件源名称信息，对应CloudEvent事件体中的source字段。
-* EventBus：事件总线。用于存储发送到EventBridge的事件。
-* EventRule：事件规则。当消费者需要订阅事件时，可以通过规则配置过滤和转换信息，将事件推送到指定的目标端。
-* FilterPattern：事件过滤模式，用于在规则中配置过滤出目标端需要的事件。
-* Transform：事件转换，将事件格式转换成目标端需要的数据格式。
-* EventTarget：事件目标端，即我们真正的事件消费者。
+- EventSource: the source of the event. Used to manage events sent to EventBridge, all events sent to EventBridge must be marked with the source name information, corresponding to the source field in the CloudEvent event body.
+- EventBus: the event bus. Used to store events sent to EventBridge.
+- EventRule: event rule. When a consumer needs to subscribe to events, they can configure filtering and transformation information through rules to push events to the designated target endpoint.
+- FilterPattern: event filtering pattern, used to configure filtering of target endpoints in rules.
+- Transform: event transformation, converting the event format to the data format required by the target endpoint.
+- EventTarget: the target endpoint of the event, which is the actual event consumer.
 
-下面，我们具体展开：
+Next, we will expand on these concepts in more detail.
 
 ## EventSource
-事件源，代表事件发生的源头，用来描述一类事件，一般与微服务系统一一对应。比如：交易事件源、考勤事件源等等。事件源，是对事件一个大的分类，一个事件源下面，往往会包含多种事件类型(type)，比如交易事件源下面，可能包含：下单事件、支付事件、退货事件等等。
 
-另外，需要值得注意的是，事件源并不用来描述发生事件的实体，取而代之的是，在CloudEvent中，我们一般选用subject来表示产生这个事件的实体资源。事件源有点像市场经济大卖场中的大类分区，例如：生鲜区、日化日用区、家用电器区等等。在事件中心这个"大卖场"，我们可以通过事件源快速的找到我们需要的事件。
+Event source represents the origin of the event and is used to describe a category of events, generally corresponding one-to-one with microservice systems. For example: transaction event source, attendance event source, etc. Event source is a large classification for events, and a single event source often contains multiple event types (type), such as a transaction event source may contain: order events, payment events, refund events, etc.
+
+Additionally, it is worth noting that event source is not used to describe the entity that caused the event. Instead, in CloudEvent, we generally use subject to represent the entity resource that caused the event. The event source is similar to the large category divisions in a market economy department store, such as fresh food area, daily necessities area, household appliances area, etc. In the event center "department store", we can quickly find the event we need through the event source.
 
 ## EventBus
 
-事件总线是存储事件的地方，其下可以有多种实现，包括Local、RocketMQ、Kafka等。
+The event bus is where events are stored, and it can have multiple implementations including Local, RocketMQ, Kafka, etc.
 
-事件生产者发送事件的时候，必须指定事件总线。事件总线是EventBridge的一等公民，其他所有资源都围绕事件总线形成逻辑上的隔离，即：事件源、事件规则必须都隶属于某一个事件总线下。不同事件总线下的事件源和事件规则可以重名，但是同一个事件总线下的事件源和规则必须不重名。
+When the event producer sends an event, they must specify the event bus. The event bus is a first-class citizen in EventBridge, and all other resources form logical isolation around the event bus, that is: event sources and event rules must belong to a specific event bus. Event sources and event rules under different event buses can have the same name, but event sources and rules under the same event bus must have unique names.
 
 ## EventRule
 
-当消费者需要订阅事件时，可以通过事件规则配置过滤和转换信息，将事件推送到指定的目标端。所以，事件规则包含三部分：事件过滤+事件转换+事件目标。
+When a consumer needs to subscribe to events, they can configure filtering and transformation information through event rules, and push events to the designated target endpoint. Therefore, event rules include three parts: event filtering + event transformation + event target.
 
 ![img_1.png](../picture/07eventbridge/EventRule.png)
 
 ## FilterPattern
-通过事件过滤模式，我们可以对事件总线上的事件进行过滤，只将目标端需要的事件推送过去，以减少不必要的开通，同时减轻消费者
-Target端的压力。目前EventBridge支持的事件过滤能力包括：
-* 指定值匹配
-* 前缀匹配
-* 后缀匹配
-* 除外匹配
-* 数值匹配
-* 数组匹配
-* 以及复杂的组合逻辑匹配
 
-（详细介绍待见其他文章）
+By using event filtering patterns, we can filter events on the event bus and only push the events that the target endpoint needs, thus reducing unnecessary opening and relieving the pressure on the consumer's target endpoint. Currently, EventBridge supports the following event filtering capabilities:
+
+* Specified value matching
+* Prefix matching
+* Suffix matching
+* Exclusion matching
+* Numeric matching
+* Array matching
+* And complex combination logic matching
+
+(Details will be covered in other articles)
 
 ## Transform
-生产者的事件可能会同时被多个消费者订阅，但不同消费者需要的数据格式往往不同。这个时候，需要我们将生产者的事件，转换成消费者
-Target端需要的事件格式。目前EventBridge支持的事件转换能力包括：
-* 完整事件：不做转换，直接投递原生 CloudEvents；
-* 部分事件：通过 JsonPath 语法从 CloudEvents 中提取出需要投递到事件目标的内容；
-* 常量：事件只起到触发器的作用，投递内容为常量；
-* 模板转换器：通过定义模板，灵活地渲染投递出去的事件格式；
 
-（详细介绍待见其他文章）
+Event producers' events may be subscribed to by multiple consumers, but the data format needed by different consumers is often different. In this case, it is necessary to convert the event produced by the producer into the event format that the consumer target end needs. Currently, EventBridge supports the following event conversion capabilities:
+
+* Complete events: No conversion, directly delivering the original CloudEvents;
+* Partial events: Extracting the content that needs to be delivered to the event target through JsonPath syntax from CloudEvents;
+* Constants: The event only serves as a trigger, and the delivered content is a constant;
+* Template converter: Flexibly rendering the delivered event format through the definition of a template.
+
+(Details to be seen in other articles)
 
 ## EventTarget
 
-事件目标端，也即我们的事件消费者。在EventBridge架构中，消费者只需要按照自己的业务领域模型设计，提供一个公共的API（这个API既可用来接收事件，同时也用来前台管控面操作），EventBridge就会按照API定义需要的数据格式，将事件安全、可靠的推送给
-Target消费者。
+The event target is the event consumer in the EventBridge architecture. In this architecture, consumers only need to design their own business models and provide a common API (this API can be used to receive events and also for front-end management operations). EventBridge will then safely and reliably push events to the target consumer according to the data format defined by the API.
