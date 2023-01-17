@@ -87,13 +87,13 @@ DefaultMQProducer、TransactionMQProducer、DefaultMQPushConsumer、DefaultMQPul
 | 名称                               | 描述                                                         | 参数类型                     | 默认值                                              | 有效值 | 重要性 |
 | ---------------------------------- | ------------------------------------------------------------ | ---------------------------- | --------------------------------------------------- | ------ | ------ |
 | consumerGroup                      | 消费组的名称，用于标识一类消费者                             | String                       |                                                     |        |        |
-| messageModel                       | 消费模式                                                     | MessageModel                 | MessageModel.CLUSTERINGallocateMessageQueueStrategy |        |        |
+| messageModel                       | 消费模式                                                     | MessageModel                 | MessageModel.CLUSTERINGallocateMessageQueueStrategy |    CLUSTERING(集群消費模式) / ROADCASTING (广播消费模式)    |        |
 | consumeFromWhere                   | 启动消费点策略                                               | ConsumeFromWhere             | ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET           |        |        |
 | consumeTimestamp                   | CONSUME_FROM_LAST_OFFSET的时候使用，从哪个时间点开始消费     | String                       | 半小时前                                            |        |        |
 | allocateMessageQueueStrategy       | 负载均衡策略算法                                             | AllocateMessageQueueStrategy | AllocateMessageQueueAveragely（取模平均分配）       |        |        |
 | subscription                       | 订阅关系                                                     | Map<String, String>          | {}                                                  |        |        |
 | messageListener                    | 消息处理监听器（回调）                                       | MessageListener              | null                                                |        |        |
-| offsetStore                        | 消息消费进度存储器                                           | OffsetStore                  | null                                                |        |        |
+| offsetStore                        | 消息消费进度存储器                                           | OffsetStore                  | null                                                |     不建议设置，offsetStore 有两个策略：LocalFileOffsetStore 和RemoteBrokerOffsetStore.若沒有显示设置的情況下，广播模式將使用LocalFileOffsetStore，集群模式將使用RemoteBrokerOffsetStore，不建议修改.   |        |
 | consumeThreadMin                   | 消费线程池的core size                                        | int                          | 20                                                  |        |        |
 | consumeThreadMax                   | 消费线程池的max size                                         | int                          | 64                                                  |        |        |
 | adjustThreadPoolNumsThreshold      | 动态扩线程核数的消费堆积阈值                                 | long                         | 100000                                              |        |        |
@@ -106,12 +106,12 @@ DefaultMQProducer、TransactionMQProducer、DefaultMQPushConsumer、DefaultMQPul
 | consumeMessageBatchMaxSize         | 批量消费的最大消息条数                                       | int                          | -1                                                  |        |        |
 | postSubscriptionWhenPull           | 每次拉取的时候是否更新订阅关系                               | boolean                      | false                                               |        |        |
 | unitMode                           | 订阅组的单位                                                 | boolean                      | false                                               |        |        |
-| maxReconsumeTimes                  | 一个消息如果消费失败的话，最多重新消费多少次才投递到死信队列 | int                          | -1                                                  |        |        |
+| maxReconsumeTimes                  | 一个消息如果消费失败的话，最多重新消费多少次才投递到死信队列 | int                          | -1                                                  |    由于PullConsumer没有管理消费的线程池和管理器，需要用户自己处理各种消费结果和拉取结果，故需要投递到重试队列或死信队列的时候需要显示调用sendMessageBack.回传消息的时候会带上maxReconsumeTimes的值，broker发现此消息已经消费超过此值，则投递到死信队列，否则投递到重试队列。此逻辑和DefaultPushConsumer是一致的，只是PushConsumer无需用户显示调用.    |        |
 | suspendCurrentQueueTimeMillis      | 串行消费使用，如果返回ROLLBACK或者SUSPEND_CURRENT_QUEUE_A_MOMENT，再次消费的时间间隔 | long                         | 1000                                                |        |        |
 | consumeTimeout                     | 消费的最长超时时间                                           | long                         | 15，单位分钟                                        |        |        |
 | awaitTerminationMillisWhenShutdown | 关闭使用者时等待消息的最长时间，0表示无等待。                | long                         | 0                                                   |        |        |
 | traceDispatcher                    | 异步传输数据接口                                             | TraceDispatcher              | null                                                |        |        |
-
+| registerTopics                     | 消費者需要監聽的topic                                        | Collection                        | 默認值：空集合
 
 
 ## DefaultLitePullConsumer配置
@@ -143,5 +143,3 @@ DefaultMQProducer、TransactionMQProducer、DefaultMQPushConsumer、DefaultMQPul
 | traceDispatcher                  | 异步传输数据的接口                                       | TraceDispatcher              | null                                          |        |        |
 | enableMsgTrace                   | 信息跟踪的标志                                           | boolean                      | false                                         |        |        |
 | customizedTraceTopic             | 消息跟踪主题的名称                                       | String                       |                                               |        |        |
-
-continue......
