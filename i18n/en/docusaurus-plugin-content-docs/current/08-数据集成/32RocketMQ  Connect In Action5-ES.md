@@ -1,4 +1,4 @@
-# RocketMQ Connect actual combat 5
+# RocketMQ Connect in Action 5
 
 Elsticsearch Source  -  >RocketMQ Connect  ->  Elasticsearch Sink
 
@@ -31,7 +31,7 @@ $ cd rocketmq-connect/connectors/rocketmq-connect-elasticsearch/
 $ mvn clean package -Dmaven.test.skip=true
 ```
 
-Put the compiled Elasticsearch RocketMQ Connector package into the Runtime load directory. The command is as follows:
+Move the compiled Elasticsearch RocketMQ Connector package into the Runtime load directory. The command is as follows:
 ```
 mkdir -p /usr/local/connector-plugins
 cp rocketmq-connect-elasticsearch/target/rocketmq-connect-elasticsearch-1.0.0-jar-with-dependencies.jar /usr/local/connector-plugins
@@ -153,5 +153,4 @@ note：Local testing requires you to start the Elasticsearch process on two diff
 After the two Connector tasks are successfully created Whether the Elasticsearch specified by accessing sink contains data
 
 New data added to the source index can be synchronized to the target index
-
 
