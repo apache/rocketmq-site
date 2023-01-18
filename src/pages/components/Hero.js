@@ -10,7 +10,7 @@ export default function Hero(){
         <div className="container">
           <h1 className={clsx("gradient-text",styles.herotitle)}>Apache RocketMQ</h1>
           <p className={clsx("hero__subtitle",styles.herosubtitle)}>
-            <Translate id="rmq_intro">云原生消息事件流融合处理平台，帮助用户轻松构建事件驱动程序</Translate>
+            <Translate id="rmq_intro">RocketMQ 5.0：云原生“消息、事件、流”实时数据处理平台，覆盖云边端一体化数据处理场景</Translate>
           </p>
           <div className={clsx('container',styles.github)}>
             <iframe
@@ -35,7 +35,7 @@ export default function Hero(){
               className={clsx(
                 "button button--outline button--secondary button--lg",styles.button
               )}
-              to={"/docs/介绍/02quickstart"}
+              to={"/docs/quickStart/02quickstart"}
             >
               <Translate id="快速开始">快速开始</Translate>
             </Link>
@@ -45,7 +45,7 @@ export default function Hero(){
                 "button button--outline button--secondary button--lg",styles.button2
               )}
             >
-              <Translate id="RocketMQ 5.0 速览"> RocketMQ 5.0 速览</Translate>
+              <Translate id="RocketMQ 5.0 速览">RocketMQ 5.0 速览</Translate>
             </Link>
           </div>
         </div>

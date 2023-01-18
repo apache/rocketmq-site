@@ -19,6 +19,8 @@ The following is a list of developers with commit privileges that have directly 
 |![wlliqipeng](/about/liqipeng.jpeg)|wlliqipeng|[@wlliqipeng](https://github.com/wlliqipeng)|wlliqipeng@apache.org |PMC Member| +8 |
 |![jinrongtong](/about/jinrongtong.jpg)|jinrongtong| [@RongtongJin](https://github.com/RongtongJin)|jinrongtong@apache.org|PMC Member| +8 |
 |![Aaron Ai](/about/aaronai.png)|Aaron Ai| [@aaron-ai](https://github.com/aaron-ai)|aaronai@apache.org|PMC Member| +8 |
+|![Qiudi Yang](/about/manhong.png)|Qiudi Yang| [@jodie.yang](https://github.com/YangJodie)|jodie@apache.org|PMC Member| +8 |
+|![linhill](/about/linqingshan.png)| Qingshan Lin| [@hill007299](https://github.com/hill007299)|linhill@apache.org|PMC Member| +8 |
 |![WangPing](/about/pingww.jpg)|WangPing| [@pingww](https://github.com/pingww)|pingww@apache.org|PMC Member| +8 |
 |![stevensche](/about/stevenschew.png)|stevenschew|[@stevenschew](https://github.com/stevenschew)|stevenschew@apache.org |Committer| +8 |
 |![longdafeng](/about/longdafeng.jpeg)|longda|[@longdafeng](https://github.com/longdafeng)|longda@apache.org |Committer| +8 |
@@ -56,7 +58,12 @@ The following is a list of developers with commit privileges that have directly 
 |![karp](/about/karp.jpg)|karp| [@Ni Ze](https://github.com/ni-ze)|karp@apache.org|Committer| +8 |
 |![scarb](/about/scarb.jpg)|Jin Jiahao| [@HScarb](https://github.com/HScarb)|scarb@apache.org|Committer| +8 |
 |![sunxiaojian](/about/sunxiaojian.jpg)|sunxiaojian| [@sunxiaojian](https://github.com/sunxiaojian)|sunxiaojian@apache.org|Committer| +8 |
-
+|![shenlin](/about/shenlin.jpg)|shenlin| [@2011shenlin](https://github.com/2011shenlin)|shenlin@apache.org|Committer| +8 |
+|![hzh0425](/about/hzh0425.jpg)|Zhangheng huang| [@hzh0425](https://github.com/hzh0425) |hzh0425@apache.org|Committer| +8 |
+|![mingduan](/about/mingduan.png)|Zhongliang Chen| [@chenzlalvin](https://github.com/chenzlalvin) |chenzlalvin@apache.org|Committer| +8 |
+|![fuchong](/about/fuchong.png)|Yubao Fu| [@fuyou001](https://github.com/fuyou001) |fuyou@apache.org|Committer| +8 |
+|![ayanamist](/about/ayanamist.jpg)|Yang Tianyang| [@ayanamist](https://github.com/ayanamist) |ayanamist@apache.org|Committer| +8 |
+|![oliverwqcwrw](/about/oliverwqcwrw.png)|Qiang Wang| [@Oliverwqcwrw](https://github.com/Oliverwqcwrw) |oliverwqcwrw@apache.org|Committer| +8 |
 ### Top Contributors
 
 There are a lot of contributors who improve the RocketMQ project through submission of patches and suggestions to the Members, top contributors to be added.
@@ -65,4 +72,3 @@ There are a lot of contributors who improve the RocketMQ project through submiss
 |:---|:---|:---|:---|:---|:---|
 |![siyue](/about/siyue.jpeg)|Khaidi Chu| [@XadillaX](https://github.com/XadillaX)|i@2333.moe|Contributor| +8 |
 |![githublaohu](/about/hujie.png)|Hu Jie| [@githublaohu](https://github.com/githublaohu)|2372554140@qq.com|Contributor| +8 |
-|![hzh0425](/about/hzh0425.jpg)|Zhangheng huang| [@hzh0425](https://github.com/hzh0425) |642256541@qq.com|Contributor| +8 |

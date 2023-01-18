@@ -1,5 +1,7 @@
-dist: xenial
-language: nodejs
-node_js: 14
+dist: bionic
+os: linux
+language: node_js
+node_js:
+  - 16.14.0
 script:
   - npm install --legacy-peer-deps && npm run build

@@ -427,7 +427,8 @@ h1 {
   /* grid-gap: 28px; */
   text-align: center;
   place-items: center;
-  /* padding-bottom: 7em; */
+  padding-top: 3em;
+  padding: 3em 0 5em 0;
 }
 @media (max-width: 1200px) {
   .logocontainer {
@@ -450,14 +451,18 @@ h1 {
   }
 }
 
+.logosection {
+  
+}
+
 .avatar {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 100px;
-  height: 100px;
+  width: 15%;
+  height: 15%;
 
   border-radius: 10%;
   overflow: hidden;
@@ -467,8 +472,8 @@ h1 {
 }
 
 .avatar img {
-  height: 70%;
-  width: 70%;
+  height: 80%;
+  width: 80%;
   z-index: 2;
 
   /* Optionally add a drop shadow to the main image	 */

@@ -216,7 +216,7 @@
     "description": "The title of the tag list page"
   },
   "rmq_intro": {
-    "message": "A cloud native messaging and streaming platform, making it simple to build event-driven applications"
+    "message": "RocketMQ 5.0: A cloud-native \"messaging, eventing, streaming\" real-time data processing platform, covering cloud-edge-device collaboration scenarios"
   },
   "快速开始": {
     "message": "Quick Start"
@@ -243,7 +243,7 @@
     "message": "More Cases"
   },
   "用户案例instruction": {
-    "message": "RocketMQ has helped over 100 Internet, financial, and manufacturing companies"
+    "message": "RocketMQ has helped over tens of thousands Internet, financial, and manufacturing companies"
   },
   "大规模负载下低延迟，保证万亿级的信息容量,适用于电商领域，金融领域，大数据领域，物联网": {
     "message": "With low latency under massive loads, trillions of information capacity is guaranteed",
@@ -284,8 +284,8 @@
   "金融级": {
     "message": "Finance Oriented"
   },
-  "支持金融级别的事务消息": {
-    "message": "Financial grade transactional message"
+  "金融级的稳定性，广泛用于交易核心链路": {
+    "message": "Financial-grade stability, widely used in transaction core links"
   },
   "架构极简": {
     "message": "Lightweight Model"
@@ -311,7 +311,7 @@
   "连接器": {
     "message": "Connect"
   },
-  "配置化、低代码的方式进行数据集成，可与任意系统建立连接，可用于构建流式ETL，数据管道，数据湖等": {
+  "配置化、低代码的方式进行数据集成，可与任意系统建立连接，可用于构建流式 ETL，数据管道，数据湖等": {
     "message": "Configurable and low-code way to integrate data, connect with any system, and build streaming ETL, data pipeline, data lake, etc."
   },
   "微服务": {
@@ -319,5 +319,11 @@
   },
   "丰富的消息类型支持和消息治理方式，以消息粒度负载均衡满足 Serverless 应用场景": {
     "message": "Rich message type support and management to meet Serverless scenarios with message granularity load balancing"
+  },
+  "物联网": {
+    "message": "IoT"
+  },
+  "支持海量 Topic 需求，覆盖云边端一体化处理场景": {
+    "message": "Supports massive Topic requirements, covering cloud-edge-device collaboration scenarios"
   }
 }
