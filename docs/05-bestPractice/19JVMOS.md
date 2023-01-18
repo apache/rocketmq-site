@@ -8,7 +8,7 @@
 推荐使用最新发布的 JDK 1.8 版本。通过设置相同的 Xms 和 Xmx 值来防止 JVM 调整堆大小以获得更好的性能。生产环境 JVM 配置如下所示：
 
 ```text
--server -Xms8g -Xmx8g -Xmn4g 
+-server -Xms8g -Xmx8g 
 ```
 
 当 JVM 是默认 8 字节对齐，建议配置最大堆内存不要超过 32 G，否则会影响 JVM 的指针压缩技术，浪费内存。
