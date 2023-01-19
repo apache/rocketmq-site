@@ -1,65 +1,64 @@
-# RocketMQ Streams 核心概念
+# RocketMQ Streams Core Concept
 
-## 领域模型
+## Domain model
 
 ### StreamBuilder
 ![img_2.png](../picture/33rocketmq-streams/领域模型-1.png)
-  
-* 一个StreamBuilder实例，有1到N个pipeline，pipeline表示一个数据处理路径；
-* 一个pipeline可以含有1到N个处理节点GroupNode；
-* 一个StreamBuilder实例，有一个TopologyBuilder，TopologyBuilder可构建出数据处理器processor； 
-* 一个JobId对应一个StreamBuilder实例。
+
+* An instance of StreamBuilder has 1 to N pipelines, where a pipeline represents a data processing path.
+* A pipeline can contain 1 to N processing nodes, called GroupNodes. 
+* An instance of StreamBuilder also has a TopologyBuilder, which can construct data processors. 
+* Each JobId corresponds to one instance of StreamBuilder.
 
 ### RocketMQStream
 ![img_2.png](../picture/33rocketmq-streams/领域模型-2.png)
 
-* 一个RocketMQStream实例，有一个拓扑构建器TopologyBuilder； 
-* 一个RocketMQStream实例，可实例化1到N个worker线程; 
-* 每个线程WorkerThread实例，包含一个engine； 
-* 一个engine包含执行数据处理的所有逻辑，包含一个consumer实例、一个producer实例、一个StateStore实例;
+* An instance of RocketMQStream has a TopologyBuilder for building topologies
+* An instance of RocketMQStream can instantiate 1 to N worker threads
+* Each thread, represented by a WorkerThread instance, contains an engine
+* An engine contains all the logic for executing data processing and includes a consumer instance, a producer instance, and a StateStore instance.
 
-### 流处理实例
-流处理实例表示一个运行RocketMQ Streams的进程；
+### Stream Processing Instance
+A Stream Processing Instance represents a process running RocketMQ Streams;
 
-* 一个流处理实例包含一个StreamBuilder，一个RocketMQStream，一个拓扑图，一到多个pipeline；
+* An instance of Stream Processing contains one StreamBuilder, one RocketMQStream, one topology, and one or multiple pipelines.
 
 
 ## StreamBuilder
-+ ```StreamBuilder(jobId)``` 构建实例；
-+ ```<OUT> RStream<OUT> source(topicName, deserializer) ``` 定义source topic 和反序列化方式；
++ ```StreamBuilder(jobId)``` build instance；
++ ```<OUT> RStream<OUT> source(topicName, deserializer) ``` define source topic and deserialization method；
 
 
 ## RStream
-+ ```<K> GroupedStream<K, T> keyBy(selectAction)``` 按照特定字段分组；
-+ ```<O> RStream<O> map(mapperAction)``` 对数据进行一对一转化；
-+ ```RStream<T> filter(predictor)``` 对数据进行过滤
-+ ```<VR> RStream<T> flatMap(mapper)```对数据进行一对多转化；
-+ ```<T2> JoinedStream<T, T2> join(rightStream)``` 双流Join；
-+ ```sink(topicName, serializer)``` 将结果输出到特定topic；
++ ```<K> GroupedStream<K, T> keyBy(selectAction)``` group the data by specific field；
++ ```<O> RStream<O> map(mapperAction)``` transform data one-to-one；
++ ```RStream<T> filter(predictor)``` filter the data
++ ```<VR> RStream<T> flatMap(mapper)```transform data one-to-many；
++ ```<T2> JoinedStream<T, T2> join(rightStream)``` Perform a two-stream join；
++ ```sink(topicName, serializer)``` output the results to a specific topic；
 
 
 ## GroupedStream
-对含有相同Key的数据进行操作
-+ ```<OUT> GroupedStream<K, Integer> count(selectAction)``` 统计含有某个字段数据的个数；
-+ ```GroupedStream<K, V> min(selectAction)``` 对某个字段统计最小值；
-+ ```GroupedStream<K, V> max(selectAction)``` 对某个字段统计最大值；
-+ ```GroupedStream<K, ? extends Number> sum(selectAction)``` 对某个字段统计和；
-+ ```GroupedStream<K, V> filter(predictor)``` 对某个字段进行过滤；
-+ ```<OUT> GroupedStream<K, OUT> map(valueMapperAction)``` 对数据进行一对一转化；
-+ ```<OUT> GroupedStream<K, OUT> aggregate(accumulator)``` 对数据进行聚合操作，且聚合支持二阶聚合，例如在窗口未触发时添加数据，在窗口触发时计算结果这类算子；
-+ ```WindowStream<K, V> window(windowInfo)``` 对窗口划定window；
-+ ```GroupedStream<K, V> addGraphNode(name, supplier)``` 底层接口，向流处理拓扑中增加自定义算子；
-+ ```RStream<V> toRStream()``` 转化为RStream，只是在接口形式上转化，对数据无任何操作；
-+ ```sink(topicName, serializer)``` 按照自定义序列化形式将结果写出到topic；
+Operations on data that has the same key
++ ```<OUT> GroupedStream<K, Integer> count(selectAction)``` counts the number of data entries that contain a certain field.
++ ```GroupedStream<K, V> min(selectAction)``` calculates the minimum value of a certain field.
++ ```GroupedStream<K, V> max(selectAction)``` calculates the maximum value of a certain field.
++ ```GroupedStream<K, ? extends Number> sum(selectAction)``` calculates the sum of a certain field.
++ ```GroupedStream<K, V> filter(predictor)``` filters a certain field.
++ ```<OUT> GroupedStream<K, OUT> map(valueMapperAction)``` performs one-to-one data transformation.
++ ```<OUT> GroupedStream<K, OUT> aggregate(accumulator)``` performs aggregate operations on the data, and supports second-order aggregation, such as adding data before a window triggers and calculating results when the window triggers.
++ ```WindowStream<K, V> window(windowInfo)``` defines a window for the stream.
++ ```GroupedStream<K, V> addGraphNode(name, supplier)``` adds a custom operator to the stream processing topology at a low-level interface.
++ ```RStream<V> toRStream()``` converts to RStream, only converting in terms of interface and not affecting the data.
++ ```sink(topicName, serializer)``` writes the results to a topic in a custom serialization format.
 
 
 ## WindowStream
-对被划分window的数据进行操作
-+ ```WindowStream<K, Integer> count()``` 统计窗口内数据个数；
-+ ```WindowStream<K, V> filter(predictor)``` 过滤窗口内数据；
-+ ```<OUT> WindowStream<K, OUT> map(mapperAction)``` 对窗口内数据一对一转化；
-+ ```<OUT> WindowStream<K, OUT> aggregate(aggregateAction)``` 对窗口内数据多对一转化；
-+ ```<OUT> WindowStream<K, OUT> aggregate(accumulator)``` 对数据进行聚合操作，且聚合支持二阶聚合，例如在窗口未触发时添加数据，在窗口触发时计算结果这类算子；
-+ ```void sink(topicName, serializer)``` 按照自定义序列化形式将结果写出到topic；
-
+Operations on data that has been divided into windows
++ ```WindowStream<K, Integer> count()``` counts the number of data entries in the window.
++ ```WindowStream<K, V> filter(predictor)``` filters the data in the window.
++ ```<OUT> WindowStream<K, OUT> map(mapperAction)``` performs one-to-one data transformation on the data in the window.
++ ```<OUT> WindowStream<K, OUT> aggregate(aggregateAction)```  performs many-to-one data transformation on the data in the window.
++ ```<OUT> WindowStream<K, OUT> aggregate(accumulator)``` performs aggregate operations on the data in the window, and supports second-order aggregation, such as adding data before a window triggers and calculating results when the window triggers.
++ ```void sink(topicName, serializer)``` writes the results to a topic in a custom serialization format.
 
