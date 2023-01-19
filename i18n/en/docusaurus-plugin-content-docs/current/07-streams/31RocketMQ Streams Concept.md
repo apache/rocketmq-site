@@ -4,7 +4,7 @@
 
 ### StreamBuilder
 
-![img_2.png](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\version-5.0\picture\33rocketmq-streams\领域模型-1.png)
+![img_2.png](..\picture\33rocketmq-streams\领域模型-1.png)
 
 * An instance of StreamBuilder has 1 to N pipelines, where a pipeline represents a data processing path.
 * A pipeline can contain 1 to N processing nodes, called GroupNodes. 
@@ -13,7 +13,7 @@
 
 ### RocketMQStream
 
-![img_2.png](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\version-5.0\picture\33rocketmq-streams\领域模型-2.png)
+![img_2.png](..\picture\33rocketmq-streams\领域模型-2.png)
 
 * An instance of RocketMQStream has a TopologyBuilder for building topologies
 * An instance of RocketMQStream can instantiate 1 to N worker threads
