@@ -60,7 +60,7 @@ C1、C2、C3的订阅关系一致，即C1、C2、C3订阅消息的代码必须�
 
 ### 1.3 订阅多个Topic且订阅多个Tag
 
-如下图所示，同一Group ID下的三个Consumer实例C1、C2和C3分别都订阅了TopicA和TopicB，且订阅的TopicA都未指定Tag，即订阅TopicA中的所有消息，订阅的TopicB的Tag都是Tag1和Tag2，表示订阅TopicB中所有Tag为Tag1或Tag2的消息，且顺序一致都是Tag1||Tag2，符合订阅关系一致原则。
+如下图所示，同一Group ID下的三个Consumer实例C1、C2和C3分别都订阅了TopicA和TopicB，且订阅的TopicA都未指定Tag，即订阅TopicA中的所有消息，订阅的TopicB的Tag都是Tag2和Tag3，表示订阅TopicB中所有Tag为Tag2或Tag3的消息，且顺序一致都是Tag2||Tag3，符合订阅关系一致原则。
 
 ![1658454292557-c07fa0ac-81be-4aac-9c5b-342821c554a6](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfutzsnbj20o40h4t9s.jpg)
 
