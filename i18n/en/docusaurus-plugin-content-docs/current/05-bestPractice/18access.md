@@ -1,38 +1,48 @@
-# 权限控制
+# Access control
 
-## 1.权限控制特性介绍
-权限控制（ACL）主要为RocketMQ提供Topic资源级别的用户访问控制。用户在使用RocketMQ权限控制时，可以在Client客户端通过 RPCHook注入AccessKey和SecretKey签名；同时，将对应的权限控制属性（包括Topic访问权限、IP白名单和AccessKey和SecretKey签名等）设置在distribution/conf/plain_acl.yml的配置文件中。Broker端对AccessKey所拥有的权限进行校验，校验不过，抛出异常；
-ACL客户端可以参考：**org.apache.rocketmq.example.simple**包下面的**AclClient**代码。
+## 1. Introduction to access control features
 
-## 2. 权限控制的定义与属性值
-### 2.1权限定义
-对RocketMQ的Topic资源访问权限控制定义主要如下表所示，分为以下四种
+access control (ACL) mainly provides advanced access control functions at the Topic resource level for RocketMQ. When using RocketMQ access control, users can inject user name and password parameters into the  client to achieve signature, and the server can implement permission management and verification of various resources through access control parameters.
 
+:::info
 
-| 权限 | 含义 |
-| --- | --- |
-| DENY | 拒绝 |
-| ANY | PUB 或者 SUB 权限 |
-| PUB | 发送权限 |
-| SUB | 订阅权限 |
+ACL control will increase the complexity of deployment process and operation and maintenance management while enhancing cluster access control security. It is generally only recommended for use in scenarios where the network environment is not secure, business data is sensitive, and multiple departments and tenants are mixed. If the production cluster itself is a private cluster and is not accessed by external departments and tenants, it can be turned off.
 
-### 2.2 权限定义的关键属性
-| 字段 | 取值 | 含义 |
-| --- | --- | --- |
-| globalWhiteRemoteAddresses | \*;192.168.\*.\*;192.168.0.1 | 全局IP白名单 |
-| accessKey | 字符串 | Access Key |
-| secretKey | 字符串 | Secret Key |
-| whiteRemoteAddress | \*;192.168.\*.\*;192.168.0.1 | 用户IP白名单 |
-| admin | true;false | 是否管理员账户 |
-| defaultTopicPerm | DENY;PUB;SUB;PUB\|SUB | 默认的Topic权限 |
-| defaultGroupPerm | DENY;PUB;SUB;PUB\|SUB | 默认的ConsumerGroup权限 |
-| topicPerms | topic=权限 | 各个Topic的权限 |
-| groupPerms | group=权限 | 各个ConsumerGroup的权限 |
+:::
 
-具体可以参考**distribution/conf/plain_acl.yml**配置文件
+## 2. Definition and attribute values of access control
 
-## 3. 支持权限控制的集群部署
-在**distribution/conf/plain_acl.yml**配置文件中按照上述说明定义好权限属性后，打开**aclEnable**开关变量即可开启RocketMQ集群的ACL特性。这里贴出Broker端开启ACL特性的properties配置文件内容：
+### 2.1 Permission definition
+
+The definition of access access control for RocketMQ Topic resources is mainly as shown in the following table, divided into the following four categories:
+
+| Permission | Definition            |
+| ---------- | --------------------- |
+| DENY       | reject                |
+| ANY        | PUB or SUB permission |
+| PUB        | send permission       |
+| SUB        | subscribe permission  |
+
+### 2.2 Key attributes of permission definitions
+
+| Field                      | Value                        | Definition                             |
+| -------------------------- | ---------------------------- | -------------------------------------- |
+| globalWhiteRemoteAddresses | \*;192.168.\*.\*;192.168.0.1 | Global IP whitelist                    |
+| accessKey                  | string                       | Access Key                             |
+| secretKey                  | string                       | Secret Key                             |
+| whiteRemoteAddress         | \*;192.168.\*.\*;192.168.0.1 | User IP whitelist                      |
+| admin                      | true;false                   | Whether it is an administrator account |
+| defaultTopicPerm           | DENY;PUB;SUB;PUB\|SUB        | default Topic permission               |
+| defaultGroupPerm           | DENY;PUB;SUB;PUB\|SUB        | defalutl ConsumerGroup permission      |
+| topicPerms                 | topic=permission             | Permissions for each Topic             |
+| groupPerms                 | group=permission             | Permissions for each Consumer Group    |
+
+Refer to the **distribution/conf/plain_acl.yml** configuration file for specific information.
+
+## 3. Deployment of clusters supporting access control
+
+After defining the permission attributes in the **distribution/conf/plain_acl.yml** configuration file as described above, you can turn on the ACL feature of the RocketMQ cluster by turning on the **aclEnable** switch variable. Here is the properties configuration file content for enabling the ACL feature on the Broker：
+
 ```
 brokerClusterName=DefaultCluster
 brokerName=broker-a
@@ -51,117 +61,131 @@ brokerIP1=XX.XX.XX.XX1
 namesrvAddr=XX.XX.XX.XX:9876
 ```
 
-## 4. 权限控制主要流程
-ACL主要流程分为两部分，主要包括权限解析和权限校验。
+## 4. Main process of access control
 
-### 4.1 权限解析
-Broker端对客户端的RequestCommand请求进行解析，拿到需要鉴权的属性字段。
-主要包括：
-（1）AccessKey：类似于用户名，代指用户主体，权限数据与之对应；
-（2）Signature：客户根据 SecretKey 签名得到的串，服务端再用SecretKey进行签名验证；
+The main process of ACL is divided into two parts, mainly including permission parsing and permission verification.
 
-### 4.2 权限校验
-Broker端对权限的校验逻辑主要分为以下几步：
-（1）检查是否命中全局 IP 白名单；如果是，则认为校验通过；否则走 2；
-（2）检查是否命中用户 IP 白名单；如果是，则认为校验通过；否则走 3；
-（3）校验签名，校验不通过，抛出异常；校验通过，则走 4；
-（4）对用户请求所需的权限 和 用户所拥有的权限进行校验；不通过，抛出异常； 
-用户所需权限的校验需要注意已下内容：
-（1）特殊的请求例如 UPDATE_AND_CREATE_TOPIC 等，只能由 admin 账户进行操作；
-（2）对于某个资源，如果有显性配置权限，则采用配置的权限；如果没有显性配置权限，则采用默认的权限；
+### 4.1 Permission parsing
 
-## 5. 热加载修改后权限控制定义
-RocketMQ的权限控制存储的默认实现是基于yml配置文件。用户可以动态修改权限控制定义的属性，而不需重新启动Broker服务节点。
+The Broker parses the client's RequestCommand request and gets the attributes fields that need to be authenticated, mainly including:
 
-## 6. 权限控制的使用限制
-(1)如果ACL与高可用部署(Master/Slave架构)同时启用，那么需要在Broker Master节点的distribution/conf/plain_acl.yml配置文件中
-设置全局白名单信息，即为将Slave节点的ip地址设置至Master节点plain_acl.yml配置文件的全局白名单中。
+1. AccessKey: Similar to a username, it refers to the user subject and corresponds to the permission data.
+2. Signature: A string obtained by the client signing with the SecretKey, which the server then verifies with the SecretKey.
 
-(2)如果ACL与高可用部署(多副本Dledger架构)同时启用，由于出现节点宕机时，Dledger Group组内会自动选主，那么就需要将Dledger Group组
-内所有Broker节点的plain_acl.yml配置文件的白名单设置所有Broker节点的ip地址。
+### 4.2 Permission verification
 
-## 7. ACL mqadmin配置管理命令
+The permission verification logic on the Broker side is mainly divided into the following steps:
 
-### 7.1 更新ACL配置文件中“account”的属性值
+1. Check if it hits the global IP whitelist; if it is, it is considered to have passed the verification; otherwise, go to 2.
+2. Check if it hits the user IP whitelist; if it is, it is considered to have passed the verification; otherwise, go to 3.
+3. Verify the signature, if the verification fails, throw an exception; if it passes, go to 4.
+4. Verify the permissions required by the user request against the permissions owned by the user; if it fails, throw an exception.
 
-该命令的示例如下：
+The verification of the required permissions for the user needs to pay attention to the following content:
 
-sh mqadmin updateAclConfig -n 192.168.1.2:9876 -b 192.168.12.134:10911 -a RocketMQ -s 1234567809123 
--t topicA=DENY,topicD=SUB -g groupD=DENY,groupB=SUB
+1.  Special requests such as UPDATE_AND_CREATE_TOPIC can only be operated by the admin account.
+2.  For a certain resource, if there is an explicit configuration permission, the configured permission is used; if there is no explicit configuration    permission, the default permission is used.
 
-说明：如果不存在则会在ACL Config YAML配置文件中创建；若存在，则会更新对应的“accounts”的属性值;
-如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
+## 5. Hot reload modified access control definitions
 
-| 参数 | 取值 | 含义 |
-| --- | --- | --- |
-| n | eg:192.168.1.2:9876 | namesrv地址(必填) |
-| c | eg:DefaultCluster | 指定集群名称(与broker地址二选一) |
-| b | eg:192.168.12.134:10911 | 指定broker地址(与集群名称二选一) |
-| a | eg:RocketMQ | Access Key值(必填) |
-| s | eg:1234567809123 | Secret Key值(可选) |
-| m | eg:true | 是否管理员账户(可选) |
-| w | eg:192.168.0.* | whiteRemoteAddress,用户IP白名单(可选) |
-| i | eg:DENY;PUB;SUB;PUB\|SUB | defaultTopicPerm,默认Topic权限(可选) |
-| u | eg:DENY;PUB;SUB;PUB\|SUB | defaultGroupPerm,默认ConsumerGroup权限(可选) |
-| t | eg:topicA=DENY,topicD=SUB | topicPerms,各个Topic的权限(可选) |
-| g | eg:groupD=DENY,groupB=SUB | groupPerms,各个ConsumerGroup的权限(可选) |
+The default implementation of RocketMQ's access control storage is based on the yml configuration file. Users can dynamically modify the properties of the access control definition without restarting the Broker service node.
 
-### 7.2 删除ACL配置文件里面的对应“account”
-该命令的示例如下：
+## 6. Usage limits for access control
 
-sh mqadmin deleteAccessConfig -n 192.168.1.2:9876 -c DefaultCluster -a RocketMQ
+1. If ACL is enabled together with high availability deployment (Master/Slave architecture), you need to set the global whitelist information in the distribution/conf/plain_acl.yml configuration file on the Broker Master node, that is, set the IP address of the Slave node to the global whitelist in the plain_acl.yml configuration file on the Master node.
+2. If ACL is enabled together with high availability deployment (multi-replica Dledger architecture), because the primary node will be automatically selected in the Dledger Group when a node goes down, you need to set the whitelist in the plain_acl.yml configuration file of all Broker nodes in the Dledger Group to the IP address of all Broker nodes.
 
-说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
-其中，参数"a"为Access Key的值，用以标识唯一账户id，因此该命令的参数中指定账户id即可。
+## 7. ACL mqadmin configuration management commands
 
-| 参数 | 取值 | 含义 |
-| --- | --- | --- |
-| n | eg:192.168.1.2:9876 | namesrv地址(必填) |
-| c | eg:DefaultCluster | 指定集群名称(与broker地址二选一) |
-| b | eg:192.168.12.134:10911 | 指定broker地址(与集群名称二选一) |
-| a | eg:RocketMQ | Access Key的值(必填) |
+### 7.1 Update the value of the "account" attribute in the ACL configuration file
+
+An example of this command is as follows：
+
+```shell
+$ sh mqadmin updateAclConfig -n 192.168.1.2:9876 -b 192.168.12.134:10911 -a RocketMQ -s 1234567809123 -t topicA=DENY,topicD=SUB -g groupD=DENY,groupB=SUB
+```
+
+Explain:  If it does not exist, it will be created in the ACL Config YAML configuration file; if it exists, it will update the corresponding "accounts" attribute; if the specified cluster name is specified, the command will be executed on each broker node in the cluster; otherwise, the command will be executed on a single broker node.
+
+| Parameter | Value                     | Definition                                                   |
+| --------- | ------------------------- | ------------------------------------------------------------ |
+| n         | eg:192.168.1.2:9876       | Namesrv address (required)                                   |
+| c         | eg:DefaultCluster         | Specify cluster name(Choose one with the broker address)     |
+| b         | eg:192.168.12.134:10911   | Specify broker address(Choose one with the cluster name)     |
+| a         | eg:RocketMQ               | Access Key value(required)                                   |
+| s         | eg:1234567809123          | Secret Key value(optional)                                   |
+| m         | eg:true                   | Whether it is an administrator account (optional)            |
+| w         | eg:192.168.0.*            | whiteRemoteAddress,user IP whitelist (optional)              |
+| i         | eg:DENY;PUB;SUB;PUB\|SUB  | defaultTopicPerm,default Topic permissions (optional)        |
+| u         | eg:DENY;PUB;SUB;PUB\|SUB  | defaultGroupPerm,default Consumer Group permissions (optional) |
+| t         | eg:topicA=DENY,topicD=SUB | topicPerms,permissions for each Topic (optional)             |
+| g         | eg:groupD=DENY,groupB=SUB | groupPerms,permissions for each Consumer Group (optional)    |
+
+### 7.2 Delete the corresponding "account" in the ACL configuration file
+
+An example of this command is as follows：
+
+```shell
+$ sh mqadmin deleteAccessConfig -n 192.168.1.2:9876 -c DefaultCluster -a RocketMQ
+```
+
+Explain: If the specified cluster name is specified, the command will be executed on each broker node in the cluster; otherwise, the command will be executed on a single broker node. The parameter "a" is the value of the Access Key, which is used to identify the unique account ID, so the account ID can be specified in the command parameter.
+
+| Parameter | Value                   | Definition                                               |
+| --------- | ----------------------- | -------------------------------------------------------- |
+| n         | eg:192.168.1.2:9876     | namesrv address(required)                                |
+| c         | eg:DefaultCluster       | Specify cluster name(Choose one with the broker address) |
+| b         | eg:192.168.12.134:10911 | Specify broker address(Choose one with the cluster name) |
+| a         | eg:RocketMQ             | Access Key value(required)                               |
 
 
-### 7.3 更新ACL配置文件里面中的全局白名单
-该命令的示例如下：
+### 7.3 Update the global whitelist in the ACL configuration file
 
+An example of this command is as follows：
+
+```shell
 sh mqadmin updateGlobalWhiteAddr -n 192.168.1.2:9876 -b 192.168.12.134:10911 -g 10.10.154.1,10.10.154.2
+```
 
-说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
-其中，参数"g"为全局IP白名的值，用以更新ACL配置文件中的“globalWhiteRemoteAddresses”字段的属性值。
+Explain: If the specified cluster name is specified, the command will be executed on each broker node in the cluster; otherwise, the command will be executed on a single broker node. The parameter "g" is the value of the global IP whitelist, which is used to update the "globalWhiteRemoteAddresses" field attribute value in the ACL configuration file.
 
-| 参数 | 取值 | 含义 |
-| --- | --- | --- |
-| n | eg:192.168.1.2:9876 | namesrv地址(必填) |
-| c | eg:DefaultCluster | 指定集群名称(与broker地址二选一) |
-| b | eg:192.168.12.134:10911 | 指定broker地址(与集群名称二选一) |
-| g | eg:10.10.154.1,10.10.154.2 | 全局IP白名单(必填) |
+| Parameter | Value                      | Definition                                               |
+| --------- | -------------------------- | -------------------------------------------------------- |
+| n         | eg:192.168.1.2:9876        | namesrv address(required)                                |
+| c         | eg:DefaultCluster          | Specify cluster name(Choose one with the broker address) |
+| b         | eg:192.168.12.134:10911    | Specify broker address(Choose one with the cluster name) |
+| g         | eg:10.10.154.1,10.10.154.2 | Global IP whitelist(required)                            |
 
-### 7.4 查询集群/Broker的ACL配置文件版本信息
-该命令的示例如下：
+### 7.4 Query the ACL configuration file version information of the cluster Broker
 
+An example of this command is as follows：
+
+```shell
 sh mqadmin clusterAclConfigVersion -n 192.168.1.2:9876 -c DefaultCluster
+```
 
-说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
+Explain: If the specified cluster name is specified, the command will be executed on each broker node in the cluster; otherwise, the command will be executed on a single broker node.
 
-| 参数 | 取值 | 含义 |
-| --- | --- | --- |
-| n | eg:192.168.1.2:9876 | namesrv地址(必填) |
-| c | eg:DefaultCluster | 指定集群名称(与broker地址二选一) |
-| b | eg:192.168.12.134:10911 | 指定broker地址(与集群名称二选一) |
+| Parameter | Value                   | Definition                                               |
+| --------- | ----------------------- | -------------------------------------------------------- |
+| n         | eg:192.168.1.2:9876     | namesrv address(required)                                |
+| c         | eg:DefaultCluster       | Specify cluster name(Choose one with the broker address) |
+| b         | eg:192.168.12.134:10911 | Specify broker address(Choose one with the cluster name) |
 
-### 7.5 查询集群/Broker的ACL配置文件全部内容
-该命令的示例如下：
+### 7.5 Query the entire contents of the ACL configuration file of the cluster Broker
 
+An example of this command is as follows：
+
+```shell
 sh mqadmin getAccessConfigSubCommand -n 192.168.1.2:9876 -c DefaultCluster
+```
 
-说明：如果指定的是集群名称，则会在集群中各个broker节点执行该命令；否则会在单个broker节点执行该命令。
+Explain: If the specified cluster name is specified, the command will be executed on each broker node in the cluster; Otherwise, the command is executed on a single broker node.
 
-| 参数 | 取值 | 含义 |
-| --- | --- | --- |
-| n | eg:192.168.1.2:9876 | namesrv地址(必填) |
-| c | eg:DefaultCluster | 指定集群名称(与broker地址二选一) |
-| b | eg:192.168.12.134:10911 | 指定broker地址(与集群名称二选一) |
+| Parameter | Value                   | Definition                                               |
+| --------- | ----------------------- | -------------------------------------------------------- |
+| n         | eg:192.168.1.2:9876     | namesrv address(required)                                |
+| c         | eg:DefaultCluster       | Specify cluster name(Choose one with the broker address) |
+| b         | eg:192.168.12.134:10911 | Specify broker address(Choose one with the cluster name) |
 
-**特别注意**开启Acl鉴权认证后导致Master/Slave和Dledger模式下Broker同步数据异常的问题，
-在社区[4.5.1]版本中已经修复，具体的PR链接为：https://github.com/apache/rocketmq/pull/1149；
+**Special attention**: The problem of abnormal data synchronization of Broker under Master/Slave and Dledger modes after Acl authentication is enabled has been fixed in the [4.5.1] version of the community. The specific PR link is: https://github.com/apache/rocketmq/pull/1149
