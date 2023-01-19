@@ -1,49 +1,48 @@
-
 # RocketMQ Dashboard
 
-`RocketMQ Dashboard` 是 RocketMQ 的管控利器，为用户提供客户端和应用程序的各种事件、性能的统计信息，支持以可视化工具代替 Topic 配置、Broker 管理等命令行操作。
+**`RocketMQ Dashboard`** is a tool for managing RocketMQ, providing various statistical information on events and performance of clients and applications, and supporting visualized tools to replace command line operations such as topic configuration and broker management.
 
-## 介绍
+## Introduction
 
-### 功能概览
+### Feature Overview
 
-| 面板   | 功能                                                         |
-| ------ | ------------------------------------------------------------ |
-| 运维   | 修改nameserver 地址;  选用 ```VIPChannel```                  |
-| 驾驶舱 | 查看 broker, topic 消息量                                    |
-| 集群   | 集群分布，broker 配置、运行信息                              |
-| 主题   | 搜索、筛选、删除、更新/新增主题，消息路由，发送消息，重置消费位点 |
-| 消费者 | 搜索、删除、新增/更新消费者组，终端，消费详情，配置          |
-| 消息   | 消息记录，私信消息，消息轨迹等消息详情                       |
+| Dashboard | Function                                                     |
+| --------- | ------------------------------------------------------------ |
+| OPS       | Modify nameserver address; use `VIPChannel`                  |
+| Dashboard | Check broker, topic message volume                           |
+| Cluster   | Cluster distribution, broker configuration, runtime information |
+| Topic     | Search, filter, delete, update/add topics, message routing, send messages, reset consumption points |
+| Consumer  | Search, delete, add/update consumer groups, terminals, consumption details, configuration |
+| Message   | Message records, private messages, message trace, etc. message details |
 
-操作面板：
+Operation panel：
 
 ![1657630174311](../picture/17Dashboard/1_dashboard.png)
 
-## 快速开始
+## Quick Start
 
-系统要求：
+System requirements：
 
 1. Linux/Unix/Mac
 2. 64bit JDK 1.8+
 3. Maven 3.2.x
-4. 启动 [RocketMQ](https://rocketmq.apache.org/docs/quick-start/) 
+4. Start [RocketMQ](https://rocketmq.apache.org/docs/quick-start/) 
 
-网络配置：
+Network configuration：
 
-1. 云服务器可远程访问或本地虚拟机可 PING 通外网
-2. ```rocketmq``` 配置文件 ```broker.conf / broker-x.properties``` 设置 nameserver 地址和端口号
-3. 用配置文件启动 broker
+1. The cloud server can be accessed remotely or the local virtual machine can PING the external network
+2. ```rocketmq``` configuration file ```broker.conf / broker-x.properties``` set nameserver's address and port
+3. Start the broker with the configuration file
 
-### 1. docker 镜像安装
+### 1. Docker image installation
 
-① 安装docker，拉取 ```rocketmq-dashboard``` 镜像
+① Install docker and pull the rocketmq-dashboard image
 
 ```shell
 docker pull apacherocketmq/rocketmq-dashboard:latest
 ```
 
-② docker 容器中运行 ```rocketmq-dashboard```
+② Run in a docker container ```rocketmq-dashboard```
 
 ```shell
 docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
@@ -51,97 +50,101 @@ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=12
 
 :::tip
 
-```namesrv.addr:port``` 替换为 ```rocketmq```  中配置的 nameserver 地址：端口号
+Replace namesrv.addr:port with the nameserver address and port configured in rocketmq
 
-开放端口号：8080，9876，10911，11011 端口
+1. Open port numbers: 8080, 9876, 10911, 11011
 
-- 云服务器：设置安全组访问规则
-- 本地虚拟机：关闭防火墙，或 ```-add-port```
+- Cloud server: Set security group access rules
+- Local virtual machine: Turn off firewall, or -add-port
 
 :::
 
-### 2. 源码安装
+### 2. Source installation
 
-源码地址：[apache/rocketmq-dashboard](https://github.com/apache/rocketmq-dashboard) 
+Source address：[apache/rocketmq-dashboard](https://github.com/apache/rocketmq-dashboard) 
 
-下载并解压，切换至源码目录 ```rocketmq-dashboard-master/```
+Download it, unzip it, and navigate to the source directory ```rocketmq-dashboard-master/```
 
-① 编译 ```rocketmq-dashboard``` 
+① Compile ```rocketmq-dashboard``` 
 
 ```shell
 mvn clean package -Dmaven.test.skip=true
 ```
 
-② 运行 ```rocketmq-dashboard```
+② Run ```rocketmq-dashboard```
 
 ```shell
 java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 ```
 
-提示：**Started App in x.xxx seconds (JVM running for x.xxx)** 启动成功
+:::tip
 
-浏览器页面访问：namesrv.addr:8080
+**Started App in x.xxx seconds (JVM running for x.xxx)** ，Indicates successful startup.
 
-关闭 ```rocketmq-dashboard``` : ctrl + c
+:::
 
-再次启动：执行 ②
+Browser page access：namesrv.addr:8080
 
-**tips**：下载后的源码需要上传到 Linux 系统上编译，本地编译可能会报错。
+Close ```rocketmq-dashboard``` : ctrl + c
 
-## 使用教程
+Restart：execution ②
 
-### 1. 创建主题 Topic 
+**tips**：The downloaded source code needs to be uploaded to the Linux system for compilation, and local compilation may return errors
 
-主题 ```>``` 新增/更新
+## Tutorial
+
+### 1.Create topic-Topic 
+
+Topic ```>``` ADD/UPDATE
 
 ![1657547091545](../picture/17Dashboard/2_createTopic.png)
 
-### 2. 创建消费者组 consumer
+### 2. Create consumer group-Consumer
 
-消费者 ```>``` 新增/更新
+Consumer ```>``` ADD/UPDATE
 
 ![1657547745254](../picture/17Dashboard/3_createConsumer.png)
 
-### 3. 重置消费位点
+### 3. Reset consumption offset
 
-主题 ```>``` 重置消费位点
+Topic ```>``` REST CONSUMER OFFSET
 
 ![1657547891994](../picture/17Dashboard/4_resetOffset.png)
 
-**tips**:
+:::tip
 
-- 集群消费支持重置消费位点, 广播模式不支持.
-- 消费者不在线不能重置消费位点
+- Cluster consumption supports resetting consumption offsets, but broadcast mode does not.
+- If a consumer is not online, it is not possible to reset the consumption offset.
 
-### 4. 扩容 Topic 队列
+:::
 
-主题 ```>``` TOPIC配置
+### 4. Expand topic queues
+
+Topic ```>``` TOPIC CONFIG
 
 ![1657548375401](../picture/17Dashboard/5_enlargeTopic.png)
 
-### 5. 扩容 Broker
+### 5. Expand Broker
 
-- 安装部署一个新的 broker, nameserver 地址和当前集群一样
+- To install and deploy a new broker with the same nameserver address as the current cluster
 
-![1657549432610](../picture/17Dashboard/6_cluster.png)
+  ![1657549432610](../picture/17Dashboard/6_cluster.png)
 
-- 更新 Topic 的BROKER_NAME
+- To update the `BROKER_NAME` of topic
 
-  主题 ```>``` 新增/更新 ```>``` BROKER_NAME
+  Topic ```>``` ADD/UPDATE ```>``` BROKER_NAME
 
 ![1657549599728](../picture/17Dashboard/7_enlargeBroker.png)
 
-### 6. 发送消息
+### 6. Send message
 
-- 向指定 Topic 发送消息
+- To send a message to a specific topic
 
-  主题 ```>``` 发送消息
+  Topic ```>``` SEND MESSAGE
 
-![1657550506673](../picture/17Dashboard/8_sendMessage.png)
+  ![1657550506673](../picture/17Dashboard/8_sendMessage.png)
 
-- 发送结果
+- Send result
 
-![1657550592049](../picture/17Dashboard/9_sendResult.png)
-
-更多操作详情： [阿里云知行动手实验室-在浏览器沉浸式学习最新云原生技术 (aliyun.com)](https://start.aliyun.com/?accounttraceid=8fda44777a19460a925d871eb408e704qoln) 
+  ![1657550592049](../picture/17Dashboard/9_sendResult.png)
 
