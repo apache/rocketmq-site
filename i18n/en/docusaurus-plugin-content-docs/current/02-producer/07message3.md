@@ -18,7 +18,7 @@ Apache RocketMQ supports a total of 18 levels of delayed delivery, the details a
 
 The sample code for the delayed message sending is as follows:
 
-```javascript {10,11}
+```java
 public class ScheduledMessageProducer {
     public static void main(String[] args) throws Exception {
         // Instantiate a producer to send scheduled messages

@@ -12,7 +12,7 @@ Ordered messages are also used in a wide range of application scenarios, such as
 
 The ordered message sample code is as follows:
 
-```jsx {13}
+```java
 public class Producer {
     public static void main(String[] args) throws UnsupportedEncodingException {
         try {
@@ -50,7 +50,7 @@ The difference here is mainly the call to the ```SendResult send(Message msg, Me
 :::tip
 MessageQueueSelector interface is as follows:
 
-```jsx
+```java
 public interface MessageQueueSelector {
     MessageQueue select(final List<MessageQueue> mqs, final Message msg, final Object arg);
 }
@@ -66,7 +66,7 @@ If a Broker drops out, does the total number of queues change at that point?
 
 If a change occurs, messages with the same ShardingKey will be sent to a different queue causing disorder. If no change occurs, messages will be sent to the queue of the offline Broker, which is bound to fail. Therefore, Apache RocketMQ provides two modes, to guarantee strict order over availability, create Topic by specifying the ```-o``` parameter (--order) to be true, which represents ordered messages:
 
-```shell {1}
+```shell
 $ sh bin/mqadmin updateTopic -c DefaultCluster -t TopicTest -o true -n 127.0.0.1:9876
 create topic to 127.0.0.1:10911 success.
 TopicConfig [topicName=TopicTest, readQueueNums=8, writeQueueNums=8, perm=RW-, topicFilterType=SINGLE_TAG, topicSysFlag=0, order=true, attributes=null]

@@ -33,7 +33,7 @@ The procedure of the transaction status check are as follows.
 
 ## Example
 
-```javascript {39}
+```java
 public class TransactionProducer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
         TransactionListener transactionListener = new TransactionListenerImpl();
@@ -112,7 +112,7 @@ Transactional messages are no longer sent by DefaultMQProducer, but using `Trans
 
 The TransactionListener interface is defined as follows:
 
-````javascript {9,18}
+````java
 public interface TransactionListener {
     /**
      * When send transactional prepare(half) message succeed, this method will be invoked to execute local transaction.
