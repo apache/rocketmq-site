@@ -1,23 +1,23 @@
 # Admin Tool
 
-:::tip 注意
+:::tip Notice
 
-1. 执⾏命令⽅法：./mqadmin {command} {args}
-2. ⼏乎所有命令都需要配置 -n 表⽰ NameServer 地址，格式为 ip:port
-3. ⼏乎所有命令都可以通过 -h 获取帮助
-4. 如果既有 Broker 地址（-b）配置项又有 clusterName（-c）配置项，则优先以
-   Broker 地址执⾏命令，如果不配置 Broker 地址，则对集群中所有主机执⾏命令，只
-   ⽀持⼀个 Broker 地址。-b 格式为 ip:port，port 默认是 10911
-5. 在 tools 下可以看到很多命令，但并不是所有命令都能使⽤，只有在
-   MQAdminStartup 中初始化的命令才能使⽤，你也可以修改这个类，增加或⾃定义
-   命令
-6. 由于版本更新问题，少部分命令可能未及时更新，遇到错误请直接阅读相关命令源码
+1. To execute a command: `./mqadmin {command} {args}`
+2. Most commands require the configuration of the NameServer address with the `-n` flag, in the format `ip:port`
+3. Most commands can get help with the `-h` flag
+4. If both the Broker address (`-b`) and the clusterName (`-c`) are configured, the command will be executed using the Broker address. If the Broker address is not configured, the command will be executed on all hosts in the cluster. Only one Broker address is supported, in the format `ip:port`, where the port is 10911 by default.
+5. In the `tools` directory, you can see many commands, but not all of them can be used. Only those initialized in `MQAdminStartup` can be used. You can also modify this class to add or define your own commands.
+6. Some commands may not have been updated due to version updates, and may cause errors. In this case, please read the relevant command source code.
+
 :::
 
 
 
-## Topic 相关
-<details><summary>Topic 相关参数</summary>
+## Topic-related
+
+<details><summary>Topic-related parameters</summary>
+
+
 
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <colgroup>
@@ -34,16 +34,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definition
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+        Command options 
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={132} style={{ height: "99.0pt" }}>
@@ -67,13 +67,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        创建更新Topic配置
+        Create/update topic configuration
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -b
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        Broker 地址，表示 topic 所在 Broker，只支持单台Broker，地址为ip:port
+        Broker address, representing the Broker where the topic is located. Only a single Broker is supported, with the address in the format ip:port.
       </td>
     </tr>
     <tr height={132} style={{ height: "99.0pt" }}>
@@ -86,7 +86,7 @@
         -c
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        cluster 名称，表示 topic 所在集群（集群可通过 clusterList 查询）
+        Cluster name, representing the cluster where the topic is located (the cluster can be queried with the clusterList command).
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -96,10 +96,10 @@
         width={149}
         style={{ height: "17.0pt", width: "112pt" }}
       >
-        -h-
+        -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -112,7 +112,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={76} style={{ height: "57.0pt" }}>
@@ -125,7 +125,7 @@
         -p
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        指定新topic的读写权限( W=2|R=4|WR=6 )
+        Specify the read-write permissions for the new topic( W=2|R=4|WR=6 )
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -138,7 +138,7 @@
         -r
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        可读队列数（默认为 8）
+        Number of readable queues（default is 8）
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -151,7 +151,7 @@
         -w
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        可写队列数（默认为 8）
+        Number of writable queues（default is 8）
       </td>
     </tr>
     <tr height={95} style={{ height: "71.0pt" }}>
@@ -164,7 +164,7 @@
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称（名称只能使用字符 ^[a-zA-Z0-9_-]+$ ）
+        Topic name (the name can only use the characters ^[a-zA-Z0-9_-]+$ ）
       </td>
     </tr>
     <tr height={132} style={{ height: "99.0pt" }}>
@@ -188,14 +188,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        删除Topic
+       Delete Topic
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -c
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        cluster 名称，表示删除某集群下的某个 topic （集群 可通过 clusterList
-        查询）
+        Cluster name, representing the deletion of a specific topic under a certain cluster (the cluster can be queried with the clusterList command).
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -208,7 +207,7 @@
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -221,7 +220,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={95} style={{ height: "71.0pt" }}>
@@ -234,7 +233,7 @@
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称（名称只能使用字符 ^[a-zA-Z0-9_-]+$ ）
+        topic name (the name can only use the characters ^[a-zA-Z0-9_-]+$ ）
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -258,13 +257,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        查看 Topic 列表信息
+        Query topic list information
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={207} style={{ height: "155.0pt" }}>
@@ -277,8 +276,7 @@
         -c
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        不配置-c只返回topic列表，增加-c返回clusterName, topic,
-        consumerGroup信息，即topic的所属集群和订阅关系，没有参数
+        Without the -c flag, only the topic list is returned. Adding -c returns the clusterName, topic, and consumerGroup information, i.e. the cluster that the topic belongs to and the subscription relationship. There are no parameters.
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -291,7 +289,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -315,13 +313,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        查看 Topic 路由信息
+        Query topic routing information
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -334,7 +332,7 @@
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -347,7 +345,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -371,13 +369,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        查看 Topic 消息队列offset
+        Query topic message queue offsets
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -390,7 +388,7 @@
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -403,7 +401,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -427,13 +425,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        查看 Topic 所在集群列表
+        Query list of clusters where the topic is located
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -446,7 +444,7 @@
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -459,7 +457,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -483,13 +481,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        更新 Topic 读写权限
+        Update topic read-write permissions
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -502,7 +500,7 @@
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -515,7 +513,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={132} style={{ height: "99.0pt" }}>
@@ -528,7 +526,7 @@
         -b
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        Broker 地址，表示 topic 所在 Broker，只支持单台Broker，地址为ip:port
+        Broker address, representing the Broker where the topic is located. Only a single Broker is supported, with the address in the format ip:port.
       </td>
     </tr>
     <tr height={76} style={{ height: "57.0pt" }}>
@@ -541,7 +539,7 @@
         -p
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        指定新 topic 的读写权限( W=2|R=4|WR=6 )
+        Specify the read-write permissions for the new topic( W=2|R=4|WR=6 )
       </td>
     </tr>
     <tr height={207} style={{ height: "155.0pt" }}>
@@ -554,8 +552,7 @@
         -c
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        cluster 名称，表示 topic 所在集群（集群可通过 clusterList
-        查询），-b优先，如果没有-b，则对集群中所有Broker执行命令
+        Cluster name, representing the cluster where the topic is located (the cluster can be queried with the clusterList command). The -b flag takes precedence. If there is no -b flag, the command will be executed on all Brokers in the cluster.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -579,13 +576,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        从NameServer上创建、删除、获取特定命名空间的kv配置，目前还未启用
+        Create, delete, and get specific kv configurations from the NameServer. This feature is currently not available.
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -598,7 +595,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -611,7 +608,7 @@
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic，键
+        topic,key
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -624,7 +621,7 @@
         -v
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        orderConf，值
+        orderConf,value
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -637,7 +634,7 @@
         -m
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        method，可选get、put、delete
+        method，optional get、put、delete
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -661,13 +658,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        以平均负载算法计算消费者列表负载消息队列的负载结果
+        Calculate the load results of the message queue for the consumer list using an average load algorithm.
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -680,7 +677,7 @@
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -693,7 +690,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={95} style={{ height: "71.0pt" }}>
@@ -706,7 +703,7 @@
         -i
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        ipList，用逗号分隔，计算这些ip去负载Topic的消息队列
+        ipList,separated by commas, calculates the message queue load for these IPs for the topic.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -730,13 +727,13 @@
         width={135}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "101pt" }}
       >
-        打印Topic订阅关系、TPS、积累量、24h读写总量等信息
+        Print information about the topic's subscriptions, TPS, accumulation, 24-hour total read-write volume, etc.
       </td>
       <td className="xl65" width={149} style={{ width: "112pt" }}>
         -h
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -749,7 +746,7 @@
         -n
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -762,7 +759,7 @@
         -a
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        是否只打印活跃topic
+        Print only active topics
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -775,17 +772,20 @@
         -t
       </td>
       <td className="xl66" width={159} style={{ width: "119pt" }}>
-        指定topic
+        Specify topic
       </td>
     </tr>
   </tbody>
 </table>
 
+
 </details>
 
-## 集群相关
+## Cluster-related
 
-<details><summary>集群相关参数</summary>
+<details><summary>Cluster-related parameters</summary>
+
+
 
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <colgroup>
@@ -802,16 +802,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+         Definition 
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+         Command options 
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={207} style={{ height: "155.0pt" }}>
@@ -835,14 +835,13 @@
         width={175}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "131pt" }}
       >
-        查看集群信息，集群、BrokerName、BrokerId、TPS等信息
+        Query cluster information, including the cluster, BrokerName, BrokerId, TPS, and other information.
       </td>
       <td className="xl65" width={177} style={{ width: "133pt" }}>
         -m
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        打印更多信息 (增加打印出如下信息 #InTotalYest, #OutTotalYest,
-        #InTotalToday ,#OutTotalToday)
+        Print more information (additional information printed includes: #InTotalYest, #OutTotalYest,#InTotalToday ,#OutTotalToday)
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -855,7 +854,7 @@
         -h
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -868,7 +867,7 @@
         -n
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -881,7 +880,7 @@
         -i
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        打印间隔，单位秒
+        Print interval, in seconds.
       </td>
     </tr>
     <tr height={95} style={{ height: "71.0pt" }}>
@@ -905,13 +904,13 @@
         width={175}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "131pt" }}
       >
-        发送消息检测集群各Broker RT。消息发往${"{"}BrokerName{"}"} Topic。
+        Send a message to test the RT of each Broker in the cluster. The message is sent to the${"{"}BrokerName{"}"} Topic。
       </td>
       <td className="xl65" width={177} style={{ width: "133pt" }}>
         -a
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        amount，每次探测的总数，RT = 总时间 / amount
+        amount,the total number of probes each time. RT = total time / amount
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -924,7 +923,7 @@
         -s
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        消息大小，单位B
+        Message size，Unit: B
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -937,7 +936,7 @@
         -c
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        探测哪个集群
+        Which cluster to probe
       </td>
     </tr>
     <tr height={76} style={{ height: "57.0pt" }}>
@@ -950,7 +949,7 @@
         -p
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        是否打印格式化日志，以|分割，默认不打印
+        Whether to print formatted logs, separated by |, default is not printed.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -963,7 +962,7 @@
         -h
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -976,7 +975,7 @@
         -m
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        所属机房，打印使用
+        Belonging datacenter, for printing purposes.
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -989,7 +988,7 @@
         -i
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        发送间隔，单位秒
+        Send interval,in seconds.
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1002,17 +1001,19 @@
         -n
       </td>
       <td className="xl66" width={185} style={{ width: "139pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
   </tbody>
 </table>
 
+
 </details>
 
-## Broker相关
+## Broker-related
 
-<details><summary>Broker 相关参数</summary>
+<details><summary>Broker-related parameters</summary>
+
 
 
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
@@ -1030,16 +1031,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definition
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+         Command options 
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={128} style={{ height: "96.0pt" }}>
@@ -1063,7 +1064,7 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据offsetMsgId查询msg，如果使用开源控制台，应使用offsetMsgId，此命令还有其他参数，具体作用请阅读QueryMsgByIdSubCommand。
+        Query the msg based on offsetMsgId. If using the open source console, offsetMsgId should be used. This command has additional parameters, for more information on their function, please read QueryMsgByIdSubCommand.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -i
@@ -1082,7 +1083,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1095,7 +1096,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1119,7 +1120,7 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据消息 Key 查询消息
+        Query message based on message key.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -k
@@ -1138,7 +1139,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Topic 名称
+        Topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1151,7 +1152,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1164,7 +1165,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={225} style={{ height: "169.0pt" }}>
@@ -1188,14 +1189,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据 Offset 查询消息
+        Query message based on offset.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Broker 名称，（这里需要注意 填写的是 Broker 的名称，不是 Broker
-        的地址，Broker 名称可以在 clusterList 查到）
+Broker name (note that the name of the Broker, not its address, should be entered here. The Broker name can be found using the clusterList command).
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1208,7 +1208,7 @@
         -i
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        query 队列 id
+        query queue id
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1221,7 +1221,7 @@
         -o
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        offset 值
+        offset value
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1234,7 +1234,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1247,7 +1247,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1260,7 +1260,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={47}>
@@ -1284,13 +1284,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据msgId查询，msgId不同于offsetMsgId，区别详见常见运维问题。-g，-d配合使用，查到消息后尝试让特定的消费者消费消息并返回消费结果
+Query based on msgId. msgId is different from offsetMsgId, for more information see common operations issues. -g and -d are used together, after finding the message, try to let a specific consumer consume the message and return the consumption result.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1303,7 +1303,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1355,7 +1355,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1379,13 +1379,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        检测向topic发消息的RT，功能类似clusterRT
+        Check the RT of sending messages to a topic. The function is similar to clusterRT.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1398,7 +1398,7 @@
         -n
       </td>{" "}
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1411,7 +1411,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1424,7 +1424,7 @@
         -a
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        探测次数
+        Number of probes
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1437,7 +1437,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消息大小
+        message size
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1461,13 +1461,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        发送一条消息，可以根据配置发往特定Message Queue，或普通发送。
+        Send a message, which can be sent to a specific message queue based on configuration, or a normal send.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1480,7 +1480,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1493,7 +1493,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1506,7 +1506,7 @@
         -p
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        body，消息体
+        message body
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1582,13 +1582,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        消费消息。可以根据offset、开始&amp;结束时间戳、消息队列消费消息，配置不同执行不同消费逻辑，详见ConsumeMessageCommand。
+        Consume messages. Messages can be consumed based on offset, start & end timestamps, and message queues. Different configurations execute different consumption logic, see ConsumeMessageCommand for more information.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1601,7 +1601,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1614,7 +1614,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1640,7 +1640,7 @@
         -o
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        从offset开始消费
+        Consume from offset
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1666,7 +1666,7 @@
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者分组
+        Consumer group
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1679,7 +1679,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        开始时间戳，格式详见-h
+        Start timestamp, see -h for format.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1692,7 +1692,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        结束时间戳
+        End timestamp
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1705,7 +1705,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费多少条消息
+        Consume a certain number of messages
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1729,13 +1729,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        从Broker消费消息并打印，可选时间段
+        Consume messages from Broker and print them, optional time period.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1748,7 +1748,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1761,7 +1761,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1774,7 +1774,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        字符集，例如UTF-8
+        Character set, e.g. UTF-8
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1787,7 +1787,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        subExpress，过滤表达式
+        subExpress,filter expression
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1800,7 +1800,7 @@
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        开始时间戳，格式参见-h
+        Start timestamp, see -h for format.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1813,7 +1813,7 @@
         -e
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        结束时间戳
+        End timestamp
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1826,7 +1826,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印消息体
+        Whether to print the message body.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1850,13 +1850,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        类似printMsg，但指定Message Queue
+        Similar to printMsg, but for a specific message queue.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -1869,7 +1869,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1882,7 +1882,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1921,7 +1921,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        字符集，例如UTF-8
+        Character set, e.g. UTF-8
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1934,7 +1934,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        subExpress，过滤表达式
+        subExpress, filter expression
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1947,7 +1947,7 @@
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        开始时间戳，格式参见-h
+        Start timestamp, see -h for format.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1960,7 +1960,7 @@
         -e
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        结束时间戳
+        End timestamp
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -1973,7 +1973,7 @@
         -p
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印消息
+        Whether to print the message body.
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1986,7 +1986,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印消息体
+        Whether to print the message body.
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -1999,7 +1999,7 @@
         -f
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否统计tag数量并打印
+        Whether to count and print the number of tags
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2023,13 +2023,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        按时间戳重置offset，Broker和consumer都会重置
+Reset offset based on timestamp, both Broker and consumer will be reset.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2042,7 +2042,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address, format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2055,7 +2055,7 @@
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者分组
+        Consumer group
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2068,7 +2068,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2081,7 +2081,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        重置为此时间戳对应的offset
+        Reset to the offset corresponding to this timestamp.
       </td>
     </tr>
     <tr height={188} style={{ height: "141.0pt" }}>
@@ -2094,7 +2094,7 @@
         -f
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否强制重置，如果false，只支持回溯offset，如果true，不管时间戳对应offset与consumeOffset关系
+		Whether to force reset. If false, only backward offset is supported. If true, regardless of the relationship between the timestamp-corresponding offset and consumeOffset.
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2107,7 +2107,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否重置c++客户端offset
+        Whether to reset the offset for the C++ client.
       </td>
     </tr>
   </tbody>
@@ -2116,8 +2116,9 @@
 
 </details>
 
-## 消息相关
-<details><summary>消息相关参数</summary>
+## Message-related
+
+<details><summary>Message-related parameters</summary>
 
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <colgroup>
@@ -2134,16 +2135,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definition
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+        Command options
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={128} style={{ height: "96.0pt" }}>
@@ -2167,7 +2168,7 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据offsetMsgId查询msg，如果使用开源控制台，应使用offsetMsgId，此命令还有其他参数，具体作用请阅读QueryMsgByIdSubCommand。
+        To query a message by its offset message ID (offsetMsgId), you can use the offsetMsgId command if using an open source console. This command has additional parameters, the specific function of which can be found by reading the QueryMsgByIdSubCommand.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -i
@@ -2186,7 +2187,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2199,7 +2200,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2223,7 +2224,7 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据消息 Key 查询消息
+        Query a message by key.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -k
@@ -2242,7 +2243,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Topic 名称
+        Topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2255,7 +2256,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2268,7 +2269,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={225} style={{ height: "169.0pt" }}>
@@ -2292,14 +2293,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据 Offset 查询消息
+        Query a message by offset
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Broker 名称，（这里需要注意 填写的是 Broker 的名称，不是 Broker
-        的地址，Broker 名称可以在 clusterList 查到）
+       Broker name (Note that this should be the name of the Broker, not the address. The name of the Broker can be found in clusterList.)
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2312,7 +2312,7 @@
         -i
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        query 队列 id
+        query queue id
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2325,7 +2325,7 @@
         -o
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        offset 值
+        offset value
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2338,7 +2338,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic 名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2351,7 +2351,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2364,7 +2364,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={47}>
@@ -2388,13 +2388,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        根据msgId查询，msgId不同于offsetMsgId，区别详见常见运维问题。-g，-d配合使用，查到消息后尝试让特定的消费者消费消息并返回消费结果
+        Query based on msgId. Note that msgId is different from offsetMsgId. For more information, see Common Operations and Maintenance Issues. Use -g and -d together to try to have a specific consumer consume the message and return the consumption result once the message has been found.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2407,7 +2407,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2459,7 +2459,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2483,13 +2483,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        检测向topic发消息的RT，功能类似clusterRT
+        Check the RT (round-trip time) for sending messages to a topic. This function is similar to clusterRT.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2502,7 +2502,7 @@
         -n
       </td>{" "}
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2515,7 +2515,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2528,7 +2528,7 @@
         -a
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        探测次数
+        Number of probes.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2541,7 +2541,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消息大小
+        Message size
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2565,13 +2565,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        发送一条消息，可以根据配置发往特定Message Queue，或普通发送。
+Send a message, which can be sent to a specific Message Queue according to configuration or sent normally.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2584,7 +2584,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2597,7 +2597,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2610,7 +2610,7 @@
         -p
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        body，消息体
+        body，message body
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2686,13 +2686,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        消费消息。可以根据offset、开始&amp;结束时间戳、消息队列消费消息，配置不同执行不同消费逻辑，详见ConsumeMessageCommand。
+        Consume messages. Messages can be consumed based on offset, start & end timestamps, and message queue. Different configurations will execute different consumption logic. See ConsumeMessageCommand for more information.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2705,7 +2705,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2718,7 +2718,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2744,7 +2744,7 @@
         -o
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        从offset开始消费
+        Consume from a specified offset.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2770,7 +2770,7 @@
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者分组
+        Consumer group
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2783,7 +2783,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        开始时间戳，格式详见-h
+        Start timestamp, see -h for format.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2796,7 +2796,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        结束时间戳
+        End timestamp
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2809,7 +2809,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费多少条消息
+        Consume a specified number of messages.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2833,13 +2833,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        从Broker消费消息并打印，可选时间段
+        Consume and print messages from the Broker within a specified time period.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2852,7 +2852,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2865,7 +2865,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2878,7 +2878,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        字符集，例如UTF-8
+        Character set, e.g. UTF-8
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2891,7 +2891,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        subExpress，过滤表达式
+        subExpress，filter expression
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2904,7 +2904,7 @@
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        开始时间戳，格式参见-h
+        Start timestamp, see -h for format.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2917,7 +2917,7 @@
         -e
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        结束时间戳
+        End timestamp
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -2930,7 +2930,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印消息体
+        Whether to print message body
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2954,13 +2954,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        类似printMsg，但指定Message Queue
+        Similar to printMsg, but specifies a Message Queue.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -2973,7 +2973,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -2986,7 +2986,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3025,7 +3025,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        字符集，例如UTF-8
+        Character set, e.g. UTF-8
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3038,7 +3038,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        subExpress，过滤表达式
+        subExpress,filter expression
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3051,7 +3051,7 @@
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        开始时间戳，格式参见-h
+        Start timestamp, see -h for format.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3064,7 +3064,7 @@
         -e
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        结束时间戳
+        End timestamp
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3077,7 +3077,7 @@
         -p
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印消息
+        Whether to print the message
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3090,7 +3090,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印消息体
+        Whether to print the message body
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3103,7 +3103,7 @@
         -f
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否统计tag数量并打印
+        Whether to count and print the number of tags
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3127,13 +3127,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        按时间戳重置offset，Broker和consumer都会重置
+        Resetting the offset by timestamp will reset both the broker and the consumer.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3146,7 +3146,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address, format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3159,7 +3159,7 @@
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者分组
+        Consumer group
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3172,7 +3172,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topic name
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3185,7 +3185,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        重置为此时间戳对应的offset
+        Reset to the offset corresponding to this timestamp.
       </td>
     </tr>
     <tr height={188} style={{ height: "141.0pt" }}>
@@ -3198,7 +3198,7 @@
         -f
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否强制重置，如果false，只支持回溯offset，如果true，不管时间戳对应offset与consumeOffset关系
+        Whether to force reset. If false, only backward offset is supported. If true, the relationship between the timestamp corresponding offset and consumeOffset is ignored.
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3211,7 +3211,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否重置c++客户端offset
+        Whether to reset the offset for the C++ client.
       </td>
     </tr>
   </tbody>
@@ -3219,10 +3219,9 @@
 
 </details>
 
-## 消费相关
+## Consume-related
 
-<details><summary>消费相关参数</summary>
-
+<details><summary>Consume-related parameters</summary>
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <colgroup>
     <col width={177} />
@@ -3236,18 +3235,17 @@
         height={23}
         className="xl63"
         width={177}
-        style={{ height: "17.0pt", width: "133pt" }}
-      >
-        名称
+        style={{ height: "17.0pt", width: "133pt" }}>
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definitation
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+        Command options 
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3271,13 +3269,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        查看订阅组消费状态，可以查看具体的client IP的消息积累量
+Consumer group consumption status, including specific client IP's message accumulation.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者所属组名
+        consumer group name
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3290,7 +3288,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否打印client IP
+        Whether to print the client IP.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3303,7 +3301,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Pirnt help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3316,7 +3314,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={105} style={{ msoHeightSource: "userset", height: "79.0pt" }}>
@@ -3340,14 +3338,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        查看消费者状态，包括同一个分组中是否都是相同的订阅，分析Process
-        Queue是否堆积，返回消费者jstack结果，内容较多，使用者参见ConsumerStatusSubCommand
+        Consumer status refers to the status of a consumer, including whether all consumers in the same group have the same subscriptions, whether the Process Queue is stacking up, and the jstack result of the consumer. The information returned by this command is extensive, and users should refer to the ConsumerStatusSubCommand for more details.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3360,7 +3357,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={36} style={{ height: "27.0pt" }}>
@@ -3399,7 +3396,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否执行jstack
+        Whether to execute jstack
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3423,13 +3420,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        获取 Consumer 消费进度
+        Get Consumer consumption progress
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者所属组名
+        Consumer group name
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3442,7 +3439,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        查询主题
+        Query topic
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3455,7 +3452,7 @@
         -i
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Consumer 客户端 ip
+        Consumer client ip
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3468,7 +3465,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3481,7 +3478,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3505,13 +3502,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        更新或创建订阅关系
+        Update or create a subscription relationship.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3524,7 +3521,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3537,7 +3534,7 @@
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Broker地址
+        Broker address
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3550,7 +3547,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        集群名称
+        Cluster name
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3563,7 +3560,7 @@
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者分组名称
+        Consumer group name
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3576,7 +3573,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        分组是否允许消费
+        whether the group is allowed to consume
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3589,7 +3586,7 @@
         -m
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否从最小offset开始消费
+        Whether to start consuming from the smallest offset.
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3602,7 +3599,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        是否是广播模式
+        Whether it is broadcast mode.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3615,7 +3612,7 @@
         -q
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        重试队列数量
+         Number of retry queues.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3628,7 +3625,7 @@
         -r
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        最大重试次数
+         Maximum number of retries
       </td>
     </tr>
     <tr height={207} style={{ height: "155.0pt" }}>
@@ -3641,7 +3638,7 @@
         -i
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        当slaveReadEnable开启时有效，且还未达到从slave消费时建议从哪个BrokerId消费，可以配置备机id，主动从备机消费
+        When slaveReadEnable is turned on and it has not yet reached the point where it is recommended to consume from the slave, it is possible to configure the standby machine id to actively consume from the standby machine.
       </td>
     </tr>
     <tr height={132} style={{ height: "99.0pt" }}>
@@ -3654,7 +3651,7 @@
         -w
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        如果Broker建议从slave消费，配置决定从哪个slave消费，配置BrokerId，例如1
+        If the Broker suggests consuming from the slave, the configuration determines which slave to consume from. The BrokerId can be configured, for example 1.
       </td>
     </tr>
     <tr height={76} style={{ height: "57.0pt" }}>
@@ -3667,7 +3664,7 @@
         -a
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        当消费者数量变化时是否通知其他消费者负载均衡
+        Whether other consumers are notified of load balancing when the number of consumers changes.
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3691,13 +3688,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        从Broker删除订阅关系
+        To remove a subscription from a Broker
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3710,7 +3707,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3723,7 +3720,7 @@
         -b
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Broker地址
+        Broker address
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3736,7 +3733,7 @@
         -c
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        集群名称
+        Cluster name
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3749,7 +3746,7 @@
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者分组名称
+        Counsumer group name
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3773,13 +3770,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        在目标群组中使用源群组的offset
+        Using the offsets from the source consumer group in the target consumer group.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3792,7 +3789,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3805,7 +3802,7 @@
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        源消费者组
+        Source consumer group
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3818,7 +3815,7 @@
         -d
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        目标消费者组
+        Target consumer group
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3831,7 +3828,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        topic名称
+        topicname
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3844,18 +3841,19 @@
         -o
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        暂未使用
+        Not currently in use.
       </td>
     </tr>
+
   </tbody>
 </table>
 
+
 </details>
 
-## 连接相关
+## Connection-related
 
-<details><summary>连接相关参数</summary>
-
+<details><summary>Connection-related parameters</summary>
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <colgroup>
     <col width={177} />
@@ -3871,16 +3869,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definition
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+        Command options
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3904,13 +3902,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        查询 Consumer 的网络连接
+        Query consumer network connections.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        消费者所属组名
+        Name of consumer group.
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3923,7 +3921,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address，format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3936,7 +3934,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={39} style={{ height: "29.0pt" }}>
@@ -3960,13 +3958,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        查询 Producer 的网络连接
+        Query producer network connections.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        生产者所属组名
+        Name of producer group.
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -3979,7 +3977,7 @@
         -t
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        主题名称
+        topic name
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3992,7 +3990,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4005,17 +4003,19 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
   </tbody>
 </table>
 
+
+
 </details>
 
-## NameServer 相关
-<details><summary>连接相关参数</summary>
+## NameServer-related
 
+<details><summary>Connection-related parameters</summary>
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <tbody>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4025,16 +4025,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definition
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+        Command options 
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={21} style={{ height: "16.0pt" }}>
@@ -4058,13 +4058,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        更新NameServer的kv配置，目前还未使用
+        Update NameServer KV configuration, currently not in use.
       </td>
       <td className="xl75" width={87} style={{ width: "65pt" }}>
         -s
       </td>
       <td className="xl76" width={87} style={{ width: "65pt" }}>
-        命名空间
+        Name space
       </td>
     </tr>
     <tr height={21} style={{ height: "16.0pt" }}>
@@ -4103,7 +4103,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4116,7 +4116,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4140,13 +4140,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        删除NameServer的kv配置
+        Delete NameServer KV configuration.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -s
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        命名空间
+        Name space
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4172,7 +4172,7 @@
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4185,7 +4185,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -4209,13 +4209,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        获取NameServer配置
+        Get NameServer configuration.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4228,7 +4228,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -4252,13 +4252,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        修改NameServer配置
+        Modify NameServer configuration.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4271,7 +4271,7 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4303,11 +4303,13 @@
   </tbody>
 </table>
 
+
+
 </details>
 
-## 其他
-<details><summary>连接相关参数</summary>
+## Others
 
+<details><summary>Connection-related parameters</summary>
 <table border={0} cellPadding={0} cellSpacing={0} width={714}>
   <tbody>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4317,16 +4319,16 @@
         width={177}
         style={{ height: "17.0pt", width: "133pt" }}
       >
-        名称
+        Name
       </td>
       <td className="xl64" width={175} style={{ width: "131pt" }}>
-        含义
+        Definition
       </td>
       <td className="xl64" width={177} style={{ width: "133pt" }}>
-        命令选项
+        Command options 
       </td>
       <td className="xl64" width={185} style={{ width: "139pt" }}>
-        说明
+        Explain
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -4350,13 +4352,13 @@
         width={87}
         style={{ borderBottom: "1.0pt", borderTop: "none", width: "65pt" }}
       >
-        开启监控进程，监控消息误删、重试队列消息数等
+        Start the monitoring process to monitor events such as message deletion errors and the number of messages in the retry queue.
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
         -n
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        NameServer 服务地址，格式 ip:port
+        NameServer address,format ip:port
       </td>
     </tr>
     <tr height={23} style={{ height: "17.0pt" }}>
@@ -4369,10 +4371,12 @@
         -h
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        打印帮助
+        Print help
       </td>
     </tr>
   </tbody>
 </table>
+
+
 
 </details>
