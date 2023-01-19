@@ -1,92 +1,92 @@
 # FAQs
 
-The following are frequently asked questions about the RocketMQ project
+Common questions about the RocketMQ project:
 
-## 1 Basics
+## 1 Basic
 
-1. **Why should we use RocketMQ instead of another product？**
+1. **Why should we use RocketMQ instead of choosing other products?**
 
-   Please refer to th[Why RocketMQ](http://rocketmq.apache.org/docs/motivation/)
+   Please refer to[ why choose RocketMQ](http://rocketmq.apache.org/docs/motivation/)
 
-2. **Do I need to install any other software to use RocketMQ, e.g. ZooKeeper ？**
+2. **Do I need to install any other software in order to use RocketMQ, such as ZooKeeper?**
 
-   No, RocketMQ can run independently.
+   No，RocketMQ can run on independent。
 
 ## 2 Use
 
-1. **Where does the newly created Consumer ID start consuming messages？**
+1. **Where does the newly created ConsumerGroup start consuming messages?**
 
-   1）5.x SDK，When it first comes online, it is consumed from the latest message in the server, that is, from the end of the queue; After a second restart, the consumption will continue from the last consumption position.
+   1）When the 5.x SDK is first online, it will consume from the latest message on the server, starting from the tail of the queue. After restarting again, it    will continue to consume from the last consumption position.
 
-   2）3.x/4.x SDK more complicated，If the first boot is sent within three days of the message, then the consumer will start consuming from the first message saved in the server; If the message sent is more than three days old, the consumer starts consuming the latest message in the server, which is at the end of the queue. After a second restart, the consumption will continue from the last consumption position.
+   2）The 3.x/4.x SDK is more complicated. If the first start is within three days of the sent message, the consumer will start consuming from the first saved message on the server. If the sent message is more than three days, the consumer will start consuming from the latest message on the server, starting from the tail of the queue. After restarting again, it will continue to consume from the last consumption position.
 
-2**How do you re-consume messages when consumption fails?**
+2. **When consumption fails, how can the message be consumed again?**
 
-   1）In cluster mode, the consuming business logic code returns a consumption failure status or throws an exception, and if a message fails to be consumed, it is retried for the set maximum number of retries, after which the message is discarded.
+   1）In cluster mode, the consumption business logic code will return a consumption failure status, or throw an exception. If a message consumption fails, it will be retried according to the maximum retry count set, and then the message will be discarded.
 
-   2）In broadcast consumption mode, broadcast consumption still guarantees that the message will be consumed at least once, but does not provide the option to resend it.
+   2）In broadcast consumption mode, broadcast consumption still guarantees that the message is consumed at least once, but does not provide resend options.
 
-3**How to find the failure message when consume fails?**
+3. **When consumption fails, how can the failed message be found?**
 
-   1）Using subject queries by time, you can query messages over a period of time。
+   1）Using a time-based topic query can query messages within a period of time.
 
-   2）Use the subject and message ID to accurately query the message.
+   2）Use the topic and message ID to accurately query the message.
 
-   3）Use the subject and message key to query exactly for messages with the same key across all messages.
+   3）Use the topic and message Key to accurately query all messages with the same message Key.
 
-4**Will the message be delivered only once?**
+4. **Is the message only delivered once?**
 
-   RocketMQ ensures that all messages are delivered at least once. In most cases, the message will not be repeated.
+   RocketMQ ensures that all messages are delivered at least once. In most cases, messages are not repeated.
 
-5**How do I add a new Broker？**
+5. **How can a new Broker be added?**
 
-   1）Start a new Broker and register it with the list of brokers in NameServer.
+   1）Start a new Broker and register it in the Broker list of the NameServer.
 
-   2）By default, only internal system Topic and Consumer Group are automatically created. If you want to have your business topics and consumer groups on the new node, copy them from an existing Broker. We provide administrative tools and the command line to handle this.
+   2）By default, only internal system Topics and Consumer Groups are automatically created. If you want to have your business topic and consumer group on the new node, copy them from the existing Broker. We provide management tools and command line to handle this.
 
-## 3 Configuration
+## 3 Configuration dependent
 
-The following answers are the default values and can be modified through configuration.
+The following answers are default values, which can be modified through configuration.
 
-1. **How long messages can be kept on the server?**
+1. **How long can messages be saved on the server?**
 
-   Stored messages will be kept for a maximum of 3 days, and unused messages will be deleted after that.
+   Messages will be stored for a maximum of 3 days. Messages that have not been used for more than 3 days will be deleted.
 
-2. **What is the size limit for the message body?**
+2. **What is the size limit for message bodies?**
 
-   It is usually 256 KB
+   Typically, it is 256KB.
 
-3. **How to set the number of consumer threads?**
+3. **How do you set the number of consumer threads?**
 
-   When you launch the consumer, you can set the properties. The parameter name varies with the version.
+   When you start the consumer, you can set the property. The parameter name varies by version.
 
 ## 4 Error
 
 1. **APPLY_TOPIC_URL**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      topic[xxx] not exist, apply first please!
      ```
 
-   - **Cause**
+   - **reason**
 
-     1）This exception occurs when the Producer fails to obtain routing information according to the Topic when sending or consuming messages.
+     1）When a Producer sends a message or a Consumer consumes a message, this exception will occur if the routing information for the Topic cannot be obtained.
 
-   - **Solution**
+   - **solution**
 
-     1）Make sure that NameServer does contain routing information for the Topic. You can use the management tool or the Web console to query routing information from NameServer through TopicRoute;
+     1）Make sure that the NameServer indeed contains the routing information for the Topic. You can use the management tool or the Web console to query the routing information from the NameServer through the TopicRoute;
 
-     2）Ensure that the Broker and Consumer are connected to the same NameServer cluster;
+     2）Make sure that the Broker and Consumer are connected to the same NameServer cluster;
 
-     3）Ensure that the queue permissions of the topic are 6(rw-) for the Producer, or at least 2(-w-) for the Consumer;
+     3）Make sure that the queue permissions for the topic are 6 (rw-) for the Producer or at least 2 (-w-) for the Consumer;
 
-     If this topic cannot be found, create it on the Broker with the administrative tool command updateTopic or the Web console.
+     If the topic cannot be found, create it on the Broker through the management tool command updateTopic or the Web console.
 
 2. **NAME_SERVER_ADDR_NOT_EXIST_URL**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      No name server address, please set it
@@ -98,37 +98,37 @@ The following answers are the default values and can be modified through configu
      connect to xxx failed, maybe the domain name xxx not bind in /etc/hosts
      ```
 
-   - **Cause**
+   - **reason**
 
-     1）The Producer or Consumer fails to obtain NameServer address information.
+     1）Producer or Consumer, there is an error in obtaining the NameServer address information.
 
-   - **Solution**
+   - **solution**
 
-     1）Please refer to：[5.1 Client addressing mode](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
+     1）Please refer to：[5.1 Client addressing](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
 
 3. **GROUP_NAME_DUPLICATE_URL**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      The producer group[xxx] has been created before, specify another name please.
      ```
 
-   - **Cause**
+   - **reason**
 
-     1）The Consumer Group with the same name has been started, but the registration fails.
+     1）A Consumer Group with the same name has already been started and registration failed.
 
-   - **Solution**
+   - **solution**
 
-     1）New Consumer Group renamed;
+     1）Rename a new Consumer Group.
 
-     2）After a Consumer Group with the same name is closed, it can be started again.
+     2）A Consumer Group with the same name was normally closed and then started again.
 
 4. **CLIENT_PARAMETER_CHECK_URL**
 
-   - **Error message**
+   - **exception information**
 
-     ```java
+     ```text
      consumerGroup can not equal ...
      ```
 
@@ -144,178 +144,172 @@ The following answers are the default values and can be modified through configu
      Long polling mode, the consumer consumerTimeoutMillisWhenSuspend must greater than brokerSuspendMaxTimeMillis ...
      ```
 
-     In addition, there are other exceptions, will not list them all.
+     In addition to the above exceptions, there may be other exceptions that are not listed here.
 
-   - **Cause**
+   - **reason**
 
-     1）The Consumer parameter verification fails.
+     1）Consumer parameter verification failed.
 
-   - **Solution**
+   - **solution**
 
-     1）Please refer to [5.2 Client Configuration](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
+     1）Please refer to： [5.2  Client configuration](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md )
 
 5. **SUBSCRIPTION_GROUP_NOT_EXIST**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      subscription group not exist
      ```
 
-   - **Cause**
+   - **reason**
 
-     1）The Consumer Group or DelayQueue can't obtain subscription information.
+     1）If the Consumer Group or DleayQueue encounters an error while getting subscription information.
 
-   - **Solution**
+   - **solution**
 
-     1）Ensure that the Consumer subscription Topic information is consistent with the existing Topic information in NameServer.
+     1）Ensure the Consumer's subscription to the Topic information is consistent with the Topic information in the NameServer.
 
-     2）Ensure that the Broker and Consumer are connected to the same NameServer cluster;
+     2）Make sure the Broker and Consumer are connected to the same NameServer cluster.
 
-     3）Ensure that the queue permissions of the Topic are 6(rw-) for the Producer, or at least 2(-w-) for the Consumer;
+     3）Ensure the queue permissions for the Topic are 6 (rw-) for the Producer, or at least 2 (-w-) for the Consumer
 
 6. **CLIENT_SERVICE_NOT_OK**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      The xxx service state not OK, maybe started once
      ```
 
-   - **Cause**
+   - **reason**
 
      1）Starting multiple Producer/Consumer instances in the same JVM using the same Producer/Consumer Group may cause the client to fail to start.
 
-   - **Solution**
+   - **solution**
 
-     1）Ensure that the JVM corresponding to a Producer/Consumer Group starts only one Producer/Consumer instance.
+     1）Make sure only one Producer/Consumer instance is started for a given Producer/Consumer Group JVM.
 
 7. **NO_TOPIC_ROUTE_INFO**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      No route info of this topic:
      ```
 
-   - **Cause**
+   - **reason**
 
-     1）This occurs when a message is sent to a topic whose routing information is not available to the producer.
+     1）If a message is sent to a topic that is not available to the producer，that's what happens.
 
-   - **Solution**
+   - **solution**
 
-     1）Ensure that producers can connect to NameServer and get routing meta-information from it;
+     1）Ensure the producer is able to connect to the name server and retrieve routing metadata from it.
 
-     2）Make sure that NameServer does contain the routing meta-information for the topic. You can use the TopicRoute management tool or the Web console to query routing meta information from NameServer.
+     2）Ensure the name server contains routing metadata for the topic. You can use a management tool or the Web console to query the routing metadata from the name server using TopicRoute.
 
-     3）Make sure that your Broker sends heartbeats to the same NameServer list that your producers are connecting to;
+     3）Make sure your Broker is sending heartbeats to the same NameServer list that your producer is connected to.
 
-     4）Ensure that the subject has permissions of 6(rw-), or at least 2(-w-);
+     4）Ensure the topic has permission 6 (rw-), or at least 2 (-w-).
 
-     If this topic cannot be found, create it on the Broker with the administrative tool command updateTopic or the Web console.
+     If the topic is not found, create it on the Broker via the management tool command updateTopic or the Web console.
 
 8. **LOAD_JSON_EXCEPTION**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      readLocalOffset Exception
      ```
 
-   - **Cause**
+   - **reason**
 
-     1）The consumer failed to load the local offset.json file in broadcast mode.
+     1）In broadcast mode, consumers have an error when loading the local offsets.json file.
 
-     2）Corrupted fastjson files can cause the same problem;
+     2）A damaged fastjson file can also cause the same problem.
 
-   - **Solution**
+   - **solution**
 
-     1）Check that the fastjson version is the same as the RocketMQ version.
+     1）Check if the fastjson version and RocketMQ version in use are consistent.
 
-     2）Update fastjson version;
+     2）Upgrade fastjson version.
 
 9. **SAME_GROUP_DIFFERENT_TOPIC**
 
-   - **Error message**
+   - **exception information**
 
      ```java
      the consumer's group info/subscription not exist
      ```
 
-   - **Cause**
+   - **reason**
+     1）Consumer subscription to Topic information does not exist.
 
-     1）Consumer subscription Topic information does not exist.
-
-   - **Solution**
-
-     1）Check whether the Consumer Group to which the Consumer belongs exists.
-     2）Check whether the Consumer subscription Topic exists;
+   - **solution**
+     1）Check if the Consumer Group where the Consumer belongs exists.
+     2）Check if the Topic subscribed to by the Consumer exists.
 
 10. **MQLIST_NOT_EXIST**
 
-    - **Error message**
+    - **exception information**
 
       ```java
       Can not find Message Queue for this topic
       ```
 
-    - **Cause**
+    - **reason**
+      1）For the Producer, the corresponding Queue information could not be obtained based on the Topic.
 
-      1）For the Producer, the corresponding Queue information cannot be obtained according to the Topic.
-
-    - **Solution**
-
-      1）Ensure that Queue information is correctly configured for the Topic.
-      2）Ensure that the Queue corresponding to the Topic has at least 2(-w-) permissions;
+    - **solution**
+      1）Ensure that the Queue information has been correctly configured for the Topic.
+      2）Ensure that the Queue corresponding to the Topic has at least 2 (-w-) permissions.
 
 11. **SEND_MSG_FAILED**
 
-    - **Error message**
+    - **exception information**
 
       ```java
       Send [xxx] times, still failed, cost [xxx]ms, Topic: xxx, BrokersSent ...
       ```
 
-    - **Cause**
+    - **reason**
+      1）The Producer message sending is abnormal. A total of 3 times are sent in SYNC mode, and 1 time is sent in ASYNC and ONEWAY.
 
-      1）The Producer message is incorrectly sent. A total of three times are sent in SYNC mode and one time is sent in ASYNC and ONEWAY mode.
-
-    - **Solution**
-
-      1）The Producer sends messages and whether the timeout parameter is too small.
-      2）Ensure that the Broker is working properly;
-      3）Ensure that the Producer and Broker are properly connected
+    - **solution**
+      1）Whether the timeout parameter of the Producer sending message is too small.
+      2）Ensure that the Broker is normal.
+      3）Ensure that the connection between the Producer and Broker is normal.
 
 12. **UNKNOWN_HOST_EXCEPTION**
 
-    - **Error message**
+    - **exception information**
 
       ```java
       InetAddress java.net.InetAddress.getLocalHost() throws UnknownHostException
       ```
 
-    - **Cause**
+    - **reason**
 
-      1）A host may have many network interfaces, and an interface may be bound to multiple IP addresses.
+      1）There may be many network interfaces on the host, and one interface may be bound to multiple IP addresses.
 
-    - **Solution**
+    - **solution**
 
-      1）Ensure that the IP address corresponding to host can be accessed properly. Run the Ping command to check the network status.
+      1）Ensure that the IP corresponding to the host can be accessed normally, and use network commands such as Ping to check the network situation.
 
       
 
 ## 5 Others  
 
-1. What are the effects of Broker crashes？
+1. What is the impact of the Broker crashing？
 
-   1）The Master node crashes
+   1）Master node crashes
 
-   Messages can no longer be sent to this cluster of brokers, but if you have another cluster of brokers available, messages can still be sent in the presence of a topic. Messages can still be consumed from the Slave node.
+   Messages can no longer be sent to the Broker cluster, but if you have another available Broker cluster, messages can still be sent as long as the topic exists. Messages can still be consumed from the Slave node.
 
-   2）Some Slave nodes crashed
+   2）Some Slave nodes crash
 
-   As long as there is another working Slave, sending messages is not affected. Consumption messages are also not affected unless the consumer group is set to consume from this Slave preferentially. By default, the consumer group consumes from the Master.
+   Sending messages will not be affected as long as there is another working Slave. Consuming messages will not be affected unless the consumer group is set to consume from the Slave first. By default, the consumer group consumes from the Master.
 
    3）All Slave nodes crash
 
-   Sending messages to the Master has no effect; however, if the Master is SYNC_MASTER, the Producer gets a SLAVE_NOT_AVAILABLE, indicating that the message is not being sent to any slaves. Consumption messages are also unaffected unless the consumer group is set to consume from the Slave preferentially. By default, the consumer group consumes from the Master.
+   Sending messages to the Master will not be affected, but if the Master is SYNC_MASTER, the Producer will get a SLAVE_NOT_AVAILABLE indicating that the message was not sent to any Slave. Consuming messages will not be affected unless the consumer group is set to consume from the Slave first. By default, the consumer group consumes from the Master.
