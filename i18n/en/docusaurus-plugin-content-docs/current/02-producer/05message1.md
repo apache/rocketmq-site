@@ -58,7 +58,7 @@ The entire code for synchronous sending is as follows:
 3. **Build the message**. Set the topic, tag, body, and so on. The tag can be understood as a label to categorize the message, and RocketMQ can filter the tag on the Consumer side.
 4. **Call the send() method to send the message**. Ultimately, the send() method will return a SendResult. The SendResut contains the actual send status including SEND_OK (send success), FLUSH_DISK_TIMEOUT (disk flush timeout), FLUSH_SLAVE_TIMEOUT (sync to slave timeout), SLAVE_NOT_AVAILABLE (slave can not be used), and an exception is thrown if it fails.
 
-``` javascript {16,15}
+``` java
 public class SyncProducer {
   public static void main(String[] args) throws Exception {
     // Initialize a producer and set the Producer group name
@@ -99,7 +99,7 @@ After sending a message, the sender does not need to wait for a response from th
 
 The following is the sample code.
 
-``` javascript {16,17}
+``` java
 public class AsyncProducer {
   public static void main(String[] args) throws Exception {
     // Initialize a producer and set the Producer group name
@@ -147,7 +147,7 @@ The only difference between asynchronous and synchronous sending methods is the 
 
 The sender is only responsible for sending the message and does not wait for the server to return a response and no callback function is triggered, in other words, it only sends the request and does not wait for the answer. The process of sending messages in this way is very short, usually in the microsecond level. It is suitable for some scenarios where the time consumption is very short, but the reliability requirement is not high, such as log collection.
 
-``` javascript {16}
+``` java
 public class OnewayProducer {
   public static void main(String[] args) throws Exception{
     // Initialize a producer and set the Producer group name

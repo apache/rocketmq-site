@@ -6,7 +6,7 @@ There are two kinds of Pull methods in RocketMQ. `Pull Consumer` is the more pri
 
 The Pull Consumer example is as follows:
 
-```javascript
+```java
 public class PullConsumerTest {
   public static void main(String[] args) throws MQClientException {
     DefaultMQPullConsumer consumer = new DefaultMQPullConsumer("please_rename_unique_group_name_5");
@@ -39,7 +39,7 @@ Set<MessageQueue> queueSet =  consumer.fetchSubscribeMessageQueues("TopicTest");
 
 After finding or constructing the queue, call the pull method to start pulling. The parameters such as the queue to be pulled, the filter expression, the offset to be pulled, and the maximum number of messages to be pulled should be passed in it. The `PullResult` will be returned after the operation is completed, and the PullStatus in the PullResult indicates the result status, as shown below:
 
-```javascript
+```java
 public enum PullStatus {
     /**
      * Founded
@@ -66,7 +66,7 @@ FOUND means the message was pulled, NO_NEW_MSG means no new message was found, N
 
 Lite Pull Consumer is a Pull Consumer introduced in RocketMQ 4.6.0, which is simpler to use than the original Pull Consumer and provides two modes, Subscribe and Assign. The Subscribe mode example is as follows:
 
-```javascript
+```java
 public class LitePullConsumerSubscribe {
     public static volatile boolean running = true;
     public static void main(String[] args) throws Exception {
@@ -90,7 +90,7 @@ First of all, initialize `DefaultLitePullConsumer` and set `ConsumerGroupName`. 
 
 The following is an example of the Assign mode:
 
-```javascript
+```java
 public class LitePullConsumerAssign {
     public static volatile boolean running = true;
     public static void main(String[] args) throws Exception {

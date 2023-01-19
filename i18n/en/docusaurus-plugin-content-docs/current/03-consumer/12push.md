@@ -2,7 +2,7 @@
 
 The simple code of RocketMQ Push Consumer is as follows:
 
-```javascript
+```java
 public class Consumer {
   public static void main(String[] args) throws InterruptedException, MQClientException {
     // Initialize Consumer and set Consumer Goup Name
@@ -31,7 +31,7 @@ public class Consumer {
 First, initialize the consumer.  When initializing the consumer, the consumer must with the ConsumerGroupName, the ConsumerGroupName of the same consumer group is the same, which is an important attribute to determine whether the consumer belongs to the same consumer group. Then, set the NameServer address, which is not introduced here as like Producer. Then, call the subscribe method to subscribe to Topic. The subscribe method needs to specify the Topic name needed to subscribe to, it can also add the message filtering conditions, such as TagA, etc. The above code to specify * means to receive all tag messages. In addition to subscribing, it also needs to register the callback interface to write the consumption logic to handle the messages received from the Broker. If call the registerMessageListener method, it needs to pass in the MessageListener implementation. The above code is concurrent consumption, so it is MessageListenerConcurrently implementation, its interface is as follows:
 
 :::note  MessageListenerConcurrently Interface
-```javascript 
+```java
 /**
  * A MessageListenerConcurrently object is used to receive asynchronously delivered messages concurrently
  */
@@ -73,7 +73,7 @@ Setting up Push Consumer concurrent consumption has been described above and is 
 
 RocketMQ therefore provides a order consumption approach. The only difference between order consumption setup and concurrent consumption at the API level is that the implementation of the MessageListenerOrderly interface is passed in when registering the consumption callback interface.
 
-```javascript
+```java
 consumer.registerMessageListener(new MessageListenerOrderly() {
             AtomicLong consumeTimes = new AtomicLong(0);
             @Override
