@@ -4,7 +4,7 @@
         <title>RocketMQ Blog</title>
         <link>https://your-docusaurus-test-site.com/zh/blog</link>
         <description>RocketMQ Blog</description>
-        <lastBuildDate>Thu, 19 Jan 2023 04:20:56 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Jan 2023 06:51:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[小红书消息中间件的运维实践与治理之路]]></title>
             <link>https://your-docusaurus-test-site.com/zh/blog/01xiaohongshu</link>
             <guid>/01xiaohongshu</guid>
-            <pubDate>Thu, 19 Jan 2023 04:20:56 GMT</pubDate>
+            <pubDate>Thu, 19 Jan 2023 06:51:32 GMT</pubDate>
             <description><![CDATA[小红书消息中间件的运维实践与治理之路]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-消息队列业务场景与挑战">1. 消息队列业务场景与挑战<a class="hash-link" href="#1-消息队列业务场景与挑战" title="标题的直接链接">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="11-整体规模">1.1 整体规模<a class="hash-link" href="#11-整体规模" title="标题的直接链接">​</a></h3><p>下图展示了 RocketMQ 和 Kafka 的总体规模。其中峰值  TPS 的 8000w/s 一般出现在晚上下班以后的时间段，写入量达到50GB/s，每天新增2-3PB数据，节点数1200+个。</p><img loading="lazy" src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3gaz0px0oj21c40bumyo.jpg" alt="Example banner" class="img_ev3q">;<h3 class="anchor anchorWithStickyNavbar_LWe7" id="12-业务架构">1.2 业务架构<a class="hash-link" href="#12-业务架构" title="标题的直接链接">​</a></h3><p>虽然 RocketMQ 和 Kafka 的性能相似，但在使用场景上还是有所区别的。RocketMQ 丰富的业务特性更适用于在线业务场景，而 Kafka 的高吞吐性使其更偏向离线、近线业务。当然，在实际应用中也会有交叉使用的现象，有时在线业务也会使用 Kafka 解耦，有的流处理数据也会使用 RocketMQ 存储。</p><p>业务总体架构如下图所示，业务日志和APP用户行为打点类的内容会发给 Kafka，数据库增量日志、在线业务、线上数据交换等会发给 RocketMQ。Kafka 和 RocketMQ 中的数据会有一部分流入 flink 中构建实时数仓、离线数仓以及一些数据产品（如报表、监控，等），RocketMQ 中另一部分数据会用于在线业务APP异步解耦。</p><img loading="lazy" src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3gb1can0cj21c60no40y.jpg" alt="Example banner" class="img_ev3q">;<h3 class="anchor anchorWithStickyNavbar_LWe7" id="13-稳定性挑战">1.3 稳定性挑战<a class="hash-link" href="#13-稳定性挑战" title="标题的直接链接">​</a></h3><p>a.   背景：
 小红书整体收敛消息组件较晚，公司技术架构最大的目标是提升系统稳定性；</p><p>b.   挑战：
