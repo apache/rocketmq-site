@@ -1,6 +1,6 @@
 # RocketMQ Connect in Action 3
 
-![RocketMQ Connect Overview](E:\develop\github\contribution\rocketmq-site\i18n\en\docusaurus-plugin-content-docs\version-5.0\picture\32rocketmq-connect\RocketMQ-Connect-Integration-Demo.jpg)
+![RocketMQ Connect Overview](../picture/32rocketmq-connect/RocketMQ-Connect-Integration-Demo.jpg)
 
 ## Preparation
 

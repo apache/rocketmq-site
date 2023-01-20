@@ -17,7 +17,7 @@
 
 Operation panel：
 
-![1657630174311](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/1_dashboard.png)
+![1657630174311](../picture/17Dashboard/1_dashboard.png)
 
 ## Quick Start
 
@@ -97,19 +97,19 @@ Restart：execution ②
 
 Topic ```>``` ADD/UPDATE
 
-![1657547091545](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/2_createTopic.png)
+![1657547091545](../picture/17Dashboard/2_createTopic.png)
 
 ### 2. Create consumer group-Consumer
 
 Consumer ```>``` ADD/UPDATE
 
-![1657547745254](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/3_createConsumer.png)
+![1657547745254](../picture/17Dashboard/3_createConsumer.png)
 
 ### 3. Reset consumption offset
 
 Topic ```>``` REST CONSUMER OFFSET
 
-![1657547891994](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/4_resetOffset.png)
+![1657547891994](../picture/17Dashboard/4_resetOffset.png)
 
 :::tip
 
@@ -122,19 +122,19 @@ Topic ```>``` REST CONSUMER OFFSET
 
 Topic ```>``` TOPIC CONFIG
 
-![1657548375401](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/5_enlargeTopic.png)
+![1657548375401](../picture/17Dashboard/5_enlargeTopic.png)
 
 ### 5. Expand Broker
 
 - To install and deploy a new broker with the same nameserver address as the current cluster
 
-  ![1657549432610](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/6_cluster.png)
+  ![1657549432610](../picture/17Dashboard/6_cluster.png)
 
 - To update the `BROKER_NAME` of topic
 
   Topic ```>``` ADD/UPDATE ```>``` BROKER_NAME
 
-![1657549599728](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/7_enlargeBroker.png)
+![1657549599728](../picture/17Dashboard/7_enlargeBroker.png)
 
 ### 6. Send message
 
@@ -142,9 +142,9 @@ Topic ```>``` TOPIC CONFIG
 
   Topic ```>``` SEND MESSAGE
 
-  ![1657550506673](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/8_sendMessage.png)
+  ![1657550506673](../picture/17Dashboard/8_sendMessage.png)
 
 - Send result
 
-  ![1657550592049](E:/develop/github/contribution/rocketmq-site/i18n/en/docusaurus-plugin-content-docs/current/picture/17Dashboard/9_sendResult.png)
+  ![1657550592049](../picture/17Dashboard/9_sendResult.png)
 
