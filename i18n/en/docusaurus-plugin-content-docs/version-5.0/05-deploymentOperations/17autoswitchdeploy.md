@@ -5,7 +5,7 @@
 This document mainly introduces how to deploy a RocketMQ cluster that supports automatic master-slave switchover. Its architecture is shown in the above figure. It mainly adds the controller component that supports automatic master-slave switchover, which can be deployed independently or embedded in the NameServer.
 
 :::tip Refer to
-For more details, refer to [Design Ideas](https://github.com/apache/rocketmq/blob/develop/docs/cn/controller/design.md) and [Quick Start](https://github.com/apache/rocketmq/blob/develop/docs/cn/controller/quick_start.md)
+For more details, refer to [Design Ideas](https://github.com/apache/rocketmq/blob/develop/docs/en/controller/design.md) and [Quick Start](https://github.com/apache/rocketmq/blob/develop/docs/en/controller/quick_start.md)
 :::
 
 ## Controller Deployment
