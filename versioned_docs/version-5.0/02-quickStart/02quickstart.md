@@ -13,7 +13,7 @@
 
 :::tip RocketMQ下载
 
-RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip) 下载 Apache RocketMQ 5.0.0的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的，
+RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip) 下载 Apache RocketMQ 5.0.0的源码包。你也可以从[这里](https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的。
 
 :::
 
@@ -158,7 +158,7 @@ $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
    ```
 
 
-4. 在已创建的Java工程中，创建订阅普通消息程序并运行。Apache RocketMQ 支持[SimpleConsumer](../04-featureBehavior/06consumertype.md)和[PushConsumer](../04-featureBehavior/06consumertype.md)两种消费者类型，您可以选择以下任意一种方式订阅消息。
+5. 在已创建的Java工程中，创建订阅普通消息程序并运行。Apache RocketMQ 支持[SimpleConsumer](../04-featureBehavior/06consumertype.md)和[PushConsumer](../04-featureBehavior/06consumertype.md)两种消费者类型，您可以选择以下任意一种方式订阅消息。
 
    ```java
    import org.apache.rocketmq.client.apis.*;
