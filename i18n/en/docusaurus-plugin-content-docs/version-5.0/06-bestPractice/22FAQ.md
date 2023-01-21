@@ -246,7 +246,9 @@ The following answers are default values, which can be modified through configur
      1）Consumer subscription to Topic information does not exist.
 
    - **solution**
+     
      1）Check if the Consumer Group where the Consumer belongs exists.
+     
      2）Check if the Topic subscribed to by the Consumer exists.
 
 10. **MQLIST_NOT_EXIST**
@@ -261,7 +263,9 @@ The following answers are default values, which can be modified through configur
       1）For the Producer, the corresponding Queue information could not be obtained based on the Topic.
 
     - **solution**
+      
       1）Ensure that the Queue information has been correctly configured for the Topic.
+      
       2）Ensure that the Queue corresponding to the Topic has at least 2 (-w-) permissions.
 
 11. **SEND_MSG_FAILED**
@@ -277,7 +281,9 @@ The following answers are default values, which can be modified through configur
 
     - **solution**
       1）Whether the timeout parameter of the Producer sending message is too small.
+      
       2）Ensure that the Broker is normal.
+      
       3）Ensure that the connection between the Producer and Broker is normal.
 
 12. **UNKNOWN_HOST_EXCEPTION**

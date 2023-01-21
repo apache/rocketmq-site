@@ -242,32 +242,48 @@
      ```java
      the consumer's group info/subscription not exist
      ```
+     
    - **原因**
      1）Consumer 订阅 Topic 信息不存在.
+     
    - **解决方案**
+     
      1）检查 Consumer 所在的 Consumer Group 是否存在；
+     
      2）检查 Consumer 订阅 Topic 是否存在；
+   
 10. **MQLIST_NOT_EXIST**
     - **异常信息**
       ```java
       Can not find Message Queue for this topic
       ```
+      
     - **原因**
       1）对于Producer，根据 Topic 未能获取对应的 Queue 信息。
+      
     - **解决方案**
+      
       1）确保 Topic 已经正确配置 Queue 信息；
+      
       2）确保 Topic 对应的 Queue 至少有2(-w-)权限；
+    
 11. **SEND_MSG_FAILED**
     - **异常信息**
       ```java
       Send [xxx] times, still failed, cost [xxx]ms, Topic: xxx, BrokersSent ...
       ```
+      
     - **原因**
       1）Producer 消息发送异常。同步（SYNC）方式共发送3次，异步（ASYNC）和单向（ ONEWAY）发送1次。
+      
     - **解决方案**
+      
       1）Producer 发送消息，超时参数是否过小；
+      
       2）确保 Broker 正常；
+      
       3）确保 Producer 和 Broker 连接是否正常
+    
 12. **UNKNOWN_HOST_EXCEPTION**
     - **异常信息**
       ```java

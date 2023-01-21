@@ -4,7 +4,7 @@
         <title>RocketMQ Blog</title>
         <link>https://your-docusaurus-test-site.com/zh/news</link>
         <description>RocketMQ Blog</description>
-        <lastBuildDate>Sat, 21 Jan 2023 02:42:37 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Jan 2023 03:51:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,109 +12,109 @@
             <title><![CDATA[RocketMQ OpenMLDB Connector，实时数据到特征工程的高速传输]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/01</link>
             <guid>/01</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[RocketMQ-Streams 首个版本发布，轻量级计算的新选择]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/02</link>
             <guid>/02</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[RocketMQ-Streams架构设计浅析]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/03</link>
             <guid>/03</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[RocketMQ-Streams架构设计浅析]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/04</link>
             <guid>/04</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[RocketMQ在数据异构系统的应用]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/05</link>
             <guid>/05</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[当 RocketMQ 遇见 Elastic Stack ｜ RocketMQ 使实时日志分析更简单]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/06</link>
             <guid>/06</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[基于 RocketMQ Prometheus Exporter 打造定制化 DevOps 平台]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/07</link>
             <guid>/07</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Apache RocketMQ + Hudi 快速构建 Lakehouse]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/08</link>
             <guid>/08</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[再下一城！两大社区携手打造 API 日志监控新利器]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/09</link>
             <guid>/09</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Apache ShenYu集成Apache RocketMQ实现海量日志采集的原理与实践]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/10</link>
             <guid>/10</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[OpenChaos，新的开始！新Streaming Data Platform值得期待]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/11</link>
             <guid>/11</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[混沌鸿蒙，新基建下的分布式消息Chaos框架]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/12</link>
             <guid>/12</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[云原生时代 RocketMQ 运维管控的利器 - RocketMQ Operator]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/13</link>
             <guid>/13</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[RocketMQ 端云一体化设计与实践]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/14</link>
             <guid>/14</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[从本地原生到云原生，Alibaba Dragonwell 静态编译的实践与挑战]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/15</link>
             <guid>/15</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[基于 RocketMQ Prometheus Exporter 打造定制化 DevOps 平台]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/16</link>
             <guid>/16</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[新架构下的Apache RocketMQ，未来十年的数据基础设施]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/17</link>
             <guid>/17</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[从0到1 | 分布式消息规范 OpenMessaging 重要事件回顾]]></title>
             <link>https://your-docusaurus-test-site.com/zh/news/18</link>
             <guid>/18</guid>
-            <pubDate>Sat, 21 Jan 2023 02:42:37 GMT</pubDate>
+            <pubDate>Sat, 21 Jan 2023 03:51:39 GMT</pubDate>
         </item>
     </channel>
 </rss>
