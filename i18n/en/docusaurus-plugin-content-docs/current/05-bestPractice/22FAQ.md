@@ -242,15 +242,16 @@ The following answers are the default values and can be modified through configu
       ```java
       the consumer's group info/subscription not exist
       ```
-    
+
     - **Cause**
-   
+
       1）Consumer subscription Topic information does not exist.
 
     - **Solution**
 
-    1）Check whether the Consumer Group to which the Consumer belongs exists.
-    2）Check whether the Consumer subscription Topic exists;
+      1）Check whether the Consumer Group to which the Consumer belongs exists.
+      
+      2）Check whether the Consumer subscription Topic exists;
 
 10. **MQLIST_NOT_EXIST**
 
@@ -267,6 +268,7 @@ The following answers are the default values and can be modified through configu
     - **Solution**
     
       1）Ensure that Queue information is correctly configured for the Topic.
+      
       2）Ensure that the Queue corresponding to the Topic has at least 2(-w-) permissions;
     
 11. **SEND_MSG_FAILED**
@@ -284,7 +286,9 @@ The following answers are the default values and can be modified through configu
     - **Solution**
     
       1）The Producer sends messages and whether the timeout parameter is too small.
+      
       2）Ensure that the Broker is working properly;
+      
       3）Ensure that the Producer and Broker are properly connected
     
 12. **UNKNOWN_HOST_EXCEPTION**
