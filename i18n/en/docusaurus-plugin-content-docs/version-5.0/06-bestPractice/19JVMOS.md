@@ -1,34 +1,30 @@
-# JVM/OS配置
+# JVM/OS Configuration
 
+This section focuses on system (JVM/OS) related configuration.
 
-本小节主要介绍系统（JVM/OS）相关的配置。
+## 1.JVM Options
 
-## 1 JVM选项
-
-推荐使用最新发布的 JDK 版本。通过设置相同的 Xms 和 Xmx 值来防止 JVM 调整堆大小以获得更好的性能。生产环境 JVM 配置如下所示：
+The latest release of JDK 1.8 is recommended. Prevent the JVM from adjusting the heap size for better performance by setting the same Xms and Xmx values. The production JVM configuration is as follows:
 
 ```text
 -server -Xms8g -Xmx8g -Xmn4g 
 ```
 
-当 JVM 是默认 8 字节对齐，建议配置最大堆内存不要超过 32 G，否则会影响 JVM 的指针压缩技术，浪费内存。
+When the JVM is 8-byte aligned by default, it is recommended that the maximum heap memory not exceed 32 G. Otherwise, the pointer compression technology of the JVM will be affected and memory will be wasted.
 
-如果您不关心 RocketMQ Broker 的启动时间，还有一种更好的选择，就是通过 “预触摸” Java 堆以确保在JVM初始化期间每个页面都将被分配。那些不关心启动时间的人可以启用它：
+If you don't care about the startup time of the RocketMQ Broker, a better option is to "pre-touch" the Java heap to ensure that every page will be allocated during JVM initialization. Those who don't care about startup time can enable it:
 
 ```text
 -XX:+AlwaysPreTouch  
 ```
 
-:::info
-生产环境集群 Broker 一般建议配置足够的内存，避免使用小规格内存机器部署。因为Broker是重度依赖内存PageCache做性能优化的，内存过小可能造成性能不稳定。
-:::
-禁用偏置锁定可能会减少 JVM 暂停：
+Disabling bias locking may reduce JVM pauses:
 
 ```text
 -XX:-UseBiasedLocking   
 ```
 
-垃圾回收，建议使用 JDK 1.8 自带的 G1 收集器：
+Garbage collection, we recommend using the G1 collector that came with JDK 1.8:
 
 ```text
 -XX:+UseG1GC 
@@ -37,9 +33,9 @@
 -XX:InitiatingHeapOccupancyPercent=30
 ```
 
-这些 GC 选项看起来有点激进，但事实证明它在我们的生产环境中具有良好的性能。
+These GC options may seem aggressive, but they proved to perform well in our production environment.
 
-另外不要把 -XX:MaxGCPauseMillis 的值设置太小，否则 JVM 将使用一个小的年轻代来实现这个目标，这将导致非常频繁的 minor GC，所以建议使用 rolling GC 日志文件：
+Also, don't set the value of -XX:MaxGCPauseMillis too small, or the JVM will use a small young generation to achieve this goal, which will result in very frequent minor GCS, so rolling GC log files are recommended:
 
 ```text
 -XX:+UseGCLogFileRotation   
@@ -47,19 +43,19 @@
 -XX:GCLogFileSize=30m
 ```
 
-如果写入 GC 文件会增加代理的延迟，可以考虑将 GC 日志文件重定向到内存文件系统：
+If writing to GC files increases the agent's latency, consider redirecting GC log files to the in-memory file system:
 
 ```text
 -Xloggc:/dev/shm/mq_gc_%p.log123   
 ```
 
-## 2 Linux内核参数
+## 2.Linux Kernel Parameters
 
- os.sh 脚本在 bin 文件夹中列出了许多内核参数，可以进行微小的更改然后用于生产用途。下面的参数需要注意，更多细节请参考 /proc/sys/vm/*的 [文档](https://www.kernel.org/doc/Documentation/sysctl/vm.txt)
+The os.sh script lists many kernel parameters in the bin folder, which can be changed slightly and then used for production purposes. Note the following parameters, for more details, see [Documentation](https://www.kernel.org/doc/Documentation/sysctl/vm.txt) in /proc/sys/vm/*
 
-- **vm.extra_free_kbytes**  告诉 VM 在后台回收（kswapd）启动的阈值与直接回收（通过分配进程）的阈值之间保留额外的可用内存。RocketMQ 使用此参数来避免内存分配中的长延迟。（与具体内核版本相关）
-- **vm.min_free_kbytes**  如果将其设置为低于 1024 KB，将会巧妙的将系统破坏，并且系统在高负载下容易出现死锁。
-- **vm.max_map_count**  限制一个进程可能具有的最大内存映射区域数。RocketMQ 将使用 MMAP 加载 CommitLog 和 ConsumeQueue，因此建议将为此参数设置较大的值。
-- **vm.swappiness**  定义内核交换内存页面的积极程度。较高的值会增加攻击性，较低的值会减少交换量。建议将值设置为 10 来避免交换延迟。
-- **File descriptor limits**  RocketMQ 需要为文件（ CommitLog 和 ConsumeQueue ）和网络连接打开文件描述符。我们建议设置文件描述符的值为 655350。
-- [Disk scheduler](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/ch06s04s02.html)  RocketMQ建议使用I/O截止时间调度器，它试图为请求提供有保证的延迟。
+- **vm.extra_free_kbytes**  The VM is told to keep extra available memory between the threshold at which background reclamation (kswapd) starts and the threshold at which it is directly reclaimed (by allocating processes). RocketMQ uses this parameter to avoid long delays in memory allocation. (depending on the kernel version)
+- **vm.min_free_kbytes**  If it is set below 1024 KB, it will subtly break the system, and the system is prone to deadlock under high load.
+- **vm.max_map_count**  Limits the maximum number of memory mapped regions that a process can have. RocketMQ will load CommitLog and ConsumeQueue using MMAP, so it is recommended to set this parameter to a large value.
+- **vm.swappiness**  Defines how aggressively the kernel swaps memory pages. Higher values increase aggression, lower values decrease exchange volume. A value of 10 is recommended to avoid exchange delays.
+- **File descriptor limits**  RocketMQ needs to open file descriptors for files (CommitLog and ConsumeQueue) and network connections. We recommend setting the file descriptor value to 655350.
+- [Disk scheduler](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/ch06s04s02.html)  RocketMQ recommends the use of an I/O deadline scheduler, which attempts to provide a guaranteed delay for requests.
