@@ -1,147 +1,145 @@
-# 客户端配置
+# Client configuration
 
- 相对于RocketMQ的Broker集群，生产者和消费者都是客户端。本小节主要描述生产者和消费者公共的行为配置。
+In the RocketMQ Broker cluster, both producers and consumers are clients. This section mainly describes the common behavior configurations for producers and consumers.
 
-### 客户端寻址方式
+### Client addressing method
 
-RocketMQ可以令客户端找到Name Server, 然后通过Name Server再找到Broker。如下所示有多种配置方式，优先级由高到低，高优先级会覆盖低优先级。
+RocketMQ allows clients to find the Name Server, and then find the Broker through the Name Server. There are multiple configuration methods, with priority from high to low, and higher priority will override lower priority.
 
-- 代码中指定Name Server地址，多个namesrv地址之间用分号分割   
+- Specifying the Name Server address in the code, with multiple namesrv addresses separated by semicolons
 
-```java
-producer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");  
+  ```java
+  producer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");  
+  
+  consumer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");
+  ```
 
-consumer.setNamesrvAddr("192.168.0.1:9876;192.168.0.2:9876");
-```
+- Specifying the Name Server address in the Java startup parameters
 
-- Java启动参数中指定Name Server地址
+  ```text
+  -Drocketmq.namesrv.addr=192.168.0.1:9876;192.168.0.2:9876  
+  ```
 
-```text
--Drocketmq.namesrv.addr=192.168.0.1:9876;192.168.0.2:9876  
-```
+- Specifying the Name Server address in the environment variable
 
-- 环境变量指定Name Server地址
+  ```shell
+  export   NAMESRV_ADDR=192.168.0.1:9876;192.168.0.2:9876   
+  ```
 
-```text
-export   NAMESRV_ADDR=192.168.0.1:9876;192.168.0.2:9876   
-```
+- HTTP static server addressing (default)
 
-- HTTP静态服务器寻址（默认）
+  After the client starts, it will periodically access a static HTTP server with the following address: ：<http://jmenv.tbsite.net:8080/rocketmq/nsaddr>，and the return content of this URL is as follows：
 
-客户端启动后，会定时访问一个静态HTTP服务器，地址如下：<http://jmenv.tbsite.net:8080/rocketmq/nsaddr>，这个URL的返回内容如下：
+  ```text
+  192.168.0.1:9876;192.168.0.2:9876   
+  ```
 
-```text
-192.168.0.1:9876;192.168.0.2:9876   
-```
-
-客户端默认每隔2分钟访问一次这个HTTP服务器，并更新本地的Name Server地址。URL已经在代码中硬编码，可通过修改/etc/hosts文件来改变要访问的服务器，例如在/etc/hosts增加如下配置：
+The client defaults to accessing this HTTP server every 2 minutes and updating the local Name Server address. The URL is hard-coded in the code, and can be changed by modifying the /etc/hosts file. For example, adding the following configuration in /etc/hosts:
 
 ```text
 10.232.22.67    jmenv.taobao.net   
 ```
 
-推荐使用HTTP静态服务器寻址方式，好处是客户端部署简单，且Name Server集群可以热升级。
+It is recommended to use the HTTP static server addressing method, as it is simple to deploy the client and the Name Server cluster can be hot upgraded.
 
-#### 客户端配置
+#### Client configuration
 
-DefaultMQProducer、TransactionMQProducer、DefaultMQPushConsumer、DefaultMQPullConsumer都继承于ClientConfig类，ClientConfig为客户端的公共配置类。客户端的配置都是get、set形式，每个参数都可以用spring来配置，也可以在代码中配置，例如namesrvAddr这个参数可以这样配置，producer.setNamesrvAddr("192.168.0.1:9876")，其他参数同理。
+DefaultMQProducer, TransactionMQProducer, DefaultMQPushConsumer, and DefaultMQPullConsumer all extends from the ClientConfig class, which is a common configuration class for clients. The client's configuration is in the form of get and set methods, and each parameter can be configured with Spring or in the code. For example, the namesrvAddr parameter can be configured like this: producer.setNamesrvAddr("192.168.0.1:9876"), and other parameters are similar.
 
-## ClientConfig配置
+## ClientConfig configuration
 
-| 名称                            | 描述                                           | 参数类型      | 默认值                                                       | 有效值 | 重要性 |
-| ------------------------------- | ---------------------------------------------- | ------------- | ------------------------------------------------------------ | ------ | ------ |
-| namesrvAddr                     | NameServer的地址列表                           | String        | 从-D系统参数rocketmq.namesrv.addr或环境变量。NAMESRV_ADDR    |        |        |
-| instanceName                    | 客户端实例名称                                 | String        | 从-D系统参数rocketmq.client.name获取，否则就是DEFAULT        |        |        |
-| clientIP                        | 客户端IP                                       | String        | RemotingUtil.getLocalAddress()                               |        |        |
-| namespace                       | 客户端命名空间                                 | String        |                                                              |        |        |
-| accessChannel                   | 设置访问通道                                   | AccessChannel | LOCAL                                                        |        |        |
-| clientCallbackExecutorThreads   | 客户端通信层接收到网络请求的时候，处理器的核数 | int           | Runtime.getRuntime().availableProcessors()                   |        |        |
-| pollNameServerInterval          | 轮询从NameServer获取路由信息的时间间隔         | int           | 30000，单位毫秒                                              |        |        |
-| heartbeatBrokerInterval         | 定期发送注册心跳到broker的间隔                 | int           | 30000，单位毫秒                                              |        |        |
-| persistConsumerOffsetInterval   | 作用于Consumer，持久化消费进度的间隔           | int           | 默认值5000，单位毫秒                                         |        |        |
-| pullTimeDelayMillsWhenException | 拉取消息出现异常的延迟时间设置                 | long          | 1000，单位毫秒                                               |        |        |
-| unitName                        | 单位名称                                       | String        |                                                              |        |        |
-| unitMode                        | 单位模式                                       | boolean       | false                                                        |        |        |
-| vipChannelEnabled               | 是否启用vip netty通道以发送消息                | boolean       | 从-D com.rocketmq.sendMessageWithVIPChannel参数的值，若无则是true |        |        |
-| useTLS                          | 是否使用安全传输。                             | boolean       | 从-D系统参数tls.enable获取，否则就是false                    |        |        |
-| mqClientApiTimeout              | mq客户端api超时设置                            | int           | 3000，单位毫秒                                               |        |        |
-| language                        | 客户端实现语言                                 | LanguageCode  | LanguageCode.*JAVA*                                          |        |        |
+| Name                            | Description                                                  | Parameter type | Default value                                                | Effective value | Importance |
+| ------------------------------- | ------------------------------------------------------------ | -------------- | ------------------------------------------------------------ | --------------- | ---------- |
+| namesrvAddr                     | NameServer address                                           | String         | From -D system parameter rocketmq.namesrv.addr or environment variable.NAMESRV_ADDR |                 |            |
+| instanceName                    | Client instance name                                         | String         | From -D system parameter rocketmq.client.name, otherwise it is DEFAULT |                 |            |
+| clientIP                        | Client IP                                                    | String         | RemotingUtil.getLocalAddress()                               |                 |            |
+| namespace                       | Client namespace                                             | String         |                                                              |                 |            |
+| accessChannel                   | Setting up access channels                                   | AccessChannel  | LOCAL                                                        |                 |            |
+| clientCallbackExecutorThreads   | The number of processor cores when the client communication layer receives a network request | int            | Runtime.getRuntime().availableProcessors()                   |                 |            |
+| pollNameServerInterval          | Time interval for polling route information from NameServer  | int            | 30000, in milliseconds                                       |                 |            |
+| heartbeatBrokerInterval         | Interval for regularly sending registration heartbeats to broker | int            | 30000, in milliseconds                                       |                 |            |
+| persistConsumerOffsetInterval   | Applies to Consumer, the interval for persisting consumption progress | int            | 5000, in milliseconds                                        |                 |            |
+| pullTimeDelayMillsWhenException | Delay time setting when pulling messages encounters an exception | long           | 1000, in milliseconds                                        |                 |            |
+| unitName                        | Unit name                                                    | String         |                                                              |                 |            |
+| unitMode                        | Unit mode                                                    | boolean        | false                                                        |                 |            |
+| vipChannelEnabled               | Whether to enable vip netty channel for sending messages     | boolean        | From -D com.rocketmq.sendMessageWithVIPChannel parameter value, if not it is true |                 |            |
+| useTLS                          | Whether to use TLS transport.                                | boolean        | From -D system parameter tls.enable, otherwise it is false.  |                 |            |
+| mqClientApiTimeout              | Mq client api timeout setting                                | int            | 3000, in milliseconds                                        |                 |            |
+| language                        | Client implementation language                               | LanguageCode   | LanguageCode.*JAVA*                                          |                 |            |
 
-## DefaultMQProducer配置
+## DefaultMQProducer configuration
 
-| 名称                             | 描述                                                         | 参数类型        | 默认值                                     | 有效值 | 重要性 |
-| -------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------------------ | ------ | ------ |
-| producerGroup                    | 生产组的名称，一类Producer的标识                             | String          | DEFAULT_PRODUCER                           |        |        |
-| createTopicKey                   | 发送消息的时候，如果没有找到topic，若想自动创建该topic，需要一个key topic，这个值即是key topic的值 | String          | TopicValidator.AUTO_CREATE_TOPIC_KEY_TOPIC |        |        |
-| defaultTopicQueueNums            | 自动创建topic的话，默认queue数量是多少                       | int             | 4                                          |        |        |
-| sendMsgTimeout                   | 默认的发送超时时间                                           | int             | 3000，单位毫秒                             |        |        |
-| compressMsgBodyOverHowmuc        | 消息body需要压缩的阈值                                       | int             | 1024 * 4，4K                               |        |        |
-| retryTimesWhenSendFailed         | 同步发送失败的话，rocketmq内部重试多少次                     | int             | 2                                          |        |        |
-| retryTimesWhenSendAsyncFailed    | 异步发送失败的话，rocketmq内部重试多少次                     | int             | 2                                          |        |        |
-| retryAnotherBrokerWhenNotStoreOK | 发送的结果如果不是SEND_OK状态，是否当作失败处理而尝试重发    | boolean         | false                                      |        |        |
-| maxMessageSize                   | 客户端验证，允许发送的最大消息体大小                         | int             | 1024 * 1024 * 4，4M                        |        |        |
-| traceDispatcher                  | 异步传输数据接口                                             | TraceDispatcher | null                                       |        |        |
+| Name                             | Description                                                  | Parameter type  | Default Value                              | Effective value | Importance |
+| -------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------------------ | --------------- | ---------- |
+| producerGroup                    | The name of the production group, the identifier of a class of Producers | String          | DEFAULT_PRODUCER                           |                 |            |
+| createTopicKey                   | When sending a message, if the topic is not found, if you want to automatically create the topic, you need a key topic, and this value is the value of the key topic. | String          | TopicValidator.AUTO_CREATE_TOPIC_KEY_TOPIC |                 |            |
+| defaultTopicQueueNums            | The default number of queues when creating a topic automatically | int             | 4                                          |                 |            |
+| sendMsgTimeout                   | The default send timeout time                                | int             | 3000, in milliseconds                      |                 |            |
+| compressMsgBodyOverHowmuc        | The threshold for message body compression                   | int             | 1024 * 4，4K                               |                 |            |
+| retryTimesWhenSendFailed         | The number of internal retries for rocketmq if synchronous sending fails | int             | 2                                          |                 |            |
+| retryTimesWhenSendAsyncFailed    | The number of internal retries for rocketmq if asynchronous sending fails | int             | 2                                          |                 |            |
+| retryAnotherBrokerWhenNotStoreOK | If the sending result is not SEND_OK status, whether it should be treated as a failure and retried | boolean         | false                                      |                 |            |
+| maxMessageSize                   | Client verification, the maximum message body size allowed to be sent | int             | 1024 * 1024 * 4，4M                        |                 |            |
+| traceDispatcher                  | synchronous data transfer interface                          | TraceDispatcher | null                                       |                 |            |
 
-## DefaultMQPushConsumer配置
+## DefaultMQPushConsumer configuration
 
-| 名称                               | 描述                                                         | 参数类型                     | 默认值                                              | 有效值 | 重要性 |
-| ---------------------------------- | ------------------------------------------------------------ | ---------------------------- | --------------------------------------------------- | ------ | ------ |
-| consumerGroup                      | 消费组的名称，用于标识一类消费者                             | String                       |                                                     |        |        |
-| messageModel                       | 消费模式                                                     | MessageModel                 | MessageModel.CLUSTERINGallocateMessageQueueStrategy |        |        |
-| consumeFromWhere                   | 启动消费点策略                                               | ConsumeFromWhere             | ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET           |        |        |
-| consumeTimestamp                   | CONSUME_FROM_LAST_OFFSET的时候使用，从哪个时间点开始消费     | String                       | 半小时前                                            |        |        |
-| allocateMessageQueueStrategy       | 负载均衡策略算法                                             | AllocateMessageQueueStrategy | AllocateMessageQueueAveragely（取模平均分配）       |        |        |
-| subscription                       | 订阅关系                                                     | Map<String, String>          | {}                                                  |        |        |
-| messageListener                    | 消息处理监听器（回调）                                       | MessageListener              | null                                                |        |        |
-| offsetStore                        | 消息消费进度存储器                                           | OffsetStore                  | null                                                |        |        |
-| consumeThreadMin                   | 消费线程池的core size                                        | int                          | 20                                                  |        |        |
-| consumeThreadMax                   | 消费线程池的max size                                         | int                          | 64                                                  |        |        |
-| adjustThreadPoolNumsThreshold      | 动态扩线程核数的消费堆积阈值                                 | long                         | 100000                                              |        |        |
-| consumeConcurrentlyMaxSpan         | 并发消费下，单条consume queue队列允许的最大offset跨度，达到则触发流控 | int                          | 2000**pullInterval**                                |        |        |
-| pullThresholdForQueue              | consume queue流控的阈值                                      | int                          | 100                                                 |        |        |
-| pullInterval                       | 拉取的间隔                                                   | long                         | 0，单位毫秒                                         |        |        |
-| pullThresholdForTopic              | 主题级别的流控制阈值                                         | int                          | -1                                                  |        |        |
-| pullThresholdSizeForTopic          | 限制主题级别的缓存消息大小                                   | int                          | -1                                                  |        |        |
-| pullBatchSize                      | 一次最大拉取的批量大小                                       | int                          | 32                                                  |        |        |
-| consumeMessageBatchMaxSize         | 批量消费的最大消息条数                                       | int                          | -1                                                  |        |        |
-| postSubscriptionWhenPull           | 每次拉取的时候是否更新订阅关系                               | boolean                      | false                                               |        |        |
-| unitMode                           | 订阅组的单位                                                 | boolean                      | false                                               |        |        |
-| maxReconsumeTimes                  | 一个消息如果消费失败的话，最多重新消费多少次才投递到死信队列 | int                          | -1                                                  |        |        |
-| suspendCurrentQueueTimeMillis      | 串行消费使用，如果返回ROLLBACK或者SUSPEND_CURRENT_QUEUE_A_MOMENT，再次消费的时间间隔 | long                         | 1000                                                |        |        |
-| consumeTimeout                     | 消费的最长超时时间                                           | long                         | 15，单位分钟                                        |        |        |
-| awaitTerminationMillisWhenShutdown | 关闭使用者时等待消息的最长时间，0表示无等待。                | long                         | 0                                                   |        |        |
-| traceDispatcher                    | 异步传输数据接口                                             | TraceDispatcher              | null                                                |        |        |
+| Name                               | Description                                                  | Parameter type               | Default value                                                | Effective value | Importance |
+| ---------------------------------- | ------------------------------------------------------------ | ---------------------------- | ------------------------------------------------------------ | --------------- | ---------- |
+| consumerGroup                      | The name of the consumer group, used to identify a class of consumers | String                       |                                                              |                 |            |
+| messageModel                       | Consumption mode                                             | MessageModel                 | MessageModel.CLUSTERINGallocateMessageQueueStrategy          |                 |            |
+| consumeFromWhere                   | Starting consumption point strategy                          | ConsumeFromWhere             | ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET                    |                 |            |
+| consumeTimestamp                   | When using CONSUME_FROM_LAST_OFFSET, start consuming from which time point | String                       | Half an hour ago                                             |                 |            |
+| allocateMessageQueueStrategy       | Load balancing strategy algorithm                            | AllocateMessageQueueStrategy | AllocateMessageQueueAveragely（Modulo average distribution.） |                 |            |
+| subscription                       | Subscription relationship                                    | Map<String, String>          | {}                                                           |                 |            |
+| messageListener                    | Message processing listener (callback)                       | MessageListener              | null                                                         |                 |            |
+| offsetStore                        | Message consumption progress storage                         | OffsetStore                  | null                                                         |                 |            |
+| consumeThreadMin                   | Core size of the consumer thread pool                        | int                          | 20                                                           |                 |            |
+| consumeThreadMax                   | Maximum size of the consumer thread pool                     | int                          | 64                                                           |                 |            |
+| adjustThreadPoolNumsThreshold      | Dynamic thread core number consumer accumulation threshold   | long                         | 100000                                                       |                 |            |
+| consumeConcurrentlyMaxSpan         | In concurrent consumption, the maximum offset span allowed for a single consume queue, which will trigger flow control | int                          | 2000**pullInterval**                                         |                 |            |
+| pullThresholdForQueue              | Consume queue flow control threshold                         | int                          | 100                                                          |                 |            |
+| pullInterval                       | Pulling interval                                             | long                         | 0, in milliseconds                                           |                 |            |
+| pullThresholdForTopic              | Topic-level flow control threshold                           | int                          | -1                                                           |                 |            |
+| pullThresholdSizeForTopic          | Limit the topic-level cache message size                     | int                          | -1                                                           |                 |            |
+| pullBatchSize                      | Maximum batch size for one pull                              | int                          | 32                                                           |                 |            |
+| consumeMessageBatchMaxSize         | Maximum number of messages for batch consumption             | int                          | -1                                                           |                 |            |
+| postSubscriptionWhenPull           | Whether to update the subscription relationship each time a pull is made | boolean                      | false                                                        |                 |            |
+| unitMode                           | Subscription group unit                                      | boolean                      | false                                                        |                 |            |
+| maxReconsumeTimes                  | The maximum number of times a message will be consumed before being delivered to the dead-letter queue if it fails | int                          | -1                                                           |                 |            |
+| suspendCurrentQueueTimeMillis      | The time interval for consuming again if the serial consumption returns ROLLBACK or SUSPEND_CURRENT_QUEUE_A_MOMENT | long                         | 1000                                                         |                 |            |
+| consumeTimeout                     | The longest timeout time for consumption                     | long                         | 15, in minutes                                               |                 |            |
+| awaitTerminationMillisWhenShutdown | The longest wait time for messages when closing the consumer, 0 means no wait. | long                         | 0                                                            |                 |            |
+| traceDispatcher                    | Asynchronous data transfer interface                         | TraceDispatcher              | null                                                         |                 |            |
 
 
 
-## DefaultLitePullConsumer配置
+## DefaultLitePullConsumer configuration
 
-| 名称                             | 描述                                                     | 参数类型                     | 默认值                                        | 有效值 | 重要性 |
-| -------------------------------- | -------------------------------------------------------- | ---------------------------- | --------------------------------------------- | ------ | ------ |
-| consumerGroup                    | 消费组的名称，用于标识一类消费者                         | String                       |                                               |        |        |
-| brokerSuspendMaxTimeMillis       | broker在长轮询下，连接最长挂起的时间                     | long                         | 20000，单位毫秒                               |        |        |
-| consumerTimeoutMillisWhenSuspend | broker在长轮询下，客户端等待broker响应的最长等待超时时间 | long                         | 30000，单位毫秒                               |        |        |
-| consumerPullTimeoutMillis        | pull的socket 超时时间                                    | long                         | 10000，单位毫秒                               |        |        |
-| messageModel                     | 消费模式                                                 | MessageModel                 | MessageModel.CLUSTERING                       |        |        |
-| messageQueueListener             | 负载均衡consume queue分配变化的通知监听器                | MessageQueueListener         |                                               |        |        |
-| offsetStore                      | 消息消费进度存储器                                       | OffsetStore                  |                                               |        |        |
-| allocateMessageQueueStrategy     | 负载均衡策略算法                                         | AllocateMessageQueueStrategy | AllocateMessageQueueAveragely（取模平均分配） |        |        |
-| unitMode                         | 订阅组的单位设置                                         | boolean                      | false                                         |        |        |
-| autoCommit                       | 自动提交偏移的标志设置                                   | boolean                      | true                                          |        |        |
-| pullThreadNums                   | 拉取线程数设置                                           | int                          | 20                                            |        |        |
-| MIN_AUTOCOMMIT_INTERVAL_MILLIS   | 最小提交偏移间隔时间                                     | long                         | 1000，单位为毫秒                              |        |        |
-| autoCommitIntervalMillis         | 最大提交偏移间隔时间                                     | long                         | 5000，单位为毫秒                              |        |        |
-| pullBatchSize                    | 每次拉出的信息的最大数量                                 | long                         | 10                                            |        |        |
-| pullThresholdForAll              | 消耗请求的流量控制阈值                                   | int                          | 10000                                         |        |        |
-| consumeMaxSpan                   | 消耗最大跨度偏移量                                       | int                          | 2000                                          |        |        |
-| pullThresholdForQueue            | 队列级别的流量控制阈值                                   | int                          | 1000                                          |        |        |
-| pullThresholdSizeForQueue        | 队列级别上限制缓存的消息大小                             | int                          | 100MiB                                        |        |        |
-| pollTimeoutMillis                | 轮询超时设置                                             | long                         | 5000，以毫秒为单位                            |        |        |
-| topicMetadataCheckIntervalMillis | 检查主题元数据变化的间隔时间                             | long                         | 30000，单位为毫秒                             |        |        |
-| consumeFromWhere                 | 消费方式设置                                             | ConsumeFromWhere             | ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET     |        |        |
-| consumeTimestamp                 | 回溯消费时间                                             | String                       | 默认回溯消耗时间为半小时前                    |        |        |
-| traceDispatcher                  | 异步传输数据的接口                                       | TraceDispatcher              | null                                          |        |        |
-| enableMsgTrace                   | 信息跟踪的标志                                           | boolean                      | false                                         |        |        |
-| customizedTraceTopic             | 消息跟踪主题的名称                                       | String                       |                                               |        |        |
-
-continue......
+| Name                             | Description                                                  | Parameter type               | Default value                                                | Effective value | Importance |
+| -------------------------------- | ------------------------------------------------------------ | ---------------------------- | ------------------------------------------------------------ | --------------- | ---------- |
+| consumerGroup                    | The name of the consumer group, used to identify a type of consumer | String                       |                                                              |                 |            |
+| brokerSuspendMaxTimeMillis       | The maximum time that a connection will be suspended for in long polling by the broker | long                         | 20000, in milliseconds                                       |                 |            |
+| consumerTimeoutMillisWhenSuspend | The maximum wait time for a response from the broker in long polling by the client | long                         | 30000, in milliseconds                                       |                 |            |
+| consumerPullTimeoutMillis        | The socket timeout for pulling messages                      | long                         | 10000, in milliseconds                                       |                 |            |
+| messageModel                     | The consumption mode                                         | MessageModel                 | MessageModel.CLUSTERING                                      |                 |            |
+| messageQueueListener             | A listener for changes in the allocation of consume queues in load balancing | MessageQueueListener         |                                                              |                 |            |
+| offsetStore                      | The message consumption progress storage                     | OffsetStore                  |                                                              |                 |            |
+| allocateMessageQueueStrategy     | The load balancing strategy algorithm                        | AllocateMessageQueueStrategy | AllocateMessageQueueAveragely（Modulo average distribution.） |                 |            |
+| unitMode                         | The unit of subscription group settings                      | boolean                      | false                                                        |                 |            |
+| autoCommit                       | The setting for automatic commit of offset                   | boolean                      | true                                                         |                 |            |
+| pullThreadNums                   | The number of pull threads set                               | int                          | 20                                                           |                 |            |
+| MIN_AUTOCOMMIT_INTERVAL_MILLIS   | The minimum interval time for committing offset              | long                         | 1000, in milliseconds                                        |                 |            |
+| autoCommitIntervalMillis         | The maximum interval time for committing offset              | long                         | 5000, in milliseconds                                        |                 |            |
+| pullBatchSize                    | The maximum number of messages pulled each time              | long                         | 10                                                           |                 |            |
+| pullThresholdForAll              | The threshold for flow control of consumed requests          | int                          | 10000                                                        |                 |            |
+| consumeMaxSpan                   | The maximum offset span for consumption                      | int                          | 2000                                                         |                 |            |
+| pullThresholdForQueue            | The queue level flow control threshold                       | int                          | 1000                                                         |                 |            |
+| pullThresholdSizeForQueue        | The queue level limit on cached message size                 | int                          | 100MiB                                                       |                 |            |
+| pollTimeoutMillis                | The polling timeout setting                                  | long                         | 5000, in milliseconds                                        |                 |            |
+| topicMetadataCheckIntervalMillis | The interval for checking changes in topic metadata          | long                         | 30000, in milliseconds                                       |                 |            |
+| consumeFromWhere                 | The consumption mode setting                                 | ConsumeFromWhere             | ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET                    |                 |            |
+| consumeTimestamp                 | The time for backtracking consumption                        | String                       | The default consumption rollback time is half an hour ago.   |                 |            |
+| traceDispatcher                  | The interface for asynchronous data transmission             | TraceDispatcher              | null                                                         |                 |            |
+| enableMsgTrace                   | The flag for message tracing                                 | boolean                      | false                                                        |                 |            |
+| customizedTraceTopic             | The name of the topic for message tracing                    | String                       |                                                              |                 |            |
