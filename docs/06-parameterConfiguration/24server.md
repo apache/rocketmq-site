@@ -68,7 +68,7 @@
 | deleteCommitLogFilesInterval           | 删除commitlog文件的时间间隔，删除一个文件后等一下再删除一个文件 | int      | 100          |            |        |
 | deleteConsumeQueueFilesInterval        | 删除consumequeue文件时间间隔                                 | int      | 100          |            |        |
 | deleteWhen                             | 磁盘文件空间充足情况下，默认每天什么时候执行删除过期文件，默认04表示凌晨4点 | string   | 04           |            |        |
-| destroyMapedFileIntervalForcibly       | 销毁MappedFile被拒绝的最大存活时间，默认120s。清除过期文件线程在初次销毁mappedfile时，如果该文件被其他线程引用，引用次数大于0.则设置MappedFile的可用状态为false，并设置第一次删除时间，下一次清理任务到达时，如果系统时间大于初次删除时间加上本参数，则将ref次数一次减1000，知道引用次数小于0，则释放物理资源 | int      | 120000       |            |        |
+| destroyMapedFileIntervalForcibly       | 销毁MappedFile被拒绝的最大存活时间，默认120s。清除过期文件线程在初次销毁mappedfile时，如果该文件被其他线程引用，引用次数大于0.则设置MappedFile的可用状态为false，并设置第一次删除时间，下一次清理任务到达时，如果系统时间大于初次删除时间加上本参数，则将ref次数一次减1000，直到引用次数小于0，则释放物理资源 | int      | 120000       |            |        |
 | disableConsumeIfConsumerReadSlowly     | 如果消费组消息消费堆积是否禁用该消费组继续消费消息           | boolean  | false        |            |        |
 | diskFallRecorded                       | 是否统计磁盘的使用情况,默认为true                            | boolean  | true         |            |        |
 | diskMaxUsedSpaceRatio                  | commitlog目录所在分区的最大使用比例，如果commitlog目录所在的分区使用比例大于该值，则触发过期文件删除 | int      | 75           |            |        |
