@@ -19,10 +19,10 @@ By configuring subscriptions, you can control the following messaging behaviors:
 The subscriptions of Apache RocketMQ are designed based on consumer groups and topics. Therefore, a subscription refers to the subscription of a specified consumer group to a topic. The following describes the rules for determining a subscription:
 
 * One topic to many subscribersThe following figure shows two consumer groups (Group A and Group B) subscribed to Topic A. These two subscriptions are independent of each other and can be defined separately.
-  ![订阅关系不同分组](../picture/v5/subscription_diff_group.png)
+  ![Subscription relationships are grouped differently](../picture/v5/subscription_diff_group.png)
 
 * One subscriber to multiple topicsThe following figure shows a consumer group (Group A) subscribed to two topics: Topic A and Topic B. Consumers in Group A have two separate subscriptions to Topic A and Topic B. The two subscriptions are independent of each other and can be defined separately.
-  ![订阅关系相同分组](../picture/v5/subscription_one_group.png)
+  ![Subscription relationships are grouped differently](../picture/v5/subscription_one_group.png)
 
 
 
@@ -72,7 +72,7 @@ Apache RocketMQ manages subscriptions based on consumer groups. Therefore, consu
   c1.subscribe(topicA,"TagA");
   //Consumer c2
   Consumer c2 = ConsumerBuilder.build(groupA);
-  c1.subscribe(topicA,"TagA");
+  c2.subscribe(topicA,"TagA");
   ```
 
   
@@ -85,7 +85,7 @@ Apache RocketMQ manages subscriptions based on consumer groups. Therefore, consu
   c1.subscribe(topicA,"TagA");
   //Consumer c2Consumer 
   c2 = ConsumerBuilder.build(groupA);
-  c1.subscribe(topicA,"TagB");
+  c2.subscribe(topicA,"TagB");
   ```
 
 ## Usage notes 
