@@ -111,8 +111,8 @@ RocketMQ 客户端支持自定义日志保存路径、日志级别以及保存�
 | 参数                          | 说明                                                         | 配置参数                        | 自定义取值                                                   |
 | ----------------------------- | ------------------------------------------------------------ | ------------------------------- | ------------------------------------------------------------ |
 | 日志保存路径                  | 请确保应用进程有对该路径写的权限，否则日志 不会打印。        | rocketmq.client.logRoot         | 可自定义为您需要将日志文件保存到本地的路径。请确保您的应用进程有该路径的写权限，否则日志无法打印。 |
-| 保存历史日志文件的最大个数    | 支持1到100之前的数值;若输入的值超出该范围 或格式错误，则系统默认保存10个。 | rocketmq.client.logFileMaxIndex | 取值如下：**ERROR****WARN****INFO****DEBUG**                 |
-| 日志级别                      | 支持ERROR、WARN、INFO、DEBUG中任何一 种，不匹配默认INFO。    | rocketmq.client.logLevel        | 取值范围：1~100。若设置的值超出该范围或格式错误，则以系统默认值（10个）为准。 |
+| 保存历史日志文件的最大个数    | 支持1到100之前的数值;若输入的值超出该范围 或格式错误，则系统默认保存10个。 | rocketmq.client.logFileMaxIndex |  取值范围：1~100。若设置的值超出该范围或格式错误，则以系统默认值（10个）为准。              |
+| 日志级别                      | 支持ERROR、WARN、INFO、DEBUG中任何一 种，不匹配默认INFO。    | rocketmq.client.logLevel        | 取值如下：**ERROR****WARN****INFO****DEBUG**   |
 | 单个文件日志大小              | 支持以bytes为单位指定                                        | rocketmq.client.logFileMaxSize  | 取值在0~1GB, 默认1GB, 建议64 MB                              |
 | logback是否使用父级logger打印 | children-logger是否使用 rootLogger配置的appender进行输出     | rocketmq.client.log.additive    | true/false                                                   |
 | 使用项目的slf4j实现记录日志   | 如果需要实现记录日志 则为true                                | rocketmq.client.logUseSlf4j     | true/flase                                                   |
