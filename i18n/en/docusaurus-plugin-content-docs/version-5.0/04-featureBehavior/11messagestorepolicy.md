@@ -27,7 +27,7 @@ The following section describes the items related to the message storage mechani
 
 * Determination criterion: Message storage duration is used as the determination criterion. Compared with message quantity or size, storage duration can help you evaluate the values of messages in a more efficient manner.
 
-* Whether message storage is related to consumption status: The message storage duration in Apache RocketMQ starts from the point in time when the message is produced and is not related to consumption status. You can simplify the message storage mechanism by using a unified calculation strategy.
+* The message storage and consumption status are unrelated: The message storage duration in Apache RocketMQ starts from the point in time when the message is produced and is not related to consumption status. You can simplify the message storage mechanism by using a unified calculation strategy.
 
 The following figure shows how messages are stored in a queue.![消息存储](../picture/v5/cleanpolicy.png)
 
