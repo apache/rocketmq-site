@@ -97,3 +97,4 @@
 | flushIntervalConsumeQueue              | consumuQueue文件刷盘频率                                     | int      | 1000         |            |        |
 | flushLeastPagesWhenWarmMapedFile       | 用字节0填充整个文件的,每多少页刷盘一次。默认4096页,异步刷盘模式生效 | int      | 4096         |            |        |
 
+When docker is used to deploy brokers, the list of brokers pulled by namesrv is the internal ip address by default. When only public ip addresses are provided externally, problems will occur: Under Caused by: org. Apache. Rocketmq. Remoting. Exception. RemotingConnectException: connect to 172.17.42.1:10911 (IP) network failed.I tried to configure the property brokerIP1= public ip at broker.conf and restart the broker, but this did not change the error.
