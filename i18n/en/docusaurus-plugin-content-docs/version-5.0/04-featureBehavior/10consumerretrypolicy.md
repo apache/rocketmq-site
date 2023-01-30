@@ -1,4 +1,4 @@
-# Consumption retry
+# Consumption Retry
 
 If a message fails to be consumed, Apache RocketMQ redelivers the message based on a consumption retry policy. This helps remove some faults. This topic describes the working mechanism, version compatibility, and usage notes of the consumption retry feature.
 

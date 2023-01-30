@@ -36,7 +36,7 @@ export default function Community() {
               "button button--outline button--secondary button--lg",
               styles.buttoncommunity
             )}
-            to={"/docs/contributionGuide/29how-to-contribute"}
+            to={"/docs/contributionGuide/01how-to-contribute"}
           ><Translate id="贡献指南">
             贡献指南
             </Translate>

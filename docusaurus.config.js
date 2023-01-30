@@ -167,7 +167,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/rmq-deployment/',
-              to: '/docs/deploymentOperations/15deploy'
+              to: '/docs/deploymentOperations/01deploy'
             },
             {
               from: '/docs/motivation/',
@@ -175,59 +175,59 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: ['/docs/quickstart/', '/docs/quick-start'],
-              to: '/docs/quickStart/02quickstart'
+              to: '/docs/quickStart/01quickstart'
             },
             {
               from: '/docs/how-to-contribute/',
-              to: '/docs/contributionGuide/29how-to-contribute'
+              to: '/docs/contributionGuide/01how-to-contribute'
             },
             {
               from: '/docs/code-guidelines/',
-              to: '/docs/contributionGuide/30code-guidelines'
+              to: '/docs/contributionGuide/02code-guidelines'
             },
             {
               from: '/docs/pull-request/',
-              to: '/docs/contributionGuide/31pull-request'
+              to: '/docs/contributionGuide/03pull-request'
             },
             {
               from: '/docs/release-manual',
-              to: '/docs/contributionGuide/32release-manual'
+              to: '/docs/contributionGuide/04release-manual'
             },
             {
               from: '/docs/cli-admin-tool/',
-              to: '/docs/deploymentOperations/16admintool'
+              to: '/docs/deploymentOperations/02admintool'
             },
             {
               from: '/docs/system-config',
-              to: '/docs/bestPractice/19JVMOS'
+              to: '/docs/bestPractice/04JVMOS'
             },
             {
               from: '/docs/faq/',
-              to: '/docs/bestPractice/22FAQ'
+              to: '/docs/bestPractice/06FAQ'
             },
             {
               from: '/docs/logappender-example/',
-              to: '/docs/4.x/bestPractice/20log'
+              to: '/docs/4.x/bestPractice/06log'
             },
             {
               from: '/docs/order-example/',
-              to: '/docs/4.x/producer/06message2'
+              to: '/docs/4.x/producer/03message2'
             },
             {
               from: '/docs/schedule-example/',
-              to: '/docs/4.x/producer/07message3'
+              to: '/docs/4.x/producer/04message3'
             },
             {
               from: '/docs/batch-example/',
-              to: '/docs/4.x/producer/08message4'
+              to: '/docs/4.x/producer/05message4'
             },
             {
               from: '/docs/transaction-example/',
-              to: '/docs/4.x/producer/09message5'
+              to: '/docs/4.x/producer/06message5'
             },
             {
               from: '/docs/cluster-deployment/',
-              to: '/docs/4.x/parameterConfiguration/24server'
+              to: '/docs/4.x/parameterConfiguration/02server'
             },
             {
               from: '/docs/documentation/',
@@ -235,7 +235,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/best-practice-consumer/',
-              to: '/docs/4.x/bestPractice/15bestpractice'
+              to: '/docs/4.x/bestPractice/01bestpractice'
             },
             {
               from: '/release_notes/',
@@ -284,7 +284,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         //   // position: "right",
         //   // items: [
         //   //   { to: "/docs/", label: "4.x" },
-        //   //   { to: "/docs/5.0/介绍/02quickstart", label: "5.0" },
+        //   //   { to: "/docs/5.0/介绍/01quickstart", label: "5.0" },
 
         //   //   // ... more items
         //   // ],
@@ -327,7 +327,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 { to: "/contact", label: "参与社区" },
                 { to: "/origin", label: "项目起源" },
                 { to: "/team", label: "贡献团队" },
-                { to: "/docs/contributionGuide/29how-to-contribute", label: "贡献说明" },
+                { to: "/docs/contributionGuide/01how-to-contribute", label: "贡献说明" },
                 { to: "/enterprise", label: "企业用户" }
                 // ... more items
               ],
@@ -401,7 +401,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 },
                 {
                   label: 'Installation',
-                  to: '/docs/quickStart/02quickstart',
+                  to: '/docs/quickStart/01quickstart',
                 },
                 {
                   label: 'Migration from 4.x to 5.0',

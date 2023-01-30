@@ -1,4 +1,4 @@
-# MessageQueue 
+# Message Queue 
 
 This section describes the definition, model relationship, and internal attributes of message queues in Apache RocketMQ. This topic also provides version compatibility information and usage notes for message queues.
 

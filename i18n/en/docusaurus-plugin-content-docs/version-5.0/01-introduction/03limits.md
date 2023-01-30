@@ -1,4 +1,4 @@
-# Parameter constraints and suggestions
+# Parameter Constraints and Suggestions
 
 There are many custom parameters and resource names in the Apache RocketMQ system. You are advised to set the system according to the following instructions to avoid application exceptions caused by improper setting of certain parameters.
 

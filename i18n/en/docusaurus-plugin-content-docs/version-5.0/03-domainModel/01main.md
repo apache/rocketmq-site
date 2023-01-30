@@ -1,4 +1,4 @@
-# Domain model
+# Domain Model
 
 This section describes the domain model of Apache RocketMQ.
 
