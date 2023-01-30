@@ -1,39 +1,22 @@
-# Apache RocketMQ website
-[![Build Status](https://travis-ci.com/apache/rocketmq-site.svg?branch=master)](https://travis-ci.com/apache/rocketmq-site)
+# Introduction
+This project is the new official documentation site for rocketmq.
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-This is the website for [Apache RocketMQ](	http://rocketmq.apache.org/).
+For all of you who contribute documents, here are a few things to keep in mind：
 
-## About
-This website is based on Jekyll and a Jekyll theme named Minimal Mistakes.
+1. For the person responsible for writing the documentation, the only thing you need to modify is the content under ‘/docs’. Find the document you are responsible for under ‘/docs’ and write it in markdown. The rest of the site is automatic, so please do not modify it.
 
-## Prerequisite
-1. Ruby
-2. Gem
+2. For those who do translations, we are currently placing English documents at ‘/docs/09-English’ for the time being due to the error-prone nature of the multilingual version of the site.
 
-## Install & Run
-1. gem install jekyll bundler
-2. git clone this repo
-3. cd rocketmq-site
-4. bundle install
-5. bundle exec jekyll serve
+3. The framework we currently use supports some nice markdown features, please refer to it and try to speak about the beautiful writing of the document.[Markdown Features](https://docusaurus.io/docs/markdown-features)
 
-## Deploy to asf-site
-1. Checkout branch asf-site and merge the changes:`git merge origin/master`
-2. Generate the site to content directory: `bundle exec jekyll build`
-3. Check the changes and commit.
-4. Push asf-site to remote branch.
 
-## Questions
+For those of you who have contributed documentation and wish to see the results after writing, please refer to the following command.
+### Local Development
 
-### How to post articles to **Documentation**?
-Create a .md file in rocketmq-sites/_docs/, Jekyll will finish the rest of the work.
+```
+$ npm start
+```
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-Please refer to **01-quick-start-guide.md** for more details.
 
-### How to post articles to **Blog**?
-Create a .md file in rocketmq-sites/_posts/, Jekyll will finish the rest of the work.
-
-Please refer to **2016-12-23-mastering-component-compatible-dependency.md** for more details.
-
-### How to modify the navigation?
-Please refer to **_data/navigation.yml** for more details. 

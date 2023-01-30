@@ -1,10 +1,7 @@
-language: ruby
-rvm:
-- 2.4.1
-env:
-  global:
-  - secure: kr8bobXrFB3NhhVKBFCyrbQMjJqElVKxQWteyQtqRw1DKRxPWwERyvgVRd3lNEHWy8+EMme3RPB7f+5RHgvwDm7OmDKKLfHdji1ghnUz/F0ScSxIyRF0z6NFw67sYwNqyanduZRybAN/ZVELZQPoFW92sTPXlTodnZ6SIa6UhudjYeLyoG+qnoOVoK9MmzZU2NKxzNWhTCPzLMwm3o6JBchnqbbqEbBL1FzMfT9mJlnepHF9Ntfx/4A9YiDsvHH6qXfO2TLuPZs/I+lepvr7Qtj1ycz+aEJhOvqnVzImP7vdPyrQeulGPP4qXqyqNub5l7xCsYd2pQnkjRP0PgwGaPhrIqDFN1WupyhqotxlBVvNsoHQ7WKAsoNyCD6fn0kcMVKzE8tyD/q78UQzZMa/te1mu9lnIA9n8xZwRykUUijhEXgjjKbDmsVWqAdhbdPOPEDukAFKdks23Zzk2jkKpO3q08m/L+IXc3Fzvpqd3/KLuye7hEw8c+DpCAle+QBe46bFMaW1DstqpDpnJb3573SjQjEN8esZrnrD/HjxUSU3bQpvcFgMKx+4x+MEiMTi53Lpzm100ihtcBDfjT8ezrr6bDrJylKveDGTDwRq3D29LSwmgo5K9dOoNryzwNw0ca08iAiWP9/5EZBlTem08QRzgxyYgt4qnpPFX+dY1EY=
-#install: make setup
+dist: bionic
+os: linux
+language: node_js
+node_js:
+  - 16.14.0
 script:
-- bundle install
-- bundle exec jekyll build
+  - npm install --legacy-peer-deps && npm run build

@@ -1,0 +1,100 @@
+.heroBanner {
+    padding: 1rem 0 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    background-image: url('/img/rmq-home-page.png');
+    background-size: 100%;
+}
+
+.herosubtitle {
+    font-size: 1.5rem;
+    max-width: 600vw;
+}
+
+
+@media screen and (max-width: 966px) {
+    .heroBanner {
+        padding: 2rem;
+    }
+    .heroBanner {
+        height: 130vh;
+    }
+}
+@media screen and (max-width: 680px) {
+    .heroBanner {
+        height: 120vh;}
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 0;
+}
+
+.buttons > a {
+    margin: 0 5px;
+    
+}
+
+@media (max-width: 650px) {
+    
+    .herosubtitle{
+        font-size: medium;
+    }
+    .buttons{
+        text-align: center;
+       
+    }
+    .button{
+        width: 200px!important;
+        min-width: none;
+        padding:18px;
+       
+    }
+    .button2{
+        display: none!important;
+    }
+    .herotitle{
+        font-size: 4rem;
+    }
+
+    .frameworkLogos img {
+        height: 45px;
+    }
+}
+@media (max-width: 800px) {
+
+    .frameworkLogos img {
+        height: 45px;
+    }
+    .herotitle{
+        font-size: 7rem;
+    } 
+
+}
+
+@media (max-width: 500px) {
+
+    .heroBanner{
+        height: 100vh;
+    }
+
+}
+@media (max-width: 400px) {
+    .herotitle{
+        font-size: 5rem;
+    }
+    .heroBanner{
+        height: 100vh;
+    }
+
+}
+
+.github{
+    padding-top: 30px!important;
+}
+

@@ -1,0 +1,50 @@
+.community {
+    background-color: #0c0c2c;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    
+  }
+ .communitycontainer {
+    /* padding-bottom: 300px; */
+    background-image: url("https://assets-global.website-files.com/60acbb950c4d6606963e1fed/60c1f8fc5aab5ca51aafac24_black-pattern-left.png"),url("https://assets-global.website-files.com/60acbb950c4d6606963e1fed/60c1f8fc81aa5e9f46a19a24_black-pattern-right.png");
+    background-position:left,right;
+    background-size: 300px   ;
+    background-repeat: no-repeat,no-repeat;
+    text-align: center;
+  }
+
+  .communitytitle {
+    color: floralwhite;
+    text-align: center;
+    padding-top: 200px;
+    padding-bottom: 30px;
+  }
+  .community_subtitle{
+      color: #b5deff;
+      font-size: 2em;
+  }
+  
+  
+  .buttoncommunity {
+    background-color: aliceblue!important;
+    color: #0c0c2c!important;
+    font-size: large;
+  }
+
+  .buttoncommunity2{
+    color: #ffffff!important;
+    font-size: large;
+  }
+  .logocommunity{
+    background-color:transparent!important;
+  }
+
+@media (max-width: 500px) {
+  .buttoncommunity2{
+    padding: 18px;
+  }
+  .buttoncommunity{
+    padding: 18px;
+  }
+  
+}

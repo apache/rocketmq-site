@@ -1,0 +1,92 @@
+.featureTitle {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.featureContent {
+    /* padding: var(--wdio-spacing-vertical) 1.535rem var(--wdio-spacing-vertical) calc(var(--ifm-spacing-horizontal) + 1.535rem)!important; */
+    /* margin: -2rem 0 -5rem 0; */
+    text-align: center;
+}
+
+.featureContentReversed {
+    padding: var(--wdio-spacing-vertical) calc(var(--ifm-spacing-horizontal) + 20px) var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important;
+}
+
+.featureImage {
+    height: 100%;
+}
+
+.featureImage iframe {
+    width: 100%;
+}
+
+.darkSection {
+    background-color: var(--wdio-dark-section-background-color);
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.sectionSpace {
+    margin: 5rem;
+}
+
+@media (max-width: 996px) {
+    .featureContent {
+        /* padding: var(--wdio-spacing-vertical) 0 calc(var(--wdio-spacing-vertical) * 4) calc(var(--ifm-spacing-horizontal) + 20px)!important; */
+        text-align: center!important;
+        padding: 0 50px 0 50px!important;
+    }
+    .highlighttitle{
+        text-align: center!important;
+    }
+
+    .featureImage {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    .getStarted{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    .featureContentReversed {
+        /* padding: calc(var(--wdio-spacing-vertical) * 4+3000) calc(var(--ifm-spacing-horizontal) + 20px) var(--wdio-spacing-vertical) var(--ifm-spacing-horizontal)!important; */
+        text-align: center!important;
+    }
+
+    .featureImageReversed {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+
+.highlighttitle {
+    font-weight: 600 !important;
+    text-align:center!important;
+}
+
+.highlightsubtitle {
+    text-align: center;
+    /* margin: 1vw 0 1rem 0; */
+}
+
+.introimg {
+    text-align:center;
+    margin: 0 0 2vw 0;
+}
+  
+.row{
+    text-align: center;
+    margin: 0 1.5em 0 0;
+}
+.container{
+    text-align: center;
+    /* width: 120%; */
+    /* margin: var(--wdio-spacing-vertical) 0 15rem calc(var(--ifm-spacing-horizontal) + 1rem)!important; */
+}

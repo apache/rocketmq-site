@@ -1,0 +1,62 @@
+.hero--primary {
+    --ifm-hero-background-color: #fff;
+    --ifm-hero-text-color: #000;
+    justify-content: center;
+    align-items: center;
+}
+
+html[data-theme=dark] .hero--primary {
+    --ifm-hero-background-color: var(--ifm-footer-background-color);
+    --ifm-hero-text-color: #fff;
+}
+
+.hero__title {
+    font-size: 5em !important;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.gradient-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25vmin;
+    line-height: 30vmin;
+  }
+
+
+.gradient-text {
+    color: transparent;
+    background: conic-gradient(
+      #D9D7F1 12%, 
+      #BAABDA 12%, #BAABDA 33%, 
+      #E7FBBE 33%, #E7FBBE 55%, 
+      #FFCBCB 55%, #FFCBCB 70%, 
+      #B5DEFF 70%, #B5DEFF 87%, 
+      #F7D1BA 87%);
+    background-size: 50%;
+    background-clip: text;  
+    -webkit-background-clip: text;
+  
+    animation: expand-rev 0.5s ease forwards;
+  
+    cursor: pointer;
+  }
+
+.hero__subtitle {
+    font-size: 1.5em;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    color: #ffffff !important;
+}
+
+@media (max-width: 400px) {
+    .hero__subtitle {
+        font-size: 1.3em;
+    }
+}
+
+#fblike {
+    height: 20px;
+}
+#fblike, #twitter-widget-1 {
+    margin-right: 20px;
+}

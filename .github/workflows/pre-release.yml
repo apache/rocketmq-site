@@ -1,0 +1,40 @@
+name: pre-release-new-site
+
+on:
+  push:
+    branches: [ new-official-website ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: rocketmq-site
+
+      - run: |
+          cd $GITHUB_WORKSPACE/rocketmq-site/
+          npm install --legacy-peer-deps
+          npm run build
+          mv build content
+          rm .git/ -rf
+
+      - uses: actions/checkout@v2
+        with:
+          ref: asf-site
+          path: asf-site
+
+      - run: |
+          cd $GITHUB_WORKSPACE/asf-site/
+          git rm -rf .
+          cp -Rf $GITHUB_WORKSPACE/rocketmq-site/. .
+          ls
+          git config --global user.email "action@github.com"
+          git config --global user.name "github-action"
+          sed -i "/content/d" .gitignore
+          git add .
+          git status
+          git commit -m "[Pre-Release]Latest site on successful build auto-pushed to new-website-pre"
+          git push
