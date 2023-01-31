@@ -144,6 +144,8 @@ SimpleConsumer involves multiple API operations. The corresponding operations ar
                 .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("Your Endpoint").build())
                 // Specify the pre-bound subscriptions. 
                 .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+                // Specify the max await time when receive messages from the server.
+                .setAwaitDuration(Duration.ofSeconds(1))
                 .build();
         List<MessageView> messageViewList = null;
         try {
