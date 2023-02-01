@@ -1,4 +1,4 @@
-# Message storage and cleanup
+# Message Storage and Cleanup
 
 This topic describes how Apache RocketMQ stores messages, including storage granularity, determination criteria, and processing policies.
 

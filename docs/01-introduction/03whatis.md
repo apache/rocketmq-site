@@ -14,18 +14,18 @@ import TabItem from '@theme/TabItem';
   <TabItem value="生产者" label="生产者" default>
    负责生产消息，一般由业务系统负责生产消息。一个消息生产者会把业务应用系统里产生的消息发送到broker服务器。RocketMQ提供多种发送方式，同步发送、异步发送、顺序发送、单向发送。
 
-更多详见  ➡️ [生产者](../02-producer/04concept1.md)
+更多详见  ➡️ [生产者](../02-producer/01concept1.md)
   </TabItem>
   <TabItem value="消费者" label="消费者">
  负责消费消息，一般是后台系统负责异步消费。一个消息消费者会从Broker服务器拉取消息、并将其提供给应用程序。从用户应用的角度而言提供了两种消费形式：拉取式消费、推动式消费。
 
-更多详见  ➡️ [消费者](../03-consumer/11concept2.md)
+更多详见  ➡️ [消费者](../03-consumer/01concept2.md)
 
   </TabItem>
   <TabItem value="消息主题" label="主题">
   表示一类消息的集合，每个主题包含若干条消息，每条消息只能属于一个主题，是RocketMQ进行消息订阅的基本单位。
 
-更多详见  ➡️ [基本概念](../02-producer/04concept1.md)
+更多详见  ➡️ [基本概念](../02-producer/01concept1.md)
 
   </TabItem>
 </Tabs>

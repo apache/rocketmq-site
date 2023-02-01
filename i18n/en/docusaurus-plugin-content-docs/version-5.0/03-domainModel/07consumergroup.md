@@ -1,4 +1,4 @@
-# ConsumerGroup
+# Consumer Group
 
 This section describes the definition, model relationship, internal attributes, and behavior constraints of consumer groups in Apache RocketMQ. This topic also provides version compatibility information and usage notes for consumer groups.
 ## Definition

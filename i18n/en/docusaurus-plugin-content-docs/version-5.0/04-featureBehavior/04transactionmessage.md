@@ -1,4 +1,4 @@
-# Transaction message
+# Transaction Message
 
 Transactional messages are an advanced message type in Apache RocketMQ. This topic describes the application scenarios, working mechanism, limits, usage, and usage notes of transactional messages.
 ## Scenarios

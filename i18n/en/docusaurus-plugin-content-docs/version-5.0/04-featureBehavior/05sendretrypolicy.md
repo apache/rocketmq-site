@@ -1,4 +1,4 @@
-# Sending retry and throttling policy
+# Sending Retry and Throttling Policy
 
 This topic describes the message sending retry mechanism and throttling mechanism of Apache RocketMQ.
 
