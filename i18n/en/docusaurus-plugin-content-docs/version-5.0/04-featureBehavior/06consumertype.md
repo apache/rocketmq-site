@@ -1,4 +1,4 @@
-# Consumer types
+# Consumer Types
 
 Apache RocketMQ supports the following types of consumers: PushConsumer, SimpleConsumer and PullConsumer. This topic describes the usage, working and retry mechanisms, and scenarios of the three consumer types.
 

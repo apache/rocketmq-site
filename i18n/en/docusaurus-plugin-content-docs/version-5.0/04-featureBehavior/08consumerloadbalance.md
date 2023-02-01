@@ -1,4 +1,4 @@
-# Load balancing policies for consumers
+# Consumer Load Balancing
 
 When consumers in a consumer group pull messages from a Apache RocketMQ topic, a load balancing policy is used to determine how the messages are allocated to the consumers. Load balancing policies improve service concurrency and application scalability. This topic describes the load balancing policies that Apache RocketMQ provides for consumers.
 

@@ -1,4 +1,4 @@
-# Consumer progress management
+# Consumer Progress Management
 Apache RocketMQ uses consumer offsets to manage the progress of consumers. This topic describes the consumer progress management mechanism of Apache RocketMQ.
 ## Background
 

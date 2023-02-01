@@ -53,7 +53,7 @@
   },
   "link.item.label.Installation": {
     "message": "Installation",
-    "description": "The label of footer link with label=Installation linking to /docs/介绍/02quickstart"
+    "description": "The label of footer link with label=Installation linking to /docs/介绍/01quickstart"
   },
   "link.item.label.Migration from 4.x to 5.0": {
     "message": "Migration from 4.x to 5.0",

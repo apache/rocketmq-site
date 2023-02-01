@@ -1,4 +1,4 @@
-# Fifo Message
+# Ordered Message
 
 Ordered messages are a type of message with advanced features in Apache RocketMQ. This topic describes the scenarios, working mechanism, limits, usage examples, and usage notes of ordered messages.
 
