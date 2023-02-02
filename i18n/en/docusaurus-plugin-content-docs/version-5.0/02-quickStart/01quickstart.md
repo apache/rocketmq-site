@@ -108,91 +108,93 @@ We can also try to use the client sdk to send and receive messages, you can see 
 
 4. In the Java project you have created, create a program that sends messages and run it with the following code:
 
-   ```java
-   import org.apache.rocketmq.client.apis.*;
-   import org.apache.rocketmq.client.apis.consumer.ConsumeResult;
-   import org.apache.rocketmq.client.apis.consumer.MessageListener;
-   import org.apache.rocketmq.client.apis.consumer.SimpleConsumer;
-   import org.apache.rocketmq.client.apis.message.Message;
-   import org.apache.rocketmq.client.apis.message.MessageBuilder;
-   import org.apache.rocketmq.client.apis.message.MessageView;
-   import org.apache.rocketmq.client.apis.producer.Producer;
-   import org.apache.rocketmq.client.apis.producer.SendReceipt;
-   import java.time.Duration;
-   import java.util.List;
-   public class ProducerExample {
-       public static void main(String[] args) throws ClientException {
-           String endpoint = "localhost:8081";
-           String topic = "Your Topic";
-           ClientServiceProvider provider = ClientServiceProvider.loadService();
-           ClientConfigurationBuilder builder = ClientConfiguration.newBuilder().setEndpoints(endpoint);
-           ClientConfiguration configuration = builder.build();
-           Producer producer = provider.newProducerBuilder()
-                   .setTopics(topic)
-                   .setClientConfiguration(configuration)
-                   .build();
-           Message message = provider.newMessageBuilder()
-                   .setTopic(topic)
-                   .setKeys("messageKey")
-                   .setTag("messageTag")
-                   .setBody("messageBody".getBytes())
-                   .build();
-           try {
-               SendReceipt sendReceipt = producer.send(message);
-               System.out.println(sendReceipt.getMessageId());
-           } catch (ClientException e) {
-               e.printStackTrace();
-           }
-       }
-   }
-   ```
+    ```java
+    import java.io.IOException;
+    import org.apache.rocketmq.client.apis.ClientConfiguration;
+    import org.apache.rocketmq.client.apis.ClientConfigurationBuilder;
+    import org.apache.rocketmq.client.apis.ClientException;
+    import org.apache.rocketmq.client.apis.ClientServiceProvider;
+    import org.apache.rocketmq.client.apis.message.Message;
+    import org.apache.rocketmq.client.apis.producer.Producer;
+    import org.apache.rocketmq.client.apis.producer.SendReceipt;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
 
+    public class ProducerExample {
+        private static final Logger logger = LoggerFactory.getLogger(ProducerExample.class);
+
+        public static void main(String[] args) throws ClientException, IOException {
+            String endpoint = "localhost:8081";
+            String topic = "YourTopic";
+            ClientServiceProvider provider = ClientServiceProvider.loadService();
+            ClientConfigurationBuilder builder = ClientConfiguration.newBuilder().setEndpoints(endpoint);
+            ClientConfiguration configuration = builder.build();
+            Producer producer = provider.newProducerBuilder()
+                .setTopics(topic)
+                .setClientConfiguration(configuration)
+                .build();
+            Message message = provider.newMessageBuilder()
+                .setTopic(topic)
+                .setKeys("messageKey")
+                .setTag("messageTag")
+                .setBody("messageBody".getBytes())
+                .build();
+            try {
+                SendReceipt sendReceipt = producer.send(message);
+                logger.info("Send message successfully, messageId={}", sendReceipt.getMessageId());
+            } catch (ClientException e) {
+                logger.error("Failed to send message", e);
+            }
+            // producer.close();
+        }
+    }
+   ```
 
 5. In the Java project you have created, create a consumer demo program and run it. Apache RocketMQ support [SimpleConsumer](../04-featureBehavior/06consumertype.md) and [PushConsumer](../04-featureBehavior/06consumertype.md).
 
-   ```java
-   import org.apache.rocketmq.client.apis.*;
-   import org.apache.rocketmq.client.apis.consumer.ConsumeResult;
-   import org.apache.rocketmq.client.apis.consumer.FilterExpression;
-   import org.apache.rocketmq.client.apis.consumer.FilterExpressionType;
-   import org.apache.rocketmq.client.apis.consumer.PushConsumer;
-   
-   import java.io.IOException;
-   import java.util.Collections;
-   import org.slf4j.Logger;
-   import org.slf4j.LoggerFactory;
-   
-   public class PushConsumerExample {
-       private static final Logger LOGGER = LoggerFactory.getLogger(PushConsumerExample.class);
-   
-       private PushConsumerExample() {
-       }
-   
-       public static void main(String[] args) throws ClientException, IOException, InterruptedException {
-           final ClientServiceProvider provider = ClientServiceProvider.loadService();
-           String endpoints = "localhost:8081";
-           ClientConfiguration clientConfiguration = ClientConfiguration.newBuilder()
-                   .setEndpoints(endpoints)
-                   .build();
-   	    String tag = "*";
-           FilterExpression filterExpression = new FilterExpression(tag, FilterExpressionType.TAG);
-   	    String consumerGroup = "Your ConsumerGroup";
-           String topic = "Your Topic";
-           PushConsumer pushConsumer = provider.newPushConsumerBuilder()
-                   .setClientConfiguration(clientConfiguration)
-                   .setConsumerGroup(consumerGroup)
-                   .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
-   		        .setMessageListener(messageView -> {
-                       // LOGGER.info("Consume message={}", messageView);
-                       System.out.println("Consume message!!");
-                       return ConsumeResult.SUCCESS;
-                   })
-                   .build();
-           Thread.sleep(Long.MAX_VALUE);
-           //pushConsumer.close();
-       }
-   }
-   ```
+    ```java
+    import java.io.IOException;
+    import java.util.Collections;
+    import org.apache.rocketmq.client.apis.ClientConfiguration;
+    import org.apache.rocketmq.client.apis.ClientException;
+    import org.apache.rocketmq.client.apis.ClientServiceProvider;
+    import org.apache.rocketmq.client.apis.consumer.ConsumeResult;
+    import org.apache.rocketmq.client.apis.consumer.FilterExpression;
+    import org.apache.rocketmq.client.apis.consumer.FilterExpressionType;
+    import org.apache.rocketmq.client.apis.consumer.PushConsumer;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+
+    public class PushConsumerExample {
+        private static final Logger logger = LoggerFactory.getLogger(PushConsumerExample.class);
+
+        private PushConsumerExample() {
+        }
+
+        public static void main(String[] args) throws ClientException, IOException, InterruptedException {
+            final ClientServiceProvider provider = ClientServiceProvider.loadService();
+            String endpoints = "localhost:8081";
+            ClientConfiguration clientConfiguration = ClientConfiguration.newBuilder()
+                .setEndpoints(endpoints)
+                .build();
+            String tag = "*";
+            FilterExpression filterExpression = new FilterExpression(tag, FilterExpressionType.TAG);
+            String consumerGroup = "YourConsumerGroup";
+            String topic = "YourTopic";
+            PushConsumer pushConsumer = provider.newPushConsumerBuilder()
+                .setClientConfiguration(clientConfiguration)
+                .setConsumerGroup(consumerGroup)
+                .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+                .setMessageListener(messageView -> {
+                    logger.info("Consume message successfully, messageId={}", messageView.getMessageId());
+                    return ConsumeResult.SUCCESS;
+                })
+                .build();
+            Thread.sleep(Long.MAX_VALUE);
+            // pushConsumer.close();
+        }
+    }
+    ```
 
 ## 6. Shutdown Servers
 

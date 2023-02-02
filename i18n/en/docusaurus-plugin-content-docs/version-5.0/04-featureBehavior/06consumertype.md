@@ -56,25 +56,24 @@ Sample code:
 ```java
 // Message consumption example: Use a PushConsumer consumer to consume messages. 
 ClientServiceProvider provider = ClientServiceProvider.loadService();
-        String topic = "Your Topic";
-        FilterExpression filterExpression = new FilterExpression("Your Filter Tag", FilterExpressionType.TAG);
-        PushConsumer pushConsumer = provider.newPushConsumerBuilder()
-                // Configure consumer groups. 
-                .setConsumerGroup("Your ConsumerGroup")
-                // Specify the access point. 
-                .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("Your Endpoint").build())
-                // Specify the pre-bound subscriptions. 
-                .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
-                // Set the message listener. 
-                .setMessageListener(new MessageListener() {
-                    @Override
-                    public ConsumeResult consume(MessageView messageView) {
-                        // Consume the messages and return the consumption result. 
-                        return ConsumeResult.SUCCESS;
-                    }
-                })
-                .build();
-                
+String topic = "YourTopic";
+FilterExpression filterExpression = new FilterExpression("YourFilterTag", FilterExpressionType.TAG);
+PushConsumer pushConsumer = provider.newPushConsumerBuilder()
+    // Configure consumer group. 
+    .setConsumerGroup("YourConsumerGroup")
+    // Specify the access point. 
+    .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("YourEndpoint").build())
+    // Specify the pre-bound subscriptions. 
+    .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+    // Set the message listener. 
+    .setMessageListener(new MessageListener() {
+        @Override
+        public ConsumeResult consume(MessageView messageView) {
+            // Consume the messages and return the consumption result. 
+            return ConsumeResult.SUCCESS;
+        }
+    })
+    .build();    
 ```
 
 The message listener for a PushConsumer consumer returns one of the following results:
@@ -133,37 +132,36 @@ SimpleConsumer is a consumer type that supports atomic operations for message pr
 SimpleConsumer involves multiple API operations. The corresponding operations are called as needed to obtain and distribute messages to business threads for processing. Then, the commit operation is called to commit message processing results. Sample code:
 
 ```java
-        // Consumption example: When a SimpleConsumer consumer consumes normal messages, the consumer obtain messages and commit message consumption results. 
-        ClientServiceProvider provider1 = ClientServiceProvider.loadService();
-        String topic1 = "Your Topic";
-        FilterExpression filterExpression1 = new FilterExpression("Your Filter Tag", FilterExpressionType.TAG);
-        SimpleConsumer simpleConsumer = provider1.newSimpleConsumerBuilder()
-                // Configure consumer groups. 
-                .setConsumerGroup("Your ConsumerGroup")
-                // Specify the access point. 
-                .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("Your Endpoint").build())
-                // Specify the pre-bound subscriptions. 
-                .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
-                // Specify the max await time when receive messages from the server.
-                .setAwaitDuration(Duration.ofSeconds(1))
-                .build();
-        List<MessageView> messageViewList = null;
+// Consumption example: When a SimpleConsumer consumer consumes normal messages, the consumer obtain messages and commit message consumption results. 
+ClientServiceProvider provider = ClientServiceProvider.loadService();
+String topic = "YourTopic";
+FilterExpression filterExpression = new FilterExpression("YourFilterTag", FilterExpressionType.TAG);
+SimpleConsumer simpleConsumer = provider.newSimpleConsumerBuilder()
+        // Configure consumer group.
+        .setConsumerGroup("YourConsumerGroup")
+        // Specify the access point. 
+        .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("YourEndpoint").build())
+        // Specify the pre-bound subscriptions. 
+        .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+        // Specify the max await time when receive messages from the server.
+        .setAwaitDuration(Duration.ofSeconds(1))
+        .build();
+try {
+    // A SimpleConsumer consumer must obtain and process messages. 
+    List<MessageView> messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
+    messageViewList.forEach(messageView -> {
+        System.out.println(messageView);
+        // After consumption is complete, the consumer must invoke ACK to submit the consumption result. 
         try {
-            // A SimpleConsumer consumer must obtain and process messages. 
-            messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
-            messageViewList.forEach(messageView -> {
-                System.out.println(messageView);
-                // After consumption is complete, the consumer must invoke ACK to submit the consumption result. 
-                try {
-                    simpleConsumer.ack(messageView);
-                } catch (ClientException e) {
-                    e.printStackTrace();
-                }
-            });
+            simpleConsumer.ack(messageView);
         } catch (ClientException e) {
-            // If the pull fails due to system traffic throttling or other reasons, the consumer must re-initiate the request to obtain the message. 
-            e.printStackTrace();
+            logger.error("Failed to ack message, messageId={}", messageView.getMessageId(), e);
         }
+    });
+} catch (ClientException e) {
+    // If the pull fails due to system traffic throttling or other reasons, the consumer must re-initiate the request to obtain the message. 
+    logger.error("Failed to receive message", e);
+}
 ```
 
 
