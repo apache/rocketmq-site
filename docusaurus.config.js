@@ -174,7 +174,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               to: '/docs/'
             },
             {
-              from: ['/docs/quickstart/', '/docs/quick-start'],
+              from: ['/docs/quickstart/', '/docs/quick-start', '/docs/quickStart/02quickstart/'],
               to: '/docs/quickStart/01quickstart'
             },
             {
@@ -240,7 +240,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             {
               from: '/release_notes/',
               to: '/release-notes'
-            },
+            }
           ]
         }
       ]
