@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[3362],{77620:e=>{e.exports=JSON.parse('{"label":"RocketMQ_Spring","permalink":"/release-notes/tags/rocket-mq-spring","allTagsPath":"/release-notes/tags","count":6}')}}]);
