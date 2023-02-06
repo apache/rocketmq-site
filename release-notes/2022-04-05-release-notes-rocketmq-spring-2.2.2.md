@@ -6,7 +6,7 @@ tags:
 - RocketMQ_Spring
 ---
 :::tip Download
-* Source: [rocketmq-spring-all-2.2.2-source-release.zip](https://www.apache.org/dyn/closer.cgi?path=rocketmq/rocketmq-spring/2.2.2/rocketmq-spring-rocketmq-spring-all-2.2.2.zip) [[PGP](https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.2.1/rocketmq-spring-all-2.2.1-source-release.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.2.2/rocketmq-spring-rocketmq-spring-all-2.2.2.zip.sha512)]
+* Source: [rocketmq-spring-all-2.2.2-source-release.zip](https://archive.apache.org/dist/rocketmq-spring/2.2.2/rocketmq-spring-rocketmq-spring-all-2.2.2.zip) [[PGP](https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.2.2/rocketmq-spring-all-2.2.2-source-release.zip.asc)] [[SHA512](https://archive.apache.org/dist/rocketmq/rocketmq-spring/2.2.2/rocketmq-spring-rocketmq-spring-all-2.2.2.zip.sha512)]
 :::
 <!--truncate-->
 
