@@ -56,26 +56,26 @@ PushConsumer的使用方式比较固定，在消费者初始化时注册一个�
 示例代码如下：
 
 ```java
-//消费示例：使用PushConsumer消费普通消息。
+// 消费示例：使用PushConsumer消费普通消息。
 ClientServiceProvider provider = ClientServiceProvider.loadService();
-        String topic = "Your Topic";
-        FilterExpression filterExpression = new FilterExpression("Your Filter Tag", FilterExpressionType.TAG);
-        PushConsumer pushConsumer = provider.newPushConsumerBuilder()
-                //设置消费者分组。
-                .setConsumerGroup("Your ConsumerGroup")
-                //设置接入点。
-                .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("Your Endpoint").build())
-                //设置预绑定的订阅关系。
-                .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
-                //设置消费监听器。
-                .setMessageListener(new MessageListener() {
-                    @Override
-                    public ConsumeResult consume(MessageView messageView) {
-                        //消费消息并返回处理结果。
-                        return ConsumeResult.SUCCESS;
-                    }
-                })
-                .build();
+String topic = "YourTopic";
+FilterExpression filterExpression = new FilterExpression("YourFilterTag", FilterExpressionType.TAG);
+PushConsumer pushConsumer = provider.newPushConsumerBuilder()
+    // 设置消费者分组。
+    .setConsumerGroup("YourConsumerGroup")
+    // 设置接入点。
+    .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("YourEndpoint").build())
+    // 设置预绑定的订阅关系。
+    .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+    // 设置消费监听器。
+    .setMessageListener(new MessageListener() {
+        @Override
+        public ConsumeResult consume(MessageView messageView) {
+            // 消费消息并返回处理结果。
+            return ConsumeResult.SUCCESS;
+        }
+    })
+    .build();
                 
 ```
 
@@ -138,37 +138,36 @@ SimpleConsumer 是一种接口原子型的消费者类型，消息的获取、�
 SimpleConsumer 的使用涉及多个接口调用，由业务逻辑按需调用接口获取消息，然后分发给业务线程处理消息，最后按照处理的结果调用提交接口，返回服务端当前消息的处理结果。示例如下：
 
 ```java
- //消费示例：使用SimpleConsumer消费普通消息，主动获取消息处理并提交。
-        ClientServiceProvider provider1 = ClientServiceProvider.loadService();
-        String topic1 = "Your Topic";
-        FilterExpression filterExpression1 = new FilterExpression("Your Filter Tag", FilterExpressionType.TAG);
-        SimpleConsumer simpleConsumer = provider1.newSimpleConsumerBuilder()
-                //设置消费者分组。
-                .setConsumerGroup("Your ConsumerGroup")
-                //设置接入点。
-                .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("Your Endpoint").build())
-                //设置预绑定的订阅关系。
-                .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
-                //设置从服务端接受消息的最大等待时间
-                .setAwaitDuration(Duration.ofSeconds(1))
-                .build();
-        List<MessageView> messageViewList = null;
+// 消费示例：使用 SimpleConsumer 消费普通消息，主动获取消息处理并提交。 
+ClientServiceProvider provider = ClientServiceProvider.loadService();
+String topic = "YourTopic";
+FilterExpression filterExpression = new FilterExpression("YourFilterTag", FilterExpressionType.TAG);
+SimpleConsumer simpleConsumer = provider.newSimpleConsumerBuilder()
+        // 设置消费者分组。
+        .setConsumerGroup("YourConsumerGroup")
+        // 设置接入点。
+        .setClientConfiguration(ClientConfiguration.newBuilder().setEndpoints("YourEndpoint").build())
+        // 设置预绑定的订阅关系。
+        .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
+        // 设置从服务端接受消息的最大等待时间
+        .setAwaitDuration(Duration.ofSeconds(1))
+        .build();
+try {
+    // SimpleConsumer 需要主动获取消息，并处理。
+    List<MessageView> messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
+    messageViewList.forEach(messageView -> {
+        System.out.println(messageView);
+        // 消费处理完成后，需要主动调用 ACK 提交消费结果。
         try {
-            //SimpleConsumer需要主动获取消息，并处理。
-            messageViewList = simpleConsumer.receive(10, Duration.ofSeconds(30));
-            messageViewList.forEach(messageView -> {
-                System.out.println(messageView);
-                //消费处理完成后，需要主动调用ACK提交消费结果。
-                try {
-                    simpleConsumer.ack(messageView);
-                } catch (ClientException e) {
-                    e.printStackTrace();
-                }
-            });
+            simpleConsumer.ack(messageView);
         } catch (ClientException e) {
-            //如果遇到系统流控等原因造成拉取失败，需要重新发起获取消息请求。
-            e.printStackTrace();
+            logger.error("Failed to ack message, messageId={}", messageView.getMessageId(), e);
         }
+    });
+} catch (ClientException e) {
+    // 如果遇到系统流控等原因造成拉取失败，需要重新发起获取消息请求。
+    logger.error("Failed to receive message", e);
+}
 ```
 
 SimpleConsumer主要涉及以下几个接口行为：
