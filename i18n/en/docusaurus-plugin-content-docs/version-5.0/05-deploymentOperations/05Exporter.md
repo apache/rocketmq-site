@@ -18,11 +18,10 @@ The Metric class is located in the **`org.apache.rocketmq.expoter.model.metrics`
 :::note The entity classes contain three dimensions of labels：broker、consumer、producer
 
 - **Metric classes related to the broker **: BrokerRuntimeMetric、BrokerMetric、DLQTopicOffsetMetric、TopicPutNumMetric
-
 - **Consumer-related classes **: ConsumerRuntimeConsumeFailedMsgsMetric 、ConsumerRuntimeConsumeFailedTPSMetric 、ConsumerRuntimeConsumeOKTPSMetric、ConsumerRuntimeConsumeRTMetric、ConsumerRuntimePullRTMetric、ConsumerRuntimePullTPSMetric、ConsumerCountMetric、ConsumerMetric、ConsumerTopicDiffMetric
-
 - **Producer-related metric classes**: ProducerMetric 
-  :::
+
+:::
 
 ### Prometheus pulls metrics
 
