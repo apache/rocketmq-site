@@ -28,6 +28,18 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
       }
     },
 
+    scripts: [
+      {
+        src: '//g.alicdn.com/mamba/assets/0.0.9/mse-arc-ui.min.js',
+        async: true
+      },
+    ],
+    stylesheets: [
+      {
+        href: '//g.alicdn.com/mamba/assets/0.0.9/mse-arc-ui.min.css',
+      },
+    ],
+
     presets: [
       [
         "@docusaurus/preset-classic",
