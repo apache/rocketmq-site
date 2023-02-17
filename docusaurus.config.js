@@ -30,13 +30,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
     scripts: [
       {
-        src: '//g.alicdn.com/mamba/assets/0.0.9/mse-arc-ui.min.js',
+        src: '//g.alicdn.com/mamba/assets/0.0.10/mse-arc-ui.min.js',
         async: true
       },
     ],
     stylesheets: [
       {
-        href: '//g.alicdn.com/mamba/assets/0.0.9/mse-arc-ui.min.css',
+        href: '//g.alicdn.com/mamba/assets/0.0.10/mse-arc-ui.min.css',
       },
     ],
 
