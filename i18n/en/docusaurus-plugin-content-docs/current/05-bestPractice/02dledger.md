@@ -32,7 +32,7 @@ $ mvn -Prelease-all -DskipTests clean install -U
 After building successfully
 
 ```shell
-#{rocketmq-version} replace with rocketmq actual version. example: 5.0.0-SNAPSHOT
+#{rocketmq-version} replace with rocketmq actual version. example: 4.9.4
 $ cd distribution/target/rocketmq-{rocketmq-version}/rocketmq-{rocketmq-version}
 $ sh bin/dledger/fast-try.sh start
 ```

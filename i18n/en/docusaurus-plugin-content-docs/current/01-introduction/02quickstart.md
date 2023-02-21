@@ -13,7 +13,7 @@ This section will introduce the method of quickly building and deploying a singl
 
 :::tip Download RocketMQ
 
-RocketMQ's installation is divided into two types: binary and source. Click [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) to download Apache RocketMQ 4.9.4 source package, or download the binary package from [here](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip). The binary package can be run directly since it has been compiled, and the source package needs to be compiled and run.
+RocketMQ's installation is divided into two types: binary and source. Click [here](https://archive.apache.org/dist/rocketmq/4.9.4/rocketmq-all-4.9.4-source-release.zip) to download Apache RocketMQ 4.9.4 source package, or download the binary package from [here](https://archive.apache.org/dist/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip). The binary package can be run directly since it has been compiled, and the source package needs to be compiled and run.
 
 :::
 
