@@ -26,3 +26,8 @@ Below is a summary of the issues addressed in the 1.1.1 release of RocketMQ Stre
 <li>[<a href='https://github.com/apache/rocketmq-streams/issues/270'>ISSUE-270</a>] - [ISSUE-270] - polish double stream join</li>
 <li>[<a href='https://github.com/apache/rocketmq-streams/issues/268'>ISSUE-268</a>] - [ISSUE-268] - modify the return type of flatmap</li>
 </ul>
+
+
+## New Contributors
+* @Jargon9 made their first contribution in https://github.com/apache/rocketmq-streams/pull/259
+
