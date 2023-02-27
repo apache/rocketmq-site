@@ -12,8 +12,6 @@ Consistent subscription relationship: all consumer instances in the same consume
 
 As shown in the following figure, three Consumer instances C1, C2, and C3 in the same Group ID have all subscribed to TopicA, and the Tag of their subscription to TopicA is also Tag1, which conforms to the principle of consistent subscription.
 
-![1658453577894-0e64b114-cb4a-4220-a09a-62bc1f2943c6](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfsw9aaaj20ie0deq3i.jpg)
-
 **Correct example code 1:**
 
 The subscription relationships of C1, C2, and C3 are consistent, meaning the code for subscribing to messages for C1, C2, and C3 must be exactly the same, and the code example is as follows:
@@ -34,8 +32,6 @@ The subscription relationships of C1, C2, and C3 are consistent, meaning the cod
 
 As shown in the following figure, the three Consumer instances C1, C2, and C3 in the same Group ID have all subscribed to TopicB and have subscribed to Tag2 and Tag3 for TopicB, which means they have subscribed to all messages in TopicB with Tag2 or Tag3, and the order is consistent as Tag2||Tag3, meeting the principle of subscription relationship consistency.
 
-![1658453865541-118b0cd0-d597-4a76-9561-ae765540567c](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfudl3awj20nt0gywfj.jpg)
-
 **Correct  example code 2:**
 
 The subscription relationships of C1, C2, and C3 are consistent, meaning the code for subscribing to messages for C1, C2, and C3 must be exactly the same, and the code example is as follows:
@@ -55,8 +51,6 @@ The subscription relationships of C1, C2, and C3 are consistent, meaning the cod
 ### 1.3 Subscribe to multiple Topics and subscribe to multiple Tags
 
 As shown in the following figure, the three Consumer instances C1, C2, and C3 in the same Group ID have all subscribed to TopicA and TopicB, and their subscription to TopicA does not specify any Tag, which means they subscribe to all messages in TopicA, and their subscription to TopicB's Tag is Tag1 and Tag2, which means they subscribe to all messages in TopicB with Tag1 or Tag2, and the order is consistent as Tag1||Tag2, meeting the principle of subscription relationship consistency.
-
-![1658454292557-c07fa0ac-81be-4aac-9c5b-342821c554a6](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfutzsnbj20o40h4t9s.jpg)
 
 **Correct example code 3:**
 
@@ -105,8 +99,6 @@ You can check the consistency of the subscription relationship of the specified 
 
 As shown in the following figure, the three Consumer instances C1, C2, and C3 in the same Group ID have subscribed to TopicA, TopicB, and TopicC, respectively, and their subscriptions to the Topics are not the same, which does not meet the principle of subscription relationship consistency.
 
-![image-20220722102131073](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfvy56ufj20oh0h9wfg.jpg)
-
 **Error example code 1**
 
 + Consumer example 1-1：
@@ -154,8 +146,6 @@ As shown in the following figure, the three Consumer instances C1, C2, and C3 in
 ### 3.2 Consumer instances with the same Group ID subscribe to the same Topic, but their subscriptions to the Tag are different
 
 As shown in the following figure, the three Consumer instances C1, C2, and C3 in the same Group ID have all subscribed to TopicA, but C1 subscribes to Tag1 for TopicA, C2 and C3 subscribe to Tag2 for TopicA, and the subscriptions to the same Topic's Tag are not the same, which does not meet the principle of subscription relationship consistency.
-
-![image-20220722102926055](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfw59vm9j20o30gwwfh.jpg)
 
 **Error example code 2**
 
