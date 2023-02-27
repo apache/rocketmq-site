@@ -31,7 +31,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     scripts: [
       {
         src: '//g.alicdn.com/mamba/assets/0.0.10/mse-arc-ui.min.js',
-        async: true
       },
     ],
     stylesheets: [
