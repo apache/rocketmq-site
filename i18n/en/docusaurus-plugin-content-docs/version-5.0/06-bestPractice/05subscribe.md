@@ -12,7 +12,7 @@ Subscription relationships are consistent when all Consumer instances in the sam
 
 As shown in the following figure, the three Consumer instances C1, C2, and C3 in the same ConsumerGroup have all subscribed to TopicA, and the subscriptions to TopicA's Tag are all Tag1, which meets the principle of subscription relationship consistency.
 
-![1658453577894-0e64b114-cb4a-4220-a09a-62bc1f2943c6](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfsw9aaaj20ie0deq3i.jpg)
+![1658453577894-0e64b114-cb4a-4220-a09a-62bc1f2943c6](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-1.jpeg)
 
 **Correct example code   1:**
 
@@ -60,13 +60,13 @@ In the early 3.x/4.x versions of the SDK, as shown in the following figure, thre
 :::note
 The 5.x version of the SDK now supports Consumer instances in the same ConsumerGroup subscribing to different topics.
 :::
-![image-20220722102131073](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfvy56ufj20oh0h9wfg.jpg)
+![image-20220722102131073](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-2.jpeg)
 
 ### 3.2 Consumer instances in the same ConsumerGroup subscribe to the same topic, but the subscribed tags are different.
 
 As shown in the following figure, the Consumer instances C1, C2, and C3 in the same ConsumerGroup all subscribe to TopicA, but C1 subscribes to Tag1 of TopicA, while C2 and C3 subscribe to Tag2 of TopicA. The subscribed tags of the same topic are inconsistent and do not conform to the consistency principle of subscription relationship.
 
-![image-20220722102926055](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfw59vm9j20o30gwwfh.jpg)
+![image-20220722102926055](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-3.jpeg)
 
 **Error example code 2:**
 
