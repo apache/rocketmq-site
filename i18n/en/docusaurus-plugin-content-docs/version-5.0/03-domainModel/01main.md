@@ -76,15 +76,15 @@ In this model, subsystems are not connected in a tightly coupled manner. The cal
 
 Asynchronous communication provides the following benefits:
 
-* Simple system topologyBecause the caller and callee both communicate only with the agent, the system works in a star structure that is easy to maintain and manage.
+* Simple system topology. Because the caller and callee both communicate only with the agent, the system works in a star structure that is easy to maintain and manage.
 
 
 
-* Weak upstream and downstream couplingWeak coupling enables the system structure to be more flexible. The agent performs buffering and asynchronous recovery. Systems deployed at the upstream and downstream can be upgraded and changed independently without affecting each other.
+* Weak upstream and downstream coupling. Weak coupling enables the system structure to be more flexible. The agent performs buffering and asynchronous recovery. Systems deployed at the upstream and downstream can be upgraded and changed independently without affecting each other.
 
 
 
-* Load shiftingMessage-oriented agents typically provide a large traffic buffer and powerful traffic shaping capability. This prevents traffic peaks from drowning downstream systems.
+* Load shifting. Message-oriented agents typically provide a large traffic buffer and powerful traffic shaping capability. This prevents traffic peaks from drowning downstream systems.
 
 
 
