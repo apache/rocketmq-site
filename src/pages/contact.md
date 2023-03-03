@@ -3,7 +3,7 @@
 
 ## 1. Follow Apache RocketMQ Wechat Account
 
-![Screen Shot 2022-07-08 at 5.33.07 PM](https://tva1.sinaimg.cn/large/e6c9d24ely1h3znj1j4lvj21ni0io0un.jpg)
+![Screen Shot 2022-07-08 at 5.33.07 PM](../../static/img/contact.jpeg)
 
 
 
