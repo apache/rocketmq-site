@@ -12,7 +12,7 @@
 
 如下图所示，同一 ConsumerGroup 下的三个Consumer实例C1、C2和C3分别都订阅了TopicA，且订阅TopicA的Tag也都是Tag1，符合订阅关系一致原则。
 
-![1658453577894-0e64b114-cb4a-4220-a09a-62bc1f2943c6](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfsw9aaaj20ie0deq3i.jpg)
+![1658453577894-0e64b114-cb4a-4220-a09a-62bc1f2943c6](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-1.jpeg)
 
 
 **正确示例代码一**
@@ -61,13 +61,13 @@ RocketMQ 强调订阅关系一致，核心是指相同 ConsumerGroup 的每个 C
 :::note
 5.x版本SDK 已经支持同一个 ConsumerGroup 下的Consumer实例订阅不同的Topic。
 :::
-![image-20220722102131073](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfvy56ufj20oh0h9wfg.jpg)
+![image-20220722102131073](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-2.jpeg)
 
 ### 3.2 同一 ConsumerGroup 下的 Consumer 实例订阅的Topic相同，但订阅的Tag不一致
 
 如下图所示，同一 ConsumerGroup 下的三个Consumer实例C1、C2和C3分别都订阅了TopicA，但是C1订阅TopicA的Tag为**Tag1**，C2和C3订阅的TopicA的Tag为**Tag2**，订阅同一Topic的Tag不一致，不符合订阅关系一致性原则。
 
-![image-20220722102926055](https://tva1.sinaimg.cn/large/e6c9d24egy1h4lfw59vm9j20o30gwwfh.jpg)
+![image-20220722102926055](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-3.jpeg)
 
 **错误示例代码二**
 
