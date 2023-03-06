@@ -1,8 +1,5 @@
 # RocketMQ Streams 快速开始
 
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-
-
 ## RocketMQ Streams工程中运行
 参考RocketMQ Streams工程rocketmq-streams-examples模块下程序可以直接运行；运行example步骤：
 * 本地启动RocketMQ 5.0及以上版本;
