@@ -5,6 +5,8 @@ RocketMQ exposes the following metrics in Prometheus format. You can monitor you
 - Producer metrics
 - Consumer metrics
 
+>Version support: The following metrics for RocketMQ were introduced since 5.1.0 and only support the broker.
+
 
 ## Details of metrics
 
@@ -16,9 +18,9 @@ The following table describes the labels of the metrics that are related to the 
 
 - cluster: RocketMQ cluster name.
 - node_type: the type of service node, whitch includes the following:proxy,broker,nameserver.
-- node_id:the ID of the service node.
+- node_id: the ID of the service node.
 - topic: the topic of RocketMQ.
-- message_type: the type of a message, which includes the following:<br />Normal:normal messages;<br />FIFO:ordered messages;<br />Transaction:Transactional messages;<br />Delay:scheduled or delayed messages.
+- message_type: the type of a message, which includes the following:<br />normal:normal messages;<br />fifo:ordered messages;<br />transaction:Transactional messages;<br />delay:scheduled or delayed messages.
 - consumer_group: the ID of the consumer group.
 
 | Type | Name | Unit | Description | Label |
@@ -34,12 +36,6 @@ The following table describes the labels of the metrics that are related to the 
 | gauge | rocketmq_consumer_lag_latency | millisecond | The delayed time before messages are consumed. | cluster,node_type,node_id,topic, consumer_group |
 | counter | rocketmq_send_to_dlq_messages_total | count | The number of messages that are sent to the dead-letter queue. | cluster,node_type,node_id,topic, consumer_group |
 | histogram | rocketmq_rpc_latency | millisecond | The rpc call latency | cluster,node_typ,node_id,protocol_type,request_code,response_code |
-| gauge | rocketmq_storage_size | byte | The size of the storage space that is used by the node. | cluster,node_type,node_id |
-| counter | rocketmq_storage_read_bytes_total | byte | The amount of data read by the storage layer. | cluster,node_type,node_id,topic |
-| gauge | rocketmq_storage_read_bytes_max | byte | Peak data read per second of the storage layer. | cluster,node_type,node_id,topic |
-| counter | rocketmq_storage_write_bytes_total | byte | The amount of data write to the storage layer. | cluster,node_type,node_id,topic |
-| gauge | rocketmq_storage_write_bytes_max | byte | Peak data write per second to the storage layer. | cluster,node_type,node_id,topic |
-| Histogram | rocketmq_storage_write_latency | millisecond | The latency of messages sizes. This metric is counted only when messages are sent. The following shows the distribution ranges:<br />le_1_ns: ≤ 1 ns<br /> le_10_ns: ≤ 10 ns<br />le_100_ns: ≤ 100 ns<br />le_1000_ns: ≤ 1 ms<br />le_overflow: > 1 ms  | cluster,node_type,node_id,topic,message_type |
 | gauge | rocketmq_storage_message_reserve_time | millisecond | Message retention time. | cluster,node_type,node_id |
 | gauge | rocketmq_storage_dispatch_behind_bytes | byte | Undispatched message size. | cluster,node_type,node_id |
 | gauge | rocketmq_storage_flush_behind_bytes | byte | Unflushed messsage size. | cluster,node_type,node_id |
@@ -52,9 +48,9 @@ The following table describes the labels of the metrics that are related to the 
 
 - cluster: RocketMQ cluster name.
 - node_type: the type of service node, whitch includes the following:proxy,broker,nameserver.
-- node_id:the ID of the service node.
+- node_id: the ID of the service node.
 - topic: the topic of Message Queue for Apache RocketMQ.
-- message_type: the type of a message, which includes the following:<br />Normal:normal messages;<br />FIFO:ordered messages;<br />Transaction:Transactional messages;<br />Delay:scheduled or delayed messages.
+- message_type: the type of a message, which includes the following:<br />normal:normal messages;<br />fifo:ordered messages;<br />transaction:Transactional messages;<br />delay:scheduled or delayed messages.
 - client_id: the ID of the client.
 - invocation_status: the result of the API call for sending messages, which includes success and failure.
 

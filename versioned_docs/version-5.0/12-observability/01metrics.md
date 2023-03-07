@@ -1,10 +1,11 @@
 # Metrics
-RocketMQ以Prometheus格式公开以下指标。您可以使用这些指标监视您的集群。
+RocketMQ 以 Prometheus 格式公开以下指标。您可以使用这些指标监视您的集群。
 
 - 服务端Metrics指标
 - 生产者Metrics指标
 - 消费者Metrics指标
 
+>版本支持：以下指标 Metrics 是从 5.1.0 版本开始支持。
 
 ## Metrics指标详情
 
@@ -33,12 +34,6 @@ RocketMQ以Prometheus格式公开以下指标。您可以使用这些指标监�
 | gauge | rocketmq_consumer_lag_latency | millisecond | 消费处理延迟时间。 | cluster,node_type,node_id,topic, consumer_group |
 | counter | rocketmq_send_to_dlq_messages_total | count | 转为死信状态的消息量。（变成死信状态指的是消息达到最大重投次数后不再投递） | cluster,node_type,node_id,topic, consumer_group |
 | histogram | rocketmq_rpc_latency | millisecond | rpc 调用耗时：<br />le_1_ms<br />le_3_ms<br />le_5_ms<br />le_10_ms<br />le_100_ms<br />le_1_s<br />le_3_s<br />le_overflow | cluster,node_typ,node_id,protocol_type,request_code,response_code |
-| gauge | rocketmq_storage_size | byte | 存储大小，包含所有文件。| cluster,node_type,node_id |
-| counter | rocketmq_storage_read_bytes_total | byte | 储存层读取数据量。 | cluster,node_type,node_id,topic |
-| gauge | rocketmq_storage_read_bytes_max | byte | 储存层每秒读取数据量峰值。 | cluster,node_type,node_id,topic |
-| counter | rocketmq_storage_write_bytes_total | byte | 储存层写入数据量。| cluster,node_type,node_id,topic |
-| gauge | rocketmq_storage_write_bytes_max | byte | 储存层每秒写入数据量峰值。  | cluster,node_type,node_id,topic |
-| Histogram | rocketmq_storage_write_latency | millisecond | 储存层写入消息耗时：<br />le_1_ns: ≤ 1 ns<br /> le_10_ns: ≤ 10 ns<br />le_100_ns: ≤ 100 ns<br />le_1000_ns: ≤ 1 ms<br />le_overflow: > 1 ms | cluster,node_type,node_id,topic,message_type |
 | gauge | rocketmq_storage_message_reserve_time | millisecond | 储存层消息保存时间（broker 硬盘上最早一条消息储存时间和当前时间作差） | cluster,node_type,node_id |
 | gauge | rocketmq_storage_dispatch_behind_bytes | byte | dispatch 落后大小 | cluster,node_type,node_id |
 | gauge | rocketmq_storage_flush_behind_bytes | byte | 刷盘落后大小。 | cluster,node_type,node_id |
@@ -88,7 +83,7 @@ RocketMQ以Prometheus格式公开以下指标。您可以使用这些指标监�
 | 已就绪消息（ready messages） | 消息在消息队列RocketMQ版服务端已就绪，对消费者可见可被消费的消息。 | 最大消费位点－最晚一条拉取消息的位点 |
 | 已就绪消息的就绪时间（ready time） | 普通消息、顺序消息：消息存储到服务端的时间。 <br /> 定时/延时消息：消息定时或延时结束的时间。 <br />  事务消息：事务提交的时间。 | -- |
 | 已就绪消息的排队时间（ready message queue time）| 该时间反应消费者拉取消息的及时性。 | 当前时间－最早一条就绪消息的就绪时间 |
-| 消费处理滞后时间（comsumer lag time） | 该时间反应消费者完成消息处理的及时性。 | 当前时间－最早一条未提交消息的就绪时间|
+| 消费处理滞后时间（consumer lag time） | 该时间反应消费者完成消息处理的及时性。 | 当前时间－最早一条未提交消息的就绪时间|
 
 
 ### PushConsumer 消费场景
