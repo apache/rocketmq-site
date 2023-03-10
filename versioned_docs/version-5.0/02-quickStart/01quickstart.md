@@ -57,13 +57,13 @@ NameServer成功启动后，我们启动Broker和Proxy，5.x 版本下我们建�
 $ nohup sh bin/mqbroker -n localhost:9876 --enable-proxy &
 
 ### 验证broker是否启动成功, 比如, broker的ip是192.168.1.2 然后名字是broker-a
-$ tail -f ~/logs/rocketmqlogs/broker_default.log 
+$ tail -f ~/logs/rocketmqlogs/proxy.log 
 The broker[broker-a,192.169.1.2:10911] boot success...
 ```
 
 :::info
 
-我们可以在 broker_default.log 中看到“The broker[brokerName,ip:port] boot success..”，这表明 broker 已成功启动。
+我们可以在 proxy.log 中看到“The broker[brokerName,ip:port] boot success..”，这表明 broker 已成功启动。
 
 :::
 
