@@ -56,13 +56,13 @@ After nameserver startup, we need start the broker and proxy. We recommend Local
 $ nohup sh bin/mqbroker -n localhost:9876 --enable-proxy &
 
 ### verify broker
-$ tail -f ~/logs/rocketmqlogs/broker_default.log 
+$ tail -f ~/logs/rocketmqlogs/proxy.log 
 The broker[broker-a,192.169.1.2:10911] boot success...
 ```
 
 :::info
 
-Once we see “The broker[brokerName,ip:port] boot success..” from broker.log, it means the Broker has been started successfully.
+Once we see “The broker[brokerName,ip:port] boot success..” from proxy.log, it means the Broker has been started successfully.
 :::
 
 :::note
