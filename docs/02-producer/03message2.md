@@ -86,4 +86,4 @@ create topic to 127.0.0.1:10911 success.
 TopicConfig [topicName=TopicTest, readQueueNums=8, writeQueueNums=8, perm=RW-, topicFilterType=SINGLE_TAG, topicSysFlag=0, order=true, attributes=null]
 ```
 
-其次要保证NameServer中的配置 ```orderMessageEnable``` 和 ```returnOrderTopicConfigToBroker``` 必须是 true。如果上述任意一个条件不满足，则是保证可用性而不是严格顺序。
+其次要保证NameServer中的配置 ```orderMessageEnable``` 必须是 true。如果上述任意一个条件不满足，则是保证可用性而不是严格顺序。
