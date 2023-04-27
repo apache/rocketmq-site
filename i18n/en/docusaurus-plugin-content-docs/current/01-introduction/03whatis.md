@@ -93,6 +93,12 @@ The main Apache RocketMQ components are Producers, Consumers, NameServers, and B
 
 A  producer serves as a data source that optimizes, writes, and publishes messages to one or more  topics. Producers load balance data among brokers through MessageQueue. It supports fail-fast and retries during sending messages.
 
+Producers can send messages in either synchronous or asynchronous mode. In synchronous mode, the producer waits for an acknowledgment from the broker before proceeding, while in asynchronous mode, the producer sends the message and continues with its operation without waiting for an acknowledgment.
+
+Producers can also specify a key for each message they send. The key is used by the broker to determine which partition within a topic the message should be stored in.
+
+Producers can also specify a callback function that will be invoked once the broker acknowledges receipt of the message. This allows the producer to handle any errors that may occur during message transmission.
+
 ### **Consumer**
 
 Consumers read data by reading messages from the topics to which they subscribe.
