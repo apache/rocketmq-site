@@ -3,8 +3,12 @@
 
 ## 1. Follow Apache RocketMQ Wechat Account
 
-![Screen Shot 2022-07-08 at 5.33.07 PM](../../static/img/contact.jpeg)
+- **WeChat Number: rocketmqcc**
+  ![WeChat](../../static/img/wechat.jpg)
 
+
+- **DingDing Number:21982288**
+  ![DingDing](../../static/img/dingding.jpg)
 
 
 
