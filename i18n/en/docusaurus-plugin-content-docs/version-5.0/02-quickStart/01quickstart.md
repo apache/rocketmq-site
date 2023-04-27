@@ -125,7 +125,7 @@ We can also try to use the client sdk to send and receive messages, you can see 
 
         public static void main(String[] args) throws ClientException, IOException {
             String endpoint = "localhost:8081";
-            String topic = "YourTopic";
+            String topic = "TestTopic";
             ClientServiceProvider provider = ClientServiceProvider.loadService();
             ClientConfigurationBuilder builder = ClientConfiguration.newBuilder().setEndpoints(endpoint);
             ClientConfiguration configuration = builder.build();
@@ -180,7 +180,7 @@ We can also try to use the client sdk to send and receive messages, you can see 
             String tag = "*";
             FilterExpression filterExpression = new FilterExpression(tag, FilterExpressionType.TAG);
             String consumerGroup = "YourConsumerGroup";
-            String topic = "YourTopic";
+            String topic = "TestTopic";
             PushConsumer pushConsumer = provider.newPushConsumerBuilder()
                 .setClientConfiguration(clientConfiguration)
                 .setConsumerGroup(consumerGroup)
