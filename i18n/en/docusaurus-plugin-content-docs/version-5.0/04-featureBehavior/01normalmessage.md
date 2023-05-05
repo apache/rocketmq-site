@@ -45,7 +45,24 @@ Normal messages support only topics whose MessageType is Normal.
 
 ## Example
 
-You can set index keys and filter tags to filter or search for normal messages. The following sample code shows how to send and receive normal messages in Java:
+You can set index keys and filter tags to filter or search for normal messages.
+
+**Create NORMAL Topic**
+
+The default topic type is **NORMAL**, so there is no special parameters.
+
+```bash
+./bin/mqadmin updateTopic -c DefaultCluster -t NormalTopic -n 127.0.0.1:9876
+```
+
++ -c the cluster name
++ -t the topic name
++ -n the address of the nameserver
+
+
+
+ The following sample code shows how to send and receive normal messages in Java:
+
 ```java
 // Send a normal message. 
   MessageBuilder messageBuilder = new MessageBuilder();

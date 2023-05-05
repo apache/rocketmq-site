@@ -94,6 +94,19 @@ The status of delay messages in Apache RocketMQ can be persistently stored. If t
 
 Unlike normal messages, delay messages must have a delivery timestamp specified for them.
 
+**Create DELAY Topic**
+
+```bash
+/bin/mqadmin updateTopic -c DefaultCluster -t DelayTopic -n 127.0.0.1:9876 -a +message.type=DELAY
+```
+
++ -c the cluster name
++ -t the topic name
++ -n the address of the nameserver
++ **-a extra attributes，we add an `message.type` attribute with value `DELAY` to support delivery DELAY message.**
+
+
+
 The following code provides Java examples of delivery and consumption of delay messages:
 
 ```java

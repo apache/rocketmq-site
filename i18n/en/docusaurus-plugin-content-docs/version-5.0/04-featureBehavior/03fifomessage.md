@@ -68,6 +68,7 @@ In the preceding figure, messages from MessageGroup 1 and MessageGroup 4 are sto
   In scenarios in which the consumption order is critical, we recommend that you specify an appropriate number of retries to prevent out-of-order message processing.
 
   
+
 **Combination of production order and consumption order**
 
 If you want messages to be processed based on the FIFO principle, the production order and the consumption order are required. In most business scenarios, a producer may map to multiple consumers, and not all consumers require ordered consumption of messages. You can combine the settings of production order and consumption order to meet your requirements in different business scenarios. For example, you can send ordered messages and use non-sequential concurrent consumption to improve throughput. The following table describes different combinations of production order and consumption order settings.
@@ -115,6 +116,21 @@ Ordered messages support only topics whose MessageType is FIFO.
 ## Example
 
 Compared with normal messages, ordered messages must have message groups configured for them. We recommend that you configure message groups at a fine-grained level based on your business requirements to allow for workload decoupling and concurrency scaling.
+
+**Create FIFO Topic**
+
+
+
+```bash
+./bin/mqadmin updateTopic -c DefaultCluster -t FIFOTopic -o true -n 127.0.0.1:9876
+```
+
++ -c the cluster name
++ -t the topic name
++ -n the address of the nameserver
++ **-o the flag to create a ordered Topic**
+
+
 
 The following sample code provides an example on how to send and receive ordered messages in Java:
 
