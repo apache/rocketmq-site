@@ -2,12 +2,11 @@
 
 ## Connector
 
-连接器，定义数据从哪复制到哪，是从源数据系统读取数据写入RocketMQ，这种是SourceConnector
-，或从RocketMQ读数据写入到目标系统,这种是SinkConnector。Connector决定需要创建任务的数量，从Worker接收配置传递给任务。
+连接器，定义数据从哪复制到哪，是从源数据系统读取数据写入RocketMQ，这种是SourceConnector，或从RocketMQ读数据写入到目标系统,这种是SinkConnector。Connector决定需要创建任务的数量，从Worker接收配置传递给任务。
 
 ## Task
 
-是Connector任务分片的最小分配单位，是实际将源数据源数据复制数据到RocketMQ（SourceTask），或者将数据从RocketMQ读取数据写入到目标系统（SinkTask）真正的执行者，Task是无状态的可以动态的启停任务，多个Task是可以并行执行的，Connector复制数据的并行度主要体现在Task数量上。
+Task是Connector任务分片的最小分配单位，是实际将源数据源数据复制数据到RocketMQ（SourceTask），或者将数据从RocketMQ读取数据写入到目标系统（SinkTask）真正的执行者，Task是无状态的可以动态的启停任务，多个Task是可以并行执行的，Connector复制数据的并行度主要体现在Task数量上。
 
 ![RocketMQ基本模型](../picture/32rocketmq-connect/Connector-Task-Concept.png)
 
