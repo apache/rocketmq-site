@@ -83,6 +83,16 @@ Apache RocketMQ 定时消息的状态支持持久化存储，系统由于故障�
 
 ## 使用示例
 
+**创建主题**
+
+Apache RocketMQ 5.0版本下创建主题操作，推荐使用mqadmin工具，需要注意的是，对于消息类型需要通过属性参数添加。示例如下：
+
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=Delay
+```
+
+**发送消息**
+
 和普通消息相比，定时消费发送时，必须设置定时触发的目标时间戳。
 
 以Java语言为例，使用定时消息示例参考如下：
