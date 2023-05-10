@@ -109,26 +109,37 @@ public class AsyncProducer {
     // Start Producer
     producer.start();
     producer.setRetryTimesWhenSendAsyncFailed(0);
-    for (int i = 0; i < 100; i++) {
-      final int index = i;
-      // Create a message and set the topic, tag, body and so on. The tag can be understood as a label to categorize the message, and RocketMQ can filter the tag on the consumer side.
-      Message msg = new Message("TopicTest",
-        "TagA",
-        "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
-      // Send a message asynchronously, the result is returned to the client by callback
-      producer.send(msg, new SendCallback() {
-        @Override
-        public void onSuccess(SendResult sendResult) {
-          System.out.printf("%-10d OK %s %n", index,
-            sendResult.getMsgId());
+    int messageCount = 100;
+    final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
+    for (int i = 0; i < messageCount; i++) {
+      try {
+          final int index = i;
+          // Create a message and set the topic, tag, body and so on. The tag can be understood as a label to categorize the message, and RocketMQ can filter the tag on the consumer side.
+          Message msg = new Message("TopicTest",
+            "TagA",
+            "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
+            // Send a message asynchronously, the result is returned to the client by callback
+          producer.send(msg, new SendCallback() {
+            @Override
+            public void onSuccess(SendResult sendResult) {
+              System.out.printf("%-10d OK %s %n", index,
+                sendResult.getMsgId());
+              countDownLatch.countDown();
+            }
+            @Override
+            public void onException(Throwable e) {
+              System.out.printf("%-10d Exception %s %n", index, e);
+              e.printStackTrace();
+              countDownLatch.countDown();
+            }
+          });
+        } catch (Exception e) {
+            e.printStackTrace();
+            countDownLatch.countDown();
         }
-        @Override
-        public void onException(Throwable e) {
-          System.out.printf("%-10d Exception %s %n", index, e);
-          e.printStackTrace();
-        }
-      });
     }
+    //If reliable transmission is required for asynchronous sending, the logic must not be terminated until a clear result is returned from the callback interface. Otherwise, closing the Producer immediately may result in some messages not being successfully transmitted.
+    countDownLatch.await(5, TimeUnit.SECONDS);
     // Close the producer once it is no longer in use
     producer.shutdown();
   }
