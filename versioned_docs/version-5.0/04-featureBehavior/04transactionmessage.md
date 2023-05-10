@@ -112,6 +112,16 @@ Apache RocketMQ 事务消息的命周期存在超时机制，即半事务消息�
 
 ## 使用示例
 
+**创建主题**
+
+Apache RocketMQ 5.0版本下创建主题操作，推荐使用mqadmin工具，需要注意的是，对于消息类型需要通过属性参数添加。示例如下：
+
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=Transaction
+```
+
+**发送消息**
+
 事务消息相比普通消息发送时需要修改以下几点：
 
 * 发送事务消息前，需要开启事务并关联本地的事务执行。
