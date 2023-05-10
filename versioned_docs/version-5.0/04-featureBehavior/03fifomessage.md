@@ -121,6 +121,16 @@ Apache RocketMQ 的消息的顺序性分为两部分，生产顺序性和消费�
 
 ## 使用示例
 
+**创建主题**
+
+Apache RocketMQ 5.0版本下创建主题操作，推荐使用mqadmin工具，需要注意的是，对于消息类型需要通过属性参数添加。示例如下：
+
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=FIFO
+```
+
+**发送消息**
+
 和普通消息发送相比，顺序消息发送必须要设置消息组。消息组的粒度建议按照业务场景，尽可能细粒度设计，以便实现业务拆分和并发扩展。
 
 以Java语言为例，收发顺序消息的示例代码如下：

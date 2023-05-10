@@ -45,6 +45,16 @@ Normal messages support only topics whose MessageType is Normal.
 
 ## Example
 
+**Create topic**
+
+For creating topics in Apache RocketMQ 5.0, it is recommended to use the mqadmin tool. However, it is worth noting that message type needs to be added as a property parameter. Here is an example:
+
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=Normal
+```
+
+**Send messages**
+
 You can set index keys and filter tags to filter or search for normal messages. The following sample code shows how to send and receive normal messages in Java:
 ```java
 // Send a normal message. 

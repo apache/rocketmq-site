@@ -8,6 +8,12 @@ Apache RocketMQ 中消息传输和存储的顶层容器，用于标识同一类�
 ## 消息类型（MessageType）
 Apache RocketMQ 中按照消息传输特性的不同而定义的分类，用于类型管理和安全校验。 Apache RocketMQ 支持的消息类型有普通消息、顺序消息、事务消息和定时/延时消息。
 
+:::info
+
+Apache RocketMQ 从5.0版本开始，支持强制校验消息类型，即每个主题Topic只允许发送一种消息类型的消息，这样可以更好的运维和管理生产系统，避免混乱。但同时保证向下兼容4.x版本行为，强制校验功能默认关闭，推荐通过服务端参数 enableTopicMessageTypeCheck 手动开启校验。
+
+:::
+
 ## 消息队列（MessageQueue）
 队列是 Apache RocketMQ 中消息存储和传输的实际容器，也是消息的最小存储单元。 Apache RocketMQ 的所有主题都是由多个队列组成，以此实现队列数量的水平拆分和队列内部的流式存储。队列通过QueueId来做唯一标识和区分。更多信息，请参见[队列（MessageQueue）](../03-domainModel/03messagequeue.md)。
 
