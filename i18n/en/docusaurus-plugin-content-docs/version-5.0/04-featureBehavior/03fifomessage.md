@@ -115,6 +115,16 @@ Ordered messages support only topics whose MessageType is FIFO.
 
 ## Example
 
+**Create topic**
+
+For creating topics in Apache RocketMQ 5.0, it is recommended to use the mqadmin tool. However, it is worth noting that message type needs to be added as a property parameter. Here is an example:
+
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=FIFO
+```
+
+**Send messages**
+
 Compared with normal messages, ordered messages must have message groups configured for them. We recommend that you configure message groups at a fine-grained level based on your business requirements to allow for workload decoupling and concurrency scaling.
 
 **Create FIFO Topic**

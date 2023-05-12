@@ -41,21 +41,16 @@
 
 ## 使用示例
 
-普通消息支持设置消息索引键、消息过滤标签等信息，用于消息过滤和搜索查找。
+**创建主题**
 
-**创建Normal主题**
+Apache RocketMQ 5.0版本下创建主题操作，推荐使用mqadmin工具，需要注意的是，对于消息类型需要通过属性参数添加。示例如下：
 
-```bash
-./bin/mqadmin updateTopic -c DefaultCluster -t NormalTopic -n 127.0.0.1:9876
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=Normal
 ```
 
-+ -c 集群名称
-+ -t Topic名称
-+ -n nameserver地址
-
-
-
-以Java语言为例，收发普通消息的示例代码如下：
+**发送消息**
+普通消息支持设置消息索引键、消息过滤标签等信息，用于消息过滤和搜索查找。以Java语言为例，收发普通消息的示例代码如下：
 
 ```java
 //普通消息发送。

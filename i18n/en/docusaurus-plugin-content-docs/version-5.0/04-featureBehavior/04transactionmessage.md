@@ -116,6 +116,16 @@ Apache RocketMQ implements a timeout mechanism for transactional messages. Upon 
 
 ## Example
 
+**Create topic**
+
+For creating topics in Apache RocketMQ 5.0, it is recommended to use the mqadmin tool. However, it is worth noting that message type needs to be added as a property parameter. Here is an example:
+
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=Transaction
+```
+
+**Send messages**
+
 Sending transactional messages is different from sending normal messages in the following aspects:
 
 * Before sending transactional messages, you must enable the transaction checker and associate it with local transaction execution.

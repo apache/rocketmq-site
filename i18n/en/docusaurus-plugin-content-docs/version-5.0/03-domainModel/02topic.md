@@ -59,7 +59,7 @@ A topic contains one or more queues. Message storage and scalability are impleme
 
   * Transaction: [Transaction messages](../04-featureBehavior/04transactionmessage.md). Apache RocketMQ supports distributed transaction messages and ensures transaction consistency of database updates and message calls.
 
-* Constraint: A topic supports only one message type.
+* Constraint: Starting from version 5.0, Apache RocketMQ supports enforcing the validation of message types, that is, each topic only allows messages of a single type to be sent. This can better facilitate operation and management of production systems and avoid confusion. However, to ensure backward compatibility with version 4.x, the validation feature is disabled by default. It is recommended to enable it manually through the server parameter "enableTopicMessageTypeCheck".
 
 
 ## Behavior constraints
@@ -72,6 +72,11 @@ Apache RocketMQ version 5.x allows you to specify a message type for a topic. Th
 
 * Only one type of messages sent to a topicThe messages that you want to send to a topic must use the same message type. Only one message type can be specified for a topic.
 
+:::info
+
+To ensure backward compatibility with version 4.x, the above validation feature is disabled by default. It is recommended to enable the validation by using the server parameter "enableTopicMessageTypeCheck".
+
+:::
 
 **Examples of common usage errors**
 
@@ -86,6 +91,13 @@ Apache RocketMQ version 5.x allows you to specify a message type for a topic. Th
 Forced message type verification is available only in Apache RocketMQ version 5.x. The SDKs of Apache RocketMQ versions 4.x and 3.x do not support forced message type verification. If you use version 4.x or 3.x, make sure that message types are consistent.
 
 We recommend that you use Apache RocketMQ version 5.x.
+
+## Usage Example
+For creating topics in Apache RocketMQ 5.0, it is recommended to use the mqadmin tool. However, it is worth noting that message type needs to be added as a property parameter. The following is an example:
+```shell
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=<message_type>
+```
+Among these, the message_type parameter can be set as Normal/FIFO/Delay/Transaction based on the message type. If it is not specified, it defaults to the Normal type.
 
 ## Usage notes
 
