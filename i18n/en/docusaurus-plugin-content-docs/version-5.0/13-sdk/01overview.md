@@ -63,16 +63,8 @@ Want the detailed design thinking and evolutionary direction, refer to [RIP-37: 
 
 ### SDK Info
 
-The currently supported programming languages and code repositories are as follows:
+The currently supported programming languages and code repositories, refer to [rocketmq-clients](https://github.com/apache/rocketmq-clients#features-and-status).
 
-| **Language** |**ReleaseNote** |**SDK Repo** |
-|---------|---------|---------|
-|Java|[ReleaseNote from main repo](https://github.com/apache/rocketmq-clients/releases)|[Main repo](https://github.com/apache/rocketmq-clients)|
-|C++|[ReleaseNote from main repo](https://github.com/apache/rocketmq-clients/releases)|[Main repo](https://github.com/apache/rocketmq-clients)|
-|.NET|[ReleaseNote from main repo](https://github.com/apache/rocketmq-clients/releases)|[Main repo](https://github.com/apache/rocketmq-clients)|
-|Go|[ReleaseNote from main repo](https://github.com/apache/rocketmq-clients/releases)|[Main repo](https://github.com/apache/rocketmq-clients)|
-|Rust|[ReleaseNote from main repo](https://github.com/apache/rocketmq-clients/releases)|[Main repo](https://github.com/apache/rocketmq-clients)|
-|PHP/NodeJS/Python|working|[Main repo](https://github.com/apache/rocketmq-clients)|
 
 ### Features
 Waiting updates.

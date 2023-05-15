@@ -57,16 +57,8 @@ gRPC SDK 相比早期Remoting 协议 SDK 具备如下优势：
 - 多语言支持更完善，由于gRPC协议的多语言优势，可以更低成本演进出行为一致的多语言sdk。
 详细的设计思考和演进方向，参考[RIP-37: New and Unified APIs](https://shimo.im/docs/m5kv92OeRRU8olqX) 和 [RIP-39: Support gRPC protocol](https://shimo.im/docs/gXqmeEPYgdUw5bqo)。
 
-目前支持的开发语言和代码仓库详情如下：
+目前支持的开发语言和代码仓库详情可直接参考[rocketmq-clients](https://github.com/apache/rocketmq-clients#features-and-status) SDK 仓库信息。
 
-| **语言** |**ReleaseNote** |**SDK仓库** |
-|---------|---------|---------|
-|Java|[主仓库版本列表](https://github.com/apache/rocketmq-clients/releases)|[主仓库地址](https://github.com/apache/rocketmq-clients)|
-|C++|[主仓库版本列表](https://github.com/apache/rocketmq-clients/releases)|[主仓库地址](https://github.com/apache/rocketmq-clients)|
-|.NET|[主仓库版本列表](https://github.com/apache/rocketmq-clients/releases)|[主仓库地址](https://github.com/apache/rocketmq-clients)|
-|Go|[主仓库版本列表](https://github.com/apache/rocketmq-clients/releases)|[主仓库地址](https://github.com/apache/rocketmq-clients)|
-|Rust|[主仓库版本列表](https://github.com/apache/rocketmq-clients/releases)|[主仓库地址](https://github.com/apache/rocketmq-clients)|
-|PHP/NodeJS/Python|开发中|[主仓库地址](https://github.com/apache/rocketmq-clients)|
 
 ### 支持特性列表
 待补充
