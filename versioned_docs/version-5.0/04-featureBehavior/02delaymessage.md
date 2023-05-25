@@ -95,6 +95,19 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 
 和普通消息相比，定时消费发送时，必须设置定时触发的目标时间戳。
 
+**创建延迟主题**
+
+```bash
+/bin/mqadmin updateTopic -c DefaultCluster -t DelayTopic -n 127.0.0.1:9876 -a +message.type=DELAY
+```
+
++ -c 集群名称
++ -t Topic名称
++ -n nameserver地址
++ -a 额外属性，本例给主题添加了`message.type`为`DELAY`的属性用来支持延迟消息
+
+
+
 以Java语言为例，使用定时消息示例参考如下：
 
 ```java

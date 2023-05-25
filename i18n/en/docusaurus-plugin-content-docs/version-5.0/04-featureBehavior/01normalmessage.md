@@ -56,6 +56,7 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 **Send messages**
 
 You can set index keys and filter tags to filter or search for normal messages. The following sample code shows how to send and receive normal messages in Java:
+
 ```java
 // Send a normal message. 
   MessageBuilder messageBuilder = new MessageBuilder();
