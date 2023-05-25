@@ -128,6 +128,20 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 
 * 为保证事务一致性，在构建生产者时，必须设置事务检查器和预绑定事务消息发送的主题列表，客户端内置的事务检查器会对绑定的事务主题做异常状态恢复。
 
+**创建事务主题**
+
+*NORMAL类型Topic不支持TRANSACTION类型消息，生产消息会报错。*
+
+```bash
+./bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster -a +message.type=TRANSACTION
+```
+
++ -c 集群名称
++ -t Topic名称
++ -n nameserver地址
++ -a 额外属性，本例给主题添加了`message.type`为`TRANSACTION`的属性用来支持事务消息
+
+
 
 以Java语言为例，使用事务消息示例参考如下：
 
@@ -224,7 +238,6 @@ Apache RocketMQ支持在事务提交阶段异常的情况下发起事务回查�
 * 将第一次事务回查时间设置较大一些，但可能导致依赖回查的事务提交延迟较大。
 
 * 程序能正确识别正在进行中的事务。
-
 
 
 

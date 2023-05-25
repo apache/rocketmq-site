@@ -65,7 +65,6 @@ The following figure shows the interaction process of transactional messages.![ä
 
    * If the status of the message received by the broker is Rollback, the broker rolls back the transaction and does not deliver the half message to the consumer.
    
-
 5. If the network is disconnected or the producer application is restarted and the broker does not receive a second ACK or the status of the half message is Unknown, the broker waits a period of time and sends a request to a producer in the producer cluster to query the status of the half message.
    **Note** For more information about the length of the period and the maximum number of queries, see[Parameter limits](../01-introduction/03limits.md).
 
@@ -132,6 +131,19 @@ Sending transactional messages is different from sending normal messages in the 
 * Before sending transactional messages, you must enable the transaction checker and associate it with local transaction execution.
 
 * When creating a producer, you must set the transaction checker and bind the list of topics of messages to be sent. These actions enable the built-in transaction checker of the client to restore topics in the event of exceptions.
+
+**Create TRANSACTION Topic**
+
+*NORMAL Topic doesn't support delivery TRANSACTION message, you'll get an error if you send a TRANSACTION message to a NORMAL topic.*
+
+```bash
+./bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster -a +message.type=TRANSACTION
+```
+
++ -c the cluster name
++ -t the topic name
++ -n the address of the nameserver
++ **-a extra attributesï¼Œwe add an `message.type` attribute with value `TRANSACTION` to support delivery TRANSACTION message.**
 
 The following example uses Java as an example to show you how to send transactional messages:
 
@@ -231,7 +243,6 @@ Generally, the reason why the transaction is in progress is that the transaction
 * Set the interval for the first query to a larger value. However, this may cause a large delay for messages that depend on the query result.
 
 * Make the program correctly identify ongoing transactions. 
-
 
 
 

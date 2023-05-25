@@ -48,6 +48,7 @@ Apache RocketMQ 的消息的顺序性分为两部分，生产顺序性和消费�
   
   * 不同消息组的消息可以混合在同一个队列中，且不保证连续。
   
+
 ![顺序存储逻辑](../picture/v5/fifomessagegroup.png)
 
 
@@ -77,6 +78,7 @@ Apache RocketMQ 的消息的顺序性分为两部分，生产顺序性和消费�
     
   
   
+
 **生产顺序性和消费顺序性组合**
 
 如果消息需要严格按照先进先出（FIFO）的原则处理，即先发送的先消费、后发送的后消费，则必须要同时满足生产顺序性和消费顺序性。
@@ -132,6 +134,19 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 **发送消息**
 
 和普通消息发送相比，顺序消息发送必须要设置消息组。消息组的粒度建议按照业务场景，尽可能细粒度设计，以便实现业务拆分和并发扩展。
+
+**创建FIFO主题**
+
+```bash
+./bin/mqadmin updateTopic -c DefaultCluster -t FIFOTopic -o true -n 127.0.0.1:9876
+```
+
++ -c 集群名称
++ -t Topic名称
++ -n nameserver地址
++ -o 创建顺序消息
+
+
 
 以Java语言为例，收发顺序消息的示例代码如下：
 
