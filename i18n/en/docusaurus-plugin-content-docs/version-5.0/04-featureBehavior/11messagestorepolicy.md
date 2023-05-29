@@ -51,6 +51,9 @@ Messages may be accumulated in a queue due to inactive consumers or abnormal con
 
 Consumers can manage messages based on storage duration to determine the lifecycle of each message. Consumers can consume a message any time during the storage duration, or consume the message multiple times by using the [Reset a consumer offset](./09consumerprogress.md) feature.
 
+**Message Storage File Structure**
+Apache RocketMQ messages are stored by default in local disk files, and the root directory of the storage files is determined by the configuration parameter storePathRootDir. The storage structure is shown in the following figure, where the commitlog folder stores the physical message files, the consumeCQueue folder stores the logical queue indexes.
+![MessageStore](../picture/store.jpg)
 
 ## Message cleanup mechanism
 
