@@ -5,7 +5,8 @@ import CodeBlock from "@theme/CodeBlock";
 
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import LogoCarousel from "./components/LogoCarousel";
-import Feature from "./components/Feature";
+// import Feature from "./components/Feature";
+import Highlight from "./components/Highlight";
 
 import Community from "./components/Community";
 import Section from "./components/Section";
@@ -24,7 +25,7 @@ function Home() {
       <Hero/>
       <main>
         <Section isDark>
-         <Feature/>
+         <Highlight/>
 
         </Section>
 
