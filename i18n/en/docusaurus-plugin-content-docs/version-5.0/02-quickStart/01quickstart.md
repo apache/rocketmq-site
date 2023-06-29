@@ -13,19 +13,19 @@ This section will describe steps to quickly deploy a RocketMQ cluster with a sin
 
 :::tip Download RocketMQ
 
-Apache RocketMQ is distributed both in binary and source packages.  Click [here](https://dist.apache.org/repos/dist/release/rocketmq/5.1.2/rocketmq-all-5.1.2-source-release.zip) to download Apache RocketMQ 5.1.2 source package. You may prefer [prebuilt binary package](https://dist.apache.org/repos/dist/release/rocketmq/5.1.2/rocketmq-all-5.1.2-bin-release.zip), which can be run directly since it has been compiled.
+Apache RocketMQ is distributed both in binary and source packages.  Click [here](https://dist.apache.org/repos/dist/release/rocketmq/5.1.3/rocketmq-all-5.1.3-source-release.zip) to download Apache RocketMQ 5.1.3 source package. You may prefer [prebuilt binary package](https://dist.apache.org/repos/dist/release/rocketmq/5.1.3/rocketmq-all-5.1.3-bin-release.zip), which can be run directly since it has been compiled.
 
 :::
 
-The following instruction takes the application of RocketMQ 5.1.2 source package in Linux environment as an example in order to introduce the installation process of RocketMQ.
+The following instruction takes the application of RocketMQ 5.1.3 source package in Linux environment as an example in order to introduce the installation process of RocketMQ.
 
-Extract the source package of RocketMQ 5.1.2, then compile and build the binary executables:
+Extract the source package of RocketMQ 5.1.3, then compile and build the binary executables:
 
 ```shell
-$ unzip rocketmq-all-5.1.2-source-release.zip
-$ cd rocketmq-all-5.1.2-source-release/
+$ unzip rocketmq-all-5.1.3-source-release.zip
+$ cd rocketmq-all-5.1.3-source-release/
 $ mvn -Prelease-all -DskipTests -Dspotbugs.skip=true clean install -U
-$ cd distribution/target/rocketmq-5.1.2/rocketmq-5.1.2
+$ cd distribution/target/rocketmq-5.1.3/rocketmq-5.1.3
 ```
 ## 2. Start NameServer
 
