@@ -152,7 +152,7 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 
 ```java
         //顺序消息发送。
-        MessageBuilder messageBuilder = null;
+        MessageBuilder messageBuilder = new MessageBuilderImpl();;
         Message message = messageBuilder.setTopic("topic")
                 //设置消息索引键，可根据关键字精确查找某条消息。
                 .setKeys("messageKey")

@@ -112,7 +112,7 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 
 ```java
         //定时/延时消息发送
-        MessageBuilder messageBuilder = null;
+        MessageBuilder messageBuilder = new MessageBuilderImpl();;
         //以下示例表示：延迟时间为10分钟之后的Unix时间戳。
         Long deliverTimeStamp = System.currentTimeMillis() + 10L * 60 * 1000;
         Message message = messageBuilder.setTopic("topic")
