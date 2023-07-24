@@ -132,7 +132,7 @@ Compared with normal messages, ordered messages must have message groups configu
 
 
 ```bash
-./bin/mqadmin updateTopic -c DefaultCluster -t FIFOTopic -o true -n 127.0.0.1:9876
+./bin/mqadmin updateTopic -c DefaultCluster -t FIFOTopic -o true -n 127.0.0.1:9876 -a +message.type=FIFO
 ```
 
 + -c the cluster name
