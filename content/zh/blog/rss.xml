@@ -4,7 +4,7 @@
         <title>RocketMQ Blog</title>
         <link>https://your-docusaurus-test-site.com/zh/blog</link>
         <description>RocketMQ Blog</description>
-        <lastBuildDate>Tue, 11 Jul 2023 01:37:27 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 24 Jul 2023 00:36:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[微服务生态全景图]]></title>
             <link>https://your-docusaurus-test-site.com/zh/blog/mse</link>
             <guid>https://your-docusaurus-test-site.com/zh/blog/mse</guid>
-            <pubDate>Tue, 11 Jul 2023 01:37:27 GMT</pubDate>
+            <pubDate>Mon, 24 Jul 2023 00:36:41 GMT</pubDate>
             <description><![CDATA[微服务生态全景图]]></description>
             <content:encoded><![CDATA[<div class="msemap-container"><p>Apache RocketMQ 与其他优秀的开源社区紧密合作，构建丰富的技术生态， 为开发人员提供了全面的微服务支持。</p><p>这意味着选择 Apache RocketMQ 作为消息中间件后， 开发者无需担心后续的服务治理需求，因为 Apache RocketMQ 可以融合其他开源项目， 为生产中各种常见的技术问题提供完善的解决方案。</p><div id="mse-arc-container"></div></div>]]></content:encoded>
         </item>
