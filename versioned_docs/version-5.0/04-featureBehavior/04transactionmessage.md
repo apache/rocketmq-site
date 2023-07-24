@@ -156,7 +156,7 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
     }
     public static void main(String[] args) throws ClientException {
         ClientServiceProvider provider = new ClientServiceProvider();
-        MessageBuilder messageBuilder = new MessageBuilder();
+        MessageBuilder messageBuilder = new MessageBuilderImpl();
         //构造事务生产者：事务消息需要生产者构建一个事务检查器，用于检查确认异常半事务的中间状态。
         Producer producer = provider.newProducerBuilder()
                 .setTransactionChecker(messageView -> {
