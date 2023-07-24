@@ -133,4 +133,4 @@ Prometheus exporter 仅支持 Pull 模式和 Cumulative 聚合，详见 [OpenTel
 可选配置：
 
 1. `metricsPromExporterPort`：Broker 暴露 metrics 服务的端口号，默认为 `5557`
-2. `metricGrpcExporterTimeOutInMills`：暴露 metrics 服务的主机名，默认为 Broker 向 NameServer 注册的地址，即 `brokerIP1`
+2. `metricsPromExporterHost`：暴露 metrics 服务的主机名，默认为 Broker 向 NameServer 注册的地址，即 `brokerIP1`
