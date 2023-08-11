@@ -59,7 +59,7 @@
   
   * Transaction：[事务消息](../04-featureBehavior/04transactionmessage.md)，Apache RocketMQ 支持分布式事务消息，支持应用数据库更新和消息调用的事务一致性保障。
   
-* 约束：Apache RocketMQ 从5.0版本开始，支持强制校验消息类型，即每个主题只允许发送一种消息类型的消息，这样可以更好的运维和管理生产系统，避免混乱。为保证向下兼容4.x版本行为，强制校验功能默认关闭，推荐通过服务端参数 enableTopicMessageTypeCheck 开启校验。
+* 约束：Apache RocketMQ 从5.0版本开始，支持强制校验消息类型，即每个主题只允许发送一种消息类型的消息，这样可以更好的运维和管理生产系统，避免混乱。为保证向下兼容4.x版本行为，强制校验功能默认开启，推荐通过服务端参数 enableTopicMessageTypeCheck 关闭校验。
 
 
 
@@ -77,7 +77,7 @@ Apache RocketMQ 5.x版本支持将消息类型拆分到主题中进行独立运�
 
 :::info
 
-为保证向下兼容4.x版本行为，上述强制校验功能默认关闭，推荐通过服务端参数 enableTopicMessageTypeCheck 开启校验。
+为保证向下兼容4.x版本行为，上述强制校验功能默认开启，推荐通过服务端参数 enableTopicMessageTypeCheck 关闭校验。
 
 :::
 
@@ -91,7 +91,7 @@ Apache RocketMQ 5.x版本支持将消息类型拆分到主题中进行独立运�
 ## 版本兼容性 
 
 
-消息类型的强制校验，仅 Apache RocketMQ 服务端5.x版本支持，且默认关闭，推荐部署时打开配置。 Apache RocketMQ 服务端4.x和3.x历史版本的SDK不支持强制校验，您需要自己保证消息类型一致。 如果您使用的服务端版本为历史版本，建议您升级到
+消息类型的强制校验，仅 Apache RocketMQ 服务端5.x版本支持，且默认开启，推荐部署时打开配置。 Apache RocketMQ 服务端4.x和3.x历史版本的SDK不支持强制校验，您需要自己保证消息类型一致。 如果您使用的服务端版本为历史版本，建议您升级到
 Apache RocketMQ 服务端5.x版本。
 
 ## 使用示例
