@@ -21,11 +21,9 @@ git clone https://github.com/apache/rocketmq-mqtt
 cd rocketmq-mqtt 
 mvn -Prelease-all -DskipTests clean install -U 
 cd distribution/target/ 
-cd bin
-sh mqtt.sh start
 ```
+After the source code is built, edit conf/service.conf to complete the MQTT related configuration, as follows
 
-## Configuration instructions
 
 ```text
 username=xxx    // Authorization verification account configuration
@@ -35,7 +33,14 @@ eventNotifyRetryTopic=xx   //notify retry topic, created in advance
 clientRetryTopic=xx  //Client message retry topic, created in advance
 ```
 
-Other launch configuration reference projects [README.md](https://github.com/apache/rocketmq-mqtt/blob/main/README.md)
+Other launch configuration and pre-step reference projects [README.md](https://github.com/apache/rocketmq-mqtt/blob/main/README.md)
+
+Finally start the meta service and then the mqtt broker. Go to the distribution/target/bin directory and start the process.
+
+```text
+sh meta.sh start
+sh mqtt.sh start
+```
 
 ## Example Description
 
