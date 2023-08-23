@@ -25,8 +25,6 @@ cd distribution/target/
 
 源码构建完成后，编辑conf/service.conf，完成MQTT相关配置,如下
 
-## 配置说明
-
 ```text
 username=xxx    // 权限验证账户配置
 secretKey=xxx    // 权限验证账户配置
