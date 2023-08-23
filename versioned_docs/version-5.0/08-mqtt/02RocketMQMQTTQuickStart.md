@@ -21,9 +21,9 @@ git clone https://github.com/apache/rocketmq-mqtt
 cd rocketmq-mqtt 
 mvn -Prelease-all -DskipTests clean install -U 
 cd distribution/target/ 
-cd bin
-sh mqtt.sh start
 ```
+
+源码构建完成后，编辑conf/service.conf，完成MQTT相关配置,如下
 
 ## 配置说明
 
@@ -34,8 +34,15 @@ NAMESRV_ADDR=xxx  //namesrv接入点
 eventNotifyRetryTopic=xx   //notify重试topic，提前创建
 clientRetryTopic=xx  //客户端消息重试topic，提前创建
 ```
+还有其他更详细的配置和前置步骤参考 [README.md](https://github.com/apache/rocketmq-mqtt/blob/main/README.md)
 
-其他启动配置参考项目[README.md](https://github.com/apache/rocketmq-mqtt/blob/main/README.md)
+最后先启动meta服务（MQTT的元数据中心），再启动mqtt broker 。进入distribution/target/bin 目录，启动进程。
+
+```text
+sh meta.sh start
+sh mqtt.sh start
+```
+
 
 ## 示例说明
 
