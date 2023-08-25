@@ -5,19 +5,12 @@ In the Apache RocketMQ 5.0 version, basic message sending and receiving is compl
 - In Local mode, the Broker and Proxy are deployed in the same process, and you can run it by simply adding a Proxy configuration based on the original Broker configuration.
 - In Cluster mode, the Broker and Proxy are deployed separately, that is, in addition to the existing cluster, you can deploy the Proxy separately.
 
-## Deployment Scenarios and Use Constraints
 
 ## Deployment in Local Mode
 
 Since the Proxy and Broker are deployed in the same process in Local mode, the Proxy is stateless, so the main cluster configuration can still be based on the Broker.
 
-### Single Node Single Replica Mode
-
-:::caution
-This method carries a high risk, as there is only one node for the Broker, and if the Broker restarts or goes down, the entire service will be unavailable. It is not recommended in online environments, but can be used for local testing.
-:::
-
-#### Start NameServer
+### Start NameServer
 
 ```bash
 ### Start Name Server first
@@ -27,8 +20,15 @@ $ nohup sh mqnamesrv &
 $ tail -f ~/logs/rocketmqlogs/namesrv.log
 The Name Server boot success...
 ```
+### Start Broker+Proxy
 
-#### Start Broker+Proxy
+
+#### Single Node Single Replica Mode
+
+:::caution
+This method carries a high risk, as there is only one node for the Broker, and if the Broker restarts or goes down, the entire service will be unavailable. It is not recommended in online environments, but can be used for local testing.
+:::
+
 
 ```bash
 
@@ -39,27 +39,14 @@ $ tail -f ~/logs/rocketmqlogs/broker_default.log
 The broker[xxx, 192.169.1.2:10911] boot success...
 ```
 
-### Multiple Node (Cluster) Single Replica Mode
+#### Multiple Node (Cluster) Single Replica Mode
 
 All nodes in a cluster are deployed with the Master role, and no Slave replicas are deployed, such as 2 Masters or 3 Masters. The advantages and disadvantages of this mode are as follows:
 
 - Advantages: Simple configuration, a single Master's downtime or restart has no effect on the application, and when the disk is configured as RAID10, even if the machine goes down irrecoverably, the message will not be lost due to the reliability of the RAID10 disk (asynchronous disk flush loses a small amount of messages, synchronous disk flush does not lose a single message), and has the highest performance;
 - Disadvantages: During a single machine's downtime, messages that have not been consumed on this machine cannot be subscribed before the machine recovers, and message timeliness will be affected.
 
-### Start NameServer
-
-The NameServer needs to start before the Broker, and if it is used in a production environment, it is recommended to start 3 NameServers for general-scale clusters to ensure high availability. The start commands for each node are the same, as follows:
-
-```bash
-### Start NameServer first
-$ nohup sh mqnamesrv &
- 
-### Verify that the Name Server has started successfully.
-$ tail -f ~/logs/rocketmqlogs/namesrv.log
-The Name Server boot success...
-```
-
-#### Start Broker+Proxy cluster
+Start Broker+Proxy cluster
 
 ```bash
 ### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
@@ -77,25 +64,14 @@ The above start command is used in the case of a single NameServer. For a cluste
 
 :::
 
-## Multiple Node (Cluster) Multiple Replica Mode - Asynchronous Replication
+#### Multiple Node (Cluster) Multiple Replica Mode - Asynchronous Replication
 
 Each Master is configured with a Slave, and there are multiple Master-Slave pairs. HA uses asynchronous replication, and there is a brief message delay (millisecond level) between the primary and secondary. The advantages and disadvantages of this mode are as follows:
 
 - Advantages: Even if the disk is damaged, very few messages are lost, and message timeliness is not affected. At the same time, after the Master goes down, consumers can still consume from the Slave, and this process is transparent to the application and does not require manual intervention, and the performance is almost the same as the multiple Master mode;
 - Disadvantages: A small number of messages will be lost in the event of a Master outage or disk damage.
 
-#### Start NameServer
-
-```bash
-### Start NameServer first
-$ nohup sh mqnamesrv &
- 
-### Verify that the Name Server has started successfully.
-$ tail -f ~/logs/rocketmqlogs/namesrv.log
-The Name Server boot success...
-```
-
-#### Start Broker+Proxy cluster
+Start Broker+Proxy cluster
 
 ```bash
 ### On machine A, start the first Master, for example, the IP of the NameServer is: 192.168.1.1
@@ -111,23 +87,13 @@ $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/b
 $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-async/broker-b-s.properties --enable-proxy &
 ```
 
-### Multiple Node (Cluster) Multiple Replica Mode - Synchronous Dual Write
+#### Multiple Node (Cluster) Multiple Replica Mode - Synchronous Dual Write
 
 Each Master is configured with a Slave, and there are multiple Master-Slave pairs. HA uses synchronous dual write, which means that only if both primary and secondary write succeed, it returns success to the application. The advantages and disadvantages of this mode are as follows:
 
 - Advantages: Both data and service have no single point of failure, and there is no delay in messages in the event of a Master outage, and both service availability and data availability are very high;
 - Disadvantages: Performance is slightly lower than asynchronous replication mode (about 10% lower), the RT for sending a single message is slightly higher, and in the current version, after the primary node goes down, the standby cannot automatically switch to the primary.
 
-#### Start NameServer
-
-```bash
-###  Start NameServer first
-$ nohup sh mqnamesrv &
- 
-### Verify tha Name Server has started successfully
-$ tail -f ~/logs/rocketmqlogs/namesrv.log
-The Name Server boot success...
-```
 
 #### Start Broker+Proxy cluster
 
@@ -147,6 +113,10 @@ $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/br
 :::tip
 The pairing of the above Broker and Slave is done by specifying the same BrokerName parameter. The BrokerId of the Master must be 0, and the BrokerId of the Slave must be a number greater than 0. In addition, multiple Slaves can be mounted on another Master, and multiple Slaves under the same Master are distinguished by specifying different BrokerIds. $ROCKETMQ_HOME refers to the RocketMQ installation directory, and this environment variable needs to be set by the user.
 :::
+
+#### 5.0 HA 
+RocketMQ 5.0 Provides a more flexible HA mechanism, allowing users to better balance cost, service availability, and data reliability, while supporting  messaging and streaming storage scenarios. [See details](https://rocketmq.apache.org/docs/deploymentOperations/03autofailover)
+
 
 ## Deployment in Cluster Mode
 
@@ -245,6 +215,9 @@ $ nohup sh bin/mqbroker -n 192.168.1.1:9876 -c $ROCKETMQ_HOME/conf/2m-2s-sync/br
 :::tip
 The pairing of Broker and Slave is done by specifying the same BrokerName parameter. The BrokerId of the Master must be 0, and the BrokerId of the Slave must be a number greater than 0. In addition, multiple Slaves can be mounted under one Master, and multiple Slaves under the same Master are distinguished by specifying different BrokerIds. $ROCKETMQ_HOME refers to the RocketMQ installation directory, which needs to be set by the user as an environment variable.
 :::
+
+#### 5.0 HA 
+RocketMQ 5.0 Provides a more flexible HA mechanism, allowing users to better balance cost, service availability, and data reliability, while supporting  messaging and streaming storage scenarios. [See details](https://rocketmq.apache.org/docs/deploymentOperations/03autofailover)
 
 ### Start Proxy
 
