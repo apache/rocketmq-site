@@ -10,7 +10,7 @@
 由于RocketMQ-MQTT项目依赖RocketMQ底层的多队列分发，RocketMQ从4.9.3版本开始支持这一特性，因此您需要确认RocketMQ的版本升级到4.9.3或更高版本，并且确保以下配置项已开启：
 
 ```text
-enableLmq = true 
+enableLmq = true
 enableMultiDispatch = true
 ```
 
@@ -18,9 +18,9 @@ RocketMQ-MQTT的部署参考项目说明，下载工程release版本或直接从
 
 ```text
 git clone https://github.com/apache/rocketmq-mqtt
-cd rocketmq-mqtt 
-mvn -Prelease-all -DskipTests clean install -U 
-cd distribution/target/ 
+cd rocketmq-mqtt
+mvn -Prelease-all -DskipTests clean install -U
+cd distribution/target/
 cd bin
 sh mqtt.sh start
 ```
