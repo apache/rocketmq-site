@@ -12,7 +12,7 @@ Task是Connector任务分片的最小分配单位，是实际将源数据源数�
 
 通过Connect的Api也可以看到Connector和Task各自的职责，Connector实现时就已经确定数据复制的流向，Connector接收数据源相关的配置，taskClass获取需要创建的任务类型，通过taskConfigs指定最大任务数量，并且为task分配好配置。task拿到配置以后从数据源取数据写入到目标存储。
 
-通过下面的两张图可以清楚的看到，Connecotr和Task处理基本流程。
+通过下面的两张图可以清楚的看到，Connector和Task处理基本流程。
 
 ![RocketMQ基本模型](../picture/32rocketmq-connect/Connector-Task-process.png)
 
