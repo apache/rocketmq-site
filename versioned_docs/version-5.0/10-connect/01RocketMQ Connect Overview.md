@@ -24,7 +24,7 @@ CDC作为ETL模式之一，可以近乎实时的捕获增量数据库INSERT、UP
 
 ### Connector 部署
 
-创建Connector，只需通过配置即可完成，Connector一般包含逻辑的Connector连接器和执行数据复制的Task即物理线程，如下图所示，两个Connector连接器和它们对应的运行Task任务。
+创建Connector，一般通过配置即可完成，Connector包含逻辑的Connector连接器和执行数据复制的Task(即物理线程)，如下图所示，两个Connector连接器和它们对应的运行Task任务。
 
 ![RocketMQ Connect任务模型1](../picture/32rocketmq-connect/deploy1.png)
 
