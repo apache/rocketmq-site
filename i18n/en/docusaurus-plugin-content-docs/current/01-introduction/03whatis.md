@@ -46,7 +46,7 @@ learn more  ➡️ [basic concept](../02-producer/01concept1.md)
 
 :::note Basic Messaging System Model
 
- The figure above is an extended message model, including **two Producers**, **two Topics**, and **two sets of Consumers**.
+ The figure above exemplifies message model, including a **Producer**, a **Topic**, and a **Consumer**.
 
 :::
 
