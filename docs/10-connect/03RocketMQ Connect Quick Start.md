@@ -191,8 +191,9 @@ namesrvAddr=127.0.0.1:9876
 pluginPaths=
 ```
 
-持久化文件说明：
-单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录storePathRootDir，持久化文件包括：
+**storePathRootDir配置说明**：
+
+单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录storePathRootDir，持久化文件包括
 
 | key                  | description               |
 |----------------------|---------------------------|
