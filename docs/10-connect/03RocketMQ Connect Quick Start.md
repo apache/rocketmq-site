@@ -8,47 +8,70 @@
 示例工程中提供了源端连接器，作用是从源文件中读取数据然后发送到RocketMQ集群。
 同时提供了目的端连接器，作用是从RocketMQ集群中读取消息然后写入目的端文件。 
 
-## 1.准备
+## 1.准备：启动RocketMQ
 
 1. Linux/Unix/Mac
 2. 64bit JDK 1.8+;
 3. Maven 3.2.x或以上版本;
 4. 启动 RocketMQ。使用[RocketMQ 4.x](https://rocketmq.apache.org/docs/4.x/) 或
    [RocketMQ 5.x](https://rocketmq.apache.org/docs/quickStart/01quickstart/)版本均可;
-5. 工具测试 RocketMQ 消息收发是否正常。
+5. 工具测试 RocketMQ 消息收发是否正常。详见[RocketMQ 4.x](https://rocketmq.apache.org/docs/4.x/) 或
+   [RocketMQ 5.x](https://rocketmq.apache.org/docs/quickStart/01quickstart/)文档。
    
-这里我们利用环境变量NAMESRV_ADDR来告诉工具客户端RocketMQ的NameServer地址
+这里利用环境变量NAMESRV_ADDR来告诉工具客户端RocketMQ的NameServer地址为localhost:9876
 
 ```shell
+#$ cd distribution/target/rocketmq-4.9.7/rocketmq-4.9.7
+$ cd distribution/target/rocketmq-5.1.4/rocketmq-5.1.4
+
 $ export NAMESRV_ADDR=localhost:9876
 $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
-SendResult [sendStatus=SEND_OK, msgId= ...
+ SendResult [sendStatus=SEND_OK, msgId= ...
 
 $ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
-ConsumeMessageThread_%d Receive New Messages: [MessageExt...
+ ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
 **说明**：RocketMQ具备自动创建Topic和Group的功能，在发送消息或订阅消息时，如果相应的Topic或Group不存在，RocketMQ会自动创建它们。因此不需要提前创建Topic和Group。
 
-## 2.构建Connector
+## 2.构建Connector Runtime
 
 ```shell
 git clone https://github.com/apache/rocketmq-connect.git
 
 cd  rocketmq-connect
 
-mvn -Prelease-connect -DskipTests clean install -U
+export RMQ_CONNECT_HOME=`pwd`
+
+mvn -Prelease-connect -Dmaven.test.skip=true clean install -U
 ```
 
-## 3.运行Worker
+**注意**：本工程已默认包含 rocketmq-connect-sample 的代码，因此无需单独构建 rocketmq-connect-sample 插件。
+
+## 3.单机模式运行 Connector Worker
+
+### 修改配置
+`connect-standalone.conf`中配置了RocketMQ连接地址等信息，需要根据使用情况进行修改，具体参见[9.配置文件说明](#9配置文件说明)。
+
+```
+cd $RMQ_CONNECT_HOME/distribution/target/rocketmq-connect-0.0.1-SNAPSHOT/rocketmq-connect-0.0.1-SNAPSHOT
+
+vim conf/connect-standalone.conf
+```
+
+单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录 storePathRootDir
+>storePathRootDir=/Users/YourUsername/rocketmqconnect/storeRoot
+
+如果想重置同步位点，则需要删除持久化的位点信息文件
+```shell
+rm -rf /Users/YourUsername/rocketmqconnect/storeRoot/*
+```
+
+### 采用单机模式启动Connector Worker
 
 ```shell
-cd distribution/target/rocketmq-connect-0.0.1-SNAPSHOT/rocketmq-connect-0.0.1-SNAPSHOT
-
 sh bin/connect-standalone.sh -c conf/connect-standalone.conf &
 ```
-
-**注意**：conf/connect-standalone.conf中包含了RocketMQ连接地址等配置，需要根据使用情况进行修改，具体参见[9.配置文件说明](#9配置文件说明)。
 
 **tips**: 可修改 docker/connect/bin/runconnect.sh 适当调整 JVM 启动参数 
 
@@ -133,9 +156,7 @@ cat /Users/YourUsername/rocketmqconnect/test-sink-file.txt
 
 继续向源端文件 test-source-file.txt 中写入测试数据，
 ```shell
-mkdir -p /Users/YourUsername/rocketmqconnect/
 cd /Users/YourUsername/rocketmqconnect/
-touch test-source-file.txt
 
 echo "Say Hi to\r\nRMQ Connector\r\nAgain" >> test-source-file.txt
 
@@ -179,6 +200,7 @@ tail -100f ~/logs/rocketmqconnect/connect_default.log
 ## 7.停止Worker进程
 
 ```shell
+cd $RMQ_CONNECT_HOME/distribution/target/rocketmq-connect-0.0.1-SNAPSHOT/rocketmq-connect-0.0.1-SNAPSHOT
 sh bin/connectshutdown.sh
 ```
 
@@ -209,15 +231,14 @@ storePathRootDir=/Users/YourUsername/rocketmqconnect/storeRoot
 # RocketMQ namesrvAddr
 namesrvAddr=127.0.0.1:9876  
 
-#用于加载Connector插件，类似于jvm启动加载jar包或者class类，这里目录目录用于放Connector相关的实现插件，
-支持文件和目录。本工程已默认包含 rocketmq-connect-sample 的代码，因此无需添加。
-# Source or sink connector jar file dir
+# 插件地址，用于Worker加载Source/Sink Connector插件
+# rocketmq-connect 工程已默认包含 rocketmq-connect-sample 模块，因此这里无需配置。
 pluginPaths=
 ```
 
 ### storePathRootDir配置说明
 
-单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录storePathRootDir，持久化文件包括
+单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录 storePathRootDir，持久化文件包括
 
 | key                  | description               |
 |----------------------|---------------------------|
