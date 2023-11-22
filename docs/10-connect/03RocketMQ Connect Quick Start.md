@@ -15,6 +15,18 @@
 3. Maven 3.2.x或以上版本;
 4. 启动 RocketMQ。使用[RocketMQ 4.x](https://rocketmq.apache.org/docs/4.x/) 或
    [RocketMQ 5.x](https://rocketmq.apache.org/docs/quickStart/01quickstart/)版本均可;
+5. 工具测试 RocketMQ 消息收发是否正常。
+   
+这里我们利用环境变量NAMESRV_ADDR来告诉工具客户端RocketMQ的NameServer地址
+
+```shell
+$ export NAMESRV_ADDR=localhost:9876
+$ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
+SendResult [sendStatus=SEND_OK, msgId= ...
+
+$ sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
+ConsumeMessageThread_%d Receive New Messages: [MessageExt...
+```
 
 **说明**：RocketMQ具备自动创建Topic和Group的功能，在发送消息或订阅消息时，如果相应的Topic或Group不存在，RocketMQ会自动创建它们。因此不需要提前创建Topic和Group。
 
@@ -54,8 +66,8 @@ runtime若启动成功则日志文件中能看到如下打印内容：
 
 ## 4.启动source connector
 
-初始化创建源端文件 test-source-file.txt 并写入测试数据。
-注意：不能有空行，source connector会持续读取源端文件，每读取到一行数据就会转换为消息体发送到RocketMQ，供sink connector消费。
+### 创建源端文件并写入测试数据
+
 ```shell
 mkdir -p /Users/YourUsername/rocketmqconnect/
 cd /Users/YourUsername/rocketmqconnect/
@@ -63,8 +75,9 @@ touch test-source-file.txt
 
 echo "Hello \r\nRocketMQ\r\n Connect" >> test-source-file.txt
 ```
+**注意**：不能有空行（demo程序遇到空行会报错）。source connector会持续读取源端文件，每读取到一行数据就会转换为消息体发送到RocketMQ，供sink connector消费。
 
-启动Source Connector
+### 启动Source Connector
 ```shell
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8082/connectors/fileSourceConnector -d '{
 	"connector.class": "org.apache.rocketmq.connect.file.FileSourceConnector",
@@ -117,7 +130,21 @@ cat /Users/YourUsername/rocketmqconnect/test-sink-file.txt
 ```
 
 如果生成了 test-sink-file.txt 文件，并且与 source-file.txt 内容一样则说明整个流程正常运行。
-注意：文件内容可能顺序不一样，这主要是因为RocketMQ发到不同queue时，接收不同queue消息顺序可能也不一致导致的，是正常现象。
+
+继续向源端文件 test-source-file.txt 中写入测试数据，
+```shell
+mkdir -p /Users/YourUsername/rocketmqconnect/
+cd /Users/YourUsername/rocketmqconnect/
+touch test-source-file.txt
+
+echo "Say Hi to\r\nRMQ Connector\r\nAgain" >> test-source-file.txt
+
+# Wait a few seconds, check if rocketmq-connect replicate data to sink file succeed 
+sleep 10
+cat /Users/YourUsername/rocketmqconnect/test-sink-file.txt
+```
+
+**注意**：文件内容可能顺序不一样，这主要是因为RocketMQ发到不同queue时，接收不同queue消息顺序可能也不一致导致的，是正常现象。
 
 #### sink connector配置说明
 
@@ -127,9 +154,7 @@ cat /Users/YourUsername/rocketmqconnect/test-sink-file.txt
 | filename           | false    |         | sink消费RocketMQ数据后保存到的目的端文件名称（建议使用绝对路径） |
 | connect.topicnames | false    |         | sink需要处理数据消息topics                     |
 
-```  
-注：source/sink配置文件说明是以rocketmq-connect-sample为demo，不同source/sink connector配置有差异，请以具体sourc/sink connector 为准
-```
+**注意**：source/sink配置文件说明是以rocketmq-connect-sample为demo，不同source/sink connector配置有差异，请以具体sourc/sink connector 为准
 
 ## 6.停止connector
 
@@ -153,23 +178,22 @@ tail -100f ~/logs/rocketmqconnect/connect_default.log
 
 ## 7.停止Worker进程
 
-```
+```shell
 sh bin/connectshutdown.sh
 ```
 
 ## 8.日志目录
 查看日志目录（下面2个命令是等价的）
-```
+```shell
 ls $HOME/logs/rocketmqconnect
 ls ~/logs/rocketmqconnect
 ```
-
 
 ## 9.配置文件说明
 
 connect-standalone.conf配置文件中， 配置了 [RESTful](https://restfulapi.cn/) 端口，storeRoot 路径，Nameserver 地址等信息，可根据需要进行修改。
 
-配置说明：
+### 配置说明
 
 ```shell
 #current cluster node uniquely identifies
@@ -191,7 +215,7 @@ namesrvAddr=127.0.0.1:9876
 pluginPaths=
 ```
 
-**storePathRootDir配置说明**：
+### storePathRootDir配置说明
 
 单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录storePathRootDir，持久化文件包括
 
