@@ -198,10 +198,10 @@ POST /_bulk
 ```
 **说明**：
 - connect_es：数据的索引名称
-- id/field1/field2 是字段名称，1、value1、value2 分别是字段的值。
+- id/field1/field2：数据中的字段名称，1、value1、value2 分别是字段的值。
 
-**注意**：rocketmq-connect-elasticsearch 存在一个限制，就是数据中必须要一个可用于 >= 比较运算的字段（字符串 或 数字），该字段会被用于记录同步的位点信息。
-上面的示例中 id 字段，就是一个全局唯一、自增的数值类型字段。
+**注意**：`rocketmq-connect-elasticsearch` 存在一个限制，就是数据中必须要一个可用于 >= 比较运算的字段（字符串 或 数字），该字段会被用于记录同步的位点信息。
+上面的示例中 `id` 字段，就是一个全局唯一、自增的数值类型字段。
 
 #### 查数据
 查询索引下的数据：
@@ -231,7 +231,6 @@ GET /connect_es/_search
 若有数据，则返回示例为：
 
 ```
-#! Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.15/security-minimal-setup.html to enable security.
 {
   ...
   "hits" : {

@@ -223,4 +223,4 @@ sleep 10
 cat /Users/YourUsername/rocketmqconnect/sftp-test/sink.txt
 ```
 
-**注意**：文件内容可能顺序不一样，这主要是因为RocketMQ发到不同queue时，接收不同queue消息顺序可能也不一致导致的，是正常现象。
+**注意**：文件内容可能顺序不一样，这是因为`rocketmq-connect-sftp`向RocketMQ Topic中收发消息时，使用的消息类型是普通消息，区别于顺序消息，消费普通消息时是不保证顺序的。

@@ -165,7 +165,8 @@ sleep 10
 cat /Users/YourUsername/rocketmqconnect/test-sink-file.txt
 ```
 
-**注意**：文件内容可能顺序不一样，这主要是因为RocketMQ发到不同queue时，接收不同queue消息顺序可能也不一致导致的，是正常现象。
+**注意**：文件内容可能顺序不一样，这是因为 `rocketmq-connect-sample` 向RocketMQ Topic中收发消息时，使用的消息类型是普通消息，区别于顺序消息，消费普通消息时是不保证顺序的。
+
 
 #### sink connector配置说明
 
@@ -178,12 +179,10 @@ cat /Users/YourUsername/rocketmqconnect/test-sink-file.txt
 **注意**：source/sink配置文件说明是以rocketmq-connect-sample为demo，不同source/sink connector配置有差异，请以具体sourc/sink connector 为准
 
 ## 6.停止connector
-
-```shell
-GET请求  
-http://(your worker ip):(port)/connectors/(connector name)/stop
+RESTFul 命令格式 `http://(your worker ip):(port)/connectors/(connector name)/stop`
 
 停止demo中的两个connector
+```shell
 curl http://127.0.0.1:8082/connectors/fileSinkConnector/stop
 curl http://127.0.0.1:8082/connectors/fileSourceConnector/stop
 ```
@@ -191,7 +190,7 @@ curl http://127.0.0.1:8082/connectors/fileSourceConnector/stop
 curl请求返回status:200则表示停止成功，返回样例：
 >{"status":200,"body":"Connector [fileSinkConnector] deleted successfully"}
 
-看到以下日志说明file sink connector 启动成功了
+看到以下日志说明file sink connector 停止成功了
 ```shell
 tail -100f ~/logs/rocketmqconnect/connect_default.log
 ```
@@ -215,7 +214,7 @@ ls ~/logs/rocketmqconnect
 
 connect-standalone.conf配置文件中， 配置了 [RESTful](https://restfulapi.cn/) 端口，storeRoot 路径，Nameserver 地址等信息，可根据需要进行修改。
 
-### 配置说明
+配置文件样例：
 
 ```shell
 #current cluster node uniquely identifies
@@ -236,7 +235,7 @@ namesrvAddr=127.0.0.1:9876
 pluginPaths=
 ```
 
-### storePathRootDir配置说明
+storePathRootDir配置说明：
 
 单机模式（standalone）下，RocketMQ Connect 会把同步位点信息持久化到本地文件目录 storePathRootDir，持久化文件包括
 
