@@ -112,7 +112,7 @@ gRPC OTLP exporter 会周期性地向指定的 OpenTelemetry Collector 上报 me
 开启 Broker metrics 的 gRPC OTLP exporter 需要进行以下配置：
 
 1. 将 `metricsExporterType` 设置为 `OTLP_GRPC`
-2. 将 `getMetricsGrpcExporterTarget` 设置为 OpenTelemetry Collector 提供的 endpoint
+2. 将 `metricsGrpcExporterTarget` 设置为 OpenTelemetry Collector 提供的 endpoint
 
 可选配置：
 
