@@ -112,7 +112,7 @@ Prerequisites: Deploy an OpenTelemetry Collector that supports the [GRPC OpenTel
 To enable the gRPC OTLP exporter of Broker metrics, do the following:
 
 1. Set `metricsExporterType` to `OTLP_GRPC`.
-2. Set `getMetricsGrpcExporterTarget` to the endpoint provided by the OpenTelemetry Collector.
+2. Set `metricsGrpcExporterTarget` to the endpoint provided by the OpenTelemetry Collector.
 
 Optional configurations:
 
