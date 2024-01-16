@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://your-docusaurus-test-site.com/blog</id>
     <title>RocketMQ Blog</title>
-    <updated>2023-12-28T08:26:44.000Z</updated>
+    <updated>2024-01-16T08:02:32.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://your-docusaurus-test-site.com/blog"/>
     <subtitle>RocketMQ Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[微服务生态全景图]]></title>
         <id>https://your-docusaurus-test-site.com/blog/mse</id>
         <link href="https://your-docusaurus-test-site.com/blog/mse"/>
-        <updated>2023-12-28T08:26:44.000Z</updated>
+        <updated>2024-01-16T08:02:32.000Z</updated>
         <summary type="html"><![CDATA[微服务生态全景图]]></summary>
         <content type="html"><![CDATA[<div class="msemap-container"><p>Apache RocketMQ 与其他优秀的开源社区紧密合作，构建丰富的技术生态， 为开发人员提供了全面的微服务支持。</p><p>这意味着选择 Apache RocketMQ 作为消息中间件后， 开发者无需担心后续的服务治理需求，因为 Apache RocketMQ 可以融合其他开源项目， 为生产中各种常见的技术问题提供完善的解决方案。</p><div id="mse-arc-container"></div></div>]]></content>
     </entry>
