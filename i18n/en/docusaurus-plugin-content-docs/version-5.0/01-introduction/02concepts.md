@@ -11,7 +11,7 @@ Categories defined by message transfer characteristics for type management and s
 
 :::info
 
-Starting from version 5.0, Apache RocketMQ supports enforcing the validation of message types, that is, each topic only allows messages of a single type to be sent. This can better facilitate operation and management of production systems and avoid confusion. However, to ensure backward compatibility with version 4.x, the validation feature is disabled by default. It is recommended to enable it manually through the server parameter "enableTopicMessageTypeCheck".
+Starting from version 5.0, Apache RocketMQ supports enforcing the validation of message types, that is, each topic only allows messages of a single type to be sent. This can better facilitate operation and management of production systems and avoid confusion. However, to ensure backward compatibility with version 4.x, the validation feature is enable by default.
 :::
 
 ## MessageQueue

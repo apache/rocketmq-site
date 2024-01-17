@@ -59,7 +59,7 @@ A topic contains one or more queues. Message storage and scalability are impleme
 
   * Transaction: [Transaction messages](../04-featureBehavior/04transactionmessage.md). Apache RocketMQ supports distributed transaction messages and ensures transaction consistency of database updates and message calls.
 
-* Constraint: Starting from version 5.0, Apache RocketMQ supports enforcing the validation of message types, that is, each topic only allows messages of a single type to be sent. This can better facilitate operation and management of production systems and avoid confusion. However, to ensure backward compatibility with version 4.x, the validation feature is disabled by default. It is recommended to enable it manually through the server parameter "enableTopicMessageTypeCheck".
+* Constraint: Starting from version 5.0, Apache RocketMQ supports enforcing the validation of message types, that is, each topic only allows messages of a single type to be sent. This can better facilitate operation and management of production systems and avoid confusion. However, to ensure backward compatibility with version 4.x, the validation feature is enable by default.
 
 
 ## Behavior constraints
