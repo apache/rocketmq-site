@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[5260],{16432:e=>{e.exports=JSON.parse('{"label":"RocketMQ_Client_CPP","permalink":"/zh/release-notes/tags/rocket-mq-client-cpp","allTagsPath":"/zh/release-notes/tags","count":5}')}}]);
