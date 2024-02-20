@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrocketmq_docs=self.webpackChunkrocketmq_docs||[]).push([[6464],{40816:e=>{e.exports=JSON.parse('{"label":"RocketMQ_Client_Go","permalink":"/release-notes/tags/rocket-mq-client-go","allTagsPath":"/release-notes/tags","count":3}')}}]);
