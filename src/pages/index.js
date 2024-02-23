@@ -24,7 +24,7 @@ function Home() {
       description={`${siteConfig.tagline}`}
     >
       <Head>
-        <meta http-equiv="Content-Security-Policy" content="frame-src *" />
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
       </Head>
       <Hero/>
       <main>
