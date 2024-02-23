@@ -13,21 +13,15 @@ export default function Hero(){
             <Translate id="rmq_intro">RocketMQ 5.0：云原生“消息、事件、流”实时数据处理平台，覆盖云边端一体化数据处理场景</Translate>
           </p>
           <div className={clsx('container',styles.github)}>
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=star&count=true&size=large"
-              width="170"
-              height="30"
-              frameBorder="0"
-              scrolling="0"
-            ></iframe>
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=apache&repo=rocketmq&type=fork&count=true&size=large"
-              frameBorder="0"
-              scrolling="0"
-              width="170"
-              height="30"
-              title="GitHub"
-            ></iframe>
+            <a class="github-button" href="https://github.com/apache/rocketmq"
+              data-color-scheme="no-preference: light; light: light; dark: light;"
+              data-icon="octicon-star" data-size="large"
+              data-show-count="true" aria-label="Star apache/rocketmq on GitHub">Star</a>
+            &nbsp;&nbsp;
+            <a class="github-button" href="https://github.com/apache/rocketmq/fork"
+              data-color-scheme="no-preference: light; light: light; dark: light;"
+              data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
+              aria-label="Fork apache/rocketmq on GitHub">Fork</a>
           </div>
 
           <div className={styles.buttons}>
