@@ -24,7 +24,7 @@ function Home() {
       description={`${siteConfig.tagline}`}
     >
       <Head>
-        <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://ghbtns.com/" />
+        <meta http-equiv="Content-Security-Policy" content="frame-src *" />
       </Head>
       <Hero/>
       <main>
