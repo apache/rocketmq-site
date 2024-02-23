@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
+import Head from '@docusaurus/Head';
 import CodeBlock from "@theme/CodeBlock";
 
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -22,6 +23,9 @@ function Home() {
       title={`${siteConfig.title} · ${siteConfig.tagline}`}
       description={`${siteConfig.tagline}`}
     >
+      <Head>
+        <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://ghbtns.com/" />
+      </Head>
       <Hero/>
       <main>
         <Section isDark>
