@@ -53,7 +53,30 @@ The Name Server boot success...
 NameServer成功启动后，我们启动Broker和Proxy，5.x 版本下我们建议使用 Local 模式部署，即 Broker 和 Proxy 同进程部署。5.x 版本也支持 Broker 和 Proxy 分离部署以实现更灵活的集群能力。详情参考[部署教程](../05-deploymentOperations/01deploy.md)。
 
 ```shell
-### 先启动broker
+配置grpc端口
+
+vim conf/rmq-proxy.json
+
+```sh
+{
+  "rocketMQClusterName": "DefaultCluster",
+  "grpcServerPort" : 9877 # 增加这一个配置
+}
+
+```
+如果不配置端口，使用grpc客户端发送消息会失败
+
+检查grpc端口是否正常开启， 如下就是开启状态
+```sh 
+[root@localhost rocketmq514]# telnet localhost 9877
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
+
+
+```
+
+### 启动broker
 $ nohup sh bin/mqbroker -n localhost:9876 --enable-proxy &
 
 ### 验证broker是否启动成功, 比如, broker的ip是192.168.1.2 然后名字是broker-a
