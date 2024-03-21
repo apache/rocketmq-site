@@ -11,9 +11,9 @@ A topic in Apache RocketMQ consists of multiple queues. This way, queues support
 
 Queues provide the following benefits:
 
-* Ordered storageQueues are ordered in nature. Messages are stored in the same order in which they are queued. The earliest message is at the start of the queue and the latest message is at the end of the queue. Offsets are used to label the locations and the order of messages in a queue.
+* Ordered Storage Queues are ordered in nature: Messages are stored in the same order in which they are queued. The earliest message is at the start of the queue and the latest message is at the end of the queue. Offsets are used to label the locations and the order of messages in a queue.
 
-* Streaming operation semanticsThe queue-based storage in Apache RocketMQ allows consumers to read one or more messages from an offset. This helps implement features such as aggregate read and backtrack read. These features are not available in RabbitMQ or ActiveMQ.
+* Streaming Operation Semantics: The queue-based storage in Apache RocketMQ allows consumers to read one or more messages from an offset. This helps implement features such as aggregate read and backtrack read. These features are not available in RabbitMQ or ActiveMQ.
 
   
 
