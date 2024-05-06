@@ -20,7 +20,7 @@ RocketMQ Connect是一个独立的的分布式，可伸缩，容错的系统，�
 
 ##### CDC
 
-CDC作为ETL模式之一，可以近乎实时的捕获增量数据库INSERT、UPDATE，DELETE变化，RocketMQ Connect流试数据传输，具备高可用，低延时等特性，通过Connector很容易实现CDC。
+CDC作为ETL模式之一，可以近乎实时的捕获增量数据库INSERT、UPDATE，DELETE变化，RocketMQ Connect流式数据传输，具备高可用，低延时等特性，通过Connector很容易实现CDC。
 
 ### Connector 部署
 
@@ -28,7 +28,7 @@ CDC作为ETL模式之一，可以近乎实时的捕获增量数据库INSERT、UP
 
 ![RocketMQ Connect任务模型1](../picture/32rocketmq-connect/deploy1.png)
 
-一个Connector也可以同时运行多个任务，提高Connector的并行度，例如下图所示的Hudi Sink Connector有2个任务，每个任务处理不同的分片数据，从而Connector的并行度，进而提高处理性能。
+一个Connector也可以同时运行多个任务，提高Connector的并行度，例如下图所示的Hudi Sink Connector有2个任务，每个任务处理不同的分片数据，从而提高Connector的并行度，进而提高处理性能。
 
 ![RocketMQ Connect任务模型2](../picture/32rocketmq-connect/deploy2.png)
 
