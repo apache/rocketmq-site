@@ -137,8 +137,6 @@ Compared with normal messages, ordered messages must have message groups configu
 
 **Create FIFO topic**
 
-
-
 ```bash
 ./bin/mqadmin updateTopic -c DefaultCluster -t FIFOTopic -o true -n 127.0.0.1:9876 -a +message.type=FIFO
 ```
@@ -148,7 +146,7 @@ Compared with normal messages, ordered messages must have message groups configu
 + -n the address of the nameserver
 + **-o the flag to create a ordered topic**
 
-**Create FIFO subscriptionGroup **
+**Create FIFO subscriptionGroup**
 
 ```bash
 ./bin/mqadmin updateSubGroup -c DefaultCluster -g FIFOGroup -n 127.0.0.1:9876 -o true
