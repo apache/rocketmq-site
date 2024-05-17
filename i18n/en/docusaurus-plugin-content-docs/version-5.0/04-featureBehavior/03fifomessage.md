@@ -123,11 +123,19 @@ For creating topics in Apache RocketMQ 5.0, it is recommended to use the mqadmin
 sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=FIFO
 ```
 
+**Create subscriptionGroup**
+
+For creating subscriptionGroup in Apache RocketMQ 5.0, it is recommended to use the mqadmin tool. However, it is worth noting that `-o` option needs to be set to true. Here is an example:
+
+```shell
+sh mqadmin updateSubGroup -c <cluster_name> -g <consumer_group_name> -n <nameserver_address> -o true
+```
+
 **Send messages**
 
 Compared with normal messages, ordered messages must have message groups configured for them. We recommend that you configure message groups at a fine-grained level based on your business requirements to allow for workload decoupling and concurrency scaling.
 
-**Create FIFO Topic**
+**Create FIFO topic**
 
 
 
@@ -138,7 +146,18 @@ Compared with normal messages, ordered messages must have message groups configu
 + -c the cluster name
 + -t the topic name
 + -n the address of the nameserver
-+ **-o the flag to create a ordered Topic**
++ **-o the flag to create a ordered topic**
+
+**Create FIFO subscriptionGroup **
+
+```bash
+./bin/mqadmin updateSubGroup -c DefaultCluster -g FIFOGroup -n 127.0.0.1:9876 -o true
+```
+
++ -c the cluster name
++ -g the subscription group name
++ -n the address of the nameserver
++ **-o the flag to create a ordered subscription group**
 
 
 
