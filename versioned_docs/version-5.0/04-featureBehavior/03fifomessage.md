@@ -131,6 +131,14 @@ Apache RocketMQ 5.0版本下创建主题操作，推荐使用mqadmin工具，需
 sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=FIFO
 ```
 
+**创建订阅消费组**
+
+Apache RocketMQ 5.0版本下创建订阅消费组操作，推荐使用mqadmin工具，需要注意的是，对于订阅消费组顺序类型需要通过 `-o` 选项设置。示例如下：
+
+```shell
+sh mqadmin updateSubGroup -c <cluster_name> -g <consumer_group_name> -n <nameserver_address> -o true
+```
+
 **发送消息**
 
 和普通消息发送相比，顺序消息发送必须要设置消息组。消息组的粒度建议按照业务场景，尽可能细粒度设计，以便实现业务拆分和并发扩展。
@@ -143,8 +151,19 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 
 + -c 集群名称
 + -t Topic名称
-+ -n nameserver地址
-+ -o 创建顺序消息
++ -n Nameserver地址
++ **-o 创建顺序消息主题**
+
+**创建FIFO订阅消费组**
+
+```bash
+./bin/mqadmin updateSubGroup -c DefaultCluster -g FIFOGroup -n 127.0.0.1:9876 -o true
+```
+
++ -c 集群名称
++ -g ConsumerGroup名称
++ -n Nameserver地址
++ **-o 创建顺序订阅消费组**
 
 
 
