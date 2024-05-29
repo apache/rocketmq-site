@@ -4,10 +4,12 @@
 
 :::tip 系统要求
 
-1. 64位操作系统，推荐 Linux/Unix/macOS
+1. 64位操作系统
 2. 64位 JDK 1.8+
 
 :::
+
+
 
 ## 1.拉取RocketMQ镜像
 
@@ -25,26 +27,11 @@ RocketMQ中有多个服务，需要创建多个容器，创建 docker 网络便�
 docker network create rocketmq
 ```
 
-## 3.创建映射目录并给予权限
-
-```shell
-# 创建映射目录
-mkdir -p  /docker/rocketmq/broker/logs
-mkdir -p  /docker/rocketmq/broker/store
-mkdir -p  /docker/rocketmq/nameserver/logs
-mkdir -p  /docker/rocketmq/conf
-
-# 给予权限
-chmod -R 777 /docker/rocketmq
-```
-
 ## 3.启动NameServer
 
 ```shell
 # 启动NameServer
-docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq \
--v /docker/rocketmq/nameserver/logs/:/home/rocketmq/logs \
-apache/rocketmq:4.9.6 sh mqnamesrv
+docker run -d --name rmqnamesrv -p 9876:9876 --net rocketmq apache/rocketmq:4.9.6 sh mqnamesrv
 
 # 验证NameServer是否启动成功
 docker logs -f rmqnamesrv
@@ -60,45 +47,57 @@ docker logs -f rmqnamesrv
 
 NameServer成功启动后，我们启动Broker。
 
-```shell
-# 创建配置文件broker.conf
-vim /docker/rocketmq/conf/broker.conf
-```
 
-```text
-# 集群名称
-brokerClusterName = DefaultCluster
-# 节点名称
-brokerName = broker-a
-# broker id节点ID， 0 表示 master, 其他的正整数表示 slave，不能小于0 
-brokerId = 0
-# 在每天的什么时间删除已经超过文件保留时间的 commit log，默认值04
-deleteWhen = 04
-# 以小时计算的文件保留时间 默认值72小时
-fileReservedTime = 48
-# Broker角色
-brokerRole = ASYNC_MASTER
-# 刷盘方式
-flushDiskType = ASYNC_FLUSH
-# 此处为示例，实际使用时请替换为真实的 Broker 地址
-brokerIP1 = 127.0.0.1
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```shell
+<Tabs>
+<TabItem value="Linux" label="Linux" default >
+
+```code
+# 配置 broker 的 IP 地址，这里需要配置为broker所在主机的公网ip
+echo brokerIP1=127.0.0.1>broker.conf
+
 # 启动Broker
 docker run -d \
 --name rmqbroker \
---network rocketmq \
+--net rocketmq \
 -p 10912:10912 -p 10911:10911 -p 10909:10909 \
 -e "NAMESRV_ADDR=rmqnamesrv:9876" \
--v /docker/rocketmq/broker/logs:/home/rocketmq/logs \
--v /docker/rocketmq/conf:/home/rocketmq/conf \
-apache/rocketmq:4.9.6 sh mqbroker -n rmqnamesrv:9876 autoCreateTopicEnable=true \
--c /home/rocketmq/conf/broker.conf
+-v ./broker.conf:/home/rocketmq/rocketmq-4.9.6/conf/broker.conf \
+apache/rocketmq:4.9.6 sh mqbroker \
+-c /home/rocketmq/rocketmq-4.9.6/conf/broker.conf
 
 # 验证Broker是否启动成功
-docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/broker.log"
+docker logs rmqbroker
 ```
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+```code
+# 配置 broker 的 IP 地址
+echo brokerIP1=127.0.0.1>broker.conf
+
+# 启动 Broker
+docker run -d ^
+--name rmqbroker ^
+--net rocketmq ^
+-p 10912:10912 -p 10911:10911 -p 10909:10909 ^
+-e "NAMESRV_ADDR=rmqnamesrv:9876" ^
+-v %cd%\broker.conf:/home/rocketmq/rocketmq-4.9.6/conf/broker.conf ^
+apache/rocketmq:4.9.6 sh mqbroker ^
+-c /home/rocketmq/rocketmq-4.9.6/conf/broker.conf
+
+# 验证 Broker 是否启动成功
+docker logs rmqbroker
+```
+
+</TabItem>
+
+</Tabs>
+
+
+
 
 :::info
 
@@ -126,9 +125,10 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
 ```
 
 
+
 ## 6.SDK测试消息收发
 
-工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 [rocketmq-clients](https://github.com/apache/rocketmq-clients) 中参阅更多细节。
+工具测试完成后，我们可以尝试使用 SDK 收发消息，这里以 Java SDK 为例介绍一下消息收发过程。
 
 1. 在IDEA中创建一个Java工程。
 
@@ -142,7 +142,7 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
    </dependency>
    ```
 
-3. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：
+3. 在已创建的Java工程中，创建发送普通消息程序并运行，Apache RocketMQ可用于以三种方式发送消息：**同步、异步和单向传输**，这里以同步模式为示例：
 
    ```java
    import org.apache.rocketmq.client.producer.DefaultMQProducer;
@@ -152,14 +152,14 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
    public class ProducerExample {
        public static void main(String[] args) throws Exception {
            // 创建生产者实例，并设置生产者组名
-           DefaultMQProducer producer = new DefaultMQProducer("Test");
+           DefaultMQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
            // 设置 Name Server 地址，此处为示例，实际使用时请替换为真实的 Name Server 地址
            producer.setNamesrvAddr("localhost:9876");
            producer.start();
    
            try {
-               // 创建消息实例，指定 topic 和消息体，tag 留空
-               Message msg = new Message("TestTopic", "", ("Hello RocketMQ").getBytes());
+               // 创建消息实例，指定 topic、Tag和消息体
+               Message msg = new Message("TestTopic", "TagA", ("Hello RocketMQ").getBytes());
                // 发送消息并获取发送结果
                SendResult sendResult = producer.send(msg);
                System.out.println("Message sent: " + new String(msg.getBody()));
@@ -175,7 +175,7 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
    }
    ```
 
-4. 在已创建的Java工程中，创建订阅普通消息程序并运行。Apache RocketMQ 支持[SimpleConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype)和[PushConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype)两种消费者类型，您可以选择以下任意一种方式订阅消息。
+4. 在已创建的Java工程中，创建订阅普通消息程序并运行。Apache RocketMQ 有两种消费模式：**Push和Pull**，这里以Push消费为示例。
 
    ```java
    import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -189,7 +189,7 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
    public class ConsumerExample {
        public static void main(String[] args) throws Exception {
            // 创建消费者实例，并设置消费者组名
-           DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("TestGroup");
+           DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
            // 设置 Name Server 地址，此处为示例，实际使用时请替换为真实的 Name Server 地址
            consumer.setNamesrvAddr("localhost:9876");
            // 订阅指定的主题和标签（* 表示所有标签）
@@ -224,3 +224,4 @@ docker stop rmqnamesrv
 docker stop rmqbroker
 ```
 
+ 
