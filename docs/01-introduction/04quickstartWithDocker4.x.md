@@ -55,7 +55,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Linux" label="Linux" default >
 
 ```code
-# 配置 broker 的 IP 地址，这里需要配置为broker所在主机的公网ip
+# 配置 broker 的 IP 地址
 echo brokerIP1=127.0.0.1>broker.conf
 
 # 启动Broker
