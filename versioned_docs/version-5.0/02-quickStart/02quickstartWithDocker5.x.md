@@ -4,7 +4,7 @@
 
 :::tip 系统要求
 
-1. 64位操作系统，推荐 Linux/Unix/macOS
+1. 64位操作系统
 2. 64位 JDK 1.8+
 
 :::
@@ -23,28 +23,13 @@ RocketMQ中有多个服务，需要创建多个容器，创建 docker 网络便�
 docker network create rocketmq
 ```
 
-## 3.创建映射目录并给予权限
-
-```shell
-# 创建映射目录
-mkdir -p  /docker/rocketmq/broker/logs
-mkdir -p  /docker/rocketmq/broker/store
-mkdir -p  /docker/rocketmq/nameserver/logs
-mkdir -p  /docker/rocketmq/conf
-
-# 给予权限
-chmod -R 777 /docker/rocketmq
-```
-
 ## 3.启动NameServer
 
 ```shell
-# 启动NameServer
-docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq \
--v /docker/rocketmq/nameserver/logs:/home/rocketmq/logs \
-apache/rocketmq:5.2.0 sh mqnamesrv
+# 启动 NameServer
+docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq apache/rocketmq:5.2.0 sh mqnamesrv
 
-# 验证NameServer是否启动成功
+# 验证 NameServer 是否启动成功
 docker logs -f rmqnamesrv
 ```
 :::info
@@ -53,47 +38,60 @@ docker logs -f rmqnamesrv
 
 :::
 
-## 4.启动Broker+Proxy
-NameServer成功启动后，我们启动Broker和Proxy，5.x 版本下我们建议使用 Local 模式部署，即 Broker 和 Proxy 同进程部署。
-```shell
-# 创建配置文件broker.conf
-vim /docker/rocketmq/conf/broker.conf
-```
-```text
-# 集群名称
-brokerClusterName = DefaultCluster
-# 节点名称
-brokerName = broker-a
-# broker id节点ID， 0 表示 master, 其他的正整数表示 slave，不能小于0 
-brokerId = 0
-# 在每天的什么时间删除已经超过文件保留时间的 commit log，默认值04
-deleteWhen = 04
-# 以小时计算的文件保留时间 默认值72小时
-fileReservedTime = 48
-# Broker角色
-brokerRole = ASYNC_MASTER
-# 刷盘方式
-flushDiskType = ASYNC_FLUSH
-# 此处为示例，实际使用时请替换为真实的 Broker 地址
-brokerIP1 = 127.0.0.1
-```
+## 4.启动 Broker+Proxy
+NameServer 成功启动后，我们启动 Broker 和 Proxy ，5.x 版本下我们建议使用 Local 模式部署，即 Broker 和 Proxy 同进程部署。
 
-```shell
-# 启动Broker和Proxy
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="Linux" label="Linux" default >
+
+```code
+# 配置 Broker 的IP地址
+echo "brokerIP1=127.0.0.1" > broker.conf
+
+# 启动 Broker 和 Proxy
 docker run -d \
 --name rmqbroker \
 --network rocketmq \
 -p 10912:10912 -p 10911:10911 -p 10909:10909 \
 -p 8080:8080 -p 8081:8081 \
 -e "NAMESRV_ADDR=rmqnamesrv:9876" \
--v /docker/rocketmq/broker/logs:/home/rocketmq/logs \
--v /docker/rocketmq/conf:/home/rocketmq/conf \
+-v ./broker.conf:/home/rocketmq/rocketmq-5.2.0/conf/broker.conf \
 apache/rocketmq:5.2.0 sh mqbroker --enable-proxy \
--c /home/rocketmq/conf/broker.conf
+-c /home/rocketmq/rocketmq-5.2.0/conf/broker.conf
 
-# 验证Broker是否启动成功
+# 验证 Broker 是否启动成功
 docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/proxy.log"
 ```
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+```code
+# 配置 Broker 的 IP 地址
+echo "brokerIP1=127.0.0.1" > broker.conf
+
+# 启动 Broker 和 Proxy
+docker run -d ^
+--name rmqbroker ^
+--net rocketmq ^
+-p 10912:10912 -p 10911:10911 -p 10909:10909 ^
+-p 8080:8080 -p 8081:8081 \
+-e "NAMESRV_ADDR=rmqnamesrv:9876" ^
+-v %cd%\broker.conf:/home/rocketmq/rocketmq-5.2.0/conf/broker.conf ^
+apache/rocketmq:5.2.0 sh mqbroker --enable-proxy \
+-c /home/rocketmq/rocketmq-5.2.0/conf/broker.conf
+
+# 验证 Broker 是否启动成功
+docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/proxy.log"
+```
+
+</TabItem>
+
+</Tabs>
+
+
 :::info
 
 我们可以看到 **'The broker boot success..'，** 表示 Broker 已成功启动。
@@ -217,7 +215,7 @@ public class PushConsumerExample {
 
     public static void main(String[] args) throws ClientException, IOException, InterruptedException {
         final ClientServiceProvider provider = ClientServiceProvider.loadService();
-        // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8081;xxx:8081
+        // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8080;xxx:8081
         // 此处为示例，实际使用时请替换为真实的 Proxy 地址和端口
         String endpoints = "localhost:8081";
         ClientConfiguration clientConfiguration = ClientConfiguration.newBuilder()
