@@ -50,7 +50,22 @@ Apache RocketMQ 社区成员主要通过以下两种邮件沟通和交流：
 * [Development mailing list](mailto:dev@rocketmq.apache.org) : Apache RocketMQ 开发者通过该邮件列表交流新特性，预发布版本，一般的开发流程等。
 
   若您热衷于为 RocketMQ 社区贡献代码，可以加入该邮件列表。
+  
+* 订阅步骤 : 以订阅 `dev@rocketmq.apache.org` 邮件列表为例，具体步骤如下。
+  
+  1. 发送一封不包含任何内容或主题的邮件到: `dev-subscribe@rocketmq.apache.org`
+  2. 等待直到收到一封主题为 `confirm subscribe to dev@rocketmq.apache.org` 的邮件（如果长时间未能收到，请确认该邮件是否被你的邮箱拦截，确定没有被拦截且长时间未收到回复邮件的话，返回第1步）
+  3. 直接回复该邮件，不用修改主题和添加邮件内容。
+  4. 等待直到收到一封主题为 `WELCOME to dev@rocketmq.apache.org` 的邮件。
+  5. 收到 `dev` 的邮件后，就说明订阅邮件成功。若想发起讨论，直接往 `dev@rocketmq.apache.org` 发送邮件即可，所有订阅了邮件列表的人都会收到邮件。
 
+* 退订步骤 : 退订邮件列表的步骤与订阅邮件列表类似，具体步骤如下。
+  
+  1. 发送一封不包含任何内容或主题的邮件到: `dev-unsubscribe@rocketmq.apache.org`
+  2. 等待直到收到一封主题为 `confirm unsubscribe from dev@rocketmq.apache.org` 的邮件
+  3. 直接回复该邮件，不用修改主题和添加邮件内容
+  4. 等待直到收到一封主题为 `GOODBYE from dev@rocketmq.apache.org` 的邮件
+  5. 退订成功
 
 您也可以通过订阅 [mailing lists](/contact)，获取更多的社区信息。
 
