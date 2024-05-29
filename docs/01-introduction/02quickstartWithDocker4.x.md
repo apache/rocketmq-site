@@ -56,7 +56,7 @@ import TabItem from '@theme/TabItem';
 
 ```code
 # 配置 broker 的 IP 地址
-echo brokerIP1=127.0.0.1>broker.conf
+echo "brokerIP1=127.0.0.1" >broker.conf
 
 # 启动Broker
 docker run -d \
