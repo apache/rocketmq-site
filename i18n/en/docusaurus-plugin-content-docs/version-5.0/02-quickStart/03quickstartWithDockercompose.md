@@ -1,37 +1,18 @@
-# Docker-compose 部署 RocketMQ
+# Docker-compose Deployment of RocketMQ
 
-这一节介绍如何使用Docker-compose快速部署一个单节点单副本 RocketMQ 服务，并完成简单的消息收发。
+This section introduces how to quickly deploy a single-node, single-replica RocketMQ service using Docker-compose and complete simple message sending and receiving.
 
-:::tip 系统要求
+:::tip System Requirements
 
-1. 64位操作系统
-2. 64位 JDK 1.8+
+1. 64-bit operating system
+2. 64-bit JDK 1.8+
 
 :::
 
-## 1.创建配置文件
+## 1. Write docker-compose
 
-```shell
-# 配置 broker 的IP地址
-echo "brokerIP1=127.0.0.1" > broker.conf
-```
+To quickly start and run the RocketMQ cluster, you can use the following template to create a docker-compose.yml file by modifying or adding configurations in the environment section.
 
-```shell
-# 创建配置文件rmq-proxy.json
-vim /docker/rocketmq/conf/rmq-proxy.json
-```
-
-```
-{
-	"rocketMQClusterName": "DefaultCluster"
-}
-```
-
-
-
-## 2.编写docker-compose
-
-为了快速启动并运行 RockerMQ 集群，您可以使用以下模板通过修改或添加环境部分中的配置来创建 docker-compose.yml 文件。
 ```text
 version: '3.8'
 services:
@@ -43,7 +24,7 @@ services:
     networks:
       - rocketmq
     command: sh mqnamesrv
-	broker:
+  broker:
     image: apache/rocketmq:5.2.0
     container_name: rmqbroker
     ports:
@@ -52,12 +33,11 @@ services:
       - 10912:10912
     environment:
       - NAMESRV_ADDR=rmqnamesrv:9876
-      - ./broker.conf:/home/rocketmq/rocketmq-5.2.0/conf/broker.conf
     depends_on:
       - namesrv
     networks:
       - rocketmq
-    command: sh mqbroker -c /home/rocketmq/rocketmq-5.2.0/conf/broker.conf
+    command: sh mqbroker
   proxy:
     image: apache/rocketmq:5.2.0
     container_name: rmqproxy
@@ -65,6 +45,7 @@ services:
       - rocketmq
     depends_on:
       - broker
+      - namesrv
     ports:
       - 8080:8080
       - 8081:8081
@@ -76,8 +57,9 @@ networks:
   rocketmq:
     driver: bridge
 ```
-## 3.启动RocketMQ集群
-根据 docker-compose.yml 文件启动所有定义的服务。
+
+## 2.Start RocketMQ cluster
+tart all defined services according to the docker-compose.yml file.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -89,15 +71,15 @@ docker-compose up -d
 ```
 </TabItem>
 <TabItem value="Windows" label="Windows">
-</TabItem>
 ```shell
 docker-compose -p rockermq_project up -d
 ```
+</TabItem>
 </Tabs>
 
-## 4.工具测试消息收发
+## 3.Send and Receive Messages with Tools
 ```shell
-# 进入broker容器
+# Enter the broker container
 $ docker exec -it rmqbroker bash
 
 $ sh tools.sh org.apache.rocketmq.example.quickstart.Producer
@@ -106,10 +88,12 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Producer
 $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
-## 5.SDK测试消息收发
-工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 [rocketmq-clients](https://github.com/apache/rocketmq-clients) 中参阅更多细节。
-1. 在IDEA中创建一个Java工程。
-2. 在 *pom.xml* 文件中添加以下依赖引入Java依赖库，将 `rocketmq-client-java-version` 替换成 <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>最新的版本</a>.
+
+## 4.Send and Receive Messages with SDK
+1. After testing with tools, we can try to send and receive messages using the SDK. Here is an example of using the Java SDK for message sending and receiving. More details can be found at [rocketmq-clients](https://github.com/apache/rocketmq-clients).
+
+2. Add the following dependency to the pom.xml file to introduce the Java dependency library, replacing `rocketmq-client-java-version` with <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>the latest version</a>.
+
    ```xml
    <dependency>
        <groupId>org.apache.rocketmq</groupId>
@@ -117,12 +101,13 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
        <version>${rocketmq-client-java-version}</version>
    </dependency> 
    ```
-3. 进入broker容器，通过mqadmin创建 Topic。
+
+3. Enter the broker container and create a Topic using mqadmin.
    ```shell
    $ docker exec -it rmqbroker bash
    $ sh mqadmin updatetopic -t TestTopic -c DefaultCluster
    ```
-4. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：
+4. In the created Java project, create and run a program to send a normal message. The sample code is as follows:
    ```java
    import org.apache.rocketmq.client.apis.ClientConfiguration;
    import org.apache.rocketmq.client.apis.ClientConfigurationBuilder;
@@ -138,31 +123,30 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
        private static final Logger logger = LoggerFactory.getLogger(ProducerExample.class);
 
        public static void main(String[] args) throws ClientException {
-           // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8080;xxx:8081
-           // 此处为示例，实际使用时请替换为真实的 Proxy 地址和端口
+           // Endpoint address, set to the Proxy address and port list, usually xxx:8080;xxx:8081
            String endpoint = "localhost:8081";
-           // 消息发送的目标Topic名称，需要提前创建。
+           // The target Topic name for message sending, which needs to be created in advance.
            String topic = "TestTopic";
            ClientServiceProvider provider = ClientServiceProvider.loadService();
            ClientConfigurationBuilder builder = ClientConfiguration.newBuilder().setEndpoints(endpoint);
            ClientConfiguration configuration = builder.build();
-           // 初始化Producer时需要设置通信配置以及预绑定的Topic。
+           // When initializing Producer, communication configuration and pre-bound Topic need to be set.
            Producer producer = provider.newProducerBuilder()
                .setTopics(topic)
                .setClientConfiguration(configuration)
                .build();
-           // 普通消息发送。
+           // Sending a normal message.
            Message message = provider.newMessageBuilder()
                .setTopic(topic)
-               // 设置消息索引键，可根据关键字精确查找某条消息。
+               // Set the message index key, which can be used to accurately find a specific message.
                .setKeys("messageKey")
-               // 设置消息Tag，用于消费端根据指定Tag过滤消息。
+               // Set the message Tag, used by the consumer to filter messages by specified Tag.
                .setTag("messageTag")
-               // 消息体。
+               // Message body.
                .setBody("messageBody".getBytes())
                .build();
            try {
-               // 发送消息，需要关注发送结果，并捕获失败等异常。
+               // Send the message, paying attention to the sending result and catching exceptions.
                SendReceipt sendReceipt = producer.send(message);
                logger.info("Send message successfully, messageId={}", sendReceipt.getMessageId());
            } catch (ClientException e) {
@@ -172,7 +156,8 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
        }
    }
    ```
-5. 在已创建的Java工程中，创建订阅普通消息程序并运行。Apache RocketMQ 支持[SimpleConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype)和[PushConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype)两种消费者类型，您可以选择以下任意一种方式订阅消息。
+3. In the created Java project, create and run a program to subscribe to normal messages. Apache RocketMQ supports both [SimpleConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype) and [PushConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype) types of consumers. You can choose either method to subscribe to messages.
+ 
 ```java
 import java.io.IOException;
 import java.util.Collections;
@@ -194,40 +179,41 @@ public class PushConsumerExample {
 
     public static void main(String[] args) throws ClientException, IOException, InterruptedException {
         final ClientServiceProvider provider = ClientServiceProvider.loadService();
-        // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8081;xxx:8081
-        // 此处为示例，实际使用时请替换为真实的 Proxy 地址和端口
+        // Endpoint address, set to the Proxy address and port list, usually xxx:8080;xxx:8081
         String endpoints = "localhost:8081";
         ClientConfiguration clientConfiguration = ClientConfiguration.newBuilder()
             .setEndpoints(endpoints)
             .build();
-        // 订阅消息的过滤规则，表示订阅所有Tag的消息。
+        // Subscription message filtering rule, indicating subscription to all Tag messages.
         String tag = "*";
         FilterExpression filterExpression = new FilterExpression(tag, FilterExpressionType.TAG);
-        // 为消费者指定所属的消费者分组，Group需要提前创建。
+        // Specify the consumer group the consumer belongs to, Group needs to be created in advance.
         String consumerGroup = "YourConsumerGroup";
-        // 指定需要订阅哪个目标Topic，Topic需要提前创建。
+        // Specify which target Topic to subscribe to, Topic needs to be created in advance.
         String topic = "TestTopic";
-        // 初始化PushConsumer，需要绑定消费者分组ConsumerGroup、通信参数以及订阅关系。
+        // Initialize PushConsumer
         PushConsumer pushConsumer = provider.newPushConsumerBuilder()
             .setClientConfiguration(clientConfiguration)
-            // 设置消费者分组。
+            // Set the consumer group.
             .setConsumerGroup(consumerGroup)
-            // 设置预绑定的订阅关系。
+            // Set pre-bound subscription relationship.
             .setSubscriptionExpressions(Collections.singletonMap(topic, filterExpression))
-            // 设置消费监听器。
+            // Set the message listener.
             .setMessageListener(messageView -> {
-                // 处理消息并返回消费结果。
+                // Handle messages and return the consumption result.
                 logger.info("Consume message successfully, messageId={}", messageView.getMessageId());
                 return ConsumeResult.SUCCESS;
             })
             .build();
         Thread.sleep(Long.MAX_VALUE);
-        // 如果不需要再使用 PushConsumer，可关闭该实例。
+        // If PushConsumer is no longer needed, this instance can be closed.
         // pushConsumer.close();
     }
 }
+
 ```
-## 6.停止所有服务
+
+## 5.Stop all services
 ```shell
 docker-compose down
 ```
