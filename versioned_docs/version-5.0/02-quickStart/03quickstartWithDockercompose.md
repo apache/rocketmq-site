@@ -77,18 +77,7 @@ docker-compose -p rockermq_project up -d
 </TabItem>
 </Tabs>
 
-## 3.工具测试消息收发
-```shell
-# 进入broker容器
-$ docker exec -it rmqbroker bash
-
-$ sh tools.sh org.apache.rocketmq.example.quickstart.Producer
- SendResult [sendStatus=SEND_OK, msgId= ...
-
-$ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
- ConsumeMessageThread_%d Receive New Messages: [MessageExt...
-```
-## 4.SDK测试消息收发
+## 3.SDK测试消息收发
 工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 [rocketmq-clients](https://github.com/apache/rocketmq-clients) 中参阅更多细节。
 1. 在IDEA中创建一个Java工程。
 2. 在 *pom.xml* 文件中添加以下依赖引入Java依赖库，将 `rocketmq-client-java-version` 替换成 <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>最新的版本</a>.
@@ -209,7 +198,7 @@ public class PushConsumerExample {
 
 ```
 
-## 5.停止所有服务
+## 4.停止所有服务
 ```shell
 docker-compose down
 ```
