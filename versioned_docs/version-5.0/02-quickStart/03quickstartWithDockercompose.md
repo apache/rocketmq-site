@@ -9,14 +9,8 @@
 
 :::
 
-## 1.创建配置文件
 
-```shell
-# 配置 broker 的IP地址
-echo "brokerIP1=127.0.0.1" > broker.conf
-```
-
-## 2.编写docker-compose
+## 1.编写docker-compose
 
 为了快速启动并运行 RockerMQ 集群，您可以使用以下模板通过修改或添加环境部分中的配置来创建 docker-compose.yml 文件。
 ```text
@@ -30,7 +24,7 @@ services:
     networks:
       - rocketmq
     command: sh mqnamesrv
-	broker:
+  broker:
     image: apache/rocketmq:5.2.0
     container_name: rmqbroker
     ports:
@@ -39,12 +33,11 @@ services:
       - 10912:10912
     environment:
       - NAMESRV_ADDR=rmqnamesrv:9876
-      - ./broker.conf:/home/rocketmq/rocketmq-5.2.0/conf/broker.conf
     depends_on:
       - namesrv
     networks:
       - rocketmq
-    command: sh mqbroker -c /home/rocketmq/rocketmq-5.2.0/conf/broker.conf
+    command: sh mqbroker
   proxy:
     image: apache/rocketmq:5.2.0
     container_name: rmqproxy
@@ -64,7 +57,7 @@ networks:
     driver: bridge
 ```
 
-## 3.启动RocketMQ集群
+## 2.启动RocketMQ集群
 根据 docker-compose.yml 文件启动所有定义的服务。
 
 import Tabs from '@theme/Tabs';
@@ -83,7 +76,7 @@ docker-compose -p rockermq_project up -d
 ```
 </Tabs>
 
-## 4.工具测试消息收发
+## 3.工具测试消息收发
 ```shell
 # 进入broker容器
 $ docker exec -it rmqbroker bash
@@ -94,8 +87,7 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Producer
 $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
-
-## 5.SDK测试消息收发
+## 4.SDK测试消息收发
 工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 [rocketmq-clients](https://github.com/apache/rocketmq-clients) 中参阅更多细节。
 1. 在IDEA中创建一个Java工程。
 2. 在 *pom.xml* 文件中添加以下依赖引入Java依赖库，将 `rocketmq-client-java-version` 替换成 <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>最新的版本</a>.
@@ -217,7 +209,8 @@ public class PushConsumerExample {
 }
 
 ```
-## 6.停止所有服务
+
+## 5.停止所有服务
 ```shell
 docker-compose down
 ```
