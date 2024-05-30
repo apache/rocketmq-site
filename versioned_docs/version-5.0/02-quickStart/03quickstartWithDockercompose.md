@@ -121,7 +121,6 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
 
        public static void main(String[] args) throws ClientException {
            // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8080;xxx:8081
-           // 此处为示例，实际使用时请替换为真实的 Proxy 地址和端口
            String endpoint = "localhost:8081";
            // 消息发送的目标Topic名称，需要提前创建。
            String topic = "TestTopic";
@@ -176,8 +175,7 @@ public class PushConsumerExample {
 
     public static void main(String[] args) throws ClientException, IOException, InterruptedException {
         final ClientServiceProvider provider = ClientServiceProvider.loadService();
-        // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8081;xxx:8081
-        // 此处为示例，实际使用时请替换为真实的 Proxy 地址和端口
+        // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8080;xxx:8081
         String endpoints = "localhost:8081";
         ClientConfiguration clientConfiguration = ClientConfiguration.newBuilder()
             .setEndpoints(endpoints)
