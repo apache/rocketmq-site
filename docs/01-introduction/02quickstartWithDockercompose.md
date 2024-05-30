@@ -1,4 +1,4 @@
-# Docker-compose 部署 RocketMQ 4.X
+# Docker-compose 部署 RocketMQ
 
 这一节介绍如何使用Docker-compose快速部署一个单节点单副本 RocketMQ 服务，并完成简单的消息收发。
 
@@ -54,9 +54,24 @@ networks:
 ## 3.启动RocketMQ集群
 根据 docker-compose.yml 文件启动所有定义的服务。
 
-```shell
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="Linux" label="Linux" default >
+
+```code
 docker-compose up -d
 ```
+
+</TabItem>
+<TabItem value="Windows" label="Windows" default>
+
+```code
+docker-compose -p rocketmq_project up -d
+```
+</TabItem>
+</Tabs>
 
 ## 4.工具测试消息收发
 ```shell
