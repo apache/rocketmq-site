@@ -1,80 +1,35 @@
-# Docker-compose 部署 RocketMQ 5.X
+# Docker-compose 部署 RocketMQ
 
 这一节介绍如何使用Docker-compose快速部署一个单节点单副本 RocketMQ 服务，并完成简单的消息收发。
 
 :::tip 系统要求
 
-1. 64位操作系统，推荐 Linux/Unix/macOS
+1. 64位操作系统
 2. 64位 JDK 1.8+
 
 :::
 
-## 1.创建映射目录
+## 1.创建配置文件
 
 ```shell
-# 创建映射目录
-mkdir -p  /docker/rocketmq/broker/logs
-mkdir -p  /docker/rocketmq/broker/store
-mkdir -p  /docker/rocketmq/nameserver/logs
-mkdir -p  /docker/rocketmq/proxy/logs
-mkdir -p  /docker/rocketmq/conf
-
-# 给予权限
-chmod -R 777 /docker/rocketmq
-```
-## 2.创建配置文件
-```shell
-# 创建配置文件broker.conf
-vim /docker/rocketmq/conf/broker.conf
-```
-```text
-# 集群名称
-brokerClusterName = DefaultCluster
-# 节点名称
-brokerName = broker-a
-# broker ID，0 表示 master，其他正整数表示 slave，不能小于 0 
-brokerId = 0
-# 每天删除超过文件保留时间的 commit log 的时间，默认值为 04
-deleteWhen = 04
-# 文件保留时间，以小时计算，默认值为 72 小时
-fileReservedTime = 48
-# Broker 角色
-brokerRole = ASYNC_MASTER
-# 刷盘方式
-flushDiskType = ASYNC_FLUSH
+# 配置 broker 的IP地址
+echo "brokerIP1=127.0.0.1" > broker.conf
 ```
 
-```shell
-# 创建配置文件rmq-proxy.json
-vim /docker/rocketmq/conf/rmq-proxy.json
-```
-
-```
-{
-	"rocketMQClusterName": "DefaultCluster"
-}
-```
-
-
-
-## 3.编写docker-compose
+## 2.编写docker-compose
 
 为了快速启动并运行 RockerMQ 集群，您可以使用以下模板通过修改或添加环境部分中的配置来创建 docker-compose.yml 文件。
 ```text
 version: '3.8'
-
 services:
   namesrv:
     image: apache/rocketmq:5.2.0
     container_name: rmqnamesrv
     ports:
       - 9876:9876
-    volumes:
-      - /docker/rocketmq/nameserver/logs:/home/rocketmq/logs
     networks:
       - rocketmq
     command: sh mqnamesrv
-
 	broker:
     image: apache/rocketmq:5.2.0
     container_name: rmqbroker
@@ -84,17 +39,12 @@ services:
       - 10912:10912
     environment:
       - NAMESRV_ADDR=rmqnamesrv:9876
-    volumes:
-      - /docker/rocketmq/broker/logs:/home/rocketmq/logs
-      - /docker/rocketmq/broker/store:/home/rocketmq/store
-      - /docker/rocketmq/conf:/home/rocketmq/conf
+      - ./broker.conf:/home/rocketmq/rocketmq-5.2.0/conf/broker.conf
     depends_on:
       - namesrv
     networks:
       - rocketmq
-    command: sh mqbroker -c /home/rocketmq/conf/broker.conf
-
-  #Service for proxy
+    command: sh mqbroker -c /home/rocketmq/rocketmq-5.2.0/conf/broker.conf
   proxy:
     image: apache/rocketmq:5.2.0
     container_name: rmqproxy
@@ -108,23 +58,32 @@ services:
     restart: on-failure
     environment:
       - NAMESRV_ADDR=rmqnamesrv:9876
-    volumes:
-      - /docker/rocketmq/proxy/logs:/home/rocketmq/logs
-      - /docker/rocketmq/conf/rmq-proxy.json:/opt/rocketmq-5.2.0/conf/rmq-proxy.json
-    command: sh mqproxy -pc /opt/rocketmq-5.2.0/conf/rmq-proxy.json
-
+    command: sh mqproxy
 networks:
   rocketmq:
     driver: bridge
 ```
-## 4.启动RocketMQ集群
-根据docker-compose.yml文件启动所有定义的服务。
 
+## 3.启动RocketMQ集群
+根据 docker-compose.yml 文件启动所有定义的服务。
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="Linux" label="Linux" default >
 ```shell
 docker-compose up -d
 ```
+</TabItem>
+<TabItem value="Windows" label="Windows">
+</TabItem>
+```shell
+docker-compose -p rockermq_project up -d
+```
+</Tabs>
 
-## 5.工具测试消息收发
+## 4.工具测试消息收发
 ```shell
 # 进入broker容器
 $ docker exec -it rmqbroker bash
@@ -136,14 +95,10 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
-## 6.SDK测试消息收发
-
+## 5.SDK测试消息收发
 工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 [rocketmq-clients](https://github.com/apache/rocketmq-clients) 中参阅更多细节。
-
 1. 在IDEA中创建一个Java工程。
-
 2. 在 *pom.xml* 文件中添加以下依赖引入Java依赖库，将 `rocketmq-client-java-version` 替换成 <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>最新的版本</a>.
-
    ```xml
    <dependency>
        <groupId>org.apache.rocketmq</groupId>
@@ -151,16 +106,12 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
        <version>${rocketmq-client-java-version}</version>
    </dependency> 
    ```
-
 3. 进入broker容器，通过mqadmin创建 Topic。
-
    ```shell
    $ docker exec -it rmqbroker bash
    $ sh mqadmin updatetopic -t TestTopic -c DefaultCluster
    ```
-
 4. 在已创建的Java工程中，创建发送普通消息程序并运行，示例代码如下：
-
    ```java
    import org.apache.rocketmq.client.apis.ClientConfiguration;
    import org.apache.rocketmq.client.apis.ClientConfigurationBuilder;
@@ -171,10 +122,10 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
    import org.apache.rocketmq.client.apis.producer.SendReceipt;
    import org.slf4j.Logger;
    import org.slf4j.LoggerFactory;
-   
+
    public class ProducerExample {
        private static final Logger logger = LoggerFactory.getLogger(ProducerExample.class);
-   
+
        public static void main(String[] args) throws ClientException {
            // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8080;xxx:8081
            // 此处为示例，实际使用时请替换为真实的 Proxy 地址和端口
@@ -210,9 +161,7 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
        }
    }
    ```
-
 5. 在已创建的Java工程中，创建订阅普通消息程序并运行。Apache RocketMQ 支持[SimpleConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype)和[PushConsumer](https://rocketmq.apache.org/zh/docs/featureBehavior/06consumertype)两种消费者类型，您可以选择以下任意一种方式订阅消息。
-
 ```java
 import java.io.IOException;
 import java.util.Collections;
@@ -266,10 +215,9 @@ public class PushConsumerExample {
         // pushConsumer.close();
     }
 }
+
 ```
-
-## 7.停止所有服务
-
+## 6.停止所有服务
 ```shell
 docker-compose down
 ```
