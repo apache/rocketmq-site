@@ -70,10 +70,10 @@ docker-compose up -d
 ```
 </TabItem>
 <TabItem value="Windows" label="Windows">
-</TabItem>
 ```shell
 docker-compose -p rockermq_project up -d
 ```
+</TabItem>
 </Tabs>
 
 ## 3.工具测试消息收发
