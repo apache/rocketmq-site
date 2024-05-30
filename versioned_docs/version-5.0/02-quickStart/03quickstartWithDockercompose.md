@@ -45,6 +45,7 @@ services:
       - rocketmq
     depends_on:
       - broker
+      - namesrv
     ports:
       - 8080:8080
       - 8081:8081
