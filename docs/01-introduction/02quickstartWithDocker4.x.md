@@ -55,10 +55,10 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Linux" label="Linux" default >
 
 ```code
-# 配置 broker 的 IP 地址
-echo brokerIP1=127.0.0.1>broker.conf
+# 配置 Broker 的 IP 地址
+echo "brokerIP1=127.0.0.1" >broker.conf
 
-# 启动Broker
+# 启动 Broker
 docker run -d \
 --name rmqbroker \
 --net rocketmq \
@@ -68,15 +68,15 @@ docker run -d \
 apache/rocketmq:4.9.6 sh mqbroker \
 -c /home/rocketmq/rocketmq-4.9.6/conf/broker.conf
 
-# 验证Broker是否启动成功
+# 验证 Broker 是否启动成功
 docker logs rmqbroker
 ```
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 ```code
-# 配置 broker 的 IP 地址
-echo brokerIP1=127.0.0.1>broker.conf
+# 配置 Broker 的 IP 地址
+echo "brokerIP1=127.0.0.1" >broker.conf
 
 # 启动 Broker
 docker run -d ^
