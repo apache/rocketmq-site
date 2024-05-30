@@ -77,19 +77,7 @@ docker-compose -p rockermq_project up -d
 </TabItem>
 </Tabs>
 
-## 3.Send and Receive Messages with Tools
-```shell
-# Enter the broker container
-$ docker exec -it rmqbroker bash
-
-$ sh tools.sh org.apache.rocketmq.example.quickstart.Producer
- SendResult [sendStatus=SEND_OK, msgId= ...
-
-$ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
- ConsumeMessageThread_%d Receive New Messages: [MessageExt...
-```
-
-## 4.Send and Receive Messages with SDK
+## 3.Send and Receive Messages with SDK
 1. After testing with tools, we can try to send and receive messages using the SDK. Here is an example of using the Java SDK for message sending and receiving. More details can be found at [rocketmq-clients](https://github.com/apache/rocketmq-clients).
 
 2. Add the following dependency to the pom.xml file to introduce the Java dependency library, replacing `rocketmq-client-java-version` with <a href='https://search.maven.org/search?q=g:org.apache.rocketmq%20AND%20a:rocketmq-client-java'>the latest version</a>.
@@ -213,7 +201,7 @@ public class PushConsumerExample {
 
 ```
 
-## 5.Stop all services
+## 4.Stop all services
 ```shell
 docker-compose down
 ```
