@@ -1,4 +1,4 @@
-# Docker 部署 RocketMQ 5.X
+# Docker 部署 RocketMQ
 
 这一节介绍如何使用Docker快速部署一个单节点单副本 RocketMQ 服务，并完成简单的消息收发。
 
@@ -17,7 +17,7 @@ docker pull apache/rocketmq:5.2.0
 ```
 
 ## 2.创建容器共享网络
-RocketMQ中有多个服务，需要创建多个容器，创建 docker 网络便于容器间相互通信。
+RocketMQ 中有多个服务，需要创建多个容器，创建 docker 网络便于容器间相互通信。
 
 ```shell
 docker network create rocketmq
@@ -39,7 +39,7 @@ docker logs -f rmqnamesrv
 :::
 
 ## 4.启动 Broker+Proxy
-NameServer 成功启动后，我们启动 Broker 和 Proxy ，5.x 版本下我们建议使用 Local 模式部署，即 Broker 和 Proxy 同进程部署。
+NameServer 成功启动后，我们启动 Broker 和 Proxy。
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -104,20 +104,7 @@ docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/p
 
 :::
 
-## 5.工具测试消息收发
-```shell
-# 进入broker容器
-$ docker exec -it rmqbroker bash
-
-$ sh tools.sh org.apache.rocketmq.example.quickstart.Producer
- SendResult [sendStatus=SEND_OK, msgId= ...
-
-$ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
- ConsumeMessageThread_%d Receive New Messages: [MessageExt...
-```
-
-
-## 6.SDK测试消息收发
+## 5.SDK测试消息收发
 
 工具测试完成后，我们可以尝试使用 SDK 收发消息。这里以 Java SDK 为例介绍一下消息收发过程，可以从 [rocketmq-clients](https://github.com/apache/rocketmq-clients) 中参阅更多细节。
 
@@ -249,8 +236,8 @@ public class PushConsumerExample {
 }
 ```
 
-## 7. 停止容器
-完成实验后，我们可以通过以下方式停止容器
+## 6. 停止容器
+完成实验后，我们可以通过以下方式停止容器。
 ```shell
 # 停止 NameServer 容器
 docker stop rmqnamesrv
