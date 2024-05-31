@@ -50,7 +50,7 @@ The Name Server boot success...
 
 ## 3. 启动Broker+Proxy
 
-NameServer成功启动后，我们启动Broker和Proxy，5.x 版本下我们建议使用 Local 模式部署，即 Broker 和 Proxy 同进程部署。5.x 版本也支持 Broker 和 Proxy 分离部署以实现更灵活的集群能力。详情参考[部署教程](../05-deploymentOperations/01deploy.md)。
+NameServer成功启动后，我们启动Broker和Proxy。这里我们使用 Local 模式部署，即 Broker 和 Proxy 同进程部署。5.x 版本也支持 Broker 和 Proxy 分离部署以实现更灵活的集群能力。详情参考[部署教程](../05-deploymentOperations/01deploy.md)。
 
 ```shell
 ### 先启动broker
