@@ -132,9 +132,22 @@ $ kubectl get pods -o wide -n rocketmq-demo
 
 
 
-#### 第四步：验证安装
+#### 第四步：验证消息发送和接收
+使用工具测试验证消息发送和接收。
 
-现在你可以使用客户端工具连接到 RocketMQ 进行消息的发送和接收。
+```bash
+#登录pod内（需要管理工具），也可以在宿主机执行
+$ kubectl exec -ti rocketmq-broker-master-0 -n rocketmq-demo -- /bin/bash
+
+####发送消息（pod内操作），使用Producer默认发送1000条####
+$ ./tools.sh org.apache.rocketmq.example.quickstart.Producer
+SendResult [sendStatus=SEND_OK, msgId=AC1FDA4E02483AF49F1C02E4637003E7, offsetMsgId=AC1D833700002A9F0000000000075ADD, messageQueue=MessageQueue [topic=TopicTest, brokerName=broker-g1, queueId=1], queueOffset=499]
+
+####接收消息（pod内操作）####
+$ ./tools.sh org.apache.rocketmq.example.quickstart.Consumer
+ConsumeMessageThread_please_rename_unique_group_name_4_12 Receive New Messages: [MessageExt [brokerName=broker-g1, queueId=1, storeSize=241, queueOffset=499, sysFlag=0, bornTimestamp=1717248522096, bornHost=/172.31.218.78:43132, storeTimestamp=1717248522100, storeHost=/172.29.131.55:10911, msgId=AC1D833700002A9F0000000000075ADD, commitLogOffset=482013, bodyCRC=638172955, reconsumeTimes=0, preparedTransactionOffset=0, toString()=Message{topic='TopicTest', flag=0, properties={CONSUME_START_TIME=1717248522104, MSG_REGION=DefaultRegion, UNIQ_KEY=AC1FDA4E02483AF49F1C02E4637003E7, CLUSTER=rocketmq-helm, MIN_OFFSET=0, TAGS=TagA, WAIT=true, TRACE_ON=true, MAX_OFFSET=500}, body=[72, 101, 108, 108, 111, 32, 82, 111, 99, 107, 101, 116, 77, 81, 32, 57, 57, 57], transactionId='null'}]] 
+```
+
 
 
 
