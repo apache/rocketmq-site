@@ -1,4 +1,4 @@
-# Docker-compose Deployment of RocketMQ
+# Docker Compose Deployment of RocketMQ
 
 This section introduces how to quickly deploy a single-node, single-replica RocketMQ service using Docker-compose and complete simple message sending and receiving.
 
