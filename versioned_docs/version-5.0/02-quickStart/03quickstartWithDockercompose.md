@@ -66,14 +66,18 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="Linux" label="Linux" default >
-```shell
+
+```code
 docker-compose up -d
 ```
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
-```shell
+
+```code
 docker-compose -p rockermq_project up -d
 ```
+
 </TabItem>
 </Tabs>
 
