@@ -1,4 +1,4 @@
-# Local Deployment of RocketMQ
+# Run RocketMQ locally
 
 This section will describe steps to quickly deploy a RocketMQ cluster with a single node; Commands to send and receive messages to/from it are also included as proof of work.
 
