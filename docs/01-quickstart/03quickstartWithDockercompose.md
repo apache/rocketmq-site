@@ -1,4 +1,4 @@
-# Docker-compose 部署 RocketMQ
+# Docker Compose 部署 RocketMQ
 
 这一节介绍如何使用Docker-compose快速部署一个单节点单副本 RocketMQ 服务，并完成简单的消息收发。
 
