@@ -59,7 +59,7 @@ The gRPC SDK has the following advantages over the earlier Remoting protocol SDK
 - Immutable interface design to avoid business exceptions caused by parameter and information leakage.
 - Better support for multiple languages, as the gRPC protocol has the advantage of supporting multiple languages and enables lower cost evolution to achieve consistent behavior in multiple language SDKs.
 
-Want the detailed design thinking and evolutionary direction, refer to [RIP-37: New and Unified APIs](https://shimo.im/docs/m5kv92OeRRU8olqX) and [RIP-39: Support gRPC protocol](https://shimo.im/docs/gXqmeEPYgdUw5bqo).
+Want the detailed design thinking and evolutionary direction, refer to [RIP-37: New and Unified APIs](https://docs.qq.com/doc/DUkNwdkdQUU15V1Fr) and [RIP-39: Support gRPC protocol](https://shimo.im/docs/gXqmeEPYgdUw5bqo).
 
 ### SDK Info
 
