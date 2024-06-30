@@ -55,7 +55,7 @@ gRPC SDK 相比早期Remoting 协议 SDK 具备如下优势：
 - 接口确定性设计更完善，参数、异常类型明确。
 - 接口不可变性设计，避免透传、漏传参数和信息导致的业务异常。
 - 多语言支持更完善，由于gRPC协议的多语言优势，可以更低成本演进出行为一致的多语言sdk。
-详细的设计思考和演进方向，参考[RIP-37: New and Unified APIs](https://shimo.im/docs/m5kv92OeRRU8olqX) 和 [RIP-39: Support gRPC protocol](https://shimo.im/docs/gXqmeEPYgdUw5bqo)。
+详细的设计思考和演进方向，参考[RIP-37: New and Unified APIs](https://docs.qq.com/doc/DUkNwdkdQUU15V1Fr) 和 [RIP-39: Support gRPC protocol](https://shimo.im/docs/gXqmeEPYgdUw5bqo)。
 
 目前支持的开发语言和代码仓库详情可直接参考[rocketmq-clients](https://github.com/apache/rocketmq-clients#features-and-status) SDK 仓库信息。
 
