@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://your-docusaurus-test-site.com/news</id>
     <title>RocketMQ Blog</title>
-    <updated>2024-07-19T06:33:50.000Z</updated>
+    <updated>2024-07-25T13:34:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://your-docusaurus-test-site.com/news"/>
     <subtitle>RocketMQ Blog</subtitle>
@@ -11,108 +11,108 @@
         <title type="html"><![CDATA[RocketMQ OpenMLDB Connector，实时数据到特征工程的高速传输]]></title>
         <id>https://your-docusaurus-test-site.com/news/01</id>
         <link href="https://your-docusaurus-test-site.com/news/01"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[RocketMQ-Streams 首个版本发布，轻量级计算的新选择]]></title>
         <id>https://your-docusaurus-test-site.com/news/02</id>
         <link href="https://your-docusaurus-test-site.com/news/02"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[RocketMQ-Streams架构设计浅析]]></title>
         <id>https://your-docusaurus-test-site.com/news/03</id>
         <link href="https://your-docusaurus-test-site.com/news/03"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[RocketMQ-Streams架构设计浅析]]></title>
         <id>https://your-docusaurus-test-site.com/news/04</id>
         <link href="https://your-docusaurus-test-site.com/news/04"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[RocketMQ在数据异构系统的应用]]></title>
         <id>https://your-docusaurus-test-site.com/news/05</id>
         <link href="https://your-docusaurus-test-site.com/news/05"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[当 RocketMQ 遇见 Elastic Stack ｜ RocketMQ 使实时日志分析更简单]]></title>
         <id>https://your-docusaurus-test-site.com/news/06</id>
         <link href="https://your-docusaurus-test-site.com/news/06"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[基于 RocketMQ Prometheus Exporter 打造定制化 DevOps 平台]]></title>
         <id>https://your-docusaurus-test-site.com/news/07</id>
         <link href="https://your-docusaurus-test-site.com/news/07"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Apache RocketMQ + Hudi 快速构建 Lakehouse]]></title>
         <id>https://your-docusaurus-test-site.com/news/08</id>
         <link href="https://your-docusaurus-test-site.com/news/08"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[再下一城！两大社区携手打造 API 日志监控新利器]]></title>
         <id>https://your-docusaurus-test-site.com/news/09</id>
         <link href="https://your-docusaurus-test-site.com/news/09"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Apache ShenYu集成Apache RocketMQ实现海量日志采集的原理与实践]]></title>
         <id>https://your-docusaurus-test-site.com/news/10</id>
         <link href="https://your-docusaurus-test-site.com/news/10"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[OpenChaos，新的开始！新Streaming Data Platform值得期待]]></title>
         <id>https://your-docusaurus-test-site.com/news/11</id>
         <link href="https://your-docusaurus-test-site.com/news/11"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[混沌鸿蒙，新基建下的分布式消息Chaos框架]]></title>
         <id>https://your-docusaurus-test-site.com/news/12</id>
         <link href="https://your-docusaurus-test-site.com/news/12"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[云原生时代 RocketMQ 运维管控的利器 - RocketMQ Operator]]></title>
         <id>https://your-docusaurus-test-site.com/news/13</id>
         <link href="https://your-docusaurus-test-site.com/news/13"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[RocketMQ 端云一体化设计与实践]]></title>
         <id>https://your-docusaurus-test-site.com/news/14</id>
         <link href="https://your-docusaurus-test-site.com/news/14"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[从本地原生到云原生，Alibaba Dragonwell 静态编译的实践与挑战]]></title>
         <id>https://your-docusaurus-test-site.com/news/15</id>
         <link href="https://your-docusaurus-test-site.com/news/15"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[基于 RocketMQ Prometheus Exporter 打造定制化 DevOps 平台]]></title>
         <id>https://your-docusaurus-test-site.com/news/16</id>
         <link href="https://your-docusaurus-test-site.com/news/16"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[新架构下的Apache RocketMQ，未来十年的数据基础设施]]></title>
         <id>https://your-docusaurus-test-site.com/news/17</id>
         <link href="https://your-docusaurus-test-site.com/news/17"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[从0到1 | 分布式消息规范 OpenMessaging 重要事件回顾]]></title>
         <id>https://your-docusaurus-test-site.com/news/18</id>
         <link href="https://your-docusaurus-test-site.com/news/18"/>
-        <updated>2024-07-19T06:33:50.000Z</updated>
+        <updated>2024-07-25T13:34:00.000Z</updated>
     </entry>
 </feed>
