@@ -494,6 +494,12 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           theme: lightCodeTheme,
           darkTheme: darkCodeTheme,
         },
+        metadata: [
+          {
+            name: 'baidu-site-verification',
+            content: 'codeva-yO5TX4dzz0'
+          }
+        ]
       }),
   }
 );
