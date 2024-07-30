@@ -33,6 +33,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         src: '//g.alicdn.com/mamba/assets/0.0.13/mse-arc-ui.min.js',
       },
     ],
+    headTags: [
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'baidu-site-verification',
+          content: 'codeva-yO5TX4dzz0',
+        },
+      },
+    ],
     stylesheets: [
       {
         href: '//g.alicdn.com/mamba/assets/0.0.13/mse-arc-ui.min.css',
@@ -493,13 +502,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         prism: {
           theme: lightCodeTheme,
           darkTheme: darkCodeTheme,
-        },
-        metadata: [
-          {
-            name: 'baidu-site-verification',
-            content: 'codeva-yO5TX4dzz0'
-          }
-        ]
+        }
       }),
   }
 );
