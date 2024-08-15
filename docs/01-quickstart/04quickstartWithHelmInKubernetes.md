@@ -173,7 +173,7 @@ public class Consumer {
 }
 ```
 
-#### 第四步：释放rocketmq资源
+#### 第五步：释放rocketmq资源
 ``` bash
 #释放所有rocketmq资源
 $ helm uninstall rocketmq-demo
