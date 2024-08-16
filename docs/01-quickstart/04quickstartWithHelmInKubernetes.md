@@ -32,8 +32,21 @@ $ tar -zxvf rocketmq-0.0.1.tgz
 #### 第三步：部署 RocketMQ
 使用 Helm chart 部署 RocketMQ：
 
+```yaml
+$ vim values.yaml
+##values.yaml, 例如将broker中默认-XX:MaxDirectMemorySize=8g等参数修改调整成适宜大小##
+  jvmMemory: " -Xms1g -Xmx1g -Xmn512m -XX:MaxDirectMemorySize=1g "
+  resources:
+    limits:
+      cpu: 2
+      memory: 4Gi
+    requests:
+      cpu: 2
+      memory: 2Gi
+##values.yaml##
+```
+
 ```bash
-#修改values.yaml中的配置（根据实际需求修改相关配置信息，如资源大小、副本数等）
 $ helm install rocketmq-demo ./rocketmq
 
 #查看pod状态
