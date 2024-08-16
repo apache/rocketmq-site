@@ -1,10 +1,10 @@
 ### QuickStart
-本文介绍在kubernetesk环境下如何使用Helm快速部署一个单节点单副本 RocketMQ 服务，并完成简单的消息收发。
+本文介绍在kubernetesk环境下如何使用Helm快速部署一个单节点 RocketMQ 服务，并完成简单的消息收发。
 
 #### 前提条件
 
 - 一个运行中的 `Kubernetes` 集群
-- 已安装的 `Helm`
+- 已安装的 `Helm 3.7.0+ `
 - 64位 `JDK 1.8+`
 
 #### 第一步：安装 Helm
@@ -14,7 +14,7 @@
 $ helm version
 ```
 
-如果未安装 Helm，可以使用以下命令进行安装：
+如果未安装 Helm（3.7.0以上版本），可以使用以下命令进行安装：
 ```bash
 $ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
