@@ -32,7 +32,7 @@ $ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bas
 
 ```bash
 $ cd /opt/helm/
-$ helm pull oci://registry-1.docker.io/apache/rocketmq --version 0.0.1
+$ helm pull oci://registry-1.docker.io/apache/rocketmq --version 0.0.1 
 $ tar -zxvf rocketmq-0.0.1.tgz
 ```
 
@@ -42,16 +42,29 @@ $ tar -zxvf rocketmq-0.0.1.tgz
 
 使⽤ Helm chart 部署 RocketMQ。
 
-```bash
+```yaml
 #修改values.yaml中的配置（根据实际需求修改相关配置信息，如镜像版本，资源⼤⼩、副本数等，同时禁用proxy、controller功能）
-$ helm install rocketmq-demo ./rocketmq  //修改镜像tag为4.9.6
+$ vim values.yaml
+##values.yaml, 例如将broker中默认-XX:MaxDirectMemorySize=8g等参数修改调整成适宜大小， 修改镜像tag为4.9.6##
+  jvmMemory: " -Xms1g -Xmx1g -Xmn512m -XX:MaxDirectMemorySize=1g "
+  resources:
+    limits:
+      cpu: 2
+      memory: 4Gi
+    requests:
+      cpu: 2
+      memory: 2Gi
+##values.yaml##
+```
+
+```bash
+$ helm install rocketmq-demo ./rocketmq
 #查看pod状态
 $ kubectl get pods -o wide -n default
 NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE   IP                NODE         NOMINATED NODE   READINESS GATES
 default       rocketmq-demo-broker-0                      0/1     Running   0          19s   192.168.58.228    k8s-node02   <none>           <none>
 default       rocketmq-demo-nameserver-6678bb86f6-62s5d   0/1     Running   0          19s   192.168.85.229    k8s-node01   <none>           <none>
 ```
-
 
 
 #### 第四步：验证消息发送和接收
