@@ -1,6 +1,6 @@
 ### QuickStart
 
-本⽂介绍在kubernetesk环境下如何使⽤Helm快速部署⼀个单节点 RocketMQ-4.x版本的服务，并完成简单的消息收发。
+本⽂介绍在kubernetesk环境下如何使⽤Helm快速部署⼀个单节点 RocketMQ-4.x 版本的服务，并完成简单的消息收发。
 
 
 
