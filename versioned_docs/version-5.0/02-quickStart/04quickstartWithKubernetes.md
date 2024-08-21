@@ -34,15 +34,15 @@ $ tar -zxvf rocketmq-0.0.1.tgz
 
 ```yaml
 $ vim values.yaml
-##values.yaml, 例如将broker中默认-XX:MaxDirectMemorySize=8g等参数修改调整成适宜大小##
-  jvmMemory: " -Xms1g -Xmx1g -Xmn512m -XX:MaxDirectMemorySize=1g "
+##values.yaml, 例如根据机器可用内存大小将broker中resources中requests和limits的memory改成大于MaxDirectMemorySize的大小##
+ jvmMemory: " -Xms4g -Xmx4g -Xmn2g -XX:MaxDirectMemorySize=8g "
   resources:
     limits:
       cpu: 2
-      memory: 4Gi
+      memory: 10Gi
     requests:
       cpu: 2
-      memory: 2Gi
+      memory: 10Gi
 ##values.yaml##
 ```
 
@@ -58,7 +58,7 @@ rocketmq-demo-proxy-6c569bd457-wcg6g        1/1     Running   3 (6h2m ago)   6h3
 ```
 
 #### 第四步：验证消息发送和接收
-使用JAVA SDK测试消息收发（由于本地网络和k8s网络不属于同一内网，需要将项目本地打包后放在远程运行），具体如下：
+使用JAVA SDK测试消息收发（由于本地网络和k8s网络不属于同一内网，需要将项目本地打包后放在远程运行，打包后将target目录下的jar包拷贝至至目标服务器上执行`java -jar jar包名称`），具体如下：
 
 1）IDEA中创建一个Java工程。
 
