@@ -45,21 +45,21 @@ $ tar -zxvf rocketmq-0.0.1.tgz
 ```yaml
 #修改values.yaml中的配置（根据实际需求修改相关配置信息，如镜像版本，资源⼤⼩、副本数等，同时禁用proxy、controller功能）
 $ vim values.yaml
-##values.yaml, 例如将broker中默认-XX:MaxDirectMemorySize=8g等参数修改调整成适宜大小， 修改镜像tag为4.9.6##
-  jvmMemory: " -Xms1g -Xmx1g -Xmn512m -XX:MaxDirectMemorySize=1g "
+##values.yaml, 将broker中的resources的limits、requests等参数修改调整成适宜大小， 修改镜像tag为4.9.6##
   resources:
     limits:
       cpu: 2
-      memory: 4Gi
+      memory: 10Gi
     requests:
       cpu: 2
-      memory: 2Gi
+      memory: 10Gi
 ##values.yaml##
 ```
 
 ```bash
 $ helm install rocketmq-demo ./rocketmq
 #查看pod状态
+#若参数正常，则表明部署成功
 $ kubectl get pods -o wide -n default
 NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE   IP                NODE         NOMINATED NODE   READINESS GATES
 default       rocketmq-demo-broker-0                      0/1     Running   0          19s   192.168.58.228    k8s-node02   <none>           <none>
