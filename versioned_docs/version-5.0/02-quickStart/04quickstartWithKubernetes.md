@@ -1,4 +1,4 @@
-### QuickStart
+### Kubernetes helm 部署rocketmq
 本文介绍在kubernetesk环境下如何使用Helm快速部署一个单节点 RocketMQ-5.X 版本的服务，并完成简单的消息收发。
 
 #### 前提条件
@@ -7,7 +7,7 @@
 - 已安装的 `Helm 3.7.0+ `
 - 64位 `JDK 1.8+`
 
-#### 第一步：安装 Helm
+#### 1.安装 Helm
 
 确保你的系统上已经安装了 Helm：
 ```bash
@@ -19,17 +19,16 @@ $ helm version
 $ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 
-#### 第二步：下载 RocketMQ Helm 仓库
+#### 2.下载 RocketMQ Helm 仓库
 
 使用 Helm chart 部署 RocketMQ：
 
 ```bash
-$ cd /opt/helm/
 $ helm pull oci://registry-1.docker.io/apache/rocketmq --version 0.0.1
 $ tar -zxvf rocketmq-0.0.1.tgz
 ```
 
-#### 第三步：部署 RocketMQ
+#### 3.部署 RocketMQ
 使用 Helm chart 部署 RocketMQ：
 
 ```yaml
@@ -57,7 +56,7 @@ rocketmq-demo-nameserver-757877747b-k669k   1/1     Running   0              6h3
 rocketmq-demo-proxy-6c569bd457-wcg6g        1/1     Running   3 (6h2m ago)   6h3m   192.168.85.227   k8s-node01   <none>           <none>
 ```
 
-#### 第四步：验证消息发送和接收
+#### 4.验证消息发送和接收
 使用JAVA SDK测试消息收发（由于本地网络和k8s网络不属于同一内网，需要将项目本地打包后放在远程运行，打包后将target目录下的jar包拷贝至至目标服务器上执行`java -jar jar包名称`），具体如下：
 
 1）IDEA中创建一个Java工程。
@@ -186,7 +185,7 @@ public class Consumer {
 }
 ```
 
-#### 第五步：释放rocketmq资源
+#### 5.释放rocketmq资源
 ``` bash
 #释放所有rocketmq资源
 $ helm uninstall rocketmq-demo
