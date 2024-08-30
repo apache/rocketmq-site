@@ -1,10 +1,9 @@
-### QuickStart
+### Kubernetes helm 部署rocketmq
 
-本⽂介绍在kubernetesk环境下如何使⽤Helm快速部署⼀个单节点 RocketMQ-4.x 版本的服务，并完成简单的消息收发。
+这一节介绍如何在kubernetesk环境下，使⽤Helm快速部署⼀个单节点 RocketMQ-4.x 版本的服务，并完成简单的消息收发。
 
 
-
-#### 前提条件
+#### 系统要求
 
 - 一个运行中的 `Kubernetes` 集群
 - 已安装的 `Helm 3.7.0+`
@@ -12,7 +11,7 @@
 
 
 
-#### 第一步：安装 Helm
+#### 1.安装 Helm
 
 确保你的系统上已经安装了 Helm：
 
@@ -28,17 +27,16 @@ $ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bas
 
 
 
-#### 第二步：下载 RocketMQ Helm 仓库
+#### 2.下载 RocketMQ Helm 仓库
 
 ```bash
-$ cd /opt/helm/
 $ helm pull oci://registry-1.docker.io/apache/rocketmq --version 0.0.1 
 $ tar -zxvf rocketmq-0.0.1.tgz
 ```
 
 
 
-#### 第三步：部署 RocketMQ
+#### 3.部署 RocketMQ
 
 使⽤ Helm chart 部署 RocketMQ。
 
@@ -67,7 +65,7 @@ default       rocketmq-demo-nameserver-6678bb86f6-62s5d   0/1     Running   0   
 ```
 
 
-#### 第四步：验证消息发送和接收
+#### 4.验证消息发送和接收
 
 使用tools工具测试验证消息发送和接收。
 
@@ -89,7 +87,7 @@ ConsumeMessageThread_please_rename_unique_group_name_4_16 Receive New Messages: 
 
 
 
-#### 第五步：释放*rocketmq*资源
+#### 5.释放*rocketmq*资源
 
 ```bash
 #释放所有rocketmq资源
