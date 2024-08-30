@@ -75,7 +75,7 @@ rocketmq-demo-proxy-6c569bd457-wcg6g        1/1     Running   3 (6h2m ago)   6h3
 ```
 3）使用 mqadmin 工具创建 Topic和消费者。
 ```bash
-# 登录pod内行
+# 登录 pod 内
 $ kubectl exec -ti rocketmq-demo-broker-0  -- /bin/bash
 
 # 通过 mqadmin 创建 Topic
