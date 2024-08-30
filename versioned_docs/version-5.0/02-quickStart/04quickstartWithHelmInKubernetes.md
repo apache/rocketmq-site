@@ -1,11 +1,13 @@
 # Kubernetes 部署 RocketMQ
 本文介绍在 Kubernetes 环境下如何使用 Helm 快速部署一个单节点 RocketMQ-5.X 版本的服务，并完成简单的消息收发。
 
-## 前提条件
+:::tip 系统要求
 
 - 一个运行中的 `Kubernetes` 集群
 - 已安装的 `Helm 3.7.0+ `
 - 64位 `JDK 1.8+`
+
+:::
 
 ## 1.安装 Helm
 
@@ -71,15 +73,15 @@ rocketmq-demo-proxy-6c569bd457-wcg6g        1/1     Running   3 (6h2m ago)   6h3
       </dependency>
     .....
 ```
-3）使用 mqadmin 创建 Topic和消费者。
+3）使用 mqadmin 工具创建 Topic和消费者。
 ```bash
-#登录pod内（需要管理工具），也可以在宿主机执行
+# 登录 pod 内
 $ kubectl exec -ti rocketmq-demo-broker-0  -- /bin/bash
 
-#通过mqadmin创建Topic
+# 通过 mqadmin 创建 Topic
 $ sh mqadmin updatetopic  -t TestTopic -c DefaultCluster
 
-#通过mqadmin创建消费者Group
+# 通过 mqadmin 创建订阅组
 $ sh mqadmin updateSubGroup -c DefaultCluster -g TestGroup
 ```
 4）在已创建的Java工程中，创建发送普通消息程序 （ProducerDemo.java），示例代码如下：
