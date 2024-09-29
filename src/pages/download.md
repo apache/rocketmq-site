@@ -76,6 +76,7 @@
 
 | 版本      | 文档                                                         | 发布日期   | Source 下载                                                   | End of Support |
 | --------- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | -------------- |
+| **5.2.0** | [Release Notes](https://github.com/apache/rocketmq-clients/releases/tag/csharp-5.2.0-rc1) | 2024.9.29  | [download.zip](https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-clients/rocketmq-client-csharp/5.2.0/) |  |
 | **5.0.0** | [Release Notes](https://github.com/apache/rocketmq-clients/releases/tag/rocketmq-client-csharp-5.0.0) | 2022.9.22  | [download.zip](https://github.com/apache/rocketmq-clients/archive/refs/tags/rocketmq-client-csharp-5.0.0.zip) |  |
 
 ---
