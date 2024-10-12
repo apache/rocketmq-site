@@ -136,8 +136,8 @@
 
 ## RocketMQ Dashboard
 
-| 版本      | 文档                                                         | 发布日期  | Source 下载                                                  | Binary 下载 | End of Support |
-| --------- | ------------------------------------------------------------ | --------- | ------------------------------------------------------------ | ----------- | -------------- |
+| 版本        | 文档                                                                                | 发布日期      | Source 下载                                                                                                                                | Binary 下载 | End of Support |
+|-----------|-----------------------------------------------------------------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------| ----------- | -------------- |
 | **1.0.0** | [Release Notes](/release-notes/2021/09/23/release-notes-rocketmq-dashboard-1.0.0) | 2021.9.23 | [download.zip](https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/1.0.0/rocketmq-dashboard-1.0.0-source-release.zip) |             |                |
-|           |                                                              |           |                                                              |             |                |
+| **2.0.0** | [Release Notes](/release-notes/2024/09/18/release-notes-rocketmq-dashboard-2.0.0) | 2024.9.18 | [download.zip](https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/2.0.0/rocketmq-dashboard-2.0.0-source-release.zip) |             |                |
 
