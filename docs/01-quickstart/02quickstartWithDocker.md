@@ -124,8 +124,6 @@ $ sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
  ConsumeMessageThread_%d Receive New Messages: [MessageExt...
 ```
 
-
-
 ## 6.SDK测试消息收发
 
 工具测试完成后，我们可以尝试使用 SDK 收发消息，这里以 Java SDK 为例介绍一下消息收发过程。

@@ -13,19 +13,19 @@
 
 :::tip RocketMQ下载
 
-RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](https://dist.apache.org/repos/dist/release/rocketmq/5.3.0/rocketmq-all-5.3.0-source-release.zip) 下载 Apache RocketMQ 5.3.0的源码包。你也可以从[这里](https://dist.apache.org/repos/dist/release/rocketmq/5.3.0/rocketmq-all-5.3.0-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的。
+RocketMQ 的安装包分为两种，二进制包和源码包。 点击[这里](https://dist.apache.org/repos/dist/release/rocketmq/5.3.1/rocketmq-all-5.3.1-source-release.zip) 下载 Apache RocketMQ 5.3.1的源码包。你也可以从[这里](https://dist.apache.org/repos/dist/release/rocketmq/5.3.1/rocketmq-all-5.3.1-bin-release.zip) 下载到二进制包。二进制包是已经编译完成后可以直接运行的，源码包是需要编译后运行的。
 
 :::
 
-这里以在Linux环境下利用社区5.3.0的源码包为例，介绍RocketMQ安装过程。
+这里以在Linux环境下利用社区5.3.1的源码包为例，介绍RocketMQ安装过程。
 
-解压5.3.0的源码包并编译构建二进制可执行文件
+解压5.3.1的源码包并编译构建二进制可执行文件
 
 ```shell
-$ unzip rocketmq-all-5.3.0-source-release.zip
-$ cd rocketmq-all-5.3.0-source-release/
+$ unzip rocketmq-all-5.3.1-source-release.zip
+$ cd rocketmq-all-5.3.1-source-release/
 $ mvn -Prelease-all -DskipTests -Dspotbugs.skip=true clean install -U
-$ cd distribution/target/rocketmq-5.3.0/rocketmq-5.3.0
+$ cd distribution/target/rocketmq-5.3.1/rocketmq-5.3.1
 ```
 ## 2. 启动NameServer
 
