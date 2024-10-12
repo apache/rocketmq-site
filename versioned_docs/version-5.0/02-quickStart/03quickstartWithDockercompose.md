@@ -9,7 +9,6 @@
 
 :::
 
-
 ## 1.编写docker-compose
 
 为了快速启动并运行 RockerMQ 集群，您可以使用以下模板通过修改或添加环境部分中的配置来创建 docker-compose.yml 文件。
@@ -17,7 +16,7 @@
 version: '3.8'
 services:
   namesrv:
-    image: apache/rocketmq:5.3.0
+    image: apache/rocketmq:5.3.1
     container_name: rmqnamesrv
     ports:
       - 9876:9876
@@ -25,7 +24,7 @@ services:
       - rocketmq
     command: sh mqnamesrv
   broker:
-    image: apache/rocketmq:5.3.0
+    image: apache/rocketmq:5.3.1
     container_name: rmqbroker
     ports:
       - 10909:10909
@@ -39,7 +38,7 @@ services:
       - rocketmq
     command: sh mqbroker
   proxy:
-    image: apache/rocketmq:5.3.0
+    image: apache/rocketmq:5.3.1
     container_name: rmqproxy
     networks:
       - rocketmq

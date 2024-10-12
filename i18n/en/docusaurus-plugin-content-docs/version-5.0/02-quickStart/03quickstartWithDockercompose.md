@@ -17,7 +17,7 @@ To quickly start and run the RocketMQ cluster, you can use the following templat
 version: '3.8'
 services:
   namesrv:
-    image: apache/rocketmq:5.3.0
+    image: apache/rocketmq:5.3.1
     container_name: rmqnamesrv
     ports:
       - 9876:9876
@@ -25,7 +25,7 @@ services:
       - rocketmq
     command: sh mqnamesrv
   broker:
-    image: apache/rocketmq:5.3.0
+    image: apache/rocketmq:5.3.1
     container_name: rmqbroker
     ports:
       - 10909:10909
@@ -39,7 +39,7 @@ services:
       - rocketmq
     command: sh mqbroker
   proxy:
-    image: apache/rocketmq:5.3.0
+    image: apache/rocketmq:5.3.1
     container_name: rmqproxy
     networks:
       - rocketmq
