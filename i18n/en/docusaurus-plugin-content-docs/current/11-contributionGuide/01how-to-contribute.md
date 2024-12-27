@@ -117,7 +117,7 @@ There are many more ways to contribute to the RocketMQ community that you can ch
 
 Committers are members of a community's project repository who can modify code, documents, and websites or accept contributions from other members.
 
-There is no strict protocol for becoming a commiter, and candidates are usually active contributors in the community.
+There is no strict protocol for becoming a committer, and candidates are usually active contributors in the community.
 
 Being an active contributor means: participating in discussions on email lists, helping others solve problems, verifying pre-release versions, honoring the good people and continuously optimizing community management, which is part of the community in Apache.
 

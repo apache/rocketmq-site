@@ -1316,7 +1316,7 @@
         -i
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
-        uniqe msg id
+        unique msg id
       </td>
     </tr>
     <tr height={36} style={{ height: "27.0pt" }}>
@@ -2420,7 +2420,7 @@
         -i
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
-        uniqe msg id
+        unique msg id
       </td>
     </tr>
     <tr height={36} style={{ height: "27.0pt" }}>
@@ -3896,7 +3896,7 @@
           width: "65pt"
         }}
       >
-        consumerConnec tion
+        consumerConnection
       </td>
       <td
         rowSpan={3}
@@ -3952,7 +3952,7 @@
           width: "65pt"
         }}
       >
-        producerConnec tion
+        producerConnection
       </td>
       <td
         rowSpan={4}

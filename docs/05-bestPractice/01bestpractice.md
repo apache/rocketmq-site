@@ -213,20 +213,20 @@ msgId一定是全局唯一标识符，但是实际使用中，可能会存在相
  SYNC_FLUSH（同步刷新）相比于ASYNC_FLUSH（异步处理）会损失很多性能，但是也更可靠，所以需要根据实际的业务场景做好权衡。
 ### Broker 配置
 
-| 参数名                           | 默认值                        | 说明                                                         |
-| -------------------------------- | ----------------------------- | ------------------------------------------------------------ |
-| listenPort                    | 10911              | 接受客户端连接的监听端口 |
-| namesrvAddr       | null                         | nameServer 地址     |
-| brokerIP1 | 网卡的 InetAddress                         | 当前 broker 监听的 IP  |
-| brokerIP2 | 跟 brokerIP1 一样                         | 存在主从 broker 时，如果在 broker 主节点上配置了 brokerIP2 属性，broker 从节点会连接主节点配置的 brokerIP2 进行同步  |
-| brokerName        | null                         | broker 的名称                           |
-| brokerClusterName                     | DefaultCluster                  | 本 broker 所属的 Cluser 名称           |
-| brokerId             | 0                              | broker id, 0 表示 master, 其他的正整数表示 slave                                                 |
-| storePathCommitLog                      | $HOME/store/commitlog/                              | 存储 commit log 的路径                                                |
-| storePathConsumerQueue                   | $HOME/store/consumequeue/                              | 存储 consume queue 的路径                                              |
-| mapedFileSizeCommitLog     | 1024 * 1024 * 1024(1G) | commit log 的映射文件大小                                       |​ 
-| deleteWhen     | 04 | 在每天的什么时间删除已经超过文件保留时间的 commit log                                        |​ 
-| fileReservedTime     | 72 | 以小时计算的文件保留时间                                        |​ 
-| brokerRole     | ASYNC_MASTER | SYNC_MASTER/ASYNC_MASTER/SLAVE                                        |​ 
-| flushDiskType     | ASYNC_FLUSH | SYNC_FLUSH/ASYNC_FLUSH SYNC_FLUSH 模式下的 broker 保证在收到确认生产者之前将消息刷盘。ASYNC_FLUSH 模式下的 broker 则利用刷盘一组消息的模式，可以取得更好的性能。                                       |​
+| 参数名                           | 默认值                        | 说明                                                                                                              |
+| -------------------------------- | ----------------------------- |-----------------------------------------------------------------------------------------------------------------|
+| listenPort                    | 10911              | 接受客户端连接的监听端口                                                                                                    |
+| namesrvAddr       | null                         | nameServer 地址                                                                                                   |
+| brokerIP1 | 网卡的 InetAddress                         | 当前 broker 监听的 IP                                                                                                |
+| brokerIP2 | 跟 brokerIP1 一样                         | 存在主从 broker 时，如果在 broker 主节点上配置了 brokerIP2 属性，broker 从节点会连接主节点配置的 brokerIP2 进行同步                                |
+| brokerName        | null                         | broker 的名称                                                                                                      |
+| brokerClusterName                     | DefaultCluster                  | 本 broker 所属的 Cluster 名称                                                                                         |
+| brokerId             | 0                              | broker id, 0 表示 master, 其他的正整数表示 slave                                                                          |
+| storePathCommitLog                      | $HOME/store/commitlog/                              | 存储 commit log 的路径                                                                                               |
+| storePathConsumerQueue                   | $HOME/store/consumequeue/                              | 存储 consume queue 的路径                                                                                            |
+| mappedFileSizeCommitLog     | 1024 * 1024 * 1024(1G) | commit log 的映射文件大小                                                                                              |​ 
+| deleteWhen     | 04 | 在每天的什么时间删除已经超过文件保留时间的 commit log                                                                                |​ 
+| fileReservedTime     | 72 | 以小时计算的文件保留时间                                                                                                    |​ 
+| brokerRole     | ASYNC_MASTER | SYNC_MASTER/ASYNC_MASTER/SLAVE                                                                                  |​ 
+| flushDiskType     | ASYNC_FLUSH | SYNC_FLUSH/ASYNC_FLUSH SYNC_FLUSH 模式下的 broker 保证在收到确认生产者之前将消息刷盘。ASYNC_FLUSH 模式下的 broker 则利用刷盘一组消息的模式，可以取得更好的性能。 |​
 

@@ -125,7 +125,7 @@ Tag在生产者章节已经介绍过，用于对某个Topic下的消息进行分
 
 ![Tag过滤](../picture/Tag过滤.png)
 
-对于物流系统和支付系统来说，它们都只订阅单个Tag，此时只需要在调用subcribe接口时明确标明Tag即可。
+对于物流系统和支付系统来说，它们都只订阅单个Tag，此时只需要在调用subscribe接口时明确标明Tag即可。
 
 ```java
 consumer.subscribe("TagFilterTest", "TagA");

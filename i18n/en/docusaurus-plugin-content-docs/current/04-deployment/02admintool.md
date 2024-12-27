@@ -1316,7 +1316,7 @@ Query based on msgId. msgId is different from offsetMsgId, for more information 
         -i
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
-        uniqe msg id
+        unique msg id
       </td>
     </tr>
     <tr height={36} style={{ height: "27.0pt" }}>
@@ -2420,7 +2420,7 @@ Reset offset based on timestamp, both Broker and consumer will be reset.
         -i
       </td>
       <td className="xl67" width={87} style={{ width: "65pt" }}>
-        uniqe msg id
+        unique msg id
       </td>
     </tr>
     <tr height={36} style={{ height: "27.0pt" }}>
@@ -3746,7 +3746,7 @@ Consumer group consumption status, including specific client IP's message accumu
         -g
       </td>
       <td className="xl68" width={87} style={{ width: "65pt" }}>
-        Counsumer group name
+        Consumer group name
       </td>
     </tr>
     <tr height={57} style={{ height: "43.0pt" }}>
@@ -3894,7 +3894,7 @@ Consumer group consumption status, including specific client IP's message accumu
           width: "65pt"
         }}
       >
-        consumerConnec tion
+        consumerConnection
       </td>
       <td
         rowSpan={3}
@@ -3950,7 +3950,7 @@ Consumer group consumption status, including specific client IP's message accumu
           width: "65pt"
         }}
       >
-        producerConnec tion
+        producerConnection
       </td>
       <td
         rowSpan={4}
