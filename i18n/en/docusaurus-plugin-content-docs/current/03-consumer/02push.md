@@ -125,7 +125,7 @@ The filtering schematic is shown below
 
 ![Tag过滤](../picture/Tag过滤.png)
 
-For logistics systems and payment systems, they both subscribe to a single Tag, at which point it is sufficient to mark the Tag when calling the subcribe interface.
+For logistics systems and payment systems, they both subscribe to a single Tag, at which point it is sufficient to mark the Tag when calling the subscribe interface.
 
 ```java
 consumer.subscribe("TagFilterTest", "TagA");

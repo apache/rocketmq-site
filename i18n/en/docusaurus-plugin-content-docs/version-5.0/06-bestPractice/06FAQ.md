@@ -164,7 +164,7 @@ The following answers are default values, which can be modified through configur
 
    - **reason**
 
-     1）If the Consumer Group or DleayQueue encounters an error while getting subscription information.
+     1）If the Consumer Group or DelayQueue encounters an error while getting subscription information.
 
    - **solution**
 

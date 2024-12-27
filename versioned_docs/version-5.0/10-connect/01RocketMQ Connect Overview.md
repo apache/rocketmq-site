@@ -33,7 +33,7 @@ CDC作为ETL模式之一，可以近乎实时的捕获增量数据库INSERT、UP
 ![RocketMQ Connect任务模型2](../picture/32rocketmq-connect/deploy2.png)
 
 RocketMQ Connect Worker支持两种运行模式，集群和单机
-集群模式，顾名思义，由多个Worker节点组成，推荐最少有2个Worker节点，组成高可用集群。集群间的配置信息，offset信息，status信息则通过指定的RocketMQ Topic进行存储，新增Worker节点也会获取到集群中的这些配置，offset，status信息，并且触发负载均衡，重新分配集群中的任务，使集群达到均衡的状态，减少Woker节点或者Worker宕机也会触发负载均衡，从而保障集群中所有的任务都可以均衡的在集群中存活的节点中正常运行。
+集群模式，顾名思义，由多个Worker节点组成，推荐最少有2个Worker节点，组成高可用集群。集群间的配置信息，offset信息，status信息则通过指定的RocketMQ Topic进行存储，新增Worker节点也会获取到集群中的这些配置，offset，status信息，并且触发负载均衡，重新分配集群中的任务，使集群达到均衡的状态，减少Worker节点或者Worker宕机也会触发负载均衡，从而保障集群中所有的任务都可以均衡的在集群中存活的节点中正常运行。
 
 ![RocketMQ Connect部署模型集群](../picture/32rocketmq-connect/deploy3.png)
 

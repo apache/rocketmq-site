@@ -164,7 +164,7 @@
 
    - **原因**
 
-     1）Consumer Group 或 DleayQueue 获取订阅信息异常。
+     1）Consumer Group 或 DelayQueue 获取订阅信息异常。
 
    - **解决方案**
 
