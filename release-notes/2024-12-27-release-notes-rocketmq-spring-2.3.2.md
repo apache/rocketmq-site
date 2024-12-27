@@ -14,7 +14,7 @@ Below is a summary of the issues addressed in the version 2.3.2 release of Rocke
 
 ## What's Changed
 * Updated the RocketMQ version dependencies in the rocketmq-spring-boot-samples and rocketmq-v5-client-spring-boot-samples modules. by @yeluod in https://github.com/apache/rocketmq-spring/pull/671
-* Delete sysytem proerty by @panzhi33 in https://github.com/apache/rocketmq-spring/pull/689
+* Delete system property by @panzhi33 in https://github.com/apache/rocketmq-spring/pull/689
 * Modify the inner class call to use the bean instance invocation by @WhyStart in https://github.com/apache/rocketmq-spring/pull/687
 * Upgrade rocketmq client version to 5.3.1 by @RongtongJin in https://github.com/apache/rocketmq-spring/pull/698
 
