@@ -50,7 +50,7 @@
 
 * 定义：主题所支持的消息类型。
 
-* 取值：创建主题时选择消息类型。Apache RocketMQ 支持的主题类型如下：
+* 取值：发送消息时选择消息类型。Apache RocketMQ 支持的主题类型如下：
   * Normal：[普通消息](../04-featureBehavior/01normalmessage.md)，消息本身无特殊语义，消息之间也没有任何关联。
   
   * FIFO：[顺序消息](../04-featureBehavior/03fifomessage.md)，Apache RocketMQ 通过消息分组MessageGroup标记一组特定消息的先后顺序，可以保证消息的投递顺序严格按照消息发送时的顺序。
