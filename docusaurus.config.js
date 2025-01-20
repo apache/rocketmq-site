@@ -33,15 +33,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         src: '//g.alicdn.com/mamba/assets/0.0.13/mse-arc-ui.min.js',
       },
     ],
-    headTags: [
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'baidu-site-verification',
-          content: 'codeva-yO5TX4dzz0',
-        },
-      },
-    ],
     stylesheets: [
       {
         href: '//g.alicdn.com/mamba/assets/0.0.13/mse-arc-ui.min.css',
@@ -86,16 +77,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
       ],
     ],
     plugins: [
-      [require.resolve('docusaurus-plugin-baidu-tongji'), {
-        token: '36428f2b841d08e7405724cbf7f860d2'
-      }],
-      [
-        '@docusaurus/plugin-google-analytics',
-        {
-          trackingID: 'UA-89603173-1',
-          anonymizeIP: true,
-        },
-      ],
       [
         "@docusaurus/plugin-content-blog",
         {
