@@ -87,6 +87,7 @@ $ java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar
 再次启动：执行 ②
 
 **tips**：下载后的源码需要上传到 Linux 系统上编译，本地编译可能会报错。
+运行时加上--rocketmq.config.namesrvAddr=localhost:9876 参数，否则会报错连接null
 
 ## 使用教程
 
