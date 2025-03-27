@@ -58,9 +58,6 @@ RocketMQ 强调订阅关系一致，核心是指相同 ConsumerGroup 的每个 C
 ### 3.1 同一ConsumerGroup下的Consumer实例订阅的Topic不同（3.x、4.x SDK适用）
 
 在早期3.x/4.x 版本的SDK中，如下图所示，同一 ConsumerGroup 下的三个Consumer实例C1、C2和C3分别订阅了TopicA、TopicB和TopicC，订阅的Topic不一致，不符合订阅关系一致性原则。
-:::note
-5.x版本SDK 已经支持同一个 ConsumerGroup 下的Consumer实例订阅不同的Topic。
-:::
 ![image-20220722102131073](../picture/5.0%E8%AE%A2%E9%98%85%E5%85%B3%E7%B3%BB%E4%B8%80%E8%87%B4-2.jpeg)
 
 ### 3.2 同一 ConsumerGroup 下的 Consumer 实例订阅的Topic相同，但订阅的Tag不一致
