@@ -1,4 +1,4 @@
-# RocketMQ Promethus Exporter
+# RocketMQ Prometheus Exporter
 
 ## 介绍
 
@@ -8,7 +8,7 @@
 过去版本曾是 87 个 concurrentHashMap，由于 Map 不会删除过期指标，所以一旦有 label 变动就会生成一个新的指标，旧的无用指标无法自动删除，久而久之造成内存溢出。而使用 Cache 结构可可以实现过期删除，且过期时间可配置。
 :::
 
-`Rocketmq-expoter` 获取监控指标的流程如下图所示，Expoter 通过 MQAdminExt 向 MQ 集群请求数据，请求到的数据通过 MetricService 规范化成 Prometheus 需要的格式，然后通过 /metics 接口暴露给 Promethus。
+`Rocketmq-expoter` 获取监控指标的流程如下图所示，Expoter 通过 MQAdminExt 向 MQ 集群请求数据，请求到的数据通过 MetricService 规范化成 Prometheus 需要的格式，然后通过 /metics 接口暴露给 Prometheus。
 ![957681249485](../picture/RocketMQ%20Prometheus%20Exporter-1.jpeg)
 
 
@@ -34,7 +34,7 @@ rocketmq-expoter 项目启动后，会获取 rocketmq 的各项 metrics 收集�
 
 浏览器通过访问 ip:5557/metrics，会调用 RMQMetricsController 类下的 metrics 方法，其中 ip 为 rocketmq-expoter 项目运行的主机 ip
 
-```javascript
+```java
     private void metrics(HttpServletResponse response) throws IOException {
     StringWriter writer = new StringWriter();
     metricsService.metrics(writer);
@@ -64,7 +64,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 1. 首先初始化TopicList对象，通过mqAdminExt.fetchAllTopicList()方法获取到集群的所有topic信息。
 
 
-```javascript
+```java
     TopicList topicList = null;
     try {  topicList = mqAdminExt.fetchAllTopicList();
 } catch (Exception ex) {
@@ -76,7 +76,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 2. 将 topic 加入到 topicSet 中，循环遍历每一个 topic，通过 mqAdminExt.examineTopicStats(topic)函数来检查 topic 状态。
 
-```javascript
+```java
     Set < String > topicSet = topicList != null ? topicList.getTopicList() : null;
  for (String topic: topicSet) {
      TopicStatsTable topicStats = null;
@@ -91,7 +91,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 3. 初始化 topic 状态 set，用于用于按 broker 划分的 topic 信息位点的 hash 表 brokerOffsetMap，以及一个用于按 broker 名字为 key 的用于存储更新时间戳的 hash 表 brokerUpdateTimestampMap。
 
-```javascript
+```java
         Set<Map.Entry<MessageQueue, TopicOffset>> topicStatusEntries = topicStats.getOffsetTable().entrySet();
         HashMap<String, Long> brokerOffsetMap = new HashMap<>();
         HashMap<String, Long> brokerUpdateTimestampMap = new HashMap<>();
@@ -117,7 +117,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 4. 最后通过遍历 brokerOffsetMap 中的每一项，通过调用 metricsService 获取到 metricCollector 对象，调用 RMQMetricsCollector 类中的 addTopicOffsetMetric 方法，将相应的值添加到 RMQMetricsCollector 类中 87 个指标对应的其中一个指标的 cache 中。
 
-```javascript
+```java
  Set<Map.Entry<String, Long>> brokerOffsetEntries = brokerOffsetMap.entrySet();
         for (Map.Entry<String, Long> brokerOffsetEntry : brokerOffsetEntries) {
             metricsService.getCollector().addTopicOffsetMetric(clusterName, brokerOffsetEntry.getKey(), topic,
@@ -138,23 +138,23 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 `application.yml` 中重要的配置主要有:
 
-- server.port 设置 promethus 监听 rocketmq-exporter 的端口, 默认为 5557
+- server.port 设置 prometheus 监听 rocketmq-exporter 的端口, 默认为 5557
 
-- rocketmq.config.webTelemetryPath 配置 promethus 获取指标的路径,默认为 /metrics ，使用默认值即可.
+- rocketmq.config.webTelemetryPath 配置 prometheus 获取指标的路径,默认为 /metrics ，使用默认值即可.
 
 - rocketmq.config.enableACL 如果 RocketMQ 集群开启了 ACL 验证,需要配置为 true, 并在 accessKey 和 secretKey 中配置相应的 ak, sk.
 
-- rocketmq.config.outOfTimeSeconds 用于配置存储指标和相应的值的过期时间,若超过该时间,cache 中的 key 对应的节点没有发生写更改,则会进行删除.一般配置为 60s 即可(根据 promethus 获取指标的时间间隔进行合理配置,只要保证过期时间大于等于 promethus 收集指标的时间间隔即可)
+- rocketmq.config.outOfTimeSeconds 用于配置存储指标和相应的值的过期时间,若超过该时间,cache 中的 key 对应的节点没有发生写更改,则会进行删除.一般配置为 60s 即可(根据 prometheus 获取指标的时间间隔进行合理配置,只要保证过期时间大于等于 prometheus 收集指标的时间间隔即可)
 
 - task._.cron 配置 exporter 从 broker 拉取指标的定时任务的时间间隔,默认值为"15 0/1 _ \* \* ?" 每分钟的 15s 拉取一次指标.
 
 ### 启动 exporter 项目
 
-### 按照 promethus 官网配置启动
+### 按照 prometheus 官网配置启动
 
-配置 promethus 的 static_config: -targets 为 exporter 的启动 IP 和端口,如: localhost:5557
+配置 prometheus 的 static_config: -targets 为 exporter 的启动 IP 和端口,如: localhost:5557
 
-### 访问 promethus 页面
+### 访问 prometheus 页面
 
 本地启动默认为: localhost:9090 ,则可对收集到的指标值进行查看,如下图所示:
 
@@ -162,7 +162,7 @@ MetricCollectTask 类中有 5 个定时任务，分别为 collectTopicOffset、c
 
 
 :::tip
-为了达到更好的可视化效果,观察指标值变化趋势, promethus 搭配 grafana 效果更佳哦!
+为了达到更好的可视化效果,观察指标值变化趋势, prometheus 搭配 grafana 效果更佳哦!
 :::
 
 

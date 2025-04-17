@@ -77,16 +77,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
       ],
     ],
     plugins: [
-      [require.resolve('docusaurus-plugin-baidu-tongji'), {
-        token: '36428f2b841d08e7405724cbf7f860d2'
-      }],
-      [
-        '@docusaurus/plugin-google-analytics',
-        {
-          trackingID: 'UA-89603173-1',
-          anonymizeIP: true,
-        },
-      ],
       [
         "@docusaurus/plugin-content-blog",
         {
@@ -493,7 +483,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         prism: {
           theme: lightCodeTheme,
           darkTheme: darkCodeTheme,
-        },
+        }
       }),
   }
 );

@@ -185,7 +185,7 @@ docker logs -f kibana2
 
 ### 向源端ES写入测试数据
 Kibana 的 Dev Tools 可以帮助您在 Kibana 中与 Elasticsearch 进行直接的交互和操作，执行各种查询和操作，并分析和理解返回的数据。
-参见文档 [console-kibana](https://www.elastic.co/guide/en/kibana/8.9/console-kibana.html)。
+参见文档 [console-kibana](https://www.elastic.co/guide/en/kibana/7.15/console-kibana.html)。
 
 #### 批量写入测试数据
 浏览器访问Kibana1控制台，左侧菜单找到Dev Tools，进入页面后输入如下命令写入测试数据

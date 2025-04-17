@@ -1,4 +1,4 @@
-# RocketMQ Promethus Exporter
+# RocketMQ Prometheus Exporter
 
 ## Introduction
 
@@ -7,7 +7,7 @@
 In previous versions, there were 87 concurrentHashMaps, but since the Map does not delete expired metrics, once there is a label change, a new metric is generated and the old, unused metric cannot be automatically deleted, which eventually causes a memory overflow. However, using the Cache structure can enable expired deletion, and the expiration time can be configured.
 :::
 
-The process for `Rocketmq-exporter` to obtain monitoring metrics is shown in the following figure. The exporter requests data from the MQ cluster through MQAdminExt, and the requested data is standardized into the format required by Prometheus through the MetricService, and then exposed to Promethus through the `/metrics` interface.
+The process for `Rocketmq-exporter` to obtain monitoring metrics is shown in the following figure. The exporter requests data from the MQ cluster through MQAdminExt, and the requested data is standardized into the format required by Prometheus through the MetricService, and then exposed to Prometheus through the `/metrics` interface.
 ![adfljlkvnflkn](../picture/RocketMQ%20Prometheus%20Exporter-1.jpeg)
 
 ### Metric structure

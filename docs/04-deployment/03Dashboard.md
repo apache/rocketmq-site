@@ -3,6 +3,13 @@
 
 `RocketMQ Dashboard` 是 RocketMQ 的管控利器，为用户提供客户端和应用程序的各种事件、性能的统计信息，支持以可视化工具代替 Topic 配置、Broker 管理等命令行操作。
 
+### 启动 RocketMQ Dashboard
+
+使用以下命令启动 RocketMQ Dashboard：
+
+```bash
+java -jar rocketmq-dashboard-*.jar --rocketmq.config.namesrvAddr=localhost:9876
+
 ## 介绍
 
 ### 功能概览
