@@ -102,3 +102,8 @@ msgId一定是全局唯一标识符，但是实际使用中，可能会存在相
 | brokerRole     | ASYNC_MASTER | SYNC_MASTER/ASYNC_MASTER/SLAVE                                                                                  |​ 
 | flushDiskType     | ASYNC_FLUSH | SYNC_FLUSH/ASYNC_FLUSH SYNC_FLUSH 模式下的 broker 保证在收到确认生产者之前将消息刷盘。ASYNC_FLUSH 模式下的 broker 则利用刷盘一组消息的模式，可以取得更好的性能。 |​
 
+### Broker 日志管理
+
+Broker 的默认日志路径在 ${user.home}/logs/rocketmqlogs/ 下，可以通过修改二进制包中 conf 文件夹下的 xx.logback.xml 文件来进行日志级别和路径的修改
+
+> 注意请保管好您的日志，以免敏感信息发生泄漏。

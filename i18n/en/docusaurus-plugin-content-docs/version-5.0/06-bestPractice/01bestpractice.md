@@ -116,3 +116,9 @@ Compared with ASYNC_FLUSH, SYNC_FLUSH suffers from performance loss but is more 
 | fileReservedTime      | 72                        | File retention time in hours                                                                                                                                                                                              |​ 
 | brokerRole             | ASYNC_MASTER              | SYNC_MASTER/ASYNC_MASTER/SLAVE                                                                                                                                                                                            |​ 
 | flushDiskType          | ASYNC_FLUSH               | SYNC_FLUSH/ASYNC_FLUSH The broker in SYNC_FLUSH mode guarantees to flush messages before receiving the acknowledged producer. ASYNC_FLUSH brokers use the flush mode to flush a group of messages for better performance. |​
+
+### Broker Log Management
+
+The default log path for the Broker is located at ${user.home}/logs/rocketmqlogs/. You can change the log level and path by editing the xx.logback.xml file in the conf directory of the binary package.
+
+> Note: Please ensure your logs are properly secured to prevent sensitive information leaks.
