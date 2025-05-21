@@ -7,12 +7,13 @@ If there is a unified message system (product) to provide multi-scenario computi
 
 Based on this, we introduced the RocketMQ-MQTT extension project to realize RocketMQ's unified access to the messages of IoT devices and servers, and provide integrated message storage and intercommunication capabilities.
 
-## MQTT  Protocol
-In the IoT terminal scenario, the MQTT protocol is widely used in the industry at present, which is a standard open protocol defined by the OASIS Alliance that originated from the IoT scenario of the Internet of Things. Because there are many types of IoT devices and different operating environments, a standard access protocol is particularly critical.
+## MQTT Protocol Introduction
+In IoT terminal scenarios, the MQTT protocol is widely adopted across the industry. MQTT originated in IoT contexts as a lightweight message transport protocol based on the publish/subscribe (Pub/Sub) model, specifically designed for low-bandwidth and unreliable network environments. It was originally developed by IBM and is now maintained as an open standard by the OASIS consortium. MQTT is extensively used in IoT, smart hardware, vehicle networking, smart cities, telemedicine, power, oil & energy, and other domains. 
 
-The MQTT protocol defines a Pub/Sub communication model, which is similar to RocketMQ, but it is more flexible in the way of subscription, and can support multi-level Topic subscriptions (such as "/t/t1/t2"), and can even support Wildcard subscription (such as "/t/t1/+").
+Its core communication model is also Pub/Sub—similar to RocketMQ. But it provides greater flexibility in subscription patterns, supporting multi-level topic subscriptions (e.g., `/t/t1/t2`) and wildcard subscriptions (e.g., `/t/t1/+`). With MQTT, you can easily implement message broadcasting, multicasting, and unicasting.
 
-## Model introduction
+## RocketMQ MQTT Architecture Design
+The goal of the RocketMQ MQTT architecture is to achieve unified management of message storage and distribution while enabling multi-protocol integration without intruding into the core logic of the RocketMQ broker. To this end, we have designed two fundamental models: the queue storage model and the push-pull model.
 ### Queue Storage Model
 ![image](../picture/34rocketmq-mqtt/cq.png)
 
