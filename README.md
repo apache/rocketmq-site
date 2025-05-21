@@ -15,6 +15,7 @@ For those of you who have contributed documentation and wish to see the results 
 ### Local Development
 
 ```
+$ npm install
 $ npm start
 ```
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
