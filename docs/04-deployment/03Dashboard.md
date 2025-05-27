@@ -53,7 +53,7 @@ $ docker pull apacherocketmq/rocketmq-dashboard:latest
 ② docker 容器中运行 ```rocketmq-dashboard```
 
 ```shell
-$ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
+$ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=host.docker.internal:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
 ```
 
 :::tip
