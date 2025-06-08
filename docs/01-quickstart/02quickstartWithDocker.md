@@ -84,6 +84,7 @@ docker run -d ^
 --net rocketmq ^
 -p 10912:10912 -p 10911:10911 -p 10909:10909 ^
 -e "NAMESRV_ADDR=rmqnamesrv:9876" ^
+# 在PowerShell中请将 %cd% 替换为 $pwd
 -v %cd%\broker.conf:/home/rocketmq/rocketmq-4.9.6/conf/broker.conf ^
 apache/rocketmq:4.9.6 sh mqbroker ^
 -c /home/rocketmq/rocketmq-4.9.6/conf/broker.conf
