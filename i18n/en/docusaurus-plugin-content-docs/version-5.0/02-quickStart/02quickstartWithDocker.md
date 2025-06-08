@@ -58,6 +58,7 @@ docker run -d \
 -p 10912:10912 -p 10911:10911 -p 10909:10909 \
 -p 8080:8080 -p 8081:8081 \
 -e "NAMESRV_ADDR=rmqnamesrv:9876" \
+# In PowerShell, replace %cd% with $pwd
 -v ./broker.conf:/home/rocketmq/rocketmq-5.3.2/conf/broker.conf \
 apache/rocketmq:5.3.2 sh mqbroker --enable-proxy \
 -c /home/rocketmq/rocketmq-5.3.2/conf/broker.conf
