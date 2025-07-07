@@ -1,4 +1,4 @@
-# Apache RocketMQ 安全最佳实践
+# 安全模型
 
 Apache RocketMQ 项目自身提供了 ACL、TLS 等安全特性，但最终的安全效果仍取决于运维人员对 **网络、主机、账户与数据** 的整体防护。
 
