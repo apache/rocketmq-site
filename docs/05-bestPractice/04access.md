@@ -216,16 +216,6 @@ nohup sh bin/mqbroker -n localhost:9876 -c conf/broker.conf &
 nohup sh bin/mqproxy -n localhost:9876 -pc conf/rmq-proxy.json &
 ```
 
-**架构对比**:
-
-| 特性 | 存算一体架构 | 存算分离架构 |
-|------|------------|-------------|
-| **认证授权位置** | Broker处理 | Proxy处理 |
-| **Broker职责** | 存储+计算+认证授权 | 仅存储+元数据管理 |
-| **扩展性** | 一般 | 优秀（可独立扩展Proxy） |
-| **性能** | 一般 | 优秀（Broker负载更低） |
-| **适用场景** | 中小规模、测试环境 | 大规模生产环境 |
-
 ---
 
 ## 配置说明
