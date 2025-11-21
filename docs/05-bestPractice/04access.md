@@ -1249,16 +1249,3 @@ statefulAuthenticationCacheExpiredSecond = 60
 statefulAuthorizationCacheMaxNum = 10000
 statefulAuthorizationCacheExpiredSecond = 60
 ```
-
-### 参考资源
-
-- [RocketMQ官方文档](https://rocketmq.apache.org/)
-- [RocketMQ GitHub仓库](https://github.com/apache/rocketmq)
-- [RocketMQ ACL设计文档](https://github.com/apache/rocketmq/blob/develop/docs/cn/acl/user_guide.md)
-
----
-
-**文档版本**: 1.0  
-**适用RocketMQ版本**: 5.3.0+  
-**最后更新日期**: 2024年11月
-
