@@ -72,12 +72,10 @@ RocketMQ ACL 2.0 是Apache RocketMQ的访问控制列表(Access Control List)升
 ```properties
 # 启用认证
 authenticationEnabled = true
-authenticationProvider = org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 
 # 启用授权
 authorizationEnabled = true
-authorizationProvider = org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 
 # 初始化管理员用户（首次启动自动创建）
@@ -86,6 +84,10 @@ initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 # 组件间认证凭证（用于Broker主从同步、集群内部通信等）
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 ```
+
+> **配置说明**:
+> - 只需配置必填项即可快速启动，其他配置项都有默认值
+> - 生产环境建议配置 `authenticationStrategy` 和 `authorizationStrategy` 为有状态策略以提升性能
 
 #### 第2步：启动集群
 
@@ -152,15 +154,13 @@ RocketMQ支持两种部署架构，根据您的场景选择合适的配置方案
 
 Broker同时负责计算和存储，适合中小规模集群和测试环境。
 
-**配置示例**（同上面快速开始的配置）：
+**配置示例**：
 
 ```properties
 # broker.conf
 authenticationEnabled = true
-authenticationProvider = org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 authorizationEnabled = true
-authorizationProvider = org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
@@ -224,65 +224,69 @@ nohup sh bin/mqproxy -n localhost:9876 -pc conf/rmq-proxy.json &
 
 | 参数名称 | 类型 | 默认值 | 说明 |
 |---------|------|--------|------|
-| `authenticationEnabled` | boolean | false | 是否启用认证 |
-| `authenticationProvider` | String | - | 认证提供者实现类 |
-| `authenticationMetadataProvider` | String | - | 认证元数据提供者实现类 |
-| `authenticationStrategy` | String | - | 认证策略（无状态/有状态） |
-| `initAuthenticationUser` | JSON | - | 系统初始化用户（首次启动自动创建） |
-| `innerClientAuthenticationCredentials` | JSON | - | 组件间认证凭证，用于Broker主从同步、Proxy访问Broker、Controller选举等集群内部通信场景。<br/>格式：`{"accessKey":"xxx","secretKey":"xxx"}`<br/>⚠️所有组件必须配置完全相同的凭证 |
+| `authenticationEnabled` | boolean | `false` | 是否启用认证 |
+| `authenticationProvider` | String | `org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider` | 认证提供者实现类（可不配置，使用默认值） |
+| `authenticationMetadataProvider` | String | - | 认证元数据提供者实现类<br/>**必填项** |
+| `authenticationStrategy` | String | `org.apache.rocketmq.auth.authentication.strategy.StatelessAuthenticationStrategy` | 认证策略（可不配置，使用默认值）<br/>生产环境建议配置有状态策略：<br/>`org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy` |
+| `initAuthenticationUser` | JSON | - | **推荐配置**：系统初始化用户（首次启动自动创建）<br/>格式：`{"username":"xxx","password":"xxx"}`<br/>不配置则需手动创建管理员用户 |
+| `innerClientAuthenticationCredentials` | JSON | - | **视情况配置**：组件间认证凭证，用于Broker主从同步、Proxy访问Broker、Controller选举等集群内部通信场景。<br/>格式：`{"accessKey":"xxx","secretKey":"xxx"}`<br/>⚠️如有组件间通信，所有组件必须配置完全相同的凭证 |
 | `authenticationWhitelist` | String | - | 认证白名单（IP列表，逗号分隔） |
 
 ### 授权配置参数
 
 | 参数名称 | 类型 | 默认值 | 说明 |
 |---------|------|--------|------|
-| `authorizationEnabled` | boolean | false | 是否启用授权 |
-| `authorizationProvider` | String | - | 授权提供者实现类 |
-| `authorizationMetadataProvider` | String | - | 授权元数据提供者实现类 |
-| `authorizationStrategy` | String | - | 授权策略（无状态/有状态） |
+| `authorizationEnabled` | boolean | `false` | 是否启用授权 |
+| `authorizationProvider` | String | `org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider` | 授权提供者实现类（可不配置，使用默认值） |
+| `authorizationMetadataProvider` | String | - | 授权元数据提供者实现类<br/>**必填项** |
+| `authorizationStrategy` | String | `org.apache.rocketmq.auth.authorization.strategy.StatelessAuthorizationStrategy` | 授权策略（可不配置，使用默认值）<br/>生产环境建议配置有状态策略：<br/>`org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy` |
 | `authorizationWhitelist` | String | - | 授权白名单（IP列表，逗号分隔） |
 
 ### 缓存配置参数
 
 | 参数名称 | 类型 | 默认值 | 说明 |
 |---------|------|--------|------|
-| `userCacheMaxNum` | int | 1000 | 用户缓存最大数量 |
-| `userCacheExpiredSecond` | int | 600 | 用户缓存过期时间(秒) |
-| `userCacheRefreshSecond` | int | 60 | 用户缓存刷新时间(秒) |
-| `aclCacheMaxNum` | int | 1000 | ACL缓存最大数量 |
-| `aclCacheExpiredSecond` | int | 600 | ACL缓存过期时间(秒) |
-| `aclCacheRefreshSecond` | int | 60 | ACL缓存刷新时间(秒) |
-| `statefulAuthenticationCacheMaxNum` | int | 10000 | 有状态认证缓存最大数量 |
-| `statefulAuthenticationCacheExpiredSecond` | int | 60 | 有状态认证缓存过期时间(秒) |
-| `statefulAuthorizationCacheMaxNum` | int | 10000 | 有状态授权缓存最大数量 |
-| `statefulAuthorizationCacheExpiredSecond` | int | 60 | 有状态授权缓存过期时间(秒) |
+| `userCacheMaxNum` | int | `1000` | 用户缓存最大数量 |
+| `userCacheExpiredSecond` | int | `600` | 用户缓存过期时间(秒) |
+| `userCacheRefreshSecond` | int | `60` | 用户缓存刷新时间(秒) |
+| `aclCacheMaxNum` | int | `1000` | ACL缓存最大数量 |
+| `aclCacheExpiredSecond` | int | `600` | ACL缓存过期时间(秒) |
+| `aclCacheRefreshSecond` | int | `60` | ACL缓存刷新时间(秒) |
+| `statefulAuthenticationCacheMaxNum` | int | `10000` | 有状态认证缓存最大数量 |
+| `statefulAuthenticationCacheExpiredSecond` | int | `60` | 有状态认证缓存过期时间(秒) |
+| `statefulAuthorizationCacheMaxNum` | int | `10000` | 有状态授权缓存最大数量 |
+| `statefulAuthorizationCacheExpiredSecond` | int | `60` | 有状态授权缓存过期时间(秒) |
 
 ### 认证授权策略
 
-#### 无状态策略 (Stateless)
+#### 无状态策略 (Stateless) - 默认策略
 
 - **特点**：每个请求都进行完整的认证和授权检查
 - **优势**：安全性高，权限变更立即生效
 - **劣势**：性能开销较大
 - **适用场景**：安全要求极高的环境
+- **默认值**：✅ 系统默认使用此策略
 
 **配置示例**:
 
 ```properties
+# 以下为默认值，可不配置
 authenticationStrategy = org.apache.rocketmq.auth.authentication.strategy.StatelessAuthenticationStrategy
 authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.StatelessAuthorizationStrategy
 ```
 
-#### 有状态策略 (Stateful)
+#### 有状态策略 (Stateful) - 生产环境推荐
 
 - **特点**：首次请求进行认证授权，后续请求使用缓存结果
 - **优势**：性能开销小，吞吐量高
 - **劣势**：权限变更有延迟（缓存过期后生效）
-- **适用场景**：高吞吐量场景
+- **适用场景**：高吞吐量场景，生产环境推荐
+- **推荐使用**：⭐ 生产环境建议显式配置此策略
 
 **配置示例**:
 
 ```properties
+# 生产环境推荐配置
 authenticationStrategy = org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy
 authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy
 ```
@@ -1030,17 +1034,15 @@ grep "AUTHORIZATION" logs/rocketmqlogs/broker.log
 
 ```properties
 # broker.conf
-# 基本配置（参考快速开始章节）
+# 基本配置
 authenticationEnabled = true
-authenticationProvider = org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 authorizationEnabled = true
-authorizationProvider = org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 
-# 生产环境性能调优
+# 生产环境性能调优：使用有状态策略（默认为无状态）
 authenticationStrategy = org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy
 authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy
 
@@ -1122,10 +1124,8 @@ echo "migrateAuthFromV1Enabled = true" >> conf/broker.conf
 # 3. 启用ACL 2.0
 cat >> conf/broker.conf << EOF
 authenticationEnabled = true
-authenticationProvider = org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 authorizationEnabled = true
-authorizationProvider = org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
@@ -1225,7 +1225,6 @@ flushDiskType = ASYNC_FLUSH
 
 # ACL认证配置
 authenticationEnabled = true
-authenticationProvider = org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 authenticationStrategy = org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
@@ -1233,7 +1232,6 @@ innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"1234
 
 # ACL授权配置
 authorizationEnabled = true
-authorizationProvider = org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy
 
