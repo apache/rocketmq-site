@@ -1,10 +1,10 @@
-# RocketMQ ACL 2.0 User Guide
+# Access Control 2.0
 
 :::info Version Notice
 
-This document describes **RocketMQ ACL 2.0**, applicable to **RocketMQ 5.3.0** and above.
+This document describes **Access Control 2.0 (ACL 2.0)**, applicable to **RocketMQ 5.3.0** and above.
 
-- If you are using **RocketMQ 4.x, 5.0-5.2, or 5.3.0-5.3.2**, please refer to [ACL 1.0 Documentation](07access-1.0.md)
+- If you are using **RocketMQ 4.x, 5.0-5.2, or 5.3.0-5.3.2**, please refer to [ACL 1.0 Documentation](./07access-1.0)
 - **Starting from RocketMQ 5.3.3, ACL 1.0 is no longer supported**. It is recommended to upgrade to ACL 2.0
 - If you are migrating from ACL 1.0 to 2.0, please refer to the [ACL 1.0 Migration](#migrating-from-acl-10-to-acl-20) section
 
@@ -23,9 +23,9 @@ For production deployment, please ensure:
 
 ## Introduction
 
-### What is RocketMQ ACL 2.0?
+### What is Access Control 2.0?
 
-RocketMQ ACL 2.0 is an upgraded version of Apache RocketMQ's Access Control List, providing comprehensive authentication and authorization mechanisms to protect the data security of RocketMQ clusters.
+Access Control 2.0 (ACL 2.0) is an upgraded version of Apache RocketMQ's Access Control List, providing comprehensive authentication and authorization mechanisms to protect the data security of RocketMQ clusters.
 
 ### Core Features
 
@@ -939,6 +939,15 @@ grep "innerClientAuthenticationCredentials" conf/*.conf conf/*.json
 # Modify to unified credentials
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 ```
+CODE: 17  DESC: No user
+or
+CODE: 16  DESC: Authentication failed
+```
+
+**Possible Causes**:
+- `conf/tools.yml` file not configured
+- Credentials in `tools.yml` are incorrect
+- Configured user is not a super user
 
 ### View Audit Logs
 
@@ -976,7 +985,6 @@ grep "AUTHORIZATION" logs/rocketmqlogs/broker.log
 - Create independent users for different applications or services
 - Use strong passwords (at least 8 characters, including letters and numbers)
 - Super users should only be used for system initialization and emergency operations
-- Avoid using weak passwords (e.g., 123456)
 
 ❌ **Avoid**:
 - Multiple applications sharing the same user
@@ -1082,6 +1090,13 @@ innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"1234
   "statefulAuthorizationCacheExpiredSecond": 60
 }
 ```
+[AUTHORIZATION] Subject = User:xxx is Deny Action = Pub from sourceIp = xxx on resource = Topic:xxx
+```
+
+**Possible Causes**:
+- User does not have permission for the resource
+- IP not in whitelist
+- Deny rule exists
 
 **Tuning Recommendations**:
 
@@ -1181,55 +1196,3 @@ if [ $authz_deny_count -gt 100 ]; then
     echo "Alert: Too many authorization denials: $authz_deny_count"
 fi
 ```
-
----
-
-## Appendix
-
-### Complete Configuration Example
-
-#### Broker Production Environment Configuration
-
-```properties
-# broker.conf
-
-# Basic configuration
-brokerClusterName = DefaultCluster
-brokerName = broker-a
-brokerId = 0
-deleteWhen = 04
-fileReservedTime = 48
-brokerRole = ASYNC_MASTER
-flushDiskType = ASYNC_FLUSH
-
-# ACL authentication configuration
-authenticationEnabled = true
-authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
-authenticationStrategy = org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy
-initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
-innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
-
-# ACL authorization configuration
-authorizationEnabled = true
-authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
-authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy
-
-# Cache configuration
-userCacheMaxNum = 5000
-userCacheExpiredSecond = 3600
-userCacheRefreshSecond = 300
-aclCacheMaxNum = 5000
-aclCacheExpiredSecond = 3600
-aclCacheRefreshSecond = 300
-statefulAuthenticationCacheMaxNum = 10000
-statefulAuthenticationCacheExpiredSecond = 60
-statefulAuthorizationCacheMaxNum = 10000
-statefulAuthorizationCacheExpiredSecond = 60
-```
-
----
-
-**Document Version**: 1.0  
-**Applicable RocketMQ Version**: 5.3.0+  
-**Last Updated**: November 2024
-

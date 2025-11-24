@@ -652,3 +652,7 @@ footer .docusaurus-mt-lg{
   margin-top: 0rem!important;
 }
 
+/* Hide specific sidebar items */
+.hidden-sidebar-item {
+  display: none !important;
+}

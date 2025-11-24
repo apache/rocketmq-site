@@ -1,5 +1,6 @@
 ---
-unlisted: true
+sidebar_class_name: hidden-sidebar-item
+custom_edit_url: null
 ---
 
 # Access Control (ACL 1.0)
