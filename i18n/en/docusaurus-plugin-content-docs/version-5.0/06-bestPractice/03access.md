@@ -427,29 +427,29 @@ When multiple permission policies match the same request, the final result is de
 
 #### Priority Rules
 
-|| Resource Priority (High→Low) | Decision Priority |
-||------------------------------|------------------|
-|| 1. Specific resource type > Any resource type (`*`)<br/>2. Exact match > Prefix match > Wildcard match<br/>3. Longer resource name > Shorter resource name | **Deny > Allow**<br/>(Deny has higher priority than Allow) |
+| Resource Priority (High→Low) | Decision Priority |
+|------------------------------|------------------|
+| 1. Specific resource type > Any resource type (`*`)<br/>2. Exact match > Prefix match > Wildcard match<br/>3. Longer resource name > Shorter resource name | **Deny > Allow**<br/>(Deny has higher priority than Allow) |
 
 #### Priority Example
 
-|| Policy | Resource Definition | Action | Decision | Priority |
-||--------|-------------------|--------|----------|----------|
-|| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | Highest |
-|| 2 | `Topic:test-abc` | Pub,Sub | Allow | High |
-|| 3 | `Topic:test-*` | Pub,Sub | Allow | Medium |
-|| 4 | `Topic:*` | Pub,Sub | Allow | Low |
-|| 5 | `*` | All | Deny | Lowest |
+| Policy | Resource Definition | Action | Decision | Priority |
+|--------|-------------------|--------|----------|----------|
+| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | Highest |
+| 2 | `Topic:test-abc` | Pub,Sub | Allow | High |
+| 3 | `Topic:test-*` | Pub,Sub | Allow | Medium |
+| 4 | `Topic:*` | Pub,Sub | Allow | Low |
+| 5 | `*` | All | Deny | Lowest |
 
 **Match Results**:
 
-|| Access Resource | Matched Policy | Final Decision |
-||----------------|----------------|----------------|
-|| `Topic:test-abc-1` | Policy 1 (exact match) | ❌ Deny |
-|| `Topic:test-abc` | Policy 2 (exact match) | ✅ Allow |
-|| `Topic:test-123` | Policy 3 (prefix match) | ✅ Allow |
-|| `Topic:other` | Policy 4 (wildcard match) | ✅ Allow |
-|| `Group:TestGroup` | Policy 5 (any resource) | ❌ Deny |
+| Access Resource | Matched Policy | Final Decision |
+|----------------|----------------|----------------|
+| `Topic:test-abc-1` | Policy 1 (exact match) | ❌ Deny |
+| `Topic:test-abc` | Policy 2 (exact match) | ✅ Allow |
+| `Topic:test-123` | Policy 3 (prefix match) | ✅ Allow |
+| `Topic:other` | Policy 4 (wildcard match) | ✅ Allow |
+| `Group:TestGroup` | Policy 5 (any resource) | ❌ Deny |
 
 ### Permission Management Commands
 
