@@ -1090,6 +1090,13 @@ innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"1234
   "statefulAuthorizationCacheExpiredSecond": 60
 }
 ```
+[AUTHORIZATION] Subject = User:xxx is Deny Action = Pub from sourceIp = xxx on resource = Topic:xxx
+```
+
+**Possible Causes**:
+- User does not have permission for the resource
+- IP not in whitelist
+- Deny rule exists
 
 **Tuning Recommendations**:
 
