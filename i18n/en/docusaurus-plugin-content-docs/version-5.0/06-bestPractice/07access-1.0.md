@@ -1,6 +1,5 @@
 ---
-sidebar_class_name: hidden
-displayed_sidebar: false
+unlisted: true
 ---
 
 # Access Control (ACL 1.0)

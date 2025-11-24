@@ -1,6 +1,5 @@
 ---
-sidebar_class_name: hidden
-displayed_sidebar: false
+unlisted: true
 ---
 
 # 权限控制（ACL 1.0）
