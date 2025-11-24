@@ -1,3 +1,8 @@
+---
+sidebar_class_name: hidden
+displayed_sidebar: false
+---
+
 # 权限控制（ACL 1.0）
 
 :::warning 历史版本文档
@@ -6,7 +11,7 @@
 
 **从 RocketMQ 5.3.3 开始，ACL 1.0 已被移除，不再支持。**
 
-如果您使用的是 **RocketMQ 5.3.0** 及以上版本，强烈建议使用 [ACL 2.0 文档](04access.md)，它提供了更强大和灵活的权限控制功能。
+如果您使用的是 **RocketMQ 5.3.0** 及以上版本，强烈建议使用 [ACL 2.0 文档](03access.md)，它提供了更强大和灵活的权限控制功能。
 
 :::
 

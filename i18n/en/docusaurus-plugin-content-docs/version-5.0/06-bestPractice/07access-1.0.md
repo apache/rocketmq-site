@@ -1,3 +1,8 @@
+---
+sidebar_class_name: hidden
+displayed_sidebar: false
+---
+
 # Access Control (ACL 1.0)
 
 :::warning Legacy Documentation
@@ -6,7 +11,7 @@ This document describes **RocketMQ ACL 1.0**, applicable to **RocketMQ 4.x, 5.0-
 
 **Starting from RocketMQ 5.3.3, ACL 1.0 has been removed and is no longer supported.**
 
-If you are using **RocketMQ 5.3.0** or above, it is strongly recommended to use [ACL 2.0 Documentation](04access.md), which provides more powerful and flexible access control features.
+If you are using **RocketMQ 5.3.0** or above, it is strongly recommended to use [ACL 2.0 Documentation](03access.md), which provides more powerful and flexible access control features.
 
 :::
 
