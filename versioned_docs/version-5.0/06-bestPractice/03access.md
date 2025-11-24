@@ -427,29 +427,29 @@ sh bin/mqadmin deleteUser -n 127.0.0.1:9876 -c DefaultCluster -u username
 
 #### 优先级规则
 
-|| 资源优先级（高→低） | 决策优先级 |
-||------------------|----------|
-|| 1. 具体资源类型 > 任意资源类型(`*`)<br/>2. 完全匹配 > 前缀匹配 > 通配符匹配<br/>3. 长资源名 > 短资源名 | **Deny > Allow**<br/>（拒绝优先级高于允许） |
+| 资源优先级（高→低） | 决策优先级 |
+|------------------|----------|
+| 1. 具体资源类型 > 任意资源类型(`*`)<br/>2. 完全匹配 > 前缀匹配 > 通配符匹配<br/>3. 长资源名 > 短资源名 | **Deny > Allow**<br/>（拒绝优先级高于允许） |
 
 #### 优先级示例
 
-|| 策略 | 资源定义 | 操作 | 决策 | 优先级 |
-||------|---------|------|------|--------|
-|| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | 最高 |
-|| 2 | `Topic:test-abc` | Pub,Sub | Allow | 高 |
-|| 3 | `Topic:test-*` | Pub,Sub | Allow | 中 |
-|| 4 | `Topic:*` | Pub,Sub | Allow | 低 |
-|| 5 | `*` | All | Deny | 最低 |
+| 策略 | 资源定义 | 操作 | 决策 | 优先级 |
+|------|---------|------|------|--------|
+| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | 最高 |
+| 2 | `Topic:test-abc` | Pub,Sub | Allow | 高 |
+| 3 | `Topic:test-*` | Pub,Sub | Allow | 中 |
+| 4 | `Topic:*` | Pub,Sub | Allow | 低 |
+| 5 | `*` | All | Deny | 最低 |
 
 **匹配结果**：
 
-|| 访问资源 | 匹配策略 | 最终决策 |
-||---------|---------|---------|
-|| `Topic:test-abc-1` | 策略1（完全匹配） | ❌ Deny |
-|| `Topic:test-abc` | 策略2（完全匹配） | ✅ Allow |
-|| `Topic:test-123` | 策略3（前缀匹配） | ✅ Allow |
-|| `Topic:other` | 策略4（通配符匹配） | ✅ Allow |
-|| `Group:TestGroup` | 策略5（任意资源） | ❌ Deny |
+| 访问资源 | 匹配策略 | 最终决策 |
+|---------|---------|---------|
+| `Topic:test-abc-1` | 策略1（完全匹配） | ❌ Deny |
+| `Topic:test-abc` | 策略2（完全匹配） | ✅ Allow |
+| `Topic:test-123` | 策略3（前缀匹配） | ✅ Allow |
+| `Topic:other` | 策略4（通配符匹配） | ✅ Allow |
+| `Group:TestGroup` | 策略5（任意资源） | ❌ Deny |
 
 ### 权限管理命令
 
