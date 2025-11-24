@@ -4,7 +4,7 @@
 
 This document describes **Access Control 2.0 (ACL 2.0)**, applicable to **RocketMQ 5.3.0** and above.
 
-- If you are using **RocketMQ 4.x, 5.0-5.2, or 5.3.0-5.3.2**, please refer to [ACL 1.0 Documentation](_access-1.0.md)
+- If you are using **RocketMQ 4.x, 5.0-5.2, or 5.3.0-5.3.2**, please refer to [ACL 1.0 Documentation](./07access-1.0)
 - **Starting from RocketMQ 5.3.3, ACL 1.0 is no longer supported**. It is recommended to upgrade to ACL 2.0
 - If you are migrating from ACL 1.0 to 2.0, please refer to the [ACL 1.0 Migration](#migrating-from-acl-10-to-acl-20) section
 
