@@ -160,8 +160,12 @@ Broker同时负责计算和存储，适合中小规模集群和测试环境。
 # broker.conf
 authenticationEnabled = true
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
+authenticationStrategy = org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy
+
 authorizationEnabled = true
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
+authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy
+
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 ```
@@ -183,9 +187,6 @@ authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.
 
 # 初始化管理员用户
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
-
-# 组件间认证凭证（Proxy访问Broker、Broker主从同步等）
-innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 ```
 
 **Proxy配置** (`rmq-proxy.json`):
@@ -195,11 +196,12 @@ innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"1234
   "authenticationEnabled": true,
   "authenticationProvider": "org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider",
   "authenticationMetadataProvider": "org.apache.rocketmq.proxy.auth.ProxyAuthenticationMetadataProvider",
-  "innerClientAuthenticationCredentials": "{\"accessKey\":\"rocketmq\", \"secretKey\":\"12345678\"}",
+  "authenticationStrategy": "org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy",
   
   "authorizationEnabled": true,
   "authorizationProvider": "org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider",
-  "authorizationMetadataProvider": "org.apache.rocketmq.proxy.auth.ProxyAuthorizationMetadataProvider"
+  "authorizationMetadataProvider": "org.apache.rocketmq.proxy.auth.ProxyAuthorizationMetadataProvider",
+  "authorizationStrategy": "org.apache.rocketmq.auth.authorization.strategy.StatefulAuthorizationStrategy"
 }
 ```
 
@@ -295,23 +297,24 @@ authorizationStrategy = org.apache.rocketmq.auth.authorization.strategy.Stateful
 
 ## 用户管理
 
-### mqadmin工具认证配置
+### 用户类型说明
 
-当集群启用ACL后，使用mqadmin命令行工具管理用户和权限时，需要配置管理员凭证。
+| 用户类型 | 说明 | 权限范围 | 使用场景 |
+|---------|------|---------|---------|
+| **Super** | 超级用户 | 拥有所有资源的所有权限，无需单独授权 | 系统管理员、运维人员 |
+| **Normal** | 普通用户 | 需要显式授权才能访问资源 | 业务应用、服务 |
+
+### mqadmin工具配置
+
+使用mqadmin命令行工具前，需要配置管理员凭证。
 
 **配置文件**: `conf/tools.yml`
 
 ```yaml
-# mqadmin工具认证凭证（使用超级用户的accessKey和secretKey）
+# 使用超级用户的用户名和密码
 accessKey: rocketmq
 secretKey: 12345678
 ```
-
-**说明**:
-- `accessKey`: 超级用户的用户名
-- `secretKey`: 超级用户的密码
-- 该配置文件在首次使用mqadmin工具前需要配置
-- 如果不配置，访问启用ACL的集群时会提示认证失败
 
 **验证配置**:
 
@@ -320,112 +323,84 @@ secretKey: 12345678
 sh bin/mqadmin listUser -n 127.0.0.1:9876 -c DefaultCluster
 ```
 
-### 用户类型
+### 用户管理命令
 
-| 用户类型 | 说明 | 权限范围 |
-|---------|------|---------|
-| **Super** | 超级用户 | 拥有所有资源的所有权限，无需单独授权 |
-| **Normal** | 普通用户 | 需要显式授权才能访问资源 |
-
-### 创建用户
+#### 创建用户
 
 ```bash
 # 创建普通用户
-sh bin/mqadmin createUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -u username \
-  -p password \
-  -t Normal
+sh bin/mqadmin createUser -n 127.0.0.1:9876 -c DefaultCluster -u username -p password -t Normal
 
 # 创建超级用户
-sh bin/mqadmin createUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -u rocketmq \
-  -p 12345678 \
-  -t Super
+sh bin/mqadmin createUser -n 127.0.0.1:9876 -c DefaultCluster -u rocketmq -p 12345678 -t Super
 ```
 
-**参数说明**:
-- `-n`: NameServer地址
-- `-c`: 集群名称（与`-b` Broker地址二选一）
-- `-b`: Broker地址（与`-c`集群名称二选一）
-- `-u`: 用户名
-- `-p`: 密码
-- `-t`: 用户类型（Super 或 Normal，默认Normal）
-
-### 更新用户
+#### 更新用户
 
 ```bash
 # 修改用户密码
-sh bin/mqadmin updateUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -u username \
-  -p newpassword
+sh bin/mqadmin updateUser -n 127.0.0.1:9876 -c DefaultCluster -u username -p newpassword
 
 # 修改用户类型
-sh bin/mqadmin updateUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -u username \
-  -t Super
+sh bin/mqadmin updateUser -n 127.0.0.1:9876 -c DefaultCluster -u username -t Super
 ```
 
-### 查询用户
+#### 查询用户
 
 ```bash
 # 查询用户详情
-sh bin/mqadmin getUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -u username
+sh bin/mqadmin getUser -n 127.0.0.1:9876 -c DefaultCluster -u username
 
 # 查询用户列表
-sh bin/mqadmin listUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster
+sh bin/mqadmin listUser -n 127.0.0.1:9876 -c DefaultCluster
 
 # 查询用户列表（带过滤）
-sh bin/mqadmin listUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -f producer
+sh bin/mqadmin listUser -n 127.0.0.1:9876 -c DefaultCluster -f producer
 ```
 
-### 删除用户
+#### 删除用户
 
 ```bash
-sh bin/mqadmin deleteUser \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -u username
+sh bin/mqadmin deleteUser -n 127.0.0.1:9876 -c DefaultCluster -u username
 ```
+
+### 命令参数说明
+
+| 参数 | 必填 | 说明 | 默认值 |
+|------|------|------|--------|
+| `-n` | 是 | NameServer地址 | - |
+| `-c` | 否 | 集群名称（与`-b`二选一） | - |
+| `-b` | 否 | Broker地址（与`-c`二选一） | - |
+| `-u` | 是 | 用户名 | - |
+| `-p` | 否 | 密码（创建/更新时使用） | - |
+| `-t` | 否 | 用户类型：Super或Normal | Normal |
+| `-f` | 否 | 过滤条件（查询时使用） | - |
 
 ---
 
 ## 权限管理
 
-### 资源类型
+### 核心概念
 
-| 资源类型 | 格式 | 示例 |
-|---------|------|------|
-| **Any** | `*` | 所有资源 |
-| **Cluster** | `Cluster:集群名` | `Cluster:DefaultCluster` |
-| **Namespace** | `Namespace:命名空间` | `Namespace:test` |
-| **Topic** | `Topic:主题名` | `Topic:TestTopic` |
-| **Group** | `Group:消费组名` | `Group:TestGroup` |
+#### 资源类型
 
-### 资源匹配模式
+| 资源类型 | 格式 | 示例 | 说明 |
+|---------|------|------|------|
+| **Any** | `*` | `*` | 所有资源 |
+| **Cluster** | `Cluster:集群名` | `Cluster:DefaultCluster` | 集群级资源 |
+| **Namespace** | `Namespace:命名空间` | `Namespace:test` | 命名空间 |
+| **Topic** | `Topic:主题名` | `Topic:TestTopic` | 消息主题 |
+| **Group** | `Group:消费组名` | `Group:TestGroup` | 消费者组 |
 
-| 匹配模式 | 说明 | 示例 | 匹配资源 |
+#### 资源匹配模式
+
+| 匹配模式 | 说明 | 示例 | 匹配结果 |
 |---------|------|------|---------|
-| **完全匹配(LITERAL)** | 精确匹配资源名称 | `Topic:OrderTopic` | `Topic:OrderTopic` |
-| **前缀匹配(PREFIXED)** | 匹配指定前缀的资源 | `Topic:Order*` | `Topic:OrderTopic`<br/>`Topic:OrderDLQTopic` |
-| **通配符匹配(ANY)** | 匹配该类型的所有资源 | `Topic:*` | 所有Topic |
+| **完全匹配(LITERAL)** | 精确匹配资源名称 | `Topic:OrderTopic` | 仅匹配`Topic:OrderTopic` |
+| **前缀匹配(PREFIXED)** | 匹配指定前缀的资源 | `Topic:Order*` | 匹配`Topic:OrderTopic`、`Topic:OrderDLQTopic`等 |
+| **通配符匹配(ANY)** | 匹配该类型的所有资源 | `Topic:*` | 匹配所有Topic |
 
-### 操作类型
+#### 操作类型
 
 | 操作 | 说明 | 适用资源 |
 |------|------|---------|
@@ -438,169 +413,173 @@ sh bin/mqadmin deleteUser \
 | **List** | 查询资源列表 | Cluster, Namespace, Topic, Group |
 | **All** | 所有操作 | 所有资源 |
 
-### 决策类型
+#### 决策类型
 
 | 决策 | 说明 |
 |------|------|
 | **Allow** | 允许执行操作 |
-| **Deny** | 拒绝执行操作 |
+| **Deny** | 拒绝执行操作（优先级高于Allow） |
 
-### 创建权限
+### 权限管理命令
 
-```bash
-# 基本用法：授予Topic发布权限
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:TestTopic \
-  -a Pub \
-  -d Allow
+#### 创建权限
 
-# 授予多个资源的权限
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:consumer_user \
-  -r Topic:TestTopic,Group:TestGroup \
-  -a Sub \
-  -d Allow
-
-# 授予多个操作权限
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:admin_user \
-  -r Topic:TestTopic \
-  -a Create,Update,Delete,Get,List \
-  -d Allow
-
-# 使用前缀匹配
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:Order* \
-  -a Pub \
-  -d Allow
-
-# 使用通配符匹配所有Topic
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:* \
-  -a Pub \
-  -d Allow
-
-# 限制IP访问
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:TestTopic \
-  -a Pub \
-  -i 192.168.1.0/24 \
-  -d Allow
-
-# 拒绝访问
-sh bin/mqadmin createAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:bad_user \
-  -r Topic:SensitiveTopic \
-  -a Pub,Sub \
-  -d Deny
-```
-
-**参数说明**:
-- `-s`: 主体名称（格式：`User:用户名`）
-- `-r`: 资源定义（格式：`资源类型:资源名`，多个资源用逗号分隔）
-- `-a`: 操作类型（多个操作用逗号分隔）
-- `-i`: IP白名单（可选，支持单个IP或IP段，如`192.168.1.0/24`）
-- `-d`: 决策结果（Allow 或 Deny）
-
-### 更新权限
+**基本用法示例**：
 
 ```bash
-sh bin/mqadmin updateAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:TestTopic \
-  -a Pub,Sub \
-  -d Allow
+# 示例1：授予单个Topic的发布权限
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:producer_user -r Topic:TestTopic -a Pub -d Allow
+
+# 示例2：授予单个Topic的订阅权限（需要同时指定Topic和Group）
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:consumer_user -r Topic:TestTopic,Group:TestGroup -a Sub -d Allow
+
+# 示例3：授予多个操作权限
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:admin_user -r Topic:TestTopic -a Create,Update,Delete,Get,List -d Allow
 ```
 
-### 查询权限
+**资源匹配模式示例**：
+
+```bash
+# 示例4：完全匹配 - 精确匹配资源名称
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:order_service -r Topic:OrderTopic -a Pub,Sub -d Allow
+
+# 示例5：前缀匹配 - 匹配所有order_开头的Topic
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:order_service -r Topic:order_* -a Pub -d Allow
+
+# 示例6：通配符匹配 - 匹配所有Topic
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:monitor_user -r Topic:* -a Get,List -d Allow
+
+# 示例7：匹配所有资源类型
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:super_admin -r * -a All -d Allow
+```
+
+**IP白名单示例**：
+
+```bash
+# 示例8：限制单个IP访问
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:producer_user -r Topic:TestTopic -a Pub -i 192.168.1.100 -d Allow
+
+# 示例9：限制IP段访问（CIDR格式）
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:internal_user -r Topic:InternalTopic -a Pub,Sub -i 192.168.1.0/24 -d Allow
+
+# 示例10：不限制IP（不指定-i参数）
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:public_user -r Topic:PublicTopic -a Pub -d Allow
+```
+
+**拒绝策略示例**：
+
+```bash
+# 示例11：拒绝访问敏感Topic
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:normal_user -r Topic:SensitiveTopic -a Pub,Sub -d Deny
+
+# 示例12：先授予大部分权限，再拒绝特定资源（Deny优先级更高）
+# 第一步：授予所有Topic访问权限
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:normal_user -r Topic:* -a Pub,Sub -d Allow
+# 第二步：拒绝敏感Topic（会覆盖上面的Allow）
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:normal_user -r Topic:SensitiveTopic -a Pub,Sub -d Deny
+```
+
+**集群管理权限示例**：
+
+```bash
+# 示例13：授予集群查询权限
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:monitor_user -r Cluster:DefaultCluster -a Get,List -d Allow
+
+# 示例14：授予Topic管理权限
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:topic_admin -r Topic:* -a Create,Update,Delete,Get,List -d Allow
+
+# 示例15：授予Group管理权限
+sh bin/mqadmin createAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:group_admin -r Group:* -a Create,Update,Delete,Get,List -d Allow
+```
+
+#### 更新权限
+
+```bash
+sh bin/mqadmin updateAcl -n 127.0.0.1:9876 -c DefaultCluster \
+  -s User:producer_user -r Topic:TestTopic -a Pub,Sub -d Allow
+```
+
+#### 查询权限
 
 ```bash
 # 查询用户的所有权限
-sh bin/mqadmin getAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user
+sh bin/mqadmin getAcl -n 127.0.0.1:9876 -c DefaultCluster -s User:producer_user
 
 # 查询所有权限列表
-sh bin/mqadmin listAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster
+sh bin/mqadmin listAcl -n 127.0.0.1:9876 -c DefaultCluster
 
 # 查询权限列表（带过滤条件）
-sh bin/mqadmin listAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:TestTopic
+sh bin/mqadmin listAcl -n 127.0.0.1:9876 -c DefaultCluster -s User:producer_user -r Topic:TestTopic
 ```
 
-### 删除权限
+#### 删除权限
 
 ```bash
 # 删除用户的所有权限
-sh bin/mqadmin deleteAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user
+sh bin/mqadmin deleteAcl -n 127.0.0.1:9876 -c DefaultCluster -s User:producer_user
 
 # 删除用户对特定资源的权限
-sh bin/mqadmin deleteAcl \
-  -n 127.0.0.1:9876 \
-  -c DefaultCluster \
-  -s User:producer_user \
-  -r Topic:TestTopic
+sh bin/mqadmin deleteAcl -n 127.0.0.1:9876 -c DefaultCluster -s User:producer_user -r Topic:TestTopic
 ```
 
-### 权限优先级
+### 命令参数说明
 
-当多个权限策略匹配同一请求时，按以下优先级确定最终结果：
+| 参数 | 必填 | 说明 | 示例 |
+|------|------|------|------|
+| `-n` | 是 | NameServer地址 | `127.0.0.1:9876` |
+| `-c` | 否 | 集群名称（与`-b`二选一） | `DefaultCluster` |
+| `-b` | 否 | Broker地址（与`-c`二选一） | `192.168.1.1:10911` |
+| `-s` | 是 | 主体名称 | `User:producer_user` |
+| `-r` | 否 | 资源定义（多个用逗号分隔） | `Topic:TestTopic`<br/>`Topic:*`<br/>`Topic:Order*,Group:Order*` |
+| `-a` | 否 | 操作类型（多个用逗号分隔） | `Pub`<br/>`Pub,Sub`<br/>`Create,Update,Delete` |
+| `-i` | 否 | IP白名单（支持IP或IP段） | `192.168.1.100`<br/>`192.168.1.0/24` |
+| `-d` | 否 | 决策结果 | `Allow` 或 `Deny` |
 
-#### 资源优先级（高到低）
+### 权限优先级规则
 
-1. 具体资源类型 > 任意资源类型(`*`)
-2. 完全匹配 > 前缀匹配 > 通配符匹配
-3. 长资源名 > 短资源名
+当多个权限策略匹配同一请求时，按以下优先级确定最终结果。
 
-#### 决策优先级（高到低）
+#### 优先级规则
 
-1. Deny（拒绝） > Allow（允许）
+| 资源优先级（高→低） | 决策优先级 |
+|------------------|----------|
+| 1. 具体资源类型 > 任意资源类型(`*`)<br/>2. 完全匹配 > 前缀匹配 > 通配符匹配<br/>3. 长资源名 > 短资源名 | **Deny > Allow**<br/>（拒绝优先级高于允许） |
 
-**示例说明**:
+#### 优先级示例
 
-```bash
-# 假设配置了以下权限策略：
-# 1. Topic:test-abc-1  -> Pub,Sub -> Deny   (优先级最高)
-# 2. Topic:test-abc    -> Pub,Sub -> Allow
-# 3. Topic:test-*      -> Pub,Sub -> Allow
-# 4. Topic:*           -> Pub,Sub -> Allow
-# 5. *                 -> ANY     -> Deny   (优先级最低)
+| 策略 | 资源定义 | 操作 | 决策 | 优先级 |
+|------|---------|------|------|--------|
+| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | 最高 |
+| 2 | `Topic:test-abc` | Pub,Sub | Allow | 高 |
+| 3 | `Topic:test-*` | Pub,Sub | Allow | 中 |
+| 4 | `Topic:*` | Pub,Sub | Allow | 低 |
+| 5 | `*` | All | Deny | 最低 |
 
-# 访问Topic:test-abc-1 -> 匹配策略1 -> Deny
-# 访问Topic:test-abc   -> 匹配策略2 -> Allow
-# 访问Topic:test-123   -> 匹配策略3 -> Allow
-# 访问Topic:other      -> 匹配策略4 -> Allow
-# 访问Group:TestGroup  -> 匹配策略5 -> Deny
-```
+**匹配结果**：
+
+| 访问资源 | 匹配策略 | 最终决策 |
+|---------|---------|---------|
+| `Topic:test-abc-1` | 策略1（完全匹配） | ❌ Deny |
+| `Topic:test-abc` | 策略2（完全匹配） | ✅ Allow |
+| `Topic:test-123` | 策略3（前缀匹配） | ✅ Allow |
+| `Topic:other` | 策略4（通配符匹配） | ✅ Allow |
+| `Group:TestGroup` | 策略5（任意资源） | ❌ Deny |
 
 ---
 
