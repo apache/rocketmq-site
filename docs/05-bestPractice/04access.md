@@ -177,15 +177,12 @@ Proxy负责计算和认证授权，Broker仅负责存储和元数据管理，适
 **Broker配置** (`broker.conf`):
 
 ```properties
-# Broker只作为元数据提供者，不处理客户端认证授权
 authenticationEnabled = false
-authorizationEnabled = false
-
-# 配置元数据提供者
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
+
+authorizationEnabled = false
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 
-# 初始化管理员用户
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 ```
 
