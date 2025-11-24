@@ -177,12 +177,15 @@ Proxy负责计算和认证授权，Broker仅负责存储和元数据管理，适
 **Broker配置** (`broker.conf`):
 
 ```properties
+# Broker只作为元数据提供者，不处理客户端认证授权
 authenticationEnabled = false
-authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
-
 authorizationEnabled = false
+
+# 配置元数据提供者
+authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 
+# 初始化管理员用户
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
 ```
 
@@ -417,6 +420,37 @@ sh bin/mqadmin deleteUser -n 127.0.0.1:9876 -c DefaultCluster -u username
 | **Allow** | 允许执行操作 |
 | **Deny** | 拒绝执行操作（优先级高于Allow） |
 
+
+### 权限优先级规则
+
+当多个权限策略匹配同一请求时，按以下优先级确定最终结果。
+
+#### 优先级规则
+
+|| 资源优先级（高→低） | 决策优先级 |
+||------------------|----------|
+|| 1. 具体资源类型 > 任意资源类型(`*`)<br/>2. 完全匹配 > 前缀匹配 > 通配符匹配<br/>3. 长资源名 > 短资源名 | **Deny > Allow**<br/>（拒绝优先级高于允许） |
+
+#### 优先级示例
+
+|| 策略 | 资源定义 | 操作 | 决策 | 优先级 |
+||------|---------|------|------|--------|
+|| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | 最高 |
+|| 2 | `Topic:test-abc` | Pub,Sub | Allow | 高 |
+|| 3 | `Topic:test-*` | Pub,Sub | Allow | 中 |
+|| 4 | `Topic:*` | Pub,Sub | Allow | 低 |
+|| 5 | `*` | All | Deny | 最低 |
+
+**匹配结果**：
+
+|| 访问资源 | 匹配策略 | 最终决策 |
+||---------|---------|---------|
+|| `Topic:test-abc-1` | 策略1（完全匹配） | ❌ Deny |
+|| `Topic:test-abc` | 策略2（完全匹配） | ✅ Allow |
+|| `Topic:test-123` | 策略3（前缀匹配） | ✅ Allow |
+|| `Topic:other` | 策略4（通配符匹配） | ✅ Allow |
+|| `Group:TestGroup` | 策略5（任意资源） | ❌ Deny |
+
 ### 权限管理命令
 
 #### 创建权限
@@ -548,35 +582,6 @@ sh bin/mqadmin deleteAcl -n 127.0.0.1:9876 -c DefaultCluster -s User:producer_us
 | `-i` | 否 | IP白名单（支持IP或IP段） | `192.168.1.100`<br/>`192.168.1.0/24` |
 | `-d` | 否 | 决策结果 | `Allow` 或 `Deny` |
 
-### 权限优先级规则
-
-当多个权限策略匹配同一请求时，按以下优先级确定最终结果。
-
-#### 优先级规则
-
-| 资源优先级（高→低） | 决策优先级 |
-|------------------|----------|
-| 1. 具体资源类型 > 任意资源类型(`*`)<br/>2. 完全匹配 > 前缀匹配 > 通配符匹配<br/>3. 长资源名 > 短资源名 | **Deny > Allow**<br/>（拒绝优先级高于允许） |
-
-#### 优先级示例
-
-| 策略 | 资源定义 | 操作 | 决策 | 优先级 |
-|------|---------|------|------|--------|
-| 1 | `Topic:test-abc-1` | Pub,Sub | Deny | 最高 |
-| 2 | `Topic:test-abc` | Pub,Sub | Allow | 高 |
-| 3 | `Topic:test-*` | Pub,Sub | Allow | 中 |
-| 4 | `Topic:*` | Pub,Sub | Allow | 低 |
-| 5 | `*` | All | Deny | 最低 |
-
-**匹配结果**：
-
-| 访问资源 | 匹配策略 | 最终决策 |
-|---------|---------|---------|
-| `Topic:test-abc-1` | 策略1（完全匹配） | ❌ Deny |
-| `Topic:test-abc` | 策略2（完全匹配） | ✅ Allow |
-| `Topic:test-123` | 策略3（前缀匹配） | ✅ Allow |
-| `Topic:other` | 策略4（通配符匹配） | ✅ Allow |
-| `Group:TestGroup` | 策略5（任意资源） | ❌ Deny |
 
 ---
 
@@ -1046,7 +1051,6 @@ authorizationEnabled = false
 authenticationMetadataProvider = org.apache.rocketmq.auth.authentication.provider.LocalAuthenticationMetadataProvider
 authorizationMetadataProvider = org.apache.rocketmq.auth.authorization.provider.LocalAuthorizationMetadataProvider
 initAuthenticationUser = {"username":"rocketmq","password":"12345678"}
-innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 ```
 
 **Proxy配置** (`rmq-proxy.json`):
@@ -1057,7 +1061,6 @@ innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"1234
   "authenticationProvider": "org.apache.rocketmq.auth.authentication.provider.DefaultAuthenticationProvider",
   "authenticationMetadataProvider": "org.apache.rocketmq.proxy.auth.ProxyAuthenticationMetadataProvider",
   "authenticationStrategy": "org.apache.rocketmq.auth.authentication.strategy.StatefulAuthenticationStrategy",
-  "innerClientAuthenticationCredentials": "{\"accessKey\":\"rocketmq\", \"secretKey\":\"12345678\"}",
   
   "authorizationEnabled": true,
   "authorizationProvider": "org.apache.rocketmq.auth.authorization.provider.DefaultAuthorizationProvider",
