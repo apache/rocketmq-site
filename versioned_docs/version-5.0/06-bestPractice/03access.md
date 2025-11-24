@@ -1,10 +1,10 @@
-# RocketMQ ACL 2.0 使用手册
+# 访问控制 2.0
 
 :::info 版本说明
 
-本文档介绍的是 **RocketMQ ACL 2.0**，适用于 **RocketMQ 5.3.0** 及以上版本。
+本文档介绍的是 **访问控制 2.0（ACL 2.0）**，适用于 **RocketMQ 5.3.0** 及以上版本。
 
-- 如果您使用的是 **RocketMQ 4.x、5.0-5.2 或 5.3.0-5.3.2** 版本，请参考 [ACL 1.0 文档](07access-1.0.md)
+- 如果您使用的是 **RocketMQ 4.x、5.0-5.2 或 5.3.0-5.3.2** 版本，请参考 [ACL 1.0 文档](_access-1.0.md)
 - **从 RocketMQ 5.3.3 开始，ACL 1.0 已不再支持**，建议升级到 ACL 2.0
 - 如果您正在从 ACL 1.0 迁移到 2.0，请查看本文档的 [ACL 1.0 迁移](#acl-10迁移到acl-20) 章节
 
@@ -23,9 +23,9 @@
 
 ## 简介
 
-### 什么是RocketMQ ACL 2.0？
+### 什么是访问控制 2.0？
 
-RocketMQ ACL 2.0 是Apache RocketMQ的访问控制列表(Access Control List)升级版本，提供了完善的身份认证(Authentication)和权限授权(Authorization)机制，用于保护RocketMQ集群的数据安全。
+访问控制 2.0（ACL 2.0）是Apache RocketMQ的访问控制列表(Access Control List)升级版本，提供了完善的身份认证(Authentication)和权限授权(Authorization)机制，用于保护RocketMQ集群的数据安全。
 
 ### 核心特性
 
