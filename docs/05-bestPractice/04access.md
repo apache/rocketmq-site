@@ -1119,42 +1119,39 @@ sh bin/mqadmin listAcl -n 127.0.0.1:9876 -c DefaultCluster
 
 # 6. 迁移成功后，关闭迁移开关
 # migrateAuthFromV1Enabled = false
+
+# 7. 删除旧配置文件（可选）
+rm conf/plain_acl.yml
 ```
 
 **注意事项**:
 - ACL 1.0的IP白名单不会迁移（行为不一致）
 - 已存在的用户和权限不会被覆盖
 - 建议在测试环境先验证迁移效果
+- 迁移成功后建议删除 `plain_acl.yml` 文件，避免混淆
 
 ### 6. 扩容新Broker
 
-当集群扩容新Broker时，需要同步用户和权限数据：
+当集群扩容新Broker时，需要同步用户和权限数据。
+
+**从旧Broker拷贝所有用户到新Broker**：
 
 ```bash
-# 从旧Broker拷贝用户到新Broker
-sh bin/mqadmin copyUser \
-  -n 127.0.0.1:9876 \
-  -f 192.168.0.1:10911 \
-  -t 192.168.0.2:10911
+# 拷贝所有用户
+sh bin/mqadmin copyUser -n 127.0.0.1:9876 -f 192.168.0.1:10911 -t 192.168.0.2:10911
 
-# 从旧Broker拷贝权限到新Broker
-sh bin/mqadmin copyAcl \
-  -n 127.0.0.1:9876 \
-  -f 192.168.0.1:10911 \
-  -t 192.168.0.2:10911
+# 拷贝所有权限
+sh bin/mqadmin copyAcl -n 127.0.0.1:9876 -f 192.168.0.1:10911 -t 192.168.0.2:10911
+```
 
-# 或者只拷贝特定用户的数据
-sh bin/mqadmin copyUser \
-  -n 127.0.0.1:9876 \
-  -f 192.168.0.1:10911 \
-  -t 192.168.0.2:10911 \
-  -u producer_user
+**从旧Broker拷贝特定用户到新Broker**：
 
-sh bin/mqadmin copyAcl \
-  -n 127.0.0.1:9876 \
-  -f 192.168.0.1:10911 \
-  -t 192.168.0.2:10911 \
-  -s User:producer_user
+```bash
+# 拷贝特定用户
+sh bin/mqadmin copyUser -n 127.0.0.1:9876 -f 192.168.0.1:10911 -t 192.168.0.2:10911 -u producer_user
+
+# 拷贝该用户的权限
+sh bin/mqadmin copyAcl -n 127.0.0.1:9876 -f 192.168.0.1:10911 -t 192.168.0.2:10911 -s User:producer_user
 ```
 
 ### 7. 监控和告警
