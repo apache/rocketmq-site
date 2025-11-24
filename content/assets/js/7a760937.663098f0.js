@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkrocketmq_docs=globalThis.webpackChunkrocketmq_docs||[]).push([[5479],{55602:e=>{e.exports=JSON.parse('{"label":"RocketMQ_Dashboard","permalink":"/release-notes/tags/rocket-mq-dashboard","allTagsPath":"/release-notes/tags","count":3}')}}]);
