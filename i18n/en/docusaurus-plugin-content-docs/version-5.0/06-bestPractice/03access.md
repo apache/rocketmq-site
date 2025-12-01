@@ -939,15 +939,6 @@ grep "innerClientAuthenticationCredentials" conf/*.conf conf/*.json
 # Modify to unified credentials
 innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"12345678"}
 ```
-CODE: 17  DESC: No user
-or
-CODE: 16  DESC: Authentication failed
-```
-
-**Possible Causes**:
-- `conf/tools.yml` file not configured
-- Credentials in `tools.yml` are incorrect
-- Configured user is not a super user
 
 ### View Audit Logs
 
@@ -1090,13 +1081,6 @@ innerClientAuthenticationCredentials = {"accessKey":"rocketmq","secretKey":"1234
   "statefulAuthorizationCacheExpiredSecond": 60
 }
 ```
-[AUTHORIZATION] Subject = User:xxx is Deny Action = Pub from sourceIp = xxx on resource = Topic:xxx
-```
-
-**Possible Causes**:
-- User does not have permission for the resource
-- IP not in whitelist
-- Deny rule exists
 
 **Tuning Recommendations**:
 
