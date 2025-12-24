@@ -595,7 +595,7 @@ sh bin/mqadmin deleteAcl -n 127.0.0.1:9876 -c DefaultCluster -s User:producer_us
 <dependency>
     <groupId>org.apache.rocketmq</groupId>
     <artifactId>rocketmq-client-java</artifactId>
-    <version>5.3.4</version>
+    <version>5.4.0</version>
 </dependency>
 ```
 
