@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkrocketmq_docs=globalThis.webpackChunkrocketmq_docs||[]).push([[8166],{34197:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"news"}')}}]);

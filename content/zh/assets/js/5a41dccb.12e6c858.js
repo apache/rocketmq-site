@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkrocketmq_docs=globalThis.webpackChunkrocketmq_docs||[]).push([[4132],{60952(e){e.exports=JSON.parse('{"label":"RocketMQ_Client_Csharp","permalink":"/zh/release-notes/tags/rocket-mq-client-csharp","allTagsPath":"/zh/release-notes/tags","count":1}')}}]);
