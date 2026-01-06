@@ -77,7 +77,7 @@
   },
   "link.item.label.Security": {
     "message": "Security",
-    "description": "The label of footer link with label=Security linking to /docs/12-security/01security"
+    "description": "The label of footer link with label=Security linking to /docs/security/01security"
   },
   "link.item.label.Thanks": {
     "message": "Thanks",

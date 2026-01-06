@@ -460,7 +460,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                 },
                 {
                   label: 'Security',
-                  to: '/docs/12-security/01security',
+                  to: '/docs/security/01security',
                 },
                 {
                   label: 'Thanks',
