@@ -1,100 +1,72 @@
 .heroBanner {
-    padding: 1rem 0 5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
-    background-image: url('/img/rmq-home-page.png');
-    background-size: 100%;
+  padding: 4rem 1rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background-image: url('/img/rmq-home-page.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.herotitle {
+  font-size: 6.5rem;
+  line-height: 1.1;
+  word-break: normal;
 }
 
 .herosubtitle {
-    font-size: 1.5rem;
-    max-width: 600vw;
+  font-size: 1.5rem;
+  max-width: 760px;
+  margin: 1.5rem auto 0;
 }
 
+@media (max-width: 966px) {
+  .herotitle {
+    font-size: 6rem;
+  }
 
-@media screen and (max-width: 966px) {
-    .heroBanner {
-        padding: 2rem;
-    }
-    .heroBanner {
-        height: 130vh;
-    }
-}
-@media screen and (max-width: 680px) {
-    .heroBanner {
-        height: 120vh;}
+  .herosubtitle {
+    font-size: 1.3rem;
+  }
 }
 
 .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2.5rem;
 }
 
 .buttons > a {
-    margin: 0 5px;
-    
+    margin: 0 6px;
 }
 
 @media (max-width: 650px) {
-    
-    .herosubtitle{
-        font-size: medium;
-    }
-    .buttons{
-        text-align: center;
-       
-    }
-    .button{
-        width: 200px!important;
-        min-width: none;
-        padding:18px;
-       
-    }
-    .button2{
-        display: none!important;
-    }
     .herotitle{
-        font-size: 4rem;
+    font-size: 4rem;
     }
 
-    .frameworkLogos img {
-        height: 45px;
-    }
-}
-@media (max-width: 800px) {
+  .herosubtitle {
+    font-size: 1rem;
+  }
 
-    .frameworkLogos img {
-        height: 45px;
-    }
-    .herotitle{
-        font-size: 7rem;
-    } 
+  .button {
+    width: 200px !important;
+  }
 
+  .button2 {
+    display: none !important;
+  }
 }
 
-@media (max-width: 500px) {
-
-    .heroBanner{
-        height: 100vh;
-    }
-
-}
 @media (max-width: 400px) {
     .herotitle{
-        font-size: 5rem;
+      font-size: 3.2rem;
     }
-    .heroBanner{
-        height: 100vh;
-    }
-
 }
 
 .github{
-    padding-top: 30px!important;
+  margin-top: 2rem;
 }
 
