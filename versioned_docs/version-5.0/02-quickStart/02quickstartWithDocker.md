@@ -77,11 +77,11 @@ docker run -d ^
 --name rmqbroker ^
 --net rocketmq ^
 -p 10912:10912 -p 10911:10911 -p 10909:10909 ^
--p 8080:8080 -p 8081:8081 \
+-p 8080:8080 -p 8081:8081 ^
 -e "NAMESRV_ADDR=rmqnamesrv:9876" ^
 # 在PowerShell中请将 %cd% 替换为 $pwd
 -v %cd%\broker.conf:/home/rocketmq/rocketmq-5.3.2/conf/broker.conf ^
-apache/rocketmq:5.3.2 sh mqbroker --enable-proxy \
+apache/rocketmq:5.3.2 sh mqbroker --enable-proxy ^
 -c /home/rocketmq/rocketmq-5.3.2/conf/broker.conf
 
 # 验证 Broker 是否启动成功
