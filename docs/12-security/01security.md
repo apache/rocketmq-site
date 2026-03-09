@@ -4,6 +4,9 @@
 
 Apache RocketMQ 项目自身提供了 ACL、TLS 等安全特性，但最终的安全效果仍取决于运维人员对 **网络、主机、账户与数据** 的整体防护。
 
+> **重要提示（安全部署基线）**：RocketMQ 的认证/鉴权能力依赖 ACL 配置。若未启用/未配置 ACL，RocketMQ 将不会在协议层强制校验客户端身份，任何能够访问 RocketMQ 端口的主体都可能发起消息收发或管理类操作。  
+> **运维方必须**：要么启用并正确配置 ACL（认证 + 授权），要么将 RocketMQ 组件与端口严格限制在受信任网络内（内网/VPC/专用网络），而不是暴露到不受信任网络。
+
 ### 1. 认证与授权（ACL）
 
 - 自 RocketMQ 4.4.0 起支持 ACL 1.0
@@ -11,12 +14,17 @@ Apache RocketMQ 项目自身提供了 ACL、TLS 等安全特性，但最终的�
 - 5.3.3 移除了 ACL 1.0
 - 建议所有使用 Apache RocketMQ ACL 的用户迁移到 **ACL 2.0**
 
+ACL 用于对 RocketMQ 请求进行**认证**与**授权**控制。生产环境建议：
+
+- 除非 RocketMQ 被严格隔离在受信任网络内，否则应启用 ACL（认证/鉴权），并为应用配置最小权限账户
+- 避免在业务应用中使用管理员账号；对访问密钥进行分级、定期轮换并审计变更
+
 ### 2. 控制台 (Dashboard) 与可观测组件暴露
 
 RocketMQ Dashboard 及部分可观测组件（例如 RocketMQ Prometheus Exporter）默认不启用强认证，任何可访问 HTTP 端口的用户都可读取集群元数据。强烈建议：
 
-- Dashboard 监听地址 绑定至内网或受信任 VPC
-- 在 网关 / Ingress / 反向代理 上配置 ACL / IP 白名单
+- Dashboard 监听地址绑定至内网或受信任 VPC
+- 在网关 / Ingress / 反向代理上配置 ACL / IP 白名单
 - 如需公网运维，务必叠加 VPN、HTTP Basic/OAuth 鉴权或 WAF
 
 > 否则可能导致信息泄露风险，该风险属于部署方责任而非 RocketMQ 漏洞。
@@ -38,7 +46,12 @@ RocketMQ Dashboard 及部分可观测组件（例如 RocketMQ Prometheus Exporte
 
 ### 6. 日志管理
 
-- 请妥善保管 RocketMQ 相关日志（包括 Broker、Namesrver、Proxy、Client等），避免敏感信息泄漏
+- 请妥善保管 RocketMQ 相关日志（包括 Broker、NameServer、Proxy、Client 等），避免敏感信息泄漏
+
+### FAQ：关于“未开启 ACL 时无需认证/可访问”的说明
+
+RocketMQ 的认证与鉴权能力由 ACL 能力提供，是否启用取决于部署与配置。  
+当 ACL 未启用或未配置时，请求可能在不进行身份校验的情况下被处理。这属于部署/配置选择。运维方应根据自身威胁模型启用 ACL，并配合网络隔离等手段保证安全。
 
 ## 安全策略
 
