@@ -2,7 +2,10 @@
 
 ## Security Model
 
-The Apache RocketMQ project itself provides security features such as ACL and TLS, but the final security effectiveness still depends on the operator’s comprehensive protection of **network, hosts, accounts, and data**.
+The Apache RocketMQ project itself provides security features such as ACL and TLS, but the final security effectiveness still depends on the operator's comprehensive protection of **network, hosts, accounts, and data**.
+
+> **Important Note (Security Deployment Baseline)**: RocketMQ's authentication/authorization capabilities rely on ACL configuration. If ACL is not enabled/configured, RocketMQ will not enforce client identity verification at the protocol layer. Any entity that can access RocketMQ ports may initiate message sending/receiving or management operations.
+> **Operators must**: Either enable and properly configure ACL (authentication + authorization), or strictly restrict RocketMQ components and ports within a trusted network (intranet/VPC/private network), rather than exposing them to untrusted networks.
 
 ### 1. Authentication and Authorization (ACL)
 
@@ -10,6 +13,11 @@ The Apache RocketMQ project itself provides security features such as ACL and TL
 - The more secure **ACL 2.0** was introduced in 5.3.0
 - ACL 1.0 was removed in 5.3.3
 - It is recommended that all users who use Apache RocketMQ ACL migrate to **ACL 2.0**
+
+ACL is used for **authentication** and **authorization** control of RocketMQ requests. For production environments, it is recommended to:
+
+- Enable ACL (authentication/authorization) unless RocketMQ is strictly isolated within a trusted network, and configure accounts with minimum privileges for applications
+- Avoid using administrator accounts in business applications; implement tiered access keys, regular rotation, and audit changes
 
 ### 2. Dashboard  &  Observability Exposure
 
@@ -52,3 +60,8 @@ https://apache.org/security/#reporting-a-vulnerability
 To help us assess and address the issue, please include the affected component(s)/version(s), reproduction steps, impact analysis, and a PoC if available.
 
 > Please do not disclose exploitable details via public issues, mailing lists, or social media before a fix is available.
+
+### FAQ: Regarding "No Authentication Required/Accessible When ACL is Not Enabled"
+
+RocketMQ's authentication and authorization capabilities are provided by ACL; whether to enable it depends on deployment and configuration.
+When ACL is not enabled or not configured, requests may be processed without identity verification. This is a deployment/configuration choice. Operators should enable ACL based on their threat model and ensure security through network isolation and other means.
