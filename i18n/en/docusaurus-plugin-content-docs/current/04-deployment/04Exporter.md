@@ -12,7 +12,7 @@ The process for `Rocketmq-exporter` to obtain monitoring metrics is shown in the
 
 ### Metric structure
 
-The Metric class is located in the **`org.apache.rocketmq.expoter.model.metrics`** package, and is essentially a set of entity classes, with each entity class representing a type of metric, for a total of 14 Metric classes. These classes serve as the keys for the 87 caches and are distinguished by different label values.
+The Metric class is located in the **`org.apache.rocketmq.exporter.model.metrics`** package, and is essentially a set of entity classes, with each entity class representing a type of metric, for a total of 14 Metric classes. These classes serve as the keys for the 87 caches and are distinguished by different label values.
 
 
 :::note The entity classes contain three dimensions of labels：broker、consumer、producer
