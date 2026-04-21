@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkrocketmq_docs=globalThis.webpackChunkrocketmq_docs||[]).push([[730],{3349(e){e.exports=JSON.parse('{"permalink":"/news","page":1,"postsPerPage":10,"totalPages":2,"totalCount":18,"nextPage":"/news/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);
