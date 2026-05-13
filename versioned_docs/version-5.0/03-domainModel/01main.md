@@ -15,7 +15,7 @@ Apache RocketMQ 产品具备异步通信的优势，系统拓扑简单、上下�
 
 **消息生产**
 
-[生产者（Producer）](../03-domainModel/04producer.md)：
+[生产者（Producer）](../03-domainModel/05producer.md)：
 
 Apache RocketMQ 中用于产生消息的运行实体，一般集成于业务调用链路的上游。生产者是轻量级匿名无身份的。
 
@@ -25,11 +25,11 @@ Apache RocketMQ 中用于产生消息的运行实体，一般集成于业务调�
 
   Apache RocketMQ 消息传输和存储的分组容器，主题内部由多个队列组成，消息的存储和水平扩展实际是通过主题内的队列实现的。
 
-* [队列（MessageQueue）](../03-domainModel/03messagequeue.md)：
+* [队列（MessageQueue）](../03-domainModel/04messagequeue.md)：
 
   Apache RocketMQ 消息传输和存储的实际单元容器，类比于其他消息队列中的分区。 Apache RocketMQ 通过流式特性的无限队列结构来存储消息，消息在队列内具备顺序性存储特征。
 
-* [消息（Message）](../03-domainModel/04message.md)：
+* [消息（Message）](../03-domainModel/05message.md)：
 
   Apache RocketMQ 的最小传输单元。消息具备不可变性，在初始化发送和完成存储后即不可变。
 
@@ -38,15 +38,15 @@ Apache RocketMQ 中用于产生消息的运行实体，一般集成于业务调�
 
 **消息消费**
 
-* [消费者分组（ConsumerGroup）](../03-domainModel/07consumergroup.md)：
+* [消费者分组（ConsumerGroup）](../03-domainModel/08consumergroup.md)：
 
   Apache RocketMQ 发布订阅模型中定义的独立的消费身份分组，用于统一管理底层运行的多个消费者（Consumer）。同一个消费组的多个消费者必须保持消费逻辑和配置一致，共同分担该消费组订阅的消息，实现消费能力的水平扩展。
 
-* [消费者（Consumer）](../03-domainModel/08consumer.md)：
+* [消费者（Consumer）](../03-domainModel/09consumer.md)：
 
   Apache RocketMQ 消费消息的运行实体，一般集成在业务调用链路的下游。消费者必须被指定到某一个消费组中。
 
-* [订阅关系（Subscription）](../03-domainModel/09subscription.md)：
+* [订阅关系（Subscription）](../03-domainModel/10subscription.md)：
 
   Apache RocketMQ 发布订阅模型中消息过滤、重试、消费进度的规则配置。订阅关系以消费组粒度进行管理，消费组通过定义订阅关系控制指定消费组下的消费者如何实现消息过滤、消费重试及消费进度恢复等。
 

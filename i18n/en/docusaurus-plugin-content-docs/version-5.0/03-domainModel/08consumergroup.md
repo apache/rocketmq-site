@@ -65,7 +65,7 @@ For more information about the valid values and default values of maximum retrie
 
 **Subscription**
 
-* Definition: the set of subscription relationships that are associated with the current consumer group. A subscription includes the topics to which the consumers subscribe and the message filter rules that are used by consumers. For more information, see [Subscriptions](../03-domainModel/09subscription.md).
+* Definition: the set of subscription relationships that are associated with the current consumer group. A subscription includes the topics to which the consumers subscribe and the message filter rules that are used by consumers. For more information, see [Subscriptions](../03-domainModel/10subscription.md).
 
 Consumers dynamically register subscriptions for consumer groups. The Apache RocketMQ broker persists subscriptions and matches the subscriptions to the consumption progress of messages.
 

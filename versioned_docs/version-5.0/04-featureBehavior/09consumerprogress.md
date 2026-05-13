@@ -21,7 +21,7 @@ Apache RocketMQ 的生产者和消费者在进行消息收发时，必然会涉�
 
 **消息位点（Offset）** 
 
-参考 Apache RocketMQ [主题](../03-domainModel/02topic.md)和[队列](../03-domainModel/03messagequeue.md)的定义，消息是按到达服务端的先后顺序存储在指定主题的多个队列中，每条消息在队列中都有一个唯一的Long类型坐标，这个坐标被定义为消息位点。
+参考 Apache RocketMQ [主题](../03-domainModel/02topic.md)和[队列](../03-domainModel/04messagequeue.md)的定义，消息是按到达服务端的先后顺序存储在指定主题的多个队列中，每条消息在队列中都有一个唯一的Long类型坐标，这个坐标被定义为消息位点。
 
 任意一个消息队列在逻辑上都是无限存储，即消息位点会从0到Long.MAX无限增加。通过主题、队列和位点就可以定位任意一条消息的位置，具体关系如下图所示：![消息位点](../picture/v5/consumerprogress.png)
 

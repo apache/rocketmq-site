@@ -90,7 +90,7 @@ When a message is retried, its state changes from Ready to Inflight and then to 
 
 **Maximum number of retries**
 
-The maximum number of retries for a push consumer is specified in the metadata when the consumer group is created. For more information, see [Consumer groups](../03-domainModel/07consumergroup.md).
+The maximum number of retries for a push consumer is specified in the metadata when the consumer group is created. For more information, see [Consumer groups](../03-domainModel/08consumergroup.md).
 
 For example, if the maximum number of retries is three, the message can be delivered four times: one original attempt and three retries.
 
@@ -169,7 +169,7 @@ As shown in the following figure, the change takes effect immediately, that is, 
 
 **Maximum number of retries**
 
-The maximum number of retries for a simple consumer is specified in the metadata when the consumer group is created. For more information, see [Consumer groups](../03-domainModel/07consumergroup.md).
+The maximum number of retries for a simple consumer is specified in the metadata when the consumer group is created. For more information, see [Consumer groups](../03-domainModel/08consumergroup.md).
 
 **Message retry interval**
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Subscription relationships are a very important part of the RocketMQ domain model, used to express the control metadata for consumer consumption of messages. For a complete concept, please refer to [Subscription Relationship Model](../03-domainModel/09subscription.md).
+Subscription relationships are a very important part of the RocketMQ domain model, used to express the control metadata for consumer consumption of messages. For a complete concept, please refer to [Subscription Relationship Model](../03-domainModel/10subscription.md).
 
 Subscription relationships are consistent when all Consumer instances in the same consumer group have exactly the same subscriptions to Topic and Tag. If the subscription relationships (consumer group name-Topic-Tag) are not consistent, it can lead to confusion in consuming messages and even loss of messages.
 
