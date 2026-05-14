@@ -87,7 +87,7 @@ PushConsumer消费消息时，消息的几个主要状态如下：![Push消费�
 
 **最大重试次数**
 
-PushConsumer的最大重试次数由消费者分组创建时的元数据控制，具体参数，请参见[消费者分组](../03-domainModel/07consumergroup.md)。
+PushConsumer的最大重试次数由消费者分组创建时的元数据控制，具体参数，请参见[消费者分组](../03-domainModel/08consumergroup.md)。
 
 例如，最大重试次数为3次，则该消息最多可被投递4次，1次为原始消息，3次为重试投递次数。
 
@@ -163,7 +163,7 @@ SimpleConsumer消费消息时，消息的几个主要状态如下：![SimpleCons
 
 **最大重试次数**
 
-SimpleConsumer的最大重试次数由消费者分组创建时的元数据控制，具体参数，请参见[消费者分组](../03-domainModel/07consumergroup.md)。
+SimpleConsumer的最大重试次数由消费者分组创建时的元数据控制，具体参数，请参见[消费者分组](../03-domainModel/08consumergroup.md)。
 
 **消息重试间隔**
 

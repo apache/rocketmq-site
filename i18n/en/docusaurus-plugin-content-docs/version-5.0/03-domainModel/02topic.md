@@ -38,7 +38,7 @@ A topic contains one or more queues. Message storage and scalability are impleme
 
 **Queues**
 
-* Definition: the actual storage unit that stores messages. A topic contains one or more queues. For more information, see [Message queues](../03-domainModel/03messagequeue.md).
+* Definition: the actual storage unit that stores messages. A topic contains one or more queues. For more information, see [Message queues](../03-domainModel/04messagequeue.md).
 
 * Value: You can specify the number of queues when you create a topic. Apache RocketMQ allocates the specified number of queues to the topic.
 

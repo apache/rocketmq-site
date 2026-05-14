@@ -45,7 +45,7 @@ Apache RocketMQ 支持Tag标签过滤和SQL属性过滤，这两种过滤方式�
 
 ## 订阅关系一致性
 
-过滤表达式属于订阅关系的一部分，Apache RocketMQ 的领域模型规定，同一消费者分组内的多个消费者的订阅关系包括过滤表达式，必须保持一致，否则可能会导致部分消息消费不到。更多信息，请参见[订阅关系（Subscription）](../03-domainModel/09subscription.md)。
+过滤表达式属于订阅关系的一部分，Apache RocketMQ 的领域模型规定，同一消费者分组内的多个消费者的订阅关系包括过滤表达式，必须保持一致，否则可能会导致部分消息消费不到。更多信息，请参见[订阅关系（Subscription）](../03-domainModel/10subscription.md)。
 
 ## Tag标签过滤
 

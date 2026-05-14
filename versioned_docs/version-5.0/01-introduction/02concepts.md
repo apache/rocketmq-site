@@ -15,10 +15,10 @@ Apache RocketMQ 从5.0版本开始，支持强制校验消息类型，即每个�
 :::
 
 ## 消息队列（MessageQueue）
-队列是 Apache RocketMQ 中消息存储和传输的实际容器，也是消息的最小存储单元。 Apache RocketMQ 的所有主题都是由多个队列组成，以此实现队列数量的水平拆分和队列内部的流式存储。队列通过QueueId来做唯一标识和区分。更多信息，请参见[队列（MessageQueue）](../03-domainModel/03messagequeue.md)。
+队列是 Apache RocketMQ 中消息存储和传输的实际容器，也是消息的最小存储单元。 Apache RocketMQ 的所有主题都是由多个队列组成，以此实现队列数量的水平拆分和队列内部的流式存储。队列通过QueueId来做唯一标识和区分。更多信息，请参见[队列（MessageQueue）](../03-domainModel/04messagequeue.md)。
 
 ## 消息（Message）
-消息是 Apache RocketMQ 中的最小数据传输单元。生产者将业务数据的负载和拓展属性包装成消息发送到服务端，服务端按照相关语义将消息投递到消费端进行消费。更多信息，请参见[消息（Message）](../03-domainModel/04message.md)。
+消息是 Apache RocketMQ 中的最小数据传输单元。生产者将业务数据的负载和拓展属性包装成消息发送到服务端，服务端按照相关语义将消息投递到消费端进行消费。更多信息，请参见[消息（Message）](../03-domainModel/05message.md)。
 
 ## 消息视图（MessageView）
 消息视图是 Apache RocketMQ 面向开发视角提供的一种消息只读接口。通过消息视图可以读取消息内部的多个属性和负载信息，但是不能对消息本身做任何修改。
@@ -36,7 +36,7 @@ Apache RocketMQ 从5.0版本开始，支持强制校验消息类型，即每个�
 消息索引是Apache RocketMQ 提供的面向消息的索引属性。通过设置的消息索引可以快速查找到对应的消息内容。
 
 ## 生产者（Producer）
-生产者是Apache RocketMQ 系统中用来构建并传输消息到服务端的运行实体。生产者通常被集成在业务系统中，将业务消息按照要求封装成消息并发送至服务端。更多信息，请参见[生产者（Producer）](../03-domainModel/04producer.md)。
+生产者是Apache RocketMQ 系统中用来构建并传输消息到服务端的运行实体。生产者通常被集成在业务系统中，将业务消息按照要求封装成消息并发送至服务端。更多信息，请参见[生产者（Producer）](../03-domainModel/05producer.md)。
 
 ## 事务检查器（TransactionChecker）
 Apache RocketMQ 中生产者用来执行本地事务检查和异常事务恢复的监听器。事务检查器应该通过业务侧数据的状态来检查和判断事务消息的状态。更多信息，请参见[事务消息](../04-featureBehavior/04transactionmessage.md)。
@@ -45,16 +45,16 @@ Apache RocketMQ 中生产者用来执行本地事务检查和异常事务恢复�
 Apache RocketMQ 中事务消息发送过程中，事务提交的状态标识，服务端通过事务状态控制事务消息是否应该提交和投递。事务状态包括事务提交、事务回滚和事务未决。更多信息，请参见[事务消息](../04-featureBehavior/04transactionmessage.md)。
 
 ## 消费者分组（ConsumerGroup）
-消费者分组是Apache RocketMQ 系统中承载多个消费行为一致的消费者的负载均衡分组。和消费者不同，消费者分组并不是运行实体，而是一个逻辑资源。在 Apache RocketMQ 中，通过消费者分组内初始化多个消费者实现消费性能的水平扩展以及高可用容灾。更多信息，请参见[消费者分组（ConsumerGroup）](../03-domainModel/07consumergroup.md)。
+消费者分组是Apache RocketMQ 系统中承载多个消费行为一致的消费者的负载均衡分组。和消费者不同，消费者分组并不是运行实体，而是一个逻辑资源。在 Apache RocketMQ 中，通过消费者分组内初始化多个消费者实现消费性能的水平扩展以及高可用容灾。更多信息，请参见[消费者分组（ConsumerGroup）](../03-domainModel/08consumergroup.md)。
 
 ## 消费者（Consumer）
-消费者是Apache RocketMQ 中用来接收并处理消息的运行实体。消费者通常被集成在业务系统中，从服务端获取消息，并将消息转化成业务可理解的信息，供业务逻辑处理。更多信息，请参见[消费者（Consumer）](../03-domainModel/08consumer.md)。
+消费者是Apache RocketMQ 中用来接收并处理消息的运行实体。消费者通常被集成在业务系统中，从服务端获取消息，并将消息转化成业务可理解的信息，供业务逻辑处理。更多信息，请参见[消费者（Consumer）](../03-domainModel/09consumer.md)。
 
 ## 消费结果（ConsumeResult）
 Apache RocketMQ 中PushConsumer消费监听器处理消息完成后返回的处理结果，用来标识本次消息是否正确处理。消费结果包含消费成功和消费失败。
 
 ## 订阅关系（Subscription）
-订阅关系是Apache RocketMQ 系统中消费者获取消息、处理消息的规则和状态配置。订阅关系由消费者分组动态注册到服务端系统，并在后续的消息传输中按照订阅关系定义的过滤规则进行消息匹配和消费进度维护。更多信息，请参见[订阅关系（Subscription）](../03-domainModel/09subscription.md)。
+订阅关系是Apache RocketMQ 系统中消费者获取消息、处理消息的规则和状态配置。订阅关系由消费者分组动态注册到服务端系统，并在后续的消息传输中按照订阅关系定义的过滤规则进行消息匹配和消费进度维护。更多信息，请参见[订阅关系（Subscription）](../03-domainModel/10subscription.md)。
 
 ## 消息过滤
 消费者可以通过订阅指定消息标签（Tag）对消息进行过滤，确保最终只接收被过滤后的消息合集。过滤规则的计算和匹配在Apache RocketMQ

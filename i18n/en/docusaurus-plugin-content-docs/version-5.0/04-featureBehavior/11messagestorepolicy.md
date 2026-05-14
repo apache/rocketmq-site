@@ -4,7 +4,7 @@ This topic describes how Apache RocketMQ stores messages, including storage gran
 
 ## Background information
 
-Based on the definition of [MessageQueue](../03-domainModel/03messagequeue.md) in Apache RocketMQ, messages are stored in queues in the order in which the messages are received by the broker. In theory, the number of messages that a queue can store is unlimited.
+Based on the definition of [MessageQueue](../03-domainModel/04messagequeue.md) in Apache RocketMQ, messages are stored in queues in the order in which the messages are received by the broker. In theory, the number of messages that a queue can store is unlimited.
 
 In actual deployment scenarios, messages cannot be permanently stored because the physical storage space of a broker is limited. Therefore, when you deploy messages, you need to answer three questions: What criteria are used to determine how to store messages on a broker? What granularity is used to manage the stored messages? What measures must be taken when message storage usage exceeds the limit? The message storage and cleanup mechanisms of Apache RocketMQ provide answers to the preceding questions.
 

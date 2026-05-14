@@ -9,7 +9,7 @@ Unlike consumers that are running entities, consumer groups are logical resource
 
 In a consumer group, consumers consume messages based on the consumption behaviors and load balancing policy that are defined in the group. The following section describes the consumption behaviors that are defined:
 
-* Subscription: Apache RocketMQ manages and traces subscriptions based on consumer groups. For more information, see [Subscriptions](./09subscription.md).
+* Subscription: Apache RocketMQ manages and traces subscriptions based on consumer groups. For more information, see [Subscriptions](./10subscription.md).
   aa
 * Delivery order: The Apache RocketMQ broker delivers messages to consumers by using ordered delivery or concurrent delivery. You can configure the delivery method in the consumer group. For more information, see [fifo messages](../04-featureBehavior/03fifomessage.md).
 
@@ -65,7 +65,7 @@ For more information about the valid values and default values of maximum retrie
 
 **Subscription**
 
-* Definition: the set of subscription relationships that are associated with the current consumer group. A subscription includes the topics to which the consumers subscribe and the message filter rules that are used by consumers. For more information, see [Subscriptions](../03-domainModel/09subscription.md).
+* Definition: the set of subscription relationships that are associated with the current consumer group. A subscription includes the topics to which the consumers subscribe and the message filter rules that are used by consumers. For more information, see [Subscriptions](../03-domainModel/10subscription.md).
 
 Consumers dynamically register subscriptions for consumer groups. The Apache RocketMQ broker persists subscriptions and matches the subscriptions to the consumption progress of messages.
 

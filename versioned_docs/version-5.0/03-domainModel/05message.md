@@ -70,7 +70,7 @@ Apache RocketMQ 的消息模型具备如下特点：
 
 **消息队列**
 
-* 定义：实际存储当前消息的队列。更多信息，请参见[队列（MessageQueue）](./03messagequeue.md)。
+* 定义：实际存储当前消息的队列。更多信息，请参见[队列（MessageQueue）](./04messagequeue.md)。
 
 * 取值：由服务端指定并填充。
 
