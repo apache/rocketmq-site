@@ -32,7 +32,7 @@ The following figure shows how consumers are positioned in the domain model of A
 
 **Consumer group name**
 
-* Definition: the name of the consumer group associated with the current consumer. Consumers inherit their behavior from the consumer groups. For more information, see [Consumer groups](./07consumergroup.md).
+* Definition: the name of the consumer group associated with the current consumer. Consumers inherit their behavior from the consumer groups. For more information, see [Consumer groups](./08consumergroup.md).
 
 * Values: Consumer groups are the logical resources of Apache RocketMQ{#product-name}
 

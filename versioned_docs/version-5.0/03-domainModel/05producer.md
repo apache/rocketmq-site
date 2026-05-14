@@ -6,7 +6,7 @@
 
 生产者是 Apache RocketMQ 系统中用来构建并传输消息到服务端的运行实体。
 
-生产者通常被集成在业务系统中，将业务消息按照要求封装成 Apache RocketMQ 的[消息（Message）](./04message.md)并发送至服务端。
+生产者通常被集成在业务系统中，将业务消息按照要求封装成 Apache RocketMQ 的[消息（Message）](./05message.md)并发送至服务端。
 
 在消息生产者中，可以定义如下传输行为：
 

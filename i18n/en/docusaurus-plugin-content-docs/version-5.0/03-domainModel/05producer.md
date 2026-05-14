@@ -7,7 +7,7 @@ This section describes the concept of producers in Apache RocketMQ. It also desc
 
 A producer in Apache RocketMQ is a functional messaging entity that creates messages and sends them to the server.
 
-A producer is typically integrated on the business system and serves to encapsulate data as messages in Apache RocketMQ and send the messages to the server. For more information about messages, see [Messages](./04message.md).
+A producer is typically integrated on the business system and serves to encapsulate data as messages in Apache RocketMQ and send the messages to the server. For more information about messages, see [Messages](./05message.md).
 
 The following message delivery elements are defined on the producer side:
 

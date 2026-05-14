@@ -58,7 +58,7 @@ The following figure shows the position of messages in the domain model of Apach
 
 **Message queue**
 
-* Definition: the queue to which a message belongs. For more information, see [Message queues](./03messagequeue.md).
+* Definition: the queue to which a message belongs. For more information, see [Message queues](./04messagequeue.md).
 
 * Values: specified and populated by the broker.
 
