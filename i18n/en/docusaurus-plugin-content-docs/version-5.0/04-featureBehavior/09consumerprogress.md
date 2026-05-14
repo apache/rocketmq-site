@@ -21,7 +21,7 @@ The consumer progress management mechanism of Apache RocketMQ solves the followi
 
 **Message Offset** 
 
-In Apache RocketMQ, messages are queued in topics in the order that they arrive, and are assigned a unique Long-type coordinate. This is also known as the offset of the message. For more information about the individual definitions of these concepts, see [Topic](../03-domainModel/02topic.md) and [Message queue](../03-domainModel/03messagequeue.md).
+In Apache RocketMQ, messages are queued in topics in the order that they arrive, and are assigned a unique Long-type coordinate. This is also known as the offset of the message. For more information about the individual definitions of these concepts, see [Topic](../03-domainModel/02topic.md) and [Message queue](../03-domainModel/04messagequeue.md).
 
 Theoretically speaking, a message queue can store an indefinite number of messages. Therefore, the value range of offset is from 0 to Long.MAX_VALUE. You can locate any message based on its topic, queue, and offset. The following figure shows the relationship between these three concepts.![Offset](../picture/v5/consumerprogress.png)
 

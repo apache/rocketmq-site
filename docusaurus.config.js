@@ -200,11 +200,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             {
               from: '/docs/system-config',
-              to: '/docs/bestPractice/04JVMOS'
+              to: '/docs/bestPractice/07JVMOS'
             },
             {
               from: '/docs/faq/',
-              to: '/docs/bestPractice/06FAQ'
+              to: '/docs/bestPractice/09FAQ'
             },
             {
               from: '/docs/logappender-example/',
