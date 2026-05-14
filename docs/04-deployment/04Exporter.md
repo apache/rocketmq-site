@@ -8,14 +8,14 @@
 过去版本曾是 87 个 concurrentHashMap，由于 Map 不会删除过期指标，所以一旦有 label 变动就会生成一个新的指标，旧的无用指标无法自动删除，久而久之造成内存溢出。而使用 Cache 结构可可以实现过期删除，且过期时间可配置。
 :::
 
-`Rocketmq-expoter` 获取监控指标的流程如下图所示，Expoter 通过 MQAdminExt 向 MQ 集群请求数据，请求到的数据通过 MetricService 规范化成 Prometheus 需要的格式，然后通过 /metics 接口暴露给 Prometheus。
+`Rocketmq-exporter` 获取监控指标的流程如下图所示，Exporter 通过 MQAdminExt 向 MQ 集群请求数据，请求到的数据通过 MetricService 规范化成 Prometheus 需要的格式，然后通过 /metics 接口暴露给 Prometheus。
 ![165754739545](../picture/RocketMQ%20Prometheus%20Exporter-1.jpeg)
 
 
 
 ### Metric 结构
 
-`Metric` 类位于 `org.apache.rocketmq.expoter.model.metrics` 包下，实质上是一些实体类，每个实体类代表一类指标, 总共 14 个 Metric 类。这些类作为 87 个 Cache 的 key， 用不同的 label 值进行区分。
+`Metric` 类位于 `org.apache.rocketmq.exporter.model.metrics` 包下，实质上是一些实体类，每个实体类代表一类指标, 总共 14 个 Metric 类。这些类作为 87 个 Cache 的 key， 用不同的 label 值进行区分。
 
 
 :::note 实体类中包含了 label 的三个维度：broker、consumer、producer
@@ -28,11 +28,11 @@
 
 ### Prometheus 拉取 metrics 的过程
 
-`RocketMQ-exporter` 项目和 `Prometheus` 相当于服务器和客户端的关系，RocketMQ-exporter 项目引入了 Prometheus 的 client 包，该包中规定了需要获取的信息的类型即项目中的 MetricFamilySamples 类，Prometheus 向 expoter 请求 metrics，expoter 将信息封装成相应的类型之后返回给 Prometheus。
+`RocketMQ-exporter` 项目和 `Prometheus` 相当于服务器和客户端的关系，RocketMQ-exporter 项目引入了 Prometheus 的 client 包，该包中规定了需要获取的信息的类型即项目中的 MetricFamilySamples 类，Prometheus 向 exporter 请求 metrics，exporter 将信息封装成相应的类型之后返回给 Prometheus。
 
-rocketmq-expoter 项目启动后，会获取 rocketmq 的各项 metrics 收集到 mfs 对象中，当浏览器或 Prometheus 访问相应的接口时，会通过 service 将 mfs 对象中的 samples 生成 Prometheus 所支持的格式化数据。主要包含以下步骤：
+rocketmq-exporter 项目启动后，会获取 rocketmq 的各项 metrics 收集到 mfs 对象中，当浏览器或 Prometheus 访问相应的接口时，会通过 service 将 mfs 对象中的 samples 生成 Prometheus 所支持的格式化数据。主要包含以下步骤：
 
-浏览器通过访问 ip:5557/metrics，会调用 RMQMetricsController 类下的 metrics 方法，其中 ip 为 rocketmq-expoter 项目运行的主机 ip
+浏览器通过访问 ip:5557/metrics，会调用 RMQMetricsController 类下的 metrics 方法，其中 ip 为 rocketmq-exporter 项目运行的主机 ip
 
 ```java
 private void metrics(HttpServletResponse response) throws IOException {
@@ -43,7 +43,7 @@ private void metrics(HttpServletResponse response) throws IOException {
 }
 ```
 
-通过新建 StringWriter 对象用于收集 metrics 指标，调用 MetricsService 类中的方法 metrics 将 expoter 中提取到的指标收集到 writer 对象中，最后将收集到的指标输出到网页上。
+通过新建 StringWriter 对象用于收集 metrics 指标，调用 MetricsService 类中的方法 metrics 将 exporter 中提取到的指标收集到 writer 对象中，最后将收集到的指标输出到网页上。
 
 收集到的指标格式为:
 
