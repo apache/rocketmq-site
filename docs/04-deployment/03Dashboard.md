@@ -9,6 +9,7 @@
 
 ```bash
 java -jar rocketmq-dashboard-*.jar --rocketmq.config.namesrvAddr=localhost:9876
+```
 
 ## 介绍
 
