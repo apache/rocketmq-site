@@ -470,6 +470,18 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
                   label: 'Sponsorship',
                   href: 'https://www.apache.org/foundation/sponsorship.html',
                 },
+                {
+                  label: 'Privacy',
+                  href: 'https://privacy.apache.org/policies/privacy-policy-public.html',
+                },
+                {
+                  label: 'Events',
+                  href: 'https://www.apache.org/events/current-event.html',
+                },
+                {
+                  label: 'Foundation',
+                  href: 'https://www.apache.org/',
+                },
               ],
             },
           ],
@@ -478,7 +490,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             src: 'img/Apache_RocketMQ_logo.svg.png',
             href: 'https://rocketmq.apache.org/',
           },
-          copyright: `Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0.`,
+          copyright: `Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache RocketMQ, RocketMQ, Apache, the Apache logo, and the Apache RocketMQ project logo are either registered trademarks or trademarks of The Apache Software Foundation.`,
         },
         prism: {
           theme: lightCodeTheme,
