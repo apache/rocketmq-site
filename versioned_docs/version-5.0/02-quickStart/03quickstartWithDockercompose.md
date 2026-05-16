@@ -11,7 +11,7 @@
 
 ## 1.编写docker-compose
 
-为了快速启动并运行 RockerMQ 集群，您可以使用以下模板通过修改或添加环境部分中的配置来创建 docker-compose.yml 文件。
+为了快速启动并运行 RocketMQ 集群，您可以使用以下模板通过修改或添加环境部分中的配置来创建 docker-compose.yml 文件。
 ```text
 version: '3.8'
 services:
@@ -74,7 +74,7 @@ docker-compose up -d
 <TabItem value="Windows" label="Windows">
 
 ```code
-docker-compose -p rockermq_project up -d
+docker-compose -p rocketmq_project up -d
 ```
 
 </TabItem>
