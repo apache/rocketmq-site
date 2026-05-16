@@ -75,7 +75,7 @@ docker-compose up -d
 <TabItem value="Windows" label="Windows">
 
 ```code
-docker-compose -p rockermq_project up -d
+docker-compose -p rocketmq_project up -d
 ```
 
 </TabItem>
