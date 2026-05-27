@@ -2,25 +2,99 @@
 slug: /
 ---
 
-# 为什么选择RocketMQ
+# 为什么选择 RocketMQ
 
-## 为什么 RocketMQ
-在阿里孕育 RocketMQ 的雏形时期，我们将其用于异步通信、搜索、社交网络活动流、数据管道，贸易流程中。随着我们的贸易业务吞吐量的上升，源自我们的消息传递集群的压力也变得紧迫。
+## AI 原生异步通信引擎
 
-根据我们的研究，随着队列和虚拟主题使用的增加，ActiveMQ IO模块达到了一个瓶颈。我们尽力通过节流、断路器或降级来解决这个问题，但效果并不理想。于是我们尝试了流行的消息传递解决方案Kafka。不幸的是，Kafka不能满足我们的要求，其尤其表现在低延迟和高可靠性方面，详见下文。在这种情况下，我们决定发明一个新的消息传递引擎来处理更广泛的消息用例，覆盖从传统的pub/sub场景到高容量的实时零误差的交易系统。
+Apache RocketMQ 是一款面向万亿级消息规模的 AI 原生异步通信引擎。诞生于阿里巴巴高并发电商场景，经过数千家企业的生产验证，RocketMQ 已从高性能消息队列演进为统一消息平台，横跨传统业务消息、事件流处理和新兴的 AI 原生通信三大范式。
 
-Apache RocketMQ 自诞生以来，因其架构简单、业务功能丰富、具备极强可扩展性等特点被众多企业开发者以及云厂商广泛采用。历经十余年的大规模场景打磨，RocketMQ 已经成为业内共识的金融级可靠业务消息首选方案，被广泛应用于互联网、大数据、移动互联网、物联网等领域的业务场景。
+## 核心优势
 
-:::tip
+### AI 原生能力（5.5 新特性）
 
-下表显示了RocketMQ、ActiveMQ和Kafka之间的比较 
+RocketMQ 5.5.0（2026年4月发布）引入面向 AI 工作负载的战略升级：
 
-:::
+- **百万级 LiteTopic**：专为 AI Agent 会话管理设计，以极低资源开销支持百万级轻量通道。每个 AI Agent 对话会话映射为独立 Topic，基于 RocksDB 索引实现细粒度状态隔离与生命周期管理。
+- **Lite Mode 轻量订阅**：面向 AI 场景的轻量级订阅模型，以显著更低的资源消耗实现高效消息传递——适用于数千 Agent 需要实时协调的事件驱动编排场景。
+- **智能计算调度**：通过事件驱动拉取机制，解决 AI 工作流中的长会话断连、空闲连接资源浪费、多 Agent 管线级联阻塞等关键问题。
 
-## RocketMQ vs. ActiveMQ vs. Kafka
+### 云原生架构
 
-| Messaging Product|Client SDK| Protocol and Specification | Ordered Message  | Scheduled Message | Batched Message |BroadCast Message| Message Filter|Server Triggered Redelivery|Message Storage|Message Retroactive|Message Priority|High Availability and Failover|Message Track|Configuration|Management and Operation Tools|
-| -------|--------|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| ActiveMQ|Java, .NET, C++ etc. |Push model, support OpenWire, STOMP, AMQP, MQTT, JMS|Exclusive Consumer or Exclusive Queues can ensure ordering|Supported|Not Supported|Supported|Supported|Not Supported|Supports very fast persistence using JDBC along with a high performance journal，such as levelDB, kahaDB|Supported|Supported|Supported, depending on storage,if using levelDB it requires a ZooKeeper server|Not Supported|The default configuration is low level, user need to optimize the configuration parameters|Supported|
-| Kafka      | Java, Scala etc.|Pull model, support TCP|Ensure ordering of messages within a partition|Not Supported|Supported, with async producer|Not Supported|Supported, you can use Kafka Streams to filter messages|Not Supported|High performance file storage|Supported offset indicate|Not Supported|Supported, requires a ZooKeeper server|Not Supported|Kafka uses key-value pairs format for configuration. These values can be supplied either from a file or programmatically.|Supported, use terminal command to expose core metrics|
-| RocketMQ      |Java, C++, Go |Pull model, support TCP, JMS, OpenMessaging|Ensure strict ordering of messages,and can scale out gracefully|Supported|Supported, with sync mode to avoid message loss|Supported|Supported, property filter expressions based on SQL92|Supported|High performance and low latency file storage|Supported timestamp and offset two indicates|Not Supported|Supported, Master-Slave model, without another kit|Supported|Work out of box,user only need to pay attention to a few configurations|Supported, rich web and terminal command to expose core metrics|
+RocketMQ 5.x 采用全面云原生设计：
+
+- **弹性伸缩**：无状态 Proxy 层与存算分离架构，支持吞吐与存储容量独立扩缩。
+- **Kubernetes 原生**：提供 Helm Charts、Operator 以及与云原生可观测体系的无缝集成。
+- **轻量 gRPC SDK**：多语言客户端（Java、Go、C++、Rust、Python、Node.js）基于 gRPC 构建，提供一致的 API 和更低的集成复杂度。
+- **多协议支持**：原生支持 gRPC、MQTT、AMQP 和 HTTP/REST，统一覆盖 IoT 设备、微服务和 Serverless 函数的消息需求。
+
+### 金融级可靠性
+
+RocketMQ 是金融级可靠业务消息的行业标准，提供：
+
+- **事务消息**：原生两阶段提交保证分布式系统中的精确一次投递语义，消息发送与本地数据库事务原子性地同时成功或失败。
+- **高可用架构**：基于 DLedger 的 Raft 一致性协议确保消息零丢失，支持自动选主和多副本同步复制。
+- **严格顺序消息**：分区级 FIFO 顺序保证，支撑订单创建、支付扣款、库存扣减等要求严格串行化处理的业务场景。
+
+## 消息模式
+
+RocketMQ 在单一平台内支持丰富的消息模式：
+
+- **发布/订阅**：经典的基于 Topic 的扇出模型，实现微服务间解耦通信。
+- **请求/应答**：基于异步消息的同步风格 RPC，用于服务调用场景。
+- **事件流**：支持消费位点管理、消息回溯、与流处理框架集成的持续事件处理。
+- **延迟与定时消息**：任意精度的定时投递，支撑订单超时取消、重试调度等业务流程。
+- **批量消费**：高吞吐批量拉取，面向数据管道和分析场景。
+
+## 功能对比
+
+| 特性 | RocketMQ | ActiveMQ | Kafka |
+|------|----------|----------|-------|
+| AI Agent通信 | LiteTopic | 不支持 | 不支持 |
+| 消息顺序 | 分区级严格 FIFO | 独占消费者 | 仅分区级 |
+| 消息过滤 | SQL92 + Tag 过滤 | 有限支持 | 仅 Topic 级 |
+| 事务消息 | 原生两阶段提交 | XA（重量级） | 不支持 |
+| 延迟消息 | 任意精度 | 有限级别 | 不支持 |
+| 死信队列 | 内置重试机制 | 内置 | 需手动实现 |
+| 消息轨迹 | 内置全链路追踪 | 插件实现 | 不支持 |
+| 水平扩展 | 线性扩展 | 有限 | 受分区数约束 |
+| 运维工具 | 丰富的 Dashboard 与 CLI | 基础 Web 控制台 | 依赖第三方工具 |
+| 协议支持 | gRPC/MQTT/AMQP/HTTP | AMQP/STOMP/MQTT | 自定义 TCP |
+
+
+## 典型场景
+
+### AI Agent 通信
+
+RocketMQ 的最新前沿方向——为多 Agent AI 系统提供异步通信基础设施。围绕 AI 原生场景，RocketMQ 提供四大场景解决方案：
+
+- **MCP & 长会话状态续连**：每个会话映射到一个独立的 LiteTopic，应用服务器保持无状态。客户端断线重连后可断点续传，后端 LLM 推理任务持续运行不中断，彻底解决长对话场景下的会话丢失与算力浪费问题。
+- **细粒度隔离与限流**：在消费者侧支持以 LiteTopic 为粒度的 Suspend/Resume 操作，实现毫秒级精细化限流。单个会话或 Agent 的异常不会扩散，配合平滑的流量曲线与弹性扩缩，保障多租户、多 Agent 共存场景下的稳定性。
+- **多 Agent 异步通信**：原生支持 MCP 与 A2A 协议，无缝对接 LangChain、CrewAI、AutoGen、AgentScope、Dify、Coze 等主流 Agent 框架，同时也兼容自研框架。事件驱动的异步通信替代静态编排，让 Agent 协作更灵活、更高效。
+- **批量消费——释放 GPU 并行算力**：通过消息条数 + 时间窗口双触发机制，PushConsumer 与 SimpleConsumer 模式都可以适配 LLM Batch API 的调用范式，自适应不同吞吐压力下的批处理节奏，最大化 GPU 推理吞吐与利用率。
+
+### 业务消息与微服务
+
+RocketMQ 作为微服务架构的异步通信骨干，处理订单处理、支付通知、库存同步和跨服务事件传播，提供金融级事务保证。
+
+### 事件流与数据集成
+
+通过内置的 RocketMQ Connect，平台集成 30+ 数据源和目标端（MySQL、PostgreSQL、Elasticsearch、Hudi 等），支持实时 CDC 管道、数据湖入湖和跨系统事件溯源。
+
+### IoT 与边缘计算
+
+MQTT 协议支持百万级设备连接，适用于 IoT 遥测采集、设备指令下发和边云消息桥接场景。
+
+## 生态与社区
+
+Apache RocketMQ 拥有活跃的开源社区：
+
+- **75+ 贡献者**，GitHub 上持续活跃开发
+- **RocketMQ Streams**：轻量级流处理库，支持实时计算
+- **RocketMQ Connect**：标准化连接器框架，用于数据集成
+- **RocketMQ MQTT**：IoT 工作负载的协议桥接
+- **RocketMQ Dashboard**：功能完备的 Web 运维控制台
+- **多云部署**：在主流云平台提供托管服务（阿里云、AWS、华为云）
+
+---
+
+*Apache RocketMQ —— 从久经考验的业务消息到 AI 原生异步通信，驱动下一代分布式系统。*
