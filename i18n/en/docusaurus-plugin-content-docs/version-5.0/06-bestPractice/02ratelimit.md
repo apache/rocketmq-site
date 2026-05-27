@@ -27,7 +27,7 @@ Kafka faces the same heavyweight resource issues as the RocketMQ standard Topic 
 ## Solution
 ### Core Architecture: Fine-Grained Isolation and Rate Limiting Based on LiteTopic
 
-![Fine-Grained Isolation and Rate Limiting Architecture Based on LiteTopic](../picture/v5/litetopic_ratelimit_practice.svg)
+![Fine-Grained Isolation and Rate Limiting Architecture Based on LiteTopic](../picture/v5/rocketmq-litetopic-rate-limit-architecture-en.png)
 
 This document adopts Apache RocketMQ's **LiteTopic (Lightweight Topic)** feature to build a novel fine-grained isolation and dynamic rate limiting architecture:
 

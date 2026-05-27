@@ -10,7 +10,7 @@ As AI applications become increasingly complex, single-agent architectures are o
 
 ### System architecture
 
-![Multi-Agent system architecture](../picture/v5/litetopic_multiagent_practice.svg)
+![Multi-Agent system architecture](../picture/v5/litetopic_multiagent_practice.png)
 
 * **Web client**: The user interface for sending requests and receiving final results.
 

@@ -81,7 +81,7 @@ function RateLimitPanel() {
         </div>
       </div>
       <SolutionImage
-        src="/picture/v5/litetopic_ratelimit_practice.svg"
+        src="/picture/v5/rocketmq-litetopic-rate-limit-architecture-en.png"
         alt="Fine-Grained Isolation & Rate Limiting Architecture"
       />
     </div>
@@ -136,7 +136,7 @@ function MultiAgentPanel() {
         </div>
       </div>
       <SolutionImage
-        src="/picture/v5/litetopic_multiagent_practice.svg"
+        src="/picture/v5/litetopic_multiagent_practice.png"
         alt="Multi-Agent Async Communication Architecture"
       />
     </div>

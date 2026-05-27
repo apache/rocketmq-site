@@ -10,7 +10,7 @@
 
 ### 系统架构
 
-![Multi-Agent系统架构](../picture/v5/litetopic_multiagent_practice.svg)
+![Multi-Agent系统架构](../picture/v5/litetopic_multiagent_practice.png)
 
 * **Web端**：用户交互界面，向系统发起请求并接收最终结果。
 
