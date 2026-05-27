@@ -2,25 +2,98 @@
 slug: /
 ---
 
-# Why choose RocketMQ
+# Why Choose RocketMQ
 
-## Why RocketMQ
-During the early stages of RocketMQ's development at Alibaba, we utilized it for a multitude of purposes, including asynchronous communications, search, social networking activity flows, data pipelines, and trade processes. As our trade business grew, we noticed that the messaging cluster was under increasing pressure.
+## AI-Native Asynchronous Communication Engine
 
-After observing and analyzing the performance of the ActiveMQ IO module, we identified a bottleneck as the number of queues and virtual topics increased. We attempted to address this issue through various methods, such as throttling, circuit breakers, and service downgrades, but none proved satisfactory. We also considered using Kafka, a popular messaging solution, but it did not meet our requirements for low latency and high reliability, as explained below. As a result, we made the decision to develop a new messaging engine capable of handling a wider range of use cases, from traditional pub/sub to high-volume, real-time, zero-error transaction systems.
+Apache RocketMQ is an AI-native asynchronous communication engine purpose-built for trillion-message scale. Born from Alibaba's high-concurrency e-commerce workloads and battle-tested across thousands of enterprises, RocketMQ has evolved from a high-performance message queue into a unified messaging platform that bridges three paradigms: traditional business messaging, event streaming, and the emerging AI-native communication.
 
-Since its inception, Apache RocketMQ has been widely adopted by enterprise developers and cloud vendors due to its simple architecture, rich business functionality, and extreme scalability. After more than a decade of extensive scenario polishing, RocketMQ has become the industry standard for financial-grade reliable business messages and is widely used in Internet, big data, mobile Internet, IoT, and other fields.
+## Core Strengths
 
-:::tip
+### AI-Native Capabilities (New in 5.5)
 
-The following table shows the comparison between RocketMQ, ActiveMQ and Kafka
+RocketMQ 5.5.0 (released April 2026) introduces a strategic upgrade for AI workloads:
 
-:::
+- **Million-Scale LiteTopics**: Purpose-built for AI Agent session management, LiteTopics enable millions of lightweight channels with minimal resource overhead. Each AI Agent conversation session maps to an independent topic, delivering fine-grained state isolation and lifecycle management powered by RocksDB indexing.
+- **Lite Mode Subscription**: A lightweight subscription model designed for AI scenarios, offering efficient message passing with significantly lower resource consumption — ideal for event-driven agent orchestration where thousands of agents need real-time coordination.
+- **Intelligent Compute Scheduling**: Solves critical AI workflow challenges including long-running session drops, resource waste from idle connections, and cascading blocks in multi-agent pipelines through event-driven pull mechanisms.
 
-## RocketMQ vs. ActiveMQ vs. Kafka
+### Cloud-Native Architecture
 
-| Messaging Product|Client SDK| Protocol and Specification | Ordered Message  | Scheduled Message | Batched Message |BroadCast Message| Message Filter|Server Triggered Redelivery|Message Storage|Message Retroactive|Message Priority|High Availability and Failover|Message Track|Configuration|Management and Operation Tools|
-| -------|--------|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| ActiveMQ|Java, .NET, C++ etc. |Push model, support OpenWire, STOMP, AMQP, MQTT, JMS|Exclusive Consumer or Exclusive Queues can ensure ordering|Supported|Not Supported|Supported|Supported|Not Supported|Supports very fast persistence using JDBC along with a high performance journal，such as levelDB, kahaDB|Supported|Supported|Supported, depending on storage,if using levelDB it requires a ZooKeeper server|Not Supported|The default configuration is low level, user need to optimize the configuration parameters|Supported|
-| Kafka      | Java, Scala etc.|Pull model, support TCP|Ensure ordering of messages within a partition|Not Supported|Supported, with async producer|Not Supported|Supported, you can use Kafka Streams to filter messages|Not Supported|High performance file storage|Supported offset indicate|Not Supported|Supported, requires a ZooKeeper server|Not Supported|Kafka uses key-value pairs format for configuration. These values can be supplied either from a file or programmatically.|Supported, use terminal command to expose core metrics|
-| RocketMQ      |Java, C++, Go |Pull model, support TCP, JMS, OpenMessaging|Ensure strict ordering of messages,and can scale out gracefully|Supported|Supported, with sync mode to avoid message loss|Supported|Supported, property filter expressions based on SQL92|Supported|High performance and low latency file storage|Supported timestamp and offset two indicates|Not Supported|Supported, Master-Slave model, without another kit|Supported|Work out of box,user only need to pay attention to a few configurations|Supported, rich web and terminal command to expose core metrics|
+RocketMQ 5.x embraces a fully cloud-native design:
+
+- **Elastic Scaling**: Stateless proxy layer and separated compute-storage architecture enable independent scaling of throughput and storage capacity.
+- **Kubernetes Native**: First-class support for container orchestration with Helm charts, Operators, and seamless integration with cloud-native observability stacks.
+- **Lightweight gRPC SDKs**: Multi-language clients (Java, Go, C++, Rust, Python, Node.js) built on gRPC provide consistent APIs and lower integration complexity.
+- **Multi-Protocol Support**: Native support for gRPC, MQTT, AMQP, and HTTP/REST enables unified messaging across IoT devices, microservices, and serverless functions.
+
+### Financial-Grade Reliability
+
+RocketMQ is the industry standard for financial-grade reliable business messaging. It provides:
+
+- **Transactional Messages**: Native two-phase commit ensures exactly-once delivery semantics across distributed systems, allowing message sending and local database transactions to succeed or fail atomically.
+- **High Availability**: DLedger-based Raft consensus ensures zero message loss with automatic leader election and multi-replica synchronization.
+- **Strict Message Ordering**: FIFO ordering guarantees at partition level support business scenarios that demand sequential processing — order creation, payment, and fulfillment can be strictly serialized.
+
+## Messaging Patterns
+
+RocketMQ supports a rich set of messaging patterns within a single platform:
+
+- **Publish/Subscribe**: Classic topic-based fan-out for decoupled microservice communication.
+- **Request/Reply**: Synchronous-style RPC over asynchronous messaging for service invocation patterns.
+- **Event Streaming**: Continuous event processing with consumer offsets, replay capabilities, and integration with stream processing frameworks.
+- **Delay & Scheduled Messages**: Arbitrary-precision scheduled delivery for business workflows like order timeout cancellation and retry scheduling.
+- **Batch Consumption**: High-throughput batch pull for data pipeline and analytics scenarios.
+
+## Feature Comparison
+
+| Feature | RocketMQ | ActiveMQ | Kafka |
+|---------|----------|----------|-------|
+| AI Agent Communication | LiteTopic | Not supported | Not supported |
+| Message Ordering | Strict FIFO per partition | Exclusive consumer | Partition-level only |
+| Message Filtering | SQL92 + Tag-based | Limited | Topic-level only |
+| Transactional Message | Native 2PC | XA (heavy) | Not supported |
+| Delayed Message | Arbitrary precision | Limited levels | Not supported |
+| Dead Letter Queue | Built-in with retry | Built-in | Manual implementation |
+| Message Tracing | Built-in full-link tracing | Plugin-based | Not supported |
+| Horizontal Scaling | Linear scale-out | Limited | Partition-bound |
+| Operational Tooling | Rich dashboard & CLI | Basic web console | Third-party tools |
+| Protocol Support | gRPC/MQTT/AMQP/HTTP | AMQP/STOMP/MQTT | Custom TCP |
+
+## Use Cases
+
+### AI Agent Communication
+
+The newest frontier — RocketMQ provides the asynchronous communication infrastructure for multi-agent AI systems. Aligned with the AI-native vision, RocketMQ delivers four scenario-based solutions:
+
+- **MCP & Long-Session State Continuity**: Each session maps to a dedicated LiteTopic, keeping application servers stateless. On client reconnection, sessions resume from breakpoint while backend LLM tasks continue running uninterrupted — eliminating session loss and wasted compute in long-running conversations.
+- **Fine-Grained Isolation & Rate Limiting**: Per-LiteTopic Suspend/Resume at the consumer level enables millisecond-level rate limiting. Anomalies in a single session or agent are isolated without cascading impact, delivering smooth traffic curves and elastic scaling for multi-tenant, multi-agent deployments.
+- **Multi-Agent Async Communication**: Native support for MCP and A2A protocols, with seamless integration into mainstream agent frameworks including LangChain, CrewAI, AutoGen, AgentScope, Dify, and Coze — and full compatibility with framework-agnostic systems. Event-driven async messaging replaces static orchestration, enabling more flexible and efficient agent collaboration.
+- **Batch Consumption — Unleash GPU Parallelism**: Dual-trigger batching by message count and time window. Both PushConsumer and SimpleConsumer modes adapt to LLM Batch API patterns with adaptive pacing under varying throughput, maximizing GPU inference throughput and parallel compute utilization.
+
+### Business Messaging & Microservices
+
+RocketMQ serves as the asynchronous communication backbone for microservice architectures, handling order processing, payment notifications, inventory synchronization, and cross-service event propagation with financial-grade transactional guarantees.
+
+### Event Streaming & Data Integration
+
+With built-in RocketMQ Connect, the platform integrates with 30+ data sources and sinks (MySQL, PostgreSQL, Elasticsearch, Hudi, etc.), enabling real-time CDC pipelines, data lake ingestion, and cross-system event sourcing.
+
+### IoT & Edge Computing
+
+MQTT protocol support with million-level device connections makes RocketMQ suitable for IoT telemetry collection, device command dispatch, and edge-cloud message bridging scenarios.
+
+## Ecosystem & Community
+
+Apache RocketMQ benefits from a vibrant open-source community:
+
+- **75+ Contributors** with continuous active development on GitHub
+- **RocketMQ Streams**: Lightweight stream processing library for real-time computation
+- **RocketMQ Connect**: Standardized connector framework for data integration
+- **RocketMQ MQTT**: Protocol bridge for IoT workloads
+- **RocketMQ Dashboard**: Full-featured web console for operations and monitoring
+- **Multi-Cloud Deployment**: Available as managed service on major cloud platforms (Alibaba Cloud, AWS, Huawei Cloud)
+
+---
+
+*Apache RocketMQ — from battle-tested business messaging to AI-native asynchronous communication, powering the next generation of distributed systems.*

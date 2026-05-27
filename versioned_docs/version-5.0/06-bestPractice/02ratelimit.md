@@ -27,7 +27,7 @@ Kafka 与 RocketMQ 普通 Topic 方案面临相同的重资源问题。若尝试
 ## 解决方案
 ### 核心架构：基于LiteTopic的细粒度隔离和限流
 
-![基于LiteTopic的细粒度隔离和限流架构](../picture/v5/litetopic_ratelimit_practice.svg)
+![基于LiteTopic的细粒度隔离和限流架构](../picture/v5/rocketmq-litetopic-rate-limit-architecture.png)
 
 本文采用 Apache RocketMQ 的 **LiteTopic（轻量级主题）** 特性，构建了一套全新的细粒度隔离与动态限流架构：
 
