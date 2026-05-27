@@ -15,7 +15,7 @@ echo "brokerIP1=127.0.0.1" > broker.conf
 ```
 
 ## 2.Configure docker-compose
-To quickly start and run the RockerMQ cluster, you can use the following template to create a docker-compose.yml file by modifying or adding configurations in the environment section.
+To quickly start and run the RocketMQ cluster, you can use the following template to create a docker-compose.yml file by modifying or adding configurations in the environment section.
 ```text
 version: '3.8'
 
