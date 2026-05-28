@@ -203,8 +203,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               to: '/docs/bestPractice/07JVMOS'
             },
             {
-              from: '/docs/faq/',
-              to: '/docs/bestPractice/09FAQ'
+              from: '/docs/bestPractice/06FAQ',
+              to: '/docs/faq/'
             },
             {
               from: '/docs/logappender-example/',

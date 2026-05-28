@@ -1,3 +1,8 @@
+---
+sidebar_position: 99
+slug: /faq/
+---
+
 # FAQs
 
 Common questions about the RocketMQ project:
