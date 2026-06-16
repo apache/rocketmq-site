@@ -76,7 +76,7 @@ public interface MessageQueueSelector {
 
 ## 顺序消息的一致性
 
-如果一个Broker掉线，那么此时队列总数是否会发化？
+如果一个Broker掉线，那么此时队列总数是否会发生变化？
 
 如果发生变化，那么同一个 ShardingKey 的消息就会发送到不同的队列上，造成乱序。如果不发生变化，那消息将会发送到掉线Broker的队列上，必然是失败的。因此 Apache RocketMQ 提供了两种模式，如果要保证严格顺序而不是可用性，创建 Topic 是要指定 ```-o``` 参数（--order）为true，表示顺序消息:
 
