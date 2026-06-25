@@ -231,3 +231,46 @@ The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK
 ```
 
+## 一些提示
+### 1.关于slf4j 
+在第5步中，创建发送普通消息的程序并运行时，可能会遇到以下错误`Could not find artifact org.slf4j:slf4j-api:jar:27.0.0-SNAPSHOT`
+。这通常意味着Maven无法在其配置的仓库中找到指定的依赖版本，尤其对于SNAPSHOT这样通常不稳定且可能频繁更改的版本。这时候，比较简单的解决方案是试试更早期的正式发布版本。
+
+如果你使用slf4j-api版本2.0.x，还可能会遇到的报错是`SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation`，这说明SLF4J在项目中没有找到任何日志实现。 
+因为2.0.x版本的SLF4J本身只是一个日志门面（Facade），而不是一个日志实现。
+所以解决方案是添加一个日志实现到pom.xml文件中，如slf4j-nop.jar、slf4j-simple.jar、slf4j-reload4j.jar、slf4j-jdk14.jar或logback-classic.jar。以下是一个示例：
+```
+  <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.3</version>
+  </dependency>
+```
+### 2.关于 the broker's disk is full 的问题
+当客户端在尝试发送消息时，可能会遇到"InternalErrorException: service not available now. It may be caused by one of the following reasons: the broker's disk is full"。
+你可能会疑惑，为什么会收到这样的提示，明明磁盘还有几十个 GB 的空间。这是因为这里的full，指的是空间占用率过高，而不是绝对意义上的空间不够。
+
+如果你使用MAC OS系统，可以在终端运行`df -h` 检查磁盘各个分区的使用情况。
+大概率你会发现/System/Volumes/Data这块分区的占用率很高，RocketMQ可能使用的正是这个几乎已满的分区，解决办法就是释放该分区的空间，直到占用率降低到合理的数值。
+
+### 3.java.lang.RuntimeException: Lock failed,MQ already started
+如果你已经执行了本文档中的第3步(启动Broker+Proxy)，但在后续过程中遇到了一些难以解决的问题，**一定要运行 第6步(关闭服务器) 来安全地关闭 nameserver 和 broker**。
+
+如果你直接关闭终端强行退出，那么下次再次启动Broker+Proxy时，在broker的日志里，你会看到`Lock failed,MQ already started` 这个错误。
+这通常意味着已经有一个RocketMQ Broker 的实例在运行，或者上一次运行的实例异常终止但没有正确释放锁文件。
+
+为了解决这个问题，你需要：
+1. 运行`ps aux | grep mqbroker` 确认是否真的有另一个Broker实例正在运行。如果你看到除了当前的grep mqbroker，还有其他无效的mqbroker进程，可以使用`kill`命令终止它。
+2. 确认锁文件(lock)的具体地址并删除。
+
+   锁文件位于RocketMQ的运行时数据存储(Store)目录，该目录的位置通常是在Broker的配置文件(也就是broker.conf) 中通过storePathRootDir参数指定的。
+   如果没有指定，RocketMQ会使用一个默认的存储路径，该路径依赖于RocketMQ的安装和运行环境：
+   ```  
+   Linux / macOS：~/store 或 /home/{username}/store。
+   Windows：C:\Users\{username}\store。
+   ```
+   如果你使用MacOS，可以直接在终端中运行以下命令来查找lock文件：
+   ```
+   find ~/store -name "lock" 2>/dev/null
+   ``` 
