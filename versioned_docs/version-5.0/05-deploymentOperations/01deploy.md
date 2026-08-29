@@ -10,6 +10,11 @@ Apache RocketMQ 5.0 版本完成基本消息收发，包括 NameServer、Broker�
 ## Local模式部署
 
 由于 Local 模式下 Proxy 和 Broker 是同进程部署，Proxy本身无状态，因此主要的集群配置仍然以 Broker 为基础进行即可。
+
+:::caution
+Local 模式下 Proxy 不应该修改`grpcServerPort`参数，否则可能会连接到错误的集群上。
+:::
+
 ### 启动 NameServer
 NameServer需要先于Broker启动，且如果在生产环境使用，为了保证高可用，建议一般规模的集群启动3个NameServer，各节点的启动命令相同，如下：
 
