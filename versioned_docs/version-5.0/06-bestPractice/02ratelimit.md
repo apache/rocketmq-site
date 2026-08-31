@@ -32,7 +32,7 @@ Kafka 与 RocketMQ 普通 Topic 方案面临相同的重资源问题。若尝试
 本文采用 Apache RocketMQ 的 **LiteTopic（轻量级主题）** 特性，构建了一套全新的细粒度隔离与动态限流架构：
 
 + **消息发送端**：根据业务维度（如用户 ID、模型 ID、任务类型）将消息路由至对应的 LiteTopic。
-+ **消息消费端**：消费者统一订阅父 Topic（即所有 LiteTopic），当 LiteTopic 动态新增或移除时，消费者无需调整订阅关系，只要消费集群容量充足即可持续工作。
++ **消息消费端**：消费者绑定父 Topic，并按业务维度订阅需要处理的 LiteTopic；当 LiteTopic 动态新增或移除时，同步调整 LiteTopic 订阅关系，消费集群可按容量水平扩展。
 
 ### LiteTopic 的核心优势
 + **轻量级与海量支持**：单个实例内可支持百万级 LiteTopic，可为每个用户或任务类型创建专属的轻量级队列，满足大规模细粒度隔离需求。
@@ -47,9 +47,10 @@ Kafka 与 RocketMQ 普通 Topic 方案面临相同的重资源问题。若尝试
 示例配置：
 
 + Topic 名称：`rate-limit-parent-topic`
-+ 消息类型：普通消息
++ 消息类型：轻量类型（Lite）
++ LiteTopic 空闲过期时间：按业务需要设置，例如 `1440` 分钟（1 天）
 
-> **说明**：父 Topic 是 LiteTopic 的载体，一个父 Topic 下可承载百万级 LiteTopic。
+> **说明**：父 Topic 是 LiteTopic 的载体，一个父 Topic 下可承载百万级 LiteTopic。通过 API 创建时，`message.type=LITE` 用于开启 LiteTopic 能力，`lite.topic.expiration` 用于设置 LiteTopic 空闲清理时间，单位为分钟；默认值为 `-1`，表示不启用空闲清理，正数配置最大为 `43200` 分钟，即 30 天。
 
 ### 步骤二：创建 Consumer Group
 创建一个统一的 Consumer Group，所有消费机器共用该 Group。
@@ -57,7 +58,10 @@ Kafka 与 RocketMQ 普通 Topic 方案面临相同的重资源问题。若尝试
 示例配置：
 
 + Group 名称：`GID_rate_limit_consumer`
-+ 消费模式：**集群消费**
++ 绑定父 Topic：`rate-limit-parent-topic`
++ LiteTopic 订阅模式：`Shared`（默认），也可按业务选择 `Exclusive`
+
+> **说明**：通过 API 创建时，`lite.bind.topic` 用于将 LiteTopic 消费组绑定到父 Topic，`lite.sub.model` 用于选择 LiteTopic 订阅模式。`Shared` 允许同一 Group 下多个 Consumer 共同持有同一个 LiteTopic 的订阅并分摊消费；`Exclusive` 则让同一个 LiteTopic 在同一时刻只归属一个 Consumer。
 
 ### 步骤三：发送消息到 LiteTopic
 在消息发送端，根据用户标识将消息写入对应的 LiteTopic。LiteTopic 无需预先创建，首次发送时自动生成。
@@ -101,7 +105,7 @@ try {
 + 若 LiteTopic 数量超过实例配额，将抛出 `LiteTopicQuotaExceededException`，此时需升级实例规格。
 
 ### 步骤四：消费消息并实施限流
-消费端使用 `LitePushConsumer` 订阅父 Topic 下的全部 LiteTopic，并在消息处理逻辑中根据业务限流策略进行流控。
+消费端使用 `LitePushConsumer` 绑定父 Topic，并按业务维度订阅需要处理的 LiteTopic，在消息处理逻辑中根据业务限流策略进行流控。
 
 ```java
 String consumerGroup = "GID_rate_limit_consumer";
@@ -117,7 +121,8 @@ LitePushConsumer litePushConsumer = provider.newLitePushConsumerBuilder()
     // 设置消息监听器
     .setMessageListener(messageView -> {
         // 获取消息所属的 LiteTopic（即用户标识）
-        String liteTopic = messageView.getLiteTopic();
+        String liteTopic = messageView.getLiteTopic()
+            .orElseThrow(() -> new IllegalStateException("LiteTopic is missing"));
 
         // 执行业务逻辑（如调用下游服务）
         boolean success = processMessage(messageView);
@@ -128,7 +133,7 @@ LitePushConsumer litePushConsumer = provider.newLitePushConsumerBuilder()
             if (rateLimiter.shouldLimit(liteTopic)) {
                 // 返回 Suspend，暂停该 LiteTopic 的拉取
                 // 参数为暂停时长，期间不会拉取该 LiteTopic 的新消息
-                return ConsumeResult.Suspend(Duration.ofMillis(500));
+                return ConsumeResultSuspend.of(Duration.ofMillis(500));
             }
             return ConsumeResult.SUCCESS;
         } else {
@@ -137,11 +142,14 @@ LitePushConsumer litePushConsumer = provider.newLitePushConsumerBuilder()
         }
     })
     .build();
+
+// 按业务维度动态订阅需要处理的 LiteTopic
+litePushConsumer.subscribeLite("user_10086");
 ```
 
 **关键说明**：
 
-+ `ConsumeResult.Suspend(Duration)` 是 LiteTopic 提供的核心限流机制：返回该结果后，Broker 将在指定时间内暂停对该 LiteTopic 的消息拉取，但不影响其他 LiteTopic 的正常消费。
++ `ConsumeResultSuspend.of(Duration)` 是 LiteTopic 提供的核心限流机制：返回该结果后，Broker 将在指定时间内暂停对该 LiteTopic 的消息拉取，但不影响其他 LiteTopic 的正常消费。
 + 限流策略（`rateLimiter.shouldLimit()`）由业务侧自行实现，可基于滑动窗口、令牌桶等算法，按用户维度控制消费速率。
 
 ### 步骤五：实现限流策略（参考示例）
