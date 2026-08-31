@@ -1,12 +1,15 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+// https://github.com/facebook/docusaurus/issues/4542#issuecomment-1434839071
+const locale = process.env.DOCUSAURUS_CURRENT_LOCALE;
+
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (
   module.exports = {
     title: "RocketMQ",
-    tagline: "官方网站",
+    tagline: locale === "zh" ? "官方网站" : "Official Website",
     url: "https://your-docusaurus-test-site.com",
     baseUrl: "/",
     onBrokenLinks: "throw",
