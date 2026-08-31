@@ -32,7 +32,7 @@ Kafka faces the same heavyweight resource issues as the RocketMQ standard Topic 
 This document adopts Apache RocketMQ's **LiteTopic (Lightweight Topic)** feature to build a novel fine-grained isolation and dynamic rate limiting architecture:
 
 + **Message Sending Side**: Routes messages to the corresponding LiteTopic based on business dimensions (such as user ID, model ID, task type).
-+ **Message Consuming Side**: Consumers uniformly subscribe to the parent Topic (i.e., all LiteTopics). When LiteTopics are dynamically added or removed, consumers do not need to adjust their subscription relationships — they can continue working as long as the consumer cluster has sufficient capacity.
++ **Message Consuming Side**: Consumers bind to the parent Topic and subscribe to the LiteTopics that need to be processed based on business dimensions. When LiteTopics are dynamically added or removed, the LiteTopic subscriptions should be updated accordingly, and the consumer cluster can scale based on capacity.
 
 ### Core Advantages of LiteTopic
 + **Lightweight with Massive Scale Support**: A single instance can support millions of LiteTopics, allowing creation of dedicated lightweight queues for each user or task type to meet large-scale fine-grained isolation requirements.
@@ -47,9 +47,10 @@ Create a parent Topic through the Apache RocketMQ console or API to host all Lit
 Example configuration:
 
 + Topic name: `rate-limit-parent-topic`
-+ Message type: Normal message
++ Message type: Lite
++ LiteTopic idle expiration: set based on your business requirements, for example, `1440` minutes (one day)
 
-> **Note**: The parent Topic is the carrier of LiteTopics. A single parent Topic can host millions of LiteTopics.
+> **Note**: The parent Topic is the carrier of LiteTopics. A single parent Topic can host millions of LiteTopics. When creating it through an API, `message.type=LITE` enables LiteTopic, and `lite.topic.expiration` sets the LiteTopic idle cleanup time in minutes. The default value is `-1`, which disables idle cleanup. For positive values, the maximum is `43200` minutes, or 30 days.
 
 ### Step 2: Create a Consumer Group
 Create a unified Consumer Group shared by all consumer machines.
@@ -57,7 +58,10 @@ Create a unified Consumer Group shared by all consumer machines.
 Example configuration:
 
 + Group name: `GID_rate_limit_consumer`
-+ Consumption mode: **Cluster consumption**
++ Bound parent Topic: `rate-limit-parent-topic`
++ LiteTopic subscription mode: `Shared` by default, or `Exclusive` when required by the business
+
+> **Note**: When creating it through an API, `lite.bind.topic` binds the LiteTopic consumer group to the parent Topic, and `lite.sub.model` selects the LiteTopic subscription mode. `Shared` allows multiple Consumers in the same Group to hold the same LiteTopic subscription and share consumption; `Exclusive` makes a LiteTopic belong to only one Consumer at a time within the same Group.
 
 ### Step 3: Send Messages to LiteTopic
 On the message sending side, write messages to the corresponding LiteTopic based on user identifiers. LiteTopics do not need to be pre-created — they are automatically generated on first send.
@@ -101,7 +105,7 @@ try {
 + If the LiteTopic count exceeds the instance quota, a `LiteTopicQuotaExceededException` will be thrown, requiring an instance specification upgrade.
 
 ### Step 4: Consume Messages and Implement Rate Limiting
-The consuming side uses `LitePushConsumer` to subscribe to all LiteTopics under the parent Topic, and applies rate limiting based on business strategies within the message processing logic.
+The consuming side uses `LitePushConsumer` to bind the parent Topic and subscribe to the LiteTopics that need to be processed, and applies rate limiting based on business strategies within the message processing logic.
 
 ```java
 String consumerGroup = "GID_rate_limit_consumer";
@@ -117,7 +121,8 @@ LitePushConsumer litePushConsumer = provider.newLitePushConsumerBuilder()
     // Set message listener
     .setMessageListener(messageView -> {
         // Get the LiteTopic the message belongs to (i.e., user identifier)
-        String liteTopic = messageView.getLiteTopic();
+        String liteTopic = messageView.getLiteTopic()
+            .orElseThrow(() -> new IllegalStateException("LiteTopic is missing"));
 
         // Execute business logic (e.g., call downstream service)
         boolean success = processMessage(messageView);
@@ -129,7 +134,7 @@ LitePushConsumer litePushConsumer = provider.newLitePushConsumerBuilder()
                 // Return Suspend to pause pulling from this LiteTopic
                 // Parameter is the suspension duration; no new messages
                 // from this LiteTopic will be pulled during this period
-                return ConsumeResult.Suspend(Duration.ofMillis(500));
+                return ConsumeResultSuspend.of(Duration.ofMillis(500));
             }
             return ConsumeResult.SUCCESS;
         } else {
@@ -138,11 +143,14 @@ LitePushConsumer litePushConsumer = provider.newLitePushConsumerBuilder()
         }
     })
     .build();
+
+// Dynamically subscribe to the LiteTopics that need to be processed.
+litePushConsumer.subscribeLite("user_10086");
 ```
 
 **Key Notes**:
 
-+ `ConsumeResult.Suspend(Duration)` is the core rate limiting mechanism provided by LiteTopic: after returning this result, the Broker will pause message pulling for that LiteTopic for the specified duration, without affecting normal consumption of other LiteTopics.
++ `ConsumeResultSuspend.of(Duration)` is the core rate limiting mechanism provided by LiteTopic: after returning this result, the Broker will pause message pulling for that LiteTopic for the specified duration, without affecting normal consumption of other LiteTopics.
 + The rate limiting strategy (`rateLimiter.shouldLimit()`) is implemented by the business side and can be based on algorithms such as sliding window or token bucket, controlling consumption rate on a per-user dimension.
 
 ### Step 5: Implement Rate Limiting Strategy (Reference Example)
