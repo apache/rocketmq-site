@@ -125,7 +125,7 @@ Execute kill command, or call `bin/mqshutdown broker`.
 Each node in RocketMQ-on-DLedger group is compatible with old Commitlog, but Raft replicating process works on the adding message only. So, to avoid occurring exceptions, old Commitlog must be consistent.
 If old cluster deployed in Master-Slave mode, it maybe inconsistent after shutdown. Advising use md5sum to check at least 2 recently Commitlog file, if occur inconsistent, maintain consistent by copy.
 
-Although RocketMQ-on-DLedger Group can deployed with 2 nodes, it lacks failover ability(at least 3 nodes can tolerate one node fail).
+Although RocketMQ-on-DLedger Group can be deployed with 2 nodes, it lacks failover ability(at least 3 nodes can tolerate one node fail).
 Make sure that both Master and Slave's Commitlog is consistent, then prepare 3 machines, copy old Commitlog from Master to this 3 machines(BTW, copy the config directory).
 
 Then, go ahead to set configurations.
