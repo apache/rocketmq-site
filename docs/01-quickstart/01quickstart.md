@@ -55,7 +55,7 @@ NameServer成功启动后，我们启动Broker
 $ nohup sh bin/mqbroker -n localhost:9876 &
 
 ### 验证broker是否启动成功, 比如, broker的ip是192.168.1.2 然后名字是broker-a
-$ tail -f ~/logs/rocketmqlogs/Broker.log 
+$ tail -f ~/logs/rocketmqlogs/broker.log 
 The broker[broker-a,192.169.1.2:10911] boot success...
 ```
 
