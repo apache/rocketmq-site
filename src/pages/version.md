@@ -46,7 +46,7 @@ RocketMQ 5.0 推出了基于 gRPC 全新的多语言 SDK，这套 SDK 有几个�
 
 ![img](../../static/img/5.0%E9%80%9F%E8%A7%88-6.jpeg)
 
-在计算框架方面，RocketMQ 5.0 引入了一套轻量级流式处理框架RSteams。RStreams 依赖少、部署简单，可任意横向扩展，利用 RocketMQ 资源即可完成轻量级的数据处理和计算。除此以外，为了方便开发者让基于 RocketMQ 的流式计算更容易，RocketMQ 5.0 还支持了一套轻量SQL查询引擎 RSQLDB，为开发者提供基于 SQL 的开发体验。RSQLDB 首创性地兼容了 Flink/Blink SQL 标准以及 UDF/UDAF/UDTF，使得两个开源产品的生态可以更好地融合，开发者可以将 Flink/Blink 已有 SQL 计算任务迁移到 RocketMQ ，在 RocketMQ 内部完成轻量级的计算处理，在算力受限或者更大规模的场景下，同样可以将 RocketMQ 的实时计算任务迁移到 Flink，利用 Flink 的大数据计算能力满足业务诉求。
+在计算框架方面，RocketMQ 5.0 引入了一套轻量级流式处理框架RStreams。RStreams 依赖少、部署简单，可任意横向扩展，利用 RocketMQ 资源即可完成轻量级的数据处理和计算。除此以外，为了方便开发者让基于 RocketMQ 的流式计算更容易，RocketMQ 5.0 还支持了一套轻量SQL查询引擎 RSQLDB，为开发者提供基于 SQL 的开发体验。RSQLDB 首创性地兼容了 Flink/Blink SQL 标准以及 UDF/UDAF/UDTF，使得两个开源产品的生态可以更好地融合，开发者可以将 Flink/Blink 已有 SQL 计算任务迁移到 RocketMQ ，在 RocketMQ 内部完成轻量级的计算处理，在算力受限或者更大规模的场景下，同样可以将 RocketMQ 的实时计算任务迁移到 Flink，利用 Flink 的大数据计算能力满足业务诉求。
 ## How to upgrade to 5.0
 RocketMQ 5.0在完成上述架构升级、API重构和新功能场景时，统一遵循了向下兼容的原则。RocketMQ 4.x版本可以无缝升级到5.0版本同时保持对历史版本SDK的兼容。选择5.0版本无需担心不兼容历史版本的应用。我们建议升级服务端版本后，尽快替换使用新版本的SDK以获得更好的接入体验和新功能。
 ![img](../../static/img/5.0%E9%80%9F%E8%A7%88-7.jpeg)
