@@ -104,7 +104,7 @@ To support custom storage message trace Topic, modify the initialization of the 
 - Send message
 
   ```shell
-  ./mqadmin sendMessage -m true --topic some-topic-name -n 127.0.0.1:9876 -p "your meesgae content"
+  ./mqadmin sendMessage -m true --topic some-topic-name -n 127.0.0.1:9876 -p "your message content"
   ```
 - Query trace
 
