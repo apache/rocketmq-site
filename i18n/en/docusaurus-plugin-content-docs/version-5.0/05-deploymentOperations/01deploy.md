@@ -10,6 +10,10 @@ In the Apache RocketMQ 5.0 version, basic message sending and receiving is compl
 
 Since the Proxy and Broker are deployed in the same process in Local mode, the Proxy is stateless, so the main cluster configuration can still be based on the Broker.
 
+:::caution
+The Local Mode Proxy should not modify the `grpcServerPort` parameter, otherwise it may connect to the wrong cluster.
+:::
+
 ### Start NameServer
 
 ```bash
