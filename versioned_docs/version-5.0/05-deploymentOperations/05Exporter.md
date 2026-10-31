@@ -8,7 +8,7 @@
 过去版本曾是 87 个 concurrentHashMap，由于 Map 不会删除过期指标，所以一旦有 label 变动就会生成一个新的指标，旧的无用指标无法自动删除，久而久之造成内存溢出。而使用 Cache 结构可可以实现过期删除，且过期时间可配置。
 :::
 
-`Rocketmq-exporter` 获取监控指标的流程如下图所示，Exporter 通过 MQAdminExt 向 MQ 集群请求数据，请求到的数据通过 MetricService 规范化成 Prometheus 需要的格式，然后通过 /metics 接口暴露给 Prometheus。
+`Rocketmq-exporter` 获取监控指标的流程如下图所示，Exporter 通过 MQAdminExt 向 MQ 集群请求数据，请求到的数据通过 MetricService 规范化成 Prometheus 需要的格式，然后通过 /metrics 接口暴露给 Prometheus。
 ![957681249485](../picture/RocketMQ%20Prometheus%20Exporter-1.jpeg)
 
 

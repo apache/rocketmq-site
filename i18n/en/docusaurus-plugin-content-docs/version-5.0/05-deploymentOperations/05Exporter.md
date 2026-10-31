@@ -129,7 +129,7 @@ The MetricCollectTask class has five scheduled tasks: collectTopicOffset, collec
 
 ![95680412354](../picture/RocketMQ%20Prometheus%20Exporter%20-%202.jpeg)
 
-## Quick star
+## Quick start
 
 ### Configure `application.yml`
 
