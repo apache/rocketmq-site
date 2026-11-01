@@ -19,7 +19,7 @@ The standard for defining metrics in RocketMQ complies with that for defining th
 The following table describes the labels of the metrics that are related to the Message Queue for Apache RocketMQ broker.
 
 - cluster: RocketMQ cluster name.
-- node_type: the type of service node, whitch includes the following:proxy,broker,nameserver.
+- node_type: the type of service node, which includes the following:proxy,broker,nameserver.
 - node_id: the ID of the service node.
 - topic: the topic of RocketMQ.
 - message_type: the type of a message, which includes the following:<br />normal:normal messages;<br />fifo:ordered messages;<br />transaction:Transactional messages;<br />delay:scheduled or delayed messages.
@@ -53,7 +53,7 @@ The following table describes the labels of the metrics that are related to the 
 The following table describes the labels of the metrics that are related to the producers in Message Queue for Apache RocketMQ.
 
 - cluster: RocketMQ cluster name.
-- node_type: the type of service node, whitch includes the following:proxy,broker,nameserver.
+- node_type: the type of service node, which includes the following:proxy,broker,nameserver.
 - node_id: the ID of the service node.
 - topic: the topic of Message Queue for Apache RocketMQ.
 - message_type: the type of a message, which includes the following:<br />normal:normal messages;<br />fifo:ordered messages;<br />transaction:Transactional messages;<br />delay:scheduled or delayed messages.
@@ -86,7 +86,7 @@ RocketMQ defines metrics based on the following business scenarios.
 
 ### Message accumulation scenarios
 
-![rocketmq queue meesage stuatus](../picture/observability/message-accumulation.png)<br />The above figure shows the number and duration of messages in different stages. By monitoring these metrics, you can determine whether the business consumption is abnormal. The following table describes the meaning of these metrics and the formulas that are used to calculate these metrics.
+![rocketmq queue message status](../picture/observability/message-accumulation.png)<br />The above figure shows the number and duration of messages in different stages. By monitoring these metrics, you can determine whether the business consumption is abnormal. The following table describes the meaning of these metrics and the formulas that are used to calculate these metrics.
 
 | Name                     | Description                                                                                                                                                                               | Formula                                                                      |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
