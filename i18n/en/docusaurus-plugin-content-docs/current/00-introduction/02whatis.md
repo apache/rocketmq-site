@@ -65,7 +65,7 @@ In a **topic-based** system, messages are published on topics or channels. Consu
 
 :::note Extended message model
 
-The above picture is an extended message model, including **two producers**, **two topics**, and **two sets of consumers Comsumer**.
+The above picture is an extended message model, including **two producers**, **two topics**, and **two sets of consumers**.
 
 The **Broker** that stores message topics is the proxy server for the actual deployment process.
 :::
