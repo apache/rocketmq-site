@@ -1,17 +1,17 @@
-# 项目起源
+# Project Origin
 
 
-### 起源
+### Origin
 
-RocketMQ是阿里巴巴在2012年开发的分布式消息中间件，专为万亿级超大规模的消息处理而设计，具有高吞吐量、低延迟、海量堆积、顺序收发等特点。它是阿里巴巴双十一购物狂欢节和众多大规模互联网业务场景的必备基础设施。在同一年，阿里巴巴正式开源了RocketMQ的第一个版本。
+RocketMQ is a distributed messaging middleware developed by Alibaba in 2012. It was designed for ultra-large-scale message processing at the trillion-message level and features high throughput, low latency, support for large message backlogs, and ordered message delivery. It became essential infrastructure for Alibaba's Singles' Day shopping festival and many other large-scale internet business scenarios. That same year, Alibaba open-sourced the first version of RocketMQ.
 
-2015年，RocketMQ在消息传递方面迎来了一批重量级功能发布，包括事务消息、SQL过滤、轨迹追踪、定时消息、高可用多活等，以满足阿里巴巴日益丰富的业务场景。由于这些优势，RocketMQ 取代了阿里巴巴自主研发的另一款MQ产品Notify，成为阿里巴巴的首选消息中间件，实现了内部应用的百分百接入。在2016年，RocketMQ在阿里云上开发了首个全托管服务，帮助大量数字化转型的企业构建现代应用，并开始体验大规模的云计算实践。同年，RocketMQ被捐赠给Apache基金会，并入选孵化器项目，旨在未来为更多开发者服务。
+In 2015, RocketMQ introduced a series of major messaging features, including transactional messages, SQL filtering, message tracing, scheduled messages, and multi-active high availability, to meet Alibaba's increasingly diverse business needs. These capabilities enabled RocketMQ to replace Notify, another messaging product developed in-house at Alibaba, and become Alibaba's preferred messaging middleware, achieving adoption across all of its internal applications. In 2016, RocketMQ launched its first fully managed service on Alibaba Cloud, helping companies undergoing digital transformation build modern applications and begin exploring cloud computing at scale. That same year, RocketMQ was donated to the Apache Software Foundation and accepted into the Apache Incubator, with the goal of serving more developers in the future.
 
-2017年从Apache基金会毕业后，RocketMQ被指定为顶级项目（TLP）。
+In 2017, after graduating from the Apache Incubator, RocketMQ became an Apache Top-Level Project (TLP).
 
-从诞生到成熟，再到成为Apache TLP，RocketMQ的成功与它的创始团队和众多开发者多年来的努力是分不开的。
+From its beginnings to its maturity and eventual graduation as an Apache TLP, RocketMQ's success has been made possible by the sustained efforts of its founding team and the many developers who have contributed over the years.
 
-### 创始团队
+### Founding Team
 
 | Image | Name | Apache Id | Github Id | When |
 |:---|:---|:---|:---|:---|
@@ -27,12 +27,12 @@ RocketMQ是阿里巴巴在2012年开发的分布式消息中间件，专为万�
 |![dongeforever](/about/dongeforever.jpeg)| ZhenDong Liu| dongeforever | [@dongeforever](https://github.com/dongeforever) | Since @2016|
 
 
-<!-- ### 贡献者
-[查看项目贡献者](/team)
+<!-- ### Contributors
+[View project contributors](/team)
 
-### 开发者讯息
-- [查看代码](https://github.com/apache/rocketmq)
-- [贡献说明](https://github.com/apache/rocketmq)
+### Developer Resources
+- [View the source code](https://github.com/apache/rocketmq)
+- [Contribution guide](https://github.com/apache/rocketmq)
 
-### 视频
-[RocketMQ 5.0介绍](https://www.bilibili.com/s/video/BV1bq4y1M71y) -->
+### Video
+[RocketMQ 5.0 introduction](https://www.bilibili.com/s/video/BV1bq4y1M71y) -->
