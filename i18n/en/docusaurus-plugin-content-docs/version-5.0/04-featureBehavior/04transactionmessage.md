@@ -121,7 +121,7 @@ Apache RocketMQ implements a timeout mechanism for transactional messages. Upon 
 For creating topics in Apache RocketMQ 5.0, it is recommended to use the mqadmin tool. However, it is worth noting that message type needs to be added as a property parameter. Here is an example:
 
 ```shell
-sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=Transaction
+sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name> -a +message.type=TRANSACTION
 ```
 
 **Send messages**
@@ -137,7 +137,7 @@ Sending transactional messages is different from sending normal messages in the 
 *NORMAL Topic doesn't support delivery TRANSACTION message, you'll get an error if you send a TRANSACTION message to a NORMAL topic.*
 
 ```bash
-./bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster -a +message.type=TRANSACTION
+./bin/mqadmin updateTopic -n localhost:9876 -t TestTopic -c DefaultCluster -a +message.type=TRANSACTION
 ```
 
 + -c the cluster name

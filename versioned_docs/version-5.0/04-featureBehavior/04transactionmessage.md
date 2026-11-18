@@ -133,7 +133,7 @@ sh mqadmin updateTopic -n <nameserver_address> -t <topic_name> -c <cluster_name>
 *NORMAL类型Topic不支持TRANSACTION类型消息，生产消息会报错。*
 
 ```bash
-./bin/mqadmin updatetopic -n localhost:9876 -t TestTopic -c DefaultCluster -a +message.type=TRANSACTION
+./bin/mqadmin updateTopic -n localhost:9876 -t TestTopic -c DefaultCluster -a +message.type=TRANSACTION
 ```
 
 + -c 集群名称
