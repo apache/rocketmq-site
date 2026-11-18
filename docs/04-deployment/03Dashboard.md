@@ -53,15 +53,19 @@ $ docker pull apacherocketmq/rocketmq-dashboard:latest
 
 ② docker 容器中运行 ```rocketmq-dashboard```
 
+> 注意：最新版(`rocketmq-dashboard-2.1.0`) 镜像默认监听端口 **8082**。启动命令如下：
+```shell
+$ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=host.docker.internal:9876" -p 8082:8082 -t apacherocketmq/rocketmq-dashboard:latest
+```
+> 其他版本镜像默认监听端口 **8080**。启动命令如下：
 ```shell
 $ docker run -d --name rocketmq-dashboard -e "JAVA_OPTS=-Drocketmq.namesrv.addr=host.docker.internal:9876" -p 8080:8080 -t apacherocketmq/rocketmq-dashboard:latest
 ```
-
 :::tip
 
 ```namesrv.addr:port``` 替换为 ```rocketmq```  中配置的 nameserver 地址：端口号
 
-默认端口配置下，需开放端口号：控制台：8080；namesrv：9876；broker：10909、10911。
+默认端口配置下，需开放端口号：控制台：8080 或 8082；namesrv：9876；broker：10909、10911。
 
 - 云服务器：设置安全组访问规则
 - 本地虚拟机：关闭防火墙，或 ```-add-port```
