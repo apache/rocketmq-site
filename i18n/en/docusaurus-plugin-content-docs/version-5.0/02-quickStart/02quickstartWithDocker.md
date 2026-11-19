@@ -9,11 +9,11 @@ This section introduces how to quickly deploy a single-node, single-replica Rock
 
 :::
 
-## 1.Pull RocketMQ Image
-Here, we take the RocketMQ 5.3.2 version image from [dockerhub](https://hub.docker.com/r/apache/rocketmq/tags) as an example to introduce the deployment process.
+## 1. Pull RocketMQ Image
+Here, we take the RocketMQ 5.4.0 version image from [dockerhub](https://hub.docker.com/r/apache/rocketmq/tags) as an example to introduce the deployment process.
 
 ```shell
-docker pull apache/rocketmq:5.3.2
+docker pull apache/rocketmq:5.4.0
 ```
 
 ## 2.Create a Shared Network for Containers
@@ -27,7 +27,7 @@ docker network create rocketmq
 
 ```shell
 # Start NameServer
-docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq apache/rocketmq:5.3.2 sh mqnamesrv
+docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq apache/rocketmq:5.4.0 sh mqnamesrv
 
 # Verify if NameServer started successfully
 docker logs -f rmqnamesrv
@@ -59,9 +59,9 @@ docker run -d \
 -p 8080:8080 -p 8081:8081 \
 -e "NAMESRV_ADDR=rmqnamesrv:9876" \
 # In PowerShell, replace %cd% with $pwd
--v ./broker.conf:/home/rocketmq/rocketmq-5.3.2/conf/broker.conf \
-apache/rocketmq:5.3.2 sh mqbroker --enable-proxy \
--c /home/rocketmq/rocketmq-5.3.2/conf/broker.conf
+-v ./broker.conf:/home/rocketmq/rocketmq-5.4.0/conf/broker.conf \
+apache/rocketmq:5.4.0 sh mqbroker --enable-proxy \
+-c /home/rocketmq/rocketmq-5.4.0/conf/broker.conf
 
 # Verify if Broker started successfully
 docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/proxy.log"
@@ -80,9 +80,9 @@ docker run -d ^
 -p 10912:10912 -p 10911:10911 -p 10909:10909 ^
 -p 8080:8080 -p 8081:8081 \
 -e "NAMESRV_ADDR=rmqnamesrv:9876" ^
--v %cd%\broker.conf:/home/rocketmq/rocketmq-5.3.2/conf/broker.conf ^
-apache/rocketmq:5.3.2 sh mqbroker --enable-proxy \
--c /home/rocketmq/rocketmq-5.3.2/conf/broker.conf
+-v %cd%\broker.conf:/home/rocketmq/rocketmq-5.4.0/conf/broker.conf ^
+apache/rocketmq:5.4.0 sh mqbroker --enable-proxy \
+-c /home/rocketmq/rocketmq-5.4.0/conf/broker.conf
 
 # Verify if Broker started successfully
 docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/proxy.log"
