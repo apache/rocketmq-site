@@ -1,4 +1,4 @@
-# 贡献团队
+# Team
 
 The following is a list of developers with commit privileges that have directly contributed to the project in one way or another, or you can refer to [here](https://projects.apache.org/committee.html?rocketmq) for the complete committee information of Apache RocketMQ.
 
